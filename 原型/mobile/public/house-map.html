@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>房源地图 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/mobile.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body class="m-body" data-mtitle="房源地图" data-mmod="M4 房源展示与看房选房" data-mcode="M4-01"
+      data-mdesc="以列表和 GIS 地图两种方式展示全部可租房源，地图打点支持按区域、户型、面积段、剩余套数筛选。" data-mback="house-list.html" data-mtabset="public" data-mtab="house">
+<div class="m-stage">
+  <div class="m-phone">
+    <div class="m-screen">
+      <div class="m-view">
+        <div class="m-pills">
+          <a href="house-list.html"><i class="fa-solid fa-list"></i> 列表</a>
+          <a class="on" href="house-map.html"><i class="fa-solid fa-map-location-dot"></i> 地图</a>
+          <a href="house-filter.html"><i class="fa-solid fa-filter"></i> 筛选</a>
+        </div>
+        <div class="m-card" style="margin-top:10px;padding:0;overflow:hidden">
+          <div class="m-map" style="height:380px">
+            <span class="m-mroad" style="left:0;right:0;top:44%;height:5px"></span>
+            <span class="m-mroad" style="left:52%;top:0;bottom:0;width:5px"></span>
+            <span class="m-mroad" style="left:0;right:0;top:72%;height:3px"></span>
+            <span class="m-mroad" style="left:24%;top:0;bottom:0;width:3px"></span>
+            <a class="m-mp" href="house-detail.html" style="left:30%;top:38%"><span class="b">湘江1958　26 套</span></a>
+            <a class="m-mp g" href="house-detail.html" style="left:16%;top:60%"><span class="b green">栗雨佳苑　17 套</span></a>
+            <a class="m-mp" href="house-detail.html" style="left:72%;top:30%"><span class="b">茨菇塘　32 套</span></a>
+            <a class="m-mp g" href="house-detail.html" style="left:64%;top:58%"><span class="b green">董家塅　18 套</span></a>
+            <a class="m-mp o" href="house-detail.html" style="left:80%;top:76%"><span class="b orange">清水塘　42 套</span></a>
+            <a class="m-mp g" href="house-detail.html" style="left:40%;top:82%"><span class="b green">云龙　24 套</span></a>
+            <div style="position:absolute;left:10px;bottom:10px;background:rgba(255,255,255,.94);border-radius:8px;padding:8px 10px;font-size:11px;line-height:1.9;box-shadow:var(--shadow-sm)">
+              <div><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--primary);margin-right:5px"></span>收购商品房</div>
+              <div><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--success);margin-right:5px"></span>公租房盘活 / 保租房</div>
+              <div><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--lv-orange);margin-right:5px"></span>空置较多，可优先选</div>
+            </div>
+          </div>
+        </div>
+        <div class="m-note"><i class="fa-solid fa-circle-info"></i>
+          <div>地图打点支持按<b>区域、户型、面积段、剩余套数</b>筛选。会议明确<b>公租房纳入同一张图</b>进行管理，实现房源信息全过程公开。</div>
+        </div>
+        <div class="m-sect">按区域查看</div>
+        <div class="m-cells">
+          <a class="m-cell" href="house-list.html"><span class="m-ci"><i class="fa-solid fa-location-dot"></i></span><span class="m-cl"><b>天元区</b><span class="m-cs">湘江1958、栗雨佳苑　·	泰山路、栗雨路片区</span></span><span class="m-cv">43 套</span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="house-list.html"><span class="m-ci green"><i class="fa-solid fa-location-dot"></i></span><span class="m-cl"><b>荷塘区</b><span class="m-cs">茨菇塘公寓　·	茨菇塘路片区</span></span><span class="m-cv">32 套</span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="house-list.html"><span class="m-ci green"><i class="fa-solid fa-location-dot"></i></span><span class="m-cl"><b>芦淞区</b><span class="m-cs">董家塅安居苑　·	董家塅片区</span></span><span class="m-cv">18 套</span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="house-list.html"><span class="m-ci orange"><i class="fa-solid fa-location-dot"></i></span><span class="m-cl"><b>石峰区</b><span class="m-cs">清水塘新苑　·	清水塘片区</span></span><span class="m-cv">42 套</span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="house-list.html"><span class="m-ci cyan"><i class="fa-solid fa-location-dot"></i></span><span class="m-cl"><b>经开区</b><span class="m-cs">云龙人才苑　·	云龙大道片区</span></span><span class="m-cv">24 套</span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <div class="m-cell"><span class="m-ci"><i class="fa-solid fa-ban"></i></span><span class="m-cl"><b>渌口区</b><span class="m-cs">不在市城区保障范围，可参照制定实施细则</span></span><span class="m-cv"><span class="m-tag dark">不适用</span></span></div>
+        </div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-plug"></i>数据来源</div>
+          <div class="m-card-b">
+          <div class="m-kv">
+            <div><span>地图服务</span><span>第三方地图底图与打点服务</span></div>
+            <div><span>打点数据</span><span>统一楼盘表 · 一房一码</span></div>
+            <div><span>同步频次</span><span>房态变更实时同步</span></div>
+            <div><span>公开范围</span><span>房源清单、剩余套数由后台配置对外公开内容</span></div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../../assets/js/mobile.js"></script>
+</body>
+</html>

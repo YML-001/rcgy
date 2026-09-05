@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>收藏与到位提醒 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/mobile.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body class="m-body" data-mtitle="我的收藏" data-mmod="M4 房源展示与看房选房" data-mcode="M4-08"
+      data-mdesc="收藏意向房源，该房源或该楼盘出现可租房源时主动推送提醒。" data-mback="house-list.html" data-mtabset="public" data-mtab="house">
+<div class="m-stage">
+  <div class="m-phone">
+    <div class="m-screen">
+      <div class="m-view">
+        <div class="m-note"><i class="fa-solid fa-circle-info"></i>
+          <div>已收藏 <b>3 个</b>楼盘。收藏的楼盘出现可租房源时将<b>主动推送提醒</b>，避免错过房源投放。</div>
+        </div>
+        <div class="m-sect">我的收藏</div>
+        <a class="m-hcard" href="house-detail.html">
+          <div class="m-hc-img"><img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80" alt="湘江1958 人才公寓">
+            <div class="m-hc-badge"><span class="m-tag blue">收购商品房</span><span class="m-tag green">有房源</span></div>
+            <div class="m-hc-vr"><i class="fa-solid fa-vr-cardboard"></i> VR 看房</div>
+          </div>
+          <div class="m-hc-b">
+            <div class="m-hc-t">湘江1958 人才公寓</div>
+            <div class="m-hc-m">天元区 · 泰山路 <span class="dot">|</span> 二室一厅 78.60 ㎡</div>
+            <div class="m-hc-tags"><span class="m-tag dark">家电齐全</span><span class="m-tag dark">近 3 号线</span></div>
+            <div class="m-hc-f">
+              <div class="m-hc-p"><div class="p1">424.44 <small>元/月起</small></div><div class="p2">市场租金 1,414.80 元/月</div></div>
+              <span class="m-hc-left">剩 26 套</span>
+            </div>
+          </div>
+        </a>
+        <a class="m-hcard" href="house-detail.html" style="margin-top:12px;display:block">
+          <div class="m-hc-img"><img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&q=80" alt="栗雨佳苑人才公寓">
+            <div class="m-hc-badge"><span class="m-tag green">公租房盘活</span><span class="m-tag green">有房源</span></div>
+            <div class="m-hc-vr"><i class="fa-solid fa-vr-cardboard"></i> VR 看房</div>
+          </div>
+          <div class="m-hc-b">
+            <div class="m-hc-t">栗雨佳苑人才公寓</div>
+            <div class="m-hc-m">天元区 · 栗雨路 <span class="dot">|</span> 二室一厅 72.40 ㎡</div>
+            <div class="m-hc-tags"><span class="m-tag dark">家电齐全</span><span class="m-tag dark">临栗雨公园</span></div>
+            <div class="m-hc-f">
+              <div class="m-hc-p"><div class="p1">390.96 <small>元/月起</small></div><div class="p2">市场租金 1,303.20 元/月</div></div>
+              <span class="m-hc-left">剩 17 套</span>
+            </div>
+          </div>
+        </a>
+        <div class="m-hcard" style="margin-top:12px;display:block">
+          <div class="m-hc-img"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80" alt="时代新城人才公寓">
+            <div class="m-hc-badge"><span class="m-tag cyan">保租房“一间房”</span><span class="m-tag dark">暂无房源</span></div>
+          </div>
+          <div class="m-hc-b">
+            <div class="m-hc-t">时代新城人才公寓</div>
+            <div class="m-hc-m">天元区 · 时代路 <span class="dot">|</span> 一室一厅 56.00 ㎡</div>
+            <div class="m-hc-f">
+              <div class="m-hc-p"><div class="p1">302.40 <small>元/月起</small></div><div class="p2">市场租金 1,008.00 元/月</div></div>
+              <span class="m-hc-left" style="color:var(--text-3);background:var(--bg-soft)">剩 0 套</span>
+            </div>
+            <div style="margin-top:10px;display:flex;gap:8px">
+              <span class="m-btn sm ghost" style="pointer-events:none"><i class="fa-solid fa-bell"></i> 到位提醒已开启</span>
+              <button class="m-btn sm" type="button" onclick="MB.toast('已取消收藏')">取消收藏</button>
+            </div>
+          </div>
+        </div>
+        <div class="m-sect">提醒设置</div>
+        <div class="m-cells">
+          <div class="m-cell"><span class="m-ci green"><i class="fa-solid fa-bell"></i></span><span class="m-cl"><b>收藏房源到位提醒</b><span class="m-cs">收藏的楼盘出现可租房源时推送</span></span><span class="m-cv"><span class="m-sw on"></span></span></div>
+          <div class="m-cell"><span class="m-ci cyan"><i class="fa-solid fa-location-dot"></i></span><span class="m-cl"><b>意向片区房源提醒</b><span class="m-cs">天元区出现新投放房源时推送</span></span><span class="m-cv"><span class="m-sw on"></span></span></div>
+          <div class="m-cell"><span class="m-ci orange"><i class="fa-solid fa-bullhorn"></i></span><span class="m-cl"><b>新批次配租公告提醒</b><span class="m-cs">配租批次发布时推送</span></span><span class="m-cv"><span class="m-sw on"></span></span></div>
+          <a class="m-cell" href="policy-subscribe.html"><span class="m-ci"><i class="fa-solid fa-gear"></i></span><span class="m-cl"><b>更多订阅设置</b><span class="m-cs">政策变更、账单、年审等提醒</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+        </div>
+        <div class="m-sect">到位提醒记录</div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-clock-rotate-left"></i>历史提醒</div>
+          <div class="m-card-b">
+          <div class="m-tl">
+            <div class="m-ti done"><div class="m-tt">2026-09-05 09:00　湘江1958 新增 26 套可租房源</div><div class="m-td">已推送至湘易办站内消息与短信</div></div>
+            <div class="m-ti done"><div class="m-tt">2026-08-28 15:30　栗雨佳苑 新增 17 套可租房源</div><div class="m-td">已推送至湘易办站内消息</div></div>
+            <div class="m-ti done"><div class="m-tt">2026-08-12 10:20　您收藏了时代新城人才公寓</div><div class="m-td">当前无可租房源，已开启到位提醒</div></div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../../assets/js/mobile.js"></script>
+</body>
+</html>

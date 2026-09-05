@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>家庭成员填报与家庭申请 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/mobile.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body class="m-body" data-mtitle="家庭成员（2/5）" data-mmod="M5 人才公寓资格申请" data-mcode="M5-05"
+      data-mdesc="录入配偶及家庭成员信息用于无房核查；已婚且夫妻双方均符合条件的可合并为一份家庭申请，只占用一套房源指标。" data-mback="apply-step1.html" data-mtabset="public" data-mtab="apply">
+<div class="m-stage">
+  <div class="m-phone">
+    <div class="m-screen">
+      <div class="m-view">
+        <div class="m-steps">
+          <div class="m-sp done"><div class="n"><i class="fa-solid fa-check"></i></div><div class="t">基本信息</div></div>
+          <div class="m-sp on"><div class="n">2</div><div class="t">家庭成员</div></div>
+          <div class="m-sp"><div class="n">3</div><div class="t">材料上传</div></div>
+          <div class="m-sp"><div class="n">4</div><div class="t">规则校验</div></div>
+          <div class="m-sp"><div class="n">5</div><div class="t">签署提交</div></div>
+        </div>
+        <div class="m-note"><i class="fa-solid fa-circle-info"></i>
+          <div>家庭成员信息用于<b>无房核查</b>——系统将核查申请人及其家庭成员在市城区范围内的房产与政策性住房承租情况。</div>
+        </div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-people-roof"></i>当前情况</div>
+          <div class="m-card-b">
+          <div class="m-kv">
+            <div><span>婚姻状况</span><span>未婚 <span class="m-tag green">民政系统核验</span></span></div>
+            <div><span>需填家庭成员</span><span><span class="m-tag dark">否</span></span></div>
+            <div><span>无房核查范围</span><span>本人</span></div>
+            <div><span>可否家庭申请</span><span><span class="m-tag dark">否 · 未婚</span></span></div>
+          </div>
+          </div>
+        </div>
+        <div class="m-sect">申请方式</div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-user-group"></i>请选择</div>
+          <div class="m-card-b">
+          <div class="m-opts">
+            <div class="m-opt on"><span class="m-ok"><i class="fa-solid fa-check"></i></span><span class="m-ol"><b>个人申请</b><span>以本人名义申请，占用一套房源指标</span></span></div>
+            <div class="m-opt"><span class="m-ok"><i class="fa-solid fa-check"></i></span><span class="m-ol"><b>家庭申请（需已婚）</b><span>夫妻双方均符合条件时合并为一份申请，<b>只占用一套房源指标</b>，可申请二室一厅等适合家庭的房型</span></span></div>
+          </div>
+          </div>
+        </div>
+        <div class="m-empty">
+          <i class="fa-solid fa-user-plus"></i>
+          <p>婚姻状况为未婚，暂无需录入家庭成员<br>如实际已婚请先在湘易办完成婚姻信息更新</p>
+          <button class="m-btn ghost" type="button" data-sheet="addFam"><i class="fa-solid fa-plus"></i> 仍要添加家庭成员</button>
+        </div>
+        <div class="m-sect">规则提示<span class="m-sect-x">管理办法第十一条</span></div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-scale-balanced"></i>必读规则</div>
+          <div class="m-card-b">
+            <div class="m-check">
+              <div class="bad"><i class="fa-solid fa-circle-exclamation"></i><div class="m-chl"><b>每人限申请 1 间（套）</b><span>每名创业就业青年人才仅限申请 1 间（套）人才住房</span></div></div>
+              <div class="bad"><i class="fa-solid fa-circle-exclamation"></i><div class="m-chl"><b>家庭申请只占一套指标</b><span>已婚且夫妻双方均符合条件的可以家庭为单位提交，但合计只占用一套房源指标，<b>不可分别申请两套</b></span></div></div>
+              <div class="bad"><i class="fa-solid fa-circle-exclamation"></i><div class="m-chl"><b>无房核查含家庭成员</b><span>申请人及其家庭成员在市城区范围内有自有住房的，<b>不符合申请条件</b></span></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="m-actbar">
+        <a class="m-btn w-auto" href="apply-step1.html">上一步</a>
+        <a class="m-btn primary" href="apply-step3.html"><i class="fa-solid fa-angle-right"></i> 下一步</a>
+      </div>
+      <div class="m-sheet" id="addFam">
+        <div class="m-sh-h"><i class="fa-solid fa-user-plus" style="color:var(--primary)"></i> 添加家庭成员<button class="m-sh-x" type="button"><i class="fa-solid fa-xmark"></i></button></div>
+        <div class="m-sh-b">
+        <div class="m-form">
+          <div class="m-fi">
+            <label>与本人关系 <span class="req">*</span></label>
+            <div class="m-fc"><select><option value="">请选择</option><option>配偶</option><option>子女</option><option>其他</option></select></div>
+          </div>
+          <div class="m-fi">
+            <label>姓名 <span class="req">*</span></label>
+            <div class="m-fc"><input type="text" placeholder="请输入姓名"></div>
+          </div>
+          <div class="m-fi">
+            <label>身份证号码 <span class="req">*</span></label>
+            <div class="m-fc"><input type="text" placeholder="请输入身份证号"><div class="m-fh">将核查该成员名下不动产与保障历史</div></div>
+          </div>
+          <div class="m-fi">
+            <label>是否同为符合条件的青年人才 <span class="req">*</span></label>
+            <div class="m-fc"><select data-dict="yesNo"></select><div class="m-fh">双方均符合时可合并为家庭申请</div></div>
+          </div>
+        </div>
+        </div>
+        <div class="m-sh-f">
+        <button class="m-btn" type="button" onclick="MB.closeSheet()">取消</button>
+        <button class="m-btn primary" type="button" onclick="MB.validate('#addFam')&&(MB.closeSheet(),MB.toast('已保存，系统正在核查该成员房产情况'))"><i class="fa-solid fa-check"></i> 保存</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../../assets/js/mobile.js"></script>
+</body>
+</html>

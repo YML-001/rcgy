@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>证照智能识别 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="reviewer" data-active="apply-09">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 人才档案与资格联审
+      <span class="sep">/</span> 资格受理与复核
+      <span class="sep">/</span> <span class="cur">证照智能识别</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>对<b>毕业证、学历学位认证书、营业执照、劳动合同、养老保险缴纳证明</b>等材料进行智能识别，自动提取关键字段并与填报内容做<b>一致性校验</b>，减少人工录入与比对工作量。能力由<b>电信 AI 能力平台</b>提供。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+      <div><div class="s-label">本月识别量</div><div class="s-value">2,846</div>
+        <div class="s-trend text-2">8 类证照</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
+      <div><div class="s-label">识别成功率</div><div class="s-value">96.8%</div>
+        <div class="s-trend text-2">字段提取完整</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-triangle-exclamation"></i></div>
+      <div><div class="s-label">与填报不一致</div><div class="s-value">186</div>
+        <div class="s-trend ">高亮提示待核</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-keyboard"></i></div>
+      <div><div class="s-label">替代人工录入</div><div class="s-value">86.4%</div>
+        <div class="s-trend text-2">减少录入工作量</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>申请编号</label><input type="text" placeholder="申请编号"></div>
+      <div class="filter-item"><label>申请人</label><input type="text" placeholder="姓名"></div>
+      <div class="filter-item"><label>证照类型</label><select><option value="">全部</option><option>身份证</option><option>毕业证</option><option>学历学位认证书</option><option>劳动合同</option><option>营业执照</option><option>结婚证</option><option>社保证明</option><option>不动产权证</option></select></div>
+      <div class="filter-item"><label>识别结果</label><select><option value="">全部</option><option>识别成功</option><option>识别失败</option><option>与填报不一致</option></select></div>
+      <div class="filter-item"><label>识别时间</label><input type="date"></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>申请编号</th><th>申请人</th><th>证照类型</th><th class="cell-lg">提取字段</th><th class="cell-lg">识别值</th><th>填报值</th><th>一致性</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>RC2026-0903-0162</td><td>王梓涵</td><td><span class="badge blue">劳动合同</span></td><td>用工单位 / 签订日期 / 期限 / 岗位 / 月工资</td><td>中车株洲电力机车研究所有限公司 / 2025-07-15 / 至 2028-07-14 / 电气工程师</td><td>一致</td><td><span class="badge green">一致</span></td><td><span class="link" onclick="location.href='audit-desk.html'">办件</span></td></tr>
+          <tr class="row-warn"><td>RC2026-0903-0162</td><td>王梓涵</td><td><span class="badge blue">劳动合同</span></td><td>月工资</td><td>8,500 元</td><td>8,000 元</td><td><span class="badge orange">不一致</span></td><td><span class="link" onclick="PMS.openDrawer('ocrDrawer')">核对</span></td></tr>
+          <tr class="row-bad"><td>RC2026-0903-0171</td><td>周宇轩</td><td><span class="badge cyan">学历学位认证书</span></td><td>认证机构 / 院校 / 学位 / 毕业时间</td><td><span class="muted">影像不清晰，关键字段无法识别</span></td><td><span class="muted">—</span></td><td><span class="badge red">识别失败</span></td><td><span class="link" onclick="location.href='reject-list.html'">驳回补正</span></td></tr>
+          <tr><td>RC2026-0905-0192</td><td>罗建军</td><td><span class="badge purple">营业执照</span></td><td>企业名称 / 统一社会信用代码 / 注册地 / 法定代表人 / 成立日期</td><td>株洲智远智能科技有限公司 / 914302007***2K / 天元区 / 罗建军 / 2026-03-12</td><td>一致</td><td><span class="badge green">一致</span></td><td><span class="link" onclick="location.href='verify-business.html'">工商核验</span></td></tr>
+          <tr class="row-bad"><td>RC2026-0904-0288</td><td>龙建华</td><td><span class="badge orange">技能等级证书</span></td><td>证书名称 / 等级 / 发证机关 / 发证日期</td><td><span class="muted">影像模糊，等级字段无法识别</span></td><td>高级技师</td><td><span class="badge red">识别失败</span></td><td><span class="link" onclick="location.href='reject-list.html'">驳回补正</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>能力来源</b> 电信 AI 能力平台（文字识别 + 语义理解与检索）</span>
+    <span><b>一致性校验</b> 识别结果与填报内容不一致时<b>高亮提示</b>，由申请人核对修改或说明差异</span>
+    <span><b>移动端落点</b> <span class="link" onclick="location.href='../../mobile/public/ai-ocr.html'">AI 智能识别与检索</span></span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="ocrDrawer">
+  <div class="drawer-head">
+    <h3>识别结果核对</h3>
+    <span class="badge orange">不一致</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>识别结果与填报内容<b>不一致</b>。请核对原件影像后决定按识别值回填、保留填报值并说明差异，或退回申请人修改。</div>
+  </div>
+
+      <div class="form-grid form-align">
+        <div class="form-item">
+          <label>申请编号 <span class="req">*</span></label>
+          <input type="text" value="RC2026-0903-0162" readonly>
+        </div>
+        <div class="form-item">
+          <label>证照类型 <span class="req">*</span></label>
+          <input type="text" value="劳动合同" readonly>
+        </div>
+        <div class="form-item">
+          <label>差异字段 <span class="req">*</span></label>
+          <input type="text" value="月工资" readonly>
+        </div>
+        <div class="form-item">
+          <label>识别值 <span class="req">*</span></label>
+          <input type="text" value="8,500 元" readonly>
+        </div>
+        <div class="form-item">
+          <label>填报值 <span class="req">*</span></label>
+          <input type="text" value="8,000 元" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>处理方式 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>按识别值回填</option><option>保留填报值并说明差异</option><option>退回申请人修改</option></select>
+        </div>
+        <div class="form-item col-full">
+          <label>核对说明 <span class="req">*</span></label>
+          <textarea rows="3">经调阅劳动合同原件影像，合同约定月工资为 8,500 元（含岗位工资 6,200 元 + 绩效 2,300 元）。申请人填报 8,000 元系按基本工资填写，属理解偏差，非虚假填报。按识别值回填。</textarea>
+        </div>
+      </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认按识别值 8,500 元回填月工资字段？',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已按识别值回填并留痕','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 2846; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

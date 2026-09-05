@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>收购存量商品房管理 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="housing" data-active="house-02">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 房源筹集与楼盘表
+      <span class="sep">/</span> 房源筹集与项目
+      <span class="sep">/</span> <span class="cur">收购存量商品房</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.openDrawer('payDrawer')"><i class="fa-solid fa-plus"></i> 新增收购批次</button>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>管理收购计划、房源踏勘、评估定价、收购审批、合同签订、付款、产权过户、交付验收<b>各环节及附件留痕</b>。每个环节的经办人、时间与附件均可回溯，满足审计与督查要求。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-cart-shopping"></i></div>
+      <div><div class="s-label">收购批次</div><div class="s-value">5</div>
+        <div class="s-trend text-2">涉及 4 个城区</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-building"></i></div>
+      <div><div class="s-label">收购套数</div><div class="s-value">1,408</div>
+        <div class="s-trend text-2">占房源总量 56.6%</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-money-bill-wave"></i></div>
+      <div><div class="s-label">收购总价</div><div class="s-value">378,075,280.00</div>
+        <div class="s-trend text-2">单位：元</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-hourglass-half"></i></div>
+      <div><div class="s-label">在办批次</div><div class="s-value">3</div>
+        <div class="s-trend ">待过户 1 / 待验收 1</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>收购批次</label><input type="text" placeholder="批次号"></div>
+      <div class="filter-item"><label>项目名称</label><input type="text" placeholder="项目名称"></div>
+      <div class="filter-item"><label>所在区</label><select data-dict="district" data-ph="全部"></select></div>
+      <div class="filter-item"><label>当前环节</label><select><option value="">全部</option><option>收购计划</option><option>房源踏勘</option><option>评估定价</option><option>收购审批</option><option>合同签订</option><option>付款</option><option>产权过户</option><option>交付验收</option></select></div>
+      <div class="filter-item"><label>资金渠道</label><select><option value="">全部</option><option>一般公共预算</option><option>专项债券</option><option>政策性再贷款</option><option>企业自筹</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>收购批次</th><th class="cell-lg">项目名称</th><th>所在区</th><th class="num">套数</th><th class="num">评估单价</th><th class="num">收购总价</th><th>当前环节</th><th>产权过户</th><th>资金渠道</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>SG2025-01</td><td>湘江1958 人才公寓一期</td><td>天元区</td><td class="num">320</td><td class="num">6,240.00</td><td class="num">62,899,200.00</td><td><span class="badge green">已交付验收</span></td><td><span class="badge green">已过户</span></td><td>专项债券</td><td><span class="link" onclick="location.href='proj-detail.html?id=XM2025-001'">详情</span></td></tr>
+          <tr><td>SG2025-02</td><td>湘江1958 人才公寓二期</td><td>天元区</td><td class="num">300</td><td class="num">6,320.00</td><td class="num">59,644,800.00</td><td><span class="badge green">已交付验收</span></td><td><span class="badge green">已过户</span></td><td>专项债券</td><td><span class="link" onclick="location.href='proj-detail.html?id=XM2025-001'">详情</span></td></tr>
+          <tr class="row-warn"><td>SG2026-01</td><td>董家塅安居苑</td><td>芦淞区</td><td class="num">328</td><td class="num">5,860.00</td><td class="num">108,426,000.00</td><td><span class="badge orange">交付验收中</span></td><td><span class="badge green">已过户</span></td><td>专项债券</td><td><span class="link" onclick="location.href='proj-detail.html?id=XM2026-005'">详情</span> <span class="link" onclick="PMS.openDrawer('payDrawer')">付款</span></td></tr>
+          <tr class="row-warn"><td>SG2026-02</td><td>时代新城人才公寓</td><td>天元区</td><td class="num">186</td><td class="num">6,480.00</td><td class="num">62,830,080.00</td><td><span class="badge blue">合同签订</span></td><td><span class="badge orange">待过户</span></td><td>政策性再贷款</td><td><span class="link" onclick="PMS.openDrawer('payDrawer')">详情</span> <span class="link" onclick="PMS.toast('已推送过户办理催办')">催办</span></td></tr>
+          <tr><td>SG2026-03</td><td>云龙人才苑</td><td>经开区</td><td class="num">274</td><td class="num">5,920.00</td><td class="num">84,275,200.00</td><td><span class="badge gray">评估定价</span></td><td><span class="badge gray">—</span></td><td>一般公共预算</td><td><span class="link" onclick="PMS.openDrawer('payDrawer')">详情</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>留痕要求</b> 各环节经办人、时间与附件全程留痕</span>
+    <span><b>岗位控制</b> 资金业务经办、复核、审批三岗分设</span>
+    <span><b>资金统计</b> <span class="link" onclick="location.href='fund-source.html'">资金来源标注</span></span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="payDrawer">
+  <div class="drawer-head">
+    <h3>收购环节办理</h3>
+    <span class="badge orange">在办</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+        <div class="sp-block">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 办理环节<span class="sub">8 个环节</span></div>
+          <div class="sp-b">
+        <div class="sp-check">
+          <div class="ck pass"><i class="fa-solid fa-circle-check"></i>
+            <div class="cb"><div class="ct">收购计划 · 已完成</div>
+              <div class="cd">唐凯 2025-10-14 · 纳入年度筹集计划</div></div>
+            <div class="co"><span class="badge green">完成</span></div></div>
+          <div class="ck pass"><i class="fa-solid fa-circle-check"></i>
+            <div class="cb"><div class="ct">房源踏勘 · 已完成</div>
+              <div class="cd">唐凯 2025-11-06 · 踏勘报告已上传</div></div>
+            <div class="co"><span class="badge green">完成</span></div></div>
+          <div class="ck pass"><i class="fa-solid fa-circle-check"></i>
+            <div class="cb"><div class="ct">评估定价 · 已完成</div>
+              <div class="cd">第三方评估机构 2025-12-18 · 评估报告已上传</div></div>
+            <div class="co"><span class="badge green">完成</span></div></div>
+          <div class="ck pass"><i class="fa-solid fa-circle-check"></i>
+            <div class="cb"><div class="ct">收购审批 · 已完成</div>
+              <div class="cd">李慧敏 2026-01-22 · 审批意见已归档</div></div>
+            <div class="co"><span class="badge green">完成</span></div></div>
+          <div class="ck pass"><i class="fa-solid fa-circle-check"></i>
+            <div class="cb"><div class="ct">合同签订 · 已完成</div>
+              <div class="cd">2026-02-10 · 收购合同已上传</div></div>
+            <div class="co"><span class="badge green">完成</span></div></div>
+          <div class="ck block"><i class="fa-solid fa-circle-xmark"></i>
+            <div class="cb"><div class="ct">付款 · 待办理</div>
+              <div class="cd">首期 70% 已付，<b>尾款 32,527,800.00 元待交付验收合格后支付</b></div></div>
+            <div class="co"><span class="badge orange">待办</span></div></div>
+          <div class="ck pass"><i class="fa-solid fa-circle-check"></i>
+            <div class="cb"><div class="ct">产权过户 · 已完成</div>
+              <div class="cd">2026-06-28 · 不动产权证已上传</div></div>
+            <div class="co"><span class="badge green">完成</span></div></div>
+          <div class="ck block"><i class="fa-solid fa-circle-xmark"></i>
+            <div class="cb"><div class="ct">交付验收 · 在办</div>
+              <div class="cd">已验收 286/328 套，42 套未达拎包入住标准</div></div>
+            <div class="co"><span class="badge orange">在办</span></div></div>
+        </div>
+          </div>
+        </div>
+      <div class="form-grid form-align">
+        <div class="form-item">
+          <label>本次付款金额（元） <span class="req">*</span></label>
+          <input type="text" placeholder="请输入金额">
+        </div>
+        <div class="form-item">
+          <label>付款比例 <span class="req">*</span></label>
+          <input type="text" placeholder="%">
+        </div>
+        <div class="form-item">
+          <label>付款依据 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>合同约定首期款</option><option>交付验收合格款</option><option>质保金</option><option>其他</option></select>
+        </div>
+        <div class="form-item">
+          <label>资金渠道 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>一般公共预算</option><option>专项债券</option><option>政策性再贷款</option></select>
+        </div>
+        <div class="form-item col-full">
+          <label>付款说明 <span class="req">*</span></label>
+          <textarea rows="3" placeholder="必填，说明付款依据与已完成的合同义务">本批次收购合同已签订、产权已完成过户，286 套已交付验收合格；依据合同约定按验收合格套数支付对应尾款，其余 42 套待整改复验合格后另行付款，经办、复核、审批三岗分设。</textarea>
+        </div>
+        <div class="form-item col-full">
+          <label>附件 <span class="req">*</span></label>
+          <input type="text" data-upload="1">
+        </div>
+      </div>
+    <div class="sp-dual" style="margin-top:12px">
+      <i class="lead fa-solid fa-user-shield"></i>
+      <div>资金业务实行<b>经办、复核、审批岗位分设</b>，同一人不得跨岗操作同一笔资金业务。</div>
+      <div class="who"><span class="muted">经办人</span><b>唐凯</b></div>
+    </div>
+  </div>
+  <div class="drawer-foot">
+      <button class="btn" data-close-drawer onclick="">取消</button>
+      <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认提交本笔付款申请？',detail:'提交后转财政审核员复核，经办人与复核人不得为同一自然人。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已提交，待财政审核员复核','success');}})"><i class="fa-solid fa-check"></i> 提交复核</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 5; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

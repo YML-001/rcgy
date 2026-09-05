@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>驳回与重新提交 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="reviewer" data-active="apply-11">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 人才档案与资格联审
+      <span class="sep">/</span> 资格受理与复核
+      <span class="sep">/</span> <span class="cur">驳回与重新提交</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.toast('已向 32 名待补正申请人推送补正提醒','success')"><i class="fa-solid fa-bullhorn"></i> 催办补正</button>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>审核不通过时线上写明原因并<b>一次性告知全部缺件项</b>，申请人补齐后重新提交<b>自动回到原审核环节</b>——受理时间不变、不重新排队。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-rotate-left"></i></div>
+      <div><div class="s-label">本月驳回</div><div class="s-value">194</div>
+        <div class="s-trend text-2">占受理 15.1%</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
+      <div><div class="s-label">补正后通过</div><div class="s-value">142</div>
+        <div class="s-trend text-2">补正通过率 73.2%</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-hourglass-half"></i></div>
+      <div><div class="s-label">待补正在办</div><div class="s-value">32</div>
+        <div class="s-trend ">含 3 件临近截止</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon red"><i class="fa-solid fa-ban"></i></div>
+      <div><div class="s-label">逾期失效</div><div class="s-value">20</div>
+        <div class="s-trend text-2">超补正期未补齐</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>申请编号</label><input type="text" placeholder="申请编号"></div>
+      <div class="filter-item"><label>申请人</label><input type="text" placeholder="姓名"></div>
+      <div class="filter-item"><label>驳回类型</label><select><option value="">全部</option><option>退回补正</option><option>不予通过</option></select></div>
+      <div class="filter-item"><label>驳回理由</label><select data-dict="rejectReason" data-ph="全部"></select></div>
+      <div class="filter-item"><label>补正状态</label><select><option value="">全部</option><option>待补正</option><option>已补正重提</option><option>逾期失效</option></select></div>
+      <div class="filter-item"><label>驳回日期</label><input type="date"></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>申请编号</th><th>申请人</th><th>驳回类型</th><th class="cell-lg">驳回理由</th><th class="cell-lg">缺件项</th><th>驳回时间</th><th>补正截止</th><th>补正状态</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr class="row-warn"><td>RC2026-0903-0171</td><td>周宇轩</td><td><span class="badge orange">退回补正</span></td><td>缺境外学历学位认证书；上传的认证书影像不清晰无法识别</td><td>①教育部留学服务中心学历学位认证书（清晰影像）</td><td>2026-09-04 16:22</td><td>2026-09-19</td><td><span class="badge orange">待补正</span></td><td><span class="link" onclick="PMS.openDrawer('rjDrawer')">查看驳回</span></td></tr>
+          <tr class="row-warn"><td>RC2026-0904-0288</td><td>龙建华</td><td><span class="badge orange">退回补正</span></td><td>高级技师资格证书影像模糊，人社系统亦未返回该证书信息</td><td>①高级技师资格证书清晰影像　②人社部门出具的资格证明（二选一）</td><td>2026-09-04 18:12</td><td>2026-09-19</td><td><span class="badge orange">待补正</span></td><td><span class="link" onclick="PMS.openDrawer('rjDrawer')">查看驳回</span></td></tr>
+          <tr class="row-warn"><td>RC2026-0904-0224</td><td>黄振宇</td><td><span class="badge orange">退回补正</span></td><td>社保正常缴纳但个人所得税无缴纳记录，疑挂靠社保</td><td>①工资发放银行流水（近 6 个月）　②单位在职证明（加盖公章）</td><td>2026-09-04 16:26</td><td>2026-09-19</td><td><span class="badge orange">待补正</span></td><td><span class="link" onclick="PMS.openDrawer('rjDrawer')">查看驳回</span></td></tr>
+          <tr class="row-bad"><td>RC2026-0902-0148</td><td>王志远</td><td><span class="badge red">不予通过</span></td><td>申请人配偶李×× 在天元区名下有 1 套住房（96.40 ㎡，2024-03-18 登记），不符合管理办法第七条第二项</td><td><span class="muted">不涉及补正（一票否决）</span></td><td>2026-09-06 09:18</td><td><span class="muted">—</span></td><td><span class="badge red">不予通过</span></td><td><span class="link" onclick="location.href='conclusion.html'">审核结论</span></td></tr>
+          <tr><td>RC2026-0812-0086</td><td>彭立军</td><td><span class="badge orange">退回补正</span></td><td>劳动合同影像缺第 2 页，无法核对合同期限与工作地点</td><td>①劳动合同完整影像（含全部页）</td><td>2026-08-14 10:26</td><td>2026-08-29</td><td><span class="badge green">已补正重提</span></td><td><span class="link" onclick="PMS.toast('申请人于 2026-08-16 补齐并重新提交，自动回到原审核环节，2026-08-18 审核通过')">查看补正记录</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>告知要求</b> 一次性告知全部缺件项，不得反复要求补充</span>
+    <span><b>时限口径</b> 补正期间审核时限中止；补正后自动回到原审核环节，受理时间不变</span>
+    <span><b>逾期处理</b> 超过补正截止时间未补齐的申请自动失效，需重新申请（受理时间按新申请计算）</span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="rjDrawer">
+  <div class="drawer-head">
+    <h3>驳回与补正告知</h3>
+    <span class="badge orange">退回补正</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>驳回须<b>一次性告知全部缺件项</b>，不得反复要求补充。告知书将通过湘易办站内消息、微信模板消息、短信<b>多通道电子送达</b>。</div>
+  </div>
+
+      <div class="form-grid form-align">
+        <div class="form-item">
+          <label>申请编号 <span class="req">*</span></label>
+          <input type="text" value="RC2026-0903-0171" readonly>
+        </div>
+        <div class="form-item">
+          <label>申请人 <span class="req">*</span></label>
+          <input type="text" value="周宇轩" readonly>
+        </div>
+        <div class="form-item">
+          <label>驳回类型 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>退回补正</option><option>不予通过</option></select>
+        </div>
+        <div class="form-item">
+          <label>驳回理由模板</label>
+          <select data-dict="rejectReason" data-ph="全部"></select>
+          <div class="hint">选择后自动填入说明，可继续编辑</div>
+        </div>
+        <div class="form-item col-full">
+          <label>缺件项 <span class="req">*</span></label>
+          <textarea rows="3">①经教育部留学服务中心认证的国（境）外学历学位认证书（须为清晰完整影像，能识别认证编号、院校名称、学位与毕业时间）</textarea>
+        </div>
+        <div class="form-item col-full">
+          <label>驳回说明 <span class="req">*</span></label>
+          <textarea rows="4">经核验，申请人填报英国曼彻斯特大学硕士学历，但未提供经教育部留学服务中心认证的国（境）外学历学位认证书；已上传的影像不清晰，关键字段无法识别。按《株洲市城区创业就业青年人才住房保障管理办法》第八条第三项规定，请补齐上述材料后重新提交。补齐后将自动回到原审核环节，受理时间不变。</textarea>
+        </div>
+        <div class="form-item">
+          <label>补正截止日期 <span class="req">*</span></label>
+          <input type="date">
+          <div class="hint">默认为驳回之日起 15 日</div>
+        </div>
+        <div class="form-item col-full">
+          <label>送达方式 <span class="req">*</span></label>
+          <input type="text" value="湘易办站内消息 + 微信模板消息 + 短信" readonly>
+        </div>
+      </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认对 RC2026-0903-0171 出具「退回补正」结论并电子送达？',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已驳回并电子送达，补正期间时限中止','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 194; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

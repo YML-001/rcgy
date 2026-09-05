@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>申请条件规则配置 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="manager" data-active="rule-06">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 信息公开与规则配置
+      <span class="sep">/</span> 政策规则配置
+      <span class="sep">/</span> <span class="cur">申请条件规则配置</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.openDrawer('crDrawer')"><i class="fa-solid fa-plus"></i> 新增条件规则</button>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>页面化配置<b>学历门槛、毕业年限、年龄上限、社保缴纳月数、纳税核验要求、无房核查范围</b>等申请条件，<b>调整政策不需修改代码</b>。规则按生效时间对新受理件生效，已受理在办件仍按原规则执行。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-scale-balanced"></i></div>
+      <div><div class="s-label">在用条件规则</div><div class="s-value">13</div>
+        <div class="s-trend text-2">R-C1 至 R-C13</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon red"><i class="fa-solid fa-gavel"></i></div>
+      <div><div class="s-label">一票否决项</div><div class="s-value">4</div>
+        <div class="s-trend text-2">命中即不予通过</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-user-check"></i></div>
+      <div><div class="s-label">转人工核实项</div><div class="s-value">4</div>
+        <div class="s-trend text-2">不直接否决</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-code-branch"></i></div>
+      <div><div class="s-label">当前版本</div><div class="s-value">V2026-09</div>
+        <div class="s-trend text-2">2026-09-01 生效</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>规则号</label><input type="text" placeholder="如 R-C5"></div>
+      <div class="filter-item"><label>条件名称</label><input type="text" placeholder="关键词"></div>
+      <div class="filter-item"><label>判定类型</label><select><option value="">全部</option><option>一票否决</option><option>提交拦截</option><option>转人工核实</option><option>可选</option></select></div>
+      <div class="filter-item"><label>适用类型</label><select data-dict="applyType" data-ph="全部"></select></div>
+      <div class="filter-item"><label>规则状态</label><select><option value="">全部</option><option>在用</option><option>待审批</option><option>已停用</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>规则号</th><th class="cell-lg">条件名称</th><th>适用类型</th><th>参数值</th><th class="cell-lg">判定口径</th><th>判定类型</th><th>政策依据</th><th>状态</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><b>R-C1</b></td><td>创业青年人才学历门槛</td><td><span class="badge cyan">创业</span></td><td>全日制大专及以上</td><td>获得全日制大专学历及以上，非全日制学历（成人教育、自考、网络教育）不符合</td><td><span class="badge red">一票否决</span></td><td>第三条</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('crDrawer')">编辑</span></td></tr>
+          <tr><td><b>R-C2</b></td><td>毕业年限</td><td><span class="badge blue">不限</span></td><td>2 年</td><td>自获得<b>最高学历</b>毕业证书之日起计算 2 年，按申请受理日期判定；区间为 [毕业日, 毕业日 + 2 年 − 1 日]</td><td><span class="badge red">一票否决</span></td><td>第三条、第十条</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('crDrawer')">编辑</span></td></tr>
+          <tr><td><b>R-C3</b></td><td>免毕业年限人才年龄上限</td><td><span class="badge orange">特殊人才</span></td><td>35 周岁（含）</td><td>申请时截至 35 岁生日当天；须同时具备中层以上管理职务 / 中级以上职称 / 高级技师之一</td><td><span class="badge red">一票否决</span></td><td>第七条第一项、第十条</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('crDrawer')">编辑</span></td></tr>
+          <tr><td><b>R-C5</b></td><td>无房核查范围</td><td><span class="badge blue">不限</span></td><td>市城区（不含渌口区）</td><td>申请人<b>及其家庭成员</b>在市城区范围内无自有住房；渌口区房产不计入</td><td><span class="badge red">一票否决</span></td><td>第二条、第七条第二项</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('crDrawer')">编辑</span></td></tr>
+          <tr class="row-warn"><td><b>R-C12</b></td><td>创业企业正常纳税判定</td><td><span class="badge cyan">创业</span></td><td><span class="badge yellow">待定</span></td><td>连续申报期数与是否有实际缴税门槛<b>待市税务局明确</b>；当前统一转人工核实，不得直接以「无纳税」出具不予通过</td><td><span class="badge orange">转人工核实</span></td><td>第三条</td><td><span class="badge orange">待完善</span></td><td><span class="link" onclick="PMS.openDrawer('crDrawer')">编辑</span></td></tr>
+          <tr class="row-warn"><td><b>R-C13</b></td><td>养老保险缴纳月数下限</td><td><span class="badge blue">就业</span></td><td><span class="badge yellow">待定</span></td><td>缴纳月数下限待业务确认；会议明确<b>暂不强制要求公积金、车辆等高阶数据</b></td><td><span class="badge orange">转人工核实</span></td><td>第三条</td><td><span class="badge orange">待完善</span></td><td><span class="link" onclick="PMS.openDrawer('crDrawer')">编辑</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>配置目的</b> 把可变的政策条件从代码中剥离，政策调整不需修改代码</span>
+    <span><b>生效口径</b> 按申请受理时点匹配当时有效的规则；已受理在办件仍按原规则执行</span>
+    <span><b>待定参数</b> 标注「待定」的参数需业务在需求确认阶段核定后落库</span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="crDrawer">
+  <div class="drawer-head">
+    <h3>申请条件规则配置</h3>
+    <span class="badge orange">待完善</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>规则调整<b>按生效时间对新受理件生效</b>，<b>已受理在办件仍按原规则执行</b>，保证新旧政策衔接期判定可解释。发布前须完成<b>历史件回归测试</b>。</div>
+  </div>
+
+      <div class="form-grid form-align">
+        <div class="form-item">
+          <label>规则号 <span class="req">*</span></label>
+          <input type="text" value="R-C12" readonly>
+        </div>
+        <div class="form-item">
+          <label>条件名称 <span class="req">*</span></label>
+          <input type="text" value="创业企业正常纳税判定">
+        </div>
+        <div class="form-item">
+          <label>适用申请类型 <span class="req">*</span></label>
+          <select data-dict="applyType" data-ph="全部"></select>
+        </div>
+        <div class="form-item">
+          <label>判定类型 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>一票否决</option><option>提交拦截</option><option>转人工核实</option><option>可选</option></select>
+        </div>
+        <div class="form-item">
+          <label>连续申报期数下限</label>
+          <input type="text" placeholder="待市税务局明确">
+        </div>
+        <div class="form-item">
+          <label>实际缴税金额门槛（元）</label>
+          <input type="text" placeholder="待市税务局明确">
+        </div>
+        <div class="form-item col-full">
+          <label>判定口径 <span class="req">*</span></label>
+          <textarea rows="4">创业青年人才所办企业须有实际经营纳税行为。判定逻辑：①无任何纳税申报记录或全部零申报 → 转人工核实，要求补充经营场所租赁凭证、业务合同、银行流水；②有连续申报且有实际缴税 → 通过；③部分期数零申报 → 结合工商经营状态综合判断，转人工核实。任何情况下不得直接以「无纳税」为由出具不予通过结论。</textarea>
+        </div>
+        <div class="form-item col-full">
+          <label>政策依据 <span class="req">*</span></label>
+          <input type="text" value="《株洲市城区创业就业青年人才住房保障管理办法》第三条">
+        </div>
+        <div class="form-item">
+          <label>生效日期 <span class="req">*</span></label>
+          <input type="date">
+          <div class="hint">对该日期之后受理的新件生效</div>
+        </div>
+        <div class="form-item col-full">
+          <label>回归测试 <span class="req">*</span></label>
+          <input type="text" value="须先完成历史件回归测试" readonly>
+          <div class="hint"><span class="link" onclick="location.href='rule-test.html'">前往规则测试与模拟</span></div>
+        </div>
+        <div class="form-item col-full">
+          <label>变更说明 <span class="req">*</span></label>
+          <textarea rows="3" placeholder="必填，说明调整依据与影响范围"></textarea>
+        </div>
+      </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认提交 R-C12 规则调整？须先完成历史件回归测试方可发布。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已提交，待回归测试通过后发布','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 13; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

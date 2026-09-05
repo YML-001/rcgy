@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>拎包入住验收 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="housing" data-active="house-04">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 房源筹集与楼盘表
+      <span class="sep">/</span> 房源筹集与项目
+      <span class="sep">/</span> <span class="cur">拎包入住验收</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.openDrawer('accDrawer')"><i class="fa-solid fa-plus"></i> 批量验收</button>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>按<b>完成装饰装修并配置相应的家电家具</b>的标准<b>逐套核验</b>并留存现场照片。<b>未达标房源不得投放配租</b>（管理办法第五条）。当前 <b>42 套</b>未达标，已要求限期整改。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-clipboard-check"></i></div>
+      <div><div class="s-label">验收单总数</div><div class="s-value">2,212</div>
+        <div class="s-trend text-2">逐套核验</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
+      <div><div class="s-label">验收合格</div><div class="s-value">2,086</div>
+        <div class="s-trend text-2">合格率 94.3%</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon red"><i class="fa-solid fa-circle-xmark"></i></div>
+      <div><div class="s-label">验收不合格</div><div class="s-value">42</div>
+        <div class="s-trend ">装修返工 20 / 家电缺配 22</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-hourglass-half"></i></div>
+      <div><div class="s-label">待验收</div><div class="s-value">84</div>
+        <div class="s-trend text-2">清水塘新苑</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>验收单号</label><input type="text" placeholder="验收单号"></div>
+      <div class="filter-item"><label>房源</label><input type="text" placeholder="项目 + 楼栋 + 房号"></div>
+      <div class="filter-item"><label>户型</label><select data-dict="roomType" data-ph="全部"></select></div>
+      <div class="filter-item"><label>验收结论</label><select><option value="">全部</option><option>验收合格</option><option>不合格</option><option>待验收</option></select></div>
+      <div class="filter-item"><label>验收时间</label><input type="date"></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>验收单号</th><th class="cell-lg">房源</th><th>项目</th><th>户型</th><th class="num">面积</th><th>装修</th><th>家电家具</th><th>验收结论</th><th>验收人</th><th>验收时间</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>YS2026-08-0286</td><td>董家塅安居苑 2 栋 0904</td><td>董家塅安居苑</td><td>一室一厅</td><td class="num">54.00</td><td><span class="badge green">合格</span></td><td><span class="badge green">齐全</span></td><td><span class="badge green">验收合格</span></td><td>唐凯</td><td>2026-08-28</td><td><span class="link" onclick="location.href='acceptance-detail.html?id=YS2026-08-0286'">详情</span></td></tr>
+          <tr class="row-bad"><td>YS2026-08-0288</td><td>董家塅安居苑 2 栋 0906</td><td>董家塅安居苑</td><td>一室一厅</td><td class="num">54.00</td><td><span class="badge orange">返工中</span></td><td><span class="badge green">齐全</span></td><td><span class="badge red">不合格</span></td><td>唐凯</td><td>2026-08-28</td><td><span class="link" onclick="location.href='acceptance-detail.html?id=YS2026-08-0288'">详情</span> <span class="link" onclick="PMS.toast('已向收购主体推送返工催办')">催办返工</span></td></tr>
+          <tr class="row-bad"><td>YS2026-08-0302</td><td>董家塅安居苑 3 栋 1102</td><td>董家塅安居苑</td><td>二室一厅</td><td class="num">72.00</td><td><span class="badge green">合格</span></td><td><span class="badge red">缺 2 项</span></td><td><span class="badge red">不合格</span></td><td>唐凯</td><td>2026-08-29</td><td><span class="link" onclick="location.href='acceptance-detail.html?id=YS2026-08-0302'">详情</span> <span class="link" onclick="PMS.toast('已向收购主体推送家电配齐催办')">催办配齐</span></td></tr>
+          <tr class="row-warn"><td>YS2026-09-0318</td><td>清水塘新苑 1 栋 0708</td><td>清水塘新苑</td><td>一室一厅</td><td class="num">50.00</td><td><span class="badge gray">待验收</span></td><td><span class="badge gray">待验收</span></td><td><span class="badge orange">待验收</span></td><td>—</td><td>—</td><td><span class="link" onclick="PMS.openDrawer('accDrawer')">开始验收</span></td></tr>
+          <tr class="row-warn"><td>YS2026-09-0320</td><td>清水塘新苑 1 栋 0710</td><td>清水塘新苑</td><td>一室一厅</td><td class="num">50.00</td><td><span class="badge gray">待验收</span></td><td><span class="badge gray">待验收</span></td><td><span class="badge orange">待验收</span></td><td>—</td><td>—</td><td><span class="link" onclick="PMS.openDrawer('accDrawer')">开始验收</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>政策依据</b> 管理办法第五条：完成装饰装修并配置相应的家电家具，达到拎包入住标准</span>
+    <span><b>硬约束</b> 未达标房源不得投放配租</span>
+    <span><b>凭证留存</b> 逐套留存装修、家电、水电气表现场照片</span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="accDrawer">
+  <div class="drawer-head">
+    <h3>拎包入住逐套验收</h3>
+    <span class="badge orange">待验收</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>按管理办法第五条，房源须<b>完成装饰装修并配置相应的家电家具，达到拎包入住标准</b>。<b>任一项不达标即判定不合格，不得投放配租</b>。</div>
+  </div>
+
+        <div class="sp-block">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 验收项<span class="sub">5 组 28 项</span></div>
+          <div class="sp-b">
+        <div class="sp-check">
+          <div class="ck wait"><i class="fa-solid fa-lock"></i>
+            <div class="cb"><div class="ct">装饰装修 · 待核验</div>
+              <div class="cd">墙面、地面、门窗、吊顶、水电线路、防水</div></div></div>
+          <div class="ck wait"><i class="fa-solid fa-lock"></i>
+            <div class="cb"><div class="ct">客厅家电家具 7 项 · 待核验</div>
+              <div class="cd">沙发、茶几、餐桌椅、电视柜、液晶电视、窗帘、灯具</div></div></div>
+          <div class="ck wait"><i class="fa-solid fa-lock"></i>
+            <div class="cb"><div class="ct">卧室家电家具 7 项 · 待核验</div>
+              <div class="cd">床、床垫、床头柜、衣柜、书桌椅、空调、窗帘</div></div></div>
+          <div class="ck wait"><i class="fa-solid fa-lock"></i>
+            <div class="cb"><div class="ct">厨房家电 6 项 · 待核验</div>
+              <div class="cd">整体橱柜、油烟机、燃气灶、冰箱、微波炉、热水器</div></div></div>
+          <div class="ck wait"><i class="fa-solid fa-lock"></i>
+            <div class="cb"><div class="ct">卫生间 5 项 + 其他 3 项 · 待核验</div>
+              <div class="cd">坐便器、淋浴、洗手台、镜柜、洗衣机；宽带、门禁卡、烟感报警器</div></div></div>
+        </div>
+          </div>
+        </div>
+      <div class="form-grid form-align">
+        <div class="form-item">
+          <label>装饰装修 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>合格</option><option>返工</option><option>不合格</option></select>
+        </div>
+        <div class="form-item">
+          <label>家电家具配置 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>齐全</option><option>缺配</option><option>不合格</option></select>
+        </div>
+        <div class="form-item col-full">
+          <label>缺配项</label>
+          <input type="text" placeholder="如缺配请填写具体项目">
+        </div>
+        <div class="form-item col-full">
+          <label>水电气表底数 <span class="req">*</span></label>
+          <input type="text" placeholder="水 / 电 / 气 初始读数">
+        </div>
+        <div class="form-item">
+          <label>验收结论 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>验收合格</option><option>不合格（限期整改）</option></select>
+        </div>
+        <div class="form-item">
+          <label>整改期限</label>
+          <input type="date">
+          <div class="hint">不合格时必填</div>
+        </div>
+        <div class="form-item col-full">
+          <label>验收意见 <span class="req">*</span></label>
+          <textarea rows="3" placeholder="必填，不少于 10 字。不合格的须写明具体不达标项与整改要求">经逐项核验，房屋装饰装修及客厅、卧室、厨房、卫生间等 5 组 28 项家电家具配置齐全完好，水电气表底数已抄录，达到拎包入住标准，验收合格，纳入配租房源池。</textarea>
+        </div>
+        <div class="form-item col-full">
+          <label>现场照片 <span class="req">*</span></label>
+          <input type="text" data-upload="1">
+          <div class="hint">须留存装修、家电、水电气表现场照片</div>
+        </div>
+      </div>
+  </div>
+  <div class="drawer-foot">
+      <button class="btn" data-close-drawer onclick="">取消</button>
+      <button class="btn btn-primary" onclick="PMS.confirm({title:'验收确认',message:'确认提交本套房源验收结论？',detail:'判定合格的将纳入配租房源池；判定不合格的将生成整改要求并推送收购主体，整改复验合格后方可投放。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('验收结论已提交并留痕','success');}})"><i class="fa-solid fa-check"></i> 提交验收</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 2212; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

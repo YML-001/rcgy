@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>实时风险告警 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="leader" data-active="stat-04">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 统计分析
+      <span class="sep">/</span> 领导驾驶舱
+      <span class="sep">/</span> <span class="cur">实时风险告警</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-danger">
+    <i class="fa-solid fa-circle-exclamation"></i>
+    <div>对<b>空置超期、欠费、审核超期、腾退逾期、接口失败率偏高</b>等风险<b>实时预警并提示处置入口</b>。四色预警固定四档：蓝 · 正常、黄 · 提示、橙 · 预警、红 · 严重。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card dc-alarm">
+      <div class="s-icon red"><i class="fa-solid fa-circle-exclamation"></i></div>
+      <div><div class="s-label">红 · 严重</div><div class="s-value">2</div>
+        <div class="s-trend ">审核超期 / 腾退逾期</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-triangle-exclamation"></i></div>
+      <div><div class="s-label">橙 · 预警</div><div class="s-value">2</div>
+        <div class="s-trend text-2">空置超期 / 租金欠缴</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-circle-info"></i></div>
+      <div><div class="s-label">黄 · 提示</div><div class="s-value">3</div>
+        <div class="s-trend text-2">年审 / 接口 / 工单</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
+      <div><div class="s-label">本月已处置</div><div class="s-value">42</div>
+        <div class="s-trend text-2">处置率 85.7%</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <h3><i class="fa-solid fa-triangle-exclamation"></i> 风险总览</h3>
+      <span class="sub">S1-04 · 更新至 2026-09-05 08:00</span>
+    </div>
+    <div class="card-body">
+      <div class="section-title" data-icon="fa-chart-simple">风险项分布与档位</div>
+      <div class="dc-bars">
+        <div class="b-item warn"><span class="b-label">空置超 90 天房源　36 套</span><span class="b-track"><span class="b-fill" style="width:36%"></span></span><span class="b-val">橙 · 预警</span></div>
+        <div class="b-item warn"><span class="b-label">租金欠缴　62 户 / 83,220.00 元</span><span class="b-track"><span class="b-fill" style="width:62%"></span></span><span class="b-val">橙 · 预警</span></div>
+        <div class="b-item warn"><span class="b-label">资格审核超期　3 件</span><span class="b-track"><span class="b-fill" style="width:3%"></span></span><span class="b-val">红 · 严重</span></div>
+        <div class="b-item warn"><span class="b-label">腾退逾期未执行　6 户</span><span class="b-track"><span class="b-fill" style="width:6%"></span></span><span class="b-val">红 · 严重</span></div>
+        <div class="b-item"><span class="b-label">年审未完成　148 户</span><span class="b-track"><span class="b-fill" style="width:100%"></span></span><span class="b-val">黄 · 提示</span></div>
+        <div class="b-item"><span class="b-label">接口失败率偏高　2 个</span><span class="b-track"><span class="b-fill" style="width:2%"></span></span><span class="b-val">黄 · 提示</span></div>
+        <div class="b-item"><span class="b-label">工单超时未处理　9 单</span><span class="b-track"><span class="b-fill" style="width:9%"></span></span><span class="b-val">黄 · 提示</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="card list-card">
+    <div class="card-head">
+      <h3><i class="fa-solid fa-table-list"></i> 明细下钻</h3>
+      <span class="sub">可逐级下钻至明细清单</span>
+    </div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>风险类别</th><th>档位</th><th>数量</th><th>影响范围</th><th class="cell-lg">口径与归因</th><th>责任部门</th><th>处置入口</th></tr>
+        </thead>
+        <tbody>
+          <tr class="row-bad"><td><b>资格审核超期</b></td><td><span class="badge red">红 · 严重</span></td><td class="num">3</td><td>3 件申请</td><td>超 3 个工作日法定时限未办结。归因：不动产与个税核验不一致件需人工核实，耗时超预期；已向经办人与负责人预警</td><td>市住保中心资格审核科</td><td><span class="link" onclick="location.href='../workbench/timelimit.html'">审核时限台账</span></td></tr>
+          <tr class="row-bad"><td><b>腾退逾期未执行</b></td><td><span class="badge red">红 · 严重</span></td><td class="num">6</td><td>6 户</td><td>已下发腾退通知但逾期未腾退。归因：3 户离株联系困难、2 户拒不配合、1 户涉司法查封；已自动升级处置</td><td>市住建局 + 运营机构</td><td><span class="link" onclick="location.href='../rent/quit-manage.html'">腾退管理</span></td></tr>
+          <tr class="row-warn"><td>空置超 90 天</td><td><span class="badge orange">橙 · 预警</span></td><td class="num">36</td><td>36 套房源</td><td>集中在石峰区清水塘片区 24 套。归因：位置偏远、配套不足、VR 与户型图素材缺失影响认领</td><td>市住保中心房源管理科</td><td><span class="link" onclick="location.href='house-vacancy.html'">空置分析</span></td></tr>
+          <tr class="row-warn"><td>租金欠缴</td><td><span class="badge orange">橙 · 预警</span></td><td class="num">62</td><td>83,220.00 元</td><td>账龄 90 天以上 12 户。归因：8 户离职收入中断、3 户拒缴、1 户联系不上；欠费将影响年审与续租</td><td>市住保中心财务科</td><td><span class="link" onclick="location.href='../rent/arrears.html'">欠租台账</span></td></tr>
+          <tr><td>年审未完成</td><td><span class="badge yellow">黄 · 提示</span></td><td class="num">148</td><td>148 户</td><td>2026 年度第 3 批年审在办，<b>尚在批次期限内</b>（截止 2027-01-20），不构成实质风险</td><td>市住保中心资格审核科</td><td><span class="link" onclick="location.href='../rent/annual-list.html'">年审待审名单</span></td></tr>
+          <tr><td>接口失败率偏高</td><td><span class="badge yellow">黄 · 提示</span></td><td class="num">2</td><td>2 个接口</td><td>学信网 12.4%、税务企业纳税 8.6%，超 5% 阈值。已切人工兜底通道，业务未中断</td><td>市住保中心信息科</td><td><span class="link" onclick="location.href='../system/api-monitor.html'">接口监控</span></td></tr>
+          <tr><td>工单超时未处理</td><td><span class="badge yellow">黄 · 提示</span></td><td class="num">9</td><td>9 单</td><td>已自动升级至运营机构负责人督办；其中清水塘安居 3 单已计入考核扣分</td><td>各运营管理机构</td><td><span class="link" onclick="location.href='../ops/wo-stat.html'">工单统计与督办</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>四色口径</b> 蓝 · 正常、黄 · 提示、橙 · 预警、红 · 严重，固定四档不自创</span>
+    <span><b>实时性</b> 风险指标每小时刷新，超期类指标按工作日实时计算</span>
+    <span><b>处置闭环</b> 每个风险项均提供处置入口，处置结果回写告警状态</span>
+  </div>
+</main>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 7; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

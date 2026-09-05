@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>接口异常人工兜底 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="reviewer" data-active="apply-20">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 人才档案与资格联审
+      <span class="sep">/</span> 多部门数据核验
+      <span class="sep">/</span> <span class="cur">接口异常人工兜底</span>
+    </div>
+    <div class="page-actions">
+      <a class="btn" href="../system/api-monitor.html"><i class="fa-solid fa-heart-pulse"></i> 接口监控</a>
+      <button class="btn btn-primary" onclick="PMS.confirm({title:'回溯复核确认',message:'确认对 112 件已办结的兜底件发起回溯复核？',detail:'系统将重新调用已恢复的接口，比对人工核验结论。结论不一致的将生成异常清单转人工处理。',type:'warning',okText:'确认回溯',onOk:function(){PMS.toast('已发起回溯复核，完成后在顶栏消息区提醒','success');}})"><i class="fa-solid fa-rotate"></i> 批量回溯复核</button>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>外部数据源不可用时<b>自动转人工核验通道并记录兜底原因</b>，保障业务不中断。兜底件<b>必须标注兜底标记</b>，接口恢复后纳入回溯复核范围；<b>任何情况下不得跳过核验直接办结</b>。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-user-shield"></i></div>
+      <div><div class="s-label">本月兜底件</div><div class="s-value">134</div>
+        <div class="s-trend text-2">占受理 10.4%</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
+      <div><div class="s-label">兜底已办结</div><div class="s-value">112</div>
+        <div class="s-trend text-2">占 83.6%</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-hourglass-half"></i></div>
+      <div><div class="s-label">兜底在办</div><div class="s-value">22</div>
+        <div class="s-trend ">待人工核验</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon red"><i class="fa-solid fa-plug-circle-xmark"></i></div>
+      <div><div class="s-label">告警接口</div><div class="s-value">2</div>
+        <div class="s-trend text-2">学信网 / 税务企业纳税</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>申请编号</label><input type="text" placeholder="申请编号"></div>
+      <div class="filter-item"><label>申请人</label><input type="text" placeholder="姓名"></div>
+      <div class="filter-item"><label>兜底核验项</label><select data-dict="verifyItem" data-ph="全部"></select></div>
+      <div class="filter-item"><label>兜底原因</label><select><option value="">全部</option><option>接口超时</option><option>接口返回异常</option><option>部门无该项数据</option><option>接口未开通</option><option>其他</option></select></div>
+      <div class="filter-item"><label>兜底状态</label><select><option value="">全部</option><option>待人工核验</option><option>已人工核验</option><option>已回溯复核</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>兜底编号</th><th>申请编号</th><th>申请人</th><th>兜底核验项</th><th class="cell-lg">兜底原因</th><th class="cell-lg">替代核验方式</th><th>兜底标记</th><th>状态</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr class="row-warn"><td>DD2026-09-0042</td><td>RC2026-0904-0177</td><td>唐凯文</td><td><span class="badge blue">学历学位</span></td><td>学信网接口超时，自动重试 3 次仍失败（当月失败率 12.4%）</td><td>申请人上传毕业证书影像，经证照智能识别提取毕业时间后人工核验</td><td><span class="badge orange">已标注</span></td><td><span class="badge orange">待人工核验</span></td><td><span class="link" onclick="PMS.openDrawer('ddDrawer')">人工核验</span></td></tr>
+          <tr class="row-warn"><td>DD2026-09-0046</td><td>RC2026-0905-0192</td><td>罗建军</td><td><span class="badge blue">婚姻登记</span></td><td>民政系统未返回登记记录（疑省外婚姻登记，本地库无数据）</td><td>由申请人提供婚姻状况证明（民政部门出具）后人工核验</td><td><span class="badge orange">已标注</span></td><td><span class="badge orange">待人工核验</span></td><td><span class="link" onclick="PMS.openDrawer('ddDrawer')">人工核验</span></td></tr>
+          <tr class="row-warn"><td>DD2026-09-0048</td><td>RC2026-0905-0228</td><td>肖梦洁</td><td><span class="badge blue">个人所得税</span></td><td>税务接口返回异常码 5003（当月失败率 8.6%）</td><td>由申请人提供个人所得税纳税记录（电子税务局自助打印）后人工核验</td><td><span class="badge orange">已标注</span></td><td><span class="badge orange">待人工核验</span></td><td><span class="link" onclick="PMS.openDrawer('ddDrawer')">人工核验</span></td></tr>
+          <tr><td>DD2026-08-0028</td><td>RC2026-0812-0086</td><td>彭立军</td><td><span class="badge blue">学历学位</span></td><td>学信网接口超时</td><td>凭毕业证书影像人工核验，已核验通过</td><td><span class="badge orange">已标注</span></td><td><span class="badge green">已回溯复核</span></td><td><span class="link" onclick="PMS.toast('2026-08-22 学信网接口恢复后自动回溯复核，返回结果与人工核验一致')">查看回溯记录</span></td></tr>
+          <tr><td>DD2026-08-0024</td><td>RC2026-0808-0062</td><td>龙晓萍</td><td><span class="badge blue">企业纳税</span></td><td>税务企业纳税接口未开通（判定口径待市税务局明确）</td><td>由申请人提供纳税申报表与完税凭证后人工核验</td><td><span class="badge orange">已标注</span></td><td><span class="badge green">已人工核验</span></td><td><span class="link" onclick="PMS.toast('接口开通后将纳入回溯复核范围')">待回溯</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 兜底处理四步口径<span class="sub">P6-16 / P14-07</span></div>
+          <div class="sp-b">
+        <div class="sp-check">
+          <div class="ck pass"><i class="fa-solid fa-circle-check"></i>
+            <div class="cb"><div class="ct">第一步 · 自动重试并记录</div>
+              <div class="cd">接口超时或返回异常时按配置的重试次数自动重试（默认 3 次），每次调用的请求时间、响应码、耗时全部记入接口日志。</div></div>
+            <div class="co"><span class="link" onclick="location.href='../system/api-monitor.html'">接口监控</span></div></div>
+          <div class="ck wait"><i class="fa-solid fa-lock"></i>
+            <div class="cb"><div class="ct">第二步 · 转人工核验通道</div>
+              <div class="cd">重试仍失败的自动转人工核验通道，<b>并记录兜底原因</b>，由经办人凭申请人提交的纸质或影像材料人工核验，保障业务不中断。</div></div>
+            <div class="co"><span class="badge orange">当前 22 件</span></div></div>
+          <div class="ck wait"><i class="fa-solid fa-lock"></i>
+            <div class="cb"><div class="ct">第三步 · 临时切换核验开关</div>
+              <div class="cd">接口长时间不可用时，由业务管理员在核验项开关中把该项由「强制」临时改为「非强制」，变更留痕并<b>按生效时间对新受理件生效</b>。</div></div>
+            <div class="co"><span class="link" onclick="location.href='../rule/verify-switch.html'">开关配置</span></div></div>
+          <div class="ck block"><i class="fa-solid fa-circle-xmark"></i>
+            <div class="cb"><div class="ct">禁止 · 跳过核验直接办结</div>
+              <div class="cd">任何情况下<b>不得跳过核验直接出具通过结论</b>。人工兜底件必须标注兜底标记，接口恢复后纳入回溯复核范围。</div></div>
+            <div class="co"><span class="badge red">硬约束</span></div></div>
+        </div>
+          </div>
+        </div>
+  <div class="sp-src">
+    <span><b>兜底原则</b> 保障业务不中断，但不得跳过核验直接办结</span>
+    <span><b>标记要求</b> 兜底件必须标注兜底标记，接口恢复后纳入回溯复核</span>
+    <span><b>开关联动</b> <span class="link" onclick="location.href='../rule/verify-switch.html'">核验项开关配置</span></span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="ddDrawer">
+  <div class="drawer-head">
+    <h3>人工兜底核验</h3>
+    <span class="badge orange">兜底核验</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>本件因<b>学信网接口超时</b>转人工核验。请凭申请人提交的材料影像人工核验，<b>不得跳过核验直接通过</b>。核验结论将标注兜底标记，接口恢复后纳入回溯复核。</div>
+  </div>
+
+      <div class="form-grid form-align">
+        <div class="form-item">
+          <label>兜底编号 <span class="req">*</span></label>
+          <input type="text" value="DD2026-09-0042" readonly>
+        </div>
+        <div class="form-item">
+          <label>申请编号 <span class="req">*</span></label>
+          <input type="text" value="RC2026-0904-0177" readonly>
+        </div>
+        <div class="form-item">
+          <label>兜底核验项 <span class="req">*</span></label>
+          <input type="text" value="学历学位" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>兜底原因 <span class="req">*</span></label>
+          <input type="text" value="学信网接口超时，自动重试 3 次仍失败" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>替代核验材料 <span class="req">*</span></label>
+          <input type="text" data-upload="1">
+          <div class="hint">毕业证书影像 / 学历学位认证书</div>
+        </div>
+        <div class="form-item col-full">
+          <label>识别提取结果 <span class="req">*</span></label>
+          <input type="text" value="中南大学 / 全日制本科 / 2025-06-30" readonly>
+          <div class="hint">由证照智能识别自动提取</div>
+        </div>
+        <div class="form-item">
+          <label>人工核验结论 <span class="req">*</span></label>
+          <select data-dict="verifyResult" data-ph="全部"></select>
+        </div>
+        <div class="form-item">
+          <label>毕业 2 年内判定 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>在期内</option><option>已超期</option></select>
+        </div>
+        <div class="form-item col-full">
+          <label>核验说明 <span class="req">*</span></label>
+          <textarea rows="4">经调阅申请人上传的毕业证书原件影像，证书编号 1053342025001086，中南大学全日制本科，毕业时间 2025-06-30。经证照智能识别提取字段与影像一致。按管理办法第十条，毕业 2 年内为 2025-06-30 至 2027-06-29，申请受理日期 2026-09-04 在期内。人工核验通过。</textarea>
+        </div>
+      </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认提交人工兜底核验结论？结论将标注兜底标记并纳入回溯复核范围。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已人工核验并标注兜底标记，待接口恢复后回溯复核','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 134; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

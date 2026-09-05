@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>敏感信息保护 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="admin" data-active="system-08">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 权限与系统管理
+      <span class="sep">/</span> 用户与权限
+      <span class="sep">/</span> <span class="cur">敏感信息保护</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.openDrawer('mgDrawer')"><i class="fa-solid fa-eye-slash"></i> 脱敏规则配置</button>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div><b>身份证号、银行账户等敏感字段加密存储、界面脱敏展示</b>，<b>查询与导出需授权并全程留痕</b>。授权记录与查阅记录一并保存供审计核查。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-eye-slash"></i></div>
+      <div><div class="s-label">脱敏字段</div><div class="s-value">4</div>
+        <div class="s-trend text-2">身份证/手机/银行账户/住址</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-lock"></i></div>
+      <div><div class="s-label">加密存储</div><div class="s-value">4</div>
+        <div class="s-trend text-2">全部已加密</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-user-shield"></i></div>
+      <div><div class="s-label">本月明文查看</div><div class="s-value">26</div>
+        <div class="s-trend ">次 · 全部留痕</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon red"><i class="fa-solid fa-download"></i></div>
+      <div><div class="s-label">本月授权导出</div><div class="s-value">6</div>
+        <div class="s-trend text-2">含身份证号台账</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>字段名称</label><input type="text" placeholder="字段名称"></div>
+      <div class="filter-item"><label>操作类型</label><select><option value="">全部</option><option>明文查看</option><option>授权导出</option><option>脱敏配置变更</option></select></div>
+      <div class="filter-item"><label>操作人</label><input type="text" placeholder="姓名"></div>
+      <div class="filter-item"><label>操作日期</label><input type="date"></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>记录编号</th><th>字段名称</th><th>操作类型</th><th class="cell-lg">操作对象</th><th>操作人</th><th class="cell-lg">授权情况</th><th>操作时间</th><th>终端 / IP</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>MG2026-09-0026</td><td>身份证号</td><td><span class="badge orange">明文查看</span></td><td>RC2026-0903-0162 王梓涵（复核核对身份信息）</td><td>刘志刚</td><td><span class="badge green">岗位权限</span>　资格审核员岗位内置权限</td><td>2026-09-05 08:46</td><td>PC / 10.62.***.28</td><td><span class="link" onclick="PMS.toast('已记录操作人、时间、终端、IP 与查看的具体字段，日志不可篡改')">留痕详情</span></td></tr>
+          <tr class="row-warn"><td>MG2026-09-0022</td><td>身份证号</td><td><span class="badge red">授权导出</span></td><td>2026 年 9 月配租台账（486 条，含身份证号明文）</td><td>陈晓琳</td><td><span class="badge orange">专项授权</span>　龙志宏 2026-09-04 授权，用途：报送市委人才办</td><td>2026-09-04 15:26</td><td>PC / 10.62.***.86</td><td><span class="link" onclick="PMS.openDrawer('mgDrawer')">授权详情</span></td></tr>
+          <tr class="row-warn"><td>MG2026-09-0018</td><td>银行账户</td><td><span class="badge orange">明文查看</span></td><td>YJ2024-00206 谭建国押金退还账户核对</td><td>罗湘</td><td><span class="badge orange">专项授权</span>　龙志宏 2026-09-03 授权，用途：押金退还核对</td><td>2026-09-03 10:12</td><td>PC / 10.62.***.64</td><td><span class="link" onclick="PMS.openDrawer('mgDrawer')">授权详情</span></td></tr>
+          <tr><td>MG2026-08-0014</td><td>手机号</td><td><span class="badge orange">明文查看</span></td><td>TS2026-09-0082 投诉人回访联系</td><td>李慧敏</td><td><span class="badge green">岗位权限</span>　业务管理员岗位内置权限</td><td>2026-08-30 14:08</td><td>PC / 10.62.***.106</td><td><span class="link" onclick="PMS.toast('已完整记录')">留痕详情</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>保护措施</b> 加密存储 + 界面脱敏展示 + 查询导出授权 + 全程留痕</span>
+    <span><b>脱敏规则</b> 身份证号保留前 6 后 4；手机号保留前 3 后 4；银行账户保留前 4 后 4；住址保留至街道</span>
+    <span><b>审计要求</b> 授权记录与查阅记录一并保存，日志不可篡改并长期留存</span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="mgDrawer">
+  <div class="drawer-head">
+    <h3>敏感信息授权与脱敏配置</h3>
+    <span class="badge red">高敏</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+  <div class="alert alert-danger">
+    <i class="fa-solid fa-circle-exclamation"></i>
+    <div>含敏感字段的<b>查询与导出需授权并全程留痕</b>。授权须<b>明确用途与有效期</b>，超范围使用将追究责任。</div>
+  </div>
+
+      <div class="form-grid form-align">
+        <div class="form-item">
+          <label>字段名称 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>身份证号</option><option>手机号</option><option>银行账户</option><option>家庭住址</option></select>
+        </div>
+        <div class="form-item">
+          <label>脱敏规则 <span class="req">*</span></label>
+          <input type="text" value="保留前 6 位与后 4 位，中间以 * 替代" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>加密存储 <span class="req">*</span></label>
+          <input type="text" value="已加密（数据库字段级加密）" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>授权对象 <span class="req">*</span></label>
+          <input type="text" value="陈晓琳（市住保中心配租管理科 · 配租经办员）">
+        </div>
+        <div class="form-item">
+          <label>授权类型 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>明文查看</option><option>授权导出</option><option>明文查看 + 导出</option></select>
+        </div>
+        <div class="form-item">
+          <label>授权有效期 <span class="req">*</span></label>
+          <input type="date">
+          <div class="hint">到期自动失效，须重新授权</div>
+        </div>
+        <div class="form-item col-full">
+          <label>使用用途 <span class="req">*</span></label>
+          <textarea rows="3">2026 年 9 月配租台账（486 条）报送市委人才办，用于人才安居工作情况汇报。台账含配租对象身份证号明文，用于与人才办「株洲人才」库核对人才认定信息。</textarea>
+        </div>
+        <div class="form-item col-full">
+          <label>使用限制 <span class="req">*</span></label>
+          <textarea rows="3">①仅限本次报送使用，不得二次分发；②报送后须删除本地副本；③接收方须书面承诺数据安全责任；④超范围使用将追究责任。</textarea>
+        </div>
+        <div class="form-item">
+          <label>短信验证码 <span class="req">*</span></label>
+          <input type="text" placeholder="请输入 6 位验证码">
+          <div class="hint"><span class="link" onclick="PMS.toast('验证码已发送至 138****3286')">获取验证码</span></div>
+        </div>
+      </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认授权陈晓琳导出含身份证号明文的配租台账？授权与使用记录将全程留痕。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已授权并留痕，授权到期自动失效','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 32; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

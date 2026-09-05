@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>翼支付在线缴费 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/mobile.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body class="m-body" data-mtitle="翼支付缴费" data-mmod="M9 租金缴纳与账单" data-mcode="M9-02"
+      data-mdesc="通过电信翼支付完成租金、押金及水电燃气物业费的线上缴纳，支持账单合并支付与分笔支付；支付结果实时回写账单核销状态。" data-mback="bill-detail.html" data-mtabset="public" data-mtab="home">
+<div class="m-stage">
+  <div class="m-phone">
+    <div class="m-screen">
+      <div class="m-view">
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-mobile-screen-button"></i>确认支付</div>
+          <div class="m-card-b">
+            <div class="m-amt">
+              <div class="a1"><small>¥</small>424.44</div>
+              <div class="a2">本次支付金额</div>
+            </div>
+          </div>
+        </div>
+        <div class="m-sect">待缴账单<span class="m-sect-x">支持合并支付</span></div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-list-check"></i>选择账单（可多选合并支付）</div>
+          <div class="m-card-b">
+          <div class="m-opts multi">
+            <div class="m-opt on"><span class="m-ok"><i class="fa-solid fa-check"></i></span><span class="m-ol"><b>2026 年 9 月 租金　424.44 元</b><span>账单号 ZD2026-09-00862　·	截止 2026-09-15</span></span></div>
+            <div class="m-opt sq"><span class="m-ok"><i class="fa-solid fa-check"></i></span><span class="m-ol"><b>2026 年 9 月 水电燃气物业　预估 360.00 元</b><span>待抄表结算，可下期合并支付</span></span></div>
+          </div>
+          </div>
+        </div>
+        <div class="m-sect">支付方式</div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-credit-card"></i>选择支付方式</div>
+          <div class="m-card-b">
+          <div class="m-opts">
+            <div class="m-opt on"><span class="m-ok"><i class="fa-solid fa-check"></i></span><span class="m-ol"><b>电信翼支付</b><span>实时到账，支付流水号与缴费凭证同步归档</span></span></div>
+            <div class="m-opt"><span class="m-ok"><i class="fa-solid fa-check"></i></span><span class="m-ol"><b>翼支付绑定银行卡</b><span>中国建设银行（尾号 6208）</span></span></div>
+          </div>
+          </div>
+        </div>
+        <div class="m-sect">支付说明</div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-circle-info"></i>口径说明</div>
+          <div class="m-card-b">
+          <div class="m-kv">
+            <div><span>支付通道</span><span>电信翼支付平台</span></div>
+            <div><span>到账方式</span><span>实时到账，支付结果<b>实时回写账单核销状态</b></span></div>
+            <div><span>对账机制</span><span>系统与翼支付<b>逐日对账</b>并生成差错清单</span></div>
+            <div><span>凭证归档</span><span>支付流水号与缴费凭证同步归档，可申领电子票据</span></div>
+            <div><span>支持范围</span><span>租金、押金及水电燃气物业费</span></div>
+          </div>
+          </div>
+        </div>
+        <div class="m-note"><i class="fa-solid fa-circle-info"></i>
+          <div>支付成功后可在<a href="bill-invoice.html" style="color:var(--primary)">电子票据申领</a>中开具票据。如支付后账单未核销，请在 2 小时后刷新或提交<a href="me-feedback.html" style="color:var(--primary)">意见反馈</a>。</div>
+        </div>
+      </div>
+      <div class="m-actbar">
+        <a class="m-btn w-auto" href="bill-detail.html">取消</a>
+        <button class="m-btn primary" type="button" onclick="MB.confirm('确认通过<b>电信翼支付</b>支付 <b>424.44 元</b>？<br>支付结果将实时回写账单核销状态。','确认支付',function(){MB.toast('正在跳转翼支付…');setTimeout(function(){location.href='bill-pay-ok.html'},1200)})"><i class="fa-solid fa-lock"></i> 确认支付 424.44 元</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../../assets/js/mobile.js"></script>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>统一楼盘表 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="housing" data-active="house-07">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 房源筹集与楼盘表
+      <span class="sep">/</span> 楼盘表与多源归集
+      <span class="sep">/</span> <span class="cur">统一楼盘表</span>
+    </div>
+    <div class="page-actions">
+      <a class="btn" href="building-import.html"><i class="fa-solid fa-upload"></i> 批量导入</a>
+      <button class="btn btn-primary" onclick="PMS.openDrawer('bldDrawer')"><i class="fa-solid fa-plus"></i> 新增房源</button>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>按<b>项目、楼栋、单元、楼层、房号</b>建立标准楼盘表，<b>一房一码</b>，支持批量导入与差错校验。楼盘表是全部房源的<b>唯一底账</b>，房源档案、房态图、配租投放、租金计费均以此为准。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-table-cells"></i></div>
+      <div><div class="s-label">房源总量</div><div class="s-value">2,486</div>
+        <div class="s-trend text-2">一房一码</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-house-circle-check"></i></div>
+      <div><div class="s-label">可配租</div><div class="s-value">412</div>
+        <div class="s-trend text-2">实时同步至移动端</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-users"></i></div>
+      <div><div class="s-label">在租</div><div class="s-value">1,286</div>
+        <div class="s-trend text-2">出租率 51.7%</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-house-circle-exclamation"></i></div>
+      <div><div class="s-label">冻结 / 维修</div><div class="s-value">86</div>
+        <div class="s-trend ">不参与配租</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>房源编号</label><input type="text" placeholder="房源编号"></div>
+      <div class="filter-item"><label>项目 / 房号</label><input type="text" placeholder="项目名称或房号"></div>
+      <div class="filter-item"><label>所在区</label><select data-dict="district" data-ph="全部"></select></div>
+      <div class="filter-item"><label>户型</label><select data-dict="roomType" data-ph="全部"></select></div>
+      <div class="filter-item"><label>来源渠道</label><select data-dict="houseSource" data-ph="全部"></select></div>
+      <div class="filter-item"><label>房态</label><select data-dict="houseStatus" data-ph="全部"></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>房源编号</th><th class="cell-lg">项目 / 楼栋 / 单元 / 楼层 / 房号</th><th>所在区</th><th>户型</th><th class="num">建筑面积</th><th>来源渠道</th><th>管理模式</th><th>房态</th><th>承租人</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>FY-TY-XJ-A6-1502</td><td>湘江1958 人才公寓 / A6 栋 / 1 单元 / 15 层 / 1502</td><td>天元区</td><td>一室一厅</td><td class="num">52.60</td><td><span class="badge blue">收购商品房</span></td><td><span class="badge blue">整套配租</span></td><td><span class="sp-st done">在租</span></td><td>王梓涵</td><td><span class="link" onclick="location.href='house-archive-detail.html?id=FY-TY-XJ-A6-1502'">档案</span> <span class="link" onclick="location.href='house-status-map.html'">房态图</span></td></tr>
+          <tr><td>FY-TY-XJ-A6-1802</td><td>湘江1958 人才公寓 / A6 栋 / 1 单元 / 18 层 / 1802</td><td>天元区</td><td>二室一厅</td><td class="num">78.60</td><td><span class="badge blue">收购商品房</span></td><td><span class="badge blue">整套配租</span></td><td><span class="sp-st doing">可配租</span></td><td><span class="muted">—</span></td><td><span class="link" onclick="location.href='house-archive-detail.html?id=FY-TY-XJ-A6-1802'">档案</span> <span class="link" onclick="PMS.openDrawer('bldDrawer')">编辑</span></td></tr>
+          <tr class="row-bad"><td>FY-TY-LYJY-03-0904</td><td>栗雨佳苑人才公寓 / 3 栋 / 1 单元 / 9 层 / 0904</td><td>天元区</td><td>一室一厅</td><td class="num">48.20</td><td><span class="badge green">公租房盘活</span></td><td><span class="badge blue">整套配租</span></td><td><span class="sp-st bad">待腾退</span></td><td>周××</td><td><span class="link" onclick="location.href='house-archive-detail.html?id=FY-TY-LYJY-03-0904'">档案</span> <span class="link" onclick="location.href='../../mobile/gov/check-form.html'">核查</span></td></tr>
+          <tr><td>FY-JK-YL-02-0708</td><td>云龙人才苑 / 2 栋 / 1 单元 / 7 层 / 0708</td><td>经开区</td><td>单间配套</td><td class="num">38.00</td><td><span class="badge cyan">保租房“一间房”</span></td><td><span class="badge orange">按间配租</span></td><td><span class="sp-st doing">可配租</span></td><td><span class="muted">—</span></td><td><span class="link" onclick="location.href='house-archive-detail.html?id=FY-JK-YL-02-0708'">档案</span> <span class="link" onclick="location.href='src-bzf.html'">来源</span></td></tr>
+          <tr class="row-warn"><td>FY-SF-QST-01-0708</td><td>清水塘新苑 / 1 栋 / 1 单元 / 7 层 / 0708</td><td>石峰区</td><td>一室一厅</td><td class="num">50.00</td><td><span class="badge green">公租房盘活</span></td><td><span class="badge blue">整套配租</span></td><td><span class="sp-st bad">维修中</span></td><td><span class="muted">—</span></td><td><span class="link" onclick="location.href='house-archive-detail.html?id=FY-SF-QST-01-0708'">档案</span> <span class="link" onclick="location.href='house-freeze.html'">冻结记录</span></td></tr>
+          <tr><td>FY-TY-XJ-A3-1108</td><td>湘江1958 人才公寓 / A3 栋 / 1 单元 / 11 层 / 1108</td><td>天元区</td><td>二室一厅</td><td class="num">78.60</td><td><span class="badge blue">收购商品房</span></td><td><span class="badge orange">按间配租</span></td><td><span class="sp-st done">在租</span></td><td>李×× / 陈××</td><td><span class="link" onclick="location.href='house-archive-detail.html?id=FY-TY-XJ-A3-1108'">档案</span> <span class="link" onclick="location.href='house-unit-mode.html'">按间管理</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>编号规则</b> 区代码 + 项目代码 + 楼栋 + 房号，一房一码</span>
+    <span><b>同步策略</b> 房态变更实时同步至移动端展示，已锁定或已签约房源即时扣减</span>
+    <span><b>计费依据</b> 合同要素台账取楼盘表面积作为计租面积</span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="bldDrawer">
+  <div class="drawer-head">
+    <h3>房源信息维护</h3>
+    <span class="badge blue">一房一码</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>房源编号按<b>区 + 项目 + 楼栋 + 房号</b>规则自动生成，<b>一房一码不可修改</b>。面积与户型变更将影响租金计费，须经审批。</div>
+  </div>
+
+      <div class="form-grid form-align">
+        <div class="form-item">
+          <label>房源编号 <span class="req">*</span></label>
+          <input type="text" value="FY-TY-XJ-A6-1802" readonly>
+          <div class="hint">一房一码，自动生成</div>
+        </div>
+        <div class="form-item">
+          <label>项目 <span class="req">*</span></label>
+          <input type="text" value="湘江1958 人才公寓" readonly>
+        </div>
+        <div class="form-item">
+          <label>楼栋 <span class="req">*</span></label>
+          <input type="text" value="A6 栋">
+        </div>
+        <div class="form-item">
+          <label>单元 <span class="req">*</span></label>
+          <input type="text" value="1 单元">
+        </div>
+        <div class="form-item">
+          <label>楼层 <span class="req">*</span></label>
+          <input type="text" value="18">
+        </div>
+        <div class="form-item">
+          <label>房号 <span class="req">*</span></label>
+          <input type="text" value="1802">
+        </div>
+        <div class="form-item">
+          <label>户型 <span class="req">*</span></label>
+          <select data-dict="roomType" data-ph="全部"></select>
+        </div>
+        <div class="form-item">
+          <label>朝向 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>南</option><option>北</option><option>东</option><option>西</option><option>南北通透</option><option>东南</option><option>西南</option></select>
+        </div>
+        <div class="form-item">
+          <label>建筑面积（㎡） <span class="req">*</span></label>
+          <input type="text" value="78.60">
+        </div>
+        <div class="form-item">
+          <label>套内面积（㎡） <span class="req">*</span></label>
+          <input type="text" value="62.40">
+        </div>
+        <div class="form-item">
+          <label>分摊面积（㎡） <span class="req">*</span></label>
+          <input type="text" value="16.20">
+          <div class="hint">大户型按分摊面积计租</div>
+        </div>
+        <div class="form-item">
+          <label>管理模式 <span class="req">*</span></label>
+          <select data-dict="unitMode" data-ph="全部"></select>
+        </div>
+        <div class="form-item">
+          <label>来源渠道 <span class="req">*</span></label>
+          <select data-dict="houseSource" data-ph="全部"></select>
+        </div>
+        <div class="form-item">
+          <label>装修标准 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>精装 · 拎包入住</option><option>简装</option><option>毛坯</option></select>
+        </div>
+        <div class="form-item">
+          <label>租金标准（元/㎡·月） <span class="req">*</span></label>
+          <input type="text" value="18.00">
+        </div>
+        <div class="form-item col-full">
+          <label>产权信息 <span class="req">*</span></label>
+          <input type="text" value="株洲市人才安居服务有限公司">
+        </div>
+        <div class="form-item col-full">
+          <label>家电家具配置清单 <span class="req">*</span></label>
+          <textarea rows="3">客厅 7 项、卧室 7 项 × 2、厨房 6 项、卫生间 5 项、其他 3 项，共 28 项</textarea>
+        </div>
+        <div class="form-item col-full">
+          <label>户型图与实景照片</label>
+          <input type="text" data-upload="1">
+        </div>
+      </div>
+  </div>
+  <div class="drawer-foot">
+      <button class="btn" data-close-drawer onclick="">取消</button>
+      <button class="btn btn-primary" onclick="PMS.confirm({title:'保存确认',message:'确认保存房源信息？',detail:'面积与租金标准变更将影响租金计费与减免核算，变更全程留痕。',type:'warning',okText:'确认保存',onOk:function(){PMS.closeDrawer();PMS.toast('已保存并同步至房态图与移动端','success');}})"><i class="fa-solid fa-check"></i> 保存</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 2486; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

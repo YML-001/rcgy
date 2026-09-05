@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>按钮与操作权限 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+</head>
+<body data-role="admin" data-active="system-19">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 权限与系统管理
+      <span class="sep">/</span> 用户与权限
+      <span class="sep">/</span> <span class="cur">按钮与操作权限</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.openDrawer('btDrawer')"><i class="fa-solid fa-plus"></i> 新增权限点</button>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-danger">
+    <i class="fa-solid fa-circle-exclamation"></i>
+    <div>将<b>新增、修改、删除、审核、驳回、导出、打印</b>等操作定义为<b>按钮级权限点</b>并挂在所属菜单下；<b>未授权的按钮在界面不渲染，同时后端接口按权限标识同步鉴权</b>，杜绝绕过前端直接调用接口。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-list-check"></i></div>
+      <div><div class="s-label">按钮权限点</div><div class="s-value">286</div>
+        <div class="s-trend text-2">挂在 102 个菜单下</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-shield-halved"></i></div>
+      <div><div class="s-label">已绑定接口</div><div class="s-value">286</div>
+        <div class="s-trend text-2">全部同步鉴权</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon red"><i class="fa-solid fa-user-shield"></i></div>
+      <div><div class="s-label">高敏按钮</div><div class="s-value">18</div>
+        <div class="s-trend ">需双人授权或二次验证</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-ban"></i></div>
+      <div><div class="s-label">本月越权拦截</div><div class="s-value">6</div>
+        <div class="s-trend text-2">含 2 次接口直调</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>所属菜单</label><input type="text" placeholder="菜单名称"></div>
+      <div class="filter-item"><label>权限标识</label><input type="text" placeholder="如 apply:audit"></div>
+      <div class="filter-item"><label>操作类型</label><select><option value="">全部</option><option>新增</option><option>修改</option><option>删除</option><option>查询</option><option>审核</option><option>驳回</option><option>导出</option><option>打印</option><option>高敏处置</option></select></div>
+      <div class="filter-item"><label>风险等级</label><select><option value="">全部</option><option>一般</option><option>重要</option><option>高敏</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th class="cell-lg">权限标识</th><th class="cell-lg">所属菜单</th><th>按钮名称</th><th>操作类型</th><th class="cell-lg">绑定后端接口</th><th>风险等级</th><th>已授角色</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>apply:pool:query</td><td>资格受理与联审 / 多渠道件池</td><td>查询</td><td><span class="badge gray">查询</span></td><td>GET /api/apply/pool</td><td><span class="badge gray">一般</span></td><td class="num">7</td><td><span class="link" onclick="PMS.openDrawer('btDrawer')">编辑</span></td></tr>
+          <tr><td>apply:audit:submit</td><td>资格受理与联审 / 人工复核</td><td>出具审核结论</td><td><span class="badge blue">审核</span></td><td>POST /api/apply/audit</td><td><span class="badge orange">重要</span></td><td class="num">3</td><td><span class="link" onclick="PMS.openDrawer('btDrawer')">编辑</span></td></tr>
+          <tr><td>apply:audit:reject</td><td>资格受理与联审 / 人工复核</td><td>退回补正</td><td><span class="badge blue">驳回</span></td><td>POST /api/apply/reject</td><td><span class="badge orange">重要</span></td><td class="num">4</td><td><span class="link" onclick="PMS.openDrawer('btDrawer')">编辑</span></td></tr>
+          <tr class="row-bad"><td>apply:cancel:exec</td><td>续租年审与退出 / 违规清退管理</td><td>取消保障资格</td><td><span class="badge red">高敏处置</span></td><td>POST /api/apply/cancel</td><td><span class="badge red">高敏</span></td><td class="num">1</td><td><span class="link" onclick="PMS.openDrawer('btDrawer')">编辑</span></td></tr>
+          <tr class="row-bad"><td>rent:relief:change</td><td>租金与费用 / 减免方案配置</td><td>调整减免标准</td><td><span class="badge red">高敏处置</span></td><td>PUT /api/rent/relief</td><td><span class="badge red">高敏</span></td><td class="num">2</td><td><span class="link" onclick="PMS.openDrawer('btDrawer')">编辑</span></td></tr>
+          <tr><td>house:export:plain</td><td>房源档案与房态 / 房源档案</td><td>导出（含产权人明文）</td><td><span class="badge cyan">导出</span></td><td>GET /api/house/export</td><td><span class="badge orange">重要</span></td><td class="num">2</td><td><span class="link" onclick="PMS.openDrawer('btDrawer')">编辑</span></td></tr>
+          <tr class="row-warn"><td>alloc:order:rollback</td><td>配租管理 / 配租结果纠错</td><td>配租结果回滚</td><td><span class="badge red">高敏处置</span></td><td>POST /api/alloc/rollback</td><td><span class="badge red">高敏</span></td><td class="num">1</td><td><span class="link" onclick="PMS.openDrawer('btDrawer')">编辑</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>标识规则</b> 模块:对象:动作，如 apply:audit:submit，全系统唯一</span>
+    <span><b>双端鉴权</b> 未授权按钮界面不渲染；后端接口按同一权限标识独立鉴权</span>
+    <span><b>高敏联动</b> 高敏按钮须同时满足角色授权、岗位互斥校验与二次验证三项条件</span>
+    <span><b>越权处置</b> <span class="link" onclick="location.href='audit-log.html'">操作日志与审计</span></span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="btDrawer">
+  <div class="drawer-head">
+    <h3>按钮权限点维护</h3>
+    <span class="badge red">高敏</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+  <div class="alert alert-danger">
+    <i class="fa-solid fa-circle-exclamation"></i>
+    <div>高敏按钮为<b>不可逆或一票否决类操作</b>，除角色授权外还须通过<b>岗位互斥校验与二次验证</b>。不得将高敏按钮下调为一般等级。</div>
+  </div>
+
+      <div class="form-grid form-align">
+        <div class="form-item col-full">
+          <label>权限标识 <span class="req">*</span></label>
+          <input type="text" value="apply:cancel:exec" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>所属菜单 <span class="req">*</span></label>
+          <input type="text" value="续租年审与退出 / 违规清退管理" readonly>
+        </div>
+        <div class="form-item">
+          <label>按钮名称 <span class="req">*</span></label>
+          <input type="text" value="取消保障资格">
+        </div>
+        <div class="form-item">
+          <label>操作类型 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>新增</option><option>修改</option><option>删除</option><option>查询</option><option>审核</option><option>驳回</option><option>导出</option><option>打印</option><option>高敏处置</option></select>
+        </div>
+        <div class="form-item col-full">
+          <label>绑定后端接口 <span class="req">*</span></label>
+          <input type="text" value="POST /api/apply/cancel">
+        </div>
+        <div class="form-item">
+          <label>风险等级 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>高敏</option><option>重要</option><option>一般</option></select>
+        </div>
+        <div class="form-item">
+          <label>需双人授权 <span class="req">*</span></label>
+          <select data-dict="yesNo" data-ph="全部"></select>
+        </div>
+        <div class="form-item">
+          <label>二次验证方式 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>人脸确认</option><option>短信验证码</option><option>短信 + 人脸（双因子）</option><option>不需要</option></select>
+        </div>
+        <div class="form-item col-full">
+          <label>无权限展示方式 <span class="req">*</span></label>
+          <input type="text" value="界面不渲染；接口返回 403 并记入日志" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>拦截提示模板 <span class="req">*</span></label>
+          <textarea rows="2">您当前角色不具备「取消保障资格」权限。该操作须由业务管理员在双人授权下办理，请联系李慧敏（市住建局住房保障科）。</textarea>
+        </div>
+        <div class="form-item col-full">
+          <label>变更说明 <span class="req">*</span></label>
+          <textarea rows="2" placeholder="必填"></textarea>
+        </div>
+      </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认保存高敏按钮配置？风险等级与二次验证要求变更将即时影响 1 个已授角色。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已保存，按钮权限与接口鉴权同步生效','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 286; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

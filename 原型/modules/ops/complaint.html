@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>投诉建议办理 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="manager" data-active="ops-08">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 运营考核与工单服务
+      <span class="sep">/</span> 工单与服务
+      <span class="sep">/</span> <span class="cur">投诉建议办理</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-danger">
+    <i class="fa-solid fa-circle-exclamation"></i>
+    <div><b>分类登记投诉建议，限时办结并开展回访</b>。受理 1 个工作日、办结 5 个工作日、回访 3 个工作日；办结时效为运营机构考核指标之一。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-comment-dots"></i></div>
+      <div><div class="s-label">本月投诉建议</div><div class="s-value">86</div>
+        <div class="s-trend text-2">件</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
+      <div><div class="s-label">已办结</div><div class="s-value">78</div>
+        <div class="s-trend text-2">办结率 90.7%</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-phone"></i></div>
+      <div><div class="s-label">已回访</div><div class="s-value">74</div>
+        <div class="s-trend text-2">回访率 94.9%</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon red"><i class="fa-solid fa-clock"></i></div>
+      <div><div class="s-label">超时未办结</div><div class="s-value">2</div>
+        <div class="s-trend ">计入考核扣分</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>投诉编号</label><input type="text" placeholder="投诉编号"></div>
+      <div class="filter-item"><label>投诉人</label><input type="text" placeholder="姓名"></div>
+      <div class="filter-item"><label>投诉对象</label><select><option value="">全部</option><option>运营管理机构</option><option>物业服务</option><option>维修人员</option><option>其他</option></select></div>
+      <div class="filter-item"><label>投诉类别</label><select><option value="">全部</option><option>报修不及时</option><option>维修质量差</option><option>服务态度问题</option><option>费用争议</option><option>公共区域卫生</option><option>安全隐患</option><option>其他</option></select></div>
+      <div class="filter-item"><label>办理状态</label><select><option value="">全部</option><option>待受理</option><option>办理中</option><option>已办结</option><option>已回访</option><option>超时未办结</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>投诉编号</th><th>投诉人</th><th class="cell-lg">房源</th><th>投诉对象</th><th>投诉类别</th><th class="cell-lg">投诉内容</th><th>受理时间</th><th>办结时限</th><th>办理状态</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr class="row-bad"><td>TS2026-09-0082</td><td>黄××</td><td>清水塘新苑 1-0806</td><td><span class="badge orange">物业服务</span></td><td><span class="badge orange">公共区域卫生</span></td><td>楼道杂物堆放长期无人清理，垃圾清运不及时，已反映 3 次无改善</td><td>2026-08-28 10:26</td><td><span class="text-danger">已超 3 个工作日</span></td><td><span class="badge red">超时未办结</span></td><td><span class="link" onclick="PMS.openDrawer('tsDrawer')">办理</span></td></tr>
+          <tr class="row-warn"><td>TS2026-09-0086</td><td>李××</td><td>湘江1958 A3-1108</td><td><span class="badge orange">物业服务</span></td><td><span class="badge red">报修不及时</span></td><td>卫生间漏水报修后超过 24 小时无人上门，地面积水影响居住</td><td>2026-09-05 09:12</td><td>2026-09-12</td><td><span class="badge orange">办理中</span></td><td><span class="link" onclick="PMS.openDrawer('tsDrawer')">办理</span></td></tr>
+          <tr><td>TS2026-06-0042</td><td>王梓涵</td><td>湘江1958 A6-1502</td><td><span class="badge orange">物业服务</span></td><td><span class="badge orange">公共区域卫生</span></td><td>公共区域垃圾清运不及时</td><td>2026-06-18 15:26</td><td>2026-06-25</td><td><span class="badge green">已回访</span></td><td><span class="link" onclick="PMS.toast('2026-06-20 办结（调整清运频次为每日 2 次），2026-06-22 电话回访，投诉人表示满意')">办理记录</span></td></tr>
+          <tr><td>TS2026-05-0028</td><td>谭××</td><td>茨菇塘公寓 5-0602</td><td><span class="badge cyan">维修人员</span></td><td><span class="badge red">维修质量差</span></td><td>空调维修后仍不制冷，重复报修 2 次</td><td>2026-05-12 20:08</td><td>2026-05-19</td><td><span class="badge green">已回访</span></td><td><span class="link" onclick="PMS.toast('2026-05-14 更换压缩机后修复，2026-05-16 回访满意；本件计入一次解决率考核扣分')">办理记录</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>办理时效</b> 受理 1 个工作日 / 办结 5 个工作日 / 回访 3 个工作日</span>
+    <span><b>考核联动</b> 投诉办结时效为运营机构考核指标（权重 10%）</span>
+    <span><b>超时处置</b> 超时未办结的向责任机构督办并计入考核扣分</span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="tsDrawer">
+  <div class="drawer-head">
+    <h3>投诉建议办理</h3>
+    <span class="badge orange">待审</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+    <div class="sp-dual">
+      <i class="lead fa-solid fa-user-shield"></i>
+      <div>本环节按<b>不相容岗位控制</b>，经办人与复核人不得为同一自然人，全程留痕。</div>
+      <div class="who"><span class="muted">经办人</span><b>李慧敏</b></div>
+    </div>
+      <div class="form-grid form-align">
+        <div class="form-item col-full">
+          <label>审核结论 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>已办结（问题解决）</option><option>已办结（情况说明）</option><option>转维修工单处理</option><option>转检查任务</option><option>不予受理</option></select>
+        </div>
+        <div class="form-item col-full">
+          <label>结论说明 <span class="req">*</span></label>
+          <textarea id="tsDrawerTxt" rows="4" placeholder="必填，不少于 10 字。说明对申请人完整可见">经督办，运营机构已于当日清理楼道堆放杂物并将垃圾清运频次调整为每日 2 次，现场已恢复整洁；已电话回访投诉人确认满意，本件办结并计入运营机构考核时效。</textarea>
+        </div>
+      </div>
+    <p class="hint" style="margin-top:12px"><i class="fa-solid fa-circle-info"></i> 结论提交后写入办件状态流水（含操作人、时间、IP 与前后值），可被审计追溯。</p>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="auditOk('tsDrawer','已办理并留痕，将安排 3 个工作日内回访')"><i class="fa-solid fa-check"></i> 提交结论</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 86; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+<script>
+function auditOk(id, msg) {
+  var t = document.getElementById(id + 'Txt');
+  if (t && (t.value || '').trim().length < 10) {
+    PMS.toast('结论说明为必填且不少于 10 字', 'error'); t.focus(); return;
+  }
+  PMS.confirm({
+    title: '提交确认', message: '确认提交审核结论？',
+    detail: '提交后写入办件状态流水，结论将电子送达相关方，更正须走异常处理流程。',
+    type: 'warning', okText: '确认提交',
+    onOk: function () { PMS.closeDrawer(); PMS.toast(msg, 'success'); }
+  });
+}
+</script>
+</body>
+</html>

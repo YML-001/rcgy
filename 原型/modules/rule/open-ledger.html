@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>信息公开台账 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="manager" data-active="rule-05">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 信息公开与规则配置
+      <span class="sep">/</span> 信息公开与公示
+      <span class="sep">/</span> <span class="cur">信息公开台账</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>留存每次公开的<b>内容、渠道、时间与快照</b>，形成<b>可追溯的公开台账</b>。快照不可篡改，供审计与督查核查信息公开的合规性。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-box-archive"></i></div>
+      <div><div class="s-label">公开记录</div><div class="s-value">86</div>
+        <div class="s-trend text-2">2026 年度</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-camera"></i></div>
+      <div><div class="s-label">内容快照</div><div class="s-value">86</div>
+        <div class="s-trend text-2">全部已留存</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-eye"></i></div>
+      <div><div class="s-label">累计浏览</div><div class="s-value">186,420</div>
+        <div class="s-trend text-2">次</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-shield-halved"></i></div>
+      <div><div class="s-label">脱敏检查</div><div class="s-value">86</div>
+        <div class="s-trend text-2">全部通过</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>台账编号</label><input type="text" placeholder="台账编号"></div>
+      <div class="filter-item"><label>公开类型</label><select><option value="">全部</option><option>政策文件</option><option>房源信息</option><option>配租公告</option><option>配租顺序名单</option><option>配租结果名单</option><option>放弃与处置公示</option></select></div>
+      <div class="filter-item"><label>公开渠道</label><select><option value="">全部</option><option>湘易办</option><option>株洲人才公众号</option><option>市住建局网站</option><option>多渠道</option></select></div>
+      <div class="filter-item"><label>公开日期</label><input type="date"></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>台账编号</th><th class="cell-lg">公开内容</th><th>公开类型</th><th>公开渠道</th><th>公开时间</th><th>公开人</th><th>内容快照</th><th>脱敏检查</th><th>浏览量</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>TZ2026-09-0018</td><td>2026 年第 3 批配租顺序名单（486 人）</td><td><span class="badge blue">配租顺序名单</span></td><td>湘易办 + 公众号 + 网站</td><td>2026-09-13 09:00</td><td>陈晓琳</td><td><span class="badge green">已留存</span></td><td><span class="badge green">通过</span></td><td class="num">8,462</td><td><span class="link" onclick="PMS.toast('快照哈希 A3F8...C21D，不可篡改，含公开时的完整名单内容')">快照信息</span></td></tr>
+          <tr><td>TZ2026-09-0016</td><td>2026 年第 3 批人才公寓配租房源投放公告</td><td><span class="badge orange">配租公告</span></td><td>湘易办 + 公众号 + 网站</td><td>2026-09-05 09:00</td><td>陈晓琳</td><td><span class="badge green">已留存</span></td><td><span class="badge green">通过</span></td><td class="num">26,842</td><td><span class="link" onclick="PMS.toast('快照哈希 7B2E...9F04')">快照信息</span></td></tr>
+          <tr><td>TZ2026-06-0014</td><td>2026 年第 2 批配租结果名单（286 套）</td><td><span class="badge green">配租结果名单</span></td><td>湘易办 + 公众号 + 网站</td><td>2026-06-25 09:00</td><td>陈晓琳</td><td><span class="badge green">已留存</span></td><td><span class="badge green">通过</span></td><td class="num">12,486</td><td><span class="link" onclick="PMS.toast('快照哈希 5C9A...4E18')">快照信息</span></td></tr>
+          <tr><td>TZ2026-08-0006</td><td>《株洲市城区创业就业青年人才住房保障管理办法》（征求意见稿）</td><td><span class="badge orange">政策文件</span></td><td>湘易办 + 公众号</td><td>2026-08-12 09:00</td><td>贺文斌</td><td><span class="badge green">已留存</span></td><td><span class="badge gray">不涉及</span></td><td class="num">18,462</td><td><span class="link" onclick="PMS.toast('快照哈希 2D6F...B830')">快照信息</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>台账用途</b> 形成可追溯的公开台账，供审计与督查核查信息公开合规性</span>
+    <span><b>快照要求</b> 留存公开时的完整内容快照，不可篡改</span>
+    <span><b>脱敏检查</b> 公开前自动检查是否含身份证号、手机号等禁止公开字段</span>
+  </div>
+</main>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 86; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

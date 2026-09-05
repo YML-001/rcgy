@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>项目批量导入 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<style>
+/* 导入落区：仅导入类页面使用 */
+.import-drop { padding: 34px 20px; border: 2px dashed var(--border-strong); border-radius: var(--radius-lg);
+  background: var(--bg-soft); text-align: center; cursor: pointer; transition: border-color .18s, background .18s; }
+.import-drop:hover { border-color: var(--primary); background: var(--primary-light-2); }
+.import-drop i { font-size: 34px; color: var(--primary); }
+.import-drop .t { margin-top: 12px; font-size: 14px; font-weight: 700; color: var(--text-1); }
+.import-drop .d { margin-top: 5px; font-size: 12px; color: var(--text-3); }
+</style>
+</head>
+<body data-role="housing" data-active="house-21">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 房源筹集与楼盘表
+      <span class="sep">/</span> 房源筹集与项目
+      <span class="sep">/</span> <span class="cur">项目批量导入</span>
+    </div>
+    <div class="page-actions">
+      <a class="btn" href="proj-list.html"><i class="fa-solid fa-arrow-left"></i> 返回项目表管理</a>
+      <a class="btn" href="import-batch.html"><i class="fa-solid fa-clock-rotate-left"></i> 批次台账</a>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>针对省保租房系统、公租房系统<b>接口尚未开通的阶段</b>，提供标准项目表 Excel 模板，支持批量导入项目名称、所在区、收购主体、房源性质、总套数、交付时间、验收状态等字段，<b>逐字段校验并回显错误明细</b>，<b>重复项目自动查重</b>。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-file-import"></i></div>
+      <div><div class="s-label">累计导入项目</div><div class="s-value">128</div>
+        <div class="s-trend text-2">占项目台账 92.1%</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
+      <div><div class="s-label">本次校验通过</div><div class="s-value">39</div>
+        <div class="s-trend text-2">共 42 行</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon red"><i class="fa-solid fa-triangle-exclamation"></i></div>
+      <div><div class="s-label">本次差错</div><div class="s-value">3</div>
+        <div class="s-trend ">已回显明细</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-clone"></i></div>
+      <div><div class="s-label">疑似重复</div><div class="s-value">1</div>
+        <div class="s-trend text-2">待人工确认</div></div>
+    </div>
+  </div>
+
+  <div class="card" data-tabs-scope>
+    <div class="tabs">
+      <div class="tab active" data-tab="upload">导入项目台账</div>
+      <div class="tab" data-tab="result">校验结果 <span class="badge red">3</span></div>
+      <div class="tab" data-tab="rule">查重与并存规则</div>
+    </div>
+    <div class="tab-panel active" data-panel="upload">
+      <div class="card-body">
+        <div class="import-drop" onclick="PMS.toast('原型演示：选择 Excel 文件上传')">
+          <i class="fa-solid fa-cloud-arrow-up"></i>
+          <div class="t">将项目表 Excel 文件拖放到此处，或点击选择文件</div>
+          <div class="d">支持 .xlsx / .xls，单次最多 500 行，文件大小不超过 10 MB</div>
+        </div>
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 导入模板字段<span class="sub">模板版本 V2.1　由市住保中心房源管理科提供</span></div>
+          <div class="sp-b">
+  <div class="sp-tw">
+    <table class="data-table compact">
+      <thead><tr><th>列名</th><th>是否必填</th><th>格式要求</th><th class="cell-lg">校验规则</th></tr></thead>
+      <tbody>
+      <tr><td>项目名称</td><td><span class="badge red">必填</span></td><td>文本（不超过 40 字）</td><td>同一所在区内不可重复；与已登记项目重名时按<b>查重规则</b>拦截</td></tr>
+      <tr><td>所在区</td><td><span class="badge red">必填</span></td><td>字典值</td><td>天元区 / 荷塘区 / 芦淞区 / 石峰区 / 经开区 / 渌口区</td></tr>
+      <tr><td>收购主体</td><td><span class="badge red">必填</span></td><td>文本</td><td>须为已登记的运营机构或平台公司全称</td></tr>
+      <tr><td>房源性质</td><td><span class="badge red">必填</span></td><td>字典值</td><td>收购存量商品房 / 公租房盘活 / 保租房“一间房”</td></tr>
+      <tr><td>总套数</td><td><span class="badge red">必填</span></td><td>整数</td><td>大于 0 且不超过 5,000；与后续楼盘表导入套数一致性校验</td></tr>
+      <tr><td>交付时间</td><td><span class="badge red">必填</span></td><td>YYYY-MM-DD</td><td>不得早于 2024-01-01；晚于当前日期的记为「未交付」</td></tr>
+      <tr><td>验收状态</td><td><span class="badge red">必填</span></td><td>字典值</td><td>未验收 / 验收中 / 已验收；已验收须同时填写验收完成日期</td></tr>
+      <tr><td>资金来源</td><td><span class="badge red">必填</span></td><td>字典值</td><td>一般公共预算 / 专项债券 / 政策性再贷款 / 企业自筹 / 混合</td></tr>
+      <tr><td>项目地址</td><td><span class="badge orange">选填</span></td><td>文本</td><td>填写后自动地址解析并在一张图打点，解析失败列入待人工补录</td></tr>
+      <tr><td>联系人 / 电话</td><td><span class="badge orange">选填</span></td><td>文本</td><td>手机号须为 11 位；用于交付验收环节联系</td></tr>
+      </tbody>
+    </table>
+  </div>
+          </div>
+        </div>
+        <div class="btn-row" style="margin-top:14px">
+          <button class="btn" onclick="PMS.toast('项目表导入模板 V2.1 已下载','success')"><i class="fa-solid fa-download"></i> 下载导入模板</button>
+          <button class="btn" onclick="location.href='import-batch.html'"><i class="fa-solid fa-clock-rotate-left"></i> 查看批次台账</button>
+          <button class="btn btn-primary" onclick="PMS.toast('已开始校验，请在「校验结果」页签查看')"><i class="fa-solid fa-check"></i> 开始校验</button>
+        </div>
+      </div>
+    </div>
+    <div class="tab-panel" data-panel="result">
+      <div class="card-body">
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 本次导入校验<span class="sub">共 42 行 / 差错 3 行</span></div>
+          <div class="sp-b">
+        <div class="sp-kv">
+          <div class="kv"><span class="k">导入文件</span><span class="v">株洲市人才公寓项目台账_20260905.xlsx</span></div>
+          <div class="kv"><span class="k">模板版本</span><span class="v ok">V2.1（当前有效）</span></div>
+          <div class="kv"><span class="k">导入行数</span><span class="v">42 行</span></div>
+          <div class="kv"><span class="k">校验通过</span><span class="v ok">39 行</span></div>
+          <div class="kv"><span class="k">校验不通过</span><span class="v bad">3 行</span></div>
+          <div class="kv"><span class="k">疑似重复项目</span><span class="v warn">1 行</span>与已登记项目名称高度相似，须人工确认</div>
+          <div class="kv"><span class="k">操作人 / 时间</span><span class="v">唐凯　2026-09-05 10:26</span></div>
+        </div>
+          </div>
+        </div>
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 差错明细<span class="sub">修正后可重新导入，无需重传全表</span></div>
+          <div class="sp-b">
+  <div class="sp-tw">
+    <table class="data-table compact">
+      <thead><tr><th>行号</th><th class="cell-lg">项目名称</th><th>差错字段</th><th class="cell-lg">差错说明</th><th class="cell-lg">处理建议</th></tr></thead>
+      <tbody>
+      <tr class="row-bad"><td>第 12 行</td><td>田心高科园人才公寓（三期）</td><td><span class="badge red">总套数</span></td><td>填写值「5800」超出单项目上限 5,000 套</td><td>确认为同一项目须拆分为多个批次登记，或核实套数后修正</td></tr>
+      <tr class="row-bad"><td>第 26 行</td><td>云龙示范区青年人才驿站</td><td><span class="badge red">所在区</span></td><td>填写值「云龙示范区」不在字典范围内</td><td>云龙示范区房源按行政区划归入「石峰区」，请修正为字典值</td></tr>
+      <tr class="row-bad"><td>第 34 行</td><td>株洲高新区人才公寓</td><td><span class="badge red">收购主体</span></td><td>填写值「株洲高科集团」未在运营机构档案中登记</td><td>先在<span class="link" onclick="location.href='../ops/org-list.html'">运营机构档案</span>登记后重新导入</td></tr>
+      <tr class="row-warn"><td>第 08 行</td><td>湘江1958 人才公寓（二期）</td><td><span class="badge orange">疑似重复</span></td><td>与已登记项目「湘江1958 人才公寓二期」名称相似度 94%</td><td>确认为同一项目请放弃本行；确为不同项目请点击「确认非重复」后导入</td></tr>
+      </tbody>
+    </table>
+  </div>
+          </div>
+        </div>
+        <div class="btn-row" style="margin-top:14px">
+          <button class="btn" onclick="PMS.toast('差错明细已导出','success')"><i class="fa-solid fa-download"></i> 导出差错明细</button>
+          <button class="btn" onclick="PMS.confirm({title:'确认非重复',message:'确认第 08 行与已登记项目不是同一项目？',detail:'确认后该行将作为新项目登记，若实为同一项目将造成房源重复登记，须走用途转换台账更正。',type:'warning',okText:'确认非重复',onOk:function(){PMS.toast('已标记为非重复，可纳入本次导入','success');}})"><i class="fa-solid fa-code-compare"></i> 确认非重复</button>
+          <button class="btn btn-primary" onclick="PMS.confirm({title:'导入确认',message:'确认导入校验通过的 39 行项目台账？',detail:'导入后可在项目表管理中查看与维护；本批次可在批次台账中整批回滚。',type:'warning',okText:'确认导入',onOk:function(){PMS.closeDrawer();PMS.toast('已导入 39 个项目，批次号 PC2026-0905-004','success');}})"><i class="fa-solid fa-check"></i> 导入通过项（39 行）</button>
+        </div>
+      </div>
+    </div>
+    <div class="tab-panel" data-panel="rule">
+      <div class="card-body">
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>接口未开通期间的导入数据是<b>房源家底的临时来源</b>。为避免与后续接口回传数据重复，导入项目一律<b>标注数据来源为「人工导入」</b>，接口开通后由<span class="link" onclick="location.href='import-merge.html'">导入与接口数据比对合并</span>统一处置。</div>
+  </div>
+
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 项目查重规则<span class="sub">三重规则依次校验</span></div>
+          <div class="sp-b">
+  <div class="sp-tw">
+    <table class="data-table compact">
+      <thead><tr><th>序号</th><th>查重规则</th><th class="cell-lg">判定口径</th><th>命中处理</th></tr></thead>
+      <tbody>
+      <tr><td>1</td><td>项目名称精确匹配</td><td>同一所在区内，去除空格与全半角差异后名称完全一致</td><td><span class="badge red">直接拦截</span>　不予导入</td></tr>
+      <tr><td>2</td><td>项目名称相似度匹配</td><td>同一所在区内名称相似度 ≥ 85%（如「二期」与「（二期）」）</td><td><span class="badge orange">人工确认</span>　须点「确认非重复」</td></tr>
+      <tr><td>3</td><td>地址 + 收购主体组合匹配</td><td>项目地址解析后经纬度距离 < 100 米且收购主体相同</td><td><span class="badge orange">人工确认</span>　须点「确认非重复」</td></tr>
+      </tbody>
+    </table>
+  </div>
+          </div>
+        </div>
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 与接口数据并存规则<span class="sub">双轨记录，不覆盖不删除</span></div>
+          <div class="sp-b">
+        <div class="sp-check">
+          <div class="ck pass"><i class="fa-solid fa-circle-check"></i>
+            <div class="cb"><div class="ct">来源双轨标注</div>
+              <div class="cd">导入项目标注来源为「人工导入」，接口回传项目标注为「省保租房系统」或「公租房系统」</div></div></div>
+          <div class="ck pass"><i class="fa-solid fa-circle-check"></i>
+            <div class="cb"><div class="ct">不自动覆盖</div>
+              <div class="cd">接口开通后不自动覆盖人工导入数据，统一进入差异清单由经办人确认合并</div></div></div>
+          <div class="ck pass"><i class="fa-solid fa-circle-check"></i>
+            <div class="cb"><div class="ct">原始快照留存</div>
+              <div class="cd">确认合并后保留人工导入记录的原始快照，满足审计溯源要求</div></div></div>
+          <div class="ck pass"><i class="fa-solid fa-circle-check"></i>
+            <div class="cb"><div class="ct">字段保留规则</div>
+              <div class="cd">合并后的项目以接口回传数据为准，人工补录的资金来源、验收状态等字段保留</div></div></div>
+          <div class="ck block"><i class="fa-solid fa-circle-xmark"></i>
+            <div class="cb"><div class="ct">重复登记锁定</div>
+              <div class="cd">同一项目在两个系统重复登记时自动预警并锁定，防止重复上架与重复配租</div></div>
+            <div class="co"><span class="link" onclick="location.href='import-merge.html'">比对合并</span></div></div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>适用阶段</b> 省保租房系统、公租房系统接口未开通期间的房源家底建立</span>
+    <span><b>校验方式</b> 逐字段校验并回显错误明细，修正后可只重传差错行</span>
+    <span><b>查重规则</b> 名称精确匹配直接拦截；相似度与地址组合匹配转人工确认</span>
+    <span><b>回滚支持</b> <span class="link" onclick="location.href='import-batch.html'">导入模板与批次台账</span>　支持按批次整批回滚</span>
+  </div>
+</main>
+
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

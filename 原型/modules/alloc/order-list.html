@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>顺序配租名单 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="allocator" data-active="alloc-02">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 配租选房与合同
+      <span class="sep">/</span> 配租管理
+      <span class="sep">/</span> <span class="cur">顺序配租名单</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.confirm({title:'导出确认',message:'确认导出本批次配租顺序名单用于公示？',detail:'导出名单中配租对象姓名按姓 + ×× 脱敏，不含联系方式与身份证号。导出记录留痕。',type:'info',okText:'确认导出',onOk:function(){PMS.toast('公示名单已导出','success');}})"><i class="fa-solid fa-download"></i> 导出公示名单</button>
+      <a class="btn" href="../rule/result-open.html"><i class="fa-solid fa-bullhorn"></i> 配租结果公开</a>
+    </div>
+  </div>
+
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>按<b>申请受理时间</b>自动生成配租顺序名单，同一时间的按规则细分排序，<b>名单可导出公示</b>。排序规则与名单生成时间公开可回溯，<b>不支持手工调序</b>。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-list-ol"></i></div>
+      <div><div class="s-label">本批次报名</div><div class="s-value">486</div>
+        <div class="s-trend text-2">PZ2026-03</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-key"></i></div>
+      <div><div class="s-label">投放套数</div><div class="s-value">320</div>
+        <div class="s-trend text-2">顺序号 1—320 可选房</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-hourglass-half"></i></div>
+      <div><div class="s-label">预计进轮候</div><div class="s-value">166</div>
+        <div class="s-trend text-2">顺序号 321 起</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-clock"></i></div>
+      <div><div class="s-label">名单生成时间</div><div class="s-value">09-13 09:00</div>
+        <div class="s-trend text-2">公开可回溯</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>顺序号</label><input type="text" placeholder="顺序号"></div>
+      <div class="filter-item"><label>申请人</label><input type="text" placeholder="姓名"></div>
+      <div class="filter-item"><label>申请编号</label><input type="text" placeholder="申请编号"></div>
+      <div class="filter-item"><label>意向片区</label><select data-dict="district" data-ph="全部"></select></div>
+      <div class="filter-item"><label>配租状态</label><select><option value="">全部</option><option>可选房</option><option>已锁定</option><option>已签约</option><option>进入轮候</option><option>已放弃</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th class="num">顺序号</th><th>申请编号</th><th>申请人</th><th>申请类型</th><th>受理时间</th><th class="cell-lg">细分排序依据</th><th>意向片区</th><th>选房时段</th><th>配租状态</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="num">1</td><td>RC2026-0901-0102</td><td>李××</td><td><span class="badge orange">特殊</span></td><td>2026-09-01 09:02</td><td>受理时间最早</td><td>天元区</td><td>09-15 09:00—09:30</td><td><span class="badge green">已签约</span></td><td><span class="link" onclick="location.href='contract-list.html'">合同</span></td></tr>
+          <tr class="row-warn"><td class="num">8</td><td>RC2026-0901-0126</td><td>谭××</td><td><span class="badge blue">就业</span></td><td>2026-09-02 16:38</td><td>受理时间相同 → 家庭申请优先</td><td>天元区</td><td>09-15 09:30—10:00</td><td><span class="badge orange">已锁定</span></td><td><span class="link" onclick="location.href='slot-plan.html'">选房编排</span></td></tr>
+          <tr><td class="num">12</td><td>RC2026-0903-0162</td><td>王梓涵</td><td><span class="badge blue">就业</span></td><td>2026-09-03 10:26</td><td>受理时间排序</td><td>天元区</td><td>09-15 10:00—10:30</td><td><span class="badge blue">可选房</span></td><td><span class="link" onclick="location.href='slot-plan.html'">选房编排</span></td></tr>
+          <tr><td class="num">320</td><td>RC2026-0910-0466</td><td>肖××</td><td><span class="badge cyan">创业</span></td><td>2026-09-10 15:22</td><td>受理时间排序（末位可选房）</td><td>荷塘区</td><td>09-19 16:30—17:00</td><td><span class="badge blue">可选房</span></td><td><span class="link" onclick="location.href='slot-plan.html'">选房编排</span></td></tr>
+          <tr class="row-warn"><td class="num">321</td><td>RC2026-0910-0468</td><td>龙××</td><td><span class="badge blue">就业</span></td><td>2026-09-10 15:26</td><td>受理时间排序（超出投放套数）</td><td>天元区</td><td><span class="muted">—</span></td><td><span class="badge gray">进入轮候</span></td><td><span class="link" onclick="location.href='queue-list.html'">轮候库</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 细分排序规则<span class="sub">R-A1 至 R-A5 · 顺序固定</span></div>
+          <div class="sp-b">
+  <div class="sp-tw">
+    <table class="data-table compact">
+      <thead><tr><th>优先级</th><th class="cell-lg">比较项</th><th class="cell-lg">判定说明</th></tr></thead>
+      <tbody>
+      <tr><td><b>R-A1</b></td><td>申请受理时间</td><td>以件池记录的受理时间戳先后排序，精确到分秒；<b>补正后重新提交的不改变原受理时间</b></td></tr>
+      <tr><td><b>R-A2</b></td><td>特殊人才优先</td><td>受理时间相同时，属于免毕业年限特殊人才（中层以上管理 / 中级以上职称 / 高级技师且 35 周岁以下）的优先</td></tr>
+      <tr><td><b>R-A3</b></td><td>家庭申请优先</td><td>再相同时，已婚且夫妻双方均符合条件的家庭申请优先（只占用一套房源指标）</td></tr>
+      <tr><td><b>R-A4</b></td><td>学历层次</td><td>再相同时，按博士、硕士、本科、大专顺序排列</td></tr>
+      <tr><td><b>R-A5</b></td><td>申请编号</td><td>全部相同时按申请编号升序，<b>保证排序结果唯一且可复现</b></td></tr>
+      </tbody>
+    </table>
+  </div>
+          </div>
+        </div>
+  <div class="sp-src">
+    <span><b>排序规则</b> R-A1 受理时间 → R-A2 特殊人才 → R-A3 家庭申请 → R-A4 学历层次 → R-A5 申请编号</span>
+    <span><b>公开脱敏</b> 对外公示时配租对象姓名按姓 + ×× 脱敏，不公开联系方式与身份证号</span>
+    <span><b>不可调序</b> 系统自动生成，不支持人工调整，保证排序结果唯一且可复现</span>
+  </div>
+</main>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 486; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

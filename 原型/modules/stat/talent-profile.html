@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>人才画像分析 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="leader" data-active="stat-11">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 统计分析
+      <span class="sep">/</span> 人才与配租分析
+      <span class="sep">/</span> <span class="cur">人才画像分析</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>按<b>学历、专业、年龄、行业、单位、来源地</b>等维度分析获保障人才的构成，为<b>政策优化与房源筹集</b>提供依据。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-id-card"></i></div>
+      <div><div class="s-label">人才档案</div><div class="s-value">3,246</div>
+        <div class="s-trend text-2">本月新增 268</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-graduation-cap"></i></div>
+      <div><div class="s-label">硕士及以上</div><div class="s-value">486</div>
+        <div class="s-trend text-2">占 15.0%</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-cake-candles"></i></div>
+      <div><div class="s-label">平均年龄</div><div class="s-value">26.4 岁</div>
+        <div class="s-trend text-2">25 岁以下占 42.6%</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-industry"></i></div>
+      <div><div class="s-label">主导产业占比</div><div class="s-value">70.4%</div>
+        <div class="s-trend text-2">轨交 + 硬质合金 + 航空</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <h3><i class="fa-solid fa-users-viewfinder"></i> 人才构成</h3>
+      <span class="sub">S3-01 · 在租人才 1,286 人</span>
+    </div>
+    <div class="card-body">
+      <div class="section-title" data-icon="fa-chart-pie">学历结构</div>
+      <div class="flex items-center gap-16">
+        <div class="donut" style="background:conic-gradient(var(--primary) 0% 58.2%, var(--success) 58.2% 90.6%, var(--info) 90.6% 96.5%, var(--warning) 96.5% 100%)">
+          <div class="donut-hole"><b>1,286</b><span class="text-sm">在租人才</span></div>
+        </div>
+        <div class="legend" style="flex:1">
+          <div class="lg-item"><span class="lg-color" style="background:var(--primary)"></span> 全日制本科　748 人</div>
+          <div class="lg-item"><span class="lg-color" style="background:var(--success)"></span> 硕士研究生　416 人</div>
+          <div class="lg-item"><span class="lg-color" style="background:var(--info)"></span> 全日制大专　76 人</div>
+          <div class="lg-item"><span class="lg-color" style="background:var(--warning)"></span> 博士研究生　46 人</div>
+        </div>
+      </div>
+      <div class="section-title" data-icon="fa-chart-simple">年龄结构</div>
+      <div class="dc-bars">
+        <div class="b-item"><span class="b-label">22—25 岁　548 人</span><span class="b-track"><span class="b-fill" style="width:42.6%"></span></span><span class="b-val">42.6%</span></div>
+        <div class="b-item"><span class="b-label">26—28 岁　426 人</span><span class="b-track"><span class="b-fill" style="width:33.1%"></span></span><span class="b-val">33.1%</span></div>
+        <div class="b-item"><span class="b-label">29—32 岁　180 人</span><span class="b-track"><span class="b-fill" style="width:14.0%"></span></span><span class="b-val">14.0%</span></div>
+        <div class="b-item"><span class="b-label">33—35 岁　132 人</span><span class="b-track"><span class="b-fill" style="width:10.3%"></span></span><span class="b-val">10.3%（含免年限特殊人才）</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="card list-card">
+    <div class="card-head">
+      <h3><i class="fa-solid fa-table-list"></i> 明细下钻</h3>
+      <span class="sub">可逐级下钻至明细清单</span>
+    </div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>分析维度</th><th class="cell-lg">分类</th><th>人数</th><th>占比</th><th>去年同期</th><th>同比变化</th><th class="cell-lg">政策含义</th><th>下钻</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="badge blue">学历</span></td><td>硕士研究生及博士研究生</td><td class="num">462</td><td><span class="badge green">35.9%</span></td><td class="num">232</td><td><span class="badge green">+9.4pp</span></td><td>高学历人才比例明显提升，政策对高层次人才吸引力增强</td><td><span class="link" onclick="location.href='policy-effect.html'">政策成效</span></td></tr>
+          <tr><td><span class="badge cyan">行业</span></td><td>轨道交通装备</td><td class="num">448</td><td><span class="badge blue">34.8%</span></td><td class="num">286</td><td><span class="badge green">+2.6pp</span></td><td>与株洲主导产业匹配度高，人才安居政策有效支撑产业发展</td><td>单位安居数据</td></tr>
+          <tr><td><span class="badge orange">年龄</span></td><td>25 岁及以下</td><td class="num">548</td><td><span class="badge blue">42.6%</span></td><td class="num">312</td><td><span class="badge green">+4.2pp</span></td><td>应届毕业生占比提升，预申请机制发挥作用</td><td><span class="link" onclick="location.href='pre-convert.html'">预申请转化</span></td></tr>
+          <tr><td><span class="badge green">人才类别</span></td><td>就业青年人才</td><td class="num">986</td><td><span class="badge blue">76.7%</span></td><td class="num">642</td><td><span class="badge orange">-2.4pp</span></td><td>仍为主体；创业青年人才占比略升，反映创业政策效果</td><td><span class="link" onclick="location.href='../apply/talent-level.html'">人才分层</span></td></tr>
+          <tr><td><span class="badge purple">来源地</span></td><td>湖南省内（非株洲）</td><td class="num">586</td><td><span class="badge blue">45.6%</span></td><td class="num">368</td><td><span class="badge green">+0.3pp</span></td><td>省内跨市引才为主；省外来株 386 人占 30.0%，同比 +2.8pp</td><td><span class="link" onclick="location.href='talent-profile.html'">人才画像</span></td></tr>
+          <tr><td><span class="badge red">免年限</span></td><td>特殊人才（免毕业年限）</td><td class="num">132</td><td><span class="badge orange">10.3%</span></td><td class="num">68</td><td><span class="badge green">+2.0pp</span></td><td>中层以上管理 68 人、中级以上职称 46 人、高级技师 18 人；骨干型人才吸引力增强</td><td><span class="link" onclick="location.href='../apply/talent-level.html'">人才分层</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>画像维度</b> 学历、专业、年龄、行业、单位、来源地、人才类别</span>
+    <span><b>数据来源</b> 人才档案（一人一档）+ 部门共享数据</span>
+    <span><b>脱敏要求</b> 画像为汇总统计，不含个人敏感信息</span>
+  </div>
+</main>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 12; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>税务核验之个人所得税 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="reviewer" data-active="apply-17">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 人才档案与资格联审
+      <span class="sep">/</span> 多部门数据核验
+      <span class="sep">/</span> <span class="cur">税务核验之个人所得税</span>
+    </div>
+    <div class="page-actions">
+      <a class="btn" href="verify-report.html"><i class="fa-solid fa-arrow-left"></i> 返回核验报告</a>
+      <button class="btn" onclick="PMS.toast('已重新调用接口，结果将刷新','success')"><i class="fa-solid fa-arrows-rotate"></i> 重新调用接口</button>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div><b>就业人才</b>核验其个人所得税缴纳记录，核实是否<b>在本地实际从业</b>，<b>防止挂靠社保骗取资格</b>　核验结论分<b>一致 / 不一致 / 数据缺失</b>三类，人工只处理例外件。核查结果与<b>数据来源时间戳</b>一并留痕。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-receipt"></i></div>
+      <div><div class="s-label">本月调用</div><div class="s-value">1,000</div>
+        <div class="s-trend text-2">仅就业类申请</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
+      <div><div class="s-label">核验一致</div><div class="s-value">886</div>
+        <div class="s-trend text-2">占 88.6%</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-triangle-exclamation"></i></div>
+      <div><div class="s-label">期数不匹配</div><div class="s-value">96</div>
+        <div class="s-trend ">转人工核实</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon red"><i class="fa-solid fa-user-slash"></i></div>
+      <div><div class="s-label">无缴纳记录</div><div class="s-value">18</div>
+        <div class="s-trend text-2">挂靠社保嫌疑</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>申请编号</label><input type="text" placeholder="申请编号"></div>
+      <div class="filter-item"><label>申请人</label><input type="text" placeholder="姓名"></div>
+      <div class="filter-item"><label>核验结论</label><select data-dict="verifyResult" data-ph="全部"></select></div>
+      <div class="filter-item"><label>核验时间</label><input type="date"></div>
+      <div class="filter-item"><label>处理状态</label><select><option value="">全部</option><option>待处理</option><option>已处理</option><option>无需处理</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>申请编号</th><th>申请人</th><th>申请类型</th><th class="cell-lg">核验内容</th><th class="cell-lg">返回结果</th><th>核验结论</th><th>取数时间</th><th>处置</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>RC2026-0904-0186</td><td>谭雅丽</td><td><span class="badge blue">就业</span></td><td>个人所得税缴纳记录</td><td>2026 年度连续缴纳 11 个月，扣缴单位与劳动合同一致</td><td><span class="badge green">一致</span></td><td>2026-09-04 09:26</td><td>符合条件</td><td><span class="link" onclick="location.href='audit-desk.html'">办件</span></td></tr>
+          <tr class="row-warn"><td>RC2026-0903-0162</td><td>王梓涵</td><td><span class="badge blue">就业</span></td><td>个人所得税缴纳记录</td><td>社保连续缴纳 <b>13 个月</b>，个税<b>仅 3 个月</b>缴纳记录，期数不匹配</td><td><span class="badge red">不一致</span></td><td>2026-09-03 10:27</td><td>转人工核实（已核实通过）</td><td><span class="link" onclick="location.href='audit-desk.html'">复核工作台</span></td></tr>
+          <tr class="row-bad"><td>RC2026-0904-0224</td><td>黄振宇</td><td><span class="badge blue">就业</span></td><td>个人所得税缴纳记录</td><td>社保连续缴纳 14 个月，个税<b>无任何缴纳记录</b>，疑挂靠社保</td><td><span class="badge red">不一致</span></td><td>2026-09-04 16:02</td><td>转人工核实</td><td><span class="link" onclick="PMS.openDrawer('tpDrawer')">处理</span></td></tr>
+          <tr><td>RC2026-0905-0196</td><td>彭雪松</td><td><span class="badge blue">就业</span></td><td>个人所得税缴纳记录</td><td>2026 年度连续缴纳 8 个月，与社保期数一致</td><td><span class="badge green">一致</span></td><td>2026-09-05 09:18</td><td>符合条件</td><td><span class="link" onclick="location.href='audit-desk.html'">办件</span></td></tr>
+          <tr class="row-warn"><td>RC2026-0905-0228</td><td>肖梦洁</td><td><span class="badge blue">就业</span></td><td>个人所得税缴纳记录</td><td>税务系统<b>接口未返回</b>（失败率 8.6%）</td><td><span class="badge orange">数据缺失</span></td><td>2026-09-05 10:26</td><td>转人工兜底</td><td><span class="link" onclick="location.href='manual-fallback.html'">人工兜底</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+        <div class="sp-block">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 核验项口径<span class="sub">P6-06</span></div>
+          <div class="sp-b">
+        <div class="sp-kv">
+          <div class="kv"><span class="k">数据来源</span><span class="v">市税务局个人所得税缴纳记录</span></div>
+          <div class="kv"><span class="k">配合单位</span><span class="v">市税务局</span></div>
+          <div class="kv"><span class="k">核验用途</span><span class="v"><b>就业人才</b>核验其个人所得税缴纳记录，核实是否<b>在本地实际从业</b>，<b>防止挂靠社保骗取资格</b></span></div>
+          <div class="kv"><span class="k">是否一票否决</span><span class="v">否（无记录的按挂靠社保嫌疑转人工核实，不直接否决）</span></div>
+          <div class="kv"><span class="k">开关配置</span><span class="v">可在核验项开关中单独设置启用与是否强制</span><span class="link" onclick="location.href='../rule/verify-switch.html'">核验项开关配置</span></div>
+          <div class="kv"><span class="k">接口异常兜底</span><span class="v">不可用时自动转人工核验通道并记录兜底原因</span><span class="link" onclick="location.href='manual-fallback.html'">人工兜底</span></div>
+        </div>
+          </div>
+        </div>
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 典型例外情形与处置<span class="sub">人工只处理例外件</span></div>
+          <div class="sp-b">
+        <div class="sp-check">
+          <div class="ck block"><i class="fa-solid fa-circle-xmark"></i>
+            <div class="cb"><div class="ct">社保正常但个税无记录 · 挂靠社保嫌疑</div>
+              <div class="cd">按 <b>R-C11</b> 转人工核实，<b>不直接否决</b>。由经办人核查劳动合同、工资发放流水与实际从业情况，要求申请人补充<b>实际从业证明材料</b>。</div></div>
+            <div class="co"><span class="link" onclick="location.href='reject-list.html'">驳回补正</span></div></div>
+          <div class="ck wait"><i class="fa-solid fa-lock"></i>
+            <div class="cb"><div class="ct">个税期数少于社保期数 · 转人工核实</div>
+              <div class="cd">常见于<b>入职当年未达个税起征点</b>、年中入职等正常情形。经核实确属正常的<b>予以通过</b>并在结论中说明。</div></div>
+            <div class="co"><span class="badge orange">转人工</span></div></div>
+          <div class="ck wait"><i class="fa-solid fa-lock"></i>
+            <div class="cb"><div class="ct">税务接口失败 · 转人工兜底</div>
+              <div class="cd">当前税务接口失败率 <b>8.6%</b>，已告警并转人工核验通道，<b>记录兜底原因</b>，接口恢复后纳入回溯复核范围。</div></div>
+            <div class="co"><span class="link" onclick="location.href='manual-fallback.html'">人工兜底</span></div></div>
+        </div>
+          </div>
+        </div>
+  <div class="sp-src">
+    <span><b>核验目的</b> 核实是否在本地实际从业，防止挂靠社保骗取资格</span>
+    <span><b>处置口径</b> R-C11 转人工核实，不直接否决</span>
+    <span><b>配合单位</b> 市税务局（需开通个人所得税数据查询接口）</span>
+  </div>
+</main>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 1000; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

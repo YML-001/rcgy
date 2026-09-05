@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>婚姻数据核验 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="reviewer" data-active="apply-13">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 人才档案与资格联审
+      <span class="sep">/</span> 多部门数据核验
+      <span class="sep">/</span> <span class="cur">婚姻数据核验</span>
+    </div>
+    <div class="page-actions">
+      <a class="btn" href="verify-report.html"><i class="fa-solid fa-arrow-left"></i> 返回核验报告</a>
+      <button class="btn" onclick="PMS.toast('已重新调用接口，结果将刷新','success')"><i class="fa-solid fa-arrows-rotate"></i> 重新调用接口</button>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>核验申请人婚姻状态，判断是否符合<b>以家庭为单位共同申请</b>的条件；已婚的其配偶纳入无房核查范围　核验结论分<b>一致 / 不一致 / 数据缺失</b>三类，人工只处理例外件。核查结果与<b>数据来源时间戳</b>一并留痕。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-ring"></i></div>
+      <div><div class="s-label">本月调用</div><div class="s-value">1,286</div>
+        <div class="s-trend text-2">与受理件数一致</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
+      <div><div class="s-label">结论一致</div><div class="s-value">1,268</div>
+        <div class="s-trend text-2">占 98.6%</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-code-compare"></i></div>
+      <div><div class="s-label">不一致</div><div class="s-value">12</div>
+        <div class="s-trend text-2">转人工核实</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon red"><i class="fa-solid fa-database"></i></div>
+      <div><div class="s-label">数据缺失</div><div class="s-value">6</div>
+        <div class="s-trend ">转人工兜底</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>申请编号</label><input type="text" placeholder="申请编号"></div>
+      <div class="filter-item"><label>申请人</label><input type="text" placeholder="姓名"></div>
+      <div class="filter-item"><label>核验结论</label><select data-dict="verifyResult" data-ph="全部"></select></div>
+      <div class="filter-item"><label>核验时间</label><input type="date"></div>
+      <div class="filter-item"><label>处理状态</label><select><option value="">全部</option><option>待处理</option><option>已处理</option><option>无需处理</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>申请编号</th><th>申请人</th><th>申请类型</th><th class="cell-lg">核验内容</th><th class="cell-lg">返回结果</th><th>核验结论</th><th>取数时间</th><th>处置</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>RC2026-0903-0162</td><td>王梓涵</td><td><span class="badge blue">就业</span></td><td>婚姻状态</td><td>未婚（与填报一致）</td><td><span class="badge green">一致</span></td><td>2026-09-03 10:27</td><td>个人申请</td><td><span class="link" onclick="location.href='audit-desk.html'">办件</span></td></tr>
+          <tr><td>RC2026-0902-0148</td><td>王志远</td><td><span class="badge blue">就业</span></td><td>婚姻状态</td><td>已婚，配偶 李××（与填报一致）</td><td><span class="badge green">一致</span></td><td>2026-09-02 14:19</td><td>配偶纳入无房核查</td><td><span class="link" onclick="location.href='audit-desk.html'">办件</span></td></tr>
+          <tr class="row-bad"><td>RC2026-0904-0186</td><td>谭雅丽</td><td><span class="badge blue">就业</span></td><td>婚姻状态</td><td>民政返回<b>已婚</b>，申请人填报<b>未婚</b></td><td><span class="badge red">不一致</span></td><td>2026-09-04 09:26</td><td>转人工核实</td><td><span class="link" onclick="PMS.openDrawer('mrDrawer')">处理</span></td></tr>
+          <tr class="row-warn"><td>RC2026-0905-0192</td><td>罗建军</td><td><span class="badge cyan">创业</span></td><td>婚姻状态</td><td>民政系统<b>未返回登记记录</b>（可能为省外登记）</td><td><span class="badge orange">数据缺失</span></td><td>2026-09-05 09:12</td><td>转人工兜底</td><td><span class="link" onclick="location.href='manual-fallback.html'">人工兜底</span></td></tr>
+          <tr><td>RC2026-0905-0196</td><td>彭雪松</td><td><span class="badge blue">就业</span></td><td>婚姻状态</td><td>离异（与填报一致）</td><td><span class="badge green">一致</span></td><td>2026-09-05 09:18</td><td>个人申请</td><td><span class="link" onclick="location.href='audit-desk.html'">办件</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+        <div class="sp-block">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 核验项口径<span class="sub">P6-02</span></div>
+          <div class="sp-b">
+        <div class="sp-kv">
+          <div class="kv"><span class="k">数据来源</span><span class="v">市民政局婚姻登记信息</span></div>
+          <div class="kv"><span class="k">配合单位</span><span class="v">市民政局</span></div>
+          <div class="kv"><span class="k">核验用途</span><span class="v">核验申请人婚姻状态，判断是否符合<b>以家庭为单位共同申请</b>的条件；已婚的其配偶纳入无房核查范围</span></div>
+          <div class="kv"><span class="k">是否一票否决</span><span class="v">否（不直接否决，影响家庭申请资格与无房核查范围）</span></div>
+          <div class="kv"><span class="k">开关配置</span><span class="v">可在核验项开关中单独设置启用与是否强制</span><span class="link" onclick="location.href='../rule/verify-switch.html'">核验项开关配置</span></div>
+          <div class="kv"><span class="k">接口异常兜底</span><span class="v">不可用时自动转人工核验通道并记录兜底原因</span><span class="link" onclick="location.href='manual-fallback.html'">人工兜底</span></div>
+        </div>
+          </div>
+        </div>
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 典型例外情形与处置<span class="sub">人工只处理例外件</span></div>
+          <div class="sp-b">
+        <div class="sp-check">
+          <div class="ck block"><i class="fa-solid fa-circle-xmark"></i>
+            <div class="cb"><div class="ct">民政返回已婚但填报未婚 · 不一致</div>
+              <div class="cd">须核实是否<b>隐瞒婚姻状况以规避配偶无房核查</b>。经核实确属隐瞒的，按管理办法第十三条<b>取消资格并标记失信</b>。</div></div>
+            <div class="co"><span class="link" onclick="location.href='talent-blacklist.html'">失信名单</span></div></div>
+          <div class="ck wait"><i class="fa-solid fa-lock"></i>
+            <div class="cb"><div class="ct">民政系统未返回登记记录 · 数据缺失</div>
+              <div class="cd">常见于<b>省外婚姻登记</b>或历史数据未归集。转人工核验通道，由申请人提供婚姻状况证明后人工核验。</div></div>
+            <div class="co"><span class="link" onclick="location.href='manual-fallback.html'">人工兜底</span></div></div>
+          <div class="ck pass"><i class="fa-solid fa-circle-check"></i>
+            <div class="cb"><div class="ct">已婚且夫妻双方均符合条件 · 可家庭申请</div>
+              <div class="cd">可合并为一份<b>家庭申请</b>，<b>只占用一套房源指标</b>，可申请二室一厅等适合家庭的房型。</div></div>
+            <div class="co"><span class="badge green">通过</span></div></div>
+        </div>
+          </div>
+        </div>
+  <div class="sp-src">
+    <span><b>政策依据</b> 管理办法第七条第二项、第十一条</span>
+    <span><b>留痕要求</b> 核查结果与数据来源时间戳一并留痕</span>
+    <span><b>关联核验</b> <span class="link" onclick="location.href='verify-realty.html'">不动产数据核验</span></span>
+  </div>
+</main>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 1286; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

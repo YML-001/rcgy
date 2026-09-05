@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>欠费查询 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/mobile.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body class="m-body" data-mtitle="欠费查询" data-mmod="M9 租金缴纳与账单" data-mcode="M9-04"
+      data-mdesc="查询本人欠费金额、欠费月份与滞纳规则。" data-mback="bill-list.html" data-mtabset="public" data-mtab="home">
+<div class="m-stage">
+  <div class="m-phone">
+    <div class="m-screen">
+      <div class="m-view">
+        <div class="m-note success"><i class="fa-solid fa-circle-check"></i>
+          <div>您当前<b>无欠费</b>。历史 11 期账单均已按期缴清，累计已缴 3,819.96 元。</div>
+        </div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-circle-check"></i>我的欠费情况</div>
+          <div class="m-card-b">
+            <div class="m-mini">
+              <div><div class="mv ok">0.00</div><div class="ml">欠费金额(元)</div></div>
+              <div><div class="mv ok">0</div><div class="ml">欠费月份(期)</div></div>
+              <div><div class="mv ok">11</div><div class="ml">按期缴清(期)</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="m-sect">欠费认定与滞纳规则</div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-scale-balanced"></i>规则说明</div>
+          <div class="m-card-b">
+          <div class="m-kv">
+            <div><span>欠费认定</span><span>账单缴费截止日次日 00:00 起未缴清即计为欠费</span></div>
+            <div><span>欠费金额</span><span>仅计<b>个人实际应缴部分</b>，财政补助部分不计入</span></div>
+            <div><span>账龄分析</span><span>按 30 日、60 日、90 日以上分档，识别催收重点</span></div>
+            <div><span>滞纳规则</span><span><span class="m-tag yellow">待定</span> 具体滞纳金标准需业务确认后落库</span></div>
+            <div><span>结清方式</span><span>翼支付线上缴纳，支持欠费与当期账单合并支付</span></div>
+          </div>
+          </div>
+        </div>
+        <div class="m-sect">欠费的影响</div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-triangle-exclamation"></i>四项影响</div>
+          <div class="m-card-b">
+            <div class="m-check">
+              <div class="bad"><i class="fa-solid fa-circle-exclamation"></i><div class="m-chl"><b>影响年度资格审查</b><span>年审时读取欠租台账，存在未结清欠费的须结清后方可通过</span></div></div>
+              <div class="bad"><i class="fa-solid fa-circle-exclamation"></i><div class="m-chl"><b>影响续租审核</b><span>欠费情况作为续租资格复核项之一</span></div></div>
+              <div class="bad"><i class="fa-solid fa-circle-exclamation"></i><div class="m-chl"><b>长期欠缴可能被清退</b><span>催缴无效且影响年审结论的，按不符合条件启动退出流程</span></div></div>
+              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>结清后即恢复</b><span>欠费结清后台账状态实时更新，不再影响年审与续租</span></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="m-cells">
+          <a class="m-cell" href="bill-list.html"><span class="m-ci"><i class="fa-solid fa-receipt"></i></span><span class="m-cl"><b>查看全部账单</b><span class="m-cs">12 期账单与缴费记录</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="bill-overdue.html"><span class="m-ci orange"><i class="fa-solid fa-bell"></i></span><span class="m-cl"><b>逾期提醒规则</b><span class="m-cs">六级分级催缴</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../../assets/js/mobile.js"></script>
+</body>
+</html>

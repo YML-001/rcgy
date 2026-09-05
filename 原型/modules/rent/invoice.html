@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>电子票据管理 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="keeper" data-active="rent-08">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 租金收缴与年审退出
+      <span class="sep">/</span> 租金与费用
+      <span class="sep">/</span> <span class="cur">电子票据管理</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>对接<b>财政电子票据系统</b>开具、红冲与查询票据，<b>票据与账单一一对应</b>，不支持合并开票。票据可在湖南省财政电子票据公共服务平台查验真伪。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-receipt"></i></div>
+      <div><div class="s-label">本月开具</div><div class="s-value">1,224</div>
+        <div class="s-trend text-2">张</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
+      <div><div class="s-label">开具成功率</div><div class="s-value">99.8%</div>
+        <div class="s-trend text-2">失败 2 张已重开</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-rotate-left"></i></div>
+      <div><div class="s-label">本月红冲</div><div class="s-value">6</div>
+        <div class="s-trend text-2">票据信息有误</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-hourglass-half"></i></div>
+      <div><div class="s-label">待开具</div><div class="s-value">62</div>
+        <div class="s-trend text-2">欠费账单未缴不可开</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>票据号</label><input type="text" placeholder="票据号"></div>
+      <div class="filter-item"><label>账单编号</label><input type="text" placeholder="账单编号"></div>
+      <div class="filter-item"><label>交款人</label><input type="text" placeholder="姓名"></div>
+      <div class="filter-item"><label>票据状态</label><select><option value="">全部</option><option>已开具</option><option>待开具</option><option>已红冲</option><option>开具失败</option></select></div>
+      <div class="filter-item"><label>开具日期</label><input type="date"></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>票据号</th><th>账单编号</th><th>交款人</th><th>费用科目</th><th>票据金额</th><th>票据类型</th><th>开具时间</th><th>查验状态</th><th>票据状态</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>CZP20260905001086</td><td>ZD2026-09-00862</td><td>王梓涵</td><td><span class="badge blue">租金</span></td><td class="num">284.04</td><td>财政电子票据（非税收入）</td><td>2026-09-05 09:46</td><td><span class="badge green">可查验</span></td><td><span class="badge green">已开具</span></td><td><span class="link" onclick="PMS.toast('票据号 CZP20260905001086，可在湖南省财政电子票据公共服务平台查验真伪')">票据信息</span></td></tr>
+          <tr><td>CZP20260106000012</td><td>ZD2026-01-00862-D</td><td>王梓涵</td><td><span class="badge orange">押金</span></td><td class="num">1,000.00</td><td>财政电子票据（非税收入）</td><td>2026-01-06 10:32</td><td><span class="badge green">可查验</span></td><td><span class="badge green">已开具</span></td><td><span class="link" onclick="PMS.toast('押金票据，退租时如全额退还须办理红冲')">票据信息</span></td></tr>
+          <tr class="row-warn"><td>CZP20260806000942</td><td>ZD2026-08-00386</td><td>李子康</td><td><span class="badge blue">租金</span></td><td class="num">272.16</td><td>财政电子票据（非税收入）</td><td>2026-08-06 15:12</td><td><span class="badge gray">已作废</span></td><td><span class="badge orange">已红冲</span></td><td><span class="link" onclick="PMS.openDrawer('fpDrawer')">红冲记录</span></td></tr>
+          <tr class="row-warn"><td><span class="muted">—</span></td><td>ZD2026-09-00518</td><td>周宇轩</td><td><span class="badge blue">租金</span></td><td class="num">260.28</td><td><span class="muted">—</span></td><td><span class="muted">—</span></td><td><span class="muted">—</span></td><td><span class="badge orange">待开具</span></td><td><span class="link" onclick="PMS.toast('该账单处于欠费状态，缴清后方可申领开具电子票据')">不可开具</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>对接系统</b> 市财政局财政电子票据系统</span>
+    <span><b>对应关系</b> 票据与账单一一对应，不支持合并开票</span>
+    <span><b>红冲规则</b> 票据信息有误或金额调整时由租金核算员办理红冲后重新开具</span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="fpDrawer">
+  <div class="drawer-head">
+    <h3>票据红冲办理</h3>
+    <span class="badge orange">红冲</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>红冲后原票据<b>作废不可恢复</b>，须重新开具。红冲原因与操作记录一并留痕，供审计核查。</div>
+  </div>
+
+      <div class="form-grid form-align">
+        <div class="form-item">
+          <label>原票据号 <span class="req">*</span></label>
+          <input type="text" value="CZP20260806000942" readonly>
+        </div>
+        <div class="form-item">
+          <label>账单编号 <span class="req">*</span></label>
+          <input type="text" value="ZD2026-08-00386" readonly>
+        </div>
+        <div class="form-item">
+          <label>交款人 <span class="req">*</span></label>
+          <input type="text" value="李子康" readonly>
+        </div>
+        <div class="form-item">
+          <label>原票据金额（元） <span class="req">*</span></label>
+          <input type="text" value="272.16" readonly>
+        </div>
+        <div class="form-item">
+          <label>红冲原因 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>票据金额有误</option><option>交款人信息有误</option><option>费用科目有误</option><option>账单金额调整</option><option>其他</option></select>
+        </div>
+        <div class="form-item">
+          <label>重新开具金额（元） <span class="req">*</span></label>
+          <input type="text" value="233.28">
+          <div class="hint">按调整后减免比例 70% 重算</div>
+        </div>
+        <div class="form-item col-full">
+          <label>红冲说明 <span class="req">*</span></label>
+          <textarea rows="3">湘江1958 二期减免标准经一事一议重新审定，减免比例由 65% 调整为 70%，2026-08 账单个人自付由 272.16 元调整为 233.28 元。原票据金额有误，办理红冲后按调整后金额重新开具，差额 38.88 元原路退还。</textarea>
+        </div>
+      </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认红冲票据 CZP20260806000942？原票据将作废不可恢复。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已红冲并重新开具，差额将原路退还','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 1224; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

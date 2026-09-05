@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>领导驾驶舱 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+<style>
+/* 驾驶舱专属：保障全景一张图的区域热力块 */
+.ck-map { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.ck-area {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 11px 12px;
+  background: var(--primary-light-2);
+  text-decoration: none;
+  color: var(--text-1);
+  display: block;
+}
+.ck-area:hover { border-color: var(--primary); box-shadow: var(--shadow-sm); }
+.ck-area .an { display: flex; align-items: center; gap: 6px; font-size: 13.5px; font-weight: 700; }
+.ck-area .an .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--primary); }
+.ck-area .av { display: block; margin-top: 6px; font-size: 21px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.ck-area .al { display: block; font-size: 11.5px; color: var(--text-3); margin-top: 1px; }
+.ck-area.h1 { background: var(--primary-tint-1); }
+.ck-area.h2 { background: var(--primary-tint-2); }
+.ck-area.h3 { background: var(--primary-light-2); }
+.ck-area.gap { background: var(--warning-light); border-color: var(--line-warning); }
+.ck-area.gap .an .dot { background: var(--lv-orange); }
+</style>
+</head>
+<body data-role="leader" data-active="stat-02">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 统计分析
+      <span class="sep">/</span> 领导驾驶舱
+      <span class="sep">/</span> <span class="cur">保障全景总览</span>
+    </div>
+    <div class="page-actions">
+      <a class="btn" href="../../index.html" target="_top"><i class="fa-solid fa-right-from-bracket"></i> 退出登录</a>
+      <button class="btn" onclick="PMS.toast('原型演示：已切换至 1920×1080 大屏投放模式')"><i class="fa-solid fa-expand"></i> 大屏模式</button>
+      <button class="btn btn-primary" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出汇报材料</button>
+    </div>
+  </div>
+
+  <div class="home-hero">
+    <div class="hero-l">
+      <div class="hero-greet">人才住房保障决策驾驶舱</div>
+      <div class="hero-sub">株洲市人才公寓管理平台　|　面向市领导、局领导与市委人才办的总览视图，支持大屏展示与汇报调阅</div>
+      <div class="hero-date"><i class="fa-regular fa-calendar"></i> 数据更新至 2026 年 9 月 5 日 08:00 · 所有指标均可点击下钻至明细清单</div>
+    </div>
+    <div class="hero-r">
+      <div class="hs"><div class="hs-v">2,486</div><div class="hs-l">房源总量</div></div>
+      <div class="hs-div"></div>
+      <div class="hs"><div class="hs-v">1,286</div><div class="hs-l">在租人才</div></div>
+      <div class="hs-div"></div>
+      <div class="hs"><div class="hs-v">7</div><div class="hs-l">风险告警</div></div>
+    </div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-building"></i></div>
+      <div><div class="s-label">房源总量（套）</div><div class="s-value">2,486</div>
+        <div class="s-trend text-2">年度计划 3,000 套 · 完成率 82.9%</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-users"></i></div>
+      <div><div class="s-label">在租人才（人）</div><div class="s-value">1,286</div>
+        <div class="s-trend text-success">↑ 较上季 18.4%</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-key"></i></div>
+      <div><div class="s-label">累计保障人次</div><div class="s-value">1,842</div>
+        <div class="s-trend text-2">正常退出 538 人次</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-house-circle-check"></i></div>
+      <div><div class="s-label">可配租余量（套）</div><div class="s-value">412</div>
+        <div class="s-trend text-2">空置率 1.4%</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-clock"></i></div>
+      <div><div class="s-label">平均配租周期</div><div class="s-value">18.6 天</div>
+        <div class="s-trend text-success">↓ 缩短 4.2 天</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon red"><i class="fa-solid fa-triangle-exclamation"></i></div>
+      <div><div class="s-label">风险告警项</div><div class="s-value">7</div>
+        <div class="s-trend ">空置超期 / 欠费 / 超审</div></div>
+    </div>
+  </div>
+
+  <div class="grid-2" style="gap:12px">
+  <div class="card">
+    <div class="card-head">
+      <h3><i class="fa-solid fa-map-location-dot"></i> 保障全景一张图</h3>
+      <span class="sub">S1-01 · 市城区（不含渌口区）</span>
+    </div>
+    <div class="card-body">
+      <div class="dc-seg" style="margin-bottom:12px">
+        <button class="on" onclick="PMS.toast('已按区域切换图层')">按区域</button>
+        <button onclick="PMS.toast('已按房源来源切换图层')">按房源来源</button>
+        <button onclick="PMS.toast('已按人才层次切换图层')">按人才层次</button>
+      </div>
+      <div class="ck-map">
+        <a class="ck-area h1" href="house-struct.html?area=01">
+          <span class="an"><span class="dot"></span>天元区</span>
+          <span class="av">986</span><span class="al">在租 542 · 可配租 186 · 轮候 214</span>
+        </a>
+        <a class="ck-area h2" href="house-struct.html?area=02">
+          <span class="an"><span class="dot"></span>荷塘区</span>
+          <span class="av">486</span><span class="al">在租 268 · 可配租 92 · 轮候 106</span>
+        </a>
+        <a class="ck-area h2" href="house-struct.html?area=03">
+          <span class="an"><span class="dot"></span>芦淞区</span>
+          <span class="av">412</span><span class="al">在租 214 · 可配租 68 · 轮候 132</span>
+        </a>
+        <a class="ck-area gap" href="house-vacancy.html?area=04">
+          <span class="an"><span class="dot"></span>石峰区</span>
+          <span class="av">328</span><span class="al">在租 146 · 空置超期 24 套需关注</span>
+        </a>
+        <a class="ck-area h3" href="house-struct.html?area=05">
+          <span class="an"><span class="dot"></span>经开区</span>
+          <span class="av">274</span><span class="al">在租 116 · 可配租 54 · 轮候 160</span>
+        </a>
+        <a class="ck-area h3" href="house-supply.html">
+          <span class="an"><span class="dot"></span>供需缺口测算</span>
+          <span class="av">-268</span><span class="al">二室一厅缺口最大，建议优先筹集</span>
+        </a>
+      </div>
+      <p class="hint" style="margin-top:12px">
+        <i class="fa-solid fa-circle-info"></i>
+        地图叠加房源分布、在租热力与区域供需缺口，可按区域、房源来源、人才层次切换图层。点击区域下钻至该区房源结构明细。
+      </p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-head">
+      <h3><i class="fa-solid fa-chart-pie"></i> 房源来源构成与筹集进度</h3>
+      <span class="sub">S2-01 / S2-02</span>
+    </div>
+    <div class="card-body">
+      <div class="flex items-center gap-16">
+        <div class="donut" style="background:conic-gradient(var(--primary) 0 46%, var(--success) 46% 79.6%, var(--info) 79.6% 100%)">
+          <div class="donut-hole"><b>2,486</b><span class="text-sm">房源总量</span></div>
+        </div>
+        <div class="legend" style="flex:1">
+          <div class="lg-item"><span class="lg-color" style="background:var(--primary)"></span> 收购存量商品房　<b>1,144 套</b>　46.0%</div>
+          <div class="lg-item"><span class="lg-color" style="background:var(--success)"></span> 公租房盘活　<b>836 套</b>　33.6%</div>
+          <div class="lg-item"><span class="lg-color" style="background:var(--info)"></span> 保租房「一间房」　<b>506 套</b>　20.4%</div>
+        </div>
+      </div>
+      <div class="section-title mt-16" data-icon="fa-chart-column">年度筹集到位进度（套）</div>
+      <div class="bar-chart">
+        <div class="bar-col"><span class="bar-val">186</span><div class="bar" style="height:38%"></div><span class="bar-label">1 月</span></div>
+        <div class="bar-col"><span class="bar-val">142</span><div class="bar" style="height:29%"></div><span class="bar-label">2 月</span></div>
+        <div class="bar-col"><span class="bar-val">268</span><div class="bar" style="height:55%"></div><span class="bar-label">3 月</span></div>
+        <div class="bar-col"><span class="bar-val">312</span><div class="bar" style="height:64%"></div><span class="bar-label">4 月</span></div>
+        <div class="bar-col"><span class="bar-val">286</span><div class="bar" style="height:58%"></div><span class="bar-label">5 月</span></div>
+        <div class="bar-col"><span class="bar-val">344</span><div class="bar" style="height:70%"></div><span class="bar-label">6 月</span></div>
+        <div class="bar-col"><span class="bar-val">402</span><div class="bar" style="height:82%"></div><span class="bar-label">7 月</span></div>
+        <div class="bar-col"><span class="bar-val">356</span><div class="bar" style="height:73%"></div><span class="bar-label">8 月</span></div>
+        <div class="bar-col"><span class="bar-val">190</span><div class="bar" style="height:39%"></div><span class="bar-label">9 月</span></div>
+      </div>
+      <div class="sp-src">
+        <span><b>统计口径</b> 按房源交付验收合格之日归集</span>
+        <span><b>下钻</b> <a class="link" href="house-source.html">房源来源构成分析</a></span>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="grid-2" style="gap:12px">
+  <div class="card">
+    <div class="card-head">
+      <h3><i class="fa-solid fa-chart-simple"></i> 政策成效指标</h3>
+      <span class="sub">S1-03</span>
+    </div>
+    <div class="card-body">
+      <div class="dc-mini">
+        <div class="mi"><div class="mv ok">1,286</div><div class="ml">获保障青年人才</div></div>
+        <div class="mi"><div class="mv">92.4%</div><div class="ml">留株率</div></div>
+        <div class="mi"><div class="mv">486</div><div class="ml">硕士及以上</div></div>
+        <div class="mi"><div class="mv">132</div><div class="ml">免年限特殊人才</div></div>
+      </div>
+
+      <div class="section-title mt-16" data-icon="fa-graduation-cap">学历结构</div>
+      <div class="dc-bars">
+        <div class="b-item"><span class="b-label">全日制本科</span><span class="b-track"><span class="b-fill" style="width:58.2%"></span></span><span class="b-val">748 人 · 58.2%</span></div>
+        <div class="b-item"><span class="b-label">硕士研究生</span><span class="b-track"><span class="b-fill" style="width:32.4%"></span></span><span class="b-val">416 人 · 32.4%</span></div>
+        <div class="b-item"><span class="b-label">全日制大专</span><span class="b-track"><span class="b-fill" style="width:5.9%"></span></span><span class="b-val">76 人 · 5.9%</span></div>
+        <div class="b-item"><span class="b-label">博士研究生</span><span class="b-track"><span class="b-fill" style="width:5.4%"></span></span><span class="b-val">70 人 · 5.4%</span></div>
+      </div>
+
+      <div class="section-title mt-16" data-icon="fa-industry">行业分布（在租人才所在单位）</div>
+      <div class="dc-bars">
+        <div class="b-item"><span class="b-label">轨道交通装备</span><span class="b-track"><span class="b-fill" style="width:34.8%"></span></span><span class="b-val">448 人</span></div>
+        <div class="b-item"><span class="b-label">硬质合金与新材料</span><span class="b-track"><span class="b-fill" style="width:21.1%"></span></span><span class="b-val">272 人</span></div>
+        <div class="b-item"><span class="b-label">航空动力</span><span class="b-track"><span class="b-fill" style="width:14.5%"></span></span><span class="b-val">186 人</span></div>
+        <div class="b-item"><span class="b-label">电子信息与软件</span><span class="b-track"><span class="b-fill" style="width:12.9%"></span></span><span class="b-val">166 人</span></div>
+        <div class="b-item"><span class="b-label">教育医疗与其他</span><span class="b-track"><span class="b-fill" style="width:16.7%"></span></span><span class="b-val">214 人</span></div>
+      </div>
+      <div class="sp-src">
+        <span><b>成效口径</b> 量化政策对招才引才的贡献</span>
+        <span><b>下钻</b> <a class="link" href="policy-effect.html">政策成效指标</a> · <a class="link" href="talent-profile.html">人才画像分析</a></span>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-head">
+      <h3><i class="fa-solid fa-filter"></i> 申请办理漏斗</h3>
+      <span class="sub">S3-02 · 2026 年累计</span>
+    </div>
+    <div class="card-body">
+      <div class="dc-bars">
+        <div class="b-item"><span class="b-label">提交申请</span><span class="b-track"><span class="b-fill" style="width:100%"></span></span><span class="b-val">3,246 件</span></div>
+        <div class="b-item"><span class="b-label">受理</span><span class="b-track"><span class="b-fill" style="width:96.4%"></span></span><span class="b-val">3,129 件 · 96.4%</span></div>
+        <div class="b-item"><span class="b-label">审核通过</span><span class="b-track"><span class="b-fill" style="width:84.9%"></span></span><span class="b-val">2,656 件 · 84.9%</span></div>
+        <div class="b-item"><span class="b-label">配租排序</span><span class="b-track"><span class="b-fill" style="width:72.6%"></span></span><span class="b-val">2,272 件 · 85.5%</span></div>
+        <div class="b-item warn"><span class="b-label">完成选房</span><span class="b-track"><span class="b-fill" style="width:57.2%"></span></span><span class="b-val">1,789 件 · 78.7%</span></div>
+        <div class="b-item"><span class="b-label">电子签约</span><span class="b-track"><span class="b-fill" style="width:44.8%"></span></span><span class="b-val">1,402 件 · 78.4%</span></div>
+        <div class="b-item"><span class="b-label">办理入住</span><span class="b-track"><span class="b-fill" style="width:41.1%"></span></span><span class="b-val">1,286 件 · 91.7%</span></div>
+      </div>
+      <div class="alert alert-warning mt-16">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <div>主要流失节点在<b>配租排序 → 完成选房</b>（流失 483 件，21.3%）。归因：房源位置与意向片区不匹配 268 件、租金自付超预期 132 件、锁房超时 83 件。</div>
+      </div>
+      <div class="sp-src">
+        <span><b>下钻</b> <a class="link" href="funnel.html">申请漏斗分析</a> · <a class="link" href="giveup.html">放弃配租分析</a></span>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <h3><i class="fa-solid fa-triangle-exclamation"></i> 实时风险告警</h3>
+      <span class="sub">S1-04 · 更新至 2026-09-05 08:00</span>
+    </div>
+  <div class="sp-tw">
+    <table class="data-table compact">
+      <thead><tr><th>风险类别</th><th>档位</th><th class="num">数量</th><th>口径说明</th><th>处置</th></tr></thead>
+      <tbody>
+      <tr class="row-bad"><td><b>资格审核超期</b></td><td><span class="badge red">红 · 严重</span></td><td class="num">3</td><td class="cell-lg">超 3 个工作日法定时限未办结</td><td><a class="link" href="audit-perf.html">下钻</a></td></tr>
+      <tr class="row-bad"><td><b>腾退逾期未执行</b></td><td><span class="badge red">红 · 严重</span></td><td class="num">6</td><td class="cell-lg">已下发腾退通知但逾期未腾退，须升级处置</td><td><a class="link" href="review-exit.html">下钻</a></td></tr>
+      <tr class="row-warn"><td><b>空置超 90 天</b></td><td><span class="badge orange">橙 · 预警</span></td><td class="num">36</td><td class="cell-lg">集中在石峰区清水塘片区，归因位置与配套</td><td><a class="link" href="house-vacancy.html">下钻</a></td></tr>
+      <tr class="row-warn"><td><b>租金欠缴</b></td><td><span class="badge orange">橙 · 预警</span></td><td class="num">62</td><td class="cell-lg">欠费 83,220.00 元，账龄 90 天以上 12 户</td><td><a class="link" href="../rent/arrears.html">下钻</a></td></tr>
+      <tr><td><b>年审未完成</b></td><td><span class="badge yellow">黄 · 提示</span></td><td class="num">148</td><td class="cell-lg">2026 年度第 3 批年审在办，尚在批次期限内</td><td><a class="link" href="review-exit.html">下钻</a></td></tr>
+      <tr><td><b>接口失败率偏高</b></td><td><span class="badge yellow">黄 · 提示</span></td><td class="num">2</td><td class="cell-lg">学信网 12.4%、税务企业纳税 8.6%，已转人工兜底</td><td><a class="link" href="api-health.html">下钻</a></td></tr>
+      <tr><td><b>工单超时未处理</b></td><td><span class="badge yellow">黄 · 提示</span></td><td class="num">9</td><td class="cell-lg">已自动升级至运营机构负责人督办</td><td><a class="link" href="../ops/wo-stat.html">下钻</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+      <p class="hint" style="margin-top:10px">
+        <i class="fa-solid fa-circle-info"></i>
+        四色预警固定四档：蓝 · 正常、黄 · 提示、橙 · 预警、红 · 严重。所有告警项均可一键下钻至明细清单直至单个申请件或房源档案。
+      </p>
+  </div>
+  <div class="sp-src">
+    <span><b>数据来源</b> 本系统业务库 + 外部接口回传，每日 02:00 同步</span>
+    <span><b>指标下钻</b> 任一指标可从汇总数逐级下钻至明细清单，做到数出有据</span>
+    <span><b>口径来源</b> 功能清单 S1 领导驾驶舱</span>
+  </div>
+</main>
+
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

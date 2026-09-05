@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 智能识别与检索 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/mobile.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body class="m-body" data-mtitle="AI 智能识别" data-mmod="M3 政策宣传与资格自测" data-mcode="M3-04"
+      data-mdesc="接入电信 AI 能力平台。一是证照材料文字识别，拍照上传后自动提取关键字段并回填表单，识别结果与填报内容不一致时高亮提示；二是语义理解与检索。" data-mback="policy-list.html" data-mtabset="public" data-mtab="home">
+<div class="m-stage">
+  <div class="m-phone">
+    <div class="m-screen">
+      <div class="m-view">
+        <div class="m-note"><i class="fa-solid fa-circle-info"></i>
+          <div>本页演示<b>证照材料文字识别</b>能力。资格申请的材料识别（M5-03）与自然语言检索均调用本能力实现。</div>
+        </div>
+        <div class="m-sect">支持识别的证照类型</div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-wand-magic-sparkles"></i>8 类证照</div>
+          <div class="m-card-b">
+            <div class="m-grid">
+              <a href="ai-ocr.html"><span class="m-gi"><i class="fa-solid fa-id-card"></i></span>身份证</a>
+              <a href="ai-ocr.html"><span class="m-gi green"><i class="fa-solid fa-graduation-cap"></i></span>毕业证</a>
+              <a href="ai-ocr.html"><span class="m-gi cyan"><i class="fa-solid fa-certificate"></i></span>学历认证书</a>
+              <a href="ai-ocr.html"><span class="m-gi orange"><i class="fa-solid fa-file-contract"></i></span>劳动合同</a>
+              <a href="ai-ocr.html"><span class="m-gi purple"><i class="fa-solid fa-store"></i></span>营业执照</a>
+              <a href="ai-ocr.html"><span class="m-gi"><i class="fa-solid fa-ring"></i></span>结婚证</a>
+              <a href="ai-ocr.html"><span class="m-gi green"><i class="fa-solid fa-shield-halved"></i></span>社保证明</a>
+              <a href="ai-ocr.html"><span class="m-gi cyan"><i class="fa-solid fa-house"></i></span>不动产权证</a>
+            </div>
+          </div>
+        </div>
+        <div class="m-sect">识别示例<span class="m-sect-x">劳动合同</span></div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-cloud-arrow-up"></i>上传影像</div>
+          <div class="m-card-b">
+            <div class="m-up">
+              <div class="m-uc ok"><img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&q=80" alt="劳动合同第1页"><span class="m-uc-n">劳动合同-第1页.jpg</span></div>
+              <div class="m-uc ok"><img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80" alt="劳动合同第2页"><span class="m-uc-n">劳动合同-第2页.jpg</span></div>
+              <div class="m-uadd" data-toast="原型演示：调起相机或从相册选择"><i class="fa-solid fa-camera"></i><span>拍照识别</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-list-check"></i>关键字段提取结果</div>
+          <div class="m-card-b">
+          <div class="m-kv">
+            <div><span>用工单位</span><span>中车株洲电力机车研究所有限公司 <span class="m-tag green">已回填</span></span></div>
+            <div><span>合同签订日期</span><span>2025-07-15 <span class="m-tag green">已回填</span></span></div>
+            <div><span>合同期限</span><span>2025-07-15 至 2028-07-14 <span class="m-tag green">已回填</span></span></div>
+            <div><span>工作地点</span><span>株洲市天元区时代路 <span class="m-tag green">已回填</span></span></div>
+            <div><span>岗位</span><span>电气工程师 <span class="m-tag green">已回填</span></span></div>
+            <div><span>月工资</span><span>8,500 元 <span class="m-tag orange">与填报不一致</span></span></div>
+          </div>
+            <div class="m-note warn" style="margin-top:10px"><i class="fa-solid fa-triangle-exclamation"></i>
+              <div>识别结果与填报内容不一致时<b>高亮提示</b>，由申请人核对后修改或说明差异原因。</div>
+            </div>
+          </div>
+        </div>
+        <div class="m-sect">语义理解与检索</div>
+        <div class="m-cells">
+          <a class="m-cell" href="ai-search.html"><span class="m-ci cyan"><i class="fa-solid fa-magnifying-glass"></i></span><span class="m-cl"><b>自然语言检索</b><span class="m-cs">“天元区两室一厅还有房吗”→ 返回匹配房源列表</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+        </div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-plug"></i>能力来源</div>
+          <div class="m-card-b">
+          <div class="m-kv">
+            <div><span>能力提供方</span><span>电信 AI 能力平台</span></div>
+            <div><span>对接方式</span><span>接口</span></div>
+            <div><span>能力范围</span><span>文字识别、语义理解与检索</span></div>
+            <div><span>检索范围</span><span>政策文件、房源信息、办事指南</span></div>
+            <div><span>配合单位</span><span>中国电信</span></div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../../assets/js/mobile.js"></script>
+</body>
+</html>

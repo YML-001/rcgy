@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>消息模板管理 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="admin" data-active="system-10">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 权限与系统管理
+      <span class="sep">/</span> 基础配置与运维
+      <span class="sep">/</span> <span class="cur">消息模板管理</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.openDrawer('mbDrawer')"><i class="fa-solid fa-plus"></i> 新增模板</button>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>配置<b>短信、微信模板消息、站内消息</b>的模板内容、<b>变量与触发条件</b>。关键节点提醒模板不允许停用，以免错过硬性时限。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-comment-dots"></i></div>
+      <div><div class="s-label">消息模板</div><div class="s-value">32</div>
+        <div class="s-trend text-2">三通道</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-paper-plane"></i></div>
+      <div><div class="s-label">本月发送</div><div class="s-value">186,420</div>
+        <div class="s-trend text-2">条</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-percent"></i></div>
+      <div><div class="s-label">送达成功率</div><div class="s-value">99.6%</div>
+        <div class="s-trend text-2">三通道合计</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon red"><i class="fa-solid fa-lock"></i></div>
+      <div><div class="s-label">不可停用模板</div><div class="s-value">12</div>
+        <div class="s-trend ">关键节点提醒</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>模板编号</label><input type="text" placeholder="模板编号"></div>
+      <div class="filter-item"><label>模板名称</label><input type="text" placeholder="模板名称"></div>
+      <div class="filter-item"><label>发送通道</label><select><option value="">全部</option><option>站内消息</option><option>微信模板消息</option><option>短信</option><option>三通道</option></select></div>
+      <div class="filter-item"><label>优先级</label><select><option value="">全部</option><option>紧急</option><option>重要</option><option>一般</option></select></div>
+      <div class="filter-item"><label>模板状态</label><select><option value="">全部</option><option>在用</option><option>已停用</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>模板编号</th><th class="cell-lg">模板名称</th><th>发送通道</th><th>优先级</th><th class="cell-lg">触发条件</th><th>本月发送</th><th>送达率</th><th>可否停用</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr class="row-bad"><td>MB-01</td><td>资格审核结论送达</td><td>三通道</td><td><span class="badge orange">重要</span></td><td>审核结论出具后即时触发</td><td class="num">1,286</td><td><span class="badge green">99.7%</span></td><td><span class="badge red">不可停用</span></td><td><span class="link" onclick="PMS.openDrawer('mbDrawer')">编辑</span></td></tr>
+          <tr class="row-bad"><td>MB-04</td><td>选房时段提醒</td><td>三通道</td><td><span class="badge red">紧急</span></td><td>选房时段开始前 1 天 + 1 小时</td><td class="num">486</td><td><span class="badge green">99.8%</span></td><td><span class="badge red">不可停用</span></td><td><span class="link" onclick="PMS.openDrawer('mbDrawer')">编辑</span></td></tr>
+          <tr class="row-bad"><td>MB-06</td><td>锁房确认倒计时提醒</td><td>三通道</td><td><span class="badge red">紧急</span></td><td>房源锁定后 20 分钟（确认时限 30 分钟）</td><td class="num">274</td><td><span class="badge green">99.6%</span></td><td><span class="badge red">不可停用</span></td><td><span class="link" onclick="PMS.openDrawer('mbDrawer')">编辑</span></td></tr>
+          <tr class="row-bad"><td>MB-09</td><td>缴费到期与逾期催缴</td><td>三通道</td><td><span class="badge red">紧急</span></td><td>账单生成 / 到期前 5 天 / 到期前 1 天 / 逾期 1 天 / 逾期 15 天 / 逾期 90 天（六级）</td><td class="num">8,462</td><td><span class="badge green">99.5%</span></td><td><span class="badge red">不可停用</span></td><td><span class="link" onclick="PMS.openDrawer('mbDrawer')">编辑</span></td></tr>
+          <tr><td>MB-16</td><td>政策变更提醒</td><td>站内 + 微信</td><td><span class="badge blue">一般</span></td><td>政策文件或口径调整发布后触发</td><td class="num">6,420</td><td><span class="badge green">96.8%</span></td><td><span class="badge green">可停用</span></td><td><span class="link" onclick="PMS.openDrawer('mbDrawer')">编辑</span></td></tr>
+          <tr><td>MB-22</td><td>满意度调查邀请</td><td>站内消息</td><td><span class="badge blue">一般</span></td><td>每季度末向在租承租人发送</td><td class="num">1,286</td><td><span class="badge green">100%</span></td><td><span class="badge green">可停用</span></td><td><span class="link" onclick="PMS.openDrawer('mbDrawer')">编辑</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>三通道</b> 湘易办站内消息（必达）+ 微信模板消息（需关注公众号）+ 短信</span>
+    <span><b>优先级</b> 紧急三通道同时 / 重要站内 + 微信 / 一般仅站内</span>
+    <span><b>硬约束</b> 关键节点提醒模板不允许停用，以免错过硬性时限导致资格失效</span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="mbDrawer">
+  <div class="drawer-head">
+    <h3>消息模板配置</h3>
+    <span class="badge red">不可停用</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+  <div class="alert alert-danger">
+    <i class="fa-solid fa-circle-exclamation"></i>
+    <div>本模板属<b>关键节点提醒</b>，<b>不允许停用</b>。模板变量须与业务字段对应，变量缺失将导致消息发送失败。</div>
+  </div>
+
+      <div class="form-grid form-align">
+        <div class="form-item">
+          <label>模板编号 <span class="req">*</span></label>
+          <input type="text" value="MB-09" readonly>
+        </div>
+        <div class="form-item">
+          <label>模板名称 <span class="req">*</span></label>
+          <input type="text" value="缴费到期与逾期催缴">
+        </div>
+        <div class="form-item">
+          <label>发送通道 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>三通道（站内 + 微信 + 短信）</option><option>站内 + 微信</option><option>仅站内</option></select>
+        </div>
+        <div class="form-item">
+          <label>优先级 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>紧急</option><option>重要</option><option>一般</option></select>
+        </div>
+        <div class="form-item col-full">
+          <label>触发条件 <span class="req">*</span></label>
+          <textarea rows="4">六级分档触发：
+①账单生成当日（友好提醒）②到期前 5 日 ③到期前 1 日（三通道同时）
+④逾期 1 日（首次催缴，提示影响年审与续租）⑤逾期 15 日（同步告知用人单位与运营机构）
+⑥逾期 90 日（纳入重点催收，提示可能启动退出）</textarea>
+        </div>
+        <div class="form-item col-full">
+          <label>模板变量 <span class="req">*</span></label>
+          <input type="text" value="{承租人姓名} {房源} {合同编号} {账单周期} {应缴总额} {财政补助} {个人应缴} {缴费截止日} {欠费月数} {欠费金额}" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>短信模板内容 <span class="req">*</span></label>
+          <textarea rows="4">【株洲人才安居】{承租人姓名}您好：您承租的{房源}（合同号{合同编号}）{账单周期}租金账单个人应缴{个人应缴}元，请于{缴费截止日}前通过湘易办完成缴纳。欠费将影响年度资格审查与续租审核。</textarea>
+        </div>
+        <div class="form-item col-full">
+          <label>免打扰限制 <span class="req">*</span></label>
+          <input type="text" value="紧急类不受夜间免打扰限制" readonly>
+        </div>
+        <div class="form-item">
+          <label>模板状态 <span class="req">*</span></label>
+          <input type="text" value="在用（不可停用）" readonly>
+        </div>
+      </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认保存缴费催缴消息模板？本模板不允许停用。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已保存，模板即时生效','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 32; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>跨部门协同看板 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="reviewer" data-active="wb-03">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 待办与协同
+      <span class="sep">/</span> <span class="cur">跨部门协同看板</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.confirm({title:'协调确认',message:'确认就学信网与税务接口问题发起部门协调？',detail:'系统将生成接口问题清单（含成功率、失败时段、影响件数）并推送至市数据局与相关部门。',type:'info',okText:'确认发起',onOk:function(){PMS.toast('已发起协调，问题清单已推送至市数据局','success');}})"><i class="fa-solid fa-handshake"></i> 发起部门协调</button>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-danger">
+    <i class="fa-solid fa-circle-exclamation"></i>
+    <div>展示<b>人社、自然资源、住建、税务、市场监管</b>等部门在联审环节的<b>在办件与平均耗时</b>，<b>暴露流程堵点</b>。耗时最长与失败率最高的环节需重点协调。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-diagram-project"></i></div>
+      <div><div class="s-label">联审环节</div><div class="s-value">8</div>
+        <div class="s-trend text-2">并行调用</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-bolt"></i></div>
+      <div><div class="s-label">平均总耗时</div><div class="s-value">42 秒</div>
+        <div class="s-trend text-2">8 项并行</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon red"><i class="fa-solid fa-triangle-exclamation"></i></div>
+      <div><div class="s-label">堵点环节</div><div class="s-value">2</div>
+        <div class="s-trend ">学信网 / 税务企业纳税</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-percent"></i></div>
+      <div><div class="s-label">自动核验替代人工</div><div class="s-value">89.4%</div>
+        <div class="s-trend text-2">人工只处理例外件</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>配合部门</label><select><option value="">全部</option><option>市民政局</option><option>市自然资源和规划局</option><option>市教育局（学信网）</option><option>市市场监督管理局</option><option>市税务局</option><option>市人社局</option><option>市公安局</option><option>市住保中心（公租房）</option></select></div>
+      <div class="filter-item"><label>核验项</label><select data-dict="verifyItem" data-ph="全部"></select></div>
+      <div class="filter-item"><label>统计期间</label><input type="month"></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>核验环节</th><th class="cell-lg">配合部门</th><th>在办件</th><th>本月调用量</th><th>平均耗时</th><th>成功率</th><th>命中不符率</th><th>转人工件</th><th class="cell-lg">堵点判定</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr class="row-bad"><td><span class="badge blue">学历学位</span></td><td>市教育局 / 学信网</td><td class="num">12</td><td class="num">1,286</td><td>2.8 天</td><td><span class="badge red">87.6%</span></td><td><span class="badge orange">6.7%</span></td><td class="num">58</td><td><b>接口成功率最低（87.6%）</b>，失败件转人工兜底，为主要流程堵点</td><td><span class="link" onclick="location.href='../apply/verify-edu.html'">核验明细</span></td></tr>
+          <tr class="row-bad"><td><span class="badge blue">企业纳税</span></td><td>市税务局</td><td class="num">8</td><td class="num">286</td><td>2.4 天</td><td><span class="badge orange">91.4%</span></td><td><span class="badge red">16.1%</span></td><td class="num">46</td><td><b>命中不符率最高（16.1%）</b>且「正常纳税」判定口径待明确，人工核实耗时长</td><td><span class="link" onclick="location.href='../apply/verify-tax-corp.html'">核验明细</span></td></tr>
+          <tr class="row-warn"><td><span class="badge blue">个人所得税</span></td><td>市税务局</td><td class="num">6</td><td class="num">1,000</td><td>1.6 天</td><td><span class="badge orange">91.4%</span></td><td><span class="badge orange">9.6%</span></td><td class="num">96</td><td>挂靠社保嫌疑件需人工核实实际从业，平均增加 1.6 天</td><td><span class="link" onclick="location.href='../apply/verify-tax-personal.html'">核验明细</span></td></tr>
+          <tr><td><span class="badge blue">不动产登记</span></td><td>市自然资源和规划局</td><td class="num">2</td><td class="num">1,842</td><td>T+0（8 秒）</td><td><span class="badge green">99.3%</span></td><td><span class="badge orange">5.8%</span></td><td class="num">12</td><td>接口稳定，命中不符的多为一票否决可直接出结论，不构成堵点</td><td><span class="link" onclick="location.href='../apply/verify-realty.html'">核验明细</span></td></tr>
+          <tr><td><span class="badge blue">婚姻登记</span></td><td>市民政局</td><td class="num">0</td><td class="num">1,286</td><td>T+0（4 秒）</td><td><span class="badge green">99.5%</span></td><td><span class="badge green">0.9%</span></td><td class="num">6</td><td>接口稳定，无堵点</td><td><span class="link" onclick="location.href='../apply/verify-marriage.html'">核验明细</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>看板用途</b> 暴露流程堵点，为部门协调与接口优化提供依据</span>
+    <span><b>堵点判定</b> 成功率 < 95% 或命中不符率 > 15% 或平均耗时 > 2 天</span>
+    <span><b>下钻</b> <span class="link" onclick="location.href='../stat/verify-hit.html'">数据核验命中分析</span></span>
+  </div>
+</main>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 8; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

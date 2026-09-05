@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>房源档案 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="housing" data-active="house-14">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 房源筹集与楼盘表
+      <span class="sep">/</span> 房源档案与房态
+      <span class="sep">/</span> <span class="cur">房源档案</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>维护建筑面积、套内面积、<b>分摊面积</b>、户型、朝向、装修标准、家电家具配置清单、产权信息、租金标准。<b>大户型按分摊面积计算租赁面积</b>（管理办法第六条），档案面积是租金计费与减免核算的取值来源。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-house-chimney"></i></div>
+      <div><div class="s-label">房源档案</div><div class="s-value">2,486</div>
+        <div class="s-trend text-2">一房一档</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-couch"></i></div>
+      <div><div class="s-label">家电家具齐全</div><div class="s-value">2,444</div>
+        <div class="s-trend text-2">达拎包入住标准</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon red"><i class="fa-solid fa-circle-xmark"></i></div>
+      <div><div class="s-label">配置缺项</div><div class="s-value">42</div>
+        <div class="s-trend ">不得投放配租</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-ruler-combined"></i></div>
+      <div><div class="s-label">平均建筑面积</div><div class="s-value">56.80 ㎡</div>
+        <div class="s-trend text-2">单间至三室</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>房源编号</label><input type="text" placeholder="房源编号"></div>
+      <div class="filter-item"><label>项目 / 房号</label><input type="text" placeholder="项目名称或房号"></div>
+      <div class="filter-item"><label>户型</label><select data-dict="roomType" data-ph="全部"></select></div>
+      <div class="filter-item"><label>装修标准</label><select><option value="">全部</option><option>精装 · 拎包入住</option><option>简装</option><option>毛坯</option></select></div>
+      <div class="filter-item"><label>房态</label><select data-dict="houseStatus" data-ph="全部"></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>房源编号</th><th class="cell-lg">项目 / 房号</th><th>户型</th><th class="num">建筑面积</th><th class="num">套内面积</th><th class="num">分摊面积</th><th>装修标准</th><th>家电家具</th><th class="num">租金标准</th><th>房态</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>FY-TY-XJ-A6-1502</td><td>湘江1958 / A6 栋 1502</td><td>一室一厅</td><td class="num">52.60</td><td class="num">41.80</td><td class="num">10.80</td><td><span class="badge green">精装</span></td><td><span class="badge green">28 项齐全</span></td><td class="num">18.00</td><td><span class="sp-st done">在租</span></td><td><span class="link" onclick="location.href='house-archive-detail.html?id=FY-TY-XJ-A6-1502'">档案</span></td></tr>
+          <tr><td>FY-TY-XJ-A6-1802</td><td>湘江1958 / A6 栋 1802</td><td>二室一厅</td><td class="num">78.60</td><td class="num">62.40</td><td class="num">16.20</td><td><span class="badge green">精装</span></td><td><span class="badge green">28 项齐全</span></td><td class="num">18.00</td><td><span class="sp-st doing">可配租</span></td><td><span class="link" onclick="location.href='house-archive-detail.html?id=FY-TY-XJ-A6-1802'">档案</span></td></tr>
+          <tr class="row-bad"><td>FY-LS-DJD-03-1102</td><td>董家塅安居苑 / 3 栋 1102</td><td>二室一厅</td><td class="num">72.00</td><td class="num">57.60</td><td class="num">14.40</td><td><span class="badge green">精装</span></td><td><span class="badge red">缺 2 项</span></td><td class="num">16.00</td><td><span class="sp-st wait">待验收</span></td><td><span class="link" onclick="location.href='house-archive-detail.html?id=FY-LS-DJD-03-1102'">档案</span> <span class="link" onclick="location.href='acceptance-list.html'">去验收</span></td></tr>
+          <tr class="row-warn"><td>FY-SF-QST-01-0708</td><td>清水塘新苑 / 1 栋 0708</td><td>一室一厅</td><td class="num">50.00</td><td class="num">40.00</td><td class="num">10.00</td><td><span class="badge green">精装</span></td><td><span class="badge green">28 项齐全</span></td><td class="num">14.00</td><td><span class="sp-st bad">维修中</span></td><td><span class="link" onclick="location.href='house-archive-detail.html?id=FY-SF-QST-01-0708'">档案</span></td></tr>
+          <tr><td>FY-JK-YL-02-0708</td><td>云龙人才苑 / 2 栋 0708</td><td>单间配套</td><td class="num">38.00</td><td class="num">30.40</td><td class="num">7.60</td><td><span class="badge green">精装</span></td><td><span class="badge green">22 项齐全</span></td><td class="num">16.00</td><td><span class="sp-st doing">可配租</span></td><td><span class="link" onclick="location.href='house-archive-detail.html?id=FY-JK-YL-02-0708'">档案</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>计费依据</b> 档案面积作为租金计费与减免核算取值来源</span>
+    <span><b>分摊口径</b> 大户型按分摊面积计算租赁面积（管理办法第六条）</span>
+    <span><b>验收关联</b> <span class="link" onclick="location.href='acceptance-list.html'">拎包入住验收</span></span>
+  </div>
+</main>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 2486; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

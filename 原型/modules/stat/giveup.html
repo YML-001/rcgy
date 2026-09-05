@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>放弃配租分析 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="leader" data-active="stat-17">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 统计分析
+      <span class="sep">/</span> 人才与配租分析
+      <span class="sep">/</span> <span class="cur">放弃配租分析</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>统计<b>放弃配租的人数、原因分布与占比</b>，为房源投放与政策宣传优化提供依据。放弃后不得再次申请，需重点关注归因。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-ban"></i></div>
+      <div><div class="s-label">累计放弃</div><div class="s-value">18</div>
+        <div class="s-trend text-2">2026 年度</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-percent"></i></div>
+      <div><div class="s-label">放弃率</div><div class="s-value">5.6%</div>
+        <div class="s-trend text-2">占已选房人数</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon red"><i class="fa-solid fa-user-slash"></i></div>
+      <div><div class="s-label">已写入放弃标记</div><div class="s-value">15</div>
+        <div class="s-trend ">不得再次申请</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-rotate-left"></i></div>
+      <div><div class="s-label">纠错回滚</div><div class="s-value">1</div>
+        <div class="s-trend text-2">系统展示信息有误</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <h3><i class="fa-solid fa-ban"></i> 放弃归因</h3>
+      <span class="sub">S3-07 · 累计 18 人</span>
+    </div>
+    <div class="card-body">
+      <div class="section-title" data-icon="fa-chart-pie">放弃情形分布</div>
+      <div class="flex items-center gap-16">
+        <div class="donut" style="background:conic-gradient(var(--primary) 0% 44.4%, var(--warning) 44.4% 72.2%, var(--danger) 72.2% 100%)">
+          <div class="donut-hole"><b>18</b><span class="text-sm">放弃人数</span></div>
+        </div>
+        <div class="legend" style="flex:1">
+          <div class="lg-item"><span class="lg-color" style="background:var(--primary)"></span> 选房后主动放弃　8 人　44.4%</div>
+          <div class="lg-item"><span class="lg-color" style="background:var(--warning)"></span> 逾期未签约　5 人　27.8%</div>
+          <div class="lg-item"><span class="lg-color" style="background:var(--danger)"></span> 签约后不办理入住　5 人　27.8%</div>
+        </div>
+      </div>
+      <div class="section-title" data-icon="fa-chart-simple">放弃原因分布</div>
+      <div class="dc-bars">
+        <div class="b-item warn"><span class="b-label">房源位置与预期不符　7 人</span><span class="b-track"><span class="b-fill" style="width:38.9%"></span></span><span class="b-val">38.9%（主因）</span></div>
+        <div class="b-item warn"><span class="b-label">个人自付租金超预期　4 人</span><span class="b-track"><span class="b-fill" style="width:22.2%"></span></span><span class="b-val">22.2%</span></div>
+        <div class="b-item"><span class="b-label">已自行租房或购房　3 人</span><span class="b-track"><span class="b-fill" style="width:16.7%"></span></span><span class="b-val">16.7%</span></div>
+        <div class="b-item"><span class="b-label">工作变动离株　2 人</span><span class="b-track"><span class="b-fill" style="width:11.1%"></span></span><span class="b-val">11.1%</span></div>
+        <div class="b-item"><span class="b-label">其他个人原因　2 人</span><span class="b-track"><span class="b-fill" style="width:11.1%"></span></span><span class="b-val">11.1%</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="card list-card">
+    <div class="card-head">
+      <h3><i class="fa-solid fa-table-list"></i> 明细下钻</h3>
+      <span class="sub">可逐级下钻至明细清单</span>
+    </div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>放弃原因</th><th>人数</th><th>占比</th><th>涉及批次</th><th>涉及楼盘</th><th class="cell-lg">归因与改进建议</th><th>处置状态</th><th>下钻</th></tr>
+        </thead>
+        <tbody>
+          <tr class="row-bad"><td>房源位置与预期不符</td><td class="num">7</td><td><span class="badge red">38.9%</span></td><td>第 1—3 批</td><td>清水塘新苑 4、董家塅 2、云龙 1</td><td><b>主因</b>：申请人选房前对房源位置与周边配套了解不足。建议①补齐 VR 与周边配套素材 ②选房前推送房源详情与通勤距离提示</td><td><span class="badge red">已写入标记</span></td><td><span class="link" onclick="location.href='../house/house-display.html'">房源展示配置</span></td></tr>
+          <tr class="row-bad"><td>个人自付租金超预期</td><td class="num">4</td><td><span class="badge orange">22.2%</span></td><td>第 2—3 批</td><td>湘江1958 2、栗雨佳苑 2</td><td>申请人对减免后自付金额估算不足。建议在房源详情页<b>突出显示个人自付金额</b>并加注「另需自付物业水电燃气费」</td><td><span class="badge red">已写入标记</span></td><td><span class="link" onclick="location.href='../rule/house-open.html'">房源信息公开</span></td></tr>
+          <tr><td>已自行租房或购房</td><td class="num">3</td><td><span class="badge green">16.7%</span></td><td>第 1—2 批</td><td>茨菇塘 2、栗雨佳苑 1</td><td>轮候期间已自行解决居住问题。属正常情形，建议轮候期间定期确认意愿</td><td><span class="badge red">已写入标记</span></td><td><span class="link" onclick="location.href='../alloc/queue-list.html'">轮候库管理</span></td></tr>
+          <tr><td>工作变动离株</td><td class="num">2</td><td><span class="badge green">11.1%</span></td><td>第 2 批</td><td>湘江1958 1、董家塅 1</td><td>属正常人才流动，不可避免</td><td><span class="badge red">已写入标记</span></td><td><span class="link" onclick="location.href='../alloc/giveup-list.html'">放弃与资格处置</span></td></tr>
+          <tr class="row-warn"><td>系统展示信息有误（已纠错）</td><td class="num">1</td><td><span class="badge orange">5.6%</span></td><td>第 2 批</td><td>清水塘新苑 1</td><td>系统展示面积 52.00 ㎡ 实际 50.00 ㎡，申请人据此选房后要求纠错。已回滚放弃标记并恢复轮候资格，房源面积已按对账结果更正</td><td><span class="badge green">已纠错回滚</span></td><td><span class="link" onclick="location.href='../alloc/exception.html'">配租异常处理</span></td></tr>
+          <tr><td><span class="badge green">合计</span></td><td class="num">18</td><td><span class="badge green">100%</span></td><td>第 1—3 批</td><td><span class="muted">—</span></td><td>放弃率 5.6%（占已选房 320 人）。<b>主因是房源信息透明度不足</b>，通过完善展示素材与自付金额提示可有效降低</td><td><span class="muted">—</span></td><td><span class="link" onclick="location.href='funnel.html'">申请漏斗分析</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>政策依据</b> 管理办法第九条：不服从配租房源且不办理入住的视同放弃，放弃资格的不得再次申请</span>
+    <span><b>放弃率口径</b> 放弃人数 ÷ 已完成选房人数</span>
+    <span><b>改进方向</b> 完善房源展示素材、突出个人自付金额、选房前推送房源详情</span>
+  </div>
+</main>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 6; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

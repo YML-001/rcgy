@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>选房时段编排 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="allocator" data-active="alloc-03">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 配租选房与合同
+      <span class="sep">/</span> 配租管理
+      <span class="sep">/</span> <span class="cur">选房时段编排</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.confirm({title:'编排确认',message:'确认按当前顺序名单重新编排选房时段？',detail:'重新编排将覆盖未开始的时段安排，已开始与已结束的时段不受影响。编排结果将推送至各申请人。',type:'warning',okText:'确认编排',onOk:function(){PMS.toast('已重新编排，通知已推送至各申请人','success');}})"><i class="fa-solid fa-calendar-days"></i> 重新编排时段</button>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>按配租顺序<b>编排选房时段并分时放号</b>，控制并发锁房与超时释放，<b>防止房源被重复选中</b>。锁房设 30 分钟确认倒计时，超时未确认自动释放给下一顺序人。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-clock"></i></div>
+      <div><div class="s-label">时段数</div><div class="s-value">64</div>
+        <div class="s-trend text-2">5 天 × 每天 12—13 段</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-users"></i></div>
+      <div><div class="s-label">每段放号</div><div class="s-value">5 人</div>
+        <div class="s-trend text-2">控制并发锁房</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-lock"></i></div>
+      <div><div class="s-label">当前锁定</div><div class="s-value">68</div>
+        <div class="s-trend ">含 5 套即将超时</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-rotate"></i></div>
+      <div><div class="s-label">超时释放</div><div class="s-value">12</div>
+        <div class="s-trend text-2">已释放给下一顺序人</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>时段日期</label><input type="date"></div>
+      <div class="filter-item"><label>时段</label><input type="text" placeholder="如 09:00—09:30"></div>
+      <div class="filter-item"><label>顺序号区间</label><input type="text" placeholder="如 1-5"></div>
+      <div class="filter-item"><label>时段状态</label><select><option value="">全部</option><option>未开始</option><option>进行中</option><option>已结束</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>时段编号</th><th>日期</th><th>时段</th><th>顺序号区间</th><th class="num">放号人数</th><th class="num">已选房</th><th class="num">锁定中</th><th class="num">超时释放</th><th>时段状态</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>SF2026-03-001</td><td>2026-09-15</td><td>09:00—09:30</td><td>1—5</td><td class="num">5</td><td class="num">5</td><td class="num">0</td><td class="num">0</td><td><span class="badge green">已结束</span></td><td><span class="link" onclick="PMS.toast('5 人全部完成选房并确认，无超时释放')">时段明细</span></td></tr>
+          <tr><td>SF2026-03-002</td><td>2026-09-15</td><td>09:30—10:00</td><td>6—10</td><td class="num">5</td><td class="num">4</td><td class="num">1</td><td class="num">0</td><td><span class="badge green">已结束</span></td><td><span class="link" onclick="PMS.toast('4 人完成确认，1 人锁定中（顺序号 8 谭××）')">时段明细</span></td></tr>
+          <tr class="row-warn"><td>SF2026-03-003</td><td>2026-09-15</td><td>10:00—10:30</td><td>11—15</td><td class="num">5</td><td class="num">2</td><td class="num">2</td><td class="num">1</td><td><span class="badge orange">进行中</span></td><td><span class="link" onclick="PMS.openDrawer('slDrawer')">时段管理</span></td></tr>
+          <tr><td>SF2026-03-004</td><td>2026-09-15</td><td>10:30—11:00</td><td>16—20</td><td class="num">5</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td><span class="badge gray">未开始</span></td><td><span class="link" onclick="PMS.openDrawer('slDrawer')">时段管理</span></td></tr>
+          <tr><td>SF2026-03-064</td><td>2026-09-19</td><td>16:30—17:00</td><td>316—320</td><td class="num">5</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td><span class="badge gray">未开始</span></td><td><span class="link" onclick="PMS.openDrawer('slDrawer')">时段管理</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 当前锁定房源监控<span class="sub">即将超时 5 套</span></div>
+          <div class="sp-b">
+  <div class="sp-tw">
+    <table class="data-table compact">
+      <thead><tr><th>房源</th><th class="num">顺序号</th><th>申请人</th><th>锁定时间</th><th>剩余确认时限</th><th>处置</th></tr></thead>
+      <tbody>
+      <tr class="row-warn"><td>湘江1958 A6-1502</td><td class="num">12</td><td>王梓涵</td><td>2026-09-15 10:04</td><td><div class="sp-days d60"><span class="dv">26 分</span><span class="db"><span style="width:86%"></span></span></div></td><td><span class="link" onclick="PMS.toast('已向申请人推送确认提醒（湘易办 + 短信）')">催办</span></td></tr>
+      <tr class="row-warn"><td>栗雨佳苑 3-1104</td><td class="num">13</td><td>邓××</td><td>2026-09-15 10:06</td><td><div class="sp-days d60"><span class="dv">28 分</span><span class="db"><span style="width:93%"></span></span></div></td><td><span class="link" onclick="PMS.toast('已向申请人推送确认提醒')">催办</span></td></tr>
+      <tr class="row-bad"><td>茨菇塘公寓 5-0602</td><td class="num">11</td><td>周××</td><td>2026-09-15 09:58</td><td><div class="sp-days dx"><span class="dv">超时</span><span class="db"><span style="width:100%"></span></span></div></td><td><span class="link" onclick="PMS.toast('已自动释放该房源给下一顺序人，并推送告知')">释放</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+          </div>
+        </div>
+  <div class="sp-src">
+    <span><b>并发控制</b> 每时段放号 5 人，防止房源被重复选中</span>
+    <span><b>超时规则</b> 锁房 30 分钟未确认自动释放给下一顺序人</span>
+    <span><b>移动端落点</b> <span class="link" onclick="location.href='../../mobile/public/alloc-select.html'">分时段线上选房</span></span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="slDrawer">
+  <div class="drawer-head">
+    <h3>选房时段管理</h3>
+    <span class="badge orange">进行中</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>调整时段将<b>推送通知</b>至该时段全部申请人。已开始的时段不建议调整，以免影响选房秩序。</div>
+  </div>
+
+      <div class="form-grid form-align">
+        <div class="form-item">
+          <label>时段编号 <span class="req">*</span></label>
+          <input type="text" value="SF2026-03-003" readonly>
+        </div>
+        <div class="form-item">
+          <label>日期 <span class="req">*</span></label>
+          <input type="date">
+        </div>
+        <div class="form-item">
+          <label>开始时间 <span class="req">*</span></label>
+          <input type="text" value="10:00">
+        </div>
+        <div class="form-item">
+          <label>结束时间 <span class="req">*</span></label>
+          <input type="text" value="10:30">
+        </div>
+        <div class="form-item">
+          <label>顺序号区间 <span class="req">*</span></label>
+          <input type="text" value="11-15">
+        </div>
+        <div class="form-item">
+          <label>放号人数 <span class="req">*</span></label>
+          <input type="text" value="5">
+          <div class="hint">控制并发锁房数量</div>
+        </div>
+        <div class="form-item">
+          <label>锁房确认时限（分钟） <span class="req">*</span></label>
+          <input type="text" value="30">
+          <div class="hint">超时未确认自动释放</div>
+        </div>
+        <div class="form-item col-full">
+          <label>调整说明 <span class="req">*</span></label>
+          <textarea rows="3" placeholder="必填，说明调整原因。调整通知将推送至该时段全部申请人">因该时段有申请人临时提出无障碍选房协助需求，将结束时间延后 15 分钟至 10:45，放号人数与锁房确认时限不变，调整通知已推送至该时段全部申请人。</textarea>
+        </div>
+      </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认调整选房时段 SF2026-03-003？',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已保存，通知已推送至该时段申请人','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 64; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

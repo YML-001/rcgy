@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>角色权限分配 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+</head>
+<body data-role="admin" data-active="system-21">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 权限与系统管理
+      <span class="sep">/</span> 用户与权限
+      <span class="sep">/</span> <span class="cur">角色权限分配</span>
+    </div>
+    <div class="page-actions">
+      <a class="btn" href="sys-perm-log.html"><i class="fa-solid fa-table-columns"></i> 角色权限对照</a>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>为角色勾选可访问的<b>菜单、按钮与接口</b>权限并设定<b>数据权限范围</b>，支持<b>父子节点联动勾选与半选状态</b>展示；授权变更保存后<b>即时生效</b>，已登录用户在下次请求时按新权限校验。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-user-shield"></i></div>
+      <div><div class="s-label">待授权角色</div><div class="s-value">13</div>
+        <div class="s-trend text-2">PC 管理端</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
+      <div><div class="s-label">已完成授权</div><div class="s-value">13</div>
+        <div class="s-trend text-2">全部角色已配置</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-list-check"></i></div>
+      <div><div class="s-label">平均授权项</div><div class="s-value">96</div>
+        <div class="s-trend text-2">项/角色</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-clock-rotate-left"></i></div>
+      <div><div class="s-label">本月授权变更</div><div class="s-value">8</div>
+        <div class="s-trend text-2">次 · 全部留痕</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>角色编码</label><input type="text" placeholder="角色编码"></div>
+      <div class="filter-item"><label>角色名称</label><input type="text" placeholder="角色名称"></div>
+      <div class="filter-item"><label>数据范围</label><select><option value="">全部</option><option>全部</option><option>本机构</option><option>本机构及下级</option><option>仅本人</option><option>自定义</option></select></div>
+      <div class="filter-item"><label>授权状态</label><select><option value="">全部</option><option>已授权</option><option>待授权</option><option>待审批</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>角色编码</th><th class="cell-lg">角色名称</th><th>菜单权限</th><th>按钮权限</th><th>接口权限</th><th>数据范围</th><th>最近授权</th><th>状态</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr class="row-warn"><td>manager</td><td>业务管理员</td><td><span class="badge blue">86 / 132</span></td><td><span class="badge cyan">198 / 286</span></td><td><span class="badge gray">88 / 102</span></td><td><span class="badge blue">全部</span></td><td>2026-09-05　龙志宏</td><td><span class="badge orange">待审批</span></td><td><span class="link" onclick="location.href='sys-auth-approve.html'">查看审批单</span></td></tr>
+          <tr><td>reviewer</td><td>资格审核员</td><td><span class="badge blue">38 / 132</span></td><td><span class="badge cyan">62 / 286</span></td><td><span class="badge gray">42 / 102</span></td><td><span class="badge blue">本机构及下级</span></td><td>2026-08-26　李慧敏</td><td><span class="badge green">已授权</span></td><td><span class="link" onclick="PMS.openDrawer('raDrawer')">配置权限</span></td></tr>
+          <tr><td>window</td><td>窗口受理员</td><td><span class="badge blue">12 / 132</span></td><td><span class="badge cyan">16 / 286</span></td><td><span class="badge gray">14 / 102</span></td><td><span class="badge gray">仅本人（经办件）</span></td><td>2026-08-26　李慧敏</td><td><span class="badge green">已授权</span></td><td><span class="link" onclick="PMS.openDrawer('raDrawer')">配置权限</span></td></tr>
+          <tr><td>district</td><td>城区经办员</td><td><span class="badge blue">18 / 132</span></td><td><span class="badge cyan">26 / 286</span></td><td><span class="badge gray">20 / 102</span></td><td><span class="badge orange">本机构（本区）</span></td><td>2026-08-20　李慧敏</td><td><span class="badge green">已授权</span></td><td><span class="link" onclick="PMS.openDrawer('raDrawer')">配置权限</span></td></tr>
+          <tr><td>allocator</td><td>配租经办员</td><td><span class="badge blue">20 / 132</span></td><td><span class="badge cyan">42 / 286</span></td><td><span class="badge gray">26 / 102</span></td><td><span class="badge blue">全部</span></td><td>2026-08-20　李慧敏</td><td><span class="badge green">已授权</span></td><td><span class="link" onclick="PMS.openDrawer('raDrawer')">配置权限</span></td></tr>
+          <tr><td>keeper</td><td>租金核算员</td><td><span class="badge blue">22 / 132</span></td><td><span class="badge cyan">34 / 286</span></td><td><span class="badge gray">24 / 102</span></td><td><span class="badge blue">全部</span></td><td>2026-08-14　李慧敏</td><td><span class="badge green">已授权</span></td><td><span class="link" onclick="PMS.openDrawer('raDrawer')">配置权限</span></td></tr>
+          <tr><td>housing</td><td>房源管理员</td><td><span class="badge blue">26 / 132</span></td><td><span class="badge cyan">48 / 286</span></td><td><span class="badge gray">30 / 102</span></td><td><span class="badge blue">全部</span></td><td>2026-08-14　李慧敏</td><td><span class="badge green">已授权</span></td><td><span class="link" onclick="PMS.openDrawer('raDrawer')">配置权限</span></td></tr>
+          <tr><td>talent</td><td>人才政策经办</td><td><span class="badge blue">16 / 132</span></td><td><span class="badge cyan">18 / 286</span></td><td><span class="badge gray">18 / 102</span></td><td><span class="badge blue">全部</span></td><td>2026-08-06　李慧敏</td><td><span class="badge green">已授权</span></td><td><span class="link" onclick="PMS.openDrawer('raDrawer')">配置权限</span></td></tr>
+          <tr><td>finance</td><td>财政审核员</td><td><span class="badge blue">14 / 132</span></td><td><span class="badge cyan">22 / 286</span></td><td><span class="badge gray">16 / 102</span></td><td><span class="badge blue">全部</span></td><td>2026-08-06　龙志宏</td><td><span class="badge green">已授权</span></td><td><span class="link" onclick="PMS.openDrawer('raDrawer')">配置权限</span></td></tr>
+          <tr><td>agency</td><td>运营机构经办</td><td><span class="badge blue">10 / 132</span></td><td><span class="badge cyan">14 / 286</span></td><td><span class="badge gray">12 / 102</span></td><td><span class="badge green">自定义（受托房源）</span></td><td>2026-07-30　李慧敏</td><td><span class="badge green">已授权</span></td><td><span class="link" onclick="PMS.openDrawer('raDrawer')">配置权限</span></td></tr>
+          <tr><td>employer</td><td>单位经办人</td><td><span class="badge blue">6 / 132</span></td><td><span class="badge cyan">8 / 286</span></td><td><span class="badge gray">8 / 102</span></td><td><span class="badge green">自定义（本单位）</span></td><td>2026-07-30　李慧敏</td><td><span class="badge green">已授权</span></td><td><span class="link" onclick="PMS.openDrawer('raDrawer')">配置权限</span></td></tr>
+          <tr><td>leader</td><td>分管领导</td><td><span class="badge blue">34 / 132</span></td><td><span class="badge cyan">8 / 286</span></td><td><span class="badge gray">30 / 102</span></td><td><span class="badge blue">全部</span></td><td>2026-07-18　李慧敏</td><td><span class="badge green">已授权</span></td><td><span class="link" onclick="PMS.toast('分管领导为只读角色，仅授予查询类按钮权限，不授予任何办理与审核按钮')">只读角色</span></td></tr>
+          <tr class="row-bad"><td>admin</td><td>系统管理员</td><td><span class="badge blue">24 / 132</span></td><td><span class="badge cyan">52 / 286</span></td><td><span class="badge gray">28 / 102</span></td><td><span class="badge blue">全部</span></td><td>2026-07-18　龙志宏</td><td><span class="badge green">已授权</span></td><td><span class="link" onclick="PMS.toast('系统管理员仅授予「权限与系统管理」子系统的 24 个菜单，不授予任何业务办理与审核按钮权限（第 4 组岗位互斥）')">岗位互斥</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>联动勾选</b> 勾选父节点自动勾选全部子节点；部分勾选时父节点显示半选状态</span>
+    <span><b>生效时机</b> 保存后即时生效，已登录用户在下次请求时按新权限校验，无需重新登录</span>
+    <span><b>高敏角色</b> 市级管理员、资金审批等高敏感角色授权须经上级审批后方可生效</span>
+    <span><b>反查视图</b> <span class="link" onclick="location.href='sys-perm-log.html'">权限变更留痕与权限反查</span></span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="raDrawer">
+  <div class="drawer-head">
+    <h3>角色权限分配</h3>
+    <span class="badge blue">已授权</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>按<b>菜单 → 按钮 → 接口</b>三层勾选。<b>系统管理员不得拥有业务办理与审核权限</b>；业务角色不得自行修改本人权限范围。保存后<b>即时生效</b>。</div>
+  </div>
+
+      <div class="form-grid form-align">
+        <div class="form-item">
+          <label>角色编码 <span class="req">*</span></label>
+          <input type="text" value="reviewer" readonly>
+        </div>
+        <div class="form-item">
+          <label>角色名称 <span class="req">*</span></label>
+          <input type="text" value="资格审核员" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>菜单权限（38 / 132 已勾选） <span class="req">*</span></label>
+          <textarea rows="7">☑ 人才档案与资格联审（全选 18 项）
+☑ 租金收缴与年审退出 ▸ 半选 6 / 15（年审续租相关）
+☑ 房源筹集与楼盘表 ▸ 半选 3 / 20（房源档案、房态图、按套按间 · 只读）
+☑ 统计分析 ▸ 半选 5 / 27（申请漏斗、审核效能、核验命中、年审退出、人才画像）
+☑ 原型说明与口径（全选 6 项）
+☐ 配租与合同（0 / 13）
+☐ 权限与系统管理（0 / 24）</textarea>
+        </div>
+        <div class="form-item col-full">
+          <label>按钮权限（62 / 286 已勾选） <span class="req">*</span></label>
+          <textarea rows="6">☑ apply:audit:submit　出具审核结论
+☑ apply:audit:reject　退回补正
+☑ apply:verify:manual　人工兜底核验
+☑ rent:annual:check　年审人工核查与结论
+☑ apply:export:mask　导出台账（脱敏）
+☐ apply:cancel:exec　取消保障资格　（高敏 · 需业务管理员 + 双人授权）
+☐ alloc:batch:approve　配租批次审批　（需业务管理员）
+☐ rule:version:publish　规则版本发布　（需业务管理员）</textarea>
+        </div>
+        <div class="form-item col-full">
+          <label>接口权限 <span class="req">*</span></label>
+          <input type="text" value="42 / 102（随按钮自动勾选，不单独调整）" readonly>
+        </div>
+        <div class="form-item">
+          <label>数据权限范围 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>本机构及下级</option><option>全部</option><option>本机构</option><option>仅本人</option><option>自定义</option></select>
+        </div>
+        <div class="form-item">
+          <label>自定义范围维度</label>
+          <select><option value="">全部</option><option>不适用</option><option>按区县</option><option>按项目</option><option>按楼盘</option><option>按机构</option></select>
+        </div>
+        <div class="form-item col-full">
+          <label>生效方式 <span class="req">*</span></label>
+          <input type="text" value="保存后即时生效（下次请求校验）" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>授权说明 <span class="req">*</span></label>
+          <textarea rows="2" placeholder="必填，说明授权依据"></textarea>
+        </div>
+      </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认保存资格审核员角色权限？保存后即时生效，将影响该角色下 8 个账号。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已保存，该角色下 8 个账号权限即时生效','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 13; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

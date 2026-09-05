@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="assets/css/app.css">
+<link rel="stylesheet" href="assets/css/ext.css">
+<style>
+/* 系统入口启动页：整屏政务蓝，四端口入口，点击即登录 */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: var(--font);
+  color: var(--text-1);
+  background: linear-gradient(150deg, #12315f 0%, #1a4587 46%, #17386f 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 顶部品牌条 */
+.lz-top {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 34px;
+  color: #fff;
+}
+.lz-logo {
+  width: 40px; height: 40px; flex: 0 0 auto;
+  border-radius: 11px;
+  background: rgba(255, 255, 255, .16);
+  border: 1px solid rgba(255, 255, 255, .28);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 19px;
+}
+.lz-top .tt { font-size: 16px; font-weight: 700; letter-spacing: .5px; }
+.lz-top .ts { font-size: 12px; color: rgba(255, 255, 255, .76); margin-top: 1px; }
+.lz-top .sp { flex: 1; }
+.lz-top .env {
+  font-size: 12px; color: rgba(255, 255, 255, .82);
+  padding: 5px 12px; border-radius: 20px;
+  background: rgba(255, 255, 255, .12); border: 1px solid rgba(255, 255, 255, .2);
+}
+
+/* 主区 */
+.lz-main {
+  flex: 1 1 auto;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 10px 24px 40px;
+}
+.lz-hero { text-align: center; color: #fff; margin-bottom: 34px; }
+.lz-hero h1 { font-size: 34px; font-weight: 800; letter-spacing: 1px; margin: 0; }
+.lz-hero p { margin: 12px 0 0; font-size: 14.5px; color: rgba(255, 255, 255, .82); line-height: 1.7; }
+
+/* 四端口入口 */
+.lz-grid {
+  width: 100%; max-width: 1080px;
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+}
+.lz-card {
+  position: relative;
+  display: flex; align-items: center; gap: 18px;
+  padding: 24px 26px;
+  border-radius: var(--radius-lg);
+  background: var(--bg-card);
+  box-shadow: 0 18px 44px rgba(0, 18, 45, .34);
+  text-decoration: none; color: var(--text-1);
+  border: 1px solid rgba(255, 255, 255, .5);
+  transition: transform .18s, box-shadow .18s;
+  overflow: hidden;
+}
+.lz-card::before {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 5px;
+  background: var(--primary);
+}
+.lz-card.c1::before { background: linear-gradient(180deg, #2f6fd0 0%, #1a4587 100%); }
+.lz-card.c2::before { background: linear-gradient(180deg, #0d9488 0%, #0f766e 100%); }
+.lz-card.c3::before { background: linear-gradient(180deg, #4f46e5 0%, #3730a3 100%); }
+.lz-card.c4::before { background: linear-gradient(180deg, #ea8f16 0%, #c2680b 100%); }
+.lz-card:hover { transform: translateY(-4px); box-shadow: 0 26px 56px rgba(0, 18, 45, .42); }
+
+.lz-ico {
+  width: 62px; height: 62px; flex: 0 0 auto;
+  border-radius: 16px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 27px; color: #fff;
+}
+.lz-card.c1 .lz-ico { background: linear-gradient(140deg, #3f7fda 0%, #1a4587 100%); }
+.lz-card.c2 .lz-ico { background: linear-gradient(140deg, #14b8a6 0%, #0f766e 100%); }
+.lz-card.c3 .lz-ico { background: linear-gradient(140deg, #6366f1 0%, #3730a3 100%); }
+.lz-card.c4 .lz-ico { background: linear-gradient(140deg, #f5a623 0%, #c2680b 100%); }
+
+.lz-tx { flex: 1; min-width: 0; }
+.lz-tx .nm { font-size: 19px; font-weight: 700; }
+.lz-tx .badge-e {
+  font-size: 11.5px; font-weight: 600; color: var(--primary);
+  background: var(--primary-light); border: 1px solid var(--primary-soft);
+  padding: 1px 8px; border-radius: 20px; margin-left: 8px; vertical-align: 2px;
+}
+.lz-tx .ds { margin-top: 6px; font-size: 13px; color: var(--text-3); line-height: 1.6; }
+.lz-go {
+  flex: 0 0 auto; display: flex; align-items: center; gap: 6px;
+  font-size: 13.5px; font-weight: 700; color: var(--primary);
+}
+.lz-card .lz-go i { transition: transform .18s; }
+.lz-card:hover .lz-go i { transform: translateX(4px); }
+
+/* 底部 */
+.lz-foot {
+  flex: 0 0 auto; text-align: center;
+  padding: 16px 24px 26px;
+  font-size: 12px; color: rgba(255, 255, 255, .66); line-height: 1.8;
+}
+
+@media (max-width: 760px) {
+  .lz-grid { grid-template-columns: 1fr; max-width: 460px; }
+  .lz-hero h1 { font-size: 26px; }
+  .lz-card { padding: 20px; }
+}
+</style>
+</head>
+<body>
+
+<div class="lz-top">
+  <div class="lz-logo"><i class="fa-solid fa-building-shield"></i></div>
+  <div>
+    <div class="tt">株洲市人才公寓管理平台</div>
+    <div class="ts">株洲市住房和城乡建设局 · 市保障性住房服务中心</div>
+  </div>
+  <div class="sp"></div>
+  <div class="env"><i class="fa-regular fa-circle-dot"></i> 演示环境</div>
+</div>
+
+<div class="lz-main">
+  <div class="lz-hero">
+    <h1>人才安居 · 一站式管理平台</h1>
+    <p>请选择进入的系统入口，点击后完成登录即进入相应业务功能</p>
+  </div>
+
+  <div class="lz-grid">
+    <!-- 1. 移动端 · 公众端 -->
+    <a class="lz-card c1" href="mobile/public/home.html">
+      <span class="lz-ico"><i class="fa-solid fa-mobile-screen-button"></i></span>
+      <span class="lz-tx">
+        <span class="nm">移动端 · 公众端<span class="badge-e">湘易办</span></span>
+        <span class="ds">青年人才办事入口 · 湘易办实名授权后直接进入，无需注册</span>
+      </span>
+      <span class="lz-go">进入 <i class="fa-solid fa-arrow-right"></i></span>
+    </a>
+
+    <!-- 2. 移动端 · 政务端 -->
+    <a class="lz-card c2" href="mobile/gov/login.html">
+      <span class="lz-ico"><i class="fa-solid fa-user-shield"></i></span>
+      <span class="lz-tx">
+        <span class="nm">移动端 · 政务端<span class="badge-e">政务网</span></span>
+        <span class="ds">工作人员移动审批 · 现场核查、扫码巡检、工单处理</span>
+      </span>
+      <span class="lz-go">登录 <i class="fa-solid fa-arrow-right"></i></span>
+    </a>
+
+    <!-- 3. PC 管理端 -->
+    <a class="lz-card c3" href="login.html">
+      <span class="lz-ico"><i class="fa-solid fa-display"></i></span>
+      <span class="lz-tx">
+        <span class="nm">PC 管理端</span>
+        <span class="ds">各部门工作人员业务办理 · 房源、受理联审、配租、租金、年审退出</span>
+      </span>
+      <span class="lz-go">登录 <i class="fa-solid fa-arrow-right"></i></span>
+    </a>
+
+    <!-- 4. 统计分析 -->
+    <a class="lz-card c4" href="login.html?to=stat">
+      <span class="lz-ico"><i class="fa-solid fa-chart-column"></i></span>
+      <span class="lz-tx">
+        <span class="nm">统计分析</span>
+        <span class="ds">领导驾驶舱与决策支持 · 保障全景、房源与配租分析、运营质量</span>
+      </span>
+      <span class="lz-go">登录 <i class="fa-solid fa-arrow-right"></i></span>
+    </a>
+  </div>
+</div>
+
+<div class="lz-foot">
+  株洲市人才公寓管理平台　·　人才侧入口固定为湘易办小程序 / APP，与 PC 管理端相互独立<br>
+  技术支持：市保障性住房服务中心信息科
+</div>
+
+<script src="assets/js/app.js"></script>
+</body>
+</html>

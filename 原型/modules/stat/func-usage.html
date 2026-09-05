@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>功能使用分析 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="admin" data-active="stat-29">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 统计分析
+      <span class="sep">/</span> 系统运行与用户
+      <span class="sep">/</span> <span class="cur">功能使用分析</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>统计各功能模块的<b>访问量与使用频次</b>，识别<b>低频功能与操作瓶颈</b>，为界面与流程优化提供依据。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-chart-line"></i></div>
+      <div><div class="s-label">本月访问量</div><div class="s-value">286,420</div>
+        <div class="s-trend text-2">次</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-fire"></i></div>
+      <div><div class="s-label">最高频功能</div><div class="s-value">房源列表</div>
+        <div class="s-trend text-2">86,420 次</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-snowflake"></i></div>
+      <div><div class="s-label">低频功能</div><div class="s-value">6</div>
+        <div class="s-trend ">月访问 < 100 次</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-clock"></i></div>
+      <div><div class="s-label">平均操作耗时</div><div class="s-value">2.4 分钟</div>
+        <div class="s-trend text-2">单次办理</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <h3><i class="fa-solid fa-chart-line"></i> 功能使用热度</h3>
+      <span class="sub">S6-02 · 2026 年 9 月</span>
+    </div>
+    <div class="card-body">
+      <div class="section-title" data-icon="fa-chart-simple">各模块访问量</div>
+      <div class="dc-bars">
+        <div class="b-item"><span class="b-label">房源展示与看房（M4）　86,420 次</span><span class="b-track"><span class="b-fill" style="width:100%"></span></span><span class="b-val">人才侧最高频</span></div>
+        <div class="b-item"><span class="b-label">政策宣传与自测（M3）　62,486 次</span><span class="b-track"><span class="b-fill" style="width:72.3%"></span></span><span class="b-val"></span></div>
+        <div class="b-item"><span class="b-label">租金缴纳与账单（M9）　42,860 次</span><span class="b-track"><span class="b-fill" style="width:49.6%"></span></span><span class="b-val"></span></div>
+        <div class="b-item"><span class="b-label">资格申请（M5）　32,486 次</span><span class="b-track"><span class="b-fill" style="width:37.6%"></span></span><span class="b-val"></span></div>
+        <div class="b-item"><span class="b-label">资格受理与联审（P6）　18,462 次</span><span class="b-track"><span class="b-fill" style="width:21.4%"></span></span><span class="b-val">政务侧最高频</span></div>
+        <div class="b-item"><span class="b-label">配租与选房（M7/P7）　12,486 次</span><span class="b-track"><span class="b-fill" style="width:14.4%"></span></span><span class="b-val"></span></div>
+        <div class="b-item"><span class="b-label">房源筹集与楼盘表（P3/P4）　8,462 次</span><span class="b-track"><span class="b-fill" style="width:9.8%"></span></span><span class="b-val"></span></div>
+        <div class="b-item warn"><span class="b-label">规则配置（P14）　286 次</span><span class="b-track"><span class="b-fill" style="width:0.3%"></span></span><span class="b-val">低频，但属必要配置功能</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="card list-card">
+    <div class="card-head">
+      <h3><i class="fa-solid fa-table-list"></i> 明细下钻</h3>
+      <span class="sub">可逐级下钻至明细清单</span>
+    </div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>模块</th><th class="cell-lg">功能名称</th><th>访问量</th><th>使用人数</th><th>人均次数</th><th>平均耗时</th><th class="cell-lg">使用分析与优化建议</th><th>下钻</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="badge blue">M4</span></td><td>房源列表与地图（含 VR 看房）</td><td class="num">86,420</td><td class="num">8,462</td><td class="num">10.2</td><td>3.8 分钟</td><td><b>最高频功能</b>。VR 看房使用率 42.6%，有效降低选房后放弃率。建议进一步补齐 VR 素材（当前 1 个楼盘缺失）</td><td><span class="link" onclick="location.href='../house/house-display.html'">房源展示配置</span></td></tr>
+          <tr><td><span class="badge green">M5</span></td><td>资格申请（5 步向导）</td><td class="num">32,486</td><td class="num">3,246</td><td class="num">10.0</td><td>12.6 分钟</td><td>平均耗时 12.6 分钟。数据自动预填替代 11 个字段，材料免上传 5 项，较手工填报节省约 20 分钟</td><td><span class="link" onclick="location.href='../../mobile/public/apply-prefill.html'">数据自动预填</span></td></tr>
+          <tr><td><span class="badge cyan">P6</span></td><td>人工复核工作台</td><td class="num">18,462</td><td class="num">42</td><td class="num">439.6</td><td>4.2 分钟</td><td>政务侧最高频。三栏布局（材料 / 核验 / 结论）并排比对，较传统多页面切换节省约 60% 操作时间</td><td><span class="link" onclick="location.href='../apply/audit-desk.html'">复核工作台</span></td></tr>
+          <tr class="row-warn"><td><span class="badge orange">P14</span></td><td>规则配置（申请条件 / 减免 / 流程）</td><td class="num">286</td><td class="num">6</td><td class="num">47.7</td><td>8.6 分钟</td><td><b>低频但必要</b>：政策调整时使用。低频不代表不重要，页面化配置避免了改代码，本月已支撑 4 次规则调整</td><td><span class="link" onclick="location.href='../rule/cond-rule.html'">申请条件规则</span></td></tr>
+          <tr class="row-warn"><td><span class="badge orange">P4</span></td><td>房源批量导入与校验</td><td class="num">86</td><td class="num">2</td><td class="num">43.0</td><td>16.4 分钟</td><td>低频功能。单次导入 486 行耗时 16.4 分钟（含差错修正）。建议优化差错提示定位，减少反复修正</td><td><span class="link" onclick="location.href='../house/building-import.html'">批量导入与校验</span></td></tr>
+          <tr><td><span class="badge green">合计</span></td><td><b>全部功能</b></td><td class="num">286,420</td><td class="num">5,686</td><td class="num">50.4</td><td>2.4 分钟</td><td>人才侧访问量占 82.6%，政务侧占 17.4%；低频功能 6 个均属必要配置或低频业务</td><td><span class="link" onclick="location.href='user-login.html'">用户与登录分析</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>统计口径</b> 页面访问量（PV）+ 使用人数（UV）+ 单次操作平均耗时</span>
+    <span><b>低频阈值</b> 月访问量 < 100 次；低频不代表不必要，需结合业务性质判断</span>
+    <span><b>优化用途</b> 识别操作瓶颈，为界面与流程优化提供依据</span>
+  </div>
+</main>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 12; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>电子票据申领 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/mobile.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body class="m-body" data-mtitle="电子票据申领" data-mmod="M9 租金缴纳与账单" data-mcode="M9-06"
+      data-mdesc="缴费后在线申领电子票据或发票，支持下载与转发。" data-mback="bill-list.html" data-mtabset="public" data-mtab="home">
+<div class="m-stage">
+  <div class="m-phone">
+    <div class="m-screen">
+      <div class="m-view">
+        <div class="m-note"><i class="fa-solid fa-circle-info"></i>
+          <div>缴费成功后可在线申领<b>财政电子票据</b>。系统对接财政电子票据系统开具，票据与账单<b>一一对应</b>。</div>
+        </div>
+        <div class="m-sect">可申领票据<span class="m-sect-x">11 张</span></div>
+        <div class="m-cells">
+          <div class="m-cell"><span class="m-ci orange"><i class="fa-solid fa-receipt"></i></span><span class="m-cl"><b>2026 年 9 月 租金 424.44 元</b><span class="m-cs">2026-09-05 缴纳 · 流水 YZF20260905094218</span></span><span class="m-cv"><span class="m-tag orange">可申领</span></span></div>
+          <div class="m-cell"><span class="m-ci green"><i class="fa-solid fa-receipt"></i></span><span class="m-cl"><b>2026 年 8 月 租金 424.44 元</b><span class="m-cs">票据号 CZP20260811000862 · 2026-08-11 开具</span></span><span class="m-cv"><span class="m-tag green">已开具</span></span></div>
+          <div class="m-cell"><span class="m-ci green"><i class="fa-solid fa-receipt"></i></span><span class="m-cl"><b>2026 年 8 月 水电燃气物业 364.20 元</b><span class="m-cs">票据号 CZP20260901000914 · 2026-09-01 开具</span></span><span class="m-cv"><span class="m-tag green">已开具</span></span></div>
+          <div class="m-cell"><span class="m-ci green"><i class="fa-solid fa-receipt"></i></span><span class="m-cl"><b>2026 年 7 月 租金 424.44 元</b><span class="m-cs">票据号 CZP20260709000806 · 2026-07-09 开具</span></span><span class="m-cv"><span class="m-tag green">已开具</span></span></div>
+          <div class="m-cell"><span class="m-ci green"><i class="fa-solid fa-receipt"></i></span><span class="m-cl"><b>押金 1,000.00 元</b><span class="m-cs">票据号 CZP20260106000012 · 2026-01-06 开具</span></span><span class="m-cv"><span class="m-tag green">已开具</span></span></div>
+        </div>
+        <div class="m-sect">票据信息</div>
+        <div class="m-form">
+          <div class="m-fi">
+            <label>票据类型 <span class="req">*</span></label>
+            <div class="m-fc"><select><option>财政电子票据（非税收入）</option><option>增值税电子普通发票</option></select></div>
+          </div>
+          <div class="m-fi">
+            <label>交款人名称 <span class="req">*</span></label>
+            <div class="m-fc"><input type="text" value="王梓涵" readonly><div class="m-fh">与承租人一致，不可修改</div></div>
+          </div>
+          <div class="m-fi">
+            <label>交款人证件号 <span class="req">*</span></label>
+            <div class="m-fc"><input type="text" value="430211********2418" readonly></div>
+          </div>
+          <div class="m-fi">
+            <label>接收方式 <span class="req">*</span></label>
+            <div class="m-fc"><select><option>在线下载</option><option>发送至邮箱</option><option>发送至手机</option></select></div>
+          </div>
+          <div class="m-fi">
+            <label>接收邮箱</label>
+            <div class="m-fc"><input type="text" value="wangzh@csrzic.com"><div class="m-fh">选择邮箱接收时必填</div></div>
+          </div>
+        </div>
+        <div class="m-sect">开票说明</div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-circle-info"></i>口径说明</div>
+          <div class="m-card-b">
+          <div class="m-kv">
+            <div><span>对接系统</span><span>市财政局财政电子票据系统</span></div>
+            <div><span>票据范围</span><span>租金、押金收缴后开具</span></div>
+            <div><span>对应关系</span><span>票据与账单<b>一一对应</b>，不支持合并开票</span></div>
+            <div><span>红冲</span><span>票据有误时由租金核算员办理红冲后重新开具</span></div>
+            <div><span>查验</span><span>可在湖南省财政电子票据公共服务平台查验真伪</span></div>
+          </div>
+          </div>
+        </div>
+      </div>
+      <div class="m-actbar">
+        <button class="m-btn w-auto" type="button" onclick="MB.toast('已开具票据 10 张，可逐张下载或转发')">历史票据</button>
+        <button class="m-btn primary" type="button" onclick="MB.confirm('确认为 2026 年 9 月租金 424.44 元申领财政电子票据？','确认申领',function(){MB.toast('已提交申领，票据开具后将推送下载链接')})"><i class="fa-solid fa-file-invoice"></i> 申领票据</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../../assets/js/mobile.js"></script>
+</body>
+</html>

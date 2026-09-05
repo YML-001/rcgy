@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>政策成效指标 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="leader" data-active="stat-03">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 统计分析
+      <span class="sep">/</span> 领导驾驶舱
+      <span class="sep">/</span> <span class="cur">政策成效指标</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>统计<b>获保障人才的学历结构、行业分布、留株率</b>等，<b>量化政策对招才引才的贡献</b>，作为政策评估与优化的依据。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-users"></i></div>
+      <div><div class="s-label">获保障青年人才</div><div class="s-value">1,286</div>
+        <div class="s-trend text-2">在租</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-heart"></i></div>
+      <div><div class="s-label">留株率</div><div class="s-value">92.4%</div>
+        <div class="s-trend text-2">保障期内未离株</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-graduation-cap"></i></div>
+      <div><div class="s-label">硕士及以上</div><div class="s-value">486</div>
+        <div class="s-trend text-2">占 37.8%</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-user-tie"></i></div>
+      <div><div class="s-label">免年限特殊人才</div><div class="s-value">132</div>
+        <div class="s-trend text-2">占 10.3%</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <h3><i class="fa-solid fa-chart-pie"></i> 成效结构</h3>
+      <span class="sub">S1-03 · 量化政策对招才引才的贡献</span>
+    </div>
+    <div class="card-body">
+      <div class="section-title" data-icon="fa-chart-pie">学历结构</div>
+      <div class="flex items-center gap-16">
+        <div class="donut" style="background:conic-gradient(var(--primary) 0% 58.2%, var(--success) 58.2% 90.6%, var(--info) 90.6% 96.5%, var(--warning) 96.5% 100%)">
+          <div class="donut-hole"><b>1,286</b><span class="text-sm">在租人才</span></div>
+        </div>
+        <div class="legend" style="flex:1">
+          <div class="lg-item"><span class="lg-color" style="background:var(--primary)"></span> 全日制本科　748 人　58.2%</div>
+          <div class="lg-item"><span class="lg-color" style="background:var(--success)"></span> 硕士研究生　416 人　32.4%</div>
+          <div class="lg-item"><span class="lg-color" style="background:var(--info)"></span> 全日制大专　76 人　5.9%</div>
+          <div class="lg-item"><span class="lg-color" style="background:var(--warning)"></span> 博士研究生　46 人　3.5%</div>
+        </div>
+      </div>
+      <div class="section-title" data-icon="fa-chart-simple">行业分布（在租人才所在单位）</div>
+      <div class="dc-bars">
+        <div class="b-item"><span class="b-label">轨道交通装备</span><span class="b-track"><span class="b-fill" style="width:34.8%"></span></span><span class="b-val">448 人 · 34.8%</span></div>
+        <div class="b-item"><span class="b-label">硬质合金与新材料</span><span class="b-track"><span class="b-fill" style="width:21.1%"></span></span><span class="b-val">272 人 · 21.1%</span></div>
+        <div class="b-item"><span class="b-label">航空动力</span><span class="b-track"><span class="b-fill" style="width:14.5%"></span></span><span class="b-val">186 人 · 14.5%</span></div>
+        <div class="b-item"><span class="b-label">电子信息与软件</span><span class="b-track"><span class="b-fill" style="width:12.9%"></span></span><span class="b-val">166 人 · 12.9%</span></div>
+        <div class="b-item"><span class="b-label">教育医疗与其他</span><span class="b-track"><span class="b-fill" style="width:16.7%"></span></span><span class="b-val">214 人 · 16.7%</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="card list-card">
+    <div class="card-head">
+      <h3><i class="fa-solid fa-table-list"></i> 明细下钻</h3>
+      <span class="sub">可逐级下钻至明细清单</span>
+    </div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>成效指标</th><th>当前值</th><th>去年同期</th><th>同比变化</th><th class="cell-lg">口径说明</th><th class="cell-lg">政策意义</th><th>下钻</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>获保障青年人才数</td><td class="num">1,286</td><td class="num">812</td><td><span class="badge green">+58.4%</span></td><td>保障期内在租的青年人才户数</td><td>政策覆盖面显著扩大，人才安居保障能力提升</td><td><span class="link" onclick="location.href='talent-profile.html'">人才画像</span></td></tr>
+          <tr><td>留株率</td><td><span class="badge green">92.4%</span></td><td><span class="badge blue">88.6%</span></td><td><span class="badge green">+3.8pp</span></td><td>保障期内未因离职离株退出的人才占比</td><td><b>住房保障对留才的直接贡献</b>：留株率提升 3.8 个百分点</td><td><span class="link" onclick="location.href='review-exit.html'">年审与退出</span></td></tr>
+          <tr><td>硕士及以上占比</td><td><span class="badge green">37.8%</span></td><td><span class="badge blue">28.4%</span></td><td><span class="badge green">+9.4pp</span></td><td>硕士研究生 + 博士研究生占在租人才比例</td><td>高学历人才比例明显提升，人才结构优化</td><td><span class="link" onclick="location.href='talent-profile.html'">人才画像</span></td></tr>
+          <tr><td>免毕业年限特殊人才数</td><td class="num">132</td><td class="num">68</td><td><span class="badge green">+94.1%</span></td><td>中层以上管理 / 中级以上职称 / 高级技师且 35 周岁以下</td><td>政策对<b>骨干型人才</b>的吸引力增强</td><td><span class="link" onclick="location.href='../apply/talent-level.html'">人才分层</span></td></tr>
+          <tr><td>累计减免总额</td><td class="num">11,842,600.00</td><td class="num">6,428,400.00</td><td><span class="badge green">+84.2%</span></td><td>财政补助（减免）部分累计金额，单位：元</td><td>财政投入与保障人次同步增长，人均年减免约 9,208 元</td><td>租金收缴分析</td></tr>
+          <tr><td>重点企业覆盖率</td><td><span class="badge green">86.4%</span></td><td><span class="badge blue">72.8%</span></td><td><span class="badge green">+13.6pp</span></td><td>已有职工获保障的重点企业数 ÷ 重点企业总数</td><td>政策在轨道交通、硬质合金等主导产业覆盖较好</td><td>单位安居数据</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>评估用途</b> 量化政策对招才引才的贡献，作为政策评估与优化依据</span>
+    <span><b>留株率口径</b> 保障期内未因离职离株退出的人才占比</span>
+    <span><b>数据来源</b> 人才档案 + 人社在职数据 + 年审与退出记录</span>
+  </div>
+</main>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 12; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

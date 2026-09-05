@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>房源冻结与停租 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="housing" data-active="house-18">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 房源筹集与楼盘表
+      <span class="sep">/</span> 房源档案与房态
+      <span class="sep">/</span> <span class="cur">房源冻结与停租</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.openDrawer('frDrawer')"><i class="fa-solid fa-lock"></i> 新增冻结</button>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>对<b>维修、查封、政策调整</b>等原因的房源执行冻结、停租、下架，<b>冻结期间不参与配租</b>。冻结为高敏操作，需短信验证码二次确认，变更全程留痕。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-lock"></i></div>
+      <div><div class="s-label">当前冻结</div><div class="s-value">62</div>
+        <div class="s-trend text-2">不参与配租</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+      <div><div class="s-label">维修中停租</div><div class="s-value">50</div>
+        <div class="s-trend text-2">预计 30 日内复位</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon red"><i class="fa-solid fa-gavel"></i></div>
+      <div><div class="s-label">查封 / 政策冻结</div><div class="s-value">12</div>
+        <div class="s-trend ">需专项处理</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-unlock"></i></div>
+      <div><div class="s-label">本月已解冻</div><div class="s-value">18</div>
+        <div class="s-trend text-2">已重新上架</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>房源编号</label><input type="text" placeholder="房源编号"></div>
+      <div class="filter-item"><label>项目 / 房号</label><input type="text" placeholder="项目名称或房号"></div>
+      <div class="filter-item"><label>冻结原因</label><select><option value="">全部</option><option>维修施工</option><option>司法查封</option><option>政策调整</option><option>安全隐患</option><option>其他</option></select></div>
+      <div class="filter-item"><label>冻结状态</label><select><option value="">全部</option><option>冻结中</option><option>已解冻</option><option>待审批</option></select></div>
+      <div class="filter-item"><label>冻结时间</label><input type="date"></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>冻结单号</th><th class="cell-lg">房源 / 房号</th><th>冻结原因</th><th class="cell-lg">冻结说明</th><th>冻结起</th><th>预计解冻</th><th>状态</th><th>经办人</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr class="row-bad"><td>DJ2026-09-0018</td><td>湘江1958 / A6 栋 1505</td><td><span class="badge orange">政策调整</span></td><td>该房源纳入市级人才政策试点房源池，暂停常规配租投放</td><td>2026-09-01</td><td>2026-12-31</td><td><span class="badge red">冻结中</span></td><td>唐凯</td><td><span class="link" onclick="PMS.openDrawer('frDrawer')">解冻</span></td></tr>
+          <tr class="row-warn"><td>DJ2026-09-0022</td><td>清水塘新苑 / 1 栋 0708</td><td><span class="badge blue">维修施工</span></td><td>卫生间下水管道整体改造，施工期间不宜居住</td><td>2026-09-03</td><td>2026-09-18</td><td><span class="badge red">冻结中</span></td><td>唐凯</td><td><span class="link" onclick="PMS.openDrawer('frDrawer')">解冻</span></td></tr>
+          <tr class="row-bad"><td>DJ2026-08-0014</td><td>董家塅安居苑 / 2 栋 1104</td><td><span class="badge red">司法查封</span></td><td>原产权人涉诉，房屋被法院查封，暂停配租直至查封解除</td><td>2026-08-16</td><td><span class="muted">—</span></td><td><span class="badge red">冻结中</span></td><td>李慧敏</td><td><span class="link" onclick="PMS.toast('已附法院查封裁定书影像，解冻须凭解封裁定办理')">查看法律文书</span></td></tr>
+          <tr class="row-warn"><td>DJ2026-08-0010</td><td>栗雨佳苑 / 3 栋 1206</td><td><span class="badge orange">安全隐患</span></td><td>外墙饰面砖空鼓存在坠落风险，整治期间停租</td><td>2026-08-08</td><td>2026-09-30</td><td><span class="badge red">冻结中</span></td><td>唐凯</td><td><span class="link" onclick="PMS.openDrawer('frDrawer')">解冻</span></td></tr>
+          <tr><td>DJ2026-07-0006</td><td>茨菇塘公寓 / 5 栋 0802</td><td><span class="badge blue">维修施工</span></td><td>空调外机支架更换，已完工并复验合格</td><td>2026-07-12</td><td>2026-07-26</td><td><span class="badge green">已解冻</span></td><td>唐凯</td><td><span class="link" onclick="PMS.toast('2026-07-26 复验合格，已解冻并重新上架')">查看解冻记录</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>高敏控制</b> 冻结与解冻需短信验证码二次确认，操作留痕</span>
+    <span><b>配租影响</b> 冻结期间不参与配租，影响本批次可投放套数</span>
+    <span><b>房态联动</b> <span class="link" onclick="location.href='house-status-map.html'">房态图管理</span></span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="frDrawer">
+  <div class="drawer-head">
+    <h3>房源冻结 / 解冻办理</h3>
+    <span class="badge red">高敏操作</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+    <div class="sp-dual">
+      <i class="lead fa-solid fa-user-shield"></i>
+      <div>房源冻结与解冻为<b>高风险操作</b>，需<b>短信验证码二次确认</b>后方可执行，确认记录与操作日志一并留存。</div>
+      <div class="who"><span class="muted">经办人</span><b>唐凯</b></div>
+    </div>
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div><b>冻结期间房源不参与配租</b>，将影响本批次可投放套数。若房源已被锁定或已签约，须先办理配租异常处理。</div>
+  </div>
+
+      <div class="form-grid form-align">
+        <div class="form-item">
+          <label>操作类型 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>冻结</option><option>解冻</option><option>停租下架</option></select>
+        </div>
+        <div class="form-item">
+          <label>房源编号 <span class="req">*</span></label>
+          <input type="text" value="FY-SF-QST-01-0708">
+        </div>
+        <div class="form-item">
+          <label>冻结原因 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>维修施工</option><option>司法查封</option><option>政策调整</option><option>安全隐患</option><option>其他</option></select>
+        </div>
+        <div class="form-item">
+          <label>冻结起始日 <span class="req">*</span></label>
+          <input type="date">
+        </div>
+        <div class="form-item">
+          <label>预计解冻日</label>
+          <input type="date">
+          <div class="hint">司法查封等不确定期限可留空</div>
+        </div>
+        <div class="form-item col-full">
+          <label>冻结说明 <span class="req">*</span></label>
+          <textarea rows="3" placeholder="必填，不少于 10 字。说明冻结事由与依据">因清水塘新苑 1 栋 0708 卫生间下水管道整体改造，施工期间不宜居住，依据运营机构维修计划自 2026-09-03 起冻结该房源不参与配租，预计 2026-09-18 复验合格后解冻上架。</textarea>
+        </div>
+        <div class="form-item col-full">
+          <label>依据文书 <span class="req">*</span></label>
+          <input type="text" data-upload="1">
+          <div class="hint">司法查封须附法院裁定书</div>
+        </div>
+        <div class="form-item">
+          <label>短信验证码 <span class="req">*</span></label>
+          <input type="text" placeholder="请输入 6 位验证码">
+          <div class="hint"><span class="link" onclick="PMS.toast('验证码已发送至 139****2618')">获取验证码</span></div>
+        </div>
+      </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-danger" onclick="PMS.confirm({title:'高敏操作确认',message:'确认冻结该房源？',detail:'冻结期间房源不参与配租，将影响本批次可投放套数。本操作需短信验证码二次确认，全程留痕。',type:'error',okText:'确认冻结',onOk:function(){PMS.closeDrawer();PMS.toast('已冻结并同步至房态图与移动端','success');}})"><i class="fa-solid fa-lock"></i> 确认冻结</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 62; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>导入模板与批次台账 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+</head>
+<body data-role="housing" data-active="house-23">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 房源筹集与楼盘表
+      <span class="sep">/</span> 楼盘表与多源归集
+      <span class="sep">/</span> <span class="cur">导入模板与批次台账</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.openDrawer('tplDrawer')"><i class="fa-solid fa-file-code"></i> 模板版本管理</button>
+      <a class="btn" href="proj-import.html"><i class="fa-solid fa-file-import"></i> 项目批量导入</a>
+      <a class="btn" href="building-import.html"><i class="fa-solid fa-upload"></i> 房源批量导入</a>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>维护<b>导入模板版本与字段字典</b>，记录每一批次导入的<b>操作人、导入时间、数据来源、成功与失败条数及失败明细</b>，支持<b>按批次撤销回滚</b>。该台账是<b>接口未开通期间房源数据的可追溯凭证</b>。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-layer-group"></i></div>
+      <div><div class="s-label">导入批次</div><div class="s-value">46</div>
+        <div class="s-trend text-2">本年度累计</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
+      <div><div class="s-label">成功入库</div><div class="s-value">2,486</div>
+        <div class="s-trend text-2">套房源 / 128 个项目</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon red"><i class="fa-solid fa-triangle-exclamation"></i></div>
+      <div><div class="s-label">失败条数</div><div class="s-value">112</div>
+        <div class="s-trend ">均已回显明细</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-rotate-left"></i></div>
+      <div><div class="s-label">已回滚批次</div><div class="s-value">2</div>
+        <div class="s-trend text-2">原因均已记录</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>批次号</label><input type="text" placeholder="批次号"></div>
+      <div class="filter-item"><label>导入类型</label><select><option value="">全部</option><option>项目台账</option><option>楼盘表房源</option><option>人才档案</option><option>年审名单</option></select></div>
+      <div class="filter-item"><label>数据来源</label><select><option value="">全部</option><option>人工导入</option><option>省保租房系统接口</option><option>公租房系统接口</option></select></div>
+      <div class="filter-item"><label>操作人</label><input type="text" placeholder="姓名"></div>
+      <div class="filter-item"><label>导入日期</label><input type="date"></div>
+      <div class="filter-item"><label>批次状态</label><select><option value="">全部</option><option>已入库</option><option>部分入库</option><option>已回滚</option><option>校验未通过</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>批次号</th><th>导入类型</th><th class="cell-lg">导入文件 / 来源</th><th>模板版本</th><th>总行数</th><th>成功</th><th>失败</th><th>操作人</th><th>导入时间</th><th>状态</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>PC2026-0905-004</td><td><span class="badge blue">项目台账</span></td><td>株洲市人才公寓项目台账_20260905.xlsx</td><td>V2.1</td><td class="num">42</td><td class="num">39</td><td class="num">3</td><td>唐凯</td><td>2026-09-05 10:26</td><td><span class="badge orange">部分入库</span></td><td><span class="link" onclick="PMS.openDrawer('bcDrawer')">批次详情</span></td></tr>
+          <tr><td>HB2026-0905-002</td><td><span class="badge cyan">楼盘表房源</span></td><td>省保障性租赁住房系统接口回传（自动比对合并）</td><td>接口口径 V1.3</td><td class="num">86</td><td class="num">86</td><td class="num">0</td><td>唐凯</td><td>2026-09-05 11:12</td><td><span class="badge green">已入库</span></td><td><span class="link" onclick="PMS.openDrawer('bcDrawer')">批次详情</span></td></tr>
+          <tr><td>FY2026-0828-003</td><td><span class="badge cyan">楼盘表房源</span></td><td>清水塘新苑楼盘表_20260828.xlsx</td><td>V2.1</td><td class="num">486</td><td class="num">474</td><td class="num">12</td><td>唐凯</td><td>2026-08-28 14:08</td><td><span class="badge orange">部分入库</span></td><td><span class="link" onclick="PMS.openDrawer('bcDrawer')">批次详情</span></td></tr>
+          <tr><td>FY2026-0806-001</td><td><span class="badge cyan">楼盘表房源</span></td><td>田心高科园人才公寓楼盘表_20260806.xlsx</td><td>V2.0</td><td class="num">620</td><td class="num">620</td><td class="num">0</td><td>彭雪梅</td><td>2026-08-06 09:42</td><td><span class="badge green">已入库</span></td><td><span class="link" onclick="PMS.openDrawer('bcDrawer')">批次详情</span></td></tr>
+          <tr class="row-bad"><td>FY2026-0722-002</td><td><span class="badge cyan">楼盘表房源</span></td><td>建宁人才公寓楼盘表_20260722.xlsx</td><td>V2.0</td><td class="num">240</td><td class="num">0</td><td class="num">240</td><td>彭雪梅</td><td>2026-07-22 16:26</td><td><span class="badge red">已回滚</span></td><td><span class="link" onclick="PMS.openDrawer('bcDrawer')">回滚详情</span></td></tr>
+          <tr class="row-warn"><td>RC2026-0715-001</td><td><span class="badge gray">人才档案</span></td><td>中车株洲所职工批量申报_20260715.xlsx</td><td>V1.4</td><td class="num">62</td><td class="num">58</td><td class="num">4</td><td>李慧敏</td><td>2026-07-15 10:18</td><td><span class="badge orange">部分入库</span></td><td><span class="link" onclick="PMS.openDrawer('bcDrawer')">批次详情</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 导入模板版本与字段字典<span class="sub">模板变更须向各区与运营机构下发通知</span></div>
+          <div class="sp-b">
+  <div class="sp-tw">
+    <table class="data-table compact">
+      <thead><tr><th>模板版本</th><th>适用导入类型</th><th>字段数</th><th class="cell-lg">主要变更内容</th><th>生效日期</th><th>状态</th></tr></thead>
+      <tbody>
+      <tr><td>V2.1</td><td><span class="badge blue">项目台账 / 楼盘表房源</span></td><td class="num">26</td><td>新增「资金来源」必填列，用于房源筹集成本核算；「分摊面积」校验误差放宽至 0.10 ㎡</td><td>2026-06-01</td><td><span class="badge green">当前有效</span></td></tr>
+      <tr><td>V2.0</td><td><span class="badge blue">项目台账 / 楼盘表房源</span></td><td class="num">25</td><td>新增「来源渠道」「管理模式」必填列，支持按间与按床位配租</td><td>2026-01-15</td><td><span class="badge gray">已停用</span></td></tr>
+      <tr><td>V1.4</td><td><span class="badge gray">人才档案</span></td><td class="num">18</td><td>用人单位批量代申报模板，新增「社保参保单位」一致性校验列</td><td>2026-03-01</td><td><span class="badge green">当前有效</span></td></tr>
+      <tr><td>接口口径 V1.3</td><td><span class="badge cyan">省保租房 / 公租房接口</span></td><td class="num">32</td><td>省厅「一间房」房源新增人才引进标识字段，纳入三重比对规则</td><td>2026-09-01</td><td><span class="badge green">当前有效</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+          </div>
+        </div>
+  <div class="sp-src">
+    <span><b>批次号规则</b> 类型码（PC 项目 / FY 房源 / RC 人才 / HB 合并）+ 日期 + 当日序号</span>
+    <span><b>台账作用</b> 接口未开通期间房源数据的可追溯凭证，审计核查以本台账为准</span>
+    <span><b>回滚范围</b> 仅可回滚未产生下游业务的批次；已配租或已签约房源所在批次不可回滚</span>
+    <span><b>留存期限</b> 批次台账与原始导入文件长期留存，不随房源档案变更而删除</span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="bcDrawer">
+  <div class="drawer-head">
+    <h3>导入批次详情与回滚</h3>
+    <span class="badge orange">部分入库</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>回滚将<b>删除本批次全部已入库数据</b>并恢复至导入前状态。<b>已产生下游业务（已配租、已签约、已生成账单）的房源所在批次不可回滚</b>，须逐条走用途转换或档案变更流程。</div>
+  </div>
+
+      <div class="form-grid form-align">
+        <div class="form-item">
+          <label>批次号 <span class="req">*</span></label>
+          <input type="text" value="FY2026-0828-003" readonly>
+        </div>
+        <div class="form-item">
+          <label>导入类型 <span class="req">*</span></label>
+          <input type="text" value="楼盘表房源" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>导入文件 <span class="req">*</span></label>
+          <input type="text" value="清水塘新苑楼盘表_20260828.xlsx（2.4 MB）" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>模板版本 / 字段字典 <span class="req">*</span></label>
+          <input type="text" value="V2.1　字段字典版本 2026-06-01" readonly>
+        </div>
+        <div class="form-item">
+          <label>数据来源 <span class="req">*</span></label>
+          <input type="text" value="人工导入（接口未开通期间）" readonly>
+        </div>
+        <div class="form-item">
+          <label>操作人 / 时间 <span class="req">*</span></label>
+          <input type="text" value="唐凯　2026-08-28 14:08" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>入库结果 <span class="req">*</span></label>
+          <textarea rows="4" readonly>总行数：486 行
+成功入库：474 套（已生成一房一码，纳入统一楼盘表）
+失败：12 行（面积校验不通过 8 行、房号重复 3 行、户型字典值错误 1 行）
+下游业务：已配租 62 套、已签约 58 套、已生成账单 58 套</textarea>
+        </div>
+        <div class="form-item col-full">
+          <label>失败明细 <span class="req">*</span></label>
+          <textarea rows="4" readonly>第 26/48/112/206/288/312/396/440 行　套内面积大于建筑面积
+第 78/154/302 行　同一楼栋单元内房号重复（C2-0512 出现 2 次）
+第 366 行　户型「两室两厅」不在字典范围内（应为「二室一厅」或「三室一厅」）</textarea>
+        </div>
+        <div class="form-item col-full">
+          <label>可否回滚 <span class="req">*</span></label>
+          <input type="text" value="不可整批回滚（本批次 62 套已配租、58 套已签约）" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>处置方式 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>仅回滚未产生业务的 412 套</option><option>不回滚，逐条走档案变更流程</option><option>导出失败明细后重传差错行</option></select>
+        </div>
+        <div class="form-item col-full">
+          <label>处置说明 <span class="req">*</span></label>
+          <textarea rows="3" placeholder="必填，说明回滚或处置原因">本批次 486 行中 412 套未产生下游业务，先行回滚以清除面积校验不通过、房号重复等差错数据；已配租 62 套、已签约 58 套予以保留，另行逐条走档案变更流程，失败明细已导出待重传差错行。</textarea>
+        </div>
+      </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认回滚本批次中未产生业务的 412 套房源？已配租与已签约房源将保留。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已回滚 412 套未产生业务的房源，批次状态更新为部分回滚','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 46; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+<div class="drawer-mask"></div>
+<div class="drawer" id="tplDrawer">
+  <div class="drawer-head">
+    <h3>导入模板版本管理</h3>
+    <span class="badge green">当前有效</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>模板变更属于<b>对外口径调整</b>，须提前 15 个工作日向各区与运营机构下发通知，并保留<b>旧版本模板的兼容期</b>。字段字典变更须同步更新<span class="link" onclick="location.href='../system/dict.html'">数据字典管理</span>。</div>
+  </div>
+
+      <div class="form-grid form-align">
+        <div class="form-item">
+          <label>模板版本号 <span class="req">*</span></label>
+          <input type="text" value="V2.1" readonly>
+        </div>
+        <div class="form-item">
+          <label>适用导入类型 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>项目台账 / 楼盘表房源</option><option>人才档案</option><option>年审名单</option></select>
+        </div>
+        <div class="form-item">
+          <label>字段总数 <span class="req">*</span></label>
+          <input type="text" value="26（必填 18 / 选填 8）" readonly>
+        </div>
+        <div class="form-item">
+          <label>字段字典版本 <span class="req">*</span></label>
+          <input type="text" value="2026-06-01" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>主要变更内容 <span class="req">*</span></label>
+          <textarea rows="4">①新增「资金来源」必填列，取值：一般公共预算 / 专项债券 / 政策性再贷款 / 企业自筹 / 混合，用于房源筹集成本核算与资金使用情况统计；②「分摊面积」校验误差由 0.05 ㎡ 放宽至 0.10 ㎡；③「交付时间」下限调整为 2024-01-01。</textarea>
+        </div>
+        <div class="form-item">
+          <label>生效日期 <span class="req">*</span></label>
+          <input type="date">
+        </div>
+        <div class="form-item">
+          <label>旧版本兼容期 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>3 个月</option><option>6 个月</option><option>不兼容（立即停用）</option></select>
+        </div>
+        <div class="form-item col-full">
+          <label>通知下发范围 <span class="req">*</span></label>
+          <textarea rows="2">6 个区（含经开区、渌口区）住房保障服务中心、3 家运营机构、9 家已认证用人单位</textarea>
+        </div>
+        <div class="form-item col-full">
+          <label>模板文件 <span class="req">*</span></label>
+          <input type="text" data-upload="1">
+        </div>
+        <div class="form-item col-full">
+          <label>变更说明 <span class="req">*</span></label>
+          <textarea rows="2" placeholder="必填">V2.1 版新增「资金来源」必填列并将分摊面积校验误差放宽至 0.10 ㎡，依据房源筹集成本核算与资金统计需要修订，已提前向各区及运营机构下发通知，旧版本保留 3 个月兼容期。</textarea>
+        </div>
+      </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+      <button class="btn btn-primary" onclick="PMS.confirm({title:'发布确认',message:'确认发布导入模板 V2.1？',detail:'发布后旧版本进入 3 个月兼容期，期满自动停用。通知将下发至 6 个区、3 家运营机构与 9 家用人单位。',type:'warning',okText:'确认发布',onOk:function(){PMS.closeDrawer();PMS.toast('模板 V2.1 已发布，通知已下发 18 家单位','success');}})"><i class="fa-solid fa-check"></i> 发布新版本</button>
+  </div>
+</div>
+</body>
+</html>

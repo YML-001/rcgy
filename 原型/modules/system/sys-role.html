@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>角色管理 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+</head>
+<body data-role="admin" data-active="system-03">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 权限与系统管理
+      <span class="sep">/</span> 用户与权限
+      <span class="sep">/</span> <span class="cur">角色管理</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.openDrawer('roleDrawer')"><i class="fa-solid fa-copy"></i> 从模板新建</button>
+      <button class="btn" onclick="PMS.confirm({title:'批量启停',message:'确认停用所选 0 个角色？',detail:'请先在列表中勾选待操作的角色。停用角色将同时暂停该角色下全部账号的对应权限。',type:'warning',okText:'我知道了',onOk:function(){PMS.toast('请先勾选待操作的角色','error');}})"><i class="fa-solid fa-toggle-on"></i> 批量启停</button>
+      <button class="btn btn-primary" onclick="PMS.openDrawer('roleDrawer')"><i class="fa-solid fa-plus"></i> 新增角色</button>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>维护角色<b>编码、名称、分类</b>（市级管理、区县经办、运营机构、用人单位等）<b>与启停状态</b>；支持<b>角色模板复制</b>快速新建、<b>批量启停</b>，以及<b>角色继承</b>（子角色自动继承父角色权限）。具体权限勾选在<b>角色权限分配</b>中办理。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-user-shield"></i></div>
+      <div><div class="s-label">系统角色</div><div class="s-value">13</div>
+        <div class="s-trend text-2">PC 管理端</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
+      <div><div class="s-label">启用中</div><div class="s-value">13</div>
+        <div class="s-trend text-2">全部启用</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-code-branch"></i></div>
+      <div><div class="s-label">继承关系</div><div class="s-value">4</div>
+        <div class="s-trend text-2">组父子角色</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-copy"></i></div>
+      <div><div class="s-label">角色模板</div><div class="s-value">4</div>
+        <div class="s-trend text-2">可复制快速新建</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>角色编码</label><input type="text" placeholder="角色编码"></div>
+      <div class="filter-item"><label>角色名称</label><input type="text" placeholder="角色名称"></div>
+      <div class="filter-item"><label>角色分类</label><select><option value="">全部</option><option>市级管理</option><option>市级经办</option><option>区县经办</option><option>运营机构</option><option>用人单位</option><option>领导查询</option><option>系统运维</option></select></div>
+      <div class="filter-item"><label>继承关系</label><select><option value="">全部</option><option>父角色</option><option>子角色</option><option>无继承</option></select></div>
+      <div class="filter-item"><label>角色状态</label><select><option value="">全部</option><option>启用</option><option>停用</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>角色编码</th><th class="cell-lg">角色名称</th><th>角色分类</th><th class="cell-lg">典型岗位</th><th>继承自</th><th>账号数</th><th>是否模板</th><th>状态</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>manager</td><td>业务管理员</td><td><span class="badge blue">市级管理</span></td><td>市住建局住房保障科</td><td><span class="muted">—</span></td><td class="num">6</td><td><span class="badge cyan">模板</span></td><td><span class="badge green">启用</span></td><td><span class="link" onclick="PMS.openDrawer('roleDrawer')">编辑</span></td></tr>
+          <tr><td>reviewer</td><td>资格审核员</td><td><span class="badge blue">市级经办</span></td><td>市住保中心资格审核科</td><td><span class="muted">—</span></td><td class="num">8</td><td><span class="badge cyan">模板</span></td><td><span class="badge green">启用</span></td><td><span class="link" onclick="PMS.openDrawer('roleDrawer')">编辑</span></td></tr>
+          <tr><td>window</td><td>窗口受理员</td><td><span class="badge blue">市级经办</span></td><td>市政务服务中心人才住房窗口</td><td><span class="badge blue">reviewer 资格审核员</span></td><td class="num">4</td><td><span class="muted">—</span></td><td><span class="badge green">启用</span></td><td><span class="link" onclick="PMS.openDrawer('roleDrawer')">编辑</span></td></tr>
+          <tr><td>district</td><td>城区经办员</td><td><span class="badge orange">区县经办</span></td><td>各区住房保障服务中心</td><td><span class="badge blue">reviewer 资格审核员</span></td><td class="num">24</td><td><span class="badge cyan">模板</span></td><td><span class="badge green">启用</span></td><td><span class="link" onclick="PMS.openDrawer('roleDrawer')">编辑</span></td></tr>
+          <tr><td>allocator</td><td>配租经办员</td><td><span class="badge blue">市级经办</span></td><td>市住保中心配租管理科</td><td><span class="muted">—</span></td><td class="num">5</td><td><span class="muted">—</span></td><td><span class="badge green">启用</span></td><td><span class="link" onclick="PMS.openDrawer('roleDrawer')">编辑</span></td></tr>
+          <tr><td>keeper</td><td>租金核算员</td><td><span class="badge blue">市级经办</span></td><td>市住保中心租金核算科</td><td><span class="muted">—</span></td><td class="num">4</td><td><span class="muted">—</span></td><td><span class="badge green">启用</span></td><td><span class="link" onclick="PMS.openDrawer('roleDrawer')">编辑</span></td></tr>
+          <tr><td>housing</td><td>房源管理员</td><td><span class="badge blue">市级经办</span></td><td>市住保中心房源管理科</td><td><span class="muted">—</span></td><td class="num">6</td><td><span class="muted">—</span></td><td><span class="badge green">启用</span></td><td><span class="link" onclick="PMS.openDrawer('roleDrawer')">编辑</span></td></tr>
+          <tr><td>talent</td><td>人才政策经办</td><td><span class="badge blue">市级管理</span></td><td>市委人才工作领导小组办公室</td><td><span class="badge blue">manager 业务管理员</span></td><td class="num">3</td><td><span class="muted">—</span></td><td><span class="badge green">启用</span></td><td><span class="link" onclick="PMS.openDrawer('roleDrawer')">编辑</span></td></tr>
+          <tr><td>finance</td><td>财政审核员</td><td><span class="badge blue">市级管理</span></td><td>市财政局行政政法科</td><td><span class="muted">—</span></td><td class="num">3</td><td><span class="muted">—</span></td><td><span class="badge green">启用</span></td><td><span class="link" onclick="PMS.openDrawer('roleDrawer')">编辑</span></td></tr>
+          <tr><td>agency</td><td>运营机构经办</td><td><span class="badge green">运营机构</span></td><td>受托运营管理机构</td><td><span class="muted">—</span></td><td class="num">18</td><td><span class="badge cyan">模板</span></td><td><span class="badge green">启用</span></td><td><span class="link" onclick="PMS.openDrawer('roleDrawer')">编辑</span></td></tr>
+          <tr><td>employer</td><td>单位经办人</td><td><span class="badge green">用人单位</span></td><td>已认证用人单位</td><td><span class="muted">—</span></td><td class="num">14</td><td><span class="muted">—</span></td><td><span class="badge green">启用</span></td><td><span class="link" onclick="PMS.openDrawer('roleDrawer')">编辑</span></td></tr>
+          <tr><td>leader</td><td>分管领导</td><td><span class="badge gray">领导查询</span></td><td>市住建局分管副局长</td><td><span class="muted">—</span></td><td class="num">4</td><td><span class="muted">—</span></td><td><span class="badge green">启用</span></td><td><span class="link" onclick="PMS.toast('分管领导为只读角色，仅授予查询类按钮权限，不授予任何办理与审核按钮，不参与岗位互斥组')">只读角色</span></td></tr>
+          <tr class="row-warn"><td>admin</td><td>系统管理员</td><td><span class="badge red">系统运维</span></td><td>市住保中心信息科</td><td><span class="muted">—</span></td><td class="num">3</td><td><span class="muted">—</span></td><td><span class="badge green">启用</span></td><td><span class="link" onclick="PMS.toast('系统管理员属权限管理岗（第 4 组互斥），只配置账号与权限，不得拥有任何业务办理与审核权限；业务角色不得自行修改本人权限范围')">岗位互斥</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 角色继承关系<span class="sub">子角色自动继承父角色权限，调整父角色时子角色同步生效</span></div>
+          <div class="sp-b">
+  <div class="sp-tw">
+    <table class="data-table compact">
+      <thead><tr><th>父角色</th><th>子角色</th><th>继承权限项</th><th class="cell-lg">子角色额外权限</th><th class="cell-lg">子角色被收窄项</th></tr></thead>
+      <tbody>
+      <tr><td><span class="badge blue">reviewer 资格审核员</span></td><td><span class="badge orange">district 城区经办员</span></td><td>菜单 18 项 / 按钮 26 项</td><td>现场核查表填报、入户核查照片上传、腾退现场验收</td><td>数据范围由「本机构及下级」收窄为「本机构（本区）」；不含出具最终审核结论</td></tr>
+      <tr><td><span class="badge blue">manager 业务管理员</span></td><td><span class="badge cyan">talent 人才政策经办</span></td><td>菜单 22 项 / 按钮 18 项</td><td>人才认定口径会商、租金减免一事一议记录</td><td>不含配租批次审批、违规清退执行、规则版本发布</td></tr>
+      <tr><td><span class="badge green">agency 运营机构经办</span></td><td><span class="badge green">agency-pm 物业管理员</span></td><td>菜单 10 项 / 按钮 8 项</td><td>报修工单接单处理、巡检记录上报</td><td>不含合同签订、押金结算、租金收款登记</td></tr>
+      <tr><td><span class="badge green">employer 单位经办人</span></td><td><span class="badge green">employer-hr 单位人事员</span></td><td>菜单 6 项 / 按钮 6 项</td><td>在职状态变更上报</td><td>不含员工批量代申报、单位注册信息维护</td></tr>
+      </tbody>
+    </table>
+  </div>
+          </div>
+        </div>
+  <div class="sp-src">
+    <span><b>角色分类</b> 市级管理 / 市级经办 / 区县经办 / 运营机构 / 用人单位 / 领导查询 / 系统运维</span>
+    <span><b>角色继承</b> 子角色自动继承父角色权限，父角色权限调整时子角色同步生效</span>
+    <span><b>模板复制</b> 标记为模板的角色可一键复制为新角色，权限项全部带入后再裁剪</span>
+    <span><b>权限勾选</b> <span class="link" onclick="location.href='sys-role-auth.html'">角色权限分配</span>　本页只维护角色台账</span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="roleDrawer">
+  <div class="drawer-head">
+    <h3>角色台账维护</h3>
+    <span class="badge blue">启用</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>本页只维护<b>角色台账</b>（编码、名称、分类、继承、启停）。具体菜单与按钮权限请在<b>角色权限分配</b>中勾选。<b>角色编码创建后不可修改</b>，是授权与鉴权的关键标识。</div>
+  </div>
+
+      <div class="form-grid form-align">
+        <div class="form-item">
+          <label>角色编码 <span class="req">*</span></label>
+          <input type="text" value="district" readonly>
+          <div class="hint">创建后不可修改</div>
+        </div>
+        <div class="form-item">
+          <label>角色名称 <span class="req">*</span></label>
+          <input type="text" value="城区经办员">
+        </div>
+        <div class="form-item">
+          <label>角色分类 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>区县经办</option><option>市级管理</option><option>市级经办</option><option>运营机构</option><option>用人单位</option><option>领导查询</option><option>系统运维</option></select>
+        </div>
+        <div class="form-item">
+          <label>继承自父角色 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>reviewer 资格审核员</option><option>不继承</option><option>manager 业务管理员</option><option>agency 运营机构经办</option></select>
+          <div class="hint">子角色自动继承父角色权限</div>
+        </div>
+        <div class="form-item col-full">
+          <label>典型岗位 <span class="req">*</span></label>
+          <input type="text" value="各区住房保障服务中心资格受理岗（初审）">
+        </div>
+        <div class="form-item">
+          <label>是否设为模板 <span class="req">*</span></label>
+          <select data-dict="yesNo" data-ph="全部"></select>
+          <div class="hint">模板角色可被一键复制</div>
+        </div>
+        <div class="form-item">
+          <label>角色状态 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>启用</option><option>停用</option></select>
+        </div>
+        <div class="form-item col-full">
+          <label>角色职责说明 <span class="req">*</span></label>
+          <textarea rows="4">承担本区范围内的资格申请受理与初审、房源现场核查、年审入户核查、腾退现场办理。数据范围限本区，不可见跨区数据明细。属资格审核岗第 1 组互斥成员——本人初审的申请件不得由本人复核。</textarea>
+        </div>
+        <div class="form-item col-full">
+          <label>变更说明 <span class="req">*</span></label>
+          <textarea rows="2" placeholder="必填，说明新增或调整依据"></textarea>
+        </div>
+      </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认保存角色台账？角色分类与继承关系变更将影响该角色下 24 个账号的权限计算。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已保存，角色台账已更新','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 13; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>考核指标配置 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="manager" data-active="ops-02">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 运营考核与工单服务
+      <span class="sep">/</span> 运营机构考核
+      <span class="sep">/</span> <span class="cur">考核指标配置</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>配置<b>报修及时率、完工率、住户满意度、空置率、房源完好率、投诉办结时效</b>等指标及<b>权重与评分区间</b>。指标调整须审批，按考核周期生效。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-list-check"></i></div>
+      <div><div class="s-label">考核指标</div><div class="s-value">8</div>
+        <div class="s-trend text-2">权重合计 100%</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-code-branch"></i></div>
+      <div><div class="s-label">指标版本</div><div class="s-value">3</div>
+        <div class="s-trend text-2">当前 V2026-01</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-database"></i></div>
+      <div><div class="s-label">系统自动取数</div><div class="s-value">6</div>
+        <div class="s-trend text-2">占 75%</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-user-pen"></i></div>
+      <div><div class="s-label">人工评分项</div><div class="s-value">2</div>
+        <div class="s-trend text-2">政府检查 + 住户评价</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>指标编号</label><input type="text" placeholder="指标编号"></div>
+      <div class="filter-item"><label>指标名称</label><input type="text" placeholder="指标名称"></div>
+      <div class="filter-item"><label>取数方式</label><select><option value="">全部</option><option>系统自动取数</option><option>政府检查评分</option><option>住户评价</option></select></div>
+      <div class="filter-item"><label>指标状态</label><select><option value="">全部</option><option>在用</option><option>待审批</option><option>已停用</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>指标编号</th><th class="cell-lg">指标名称</th><th>权重</th><th>取数方式</th><th class="cell-lg">取数口径</th><th>优（≥）</th><th>良（≥）</th><th>合格（≥）</th><th>状态</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>KH-01</td><td>报修及时率</td><td class="num">18%</td><td><span class="badge green">系统自动取数</span></td><td>按时限内上门工单数 ÷ 工单总数（紧急 4h / 较急 24h / 一般 3 工作日）</td><td>95%</td><td>90%</td><td>85%</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('khDrawer')">编辑</span></td></tr>
+          <tr><td>KH-02</td><td>工单完工率</td><td class="num">15%</td><td><span class="badge green">系统自动取数</span></td><td>已验收完工工单数 ÷ 工单总数</td><td>98%</td><td>95%</td><td>90%</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('khDrawer')">编辑</span></td></tr>
+          <tr><td>KH-03</td><td>住户满意度</td><td class="num">20%</td><td><span class="badge cyan">住户评价</span></td><td>季度满意度调查加权得分（6 项 × 4 档）+ 工单评价得分</td><td>4.60</td><td>4.20</td><td>3.80</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('khDrawer')">编辑</span></td></tr>
+          <tr><td>KH-04</td><td>空置率</td><td class="num">12%</td><td><span class="badge green">系统自动取数</span></td><td>空置房源数 ÷ 受托房源数（剔除维修与冻结）</td><td>≤5%</td><td>≤10%</td><td>≤15%</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('khDrawer')">编辑</span></td></tr>
+          <tr><td>KH-05</td><td>房源完好率</td><td class="num">15%</td><td><span class="badge green">系统自动取数</span></td><td>巡检无问题房源数 ÷ 巡检房源数（取自扫码巡检记录）</td><td>98%</td><td>95%</td><td>90%</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('khDrawer')">编辑</span></td></tr>
+          <tr><td>KH-06</td><td>投诉办结时效</td><td class="num">10%</td><td><span class="badge green">系统自动取数</span></td><td>5 个工作日内办结投诉数 ÷ 投诉总数</td><td>95%</td><td>90%</td><td>85%</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('khDrawer')">编辑</span></td></tr>
+          <tr><td>KH-07</td><td>政府检查扣分</td><td class="num">10%</td><td><span class="badge orange">政府检查评分</span></td><td>检查发现问题按问题清单扣分，整改不到位加倍扣分</td><td>不扣分</td><td>≤3 分</td><td>≤6 分</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('khDrawer')">编辑</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>权重合计</b> 8 项指标权重合计 100%，调整须保持合计为 100%</span>
+    <span><b>取数来源</b> 融合住户评价、政府检查扣分与系统自动取数</span>
+    <span><b>评分应用</b> <span class="link" onclick="location.href='kpi-apply.html'">考核结果应用</span></span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="khDrawer">
+  <div class="drawer-head">
+    <h3>考核指标配置</h3>
+    <span class="badge blue">V2026-01</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>指标权重合计须为 <b>100%</b>。指标与权重调整<b>须审批并按考核周期生效</b>，不影响已完成的考核期。</div>
+  </div>
+
+      <div class="form-grid form-align">
+        <div class="form-item">
+          <label>指标编号 <span class="req">*</span></label>
+          <input type="text" value="KH-01" readonly>
+        </div>
+        <div class="form-item">
+          <label>指标名称 <span class="req">*</span></label>
+          <input type="text" value="报修及时率">
+        </div>
+        <div class="form-item">
+          <label>权重（%） <span class="req">*</span></label>
+          <input type="text" value="18">
+          <div class="hint">8 项合计须为 100%</div>
+        </div>
+        <div class="form-item">
+          <label>取数方式 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>系统自动取数</option><option>政府检查评分</option><option>住户评价</option></select>
+        </div>
+        <div class="form-item col-full">
+          <label>取数口径 <span class="req">*</span></label>
+          <textarea rows="3">按时限内上门工单数 ÷ 工单总数。时限口径：紧急 4 小时、较急 24 小时、一般 3 个工作日，取自报修工单流转记录。</textarea>
+        </div>
+        <div class="form-item">
+          <label>优（≥） <span class="req">*</span></label>
+          <input type="text" value="95">
+        </div>
+        <div class="form-item">
+          <label>良（≥） <span class="req">*</span></label>
+          <input type="text" value="90">
+        </div>
+        <div class="form-item">
+          <label>合格（≥） <span class="req">*</span></label>
+          <input type="text" value="85">
+        </div>
+        <div class="form-item col-full">
+          <label>生效考核期 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>2026 年第四季度</option><option>2027 年第一季度</option></select>
+        </div>
+        <div class="form-item col-full">
+          <label>调整说明 <span class="req">*</span></label>
+          <textarea rows="3" placeholder="必填，说明调整依据与影响"></textarea>
+        </div>
+      </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认提交考核指标调整？须保持 8 项权重合计为 100%。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已提交，待业务管理员审批后按考核期生效','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 8; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

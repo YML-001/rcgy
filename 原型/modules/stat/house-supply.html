@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>供需匹配分析 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="housing" data-active="stat-09">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 统计分析
+      <span class="sep">/</span> 房源分析
+      <span class="sep">/</span> <span class="cur">供需匹配分析</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-danger">
+    <i class="fa-solid fa-circle-exclamation"></i>
+    <div>将<b>房源结构与申请人意向片区、意向房型对比</b>，识别供需错配并输出调整建议。匹配度低的区域需优先筹集或引导跨区选房。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-code-compare"></i></div>
+      <div><div class="s-label">匹配度</div><div class="s-value">68.4%</div>
+        <div class="s-trend text-2">意向可满足比例</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon red"><i class="fa-solid fa-arrow-trend-down"></i></div>
+      <div><div class="s-label">总缺口</div><div class="s-value">-268</div>
+        <div class="s-trend ">人份</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-location-dot"></i></div>
+      <div><div class="s-label">错配最严重</div><div class="s-value">经开区</div>
+        <div class="s-trend text-2">缺口 -178</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-thumbs-up"></i></div>
+      <div><div class="s-label">匹配最好</div><div class="s-value">石峰区</div>
+        <div class="s-trend text-2">盈余 +40</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <h3><i class="fa-solid fa-code-compare"></i> 供需匹配</h3>
+      <span class="sub">S2-05 · 按意向片区归集</span>
+    </div>
+    <div class="card-body">
+      <div class="section-title" data-icon="fa-chart-simple">各区意向需求与供给匹配度</div>
+      <div class="dc-bars">
+        <div class="b-item warn"><span class="b-label">经开区　需求 202 / 供给 24</span><span class="b-track"><span class="b-fill" style="width:11.9%"></span></span><span class="b-val">匹配度 11.9% · 缺口 -178</span></div>
+        <div class="b-item warn"><span class="b-label">天元区　需求 300 / 供给 186</span><span class="b-track"><span class="b-fill" style="width:62.0%"></span></span><span class="b-val">匹配度 62.0% · 缺口 -114</span></div>
+        <div class="b-item warn"><span class="b-label">荷塘区　需求 134 / 供给 62</span><span class="b-track"><span class="b-fill" style="width:46.3%"></span></span><span class="b-val">匹配度 46.3% · 缺口 -72</span></div>
+        <div class="b-item warn"><span class="b-label">芦淞区　需求 104 / 供给 42</span><span class="b-track"><span class="b-fill" style="width:40.4%"></span></span><span class="b-val">匹配度 40.4% · 缺口 -62</span></div>
+        <div class="b-item"><span class="b-label">石峰区　需求 58 / 供给 98</span><span class="b-track"><span class="b-fill" style="width:100%"></span></span><span class="b-val">匹配度 169% · 盈余 +40</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="card list-card">
+    <div class="card-head">
+      <h3><i class="fa-solid fa-table-list"></i> 明细下钻</h3>
+      <span class="sub">可逐级下钻至明细清单</span>
+    </div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>意向片区</th><th>意向需求人数</th><th>可配租供给</th><th>匹配度</th><th>缺口/盈余</th><th>需求最集中房型</th><th>供给最充足房型</th><th class="cell-lg">调整建议</th><th>下钻</th></tr>
+        </thead>
+        <tbody>
+          <tr class="row-bad"><td>经开区</td><td class="num">202</td><td class="num">24</td><td><span class="badge red">11.9%</span></td><td class="num">-178</td><td>一室一厅（62%）</td><td>单间配套（33%）</td><td><b>优先筹集 140 套</b>，其中一室一厅不低于 60%。可考虑在云龙片区新增收购或盘活</td><td><span class="link" onclick="location.href='../house/house-forecast.html'">供需测算</span></td></tr>
+          <tr class="row-warn"><td>天元区</td><td class="num">300</td><td class="num">186</td><td><span class="badge orange">62.0%</span></td><td class="num">-114</td><td>一室一厅（58%）</td><td>一室一厅（33%）</td><td>建议筹集 120 套；同时引导部分申请人跨区选择石峰区盈余房源</td><td><span class="link" onclick="location.href='house-struct.html'">房源结构</span></td></tr>
+          <tr class="row-warn"><td>荷塘区</td><td class="num">134</td><td class="num">62</td><td><span class="badge orange">46.3%</span></td><td class="num">-72</td><td>一室一厅（54%）</td><td>一室一厅（65%）</td><td>户型匹配较好但总量不足，建议筹集 60 套</td><td><span class="link" onclick="location.href='house-struct.html'">房源结构</span></td></tr>
+          <tr class="row-warn"><td>芦淞区</td><td class="num">104</td><td class="num">42</td><td><span class="badge orange">40.4%</span></td><td class="num">-62</td><td>一室一厅（56%）</td><td>一室一厅（57%）</td><td>先推进董家塅 42 套整改验收即可缓解，再筹集 40 套</td><td><span class="link" onclick="location.href='../house/acceptance-list.html'">去验收</span></td></tr>
+          <tr><td>石峰区</td><td class="num">58</td><td class="num">98</td><td><span class="badge green">169.0%</span></td><td class="num">+40</td><td>一室一厅（52%）</td><td>一室一厅（61%）</td><td><b>供给盈余但空置偏高</b>。建议补齐 VR 与户型图素材、加强片区配套宣传、引导跨区选房消化空置</td><td><span class="link" onclick="location.href='house-vacancy.html'">空置分析</span></td></tr>
+          <tr><td><span class="badge green">合计</span></td><td class="num">798</td><td class="num">412</td><td><span class="badge orange">51.6%</span></td><td class="num">-386</td><td>一室一厅（57%）</td><td>一室一厅（45%）</td><td>区域间冷热不均是主要矛盾：经开区与天元区缺口大，石峰区盈余但难消化</td><td><span class="link" onclick="location.href='map-overview.html'">保障全景一张图</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>匹配度口径</b> 意向片区可配租供给 ÷ 该片区意向需求人数</span>
+    <span><b>需求来源</b> 轮候库意向片区 + 应届生预申请意向片区 + 近 12 个月申请意向</span>
+    <span><b>建议依据</b> <span class="link" onclick="location.href='../house/house-forecast.html'">房源供需测算</span></span>
+  </div>
+</main>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 6; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

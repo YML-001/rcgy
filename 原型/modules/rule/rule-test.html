@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>规则测试与模拟 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="manager" data-active="rule-13">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 信息公开与规则配置
+      <span class="sep">/</span> 版本与变更留痕
+      <span class="sep">/</span> <span class="cur">规则测试与模拟</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.openDrawer('csDrawer')"><i class="fa-solid fa-vials"></i> 新建测试任务</button>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-danger">
+    <i class="fa-solid fa-circle-exclamation"></i>
+    <div>规则发布前用<b>历史件回归测试</b>，并可<b>模拟测算调整门槛后符合条件的人数与资金规模</b>。回归测试不通过的规则版本不允许发布。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-vials"></i></div>
+      <div><div class="s-label">测试任务</div><div class="s-value">12</div>
+        <div class="s-trend text-2">2026 年度</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
+      <div><div class="s-label">回归通过</div><div class="s-value">10</div>
+        <div class="s-trend text-2">通过率 83.3%</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon red"><i class="fa-solid fa-circle-xmark"></i></div>
+      <div><div class="s-label">回归不通过</div><div class="s-value">2</div>
+        <div class="s-trend ">判定差异需核对</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-calculator"></i></div>
+      <div><div class="s-label">模拟测算</div><div class="s-value">6</div>
+        <div class="s-trend text-2">次</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>测试编号</label><input type="text" placeholder="测试编号"></div>
+      <div class="filter-item"><label>规则版本</label><input type="text" placeholder="版本号"></div>
+      <div class="filter-item"><label>测试类型</label><select><option value="">全部</option><option>历史件回归测试</option><option>门槛调整模拟测算</option></select></div>
+      <div class="filter-item"><label>测试结果</label><select><option value="">全部</option><option>通过</option><option>不通过</option><option>进行中</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>测试编号</th><th>规则版本</th><th>测试类型</th><th>样本量</th><th>判定一致</th><th>判定差异</th><th class="cell-lg">差异说明 / 测算结论</th><th>测试时间</th><th>结果</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr class="row-bad"><td>CS2026-09-0012</td><td><span class="sp-vt">V2026-10</span></td><td><span class="badge blue">历史件回归测试</span></td><td class="num">1,286</td><td class="num">1,240</td><td class="num">46</td><td>46 件创业类历史件在新规则下判定由「通过」变为「转人工核实」，原因是 R-C12 企业纳税判定口径趋严。<b>须确认是否符合政策意图</b></td><td>2026-09-05 10:26</td><td><span class="badge red">不通过</span></td><td><span class="link" onclick="PMS.openDrawer('csDrawer')">查看差异</span></td></tr>
+          <tr><td>CS2026-08-0010</td><td><span class="sp-vt cur">V2026-09</span></td><td><span class="badge blue">历史件回归测试</span></td><td class="num">1,286</td><td class="num">1,286</td><td class="num">0</td><td>全部历史件判定一致，规则调整不影响已有判定结论，可安全发布</td><td>2026-08-28 14:08</td><td><span class="badge green">通过</span></td><td><span class="link" onclick="PMS.toast('样本 1,286 件，判定一致率 100%，已作为 V2026-09 发布依据')">测试报告</span></td></tr>
+          <tr class="row-warn"><td>CS2026-09-0014</td><td><span class="sp-vt">V2026-10</span></td><td><span class="badge cyan">门槛调整模拟测算</span></td><td class="num">3,246</td><td><span class="muted">—</span></td><td><span class="muted">—</span></td><td>模拟将毕业年限由 2 年放宽至 3 年：符合条件人数由 3,246 增至 <b>4,862</b>（+49.8%），按现行减免标准年度补助资金规模由 1,011 万元增至 <b>1,514 万元</b>（+49.8%）</td><td>2026-09-05 11:42</td><td><span class="badge cyan">测算完成</span></td><td><span class="link" onclick="PMS.openDrawer('csDrawer')">查看测算</span></td></tr>
+          <tr><td>CS2026-06-0006</td><td><span class="sp-vt">V2026-06</span></td><td><span class="badge blue">历史件回归测试</span></td><td class="num">986</td><td class="num">986</td><td class="num">0</td><td>全部历史件判定一致，可安全发布</td><td>2026-05-26 09:18</td><td><span class="badge green">通过</span></td><td><span class="link" onclick="PMS.toast('样本 986 件，判定一致率 100%')">测试报告</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>发布前置</b> 回归测试不通过的规则版本不允许发布</span>
+    <span><b>测算用途</b> 模拟测算调整门槛后符合条件的人数与资金规模，供决策参考</span>
+    <span><b>样本范围</b> 历史件回归测试取近 12 个月已办结申请件</span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="csDrawer">
+  <div class="drawer-head">
+    <h3>规则测试与模拟测算</h3>
+    <span class="badge red">不通过</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+  <div class="alert alert-danger">
+    <i class="fa-solid fa-circle-exclamation"></i>
+    <div>V2026-10 回归测试<b>不通过</b>：46 件创业类历史件判定发生变化。请确认是否符合政策意图；<b>不通过的版本不允许发布</b>。</div>
+  </div>
+
+      <div class="form-grid form-align">
+        <div class="form-item">
+          <label>测试编号 <span class="req">*</span></label>
+          <input type="text" value="CS2026-09-0012" readonly>
+        </div>
+        <div class="form-item">
+          <label>规则版本 <span class="req">*</span></label>
+          <input type="text" value="V2026-10" readonly>
+        </div>
+        <div class="form-item">
+          <label>测试类型 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>历史件回归测试</option><option>门槛调整模拟测算</option></select>
+        </div>
+        <div class="form-item">
+          <label>样本范围 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>近 12 个月已办结件</option><option>近 6 个月已办结件</option><option>全部历史件</option><option>指定批次</option></select>
+        </div>
+        <div class="form-item">
+          <label>样本量 <span class="req">*</span></label>
+          <input type="text" value="1286" readonly>
+        </div>
+        <div class="form-item">
+          <label>判定一致 <span class="req">*</span></label>
+          <input type="text" value="1240（96.4%）" readonly>
+        </div>
+        <div class="form-item">
+          <label>判定差异 <span class="req">*</span></label>
+          <input type="text" value="46（3.6%）" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>差异明细</label>
+          <textarea rows="5" readonly>46 件创业类历史件在 V2026-10 规则下判定由「审核通过」变为「转人工核实」：
+· 其中 28 件企业为部分期数零申报（原规则视为正常纳税，新规则要求连续申报且有实际缴税）
+· 其中 12 件企业申报期数不足 3 期（新规则要求连续申报不少于 3 期）
+· 其中 6 件企业有申报但无实际缴税（新规则要求有实际缴税）
+说明：上述件均已办结且承租人在租，新规则仅对新受理件生效，不影响其已获保障资格。</textarea>
+        </div>
+        <div class="form-item col-full">
+          <label>结论判定 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>差异符合政策意图，允许发布</option><option>差异不符合政策意图，需调整规则</option><option>需报请政策制定部门确认</option></select>
+        </div>
+        <div class="form-item col-full">
+          <label>处理说明 <span class="req">*</span></label>
+          <textarea rows="3" placeholder="必填，说明差异是否符合政策意图及后续处理"></textarea>
+        </div>
+      </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认提交回归测试结论？不通过的版本将不允许发布。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已记录测试结论并留痕','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 12; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

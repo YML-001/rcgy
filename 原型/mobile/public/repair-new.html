@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>线上报修 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/mobile.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body class="m-body" data-mtitle="线上报修" data-mmod="M10 入住交付与租后服务" data-mcode="M10-03"
+      data-mdesc="选择报修类别、上传照片或视频、定位具体房间提交工单。" data-mback="me.html" data-mtabset="public" data-mtab="me">
+<div class="m-stage">
+  <div class="m-phone">
+    <div class="m-screen">
+      <div class="m-view">
+        <div class="m-note"><i class="fa-solid fa-circle-info"></i>
+          <div>报修工单将派发至运营机构或物业处理。<b>处理时效纳入物业考核评价</b>，超时未处理将自动升级至运营机构负责人督办。</div>
+        </div>
+        <div class="m-form">
+          <div class="m-fi">
+            <label>报修房源 <span class="req">*</span></label>
+            <div class="m-fc"><input type="text" value="湘江1958 人才公寓 A6 栋 1502" readonly><div class="m-fh">自动带入承租房源</div></div>
+          </div>
+          <div class="m-fi">
+            <label>报修类别 <span class="req">*</span></label>
+            <div class="m-fc"><select data-dict="woType"></select></div>
+          </div>
+          <div class="m-fi">
+            <label>具体房间 <span class="req">*</span></label>
+            <div class="m-fc"><select><option value="">请选择</option><option>客厅</option><option>卧室</option><option>厨房</option><option>卫生间</option><option>阳台</option><option>公共区域</option></select></div>
+          </div>
+          <div class="m-fi">
+            <label>紧急程度 <span class="req">*</span></label>
+            <div class="m-fc"><select><option>一般（3 个工作日内）</option><option>较急（24 小时内）</option><option>紧急（4 小时内，如漏水停电）</option></select></div>
+          </div>
+          <div class="m-fi">
+            <label>故障描述 <span class="req">*</span></label>
+            <div class="m-fc"><textarea rows="3" placeholder="请描述故障现象，如「卫生间洗手台下方水管接头渗水，地面有积水」">卫生间洗手台下方水管接头渗水，地面时有积水，柜体底板已受潮发胀，恳请尽快安排上门维修。</textarea><div class="m-fh">描述越具体，维修人员越能带对工具</div></div>
+          </div>
+        </div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-camera"></i>上传凭证</div>
+          <div class="m-card-b">
+            <div class="m-fi col">
+              <label>现场照片 / 视频 <span class="req">*</span></label>
+              <div class="m-fc">
+                <div class="m-up">
+                  <div class="m-uc ok"><img src="https://images.unsplash.com/photo-1581244277943-fe4a9c777189?w=600&q=80" alt="故障照片"><span class="m-uc-n">故障照片.jpg</span></div>
+                  <div class="m-uadd" data-toast="原型演示：调起相机或从相册选择"><i class="fa-solid fa-camera"></i><span>添加</span></div>
+                </div>
+                <div class="m-fh">最多 6 张照片或 1 段 15 秒视频</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="m-form">
+          <div class="m-fi">
+            <label>联系人 <span class="req">*</span></label>
+            <div class="m-fc"><input type="text" value="王梓涵"></div>
+          </div>
+          <div class="m-fi">
+            <label>联系电话 <span class="req">*</span></label>
+            <div class="m-fc"><input type="tel" value="13802456207"><div class="m-fh">维修人员上门前电话联系</div></div>
+          </div>
+          <div class="m-fi">
+            <label>方便上门时间 <span class="req">*</span></label>
+            <div class="m-fc"><select><option>工作日上午</option><option>工作日下午</option><option>工作日晚间</option><option>周末全天</option></select></div>
+          </div>
+        </div>
+        <div class="m-sect">办理时效<span class="m-sect-x">P12-01</span></div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-clock"></i>各环节时限</div>
+          <div class="m-card-b">
+          <div class="m-kv">
+            <div><span>受理</span><span>提交后 2 小时内受理</span></div>
+            <div><span>派单</span><span>受理后 4 小时内派单至维修人员</span></div>
+            <div><span>上门</span><span>紧急 4 小时内 / 较急 24 小时内 / 一般 3 个工作日内</span></div>
+            <div><span>验收</span><span>完工后由住户现场电子签字确认</span></div>
+            <div><span>超时处置</span><span>超时未处理<b>自动升级</b>至运营机构负责人督办</span></div>
+          </div>
+          </div>
+        </div>
+      </div>
+      <div class="m-actbar">
+        <a class="m-btn w-auto" href="repair-list.html">我的工单</a>
+        <button class="m-btn primary" type="button" onclick="MB.submit('.m-view','确认提交报修工单？工单将派发至运营机构处理，处理时效纳入物业考核。','确认提交','repair-list.html')"><i class="fa-solid fa-paper-plane"></i> 提交报修</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../../assets/js/mobile.js"></script>
+</body>
+</html>

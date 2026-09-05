@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>审核结论与电子送达 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="reviewer" data-active="apply-12">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 人才档案与资格联审
+      <span class="sep">/</span> 资格受理与复核
+      <span class="sep">/</span> <span class="cur">审核结论与送达</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>自动生成<b>资格审核表的受理意见与审核意见</b>、通过或不予通过告知书，并向申请人<b>电子送达</b>。送达经湘易办站内消息、微信模板消息、短信多通道触达。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-stamp"></i></div>
+      <div><div class="s-label">本月出具结论</div><div class="s-value">1,286</div>
+        <div class="s-trend text-2">含通过与不通过</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
+      <div><div class="s-label">审核通过</div><div class="s-value">1,092</div>
+        <div class="s-trend text-2">通过率 84.9%</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon red"><i class="fa-solid fa-circle-xmark"></i></div>
+      <div><div class="s-label">不予通过</div><div class="s-value">194</div>
+        <div class="s-trend text-2">占 15.1%</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-paper-plane"></i></div>
+      <div><div class="s-label">送达成功率</div><div class="s-value">99.6%</div>
+        <div class="s-trend text-2">三通道合计</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>申请编号</label><input type="text" placeholder="申请编号"></div>
+      <div class="filter-item"><label>申请人</label><input type="text" placeholder="姓名"></div>
+      <div class="filter-item"><label>审核结论</label><select><option value="">全部</option><option>审核通过</option><option>不予通过</option><option>退回补正</option></select></div>
+      <div class="filter-item"><label>送达状态</label><select><option value="">全部</option><option>已送达</option><option>送达失败</option><option>待送达</option></select></div>
+      <div class="filter-item"><label>结论日期</label><input type="date"></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>申请编号</th><th>申请人</th><th>审核结论</th><th class="cell-lg">结论说明</th><th>告知书</th><th>审核人</th><th>结论时间</th><th>送达通道</th><th>送达状态</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>RC2026-0903-0162</td><td>王梓涵</td><td><span class="badge green">审核通过</span></td><td>8 项核验中 7 项一致，个人所得税期数不匹配经人工核实属入职当年未达起征点，予以通过</td><td><span class="badge green">已生成</span></td><td>刘志刚</td><td>2026-09-05 09:14</td><td>站内 + 微信 + 短信</td><td><span class="badge green">已送达</span></td><td><span class="link" onclick="PMS.openDrawer('clDrawer')">查看结论</span></td></tr>
+          <tr class="row-bad"><td>RC2026-0902-0148</td><td>王志远</td><td><span class="badge red">不予通过</span></td><td>配偶李×× 在天元区名下有住房 1 套，不符合管理办法第七条第二项无自有住房条件</td><td><span class="badge green">已生成</span></td><td>刘志刚</td><td>2026-09-06 09:18</td><td>站内 + 微信 + 短信</td><td><span class="badge green">已送达</span></td><td><span class="link" onclick="PMS.openDrawer('clDrawer')">查看结论</span></td></tr>
+          <tr class="row-warn"><td>RC2026-0903-0171</td><td>周宇轩</td><td><span class="badge orange">退回补正</span></td><td>缺经教育部留学服务中心认证的国（境）外学历学位认证书，一次性告知后补齐重提</td><td><span class="badge green">已生成</span></td><td>刘敏</td><td>2026-09-04 16:22</td><td>站内 + 微信 + 短信</td><td><span class="badge green">已送达</span></td><td><span class="link" onclick="location.href='reject-list.html'">驳回补正</span></td></tr>
+          <tr><td>RC2026-0904-0186</td><td>谭雅丽</td><td><span class="badge green">审核通过</span></td><td>8 项核验全部一致，符合就业青年人才保障对象与申请条件，予以通过</td><td><span class="badge green">已生成</span></td><td>周敏</td><td>2026-09-05 15:26</td><td>站内 + 微信 + 短信</td><td><span class="badge green">已送达</span></td><td><span class="link" onclick="PMS.openDrawer('clDrawer')">查看结论</span></td></tr>
+          <tr class="row-warn"><td>RC2026-0905-0196</td><td>彭雪松</td><td><span class="badge green">审核通过</span></td><td>8 项核验全部一致，予以通过</td><td><span class="badge green">已生成</span></td><td>刘志刚</td><td>2026-09-06 10:02</td><td>站内 + 微信</td><td><span class="badge orange">短信失败</span></td><td><span class="link" onclick="PMS.toast('已重新发送短信；站内消息与微信模板消息已成功送达')">重新送达</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>自动生成</b> 资格审核表受理意见与审核意见 + 通过/不予通过告知书</span>
+    <span><b>送达要求</b> 多通道电子送达，失败自动重试并记录</span>
+    <span><b>后续流转</b> 通过的进入配租轮候；不予通过的条件变化后可重新申请</span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="clDrawer">
+  <div class="drawer-head">
+    <h3>审核结论与告知书</h3>
+    <span class="badge green">已送达</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+  <div class="alert alert-success">
+    <i class="fa-solid fa-circle-check"></i>
+    <div>本件<b>审核通过</b>，已于 2026-09-05 09:15 通过三通道电子送达，申请人已读。已进入配租轮候。</div>
+  </div>
+
+        <div class="sp-block">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 资格审核表意见<span class="sub">管理办法附件</span></div>
+          <div class="sp-b">
+        <div class="sp-kv">
+          <div class="kv"><span class="k">受理意见</span><span class="v">材料齐全，予以受理。受理时间 2026-09-03 10:26（湘易办 APP）。<br>受理人：系统自动受理</span></div>
+          <div class="kv"><span class="k">审核意见</span><span class="v">经调取婚姻、不动产、学历、社保、个税、政策性住房等 8 项数据交叉比对，7 项一致；个人所得税期数与社保不匹配，经人工核实系入职当年未达个税起征点，非挂靠社保情形。申请人符合<b>就业青年人才</b>保障对象条件，且在市城区范围内无自有住房、未承租政策性住房、未享受公租房租赁补贴，符合管理办法第三条、第七条规定，<b>予以通过</b>。<br>审核人：刘志刚　2026-09-05 09:14</span></div>
+        </div>
+          </div>
+        </div>
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 告知书<span class="sub">自动生成</span></div>
+          <div class="sp-b">
+      <div class="sp-doc"><i class="fa-regular fa-file-lines"></i>株洲市创业就业青年人才住房资格审核通过告知书.pdf</div>
+      <div class="sp-kv" style="margin-top:10px">
+        <div class="kv"><span class="k">文号</span><span class="v">株住保人才审〔2026〕1092 号</span></div>
+        <div class="kv"><span class="k">生成时间</span><span class="v">2026-09-05 09:15</span></div>
+        <div class="kv"><span class="k">加盖印章</span><span class="v">市保障性住房服务中心电子印章</span></div>
+        <div class="kv"><span class="k">归档编号</span><span class="v">DZ2026-RC-0162</span><a class="link" onclick="location.href='archive-detail.html?id=DZ2026-RC-0162'">看档案</a></div>
+      </div>
+          </div>
+        </div>
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 电子送达记录<span class="sub">三通道触达</span></div>
+          <div class="sp-b">
+  <div class="sp-tw">
+    <table class="data-table compact">
+      <thead><tr><th>送达通道</th><th>接收方</th><th>发送时间</th><th>送达状态</th><th>阅读状态</th></tr></thead>
+      <tbody>
+      <tr><td><span class="badge blue">湘易办站内消息</span></td><td>王梓涵</td><td>2026-09-05 09:15</td><td><span class="badge green">已送达</span></td><td><span class="badge green">已读</span></td></tr>
+      <tr><td><span class="badge green">微信模板消息</span></td><td>株洲人才公众号 · 王梓涵</td><td>2026-09-05 09:15</td><td><span class="badge green">已送达</span></td><td><span class="badge green">已读</span></td></tr>
+      <tr><td><span class="badge orange">短信</span></td><td>138****6207</td><td>2026-09-05 09:15</td><td><span class="badge green">已送达</span></td><td><span class="muted">—</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+          </div>
+        </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>关闭</button>
+    <button class="btn" onclick="PMS.toast('告知书 PDF 已下载','success')"><i class="fa-solid fa-download"></i> 下载告知书</button>
+    <button class="btn btn-primary" onclick="PMS.toast('已重新发送，三通道同步触达','success')"><i class="fa-solid fa-paper-plane"></i> 重新送达</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 1286; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

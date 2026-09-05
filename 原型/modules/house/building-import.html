@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>批量导入与差错校验 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="housing" data-active="house-08">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 房源筹集与楼盘表
+      <span class="sep">/</span> 楼盘表与多源归集
+      <span class="sep">/</span> <span class="cur">批量导入与校验</span>
+    </div>
+    <div class="page-actions">
+      <a class="btn" href="building-table.html"><i class="fa-solid fa-arrow-left"></i> 返回楼盘表</a>
+      <button class="btn" onclick="PMS.toast('差错清单已下载，修正后可重新导入','success')"><i class="fa-solid fa-download"></i> 下载差错清单</button>
+      <button class="btn btn-primary" onclick="PMS.toast('已重新校验，差错 12 行仍待修正')"><i class="fa-solid fa-rotate"></i> 重新校验</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>本次导入 486 行，<b>校验差错 12 行</b>（含<b>重复登记 2 行</b>）。差错行不入库，须修正后重新校验。命中<b>多源重复校验</b>的房源已自动锁定，须人工核实后方可上架。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-file-excel"></i></div>
+      <div><div class="s-label">本次导入行数</div><div class="s-value">486</div>
+        <div class="s-trend text-2">清水塘新苑</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
+      <div><div class="s-label">校验通过</div><div class="s-value">474</div>
+        <div class="s-trend text-2">占 97.5%</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon red"><i class="fa-solid fa-circle-xmark"></i></div>
+      <div><div class="s-label">校验差错</div><div class="s-value">12</div>
+        <div class="s-trend ">含重复登记 2 行</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-lock"></i></div>
+      <div><div class="s-label">重复登记锁定</div><div class="s-value">2</div>
+        <div class="s-trend text-2">待人工核实</div></div>
+    </div>
+  </div>
+
+  <div class="card" data-tabs-scope>
+    <div class="tabs">
+      <div class="tab active" data-tab="upload">导入房源数据</div>
+      <div class="tab" data-tab="result">校验结果 <span class="badge red">12</span></div>
+      <div class="tab" data-tab="log">导入历史</div>
+    </div>
+    <div class="tab-panel active" data-panel="upload">
+      <div class="card-body">
+        <div class="import-drop" onclick="PMS.toast('原型演示：选择 Excel 文件上传')">
+          <i class="fa-solid fa-cloud-arrow-up"></i>
+          <div class="t">将楼盘表 Excel 文件拖放到此处，或点击选择文件</div>
+          <div class="d">支持 .xlsx / .xls，单次最多 5,000 行，文件大小不超过 20 MB</div>
+        </div>
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 导入模板<span class="sub">由市住保中心提供</span></div>
+          <div class="sp-b">
+  <div class="sp-tw">
+    <table class="data-table compact">
+      <thead><tr><th>列名</th><th>是否必填</th><th>格式要求</th><th>校验规则</th></tr></thead>
+      <tbody>
+      <tr><td>项目名称</td><td><span class="badge red">必填</span></td><td>文本</td><td>须与项目台账中已登记项目一致，否则报错</td></tr>
+      <tr><td>楼栋</td><td><span class="badge red">必填</span></td><td>文本</td><td>如「A6 栋」</td></tr>
+      <tr><td>单元</td><td><span class="badge red">必填</span></td><td>文本</td><td>如「1 单元」</td></tr>
+      <tr><td>楼层</td><td><span class="badge red">必填</span></td><td>整数</td><td>1—99</td></tr>
+      <tr><td>房号</td><td><span class="badge red">必填</span></td><td>文本</td><td>同一楼栋单元内不可重复</td></tr>
+      <tr><td>户型</td><td><span class="badge red">必填</span></td><td>字典值</td><td>单间配套 / 一室一厅 / 二室一厅 / 三室一厅</td></tr>
+      <tr><td>建筑面积</td><td><span class="badge red">必填</span></td><td>两位小数</td><td>大于 0 且小于 300</td></tr>
+      <tr><td>套内面积</td><td><span class="badge red">必填</span></td><td>两位小数</td><td>须小于建筑面积</td></tr>
+      <tr><td>分摊面积</td><td><span class="badge red">必填</span></td><td>两位小数</td><td>建筑面积 − 套内面积，误差不超过 0.10 ㎡</td></tr>
+      <tr><td>来源渠道</td><td><span class="badge red">必填</span></td><td>字典值</td><td>收购商品房 / 公租房盘活 / 保租房“一间房”</td></tr>
+      <tr><td>管理模式</td><td><span class="badge red">必填</span></td><td>字典值</td><td>整套配租 / 按间配租 / 按床位配租</td></tr>
+      <tr><td>租金标准</td><td><span class="badge red">必填</span></td><td>两位小数</td><td>元/㎡·月</td></tr>
+      <tr><td>装修标准</td><td><span class="badge orange">选填</span></td><td>字典值</td><td>精装 · 拎包入住 / 简装 / 毛坯</td></tr>
+      <tr><td>产权信息</td><td><span class="badge orange">选填</span></td><td>文本</td><td>产权人全称</td></tr>
+      </tbody>
+    </table>
+  </div>
+          </div>
+        </div>
+        <div class="btn-row" style="margin-top:14px">
+          <button class="btn" onclick="PMS.toast('导入模板已下载','success')"><i class="fa-solid fa-download"></i> 下载导入模板</button>
+          <button class="btn btn-primary" onclick="PMS.toast('已开始校验，请在「校验结果」页签查看')"><i class="fa-solid fa-check"></i> 开始校验</button>
+        </div>
+      </div>
+    </div>
+    <div class="tab-panel" data-panel="result">
+      <div class="card-body">
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 本次导入校验<span class="sub">共 486 行 / 差错 12 行</span></div>
+          <div class="sp-b">
+        <div class="sp-kv">
+          <div class="kv"><span class="k">导入文件</span><span class="v">清水塘新苑楼盘表_20260905.xlsx</span></div>
+          <div class="kv"><span class="k">导入行数</span><span class="v">486 行</span></div>
+          <div class="kv"><span class="k">校验通过</span><span class="v ok">474 行</span></div>
+          <div class="kv"><span class="k">校验差错</span><span class="v bad">12 行</span></div>
+          <div class="kv"><span class="k">重复登记预警</span><span class="v bad">2 行</span><span class="link" onclick="location.href='src-dup.html'">去处理</span></div>
+          <div class="kv"><span class="k">校验时间</span><span class="v">2026-09-05 09:26</span></div>
+        </div>
+          </div>
+        </div>
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 差错明细<span class="sub">12 行需修正</span></div>
+          <div class="sp-b">
+  <div class="sp-tw">
+    <table class="data-table compact">
+      <thead><tr><th class="num">行号</th><th>房号</th><th>差错类型</th><th class="cell-lg">差错说明</th><th>处理</th></tr></thead>
+      <tbody>
+      <tr class="row-bad"><td class="num">46</td><td>1 栋 0708</td><td><span class="badge red">面积不一致</span></td><td>分摊面积 12.00 ㎡ 与「建筑面积 − 套内面积 = 11.20 ㎡」不符，误差 0.80 ㎡ 超出 0.10 ㎡ 容差</td><td><span class="link" onclick="PMS.toast('已定位至该行，请修正后重新校验')">修正</span></td></tr>
+      <tr class="row-bad"><td class="num">88</td><td>1 栋 1204</td><td><span class="badge red">房号重复</span></td><td>同一楼栋单元内房号 1204 出现 2 次（第 88 行与第 132 行）</td><td><span class="link" onclick="PMS.toast('已定位至该行，请修正后重新校验')">修正</span></td></tr>
+      <tr class="row-bad"><td class="num">132</td><td>1 栋 1204</td><td><span class="badge red">房号重复</span></td><td>同上</td><td><span class="link" onclick="PMS.toast('已定位至该行，请修正后重新校验')">修正</span></td></tr>
+      <tr class="row-bad"><td class="num">186</td><td>2 栋 0906</td><td><span class="badge red">字典值非法</span></td><td>户型填写「两室一厅」，字典值应为「二室一厅」</td><td><span class="link" onclick="PMS.toast('已定位至该行，请修正后重新校验')">修正</span></td></tr>
+      <tr class="row-bad"><td class="num">214</td><td>2 栋 1502</td><td><span class="badge red">重复登记</span></td><td>该房源在<b>公租房管理系统</b>中已登记为在租状态，命中多源重复校验，已锁定待人工核实</td><td><span class="link" onclick="location.href='src-dup.html'">去核实</span></td></tr>
+      <tr class="row-bad"><td class="num">256</td><td>3 栋 0602</td><td><span class="badge red">重复登记</span></td><td>该房源在<b>省保租房系统</b>中已登记，命中多源重复校验，已锁定待人工核实</td><td><span class="link" onclick="location.href='src-dup.html'">去核实</span></td></tr>
+      <tr class="row-bad"><td class="num">302</td><td>3 栋 1108</td><td><span class="badge red">必填缺失</span></td><td>租金标准为空</td><td><span class="link" onclick="PMS.toast('已定位至该行，请修正后重新校验')">修正</span></td></tr>
+      <tr class="row-bad"><td class="num">348</td><td>4 栋 0804</td><td><span class="badge red">数值越界</span></td><td>建筑面积 320.00 ㎡ 超出合理上限 300 ㎡</td><td><span class="link" onclick="PMS.toast('已定位至该行，请修正后重新校验')">修正</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tab-panel" data-panel="log">
+      <div class="card-body">
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 历史导入记录<span class="sub">近 5 次</span></div>
+          <div class="sp-b">
+  <div class="sp-tw">
+    <table class="data-table compact">
+      <thead><tr><th>导入批次</th><th class="cell-lg">文件名</th><th class="num">行数</th><th class="num">成功</th><th class="num">差错</th><th>导入人</th><th>导入时间</th><th>状态</th></tr></thead>
+      <tbody>
+      <tr class="row-warn"><td>DR2026-09-006</td><td>清水塘新苑楼盘表_20260905.xlsx</td><td class="num">486</td><td class="num">474</td><td class="num">12</td><td>唐凯</td><td>2026-09-05 09:26</td><td><span class="badge orange">待修正</span></td></tr>
+      <tr><td>DR2026-08-005</td><td>董家塅安居苑楼盘表_20260812.xlsx</td><td class="num">328</td><td class="num">328</td><td class="num">0</td><td>唐凯</td><td>2026-08-12 15:08</td><td><span class="badge green">已完成</span></td></tr>
+      <tr><td>DR2026-03-004</td><td>茨菇塘公寓楼盘表_20260316.xlsx</td><td class="num">486</td><td class="num">486</td><td class="num">0</td><td>唐凯</td><td>2026-03-16 10:42</td><td><span class="badge green">已完成</span></td></tr>
+      <tr><td>DR2025-12-003</td><td>栗雨佳苑楼盘表_20251208.xlsx</td><td class="num">366</td><td class="num">366</td><td class="num">0</td><td>唐凯</td><td>2025-12-08 14:20</td><td><span class="badge green">已完成</span></td></tr>
+      <tr><td>DR2025-11-002</td><td>湘江1958二期楼盘表_20251120.xlsx</td><td class="num">300</td><td class="num">300</td><td class="num">0</td><td>唐凯</td><td>2025-11-20 09:18</td><td><span class="badge green">已完成</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>校验项</b> 必填缺失、字典值非法、数值越界、面积一致性、房号重复、多源重复登记</span>
+    <span><b>差错处理</b> 差错行不入库，修正后重新导入；重复登记行自动锁定待核实</span>
+  </div>
+</main>
+
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

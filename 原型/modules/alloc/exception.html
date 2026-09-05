@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>配租异常处理 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="allocator" data-active="alloc-07">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 配租选房与合同
+      <span class="sep">/</span> 配租管理
+      <span class="sep">/</span> <span class="cur">配租异常处理</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.openDrawer('exDrawer')"><i class="fa-solid fa-plus"></i> 新增异常件</button>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>办理<b>换房申请、特殊情形优先配租、配租结果纠错回滚</b>，<b>变更须审批并留痕</b>。纠错回滚涉及已签约的须同步办理合同解除。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-triangle-exclamation"></i></div>
+      <div><div class="s-label">本年异常件</div><div class="s-value">42</div>
+        <div class="s-trend text-2">含换房 26 件</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
+      <div><div class="s-label">已办结</div><div class="s-value">36</div>
+        <div class="s-trend text-2">办结率 85.7%</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-hourglass-half"></i></div>
+      <div><div class="s-label">在办</div><div class="s-value">6</div>
+        <div class="s-trend ">待审批 3 件</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon red"><i class="fa-solid fa-rotate-left"></i></div>
+      <div><div class="s-label">纠错回滚</div><div class="s-value">4</div>
+        <div class="s-trend text-2">均涉及合同解除</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>异常编号</label><input type="text" placeholder="异常编号"></div>
+      <div class="filter-item"><label>申请人</label><input type="text" placeholder="姓名"></div>
+      <div class="filter-item"><label>异常类型</label><select><option value="">全部</option><option>换房申请</option><option>特殊情形优先配租</option><option>配租结果纠错回滚</option><option>其他</option></select></div>
+      <div class="filter-item"><label>处理状态</label><select><option value="">全部</option><option>待审批</option><option>在办</option><option>已办结</option><option>不予同意</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>异常编号</th><th>申请人</th><th>异常类型</th><th class="cell-lg">事由</th><th>原房源</th><th>拟调整为</th><th>审批人</th><th>处理状态</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr class="row-warn"><td>YC2026-09-0026</td><td>谭××</td><td><span class="badge blue">换房申请</span></td><td>原配租房源在 18 楼，申请人配偶孕期不便，申请换至低楼层</td><td>湘江1958 A6-1806</td><td>湘江1958 A6-0606</td><td>李慧敏</td><td><span class="badge orange">待审批</span></td><td><span class="link" onclick="PMS.openDrawer('exDrawer')">办理</span></td></tr>
+          <tr class="row-warn"><td>YC2026-09-0028</td><td>贺××</td><td><span class="badge cyan">特殊情形优先配租</span></td><td>申请人为高新技术企业引进的中级职称专业技术人才，单位申请优先配租以保障项目攻关</td><td><span class="muted">轮候中（天元区第 86 位）</span></td><td>湘江1958 A6-1802</td><td><span class="muted">—</span></td><td><span class="badge orange">待审批</span></td><td><span class="link" onclick="PMS.openDrawer('exDrawer')">办理</span></td></tr>
+          <tr><td>YC2026-08-0018</td><td>周××</td><td><span class="badge red">配租结果纠错回滚</span></td><td>系统展示的房源面积有误（实际 50.00 ㎡ 展示为 52.00 ㎡），申请人据此选房后要求纠错</td><td>清水塘新苑 1-0708</td><td>回滚并恢复轮候资格</td><td>李慧敏</td><td><span class="badge green">已办结</span></td><td><span class="link" onclick="PMS.toast('已回滚配租结果、解除合同、撤销放弃标记并恢复轮候资格；房源面积已按对账结果更正')">办理记录</span></td></tr>
+          <tr><td>YC2026-07-0012</td><td>肖××</td><td><span class="badge blue">换房申请</span></td><td>工作单位由天元区调至荷塘区，通勤距离过远，申请跨片区换房</td><td>湘江1958 A6-1502</td><td>茨菇塘公寓 5-1204</td><td>李慧敏</td><td><span class="badge green">已办结</span></td><td><span class="link" onclick="PMS.toast('已换房并办理合同变更，保障期起算点不变（仍自原入住之日起算）')">办理记录</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>审批要求</b> 配租异常变更须经业务管理员审批并全程留痕</span>
+    <span><b>合同联动</b> 涉及已签约的须同步办理合同变更或解除</span>
+    <span><b>保障期口径</b> 换房不改变 2 年保障期起算点，仍自原入住之日起算</span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="exDrawer">
+  <div class="drawer-head">
+    <h3>配租异常处理审批</h3>
+    <span class="badge orange">待审</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+    <div class="sp-dual">
+      <i class="lead fa-solid fa-user-shield"></i>
+      <div>本环节按<b>不相容岗位控制</b>，经办人与复核人不得为同一自然人，全程留痕。</div>
+      <div class="who"><span class="muted">经办人</span><b>李慧敏</b></div>
+    </div>
+      <div class="form-grid form-align">
+        <div class="form-item col-full">
+          <label>审核结论 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>同意</option><option>不予同意</option><option>退回补充材料</option></select>
+        </div>
+        <div class="form-item col-full">
+          <label>结论说明 <span class="req">*</span></label>
+          <textarea id="exDrawerTxt" rows="4" placeholder="必填，不少于 10 字。说明对申请人完整可见">经核实，申请人所述换房事由属实，拟调整的目标房源当前空置可配，符合换房条件，同意办理并同步办理合同变更，保障期起算点仍自原入住之日起算。</textarea>
+        </div>
+      </div>
+    <p class="hint" style="margin-top:12px"><i class="fa-solid fa-circle-info"></i> 结论提交后写入办件状态流水（含操作人、时间、IP 与前后值），可被审计追溯。</p>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="auditOk('exDrawer','已提交，异常处理结论已留痕')"><i class="fa-solid fa-check"></i> 提交结论</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 42; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+<script>
+function auditOk(id, msg) {
+  var t = document.getElementById(id + 'Txt');
+  if (t && (t.value || '').trim().length < 10) {
+    PMS.toast('结论说明为必填且不少于 10 字', 'error'); t.focus(); return;
+  }
+  PMS.confirm({
+    title: '提交确认', message: '确认提交审核结论？',
+    detail: '提交后写入办件状态流水，结论将电子送达相关方，更正须走异常处理流程。',
+    type: 'warning', okText: '确认提交',
+    onOk: function () { PMS.closeDrawer(); PMS.toast(msg, 'success'); }
+  });
+}
+</script>
+</body>
+</html>

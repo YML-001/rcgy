@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>核验项开关配置 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="manager" data-active="rule-12">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 信息公开与规则配置
+      <span class="sep">/</span> 政策规则配置
+      <span class="sep">/</span> <span class="cur">核验项开关配置</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>对<b>婚姻、不动产、学历、工商、税务</b>等各项数据核验<b>单独设置启用开关与是否强制</b>，<b>接口未通时可临时切换为人工核验</b>。开关变更即时生效并全程留痕。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-toggle-on"></i></div>
+      <div><div class="s-label">启用核验项</div><div class="s-value">8</div>
+        <div class="s-trend text-2">全部启用</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon red"><i class="fa-solid fa-gavel"></i></div>
+      <div><div class="s-label">一票否决项</div><div class="s-value">4</div>
+        <div class="s-trend text-2">不可关闭</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-user-shield"></i></div>
+      <div><div class="s-label">临时人工核验</div><div class="s-value">2</div>
+        <div class="s-trend ">学信网 / 企业纳税</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-clock-rotate-left"></i></div>
+      <div><div class="s-label">本月开关变更</div><div class="s-value">4</div>
+        <div class="s-trend text-2">全部留痕</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>核验项</label><select data-dict="verifyItem" data-ph="全部"></select></div>
+      <div class="filter-item"><label>启用状态</label><select><option value="">全部</option><option>启用</option><option>停用</option></select></div>
+      <div class="filter-item"><label>是否强制</label><select><option value="">全部</option><option>一票否决</option><option>强制</option><option>非强制（临时人工）</option></select></div>
+      <div class="filter-item"><label>数据来源</label><input type="text" placeholder="部门名称"></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>核验项</th><th class="cell-lg">数据来源 / 配合单位</th><th>适用类型</th><th>启用</th><th>是否强制</th><th>接口成功率</th><th class="cell-lg">不通过时处理</th><th>最近变更</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>婚姻登记</td><td>市民政局婚姻登记信息</td><td>不限</td><td><span class="badge green">启用</span></td><td><span class="badge orange">强制</span></td><td><span class="badge green">99.5%</span></td><td>影响能否以家庭为单位共同申请，不阻断个人申请</td><td>2026-01-15</td><td><span class="link" onclick="PMS.openDrawer('kgDrawer')">配置</span></td></tr>
+          <tr><td>不动产登记</td><td>市自然资源和规划局不动产登记系统</td><td>不限</td><td><span class="badge green">启用</span></td><td><span class="badge red">一票否决</span></td><td><span class="badge green">99.3%</span></td><td>市城区范围内有自有住房的<b>直接不予通过</b></td><td>2026-01-15</td><td><span class="link" onclick="PMS.openDrawer('kgDrawer')">配置</span></td></tr>
+          <tr class="row-warn"><td>学历学位</td><td>学信网 / 教育部留学服务中心（市教育局配合）</td><td>不限</td><td><span class="badge green">启用</span></td><td><span class="badge orange">非强制（临时人工）</span></td><td><span class="badge red">87.6%</span></td><td>接口失败率 12.4% 超阈值，已<b>临时切换为人工核验</b>；凭毕业证书影像经 OCR 识别后人工核验，兜底件标注并回溯复核</td><td>2026-09-02</td><td><span class="link" onclick="PMS.openDrawer('kgDrawer')">配置</span></td></tr>
+          <tr><td>工商登记</td><td>市市场监督管理局营业执照与经营状态</td><td><span class="badge cyan">创业</span></td><td><span class="badge green">启用</span></td><td><span class="badge orange">强制</span></td><td><span class="badge green">100%</span></td><td>仅对创业青年人才强制；经营状态异常的转人工核实</td><td>2026-01-15</td><td><span class="link" onclick="PMS.openDrawer('kgDrawer')">配置</span></td></tr>
+          <tr class="row-warn"><td>企业纳税</td><td>市税务局企业纳税申报与缴税情况</td><td><span class="badge cyan">创业</span></td><td><span class="badge green">启用</span></td><td><span class="badge orange">非强制（临时人工）</span></td><td><span class="badge orange">91.4%</span></td><td>「正常纳税」判定口径待市税务局明确，<b>暂统一转人工核实</b>；不得直接以「无纳税」出具不予通过</td><td>2026-09-05</td><td><span class="link" onclick="PMS.openDrawer('kgDrawer')">配置</span></td></tr>
+          <tr><td>政策性住房</td><td>公租房管理系统承租与租赁补贴记录</td><td>不限</td><td><span class="badge green">启用</span></td><td><span class="badge red">一票否决</span></td><td><span class="badge green">100%</span></td><td>已承租政策性住房或正享受租赁补贴的<b>直接阻断申请</b></td><td>2026-01-15</td><td><span class="link" onclick="PMS.openDrawer('kgDrawer')">配置</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>配置目的</b> 接口未通时可临时切换为人工核验，保障业务不中断</span>
+    <span><b>硬约束</b> 一票否决项不可关闭；任何情况下不得跳过核验直接办结</span>
+    <span><b>兜底落点</b> <span class="link" onclick="location.href='../apply/manual-fallback.html'">接口异常人工兜底</span></span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="kgDrawer">
+  <div class="drawer-head">
+    <h3>核验项开关配置</h3>
+    <span class="badge orange">临时人工</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>切换为「非强制（临时人工）」后，该项核验失败<b>不再阻断办件</b>，转人工核验通道并<b>标注兜底标记</b>。<b>一票否决项不可关闭</b>；接口恢复后须切回并对兜底件回溯复核。</div>
+  </div>
+
+      <div class="form-grid form-align">
+        <div class="form-item">
+          <label>核验项 <span class="req">*</span></label>
+          <input type="text" value="学历学位" readonly>
+        </div>
+        <div class="form-item">
+          <label>数据来源 <span class="req">*</span></label>
+          <input type="text" value="学信网 / 教育部留学服务中心" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>配合单位 <span class="req">*</span></label>
+          <input type="text" value="市教育局、市住建局" readonly>
+        </div>
+        <div class="form-item">
+          <label>启用开关 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>启用</option><option>停用</option></select>
+          <div class="hint">一票否决项不可停用</div>
+        </div>
+        <div class="form-item">
+          <label>是否强制 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>一票否决</option><option>强制</option><option>非强制（临时人工）</option></select>
+        </div>
+        <div class="form-item">
+          <label>当前接口成功率 <span class="req">*</span></label>
+          <input type="text" value="87.6%（低于 95% 阈值）" readonly>
+        </div>
+        <div class="form-item">
+          <label>自动重试次数 <span class="req">*</span></label>
+          <input type="text" value="3">
+        </div>
+        <div class="form-item col-full">
+          <label>替代核验方式 <span class="req">*</span></label>
+          <textarea rows="3">由申请人上传毕业证书或学历学位认证书影像，经证照智能识别提取院校、学历层次与毕业时间后人工核验。兜底件标注兜底标记，接口恢复后纳入回溯复核范围。</textarea>
+        </div>
+        <div class="form-item col-full">
+          <label>切换原因 <span class="req">*</span></label>
+          <textarea rows="3">学信网接口本月失败率 12.4%，超出 5% 告警阈值，已影响 58 件申请正常办理。为保障 3 个工作日法定时限，临时切换为非强制并转人工核验通道。已同步向市数据局与市教育局反馈接口问题。</textarea>
+        </div>
+        <div class="form-item">
+          <label>预计切回日期 <span class="req">*</span></label>
+          <input type="date">
+          <div class="hint">接口恢复后须切回并回溯复核</div>
+        </div>
+      </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认将学历学位核验切换为「非强制（临时人工）」？切换后核验失败不再阻断办件。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已切换并即时生效，变更已留痕','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 8; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

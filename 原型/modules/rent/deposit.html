@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>押金管理 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="keeper" data-active="rent-07">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 租金收缴与年审退出
+      <span class="sep">/</span> 租金与费用
+      <span class="sep">/</span> <span class="cur">押金管理</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>管理押金<b>收取、抵扣、退还全过程</b>，退租时<b>自动生成结算单</b>。抵扣项须逐项列明并附依据，余额退还至原支付账户。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-piggy-bank"></i></div>
+      <div><div class="s-label">在管押金</div><div class="s-value">1,286,000.00</div>
+        <div class="s-trend text-2">元 · 1,286 户</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
+      <div><div class="s-label">本年已退还</div><div class="s-value">438,000.00</div>
+        <div class="s-trend text-2">元 · 462 户</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-hourglass-half"></i></div>
+      <div><div class="s-label">待退还</div><div class="s-value">18,000.00</div>
+        <div class="s-trend ">元 · 18 户待复核</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-scissors"></i></div>
+      <div><div class="s-label">累计抵扣</div><div class="s-value">126,842.00</div>
+        <div class="s-trend text-2">元 · 主要为水电燃气</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>承租人</label><input type="text" placeholder="姓名"></div>
+      <div class="filter-item"><label>合同编号</label><input type="text" placeholder="合同编号"></div>
+      <div class="filter-item"><label>押金状态</label><select><option value="">全部</option><option>已缴纳在管</option><option>待退还</option><option>已退还</option><option>已全额抵扣</option></select></div>
+      <div class="filter-item"><label>退还日期</label><input type="date"></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>押金编号</th><th>承租人</th><th>合同编号</th><th>押金金额</th><th>抵扣待缴租金</th><th>抵扣水电燃气</th><th>抵扣损坏赔偿</th><th>应退还</th><th>状态</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>YJ2026-00862</td><td>王梓涵</td><td>RZ2026-00862</td><td class="num">1,000.00</td><td class="num">0.00</td><td class="num">0.00</td><td class="num">0.00</td><td class="num">1,000.00</td><td><span class="badge green">已缴纳在管</span></td><td><span class="link" onclick="PMS.toast('2026-01-06 缴纳 1,000.00 元（翼支付流水 YZF20260106102618），票据号 CZP20260106000012')">押金记录</span></td></tr>
+          <tr class="row-warn"><td>YJ2024-00206</td><td>谭建国</td><td>RZ2024-00206</td><td class="num">1,000.00</td><td class="num">0.00</td><td class="num">364.20</td><td class="num">0.00</td><td class="num">635.80</td><td><span class="badge orange">待退还</span></td><td><span class="link" onclick="PMS.openDrawer('yjDrawer')">办理退还</span></td></tr>
+          <tr class="row-warn"><td>YJ2026-00518</td><td>周宇轩</td><td>RZ2026-00518</td><td class="num">1,000.00</td><td class="num">260.28</td><td class="num">286.40</td><td class="num">120.00</td><td class="num">333.32</td><td><span class="badge orange">待退还</span></td><td><span class="link" onclick="PMS.openDrawer('yjDrawer')">办理退还</span></td></tr>
+          <tr class="row-bad"><td>YJ2025-00286</td><td>蒋××</td><td>RZ2025-00286</td><td class="num">1,000.00</td><td class="num">1,301.40</td><td class="num">428.60</td><td class="num">0.00</td><td class="num">0.00</td><td><span class="badge red">已全额抵扣</span></td><td><span class="link" onclick="PMS.toast('欠费与水电燃气费合计 1,730.00 元，超出押金 1,000.00 元，押金全额抵扣，仍欠 730.00 元须追缴')">抵扣说明</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>退还口径</b> 退租时按《退租结算单》抵扣相关费用后退还余额至原支付账户</span>
+    <span><b>抵扣顺序</b> 待缴租金 → 水电燃气物业费 → 房屋及家电损坏赔偿 → 清洁费</span>
+    <span><b>岗位控制</b> 经办（租金核算员）与复核（财政审核员）岗位分设</span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="yjDrawer">
+  <div class="drawer-head">
+    <h3>押金退还办理</h3>
+    <span class="badge orange">待退还</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>押金退还须<b>凭现场验收后生成的《退租结算单》</b>办理，抵扣项<b>逐项列明并附依据</b>。经办与复核岗位分设。</div>
+  </div>
+
+      <div class="form-grid form-align">
+        <div class="form-item">
+          <label>押金编号 <span class="req">*</span></label>
+          <input type="text" value="YJ2024-00206" readonly>
+        </div>
+        <div class="form-item">
+          <label>承租人 <span class="req">*</span></label>
+          <input type="text" value="谭建国" readonly>
+        </div>
+        <div class="form-item">
+          <label>押金金额（元） <span class="req">*</span></label>
+          <input type="text" value="1,000.00" readonly>
+        </div>
+        <div class="form-item">
+          <label>结算单编号 <span class="req">*</span></label>
+          <input type="text" value="JS2026-00186" readonly>
+          <div class="hint">凭现场验收生成</div>
+        </div>
+        <div class="form-item">
+          <label>抵扣 · 待缴租金（元） <span class="req">*</span></label>
+          <input type="text" value="0.00">
+        </div>
+        <div class="form-item">
+          <label>抵扣 · 水电燃气物业（元） <span class="req">*</span></label>
+          <input type="text" value="364.20">
+          <div class="hint">按退租抄表结算</div>
+        </div>
+        <div class="form-item">
+          <label>抵扣 · 损坏赔偿（元） <span class="req">*</span></label>
+          <input type="text" value="0.00">
+          <div class="hint">验收无损坏</div>
+        </div>
+        <div class="form-item">
+          <label>抵扣 · 清洁费（元） <span class="req">*</span></label>
+          <input type="text" value="0.00">
+        </div>
+        <div class="form-item">
+          <label>应退还金额（元） <span class="req">*</span></label>
+          <input type="text" value="635.80" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>退还账户 <span class="req">*</span></label>
+          <input type="text" value="翼支付原支付账户（尾号 6208）" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>退还说明 <span class="req">*</span></label>
+          <textarea rows="3">保障期届满正常退出。现场验收家电家具 28 项全部完好、房屋现状与交付时一致、门禁卡 2 张已归还。按退租抄表结算水电燃气费 397.68 元，已缴 33.48 元，抵扣 364.20 元。应退还押金 635.80 元。</textarea>
+        </div>
+      </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认提交押金退还办理？应退还 635.80 元，转财政审核员复核。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已提交，待财政审核员复核后退还','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 1286; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

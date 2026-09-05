@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>人才库数据同步 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="reviewer" data-active="apply-05">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 人才档案与资格联审
+      <span class="sep">/</span> 人才档案
+      <span class="sep">/</span> <span class="cur">人才库数据同步</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.confirm({title:'同步确认',message:'确认立即与「株洲人才」库全量比对？',detail:'同步约需 2 分钟，完成后生成口径差异清单，差异项转人工核对。',type:'info',okText:'确认同步',onOk:function(){PMS.toast('已发起同步，完成后在顶栏消息区提醒','success');}})"><i class="fa-solid fa-arrows-rotate"></i> 立即同步</button>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>与市委人才办<b>「株洲人才」库</b>、人才集团人才数据同步，避免各自维护造成<b>口径不一</b>。同步范围为人才认定信息、人才层次与类别。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-arrows-rotate"></i></div>
+      <div><div class="s-label">今日同步调用</div><div class="s-value">3,246</div>
+        <div class="s-trend text-2">全量比对</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
+      <div><div class="s-label">口径一致</div><div class="s-value">3,160</div>
+        <div class="s-trend text-2">占 97.4%</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-code-compare"></i></div>
+      <div><div class="s-label">口径差异</div><div class="s-value">86</div>
+        <div class="s-trend ">待人工核对</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-plug-circle-check"></i></div>
+      <div><div class="s-label">接口可用率</div><div class="s-value">99.6%</div>
+        <div class="s-trend text-2">近 7 日</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>姓名</label><input type="text" placeholder="人才姓名"></div>
+      <div class="filter-item"><label>差异字段</label><select><option value="">全部</option><option>人才层次</option><option>人才类别</option><option>所在单位</option><option>学历</option><option>认定状态</option></select></div>
+      <div class="filter-item"><label>处理状态</label><select><option value="">全部</option><option>待核对</option><option>已处理</option><option>口径一致</option></select></div>
+      <div class="filter-item"><label>同步时间</label><input type="date"></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>差异编号</th><th>姓名</th><th>差异字段</th><th class="cell-lg">本系统值</th><th class="cell-lg">“株洲人才”库值</th><th>差异原因</th><th>处理状态</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr class="row-warn"><td>RCY2026-09-0012</td><td>贺文韬</td><td>人才层次</td><td>专业技术人才（中级职称）</td><td>高层次人才 D 类</td><td>两库人才分类口径不同</td><td><span class="badge orange">待核对</span></td><td><span class="link" onclick="PMS.openDrawer('syncDrawer')">核对</span></td></tr>
+          <tr class="row-warn"><td>RCY2026-09-0014</td><td>肖俊</td><td>所在单位</td><td>中车株洲电力机车研究所有限公司</td><td>中车株洲电力机车研究所有限公司（时代电气分公司）</td><td>单位名称口径不同（含分支机构）</td><td><span class="badge orange">待核对</span></td><td><span class="link" onclick="PMS.openDrawer('syncDrawer')">核对</span></td></tr>
+          <tr class="row-warn"><td>RCY2026-09-0016</td><td>龙建华</td><td>认定状态</td><td>待补证（高级技师资格证待核验）</td><td>已认定（高级技师）</td><td>“株洲人才”库已完成认定，本系统证书影像不清晰</td><td><span class="badge orange">待核对</span></td><td><span class="link" onclick="PMS.openDrawer('syncDrawer')">核对</span> <span class="link" onclick="PMS.toast('已按“株洲人才”库认定结果更新为高级技师，并同步至人才分层分类')">按人才办为准</span></td></tr>
+          <tr><td>RCY2026-08-0008</td><td>王梓涵</td><td>人才类别</td><td>就业青年人才</td><td>就业青年人才</td><td>—</td><td><span class="badge green">口径一致</span></td><td><span class="link" onclick="PMS.toast('两库口径一致，无需处理')">说明</span></td></tr>
+          <tr><td>RCY2026-08-0006</td><td>曾小敏</td><td>认定状态</td><td>失信（隐瞒实情，已清退）</td><td>已认定（青年人才）</td><td>本系统已标记失信，人才办库未同步</td><td><span class="badge green">已处理</span></td><td><span class="link" onclick="PMS.toast('已向市委人才办反馈失信标记，人才办库已于 2026-08-20 更新')">查看处理记录</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>同步目的</b> 避免与人才主管部门数据口径不一</span>
+    <span><b>冲突优先级</b> 人才认定信息以<b>「株洲人才」库为准</b>；住房保障业务属性以本系统为准</span>
+    <span><b>配合单位</b> 市委人才办、人才集团</span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="syncDrawer">
+  <div class="drawer-head">
+    <h3>人才库口径差异核对</h3>
+    <span class="badge orange">待核对</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div><b>人才认定信息</b>（人才层次、类别、认定状态）以「株洲人才」库为准；<b>住房保障业务属性</b>（保障状态、合同、账单）以本系统为准。</div>
+  </div>
+
+      <div class="form-grid form-align">
+        <div class="form-item">
+          <label>差异编号 <span class="req">*</span></label>
+          <input type="text" value="RCY2026-09-0012" readonly>
+        </div>
+        <div class="form-item">
+          <label>姓名 <span class="req">*</span></label>
+          <input type="text" value="贺文韬" readonly>
+        </div>
+        <div class="form-item">
+          <label>差异字段 <span class="req">*</span></label>
+          <input type="text" value="人才层次" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>本系统值 <span class="req">*</span></label>
+          <input type="text" value="专业技术人才（中级职称）" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>“株洲人才”库值 <span class="req">*</span></label>
+          <input type="text" value="高层次人才 D 类" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>处理方式 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>按“株洲人才”库更新本系统</option><option>保留本系统值并反馈人才办</option><option>转人工再核对</option></select>
+        </div>
+        <div class="form-item col-full">
+          <label>影响评估 <span class="req">*</span></label>
+          <textarea rows="3">人才层次影响免毕业年限判定与配租房型匹配。该人才已按「中级以上职称 + 35 周岁以下」认定为免毕业年限特殊人才，两库结论在住房保障口径下一致，不影响其保障资格与减免标准。</textarea>
+        </div>
+        <div class="form-item col-full">
+          <label>核对说明 <span class="req">*</span></label>
+          <textarea rows="3" placeholder="必填，不少于 10 字">经与市委人才办核对，贺文韬两库人才层次表述不同但均满足免毕业年限条件，按「人才认定信息以株洲人才库为准」更新为高层次人才 D 类，其住房保障资格与减免标准不受影响。</textarea>
+        </div>
+      </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认按「株洲人才」库口径更新本系统人才层次？',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已处理并留痕，差异已闭环','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 86; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

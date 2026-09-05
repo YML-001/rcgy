@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>配租批次管理 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="allocator" data-active="alloc-01">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 配租选房与合同
+      <span class="sep">/</span> 配租管理
+      <span class="sep">/</span> <span class="cur">配租批次管理</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.openDrawer('btDrawer')"><i class="fa-solid fa-plus"></i> 新建批次</button>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>创建批次、勾选投放房源、设定报名时间与配租方式、发布配租公告，<b>批次数据独立可查</b>。配租公告与投放房源清单须经业务管理员审批后发布。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-layer-group"></i></div>
+      <div><div class="s-label">累计批次</div><div class="s-value">8</div>
+        <div class="s-trend text-2">2026 年度</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-bullhorn"></i></div>
+      <div><div class="s-label">进行中批次</div><div class="s-value">1</div>
+        <div class="s-trend text-2">2026 年第 3 批</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-key"></i></div>
+      <div><div class="s-label">累计投放</div><div class="s-value">1,842</div>
+        <div class="s-trend text-2">套</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-circle-check"></i></div>
+      <div><div class="s-label">累计配租成功</div><div class="s-value">1,286</div>
+        <div class="s-trend text-2">认领率 69.8%</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>批次编号</label><input type="text" placeholder="批次编号"></div>
+      <div class="filter-item"><label>批次名称</label><input type="text" placeholder="批次名称"></div>
+      <div class="filter-item"><label>配租方式</label><select data-dict="allocWay" data-ph="全部"></select></div>
+      <div class="filter-item"><label>批次状态</label><select><option value="">全部</option><option>待审批</option><option>报名中</option><option>名单公示</option><option>选房中</option><option>已结束</option></select></div>
+      <div class="filter-item"><label>发布日期</label><input type="date"></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>批次编号</th><th class="cell-lg">批次名称</th><th class="num">投放套数</th><th class="num">报名人数</th><th>配租方式</th><th>报名时间</th><th>选房时间</th><th>批次状态</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr class="row-warn"><td>PZ2026-03</td><td>株洲市 2026 年第 3 批青年人才公寓配租</td><td class="num">320</td><td class="num">486</td><td><span class="badge blue">顺序配租</span></td><td>09-05 至 09-12</td><td>09-15 至 09-19</td><td><span class="badge orange">报名中</span></td><td><span class="link" onclick="location.href='batch-detail.html?id=PZ2026-03'">详情</span> <span class="link" onclick="location.href='order-list.html'">顺序名单</span></td></tr>
+          <tr><td>PZ2026-02</td><td>株洲市 2026 年第 2 批青年人才公寓配租</td><td class="num">286</td><td class="num">412</td><td><span class="badge blue">顺序配租</span></td><td>06-08 至 06-15</td><td>06-18 至 06-22</td><td><span class="badge green">已结束</span></td><td><span class="link" onclick="location.href='batch-detail.html?id=PZ2026-02'">详情</span> <span class="link" onclick="location.href='../rule/result-open.html'">配租结果</span></td></tr>
+          <tr><td>PZ2026-01</td><td>株洲市 2026 年第 1 批青年人才公寓配租</td><td class="num">246</td><td class="num">368</td><td><span class="badge blue">顺序配租</span></td><td>03-10 至 03-17</td><td>03-20 至 03-24</td><td><span class="badge green">已结束</span></td><td><span class="link" onclick="location.href='batch-detail.html?id=PZ2026-01'">详情</span> <span class="link" onclick="location.href='../rule/result-open.html'">配租结果</span></td></tr>
+          <tr><td>PZ2026-04</td><td>株洲市 2026 年第 4 批青年人才公寓配租</td><td class="num">268</td><td class="num">0</td><td><span class="badge blue">顺序配租</span></td><td>12-05 至 12-12</td><td>12-15 至 12-19</td><td><span class="badge gray">待审批</span></td><td><span class="link" onclick="PMS.openDrawer('btDrawer')">办理审批</span> <span class="link" onclick="PMS.toast('原型演示：预览配租公告与投放房源清单')">预览公告</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>排序规则</b> 按申请受理时间先后排定配租顺序（管理办法第九条）</span>
+    <span><b>公开要求</b> 配租顺序名单与配租结果全过程公开，接受社会监督</span>
+    <span><b>审批要求</b> 公告内容与投放房源清单须经业务管理员审批后发布</span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="btDrawer">
+  <div class="drawer-head">
+    <h3>配租批次创建与审批</h3>
+    <span class="badge orange">待审批</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>批次发布后房源即对外可见，<b>撤回需留痕</b>。配租顺序按<b>申请受理时间</b>自动生成，<b>不支持手工调序</b>。</div>
+  </div>
+
+      <div class="form-grid form-align">
+        <div class="form-item">
+          <label>批次编号 <span class="req">*</span></label>
+          <input type="text" value="PZ2026-04" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>批次名称 <span class="req">*</span></label>
+          <input type="text" value="株洲市 2026 年第 4 批青年人才公寓配租">
+        </div>
+        <div class="form-item">
+          <label>配租方式 <span class="req">*</span></label>
+          <select data-dict="allocWay" data-ph="全部"></select>
+          <div class="hint">管理办法第九条：可按申请顺序，也可摇号</div>
+        </div>
+        <div class="form-item">
+          <label>投放套数 <span class="req">*</span></label>
+          <input type="text" value="268">
+          <div class="hint">从可配租房源池勾选</div>
+        </div>
+        <div class="form-item">
+          <label>报名开始 <span class="req">*</span></label>
+          <input type="date">
+        </div>
+        <div class="form-item">
+          <label>报名截止 <span class="req">*</span></label>
+          <input type="date">
+        </div>
+        <div class="form-item">
+          <label>名单公示起 <span class="req">*</span></label>
+          <input type="date">
+        </div>
+        <div class="form-item">
+          <label>名单公示止 <span class="req">*</span></label>
+          <input type="date">
+        </div>
+        <div class="form-item">
+          <label>选房开始 <span class="req">*</span></label>
+          <input type="date">
+        </div>
+        <div class="form-item">
+          <label>选房截止 <span class="req">*</span></label>
+          <input type="date">
+        </div>
+        <div class="form-item">
+          <label>锁房确认时限（分钟） <span class="req">*</span></label>
+          <input type="text" value="30">
+          <div class="hint">超时未确认自动释放给下一顺序人</div>
+        </div>
+        <div class="form-item col-full">
+          <label>投放房源清单 <span class="req">*</span></label>
+          <input type="text" data-upload="1">
+          <div class="hint">从统一楼盘表勾选生成，含房源编号与户型</div>
+        </div>
+        <div class="form-item col-full">
+          <label>配租公告正文 <span class="req">*</span></label>
+          <textarea rows="5">本批次共投放人才公寓房源 268 套。房型含单间配套、一室一厅、二室一厅三类，均已完成装饰装修并配置家电家具，达到拎包入住标准。审核通过的青年人才可在湘易办「人才住房」事项中在线报名。配租顺序按申请受理时间先后排定，房源不足时按顺序进入轮候库。申请人不服从配租房源且不办理入住的，视同放弃承租房源资格，放弃资格的不得再次申请。</textarea>
+        </div>
+      </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认提交 2026 年第 4 批配租批次审批？投放 268 套。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已提交，待业务管理员审批后发布','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 8; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

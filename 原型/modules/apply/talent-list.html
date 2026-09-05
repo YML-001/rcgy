@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>人才一人一档 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="reviewer" data-active="apply-01">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 人才档案与资格联审
+      <span class="sep">/</span> 人才档案
+      <span class="sep">/</span> <span class="cur">人才一人一档</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>以<b>一人一档</b>归集基本信息、学历学位、职称技能等级、所在单位、社保、纳税、婚姻、家庭成员、房产、保障历史与信用记录，作为防止重复享受政策、开展年审与失信管理的基础。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-id-card"></i></div>
+      <div><div class="s-label">人才档案</div><div class="s-value">3,246</div>
+        <div class="s-trend text-2">本月新增 268 人</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-users"></i></div>
+      <div><div class="s-label">在租人才</div><div class="s-value">1,286</div>
+        <div class="s-trend text-2">累计保障 1,842 人次</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-graduation-cap"></i></div>
+      <div><div class="s-label">硕士及以上</div><div class="s-value">486</div>
+        <div class="s-trend text-2">占 15.0%</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon red"><i class="fa-solid fa-user-slash"></i></div>
+      <div><div class="s-label">失信标记</div><div class="s-value">6</div>
+        <div class="s-trend ">不得再次申请</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>姓名</label><input type="text" placeholder="人才姓名"></div>
+      <div class="filter-item"><label>身份证号</label><input type="text" placeholder="身份证号"></div>
+      <div class="filter-item"><label>人才类别</label><select data-dict="applyType" data-ph="全部"></select></div>
+      <div class="filter-item"><label>最高学历</label><select data-dict="education" data-ph="全部"></select></div>
+      <div class="filter-item"><label>保障状态</label><select><option value="">全部</option><option>在租</option><option>轮候中</option><option>已退出</option><option>未配租</option><option>失信</option></select></div>
+      <div class="filter-item"><label>所在单位</label><input type="text" placeholder="单位名称"></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>人才编号</th><th>姓名</th><th class="cell-lg">身份证号</th><th>人才类别</th><th>最高学历</th><th>毕业时间</th><th class="cell-lg">所在单位</th><th>保障状态</th><th>信用</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>RC2026-04182</td><td>王梓涵</td><td><span class="sp-mask">430211********2418<span class="mk" onclick="SP.mask(this.parentElement,'430211200103122418')">查看明文</span></span></td><td><span class="badge blue">就业青年人才</span></td><td>全日制本科</td><td>2025-07-01</td><td>中车株洲电力机车研究所有限公司</td><td><span class="sp-st done">在租</span></td><td><span class="badge green">良好</span></td><td><span class="link" onclick="location.href='talent-detail.html?id=RC2026-04182'">档案</span></td></tr>
+          <tr><td>RC2026-04206</td><td>邓亦凡</td><td><span class="sp-mask">430203********0715<span class="mk" onclick="SP.mask(this.parentElement,'430203200208150715')">查看明文</span></span></td><td><span class="badge cyan">创业青年人才</span></td><td>全日制本科</td><td>2027-07-01</td><td>株洲智远智能科技有限公司</td><td><span class="sp-st wait">轮候中</span></td><td><span class="badge green">良好</span></td><td><span class="link" onclick="location.href='talent-detail.html?id=RC2026-04206'">档案</span></td></tr>
+          <tr><td>RC2026-03864</td><td>贺文韬</td><td><span class="sp-mask">430202********1136<span class="mk" onclick="SP.mask(this.parentElement,'430202199105111136')">查看明文</span></span></td><td><span class="badge orange">特殊人才</span></td><td>硕士研究生</td><td>2018-06-30</td><td>株洲硬质合金集团有限公司</td><td><span class="sp-st done">在租</span></td><td><span class="badge green">良好</span></td><td><span class="link" onclick="location.href='talent-detail.html?id=RC2026-03864'">档案</span></td></tr>
+          <tr class="row-warn"><td>RC2026-02418</td><td>唐雅琴</td><td><span class="sp-mask">430211********2206<span class="mk" onclick="SP.mask(this.parentElement,'430211200011222206')">查看明文</span></span></td><td><span class="badge blue">就业青年人才</span></td><td>全日制本科</td><td>2024-07-01</td><td><span class="muted">已离职（原中车时代电气）</span></td><td><span class="sp-st bad">待腾退</span></td><td><span class="badge green">良好</span></td><td><span class="link" onclick="location.href='talent-detail.html?id=RC2026-02418'">档案</span></td></tr>
+          <tr class="row-bad"><td>RC2025-01206</td><td>蒋志远</td><td><span class="sp-mask">430204********0842<span class="mk" onclick="SP.mask(this.parentElement,'430204199807080842')">查看明文</span></span></td><td><span class="badge blue">就业青年人才</span></td><td>全日制大专</td><td>2023-06-30</td><td>株洲南方阀门股份有限公司</td><td><span class="sp-st dead">违规清退</span></td><td><span class="badge red">失信</span></td><td><span class="link" onclick="location.href='talent-detail.html?id=RC2025-01206'">档案</span> <span class="link" onclick="location.href='talent-blacklist.html'">失信记录</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>档案用途</b> 防止重复享受政策、开展年审与失信管理的基础</span>
+    <span><b>敏感信息</b> 身份证号加密存储、界面脱敏展示，查看明文需授权并留痕</span>
+    <span><b>数据同步</b> <span class="link" onclick="location.href='talent-sync.html'">人才库数据同步</span></span>
+  </div>
+</main>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 3246; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

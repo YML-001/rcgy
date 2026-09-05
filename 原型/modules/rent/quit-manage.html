@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>腾退全流程管理 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="reviewer" data-active="rent-14">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 租金收缴与年审退出
+      <span class="sep">/</span> 年审续租与退出
+      <span class="sep">/</span> <span class="cur">腾退全流程管理</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-danger">
+    <i class="fa-solid fa-circle-exclamation"></i>
+    <div>管理<b>腾退通知、腾退期限、费用结算、房屋验收、押金退还与强制腾退</b>，<b>逾期未腾退自动升级处置</b>。腾退完成后房源自动转入维修或可配租状态。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-door-open"></i></div>
+      <div><div class="s-label">在办腾退</div><div class="s-value">26</div>
+        <div class="s-trend text-2">含违规清退 1 件</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
+      <div><div class="s-label">本年已腾退</div><div class="s-value">86</div>
+        <div class="s-trend text-2">含正常退出 80 件</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon red"><i class="fa-solid fa-circle-exclamation"></i></div>
+      <div><div class="s-label">逾期未腾退</div><div class="s-value">6</div>
+        <div class="s-trend ">已自动升级处置</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-piggy-bank"></i></div>
+      <div><div class="s-label">押金退还</div><div class="s-value">438,000.00</div>
+        <div class="s-trend text-2">元 · 462 户</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>腾退单号</label><input type="text" placeholder="腾退单号"></div>
+      <div class="filter-item"><label>承租人</label><input type="text" placeholder="姓名"></div>
+      <div class="filter-item"><label>腾退原因</label><select data-dict="quitReason" data-ph="全部"></select></div>
+      <div class="filter-item"><label>腾退状态</label><select><option value="">全部</option><option>已下发通知</option><option>已预约</option><option>验收中</option><option>结算中</option><option>已办结</option><option>逾期未腾退</option></select></div>
+      <div class="filter-item"><label>腾退期限</label><input type="date"></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>腾退单号</th><th>承租人</th><th class="cell-lg">房源</th><th>腾退原因</th><th>腾退期限</th><th>剩余天数</th><th>验收</th><th>结算</th><th>押金退还</th><th>腾退状态</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr class="row-bad"><td>TT2026-07-0142</td><td>黄××</td><td>清水塘新苑 1-1204</td><td><span class="badge orange">离职离株</span></td><td>2026-08-15</td><td><div class="sp-days dx"><span class="dv">超期 21 天</span><span class="db"><span style="width:100%"></span></span></div></td><td><span class="badge red">未验收</span></td><td><span class="badge red">未结算</span></td><td><span class="badge red">未退还</span></td><td><span class="badge red">逾期未腾退</span></td><td><span class="link" onclick="PMS.openDrawer('ttDrawer')">升级处置</span></td></tr>
+          <tr class="row-warn"><td>TT2027-01-0186</td><td>周宇轩</td><td>栗雨佳苑 3-0904</td><td><span class="badge orange">离职离株</span></td><td>2027-02-09</td><td><div class="sp-days d30"><span class="dv">26 天</span><span class="db"><span style="width:13%"></span></span></div></td><td><span class="badge orange">待验收</span></td><td><span class="badge gray">未结算</span></td><td><span class="badge gray">未退还</span></td><td><span class="badge orange">已预约</span></td><td><span class="link" onclick="PMS.openDrawer('ttDrawer')">办理</span></td></tr>
+          <tr class="row-warn"><td>TT2026-03-0086</td><td>谭建国</td><td>栗雨佳苑 3-0608</td><td><span class="badge blue">保障期届满</span></td><td>2026-04-10</td><td><div class="sp-days"><span class="dv">已办结</span><span class="db"><span style="width:0%"></span></span></div></td><td><span class="badge green">已验收</span></td><td><span class="badge green">已结算</span></td><td><span class="badge orange">待复核</span></td><td><span class="badge orange">结算中</span></td><td><span class="link" onclick="location.href='deposit.html'">押金管理</span></td></tr>
+          <tr><td>TT2026-08-0162</td><td>蒋志远</td><td>茨菇塘公寓 5-0802</td><td><span class="badge red">违规清退</span></td><td>2026-08-20</td><td><div class="sp-days"><span class="dv">已办结</span><span class="db"><span style="width:0%"></span></span></div></td><td><span class="badge green">已验收</span></td><td><span class="badge green">已结算</span></td><td><span class="badge red">全额抵扣</span></td><td><span class="badge green">已办结</span></td><td><span class="link" onclick="location.href='recycle.html'">房源回收</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>腾退环节</b> 通知 → 预约 → 现场验收 → 费用结算 → 押金退还 → 房源回收</span>
+    <span><b>升级规则</b> 逾期未腾退自动升级处置，涉及违规清退的可依法申请强制腾退</span>
+    <span><b>验收依据</b> 逐项对照入住时的交付凭证核对家电家具与房屋现状</span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="ttDrawer">
+  <div class="drawer-head">
+    <h3>逾期腾退升级处置</h3>
+    <span class="badge red">逾期</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+  <div class="alert alert-danger">
+    <i class="fa-solid fa-circle-exclamation"></i>
+    <div>该腾退单已<b>逾期 21 天</b>未腾退。按规定<b>自动升级处置</b>：同步告知用人单位与运营机构，必要时依法申请<b>强制腾退</b>，逾期占用期间按市场租金计收。</div>
+  </div>
+
+      <div class="form-grid form-align">
+        <div class="form-item">
+          <label>腾退单号 <span class="req">*</span></label>
+          <input type="text" value="TT2026-07-0142" readonly>
+        </div>
+        <div class="form-item">
+          <label>承租人 <span class="req">*</span></label>
+          <input type="text" value="黄××" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>房源 <span class="req">*</span></label>
+          <input type="text" value="清水塘新苑 1 栋 1204" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>腾退期限 <span class="req">*</span></label>
+          <input type="text" value="2026-08-15（已逾期 21 天）" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>升级措施 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>再次书面催告并延期 15 日</option><option>同步告知用人单位与运营机构</option><option>按市场租金计收占用期租金</option><option>依法申请强制腾退</option></select>
+        </div>
+        <div class="form-item col-full">
+          <label>已履行催告 <span class="req">*</span></label>
+          <input type="text" value="书面催告 3 次、电话联系 8 次、上门 2 次" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>催告记录附件 <span class="req">*</span></label>
+          <input type="text" data-upload="1">
+          <div class="hint">须附催告文书与送达凭证</div>
+        </div>
+        <div class="form-item col-full">
+          <label>处置说明 <span class="req">*</span></label>
+          <textarea rows="4" placeholder="必填，不少于 10 字。说明逾期原因、已履行的催告程序与拟采取措施">承租人离职离株后未按期腾退，已逾期 21 天；期间书面催告 3 次、电话联系 8 次、上门 2 次并送达催告文书，其仍未搬离。拟按市场租金计收占用期租金并同步告知用人单位与运营机构，再次限期催告仍不腾退的依法申请强制腾退。</textarea>
+        </div>
+      </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认对逾期腾退单 TT2026-07-0142 执行升级处置？',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已升级处置并留痕，相关方已同步告知','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 112; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

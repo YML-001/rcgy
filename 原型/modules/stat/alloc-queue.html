@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>配租与轮候分析 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="leader" data-active="stat-15">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 统计分析
+      <span class="sep">/</span> 人才与配租分析
+      <span class="sep">/</span> <span class="cur">配租与轮候分析</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>统计<b>各批次配租套数、认领率、平均轮候时长与轮候人数变化</b>，评估配租效率与轮候压力。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-key"></i></div>
+      <div><div class="s-label">累计配租</div><div class="s-value">1,286</div>
+        <div class="s-trend text-2">套 · 8 个批次</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-percent"></i></div>
+      <div><div class="s-label">平均认领率</div><div class="s-value">85.6%</div>
+        <div class="s-trend text-2">↓ 较上年 2.4pp</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-hourglass-half"></i></div>
+      <div><div class="s-label">轮候在库</div><div class="s-value">612</div>
+        <div class="s-trend ">含预申请 186</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-clock"></i></div>
+      <div><div class="s-label">平均轮候时长</div><div class="s-value">47 天</div>
+        <div class="s-trend text-success">↓ 缩短 12 天</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <h3><i class="fa-solid fa-list-ol"></i> 配租与轮候</h3>
+      <span class="sub">S3-05 · 累计 8 个批次</span>
+    </div>
+    <div class="card-body">
+      <div class="section-title" data-icon="fa-chart-simple">各批次认领率趋势</div>
+      <div class="dc-bars">
+        <div class="b-item warn"><span class="b-label">2026 第 3 批　投放 320 / 认领 274</span><span class="b-track"><span class="b-fill" style="width:85.6%"></span></span><span class="b-val">认领率 85.6%（进行中）</span></div>
+        <div class="b-item"><span class="b-label">2026 第 2 批　投放 286 / 认领 248</span><span class="b-track"><span class="b-fill" style="width:86.7%"></span></span><span class="b-val">认领率 86.7%</span></div>
+        <div class="b-item"><span class="b-label">2026 第 1 批　投放 246 / 认领 218</span><span class="b-track"><span class="b-fill" style="width:88.6%"></span></span><span class="b-val">认领率 88.6%</span></div>
+        <div class="b-item"><span class="b-label">2025 第 4 批　投放 228 / 认领 206</span><span class="b-track"><span class="b-fill" style="width:90.4%"></span></span><span class="b-val">认领率 90.4%</span></div>
+        <div class="b-item"><span class="b-label">2025 第 3 批　投放 196 / 认领 180</span><span class="b-track"><span class="b-fill" style="width:91.8%"></span></span><span class="b-val">认领率 91.8%</span></div>
+      </div>
+      <div class="section-title" data-icon="fa-gauge-simple-high">轮候压力</div>
+      <div class="dc-mini">
+        <div class="mi"><div class="mv warn">612</div><div class="ml">轮候在库(人)</div></div>
+        <div class="mi"><div class="mv">186</div><div class="ml">预申请锁定</div></div>
+        <div class="mi"><div class="mv">47</div><div class="ml">平均轮候(天)</div></div>
+        <div class="mi"><div class="mv warn">214</div><div class="ml">天元区轮候</div></div>
+        <div class="mi"><div class="mv bad">160</div><div class="ml">经开区轮候</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="card list-card">
+    <div class="card-head">
+      <h3><i class="fa-solid fa-table-list"></i> 明细下钻</h3>
+      <span class="sub">可逐级下钻至明细清单</span>
+    </div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>批次编号</th><th class="cell-lg">批次名称</th><th>投放套数</th><th>报名人数</th><th>完成选房</th><th>签约</th><th>认领率</th><th>进入轮候</th><th>平均轮候时长</th><th>下钻</th></tr>
+        </thead>
+        <tbody>
+          <tr class="row-warn"><td>PZ2026-03</td><td>2026 年第 3 批（进行中）</td><td class="num">320</td><td class="num">486</td><td class="num">274</td><td class="num">0</td><td><span class="badge orange">85.6%</span></td><td class="num">166</td><td>—（进行中）</td><td><span class="link" onclick="location.href='../alloc/batch-detail.html?id=PZ2026-03'">批次详情</span></td></tr>
+          <tr><td>PZ2026-02</td><td>2026 年第 2 批</td><td class="num">286</td><td class="num">412</td><td class="num">248</td><td class="num">242</td><td><span class="badge green">86.7%</span></td><td class="num">126</td><td>42 天</td><td><span class="link" onclick="location.href='../alloc/batch-detail.html?id=PZ2026-02'">批次详情</span></td></tr>
+          <tr><td>PZ2026-01</td><td>2026 年第 1 批</td><td class="num">246</td><td class="num">368</td><td class="num">218</td><td class="num">214</td><td><span class="badge green">88.6%</span></td><td class="num">122</td><td>48 天</td><td><span class="link" onclick="location.href='../alloc/batch-detail.html?id=PZ2026-01'">批次详情</span></td></tr>
+          <tr><td>PZ2025-04</td><td>2025 年第 4 批</td><td class="num">228</td><td class="num">326</td><td class="num">206</td><td class="num">204</td><td><span class="badge green">90.4%</span></td><td class="num">98</td><td>54 天</td><td><span class="link" onclick="PMS.toast('已结束，认领率 90.4%，配租结果已公开')">批次结果</span></td></tr>
+          <tr><td>PZ2025-03</td><td>2025 年第 3 批</td><td class="num">196</td><td class="num">282</td><td class="num">180</td><td class="num">178</td><td><span class="badge green">91.8%</span></td><td class="num">86</td><td>62 天</td><td><span class="link" onclick="PMS.toast('已结束，认领率 91.8%')">批次结果</span></td></tr>
+          <tr><td><span class="badge green">合计</span></td><td><b>8 个批次累计</b></td><td class="num">1,842</td><td class="num">2,684</td><td class="num">1,586</td><td class="num">1,286</td><td><span class="badge orange">85.6%</span></td><td class="num">612</td><td>47 天</td><td><span class="link" onclick="location.href='../alloc/queue-list.html'">轮候库管理</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>认领率口径</b> 完成选房人数 ÷ 报名人数</span>
+    <span><b>趋势观察</b> 认领率逐批下降（91.8% → 85.6%），需关注房源结构匹配度</span>
+    <span><b>轮候时长</b> 自进入轮候至配租成功的平均天数</span>
+  </div>
+</main>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 8; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

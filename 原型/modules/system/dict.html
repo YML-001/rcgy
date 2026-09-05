@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>数据字典管理 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="admin" data-active="system-09">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 权限与系统管理
+      <span class="sep">/</span> 基础配置与运维
+      <span class="sep">/</span> <span class="cur">数据字典管理</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.openDrawer('dcDrawer')"><i class="fa-solid fa-plus"></i> 新增字典</button>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>维护<b>区县、学历、职称、房源类型、费用科目</b>等基础字典，<b>保证跨模块口径一致</b>。字典由前端下拉自动填充（<code>data-dict</code>），修改后全站即时生效。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-book"></i></div>
+      <div><div class="s-label">字典类型</div><div class="s-value">22</div>
+        <div class="s-trend text-2">覆盖全部业务枚举</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-list"></i></div>
+      <div><div class="s-label">字典项</div><div class="s-value">146</div>
+        <div class="s-trend text-2">条</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-arrows-rotate"></i></div>
+      <div><div class="s-label">引用点</div><div class="s-value">286</div>
+        <div class="s-trend text-2">个下拉控件</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-code-branch"></i></div>
+      <div><div class="s-label">本月变更</div><div class="s-value">6</div>
+        <div class="s-trend text-2">全部留痕</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>字典编码</label><input type="text" placeholder="如 applyType"></div>
+      <div class="filter-item"><label>字典名称</label><input type="text" placeholder="字典名称"></div>
+      <div class="filter-item"><label>业务域</label><select><option value="">全部</option><option>申请与审核</option><option>房源与配租</option><option>合同与租金</option><option>年审与退出</option><option>系统基础</option></select></div>
+      <div class="filter-item"><label>字典状态</label><select><option value="">全部</option><option>在用</option><option>已停用</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>字典编码</th><th class="cell-lg">字典名称</th><th>业务域</th><th>字典项数</th><th class="cell-lg">字典项（编码-名称）</th><th>引用点</th><th>状态</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>applyType</code></td><td>申请类型</td><td><span class="badge blue">申请与审核</span></td><td class="num">3</td><td>1-创业青年人才　2-就业青年人才　3-特殊人才（免毕业年限）</td><td class="num">26</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('dcDrawer')">编辑</span></td></tr>
+          <tr><td><code>applyStatus</code></td><td>办件状态</td><td><span class="badge blue">申请与审核</span></td><td class="num">7</td><td>1-待受理　2-联审中　3-待复核　4-待补正　5-审核通过　6-不予通过　7-已撤回</td><td class="num">42</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('dcDrawer')">编辑</span></td></tr>
+          <tr><td><code>houseSource</code></td><td>房源来源渠道</td><td><span class="badge cyan">房源与配租</span></td><td class="num">3</td><td>1-收购存量商品房　2-公租房盘活　3-保租房“一间房”</td><td class="num">32</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('dcDrawer')">编辑</span></td></tr>
+          <tr><td><code>houseStatus</code></td><td>房源状态</td><td><span class="badge cyan">房源与配租</span></td><td class="num">7</td><td>1-可配租　2-已锁定　3-已签约　4-在租　5-待腾退　6-维修中　7-已冻结</td><td class="num">38</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('dcDrawer')">编辑</span></td></tr>
+          <tr><td><code>renewConclusion</code></td><td>续租三类结论</td><td><span class="badge orange">年审与退出</span></td><td class="num">3</td><td>1-继续享受人才政策　2-转按市场租金续租　3-启动退出清退</td><td class="num">12</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('dcDrawer')">编辑</span></td></tr>
+          <tr><td><code>district</code></td><td>区县</td><td><span class="badge green">系统基础</span></td><td class="num">6</td><td>01-天元区　02-荷塘区　03-芦淞区　04-石峰区　05-经开区　06-渌口区（不在保障范围）</td><td class="num">48</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('dcDrawer')">编辑</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>口径要求</b> 保证跨模块口径一致，各页面下拉一律引用字典而非硬编码</span>
+    <span><b>生效方式</b> 字典修改后全站即时生效，无需重启</span>
+    <span><b>变更留痕</b> 字典项增删改全程留痕，供审计核查</span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="dcDrawer">
+  <div class="drawer-head">
+    <h3>数据字典维护</h3>
+    <span class="badge green">在用</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>字典项<b>编码不可修改</b>（已被业务数据引用）；名称修改将影响全站展示。<b>停用字典项前须确认无在用业务数据引用</b>。</div>
+  </div>
+
+      <div class="form-grid form-align">
+        <div class="form-item">
+          <label>字典编码 <span class="req">*</span></label>
+          <input type="text" value="houseStatus" readonly>
+        </div>
+        <div class="form-item">
+          <label>字典名称 <span class="req">*</span></label>
+          <input type="text" value="房源状态">
+        </div>
+        <div class="form-item">
+          <label>业务域 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>申请与审核</option><option>房源与配租</option><option>合同与租金</option><option>年审与退出</option><option>系统基础</option></select>
+        </div>
+        <div class="form-item">
+          <label>引用点数 <span class="req">*</span></label>
+          <input type="text" value="38" readonly>
+          <div class="hint">38 个下拉控件引用本字典</div>
+        </div>
+        <div class="form-item col-full">
+          <label>字典项 <span class="req">*</span></label>
+          <textarea rows="7">1|可配租|空置且验收合格，可参与配租
+2|已锁定|配租选房锁定中，超时未确认自动释放
+3|已签约|已签合同待交付
+4|在租|已交付并实际居住
+5|待腾退|已下发腾退通知
+6|维修中|施工中，暂不可配租
+7|已冻结|因查封、政策调整等冻结，不参与配租</textarea>
+        </div>
+        <div class="form-item">
+          <label>排序方式 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>按编码升序</option><option>按自定义顺序</option></select>
+        </div>
+        <div class="form-item">
+          <label>字典状态 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>在用</option><option>已停用</option></select>
+        </div>
+        <div class="form-item col-full">
+          <label>变更说明 <span class="req">*</span></label>
+          <textarea rows="2" placeholder="必填，说明变更内容与影响范围"></textarea>
+        </div>
+      </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认保存房源状态字典？将影响 38 个引用点的下拉选项。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已保存，字典已全站即时生效','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 22; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

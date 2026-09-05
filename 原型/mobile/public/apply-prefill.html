@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>数据自动预填 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/mobile.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body class="m-body" data-mtitle="数据自动预填" data-mmod="M5 人才公寓资格申请" data-mcode="M5-04"
+      data-mdesc="身份、学历、社保、婚姻、不动产等信息由部门共享数据自动回填，申请人只需补充少量字段。" data-mback="apply-step1.html" data-mtabset="public" data-mtab="apply">
+<div class="m-stage">
+  <div class="m-phone">
+    <div class="m-screen">
+      <div class="m-view">
+        <div class="m-note success"><i class="fa-solid fa-circle-check"></i>
+          <div>本次申请共 <b>20 个字段</b>，其中 <b>11 个</b>由部门共享数据自动回填，您只需填写 <b>9 个</b>。</div>
+        </div>
+        <div class="m-sect">自动回填字段<span class="m-sect-x">11 项</span></div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-shield-halved"></i>部门共享数据</div>
+          <div class="m-card-b">
+            <div class="m-check">
+              <div class="ok"><i class="fa-solid fa-database"></i><div class="m-chl"><b>姓名 / 身份证号 / 性别 / 出生日期</b><span>来源：湘易办实名信息 + 公安人口信息　·	取数 2026-09-03 10:18</span></div></div>
+              <div class="ok"><i class="fa-solid fa-database"></i><div class="m-chl"><b>最高学历 / 毕业院校 / 专业 / 毕业时间</b><span>来源：学信网学历学位信息核验　·	取数 2026-09-03 10:27</span></div></div>
+              <div class="ok"><i class="fa-solid fa-database"></i><div class="m-chl"><b>婚姻状况</b><span>来源：市民政局婚姻登记信息　·	取数 2026-09-03 10:27　·	结果：未婚</span></div></div>
+              <div class="ok"><i class="fa-solid fa-database"></i><div class="m-chl"><b>市城区自有住房情况</b><span>来源：市自然资源和规划局不动产登记系统　·	结果：无自有住房</span></div></div>
+              <div class="ok"><i class="fa-solid fa-database"></i><div class="m-chl"><b>养老保险缴纳月数与单位</b><span>来源：市人社局参保缴费记录　·	结果：连续 13 个月，单位一致</span></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="m-sect">需您填写字段<span class="m-sect-x">9 项</span></div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-pen"></i>待补充内容</div>
+          <div class="m-card-b">
+          <div class="m-kv">
+            <div><span>联系电话</span><span>已预填实名手机号，可修改</span></div>
+            <div><span>申请类型</span><span>已按自动匹配结果预选</span></div>
+            <div><span>就业单位与所在区</span><span>已由劳动合同识别提取，请核对</span></div>
+            <div><span>岗位</span><span>请填写</span></div>
+            <div><span>意向居住片区 / 房型</span><span>选填，影响房源到位通知</span></div>
+            <div><span>备注说明</span><span>选填</span></div>
+            <div><span>家庭成员信息</span><span>已婚必填，用于无房核查</span></div>
+          </div>
+          </div>
+        </div>
+        <div class="m-sect">数据核验说明</div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-circle-info"></i>口径说明</div>
+          <div class="m-card-b">
+          <div class="m-kv">
+            <div><span>核验方式</span><span>系统自动调取部门接口做<b>交叉比对</b>，不是简单上传材料</span></div>
+            <div><span>核验时点</span><span>提交申请后 T+0 自动发起，8 项并行</span></div>
+            <div><span>不一致处理</span><span>高亮提示并转人工核实，由经办人处理例外件</span></div>
+            <div><span>接口不可用</span><span>自动转人工核验通道并记录兜底原因，业务不中断</span></div>
+            <div><span>留痕要求</span><span>核查结果与<b>数据来源时间戳</b>一并留痕</span></div>
+          </div>
+          </div>
+        </div>
+        <div class="m-note warn"><i class="fa-solid fa-triangle-exclamation"></i>
+          <div>若自动回填的信息与实际不符，请勿在本系统直接修改——请前往对应部门更正后重新发起申请，或在提交时通过<b>备注说明</b>补充情形。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../../assets/js/mobile.js"></script>
+</body>
+</html>

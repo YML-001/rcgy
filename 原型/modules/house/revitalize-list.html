@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>公租房闲置房源盘活 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="housing" data-active="house-03">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 房源筹集与楼盘表
+      <span class="sep">/</span> 房源筹集与项目
+      <span class="sep">/</span> <span class="cur">公租房闲置盘活</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.openDrawer('phDrawer')"><i class="fa-solid fa-plus"></i> 新增盘活批次</button>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>登记盘活为青年人才住房的公租房闲置房源清单、盘活审批与<b>原属性信息，保留可追溯路径</b>。闲置房源清单由<b>公租房管理系统</b>接口调用，盘活后原属性与现用途<b>双轨记录</b>，满足审计溯源。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-house-user"></i></div>
+      <div><div class="s-label">闲置房源</div><div class="s-value">1,572</div>
+        <div class="s-trend text-2">来自公租房系统</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-recycle"></i></div>
+      <div><div class="s-label">已盘活</div><div class="s-value">852</div>
+        <div class="s-trend text-2">占房源总量 34.3%</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-file-signature"></i></div>
+      <div><div class="s-label">审批中</div><div class="s-value">412</div>
+        <div class="s-trend text-2">清水塘新苑</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-clipboard-question"></i></div>
+      <div><div class="s-label">待核实闲置</div><div class="s-value">186</div>
+        <div class="s-trend text-2">田心安居苑</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>盘活批次</label><input type="text" placeholder="批次号"></div>
+      <div class="filter-item"><label>原公租房项目</label><input type="text" placeholder="项目名称"></div>
+      <div class="filter-item"><label>所在区</label><select data-dict="district" data-ph="全部"></select></div>
+      <div class="filter-item"><label>盘活审批</label><select><option value="">全部</option><option>已审批</option><option>审批中</option><option>待提交</option><option>不予盘活</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>盘活批次</th><th class="cell-lg">原公租房项目</th><th>所在区</th><th class="num">闲置套数</th><th class="num">拟盘活套数</th><th>原属性</th><th>现用途</th><th>盘活审批</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>PH2025-01</td><td>栗雨佳苑（原公租房 3—5 栋）</td><td>天元区</td><td class="num">412</td><td class="num">366</td><td><span class="badge gray">公共租赁住房</span></td><td><span class="badge blue">青年人才住房</span></td><td><span class="badge green">已审批</span></td><td><span class="link" onclick="location.href='house-convert.html'">详情</span> <span class="link" onclick="location.href='building-table.html'">楼盘表</span></td></tr>
+          <tr><td>PH2026-01</td><td>茨菇塘公寓（原公租房 1—6 栋）</td><td>荷塘区</td><td class="num">528</td><td class="num">486</td><td><span class="badge gray">公共租赁住房</span></td><td><span class="badge blue">青年人才住房</span></td><td><span class="badge green">已审批</span></td><td><span class="link" onclick="location.href='house-convert.html'">详情</span> <span class="link" onclick="location.href='building-table.html'">楼盘表</span></td></tr>
+          <tr class="row-warn"><td>PH2026-02</td><td>清水塘新苑（原公租房 1—4 栋）</td><td>石峰区</td><td class="num">446</td><td class="num">412</td><td><span class="badge gray">公共租赁住房</span></td><td><span class="badge blue">青年人才住房</span></td><td><span class="badge orange">审批中</span></td><td><span class="link" onclick="location.href='house-convert.html'">详情</span> <span class="link" onclick="PMS.openDrawer('phDrawer')">办理审批</span></td></tr>
+          <tr><td>PH2026-03</td><td>田心安居苑（原公租房 2 栋）</td><td>石峰区</td><td class="num">186</td><td class="num">0</td><td><span class="badge gray">公共租赁住房</span></td><td><span class="badge gray">待定</span></td><td><span class="badge gray">待提交</span></td><td><span class="link" onclick="PMS.openDrawer('phDrawer')">办理审批</span> <span class="link" onclick="PMS.toast('已向市住保中心公租房管理科发起闲置情况核实')">核实闲置</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>数据来源</b> 公租房管理系统 · 闲置可盘活房源清单</span>
+    <span><b>溯源要求</b> 原属性与现用途双轨记录，形成转换台账</span>
+    <span><b>台账落点</b> <span class="link" onclick="location.href='house-convert.html'">房源用途转换台账</span></span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="phDrawer">
+  <div class="drawer-head">
+    <h3>公租房盘活审批</h3>
+    <span class="badge orange">审批中</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>盘活须<b>保留原属性信息</b>形成可追溯路径。盘活后房源在统一楼盘表中按「公租房盘活」来源打标，<b>原属性与现用途双轨记录</b>。</div>
+  </div>
+
+      <div class="form-grid form-align">
+        <div class="form-item">
+          <label>盘活批次 <span class="req">*</span></label>
+          <input type="text" value="PH2026-02" readonly>
+        </div>
+        <div class="form-item">
+          <label>原公租房项目 <span class="req">*</span></label>
+          <input type="text" value="清水塘新苑（原公租房 1—4 栋）" readonly>
+        </div>
+        <div class="form-item">
+          <label>所在区 <span class="req">*</span></label>
+          <select data-dict="district" data-ph="全部"></select>
+        </div>
+        <div class="form-item">
+          <label>闲置套数 <span class="req">*</span></label>
+          <input type="text" value="446" readonly>
+          <div class="hint">公租房系统接口返回</div>
+        </div>
+        <div class="form-item">
+          <label>拟盘活套数 <span class="req">*</span></label>
+          <input type="text" value="412">
+        </div>
+        <div class="form-item">
+          <label>原房源属性 <span class="req">*</span></label>
+          <input type="text" value="公共租赁住房" readonly>
+        </div>
+        <div class="form-item">
+          <label>盘活后用途 <span class="req">*</span></label>
+          <input type="text" value="青年人才住房" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>闲置原因 <span class="req">*</span></label>
+          <textarea rows="2">该批房源位于清水塘老工业区改造片区，公租房轮候需求下降，连续 18 个月出租率低于 40%，属长期闲置。</textarea>
+        </div>
+        <div class="form-item col-full">
+          <label>盘活理由 <span class="req">*</span></label>
+          <textarea rows="3">石峰区青年人才轮候 68 人，可租房源仅 42 套，供需存在缺口。盘活后经装修与家电配置达到拎包入住标准，可定向供给来株创业就业青年人才。</textarea>
+        </div>
+        <div class="form-item">
+          <label>装修与配置预算（元） <span class="req">*</span></label>
+          <input type="text" placeholder="请输入金额">
+        </div>
+        <div class="form-item">
+          <label>预计投放时间 <span class="req">*</span></label>
+          <input type="date">
+        </div>
+        <div class="form-item col-full">
+          <label>审批附件 <span class="req">*</span></label>
+          <input type="text" data-upload="1">
+        </div>
+      </div>
+  </div>
+  <div class="drawer-foot">
+      <button class="btn" data-close-drawer onclick="">取消</button>
+      <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认提交清水塘新苑 412 套盘活审批？',detail:'审批通过后房源纳入统一楼盘表并按「公租房盘活」来源打标，原属性保留可追溯。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已提交，待业务管理员审批','success');}})"><i class="fa-solid fa-check"></i> 提交审批</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 4; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

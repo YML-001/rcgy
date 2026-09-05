@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>房态图管理 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+<style>
+/* 楼层平面房态图：仅本页使用 */
+.hs-legend { display: flex; flex-wrap: wrap; gap: 14px; padding: 4px 0 12px; font-size: 12.5px; color: var(--text-2); }
+.hs-legend span { display: inline-flex; align-items: center; gap: 5px; }
+.hs-legend i { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+.hs-floor { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+.hs-fno { flex: 0 0 54px; font-size: 12.5px; font-weight: 700; color: var(--text-2); text-align: right; }
+.hs-rooms { flex: 1; display: flex; gap: 6px; flex-wrap: wrap; }
+.hs-room {
+  width: 74px; padding: 6px 4px; border-radius: var(--radius);
+  border: 1px solid var(--border); background: var(--bg-soft);
+  font-size: 11.5px; text-align: center; cursor: pointer; color: var(--text-2);
+}
+.hs-room:hover { border-color: var(--primary); box-shadow: var(--shadow-sm); }
+.hs-room b { display: block; font-size: 12.5px; font-weight: 700; color: var(--text-1); }
+.hs-room.free { background: var(--primary-light); border-color: var(--primary-soft); }
+.hs-room.free b { color: var(--primary); }
+.hs-room.lock { background: var(--warning-light); border-color: var(--line-warning); }
+.hs-room.lock b { color: var(--on-warning); }
+.hs-room.rent { background: var(--success-light); border-color: var(--line-success); }
+.hs-room.rent b { color: var(--success); }
+.hs-room.quit { background: var(--danger-light); border-color: var(--line-danger); }
+.hs-room.quit b { color: var(--danger); }
+.hs-room.fix { background: var(--fill-gray); border-color: var(--border-strong); }
+.hs-room.froz { background: var(--fill-gray-2); border-color: var(--line-gray); }
+.hs-room.froz b { color: var(--on-gray); }
+</style>
+</head>
+<body data-role="housing" data-active="house-16">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 房源筹集与楼盘表
+      <span class="sep">/</span> 房源档案与房态
+      <span class="sep">/</span> <span class="cur">房态图管理</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('原型演示：切换至其他楼盘的房态图')"><i class="fa-solid fa-building"></i> 切换楼盘</button>
+      <button class="btn" onclick="SP.dual('房源冻结为高敏操作，需短信验证码二次确认。冻结期间不参与配租。')"><i class="fa-solid fa-lock"></i> 冻结房源</button>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>以<b>楼层平面图与列表</b>两种视图展示可配租、已锁定、已签约、在租、待腾退、维修中、冻结等状态，<b>变更全程留痕</b>。当前展示：湘江1958 人才公寓 A6 栋。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-house-circle-check"></i></div>
+      <div><div class="s-label">可配租</div><div class="s-value">412</div>
+        <div class="s-trend text-2">实时同步至移动端</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-lock"></i></div>
+      <div><div class="s-label">已锁定 / 已签约</div><div class="s-value">68</div>
+        <div class="s-trend text-2">配租批次进行中</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-users"></i></div>
+      <div><div class="s-label">在租</div><div class="s-value">1,286</div>
+        <div class="s-trend text-2">出租率 51.7%</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon red"><i class="fa-solid fa-house-circle-exclamation"></i></div>
+      <div><div class="s-label">待腾退 / 维修 / 冻结</div><div class="s-value">112</div>
+        <div class="s-trend ">不参与配租</div></div>
+    </div>
+  </div>
+
+  <div class="card" data-tabs-scope>
+    <div class="tabs">
+      <div class="tab active" data-tab="map">楼层平面房态图</div>
+      <div class="tab" data-tab="stat">分楼盘房态统计</div>
+      <div class="tab" data-tab="map2">房态流转规则</div>
+    </div>
+    <div class="tab-panel active" data-panel="map">
+      <div class="card-body">
+        <div class="dc-seg" style="margin-bottom:10px">
+          <button class="on" onclick="PMS.toast('已切换为楼层平面视图')">楼层平面</button>
+          <button onclick="PMS.toast('已切换为列表视图，可按房态筛选导出')">列表视图</button>
+        </div>
+        <div class="hs-legend">
+          <span><i style="background:var(--primary-light);border:1px solid var(--primary-soft)"></i> 可配租</span>
+          <span><i style="background:var(--warning-light);border:1px solid var(--line-warning)"></i> 已锁定</span>
+          <span><i style="background:var(--success-light);border:1px solid var(--line-success)"></i> 在租</span>
+          <span><i style="background:var(--danger-light);border:1px solid var(--line-danger)"></i> 待腾退</span>
+          <span><i style="background:var(--fill-gray);border:1px solid var(--border-strong)"></i> 维修中</span>
+          <span><i style="background:var(--fill-gray-2);border:1px solid var(--line-gray)"></i> 已冻结</span>
+        </div>
+          <div class="hs-floor"><span class="hs-fno">18 层</span><span class="hs-rooms"><span class="hs-room rent" onclick="PMS.toast('1801 在租 · 承租人 谭×× · 保障期至 2028-03-14')"><b>1801</b>在租</span><span class="hs-room free" onclick="PMS.toast('1802 可配租 · 二室一厅 78.60 ㎡ · 已上架')"><b>1802</b>可配租</span><span class="hs-room rent" onclick="PMS.toast('1803 在租 · 承租人 罗×× · 保障期至 2027-11-08')"><b>1803</b>在租</span><span class="hs-room lock" onclick="PMS.toast('1804 已锁定 · 彭×× 选房中 · 倒计时 26 分钟')"><b>1804</b>已锁定</span><span class="hs-room rent" onclick="PMS.toast('1805 在租 · 承租人 贺×× · 保障期至 2028-05-20')"><b>1805</b>在租</span><span class="hs-room quit" onclick="PMS.toast('1806 待腾退 · 唐×× 离职已上报 · 腾退期限 2026-09-30')"><b>1806</b>待腾退</span></span></div>
+          <div class="hs-floor"><span class="hs-fno">17 层</span><span class="hs-rooms"><span class="hs-room rent" onclick="PMS.toast('1701 在租')"><b>1701</b>在租</span><span class="hs-room rent" onclick="PMS.toast('1702 在租')"><b>1702</b>在租</span><span class="hs-room free" onclick="PMS.toast('1703 可配租 · 一室一厅 52.60 ㎡')"><b>1703</b>可配租</span><span class="hs-room rent" onclick="PMS.toast('1704 在租')"><b>1704</b>在租</span><span class="hs-room fix" onclick="PMS.toast('1705 维修中 · 卫生间漏水施工 · 预计 09-08 完工')"><b>1705</b>维修中</span><span class="hs-room rent" onclick="PMS.toast('1706 在租')"><b>1706</b>在租</span></span></div>
+          <div class="hs-floor"><span class="hs-fno">16 层</span><span class="hs-rooms"><span class="hs-room rent" onclick="PMS.toast('1601 在租')"><b>1601</b>在租</span><span class="hs-room rent" onclick="PMS.toast('1602 在租')"><b>1602</b>在租</span><span class="hs-room rent" onclick="PMS.toast('1603 在租')"><b>1603</b>在租</span><span class="hs-room free" onclick="PMS.toast('1604 可配租')"><b>1604</b>可配租</span><span class="hs-room rent" onclick="PMS.toast('1605 在租')"><b>1605</b>在租</span><span class="hs-room free" onclick="PMS.toast('1606 可配租')"><b>1606</b>可配租</span></span></div>
+          <div class="hs-floor"><span class="hs-fno">15 层</span><span class="hs-rooms"><span class="hs-room rent" onclick="PMS.toast('1501 在租')"><b>1501</b>在租</span><span class="hs-room rent" onclick="PMS.toast('1502 在租 · 承租人 王梓涵 · 保障期至 2028-01-05')"><b>1502</b>在租</span><span class="hs-room rent" onclick="PMS.toast('1503 在租')"><b>1503</b>在租</span><span class="hs-room rent" onclick="PMS.toast('1504 在租')"><b>1504</b>在租</span><span class="hs-room froz" onclick="PMS.toast('1505 已冻结 · 政策调整暂停配租 · 冻结至 2026-12-31')"><b>1505</b>已冻结</span><span class="hs-room rent" onclick="PMS.toast('1506 在租')"><b>1506</b>在租</span></span></div>
+          <div class="hs-floor"><span class="hs-fno">14 层</span><span class="hs-rooms"><span class="hs-room rent" onclick="PMS.toast('1401 在租')"><b>1401</b>在租</span><span class="hs-room rent" onclick="PMS.toast('1402 在租')"><b>1402</b>在租</span><span class="hs-room lock" onclick="PMS.toast('1403 已锁定 · 曾×× 选房中')"><b>1403</b>已锁定</span><span class="hs-room rent" onclick="PMS.toast('1404 在租')"><b>1404</b>在租</span><span class="hs-room rent" onclick="PMS.toast('1405 在租')"><b>1405</b>在租</span><span class="hs-room rent" onclick="PMS.toast('1406 在租')"><b>1406</b>在租</span></span></div>
+        <p class="hint" style="margin-top:10px">
+          <i class="fa-solid fa-circle-info"></i>
+          点击房间可查看房源档案与承租信息。房态变更<b>全程留痕</b>，剩余可租房源数量与移动端<b>实时同步</b>，已锁定或已签约房源即时扣减。
+        </p>
+      </div>
+    </div>
+    <div class="tab-panel" data-panel="stat">
+      <div class="card-body">
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 各楼盘房态分布<span class="sub">6 个楼盘</span></div>
+          <div class="sp-b">
+  <div class="sp-tw">
+    <table class="data-table compact">
+      <thead><tr><th>楼盘</th><th>所在区</th><th class="num">总套数</th><th class="num">可配租</th><th class="num">已锁定</th><th class="num">在租</th><th class="num">待腾退</th><th class="num">维修中</th><th class="num">已冻结</th><th>出租率</th></tr></thead>
+      <tbody>
+      <tr><td>湘江1958 人才公寓</td><td>天元区</td><td class="num">620</td><td class="num">86</td><td class="num">26</td><td class="num">472</td><td class="num">12</td><td class="num">18</td><td class="num">6</td><td><span class="badge green">76.1%</span></td></tr>
+      <tr><td>栗雨佳苑人才公寓</td><td>天元区</td><td class="num">366</td><td class="num">100</td><td class="num">14</td><td class="num">232</td><td class="num">8</td><td class="num">12</td><td class="num">0</td><td><span class="badge green">63.4%</span></td></tr>
+      <tr><td>茨菇塘公寓</td><td>荷塘区</td><td class="num">486</td><td class="num">62</td><td class="num">18</td><td class="num">386</td><td class="num">6</td><td class="num">14</td><td class="num">0</td><td><span class="badge green">79.4%</span></td></tr>
+      <tr><td>董家塅安居苑</td><td>芦淞区</td><td class="num">328</td><td class="num">42</td><td class="num">8</td><td class="num">214</td><td class="num">4</td><td class="num">18</td><td class="num">42</td><td><span class="badge green">65.2%</span></td></tr>
+      <tr class="row-warn"><td>清水塘新苑</td><td>石峰区</td><td class="num">412</td><td class="num">98</td><td class="num">2</td><td class="num">268</td><td class="num">2</td><td class="num">28</td><td class="num">14</td><td><span class="badge orange">65.0%</span></td></tr>
+      <tr><td>云龙人才苑</td><td>经开区</td><td class="num">274</td><td class="num">24</td><td class="num">0</td><td class="num">238</td><td class="num">0</td><td class="num">12</td><td class="num">0</td><td><span class="badge green">86.9%</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tab-panel" data-panel="map2">
+      <div class="card-body">
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 房态状态机<span class="sub">字典 houseStatus</span></div>
+          <div class="sp-b">
+            <div class="sp-map">
+              <div class="mr"><span class="sp-st doing">可配租</span><div class="to">
+                <div class="sp-tr"><span class="op">人才选房锁定</span><i class="ar fa-solid fa-arrow-right"></i><span class="sp-st wait">已锁定</span></div>
+                <div class="sp-tr"><span class="op">维修 / 查封 / 政策调整</span><i class="ar fa-solid fa-arrow-right"></i><span class="sp-st bad">已冻结</span></div>
+              </div></div>
+              <div class="mr"><span class="sp-st wait">已锁定</span><div class="to">
+                <div class="sp-tr"><span class="op">完成电子签约</span><i class="ar fa-solid fa-arrow-right"></i><span class="sp-st doing">已签约</span></div>
+                <div class="sp-tr"><span class="op">锁房倒计时超时</span><i class="ar fa-solid fa-arrow-right"></i><span class="sp-st doing">可配租</span></div>
+              </div></div>
+              <div class="mr"><span class="sp-st doing">已签约</span><div class="to">
+                <div class="sp-tr"><span class="op">交付验收完成</span><i class="ar fa-solid fa-arrow-right"></i><span class="sp-st done">在租</span></div>
+              </div></div>
+              <div class="mr"><span class="sp-st done">在租</span><div class="to">
+                <div class="sp-tr"><span class="op">保障期届满 / 清退</span><i class="ar fa-solid fa-arrow-right"></i><span class="sp-st bad">待腾退</span></div>
+                <div class="sp-tr"><span class="op">报修需停租施工</span><i class="ar fa-solid fa-arrow-right"></i><span class="sp-st bad">维修中</span></div>
+              </div></div>
+              <div class="mr"><span class="sp-st bad">待腾退</span><div class="to">
+                <div class="sp-tr"><span class="op">腾退验收合格</span><i class="ar fa-solid fa-arrow-right"></i><span class="sp-st doing">可配租</span></div>
+                <div class="sp-tr"><span class="op">需修复后再投放</span><i class="ar fa-solid fa-arrow-right"></i><span class="sp-st bad">维修中</span></div>
+              </div></div>
+              <div class="mr term"><span class="sp-st dead">已转出</span><div class="to"><span class="muted">终态。原属性与现用途双轨记录并保留转换台账</span></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>视图</b> 楼层平面图 + 列表两种视图</span>
+    <span><b>同步</b> 剩余可租套数与移动端实时同步，已锁定或已签约即时扣减</span>
+    <span><b>留痕</b> 房态变更全程留痕，含操作人、时间与前后值</span>
+  </div>
+</main>
+
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

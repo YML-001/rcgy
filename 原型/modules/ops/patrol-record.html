@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>巡检维修记录管理 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="manager" data-active="ops-05">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 运营考核与工单服务
+      <span class="sep">/</span> 运营机构考核
+      <span class="sep">/</span> <span class="cur">巡检维修记录</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>汇总运营机构上报的<b>日常巡检与维修记录</b>，作为<b>房源完好率与考核取数依据</b>。记录来源于移动端扫码巡检与工单完工登记。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-clipboard-list"></i></div>
+      <div><div class="s-label">本月巡检记录</div><div class="s-value">2,186</div>
+        <div class="s-trend text-2">条</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-house-circle-check"></i></div>
+      <div><div class="s-label">房源完好率</div><div class="s-value">96.2%</div>
+        <div class="s-trend text-2">考核取数值</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+      <div><div class="s-label">发现问题</div><div class="s-value">82</div>
+        <div class="s-trend ">已转维修工单</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-qrcode"></i></div>
+      <div><div class="s-label">扫码巡检覆盖率</div><div class="s-value">87.9%</div>
+        <div class="s-trend text-2">2,186 / 2,486 套</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>房源编号</label><input type="text" placeholder="房源编号"></div>
+      <div class="filter-item"><label>楼盘</label><input type="text" placeholder="楼盘名称"></div>
+      <div class="filter-item"><label>运营机构</label><input type="text" placeholder="机构名称"></div>
+      <div class="filter-item"><label>巡检结论</label><select><option value="">全部</option><option>正常</option><option>发现问题</option><option>疑似违规使用</option></select></div>
+      <div class="filter-item"><label>巡检日期</label><input type="date"></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>巡检编号</th><th>房源编号</th><th class="cell-lg">房源</th><th>运营机构</th><th>巡检人</th><th>登记房态</th><th class="cell-lg">巡检结论</th><th>关联工单</th><th>巡检时间</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>XJ2026-09-02186</td><td>FY-TY-LYJY-03-1104</td><td>栗雨佳苑 3 栋 1104</td><td>株洲市人才安居服务有限公司</td><td>黄卫兵</td><td><span class="badge green">在租</span></td><td>房屋结构与装修完好、家电家具 28 项齐全、水电燃气设施正常、消防设施完好、公共区域整洁</td><td><span class="muted">—</span></td><td>2026-09-05 09:42</td><td><span class="link" onclick="PMS.toast('5 项巡检项全部正常，现场照片 2 张已归档，纳入房源完好率取数')">巡检明细</span></td></tr>
+          <tr class="row-bad"><td>XJ2026-09-02182</td><td>FY-TY-LYJY-03-0904</td><td>栗雨佳苑 3 栋 0904</td><td>株洲市人才安居服务有限公司</td><td>黄卫兵</td><td><span class="badge red">疑似空置</span></td><td>连续 3 月水电用量接近 0，无生活痕迹，疑似空置不住，已转入户核查</td><td>HC2026-09-00186</td><td>2026-09-05 09:28</td><td><span class="link" onclick="location.href='../../mobile/gov/check-form.html'">入户核查</span></td></tr>
+          <tr class="row-warn"><td>XJ2026-09-02178</td><td>FY-HT-CGT-05-0602</td><td>茨菇塘公寓 5 栋 0602</td><td>株洲城建人才公寓运营管理有限公司</td><td>刘师傅</td><td><span class="badge orange">维修中</span></td><td>卫生间下水管道渗水，已开具维修工单并停租施工</td><td>GD2026-09-00418</td><td>2026-09-05 09:14</td><td><span class="link" onclick="location.href='wo-list.html'">工单</span></td></tr>
+          <tr class="row-warn"><td>XJ2026-09-02024</td><td>FY-SF-QST-01-0806</td><td>清水塘新苑 1 栋 0806</td><td>株洲清水塘安居服务有限公司</td><td>唐师傅</td><td><span class="badge green">在租</span></td><td>发现空调不制冷、热水器故障共 2 项家电问题，<b>未及时开具维修工单</b></td><td><span class="muted">—</span></td><td>2026-09-03 15:22</td><td><span class="link" onclick="PMS.toast('巡检发现问题未及时报修，影响房源完好率指标，已计入 Q3 考核扣分')">考核扣分</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>取数用途</b> 房源完好率与运营机构考核取数依据</span>
+    <span><b>记录来源</b> 移动端扫码巡检（G2-02）+ 工单完工登记（G3-01）</span>
+    <span><b>覆盖要求</b> 受托房源每月至少巡检一次，覆盖率纳入考核</span>
+  </div>
+</main>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 2186; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>人才档案详情 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="reviewer" data-active="apply-01">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 人才档案与资格联审
+      <span class="sep">/</span> 人才档案
+      <span class="sep">/</span> 人才一人一档
+      <span class="sep">/</span> <span class="cur">档案详情</span>
+    </div>
+    <div class="page-actions">
+      <a class="btn" href="talent-list.html"><i class="fa-solid fa-arrow-left"></i> 返回</a>
+      <a class="btn" href="pool-list.html"><i class="fa-solid fa-file-lines"></i> 查看申请件</a>
+      <button class="btn btn-danger" onclick="SP.dual('标记失信为高敏不可逆操作，需双人授权 + 人脸二次确认，并须留存法律文书。')"><i class="fa-solid fa-user-slash"></i> 标记失信</button>
+    </div>
+  </div>
+
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>本人才档案<b>信用良好</b>，当前在租，保障期至 2028-01-05。档案归集 8 项部门共享数据，是<b>重复享受校验、年审与失信管理</b>的基础。</div>
+  </div>
+
+  <div class="card" data-tabs-scope>
+    <div class="tabs">
+      <div class="tab active" data-tab="basic">基本信息与学历</div>
+      <div class="tab" data-tab="verify">多部门数据 <span class="badge green">8</span></div>
+      <div class="tab" data-tab="family">家庭成员与房产</div>
+      <div class="tab" data-tab="history">保障历史 <span class="badge blue">1</span></div>
+      <div class="tab" data-tab="credit">信用与年审</div>
+    </div>
+    <div class="tab-panel active" data-panel="basic">
+      <div class="card-body">
+        <dl class="desc-list">
+          <div class="desc-item"><dt>人才编号</dt><dd>RC2026-04182</dd></div>
+          <div class="desc-item"><dt>姓名</dt><dd>王梓涵</dd></div>
+          <div class="desc-item"><dt>身份证号</dt><dd><span class="sp-mask">430211********2418<span class="mk" onclick="SP.mask(this.parentElement,'430211200103122418')">查看明文</span></span></dd></div>
+          <div class="desc-item"><dt>性别 / 出生日期</dt><dd>男　2001-03-12（25 周岁）</dd></div>
+          <div class="desc-item"><dt>联系电话</dt><dd><span class="sp-mask">138****6207<span class="mk" onclick="SP.mask(this.parentElement,'13802456207')">查看明文</span></span></dd></div>
+          <div class="desc-item"><dt>婚姻状况</dt><dd>未婚 <span class="badge green">民政核验一致</span></dd></div>
+          <div class="desc-item"><dt>人才类别</dt><dd><span class="badge blue">就业青年人才</span></dd></div>
+          <div class="desc-item"><dt>人才层次</dt><dd>普通青年人才</dd></div>
+          <div class="desc-item"><dt>最高学历</dt><dd>全日制本科 <span class="badge green">学信网核验</span></dd></div>
+          <div class="desc-item"><dt>毕业院校 / 专业</dt><dd>湖南工业大学　电气工程及其自动化</dd></div>
+          <div class="desc-item"><dt>毕业时间</dt><dd>2025-07-01</dd></div>
+          <div class="desc-item"><dt>毕业 2 年内</dt><dd>2025-07-01 至 2027-06-30 <span class="badge green">在期内 · 剩 10 个月</span></dd></div>
+          <div class="desc-item full"><dt>所在单位</dt><dd>中车株洲电力机车研究所有限公司</dd></div>
+          <div class="desc-item"><dt>单位所在区 / 岗位</dt><dd>天元区　电气工程师</dd></div>
+          <div class="desc-item"><dt>职称 / 技能等级</dt><dd><span class="muted">—</span></dd></div>
+        </dl>
+      </div>
+    </div>
+    <div class="tab-panel" data-panel="verify">
+      <div class="card-body">
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 部门共享数据归集<span class="sub">含取数时间戳</span></div>
+          <div class="sp-b">
+  <div class="sp-tw">
+    <table class="data-table compact">
+      <thead><tr><th>数据项</th><th>数据来源</th><th class="cell-lg">内容</th><th>核验结论</th><th>取数时间</th></tr></thead>
+      <tbody>
+      <tr><td>学历学位</td><td>学信网</td><td>湖南工业大学 全日制本科 2025-07-01</td><td><span class="badge green">一致</span></td><td>2026-09-03 10:27</td></tr>
+      <tr><td>婚姻登记</td><td>市民政局</td><td>未婚</td><td><span class="badge green">一致</span></td><td>2026-09-03 10:27</td></tr>
+      <tr><td>不动产登记</td><td>市自然资源和规划局</td><td>市城区范围内无自有住房，无房屋交易记录</td><td><span class="badge green">一致</span></td><td>2026-09-03 10:27</td></tr>
+      <tr><td>养老保险</td><td>市人社局</td><td>连续缴纳 25 个月，单位与劳动合同一致</td><td><span class="badge green">一致</span></td><td>2027-01-06 02:00</td></tr>
+      <tr><td>个人所得税</td><td>市税务局</td><td>2026 年度连续缴纳 12 个月</td><td><span class="badge green">一致</span></td><td>2027-01-06 02:00</td></tr>
+      <tr><td>工商登记</td><td>市市场监督管理局</td><td>非创业类，不适用</td><td><span class="badge gray">不适用</span></td><td><span class="muted">—</span></td></tr>
+      <tr><td>政策性住房</td><td>公租房管理系统</td><td>未承租公租房、人才公寓、直管公房，未享受租赁补贴</td><td><span class="badge green">一致</span></td><td>2027-01-06 02:00</td></tr>
+      <tr><td>人口与人脸</td><td>市公安局</td><td>户籍人口信息一致；人脸核身相似度 98.6%</td><td><span class="badge green">一致</span></td><td>2026-09-20 15:08</td></tr>
+      </tbody>
+    </table>
+  </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tab-panel" data-panel="family">
+      <div class="card-body">
+        <div class="sp-block">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 家庭成员<span class="sub">无房核查依据</span></div>
+          <div class="sp-b">
+            <div class="empty" style="padding:26px 0">
+              <i class="fa-solid fa-user-group"></i>
+              <p>婚姻状况为未婚，无家庭成员记录<br>无房核查范围为申请人本人</p>
+            </div>
+          </div>
+        </div>
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 房产核查<span class="sub">R-C5 一票否决项</span></div>
+          <div class="sp-b">
+        <div class="sp-check">
+          <div class="ck pass"><i class="fa-solid fa-circle-check"></i>
+            <div class="cb"><div class="ct">申请人本人 · 无自有住房</div>
+              <div class="cd">不动产登记系统核查：市城区（不含渌口区）范围内无自有住房登记记录，无房屋交易记录。取数时间戳 2027-01-06 02:00。</div></div>
+            <div class="co"><span class="badge green">符合</span></div></div>
+          <div class="ck pass"><i class="fa-solid fa-circle-check"></i>
+            <div class="cb"><div class="ct">家庭成员 · 不涉及</div>
+              <div class="cd">未婚，无家庭成员，核查范围仅为本人。</div></div>
+            <div class="co"><span class="badge gray">不涉及</span></div></div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tab-panel" data-panel="history">
+      <div class="card-body">
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 保障记录全景<span class="sub">P5-03 重复享受校验依据</span></div>
+          <div class="sp-b">
+  <div class="sp-tw">
+    <table class="data-table compact">
+      <thead><tr><th>保障类型</th><th class="cell-lg">房源</th><th>合同编号</th><th>保障期</th><th class="num">累计减免</th><th>退出方式</th><th>状态</th></tr></thead>
+      <tbody>
+      <tr><td><span class="badge blue">青年人才公寓</span></td><td>湘江1958 人才公寓 A6 栋 1502</td><td>RZ2026-00862</td><td>2026-01-06 至 2028-01-05</td><td class="num">7,922.88</td><td><span class="muted">—</span></td><td><span class="sp-st done">在租</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+          </div>
+        </div>
+        <div class="sp-kv">
+          <div class="kv"><span class="k">公共租赁住房承租</span><span class="v ok">无记录</span></div>
+          <div class="kv"><span class="k">人才公寓承租</span><span class="v">1 次（当前在租）</span></div>
+          <div class="kv"><span class="k">直管公房承租</span><span class="v ok">无记录</span></div>
+          <div class="kv"><span class="k">公租房租赁补贴</span><span class="v ok">无领取记录</span></div>
+          <div class="kv"><span class="k">重复享受校验</span><span class="v ok">通过（命中即阻断申请）</span><span class="link" onclick="location.href='talent-history.html'">保障历史全景</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="tab-panel" data-panel="credit">
+      <div class="card-body">
+        <div class="sp-block">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 信用记录<span class="sub">P5-04</span></div>
+          <div class="sp-b">
+        <div class="sp-kv">
+          <div class="kv"><span class="k">信用状态</span><span class="v ok"><span class="badge green">良好</span></span></div>
+          <div class="kv"><span class="k">失信标记</span><span class="v ok">无</span></div>
+          <div class="kv"><span class="k">放弃配租标记</span><span class="v ok">无</span></div>
+          <div class="kv"><span class="k">欠费记录</span><span class="v ok">无（12 期账单均按期缴清）</span><span class="link" onclick="location.href='../rent/bill-list.html'">账单台账</span></div>
+          <div class="kv"><span class="k">违规核查</span><span class="v ok">2 次核查均为正常在住</span></div>
+        </div>
+          </div>
+        </div>
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 年审记录<span class="sub">每年一次</span></div>
+          <div class="sp-b">
+        <div class="timeline">
+          <div class="tl-item done"><div class="tl-dot"></div>
+            <div class="tl-title">资格审核通过</div>
+            <div class="tl-meta">刘志刚 · 2026-09-05 09:14</div>
+            <div class="tl-desc">8 项核验，个税例外项经人工核实通过。</div></div>
+          <div class="tl-item done"><div class="tl-dot"></div>
+            <div class="tl-title">配租选房并签约</div>
+            <div class="tl-meta">系统 · 2026-09-20 15:08</div>
+            <div class="tl-desc">合同 RZ2026-00862 签署生效。</div></div>
+          <div class="tl-item done"><div class="tl-dot"></div>
+            <div class="tl-title">交付入住</div>
+            <div class="tl-meta">彭雪梅 · 2026-01-06 10:16</div>
+            <div class="tl-desc">保障期起算 2026-01-06。</div></div>
+          <div class="tl-item done"><div class="tl-dot"></div>
+            <div class="tl-title">2027 年度资格年审</div>
+            <div class="tl-meta">刘志刚 · 2027-01-08</div>
+            <div class="tl-desc">住房、就业、纳税、社保四项复核符合，年审通过。</div></div>
+          <div class="tl-item"><div class="tl-dot"></div>
+            <div class="tl-title">2028 年度年审 / 续租复核</div>
+            <div class="tl-meta">预计 2027-12 发起</div>
+            <div class="tl-desc">保障期届满前自动发起续租资格复核。</div></div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>一人一档</b> 按身份证号唯一归集，跨批次跨业务复用</span>
+    <span><b>脱敏要求</b> 身份证号、手机号界面脱敏，查看明文需授权并留痕</span>
+  </div>
+</main>
+
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

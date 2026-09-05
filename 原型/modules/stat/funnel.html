@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>申请漏斗分析 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="leader" data-active="stat-12">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 统计分析
+      <span class="sep">/</span> 人才与配租分析
+      <span class="sep">/</span> <span class="cur">申请漏斗分析</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-danger">
+    <i class="fa-solid fa-circle-exclamation"></i>
+    <div>统计<b>提交、受理、审核通过、配租、签约、入住</b>各环节的转化率，<b>识别流失环节</b>并归因。主要流失在配租排序→完成选房环节。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-filter"></i></div>
+      <div><div class="s-label">提交申请</div><div class="s-value">3,246</div>
+        <div class="s-trend text-2">2026 年累计</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
+      <div><div class="s-label">办理入住</div><div class="s-value">1,286</div>
+        <div class="s-trend text-2">总转化率 39.6%</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon red"><i class="fa-solid fa-arrow-trend-down"></i></div>
+      <div><div class="s-label">最大流失环节</div><div class="s-value">选房</div>
+        <div class="s-trend ">流失 483 件</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-clock"></i></div>
+      <div><div class="s-label">平均办理周期</div><div class="s-value">42.6 天</div>
+        <div class="s-trend text-2">提交至入住</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <h3><i class="fa-solid fa-filter"></i> 转化漏斗</h3>
+      <span class="sub">S3-02 · 2026 年累计</span>
+    </div>
+    <div class="card-body">
+      <div class="section-title" data-icon="fa-chart-simple">七环节转化漏斗</div>
+      <div class="dc-bars">
+        <div class="b-item"><span class="b-label">① 提交申请　3,246 件</span><span class="b-track"><span class="b-fill" style="width:100%"></span></span><span class="b-val">100%</span></div>
+        <div class="b-item"><span class="b-label">② 受理　3,129 件</span><span class="b-track"><span class="b-fill" style="width:96.4%"></span></span><span class="b-val">96.4%（流失 117：填报不完整撤回）</span></div>
+        <div class="b-item"><span class="b-label">③ 审核通过　2,656 件</span><span class="b-track"><span class="b-fill" style="width:81.8%"></span></span><span class="b-val">84.9%（流失 473：不予通过/失效）</span></div>
+        <div class="b-item"><span class="b-label">④ 配租排序　2,272 件</span><span class="b-track"><span class="b-fill" style="width:70.0%"></span></span><span class="b-val">85.5%（流失 384：未报名本批次）</span></div>
+        <div class="b-item warn"><span class="b-label">⑤ 完成选房　1,789 件</span><span class="b-track"><span class="b-fill" style="width:55.1%"></span></span><span class="b-val">78.7%（<b>流失 483</b>：房源不合意/放弃）</span></div>
+        <div class="b-item"><span class="b-label">⑥ 电子签约　1,402 件</span><span class="b-track"><span class="b-fill" style="width:43.2%"></span></span><span class="b-val">78.4%（流失 387：进入轮候/逾期未签）</span></div>
+        <div class="b-item"><span class="b-label">⑦ 办理入住　1,286 件</span><span class="b-track"><span class="b-fill" style="width:39.6%"></span></span><span class="b-val">91.7%（流失 116：逾期未入住）</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="card list-card">
+    <div class="card-head">
+      <h3><i class="fa-solid fa-table-list"></i> 明细下钻</h3>
+      <span class="sub">可逐级下钻至明细清单</span>
+    </div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>环节</th><th>到达件数</th><th>累计转化率</th><th>环节转化率</th><th>流失件数</th><th class="cell-lg">流失归因</th><th>下钻</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>① 提交申请</td><td class="num">3,246</td><td><span class="badge green">100%</span></td><td><span class="badge gray">—</span></td><td class="num">0</td><td><span class="muted">—</span></td><td><span class="link" onclick="location.href='../apply/pool-list.html'">多渠道件池</span></td></tr>
+          <tr><td>② 受理</td><td class="num">3,129</td><td><span class="badge green">96.4%</span></td><td><span class="badge green">96.4%</span></td><td class="num">117</td><td>填报不完整主动撤回 86 件、重复提交 31 件</td><td><span class="link" onclick="location.href='../apply/reject-list.html'">撤回记录</span></td></tr>
+          <tr class="row-warn"><td>③ 审核通过</td><td class="num">2,656</td><td><span class="badge green">81.8%</span></td><td><span class="badge green">84.9%</span></td><td class="num">473</td><td>不予通过 386 件（有自有住房 106、超毕业年限 86、非全日制学历 42、已享受政策性住房 42、其他 110）+ 逾期未补正失效 87 件</td><td><span class="link" onclick="location.href='../apply/conclusion.html'">审核结论</span></td></tr>
+          <tr><td>④ 配租排序</td><td class="num">2,272</td><td><span class="badge green">70.0%</span></td><td><span class="badge green">85.5%</span></td><td class="num">384</td><td>审核通过但未报名本批次 384 件（不影响后续批次）</td><td><span class="link" onclick="location.href='../alloc/order-list.html'">顺序名单</span></td></tr>
+          <tr class="row-bad"><td>⑤ 完成选房</td><td class="num">1,789</td><td><span class="badge orange">55.1%</span></td><td><span class="badge orange">78.7%</span></td><td class="num">483</td><td><b>最大流失环节</b>：房源位置与意向片区不匹配 268 件、租金自付超预期 132 件、锁房超时未确认 83 件</td><td><span class="link" onclick="location.href='giveup.html'">放弃配租分析</span></td></tr>
+          <tr class="row-warn"><td>⑥ 电子签约</td><td class="num">1,402</td><td><span class="badge orange">43.2%</span></td><td><span class="badge orange">78.4%</span></td><td class="num">387</td><td>房源不足进入轮候 369 件（非实质流失）+ 逾期未签约视同放弃 18 件</td><td><span class="link" onclick="location.href='../alloc/queue-list.html'">轮候库</span></td></tr>
+          <tr><td>⑦ 办理入住</td><td class="num">1,286</td><td><span class="badge orange">39.6%</span></td><td><span class="badge green">91.7%</span></td><td class="num">116</td><td>签约后逾期未办理入住视同放弃 4 件 + 尚在办理中 112 件</td><td>签约入住办理</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>转化口径</b> 环节转化率 = 本环节到达件数 ÷ 上一环节到达件数</span>
+    <span><b>流失区分</b> 进入轮候属正常等待，非实质流失；放弃与逾期属实质流失</span>
+    <span><b>优化方向</b> 针对选房环节流失，需改善房源结构匹配与 VR 看房体验</span>
+  </div>
+</main>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 7; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

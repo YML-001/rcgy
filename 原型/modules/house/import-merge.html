@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>导入与接口数据比对合并 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+</head>
+<body data-role="housing" data-active="house-22">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 房源筹集与楼盘表
+      <span class="sep">/</span> 楼盘表与多源归集
+      <span class="sep">/</span> <span class="cur">导入与接口比对合并</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.toast('已发起比对，预计 2 分钟完成，完成后在顶栏消息区提醒')"><i class="fa-solid fa-rotate"></i> 重新比对</button>
+      <button class="btn" onclick="PMS.confirm({title:'批量确认',message:'确认合并 86 套接口新增房源？',detail:'合并后自动生成一房一码并纳入统一楼盘表，可在批次台账中整批回滚。',type:'warning',okText:'确认合并',onOk:function(){PMS.toast('已合并 86 套房源，批次号 HB2026-0905-002','success');}})"><i class="fa-solid fa-check"></i> 批量确认新增（86 套）</button>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>省保租房系统、公租房系统<b>接口开通后</b>，自动将已导入房源与接口回传房源按<b>房屋编码、坐落地址、房号三重规则</b>比对，输出<b>新增、变更、疑似重复</b>三类差异清单，<b>由经办人确认后合并</b>，不自动覆盖。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-code-compare"></i></div>
+      <div><div class="s-label">本次比对房源</div><div class="s-value">2,486</div>
+        <div class="s-trend text-2">人工导入 2,486 套</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-plus"></i></div>
+      <div><div class="s-label">接口新增</div><div class="s-value">86</div>
+        <div class="s-trend text-2">导入台账中无此房源</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-pen"></i></div>
+      <div><div class="s-label">字段变更</div><div class="s-value">42</div>
+        <div class="s-trend ">面积/租金/状态不一致</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon red"><i class="fa-solid fa-clone"></i></div>
+      <div><div class="s-label">疑似重复</div><div class="s-value">12</div>
+        <div class="s-trend text-2">须人工确认后锁定</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>数据来源</label><select><option value="">全部</option><option>省保障性租赁住房系统</option><option>公租房管理系统</option></select></div>
+      <div class="filter-item"><label>差异类型</label><select><option value="">全部</option><option>接口新增</option><option>字段变更</option><option>疑似重复</option><option>接口缺失</option></select></div>
+      <div class="filter-item"><label>房源编号</label><input type="text" placeholder="房源编号"></div>
+      <div class="filter-item"><label>项目</label><input type="text" placeholder="项目名称"></div>
+      <div class="filter-item"><label>处置状态</label><select><option value="">全部</option><option>待确认</option><option>已合并</option><option>已忽略</option><option>已锁定</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>房源编号</th><th class="cell-lg">房源坐落</th><th>数据来源</th><th>差异类型</th><th class="cell-lg">差异内容（导入值 → 接口值）</th><th>命中规则</th><th>处置状态</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>FY-SF-TX-B3-0906</td><td>石峰区 田心高科园人才公寓 B3 栋 9 层 0906</td><td><span class="badge blue">省保租房系统</span></td><td><span class="badge green">接口新增</span></td><td>导入台账无此房源；接口回传为省厅「一间房」人才引进房源，建筑面积 42.60 ㎡</td><td><span class="badge gray">房屋编码</span></td><td><span class="badge orange">待确认</span></td><td><span class="link" onclick="PMS.openDrawer('mgDrawer')">确认合并</span></td></tr>
+          <tr class="row-warn"><td>FY-TY-XJ-A6-1802</td><td>天元区 湘江1958 人才公寓 A6 栋 18 层 1802</td><td><span class="badge blue">省保租房系统</span></td><td><span class="badge orange">字段变更</span></td><td>建筑面积 <b>78.60 → 78.24</b> ㎡；租金标准 <b>18.00 → 17.60</b> 元/㎡·月</td><td><span class="badge gray">房屋编码</span></td><td><span class="badge orange">待确认</span></td><td><span class="link" onclick="PMS.openDrawer('mgDrawer')">确认合并</span></td></tr>
+          <tr class="row-warn"><td>FY-HT-QST-C2-0512</td><td>荷塘区 清水塘新苑 C2 栋 5 层 0512</td><td><span class="badge cyan">公租房管理系统</span></td><td><span class="badge orange">字段变更</span></td><td>房源状态 <b>可配租 → 在租</b>（公租房系统显示已有承租记录，承租人非人才公寓对象）</td><td><span class="badge gray">坐落地址 + 房号</span></td><td><span class="badge orange">待确认</span></td><td><span class="link" onclick="PMS.openDrawer('mgDrawer')">确认合并</span></td></tr>
+          <tr class="row-bad"><td>FY-LS-JK-D1-0308</td><td>芦淞区 建宁人才公寓 D1 栋 3 层 0308</td><td><span class="badge cyan">公租房管理系统</span></td><td><span class="badge red">疑似重复</span></td><td>该房源在<b>省保租房系统与公租房系统同时登记</b>，导入台账来源标注为「公租房盘活」，接口回传两条记录</td><td><span class="badge gray">房号 + 坐落地址</span></td><td><span class="badge red">已锁定</span></td><td><span class="link" onclick="PMS.openDrawer('mgDrawer')">重复处置</span></td></tr>
+          <tr><td>FY-JK-DL-A2-1105</td><td>经开区 董亚人才社区 A2 栋 11 层 1105</td><td><span class="badge blue">省保租房系统</span></td><td><span class="badge green">接口新增</span></td><td>导入台账无此房源；接口回传户型「一室一厅」，装修标准「精装 · 拎包入住」</td><td><span class="badge gray">房屋编码</span></td><td><span class="badge green">已合并</span></td><td><span class="link" onclick="PMS.toast('2026-09-05 11:12 由唐凯确认合并，已生成一房一码 FY-JK-DL-A2-1105 并纳入统一楼盘表，人工导入原始快照已留存')">合并记录</span></td></tr>
+          <tr class="row-warn"><td>FY-TY-XJ-A6-2001</td><td>天元区 湘江1958 人才公寓 A6 栋 20 层 2001</td><td><span class="badge blue">省保租房系统</span></td><td><span class="badge gray">接口缺失</span></td><td>导入台账有此房源，接口<b>未回传</b>；疑似省厅尚未录入或已调整用途</td><td><span class="badge gray">房屋编码</span></td><td><span class="badge orange">待确认</span></td><td><span class="link" onclick="PMS.openDrawer('mgDrawer')">确认合并</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>三重比对规则</b> ① 房屋编码精确匹配　② 坐落地址解析后匹配　③ 同楼栋单元内房号匹配</span>
+    <span><b>不覆盖原则</b> 接口数据不自动覆盖人工导入数据，一律输出差异清单由经办人确认</span>
+    <span><b>快照留存</b> 确认合并后保留人工导入记录的原始快照，满足审计溯源</span>
+    <span><b>重复锁定</b> 疑似重复房源自动锁定不参与配租，确认后按<span class="link" onclick="location.href='src-tag.html'">来源与属性打标</span>双轨记录</span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="mgDrawer">
+  <div class="drawer-head">
+    <h3>差异确认与合并</h3>
+    <span class="badge orange">待确认</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>确认合并后<b>以接口回传数据为准</b>，人工补录的资金来源、验收状态等字段保留。原始导入快照<b>不删除</b>，可在批次台账中追溯。<b>面积与租金标准变更将影响在租合同计费</b>，须同步核对。</div>
+  </div>
+
+      <div class="form-grid form-align">
+        <div class="form-item">
+          <label>房源编号 <span class="req">*</span></label>
+          <input type="text" value="FY-TY-XJ-A6-1802" readonly>
+        </div>
+        <div class="form-item">
+          <label>差异类型 <span class="req">*</span></label>
+          <input type="text" value="字段变更" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>房源坐落 <span class="req">*</span></label>
+          <input type="text" value="天元区 湘江1958 人才公寓 A6 栋 18 层 1802" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>命中比对规则 <span class="req">*</span></label>
+          <input type="text" value="① 房屋编码精确匹配（43021100000000000186）" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>导入值（人工导入 · 2026-03-18） <span class="req">*</span></label>
+          <textarea rows="4" readonly>建筑面积：78.60 ㎡　套内面积：62.40 ㎡
+租金标准：18.00 元/㎡·月
+装修标准：精装 · 拎包入住
+房源状态：在租（承租人 王梓涵，合同 HT2026-0312-0086）</textarea>
+        </div>
+        <div class="form-item col-full">
+          <label>接口值（省保租房系统 · 2026-09-05） <span class="req">*</span></label>
+          <textarea rows="4" readonly>建筑面积：78.24 ㎡　套内面积：62.40 ㎡
+租金标准：17.60 元/㎡·月
+装修标准：精装 · 拎包入住
+房源状态：在租</textarea>
+        </div>
+        <div class="form-item col-full">
+          <label>处置方式 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>确认合并（以接口值为准）</option><option>保留导入值（忽略本次差异）</option><option>转人工核实（暂不处置）</option><option>标记疑似重复并锁定</option></select>
+        </div>
+        <div class="form-item col-full">
+          <label>在租合同影响 <span class="req">*</span></label>
+          <input type="text" value="影响 1 份在租合同：HT2026-0312-0086 王梓涵，月租金 1,414.80 → 1,376.42 元" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>合同处置 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>生成合同变更协议（下一账期起执行）</option><option>本合同期内维持原标准，续租时执行新标准</option></select>
+        </div>
+        <div class="form-item col-full">
+          <label>确认说明 <span class="req">*</span></label>
+          <textarea rows="3" placeholder="必填，说明核实情况与处置依据"></textarea>
+        </div>
+      </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认按接口值合并该房源？将影响 1 份在租合同的租金计费，须生成变更协议。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已确认合并，房源档案已更新并生成合同变更提醒','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 140; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

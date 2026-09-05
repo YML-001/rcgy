@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>智能预审与核验报告 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="reviewer" data-active="apply-08">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 人才档案与资格联审
+      <span class="sep">/</span> 资格受理与复核
+      <span class="sep">/</span> <span class="cur">智能预审核验报告</span>
+    </div>
+    <div class="page-actions">
+      <a class="btn" href="pool-list.html"><i class="fa-solid fa-arrow-left"></i> 返回件池</a>
+      <button class="btn" onclick="PMS.toast('已重新调用 8 项核验接口，结果将刷新','success')"><i class="fa-solid fa-arrows-rotate"></i> 重新核验</button>
+      <a class="btn btn-primary" href="audit-desk.html"><i class="fa-solid fa-user-check"></i> 进入复核</a>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>自动汇总各部门返回结果生成核验报告，标注<b>一致、不一致、数据缺失</b>三类结论，<b>人工只处理例外件</b>。当前办件 RC2026-0903-0162 存在 1 项不一致。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-shield-halved"></i></div>
+      <div><div class="s-label">本月核验调用</div><div class="s-value">10,288</div>
+        <div class="s-trend text-2">8 项 × 1,286 件</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
+      <div><div class="s-label">自动核验替代人工</div><div class="s-value">89.4%</div>
+        <div class="s-trend text-2">人工只处理例外件</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-code-compare"></i></div>
+      <div><div class="s-label">例外件</div><div class="s-value">136</div>
+        <div class="s-trend ">不一致 78 / 缺失 58</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-bolt"></i></div>
+      <div><div class="s-label">平均核验耗时</div><div class="s-value">42 秒</div>
+        <div class="s-trend text-2">8 项并行调用</div></div>
+    </div>
+  </div>
+
+  <div class="card" data-tabs-scope>
+    <div class="tabs">
+      <div class="tab active" data-tab="rpt">核验报告 <span class="badge red">1</span></div>
+      <div class="tab" data-tab="stat">核验命中统计</div>
+      <div class="tab" data-tab="rule">预审规则与口径</div>
+    </div>
+    <div class="tab-panel active" data-panel="rpt">
+      <div class="card-body">
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> RC2026-0903-0162　王梓涵　就业青年人才<span class="sub">8 项核验 · 1 项不一致</span></div>
+          <div class="sp-b">
+  <div class="sp-tw">
+    <table class="data-table compact">
+      <thead><tr><th>核验项</th><th>数据来源</th><th class="cell-lg">返回结果</th><th class="cell-lg">比对填报值</th><th>结论</th><th>是否否决</th><th>取数时间</th><th>明细</th></tr></thead>
+      <tbody>
+      <tr><td>婚姻登记</td><td>市民政局</td><td>未婚</td><td>未婚</td><td><span class="badge green">一致</span></td><td><span class="badge gray">否</span></td><td>2026-09-03 10:27</td><td><span class="link" onclick="location.href='verify-marriage.html'">查看</span></td></tr>
+      <tr><td>不动产登记</td><td>市自然资源和规划局</td><td>市城区无自有住房，无交易记录</td><td>无自有住房</td><td><span class="badge green">一致</span></td><td><span class="badge red">一票否决项</span></td><td>2026-09-03 10:27</td><td><span class="link" onclick="location.href='verify-realty.html'">查看</span></td></tr>
+      <tr><td>学历学位</td><td>学信网</td><td>湖南工业大学 全日制本科 2025-07-01</td><td>全日制本科 2025-07-01</td><td><span class="badge green">一致</span></td><td><span class="badge red">一票否决项</span></td><td>2026-09-03 10:27</td><td><span class="link" onclick="location.href='verify-edu.html'">查看</span></td></tr>
+      <tr><td>工商登记</td><td>市市场监督管理局</td><td>不适用（就业类）</td><td><span class="muted">—</span></td><td><span class="badge gray">不适用</span></td><td><span class="badge gray">否</span></td><td><span class="muted">—</span></td><td><span class="link" onclick="location.href='verify-business.html'">查看</span></td></tr>
+      <tr class="row-bad"><td>个人所得税</td><td>市税务局</td><td>2026 年度<b>仅 3 个月</b>缴纳记录</td><td>社保连续 13 个月</td><td><span class="badge red">不一致</span></td><td><span class="badge orange">否 · 转人工</span></td><td>2026-09-03 10:27</td><td><span class="link" onclick="location.href='verify-tax-personal.html'">查看</span></td></tr>
+      <tr><td>企业纳税</td><td>市税务局</td><td>不适用（就业类）</td><td><span class="muted">—</span></td><td><span class="badge gray">不适用</span></td><td><span class="badge gray">否</span></td><td><span class="muted">—</span></td><td><span class="link" onclick="location.href='verify-tax-corp.html'">查看</span></td></tr>
+      <tr><td>养老保险</td><td>市人社局</td><td>连续缴纳 13 个月，单位与合同一致</td><td>13 个月</td><td><span class="badge green">一致</span></td><td><span class="badge gray">否</span></td><td>2026-09-03 10:27</td><td><span class="link" onclick="location.href='verify-social.html'">查看</span></td></tr>
+      <tr><td>政策性住房</td><td>公租房管理系统</td><td>未承租政策性住房，未享受租赁补贴</td><td>未承租</td><td><span class="badge green">一致</span></td><td><span class="badge red">一票否决项</span></td><td>2026-09-03 10:27</td><td><span class="link" onclick="location.href='talent-history.html'">保障历史</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+          </div>
+        </div>
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 智能预审结论<span class="sub">P6-09</span></div>
+          <div class="sp-b">
+        <div class="sp-check">
+          <div class="ck pass"><i class="fa-solid fa-circle-check"></i>
+            <div class="cb"><div class="ct">一票否决项全部通过 · 4 项</div>
+              <div class="cd">不动产登记、学历学位、政策性住房核验均一致，未命中一票否决。</div></div>
+            <div class="co"><span class="badge green">通过</span></div></div>
+          <div class="ck block"><i class="fa-solid fa-circle-xmark"></i>
+            <div class="cb"><div class="ct">个人所得税核验不一致 · 转人工核实</div>
+              <div class="cd">社保连续 13 个月但个税仅 3 个月，期数不匹配。按 <b>R-C11</b> 转人工核实，<b>不直接否决</b>，须核实实际从业情况。</div></div>
+            <div class="co"><span class="link" onclick="location.href='audit-desk.html'">复核工作台</span></div></div>
+          <div class="ck pass"><i class="fa-solid fa-circle-check"></i>
+            <div class="cb"><div class="ct">预审总体结论 · 例外件 · 转人工复核</div>
+              <div class="cd">8 项核验中 5 项一致、1 项不一致、2 项不适用。标记为<b>例外件</b>，转市住保中心资格审核员人工复核。</div></div>
+            <div class="co"><span class="badge orange">例外件</span></div></div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tab-panel" data-panel="stat">
+      <div class="card-body">
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 各核验项调用与命中情况<span class="sub">2026 年 9 月</span></div>
+          <div class="sp-b">
+  <div class="sp-tw">
+    <table class="data-table compact">
+      <thead><tr><th>核验项</th><th class="num">调用量</th><th class="num">一致</th><th class="num">不一致</th><th class="num">数据缺失</th><th>命中不符率</th><th>接口成功率</th><th>下钻</th></tr></thead>
+      <tbody>
+      <tr><td>婚姻登记</td><td class="num">1,286</td><td class="num">1,268</td><td class="num">12</td><td class="num">6</td><td><span class="badge green">0.9%</span></td><td><span class="badge green">99.5%</span></td><td><span class="link" onclick="location.href='verify-marriage.html'">明细</span></td></tr>
+      <tr><td>不动产登记</td><td class="num">1,842</td><td class="num">1,724</td><td class="num">106</td><td class="num">12</td><td><span class="badge orange">5.8%</span></td><td><span class="badge green">99.3%</span></td><td><span class="link" onclick="location.href='verify-realty.html'">明细</span></td></tr>
+      <tr class="row-warn"><td>学历学位</td><td class="num">1,286</td><td class="num">1,142</td><td class="num">86</td><td class="num">58</td><td><span class="badge orange">6.7%</span></td><td><span class="badge red">87.6%</span></td><td><span class="link" onclick="location.href='verify-edu.html'">明细</span></td></tr>
+      <tr><td>工商登记</td><td class="num">286</td><td class="num">248</td><td class="num">38</td><td class="num">0</td><td><span class="badge red">13.3%</span></td><td><span class="badge green">100%</span></td><td><span class="link" onclick="location.href='verify-business.html'">明细</span></td></tr>
+      <tr class="row-warn"><td>个人所得税</td><td class="num">1,000</td><td class="num">886</td><td class="num">96</td><td class="num">18</td><td><span class="badge orange">9.6%</span></td><td><span class="badge orange">91.4%</span></td><td><span class="link" onclick="location.href='verify-tax-personal.html'">明细</span></td></tr>
+      <tr class="row-bad"><td>企业纳税</td><td class="num">286</td><td class="num">218</td><td class="num">46</td><td class="num">22</td><td><span class="badge red">16.1%</span></td><td><span class="badge orange">91.4%</span></td><td><span class="link" onclick="location.href='verify-tax-corp.html'">明细</span></td></tr>
+      <tr><td>养老保险</td><td class="num">1,286</td><td class="num">1,206</td><td class="num">62</td><td class="num">18</td><td><span class="badge green">4.8%</span></td><td><span class="badge green">99.6%</span></td><td><span class="link" onclick="location.href='verify-social.html'">明细</span></td></tr>
+      <tr><td>政策性住房</td><td class="num">1,842</td><td class="num">1,800</td><td class="num">42</td><td class="num">0</td><td><span class="badge green">2.3%</span></td><td><span class="badge green">100%</span></td><td><span class="link" onclick="location.href='talent-history.html'">保障历史</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+          </div>
+        </div>
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div><b>学信网接口成功率 87.6%</b>、税务接口 91.4%，低于 95% 阈值已告警。失败件已自动转人工核验通道并记录兜底原因。</div>
+  </div>
+
+      </div>
+    </div>
+    <div class="tab-panel" data-panel="rule">
+      <div class="card-body">
+        <div class="sp-block">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 三类结论口径<span class="sub">P6-09</span></div>
+          <div class="sp-b">
+        <div class="sp-kv">
+          <div class="kv"><span class="k">一致</span><span class="v ok">部门返回结果与填报内容相符，或核验通过</span></div>
+          <div class="kv"><span class="k">不一致</span><span class="v bad">返回结果与填报内容不符；命中一票否决项的直接不予通过，其余转人工</span></div>
+          <div class="kv"><span class="k">数据缺失</span><span class="v warn">接口不可用或部门无该项数据，转人工核验通道并<b>记录兜底原因</b></span><span class="link" onclick="location.href='manual-fallback.html'">人工兜底</span></div>
+          <div class="kv"><span class="k">不适用</span><span class="v">按申请类型该项不参与判定（如就业类不核工商登记）</span></div>
+        </div>
+          </div>
+        </div>
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 一票否决项清单<span class="sub">4 项</span></div>
+          <div class="sp-b">
+        <div class="sp-check">
+          <div class="ck block"><i class="fa-solid fa-circle-xmark"></i>
+            <div class="cb"><div class="ct">不动产登记 · 市城区有自有住房</div>
+              <div class="cd">管理办法第七条第二项</div></div>
+            <div class="co"><span class="badge red">直接否决</span></div></div>
+          <div class="ck block"><i class="fa-solid fa-circle-xmark"></i>
+            <div class="cb"><div class="ct">政策性住房 · 已承租或正享受租赁补贴</div>
+              <div class="cd">管理办法第七条第三项</div></div>
+            <div class="co"><span class="badge red">直接否决</span></div></div>
+          <div class="ck block"><i class="fa-solid fa-circle-xmark"></i>
+            <div class="cb"><div class="ct">学历学位 · 学历不实或超毕业年限且非免年限人才</div>
+              <div class="cd">管理办法第三条、第十条</div></div>
+            <div class="co"><span class="badge red">直接否决</span></div></div>
+          <div class="ck block"><i class="fa-solid fa-circle-xmark"></i>
+            <div class="cb"><div class="ct">失信 / 放弃标记 · 已被标记</div>
+              <div class="cd">管理办法第九条、第十三条</div></div>
+            <div class="co"><span class="badge red">直接否决</span></div></div>
+        </div>
+          </div>
+        </div>
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 转人工核实项<span class="sub">4 项</span></div>
+          <div class="sp-b">
+        <div class="sp-check">
+          <div class="ck wait"><i class="fa-solid fa-lock"></i>
+            <div class="cb"><div class="ct">个人所得税无记录或期数不匹配</div>
+              <div class="cd">挂靠社保嫌疑，R-C11 转人工，不直接否决</div></div>
+            <div class="co"><span class="badge orange">转人工</span></div></div>
+          <div class="ck wait"><i class="fa-solid fa-lock"></i>
+            <div class="cb"><div class="ct">企业无纳税申报或全部零申报</div>
+              <div class="cd">空壳企业嫌疑，R-C12 转人工，判定口径待市税务局明确</div></div>
+            <div class="co"><span class="badge orange">转人工</span></div></div>
+          <div class="ck wait"><i class="fa-solid fa-lock"></i>
+            <div class="cb"><div class="ct">社保缴纳单位与劳动合同单位不一致</div>
+              <div class="cd">疑劳务派遣或集团代缴，须补充说明用工关系</div></div>
+            <div class="co"><span class="badge orange">转人工</span></div></div>
+          <div class="ck wait"><i class="fa-solid fa-lock"></i>
+            <div class="cb"><div class="ct">工商经营状态异常或法定代表人不一致</div>
+              <div class="cd">结合企业纳税核验综合判断</div></div>
+            <div class="co"><span class="badge orange">转人工</span></div></div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>核验机制</b> 8 项并行调用，平均耗时 42 秒</span>
+    <span><b>人工范围</b> 自动核验替代人工 89.4%，人工只处理例外件</span>
+    <span><b>下钻</b> <span class="link" onclick="location.href='../stat/verify-hit.html'">数据核验命中分析</span></span>
+  </div>
+</main>
+
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

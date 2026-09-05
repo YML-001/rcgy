@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>运营机构档案 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="manager" data-active="ops-01">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 运营考核与工单服务
+      <span class="sep">/</span> 运营机构考核
+      <span class="sep">/</span> <span class="cur">运营机构档案</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>登记<b>房源提供企业与运营管理机构</b>的资质、受托房源规模、联系人与合作协议，作为<b>房源委托、工单派发与考核评价的对象主数据</b>。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-building-flag"></i></div>
+      <div><div class="s-label">在册机构</div><div class="s-value">3</div>
+        <div class="s-trend text-2">含 3 家运营管理机构</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-house"></i></div>
+      <div><div class="s-label">受托房源</div><div class="s-value">2,486</div>
+        <div class="s-trend text-2">全部房源已委托</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-users"></i></div>
+      <div><div class="s-label">服务在租户</div><div class="s-value">1,286</div>
+        <div class="s-trend text-2">户</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-ranking-star"></i></div>
+      <div><div class="s-label">考核不合格</div><div class="s-value">1</div>
+        <div class="s-trend ">限期整改中</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>机构名称</label><input type="text" placeholder="机构名称"></div>
+      <div class="filter-item"><label>统一社会信用代码</label><input type="text" placeholder="信用代码"></div>
+      <div class="filter-item"><label>机构类型</label><select><option value="">全部</option><option>房源提供企业</option><option>运营管理机构</option><option>两者兼具</option></select></div>
+      <div class="filter-item"><label>合作状态</label><select><option value="">全部</option><option>合作中</option><option>限期整改</option><option>已终止</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>机构编号</th><th class="cell-lg">机构名称</th><th>机构类型</th><th>统一社会信用代码</th><th>受托房源</th><th>在租户数</th><th>联系人</th><th>合作协议</th><th>季度考核</th><th>状态</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>JG-001</td><td>株洲市人才安居服务有限公司</td><td><span class="badge blue">运营管理机构</span></td><td>914302007***68F</td><td class="num">1,486</td><td class="num">842</td><td>彭雪梅　0731-2822****</td><td><span class="badge green">2027-12-31 到期</span></td><td><span class="badge green">92.4 分 · 良好</span></td><td><span class="badge green">合作中</span></td><td><span class="link" onclick="location.href='kpi-score.html'">考核评分</span></td></tr>
+          <tr><td>JG-002</td><td>株洲城建人才公寓运营管理有限公司</td><td><span class="badge cyan">两者兼具</span></td><td>914302008***42K</td><td class="num">620</td><td class="num">286</td><td>曾志远　0731-2831****</td><td><span class="badge green">2027-06-30 到期</span></td><td><span class="badge green">88.6 分 · 合格</span></td><td><span class="badge green">合作中</span></td><td><span class="link" onclick="location.href='kpi-score.html'">考核评分</span></td></tr>
+          <tr class="row-warn"><td>JG-003</td><td>株洲清水塘安居服务有限公司</td><td><span class="badge blue">运营管理机构</span></td><td>914302009***16H</td><td class="num">380</td><td class="num">158</td><td>唐建波　0731-2846****</td><td><span class="badge orange">2027-03-31 到期</span></td><td><span class="badge red">72.8 分 · 不合格</span></td><td><span class="badge orange">限期整改</span></td><td><span class="link" onclick="location.href='kpi-apply.html'">考核结果应用</span> <span class="link" onclick="location.href='inspect-task.html'">整改跟踪</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>主数据用途</b> 房源委托、工单派发与考核评价的对象主数据</span>
+    <span><b>考核挂钩</b> 考核结果与续约资格、新增房源委托量挂钩</span>
+    <span><b>资质要求</b> 须具备房屋租赁经营与物业服务相应资质</span>
+  </div>
+</main>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 3; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

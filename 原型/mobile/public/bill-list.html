@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>账单列表 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/mobile.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body class="m-body" data-mtitle="我的账单" data-mmod="M9 租金缴纳与账单" data-mcode="M9-01"
+      data-mdesc="账单明确区分应缴租金总额、财政补助（减免）金额、个人实际应缴金额，并列明计算依据。" data-mback="home.html" data-mtabset="public" data-mtab="home">
+<div class="m-stage">
+  <div class="m-phone">
+    <div class="m-screen">
+      <div class="m-view">
+        <div class="m-note warn"><i class="fa-solid fa-triangle-exclamation"></i>
+          <div><b>2026 年 9 月账单</b>个人应缴 424.44 元，缴费截止 <b>2026-09-15</b>。逾期将影响年度资格审查与续租审核。</div>
+        </div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-receipt"></i>当期账单<a class="m-more" href="bill-detail.html">分项明细 <i class="fa-solid fa-angle-right"></i></a></div>
+          <div class="m-card-b">
+            <div class="m-amt">
+              <div class="a1"><small>¥</small>424.44</div>
+              <div class="a2">2026 年 9 月　个人实际应缴</div>
+            </div>
+            <div class="m-mini" style="margin-top:12px">
+              <div><div class="mv">1,414.80</div><div class="ml">应缴总额</div></div>
+              <div><div class="mv ok">990.36</div><div class="ml">财政补助</div></div>
+              <div><div class="mv bad">424.44</div><div class="ml">个人自付</div></div>
+            </div>
+            <div style="margin-top:12px">
+              <a class="m-btn primary block" href="bill-pay.html"><i class="fa-solid fa-mobile-screen-button"></i> 翼支付立即缴纳</a>
+            </div>
+          </div>
+        </div>
+        <div class="m-seg">
+          <button class="on">全部 12</button><button>待缴 1</button><button>已缴清 11</button>
+        </div>
+        <div class="m-sect">账单记录</div>
+        <div class="m-cells">
+          <a class="m-cell" href="bill-detail.html"><span class="m-ci red"><i class="fa-solid fa-file-invoice-dollar"></i></span><span class="m-cl"><b>2026 年 9 月 租金</b><span class="m-cs">应缴 1,414.80 · 补助 990.36 · 自付 424.44</span></span><span class="m-cv"><span class="m-tag red">待缴</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="bill-detail.html"><span class="m-ci green"><i class="fa-solid fa-file-invoice-dollar"></i></span><span class="m-cl"><b>2026 年 8 月 租金</b><span class="m-cs">2026-08-11 缴纳 · 翼支付 · 流水 YZF20260811086</span></span><span class="m-cv">424.44 元</span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="bill-utility.html"><span class="m-ci cyan"><i class="fa-solid fa-faucet-drip"></i></span><span class="m-cl"><b>2026 年 8 月 水电燃气物业</b><span class="m-cs">物业 157.20 · 水 38.60 · 电 126.40 · 气 42.00</span></span><span class="m-cv">364.20 元</span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="bill-detail.html"><span class="m-ci green"><i class="fa-solid fa-file-invoice-dollar"></i></span><span class="m-cl"><b>2026 年 7 月 租金</b><span class="m-cs">2026-07-09 缴纳 · 翼支付</span></span><span class="m-cv">424.44 元</span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="bill-deposit.html"><span class="m-ci"><i class="fa-solid fa-piggy-bank"></i></span><span class="m-cl"><b>押金</b><span class="m-cs">2026-01-06 缴纳 · 退租时按结算单抵扣后退还</span></span><span class="m-cv">1,000.00 元</span><i class="m-ca fa-solid fa-angle-right"></i></a>
+        </div>
+        <div class="m-sect">缴费汇总</div>
+        <div class="m-card">
+          <div class="m-card-b">
+            <div class="m-mini">
+              <div><div class="mv">3,819.96</div><div class="ml">累计已缴(元)</div></div>
+              <div><div class="mv ok">7,922.88</div><div class="ml">累计减免(元)</div></div>
+              <div><div class="mv bad">424.44</div><div class="ml">待缴(元)</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="m-cells">
+          <a class="m-cell" href="bill-invoice.html"><span class="m-ci purple"><i class="fa-solid fa-receipt"></i></span><span class="m-cl"><b>电子票据申领</b><span class="m-cs">缴费后在线申领并下载</span></span><span class="m-cv">11 张可开</span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="bill-arrears.html"><span class="m-ci orange"><i class="fa-solid fa-triangle-exclamation"></i></span><span class="m-cl"><b>欠费查询</b><span class="m-cs">欠费金额、月份与滞纳规则</span></span><span class="m-cv">无欠费</span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="bill-overdue.html"><span class="m-ci red"><i class="fa-solid fa-bell"></i></span><span class="m-cl"><b>逾期提醒规则</b><span class="m-cs">分级催缴与业务联动</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../../assets/js/mobile.js"></script>
+</body>
+</html>

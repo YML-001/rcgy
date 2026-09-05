@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>房源展示配置 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="housing" data-active="house-19">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 房源筹集与楼盘表
+      <span class="sep">/</span> 房源档案与房态
+      <span class="sep">/</span> <span class="cur">房源展示配置</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>配置房源在移动端的<b>展示内容、VR 素材、上下架时间与剩余套数同步策略</b>。房源信息全过程公开，接受社会监督；剩余套数与后台房态实时同步，避免申请人看到无效房源。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-mobile-screen-button"></i></div>
+      <div><div class="s-label">已上架楼盘</div><div class="s-value">6</div>
+        <div class="s-trend text-2">移动端可见</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-vr-cardboard"></i></div>
+      <div><div class="s-label">VR 素材完备</div><div class="s-value">5</div>
+        <div class="s-trend text-2">占 83.3%</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-images"></i></div>
+      <div><div class="s-label">实景照片</div><div class="s-value">186 张</div>
+        <div class="s-trend text-2">平均每楼盘 31 张</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-triangle-exclamation"></i></div>
+      <div><div class="s-label">素材待补</div><div class="s-value">1</div>
+        <div class="s-trend ">时代新城缺 VR</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>楼盘</label><input type="text" placeholder="楼盘名称"></div>
+      <div class="filter-item"><label>所在区</label><select data-dict="district" data-ph="全部"></select></div>
+      <div class="filter-item"><label>上架状态</label><select><option value="">全部</option><option>已上架</option><option>未上架</option><option>已下架</option></select></div>
+      <div class="filter-item"><label>VR 素材</label><select><option value="">全部</option><option>已上传</option><option>未上传</option></select></div>
+      <div class="filter-item"><label>上架时间</label><input type="date"></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>楼盘</th><th>所在区</th><th class="cell-lg">展示名称</th><th class="num">剩余套数</th><th>同步策略</th><th>VR 素材</th><th class="num">实景照片</th><th>户型图</th><th>上架状态</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>湘江1958 人才公寓</td><td>天元区</td><td>湘江1958 人才公寓</td><td class="num">86</td><td><span class="badge green">实时同步</span></td><td><span class="badge green">已上传</span></td><td class="num">42</td><td><span class="badge green">已上传</span></td><td><span class="badge green">已上架</span></td><td><span class="link" onclick="PMS.openDrawer('dpDrawer')">配置</span> <span class="link" onclick="location.href='../../mobile/public/house-detail.html'">看效果</span></td></tr>
+          <tr><td>栗雨佳苑人才公寓</td><td>天元区</td><td>栗雨佳苑人才公寓</td><td class="num">100</td><td><span class="badge green">实时同步</span></td><td><span class="badge green">已上传</span></td><td class="num">36</td><td><span class="badge green">已上传</span></td><td><span class="badge green">已上架</span></td><td><span class="link" onclick="PMS.openDrawer('dpDrawer')">配置</span> <span class="link" onclick="location.href='../../mobile/public/house-detail.html'">看效果</span></td></tr>
+          <tr><td>云龙人才苑</td><td>经开区</td><td>云龙人才苑</td><td class="num">24</td><td><span class="badge green">实时同步</span></td><td><span class="badge green">已上传</span></td><td class="num">28</td><td><span class="badge green">已上传</span></td><td><span class="badge green">已上架</span></td><td><span class="link" onclick="PMS.openDrawer('dpDrawer')">配置</span></td></tr>
+          <tr><td>清水塘新苑</td><td>石峰区</td><td>清水塘新苑</td><td class="num">98</td><td><span class="badge green">实时同步</span></td><td><span class="badge green">已上传</span></td><td class="num">32</td><td><span class="badge green">已上传</span></td><td><span class="badge green">已上架</span></td><td><span class="link" onclick="PMS.openDrawer('dpDrawer')">配置</span></td></tr>
+          <tr class="row-bad"><td>时代新城人才公寓</td><td>天元区</td><td>时代新城人才公寓</td><td class="num">0</td><td><span class="badge green">实时同步</span></td><td><span class="badge red">未上传</span></td><td class="num">8</td><td><span class="badge red">未上传</span></td><td><span class="badge gray">未上架</span></td><td><span class="link" onclick="PMS.openDrawer('dpDrawer')">配置</span> <span class="link" onclick="PMS.toast('已向运营机构推送 VR 与户型图素材补报催办')">催办素材</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>公开要求</b> 房源信息全过程公开，接受社会监督</span>
+    <span><b>同步策略</b> 剩余可租套数与后台房态实时同步，已锁定或已签约即时扣减</span>
+    <span><b>公开配置</b> <span class="link" onclick="location.href='../rule/house-open.html'">房源信息公开配置</span></span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="dpDrawer">
+  <div class="drawer-head">
+    <h3>房源展示配置</h3>
+    <span class="badge blue">移动端</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>配置房源在<b>湘易办移动端与「株洲人才」公众号</b>的展示内容。剩余套数<b>不允许手工填写</b>，一律与后台房态实时同步。</div>
+  </div>
+
+      <div class="form-grid form-align">
+        <div class="form-item">
+          <label>楼盘 <span class="req">*</span></label>
+          <input type="text" value="时代新城人才公寓" readonly>
+        </div>
+        <div class="form-item">
+          <label>展示名称 <span class="req">*</span></label>
+          <input type="text" value="时代新城人才公寓">
+        </div>
+        <div class="form-item col-full">
+          <label>展示地址 <span class="req">*</span></label>
+          <input type="text" value="天元区时代路 289 号">
+        </div>
+        <div class="form-item">
+          <label>上架时间 <span class="req">*</span></label>
+          <input type="date">
+        </div>
+        <div class="form-item">
+          <label>下架时间</label>
+          <input type="date">
+          <div class="hint">留空表示长期展示</div>
+        </div>
+        <div class="form-item">
+          <label>剩余套数来源 <span class="req">*</span></label>
+          <input type="text" value="房态图实时同步" readonly>
+          <div class="hint">不允许手工填写</div>
+        </div>
+        <div class="form-item col-full">
+          <label>展示配套信息 <span class="req">*</span></label>
+          <textarea rows="3">地铁 3 号线时代路站步行 480 m；天元区大润发 1.2 km；市中心医院天元院区 3.1 km；时代小学 600 m。</textarea>
+        </div>
+        <div class="form-item col-full">
+          <label>VR 全景素材 <span class="req">*</span></label>
+          <input type="text" data-upload="1">
+          <div class="hint">各户型内部全景 + 小区环境漫游</div>
+        </div>
+        <div class="form-item col-full">
+          <label>户型图 <span class="req">*</span></label>
+          <input type="text" data-upload="1">
+        </div>
+        <div class="form-item col-full">
+          <label>实景照片 <span class="req">*</span></label>
+          <input type="text" data-upload="1">
+          <div class="hint">客厅、卧室、厨房、卫生间、小区环境</div>
+        </div>
+      </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认保存时代新城人才公寓的展示配置？VR 与户型图素材缺失时不允许上架。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已保存，配置将在下次上架时生效','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 6; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

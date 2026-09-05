@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>考核结果应用 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="manager" data-active="ops-04">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 运营考核与工单服务
+      <span class="sep">/</span> 运营机构考核
+      <span class="sep">/</span> <span class="cur">考核结果应用</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>将考核结果与<b>续约资格、新增房源委托量</b>挂钩，<b>考核不合格的限期整改并纳入下轮重点检查</b>。形成对运营机构的实质约束。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-link"></i></div>
+      <div><div class="s-label">应用记录</div><div class="s-value">12</div>
+        <div class="s-trend text-2">2026 年度</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
+      <div><div class="s-label">正常续约</div><div class="s-value">2</div>
+        <div class="s-trend text-2">考核合格及以上</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-triangle-exclamation"></i></div>
+      <div><div class="s-label">暂停新增委托</div><div class="s-value">1</div>
+        <div class="s-trend ">考核不合格</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon red"><i class="fa-solid fa-ban"></i></div>
+      <div><div class="s-label">终止合作</div><div class="s-value">0</div>
+        <div class="s-trend text-2">连续两期不合格才终止</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>机构名称</label><input type="text" placeholder="机构名称"></div>
+      <div class="filter-item"><label>考核期</label><select><option value="">全部</option><option>2026 Q3</option><option>2026 Q2</option><option>2026 年度</option></select></div>
+      <div class="filter-item"><label>应用类型</label><select><option value="">全部</option><option>续约资格</option><option>新增房源委托量</option><option>限期整改</option><option>终止合作</option></select></div>
+      <div class="filter-item"><label>执行状态</label><select><option value="">全部</option><option>待执行</option><option>执行中</option><option>已执行</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>应用编号</th><th class="cell-lg">运营机构</th><th>考核期</th><th>考核档位</th><th>应用类型</th><th class="cell-lg">应用内容</th><th>执行状态</th><th>执行时间</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>YY2026Q3-001</td><td>株洲市人才安居服务有限公司</td><td>2026 Q3</td><td><span class="badge green">良好</span></td><td><span class="badge blue">新增房源委托量</span></td><td>考核良好，2026 年第 4 批新增委托房源 186 套（较上批增加 26 套）</td><td><span class="badge green">已执行</span></td><td>2026-10-08</td><td><span class="link" onclick="PMS.toast('考核得分 92.4 分（良好），按办法可增加新增房源委托量')">应用依据</span></td></tr>
+          <tr><td>YY2026Q3-002</td><td>株洲城建人才公寓运营管理有限公司</td><td>2026 Q3</td><td><span class="badge green">合格</span></td><td><span class="badge cyan">续约资格</span></td><td>考核合格，2027-06-30 到期的合作协议予以续约，委托房源规模维持不变</td><td><span class="badge orange">待执行</span></td><td><span class="muted">—</span></td><td><span class="link" onclick="PMS.toast('考核得分 88.6 分（合格），具备续约资格')">应用依据</span></td></tr>
+          <tr class="row-bad"><td>YY2026Q3-003</td><td>株洲清水塘安居服务有限公司</td><td>2026 Q3</td><td><span class="badge red">不合格</span></td><td><span class="badge orange">限期整改</span></td><td>考核不合格，限期至 2026-11-30 整改；整改期内<b>暂停新增房源委托</b>，并纳入下轮重点检查；连续两期不合格将终止合作</td><td><span class="badge orange">执行中</span></td><td>2026-10-08</td><td><span class="link" onclick="location.href='inspect-task.html'">整改跟踪</span></td></tr>
+          <tr><td>YY2026Q2-001</td><td>株洲市人才安居服务有限公司</td><td>2026 Q2</td><td><span class="badge green">良好</span></td><td><span class="badge blue">新增房源委托量</span></td><td>考核良好，2026 年第 3 批新增委托房源 160 套</td><td><span class="badge green">已执行</span></td><td>2026-07-10</td><td><span class="link" onclick="PMS.toast('考核得分 91.6 分（良好）')">应用依据</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>挂钩机制</b> 考核结果与续约资格、新增房源委托量挂钩</span>
+    <span><b>不合格处置</b> 限期整改 + 暂停新增委托 + 纳入下轮重点检查；连续两期不合格终止合作</span>
+    <span><b>排名下钻</b> <span class="link" onclick="location.href='kpi-score.html'">物业考核评分</span></span>
+  </div>
+</main>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 12; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

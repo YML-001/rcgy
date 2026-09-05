@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>筹集计划与完成率 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="housing" data-active="house-05">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 房源筹集与楼盘表
+      <span class="sep">/</span> 房源筹集与项目
+      <span class="sep">/</span> <span class="cur">筹集计划与完成率</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.openDrawer('planDrawer')"><i class="fa-solid fa-pen-to-square"></i> 维护年度计划</button>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>维护年度筹集计划并跟踪实际到位套数与完成率，按<b>项目、收购主体、区域</b>分解。到位套数以<b>交付验收合格</b>之日归集，未达拎包入住标准的房源不计入到位。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-bullseye"></i></div>
+      <div><div class="s-label">年度计划</div><div class="s-value">3,000</div>
+        <div class="s-trend text-2">2026 年度筹集计划</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
+      <div><div class="s-label">实际到位</div><div class="s-value">2,486</div>
+        <div class="s-trend text-2">完成率 82.9%</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-arrow-trend-down"></i></div>
+      <div><div class="s-label">计划差额</div><div class="s-value">-514</div>
+        <div class="s-trend ">石峰区 / 经开区缺口最大</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-calendar-day"></i></div>
+      <div><div class="s-label">剩余月份</div><div class="s-value">3</div>
+        <div class="s-trend text-2">需月均到位 172 套</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>分解维度</label><select><option value="">全部</option><option>按区域</option><option>按收购主体</option><option>按项目</option></select></div>
+      <div class="filter-item"><label>名称</label><input type="text" placeholder="区域 / 主体 / 项目"></div>
+      <div class="filter-item"><label>完成率</label><select><option value="">全部</option><option>100% 及以上</option><option>80%—100%</option><option>60%—80%</option><option>60% 以下</option></select></div>
+      <div class="filter-item"><label>年度</label><select><option value="">全部</option><option>2026 年</option><option>2025 年</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>分解维度</th><th class="cell-lg">名称</th><th class="num">年度计划</th><th class="num">实际到位</th><th>完成率</th><th class="num">收购到位</th><th class="num">盘活到位</th><th class="num">保租房归集</th><th class="num">差额</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="badge blue">区域</span></td><td>天元区</td><td class="num">1,000</td><td class="num">986</td><td><div class="sp-days"><span class="dv">98.6%</span><span class="db"><span style="width:98.6%"></span></span></div></td><td class="num">620</td><td class="num">366</td><td class="num">0</td><td class="num">-14</td><td><span class="link" onclick="location.href='../stat/house-struct.html'">房源结构</span></td></tr>
+          <tr><td><span class="badge blue">区域</span></td><td>荷塘区</td><td class="num">500</td><td class="num">486</td><td><div class="sp-days"><span class="dv">97.2%</span><span class="db"><span style="width:97.2%"></span></span></div></td><td class="num">0</td><td class="num">486</td><td class="num">0</td><td class="num">-14</td><td><span class="link" onclick="location.href='../stat/house-struct.html'">房源结构</span></td></tr>
+          <tr><td><span class="badge blue">区域</span></td><td>芦淞区</td><td class="num">400</td><td class="num">412</td><td><div class="sp-days"><span class="dv">103%</span><span class="db"><span style="width:100%"></span></span></div></td><td class="num">286</td><td class="num">126</td><td class="num">0</td><td class="num">+12</td><td><span class="link" onclick="location.href='../stat/house-struct.html'">房源结构</span></td></tr>
+          <tr class="row-warn"><td><span class="badge blue">区域</span></td><td>石峰区</td><td class="num">500</td><td class="num">328</td><td><div class="sp-days d60"><span class="dv">65.6%</span><span class="db"><span style="width:65.6%"></span></span></div></td><td class="num">0</td><td class="num">328</td><td class="num">0</td><td class="num">-172</td><td><span class="link" onclick="PMS.toast('已向石峰区推送筹集进度催办')">催办</span></td></tr>
+          <tr class="row-bad"><td><span class="badge blue">区域</span></td><td>经开区</td><td class="num">600</td><td class="num">274</td><td><div class="sp-days d30"><span class="dv">45.7%</span><span class="db"><span style="width:45.7%"></span></span></div></td><td class="num">0</td><td class="num">0</td><td class="num">274</td><td class="num">-326</td><td><span class="link" onclick="PMS.toast('已向经开区推送筹集进度催办')">催办</span></td></tr>
+          <tr><td><span class="badge cyan">收购主体</span></td><td>株洲市城市建设发展集团有限公司</td><td class="num">620</td><td class="num">620</td><td><div class="sp-days"><span class="dv">100%</span><span class="db"><span style="width:100%"></span></span></div></td><td class="num">620</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td><span class="link" onclick="location.href='proj-list.html'">项目台账</span></td></tr>
+          <tr class="row-warn"><td><span class="badge cyan">收购主体</span></td><td>株洲市芦淞城市发展投资有限公司</td><td class="num">328</td><td class="num">286</td><td><div class="sp-days d60"><span class="dv">87.2%</span><span class="db"><span style="width:87.2%"></span></span></div></td><td class="num">286</td><td class="num">0</td><td class="num">0</td><td class="num">-42</td><td><span class="link" onclick="location.href='acceptance-list.html'">去验收</span></td></tr>
+          <tr><td><span class="badge green">合计</span></td><td><b>全市城区合计</b></td><td class="num">3,000</td><td class="num">2,486</td><td><div class="sp-days d60"><span class="dv">82.9%</span><span class="db"><span style="width:82.9%"></span></span></div></td><td class="num">1,144</td><td class="num">836</td><td class="num">506</td><td class="num">-514</td><td><span class="link" onclick="location.href='../stat/house-plan.html'">完成率分析</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>统计口径</b> 按交付验收合格之日归集到位套数</span>
+    <span><b>供需依据</b> <span class="link" onclick="location.href='house-forecast.html'">房源供需测算</span></span>
+    <span><b>下钻</b> <span class="link" onclick="location.href='../stat/house-plan.html'">筹集完成率分析</span></span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="planDrawer">
+  <div class="drawer-head">
+    <h3>维护年度筹集计划</h3>
+    <span class="badge blue">2026 年度</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>年度筹集计划按<b>区域</b>分解下达。计划调整须经业务管理员审批，变更留痕。</div>
+  </div>
+
+      <div class="form-grid form-align">
+        <div class="form-item">
+          <label>计划年度 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>2026 年</option><option>2027 年</option></select>
+        </div>
+        <div class="form-item">
+          <label>全市计划总套数 <span class="req">*</span></label>
+          <input type="text" value="3000">
+        </div>
+        <div class="form-item">
+          <label>天元区 <span class="req">*</span></label>
+          <input type="text" value="1000">
+        </div>
+        <div class="form-item">
+          <label>荷塘区 <span class="req">*</span></label>
+          <input type="text" value="500">
+        </div>
+        <div class="form-item">
+          <label>芦淞区 <span class="req">*</span></label>
+          <input type="text" value="400">
+        </div>
+        <div class="form-item">
+          <label>石峰区 <span class="req">*</span></label>
+          <input type="text" value="500">
+        </div>
+        <div class="form-item">
+          <label>经开区 <span class="req">*</span></label>
+          <input type="text" value="600">
+        </div>
+        <div class="form-item">
+          <label>渌口区</label>
+          <input type="text" value="0" readonly>
+          <div class="hint">不在市城区保障范围</div>
+        </div>
+        <div class="form-item col-full">
+          <label>计划依据 <span class="req">*</span></label>
+          <textarea rows="3" placeholder="必填，说明计划编制依据与测算口径">依据 2026 年度人才安居筹集目标与各区在库人才需求测算，按全市 3,000 套下达并分解到各城区；到位口径以交付验收合格之日归集，未达拎包入住标准的房源不计入到位。</textarea>
+        </div>
+        <div class="form-item col-full">
+          <label>下达文件 <span class="req">*</span></label>
+          <input type="text" data-upload="1">
+        </div>
+      </div>
+  </div>
+  <div class="drawer-foot">
+      <button class="btn" data-close-drawer onclick="">取消</button>
+      <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认提交 2026 年度筹集计划？',detail:'计划下达后作为完成率考核基数，调整须重新审批并留痕。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已提交，待业务管理员审批','success');}})"><i class="fa-solid fa-check"></i> 提交审批</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 8; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

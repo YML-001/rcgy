@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>权限资源项管理 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+</head>
+<body data-role="admin" data-active="system-20">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 权限与系统管理
+      <span class="sep">/</span> 用户与权限
+      <span class="sep">/</span> <span class="cur">权限资源项管理</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已完成校验：520 项资源无同名不同码，4 项待补编码','success')"><i class="fa-solid fa-code-compare"></i> 口径校验</button>
+      <button class="btn btn-primary" onclick="PMS.openDrawer('resDrawer')"><i class="fa-solid fa-plus"></i> 登记资源项</button>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>统一登记<b>菜单、按钮、接口</b>三类权限资源并按规则编码，形成<b>权限资源目录</b>。授权与鉴权<b>均以资源编码为唯一依据</b>，避免同一功能在不同角色下口径不一。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-folder-tree"></i></div>
+      <div><div class="s-label">资源项总数</div><div class="s-value">520</div>
+        <div class="s-trend text-2">菜单 132 / 按钮 286 / 接口 102</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-link"></i></div>
+      <div><div class="s-label">已建立关联</div><div class="s-value">516</div>
+        <div class="s-trend text-2">占 99.2%</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-triangle-exclamation"></i></div>
+      <div><div class="s-label">待补编码</div><div class="s-value">4</div>
+        <div class="s-trend ">新增接口未登记</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-code-compare"></i></div>
+      <div><div class="s-label">口径校验</div><div class="s-value">0</div>
+        <div class="s-trend text-2">无同名不同码</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>资源编码</label><input type="text" placeholder="如 RES-M-0021"></div>
+      <div class="filter-item"><label>资源类型</label><select><option value="">全部</option><option>菜单</option><option>按钮</option><option>接口</option></select></div>
+      <div class="filter-item"><label>资源名称</label><input type="text" placeholder="资源名称"></div>
+      <div class="filter-item"><label>所属模块</label><input type="text" placeholder="模块名称"></div>
+      <div class="filter-item"><label>登记状态</label><select><option value="">全部</option><option>已登记</option><option>待补编码</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>资源编码</th><th>资源类型</th><th class="cell-lg">资源名称</th><th class="cell-lg">资源标识</th><th>所属模块</th><th>关联资源</th><th>已授角色</th><th>状态</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>RES-M-0021</td><td><span class="badge blue">菜单</span></td><td>项目批量导入</td><td>house-21</td><td>P3 房源筹集与项目</td><td><span class="badge cyan">含 4 个按钮</span></td><td class="num">3</td><td><span class="badge green">已登记</span></td><td><span class="link" onclick="PMS.openDrawer('resDrawer')">编辑</span></td></tr>
+          <tr><td>RES-B-0142</td><td><span class="badge cyan">按钮</span></td><td>导入项目台账</td><td>house:proj:import</td><td>P3 房源筹集与项目</td><td><span class="badge blue">菜单 house-21</span></td><td class="num">3</td><td><span class="badge green">已登记</span></td><td><span class="link" onclick="PMS.openDrawer('resDrawer')">编辑</span></td></tr>
+          <tr><td>RES-A-0068</td><td><span class="badge gray">接口</span></td><td>项目台账批量导入</td><td>POST /api/house/proj/import</td><td>P3 房源筹集与项目</td><td><span class="badge cyan">按钮 RES-B-0142</span></td><td class="num">3</td><td><span class="badge green">已登记</span></td><td><span class="link" onclick="PMS.openDrawer('resDrawer')">编辑</span></td></tr>
+          <tr><td>RES-M-0056</td><td><span class="badge blue">菜单</span></td><td>人工复核与时限管理</td><td>apply-11</td><td>P6 资格受理与联审</td><td><span class="badge cyan">含 6 个按钮</span></td><td class="num">4</td><td><span class="badge green">已登记</span></td><td><span class="link" onclick="PMS.openDrawer('resDrawer')">编辑</span></td></tr>
+          <tr><td>RES-B-0088</td><td><span class="badge cyan">按钮</span></td><td>出具审核结论</td><td>apply:audit:submit</td><td>P6 资格受理与联审</td><td><span class="badge blue">菜单 apply-11</span></td><td class="num">3</td><td><span class="badge green">已登记</span></td><td><span class="link" onclick="PMS.openDrawer('resDrawer')">编辑</span></td></tr>
+          <tr class="row-warn"><td>—</td><td><span class="badge gray">接口</span></td><td>房源导入差异比对确认</td><td>POST /api/house/import/merge</td><td>P4 楼盘表与多源归集</td><td><span class="muted">—</span></td><td class="num">0</td><td><span class="badge orange">待补编码</span></td><td><span class="link" onclick="PMS.openDrawer('resDrawer')">补编码</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>编码规则</b> RES + 类型码（M 菜单 / B 按钮 / A 接口）+ 4 位序号，全系统唯一不复用</span>
+    <span><b>唯一依据</b> 角色授权与运行时鉴权一律以资源编码为准，不以名称匹配</span>
+    <span><b>口径校验</b> 系统每日校验同名不同码与同码不同名，异常项列入待补编码</span>
+    <span><b>目录用途</b> 权限反查、审计取证、接口鉴权三处共用同一份资源目录</span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="resDrawer">
+  <div class="drawer-head">
+    <h3>权限资源项登记</h3>
+    <span class="badge orange">待补编码</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>新增接口须<b>登记资源编码并关联到按钮</b>后方可授权，未登记的接口<b>默认拒绝全部访问</b>，防止出现无主接口。</div>
+  </div>
+
+      <div class="form-grid form-align">
+        <div class="form-item">
+          <label>资源编码 <span class="req">*</span></label>
+          <input type="text" value="RES-A-0069（自动生成）" readonly>
+        </div>
+        <div class="form-item">
+          <label>资源类型 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>接口</option><option>菜单</option><option>按钮</option></select>
+        </div>
+        <div class="form-item col-full">
+          <label>资源名称 <span class="req">*</span></label>
+          <input type="text" value="房源导入差异比对确认">
+        </div>
+        <div class="form-item col-full">
+          <label>资源标识 <span class="req">*</span></label>
+          <input type="text" value="POST /api/house/import/merge">
+        </div>
+        <div class="form-item col-full">
+          <label>所属模块 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>P4 楼盘表与多源归集</option><option>P3 房源筹集与项目</option><option>P6 资格受理与联审</option><option>P7 配租管理</option><option>P9 租金与费用</option></select>
+        </div>
+        <div class="form-item col-full">
+          <label>关联上级资源 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>按钮 RES-B-0146 确认合并差异</option><option>按钮 RES-B-0142 导入项目台账</option><option>不关联</option></select>
+          <div class="hint">接口须挂到按钮下，按钮须挂到菜单下</div>
+        </div>
+        <div class="form-item">
+          <label>风险等级 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>一般</option><option>重要</option><option>高敏</option></select>
+        </div>
+        <div class="form-item">
+          <label>未登记默认策略 <span class="req">*</span></label>
+          <input type="text" value="拒绝全部访问" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>登记说明 <span class="req">*</span></label>
+          <textarea rows="2" placeholder="必填，说明接口用途"></textarea>
+        </div>
+      </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认登记该接口资源项？登记后须在角色权限分配中授权方可访问。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已登记资源编码 RES-A-0069，可纳入角色授权','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 520; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

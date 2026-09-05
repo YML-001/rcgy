@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>年度资格审查 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="reviewer" data-active="rent-11">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 租金收缴与年审退出
+      <span class="sep">/</span> 年审续租与退出
+      <span class="sep">/</span> <span class="cur">年度资格审查</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>每年发起<b>一次</b>年审批次，自动生成待审名单并复核<b>住房、就业、纳税、社保</b>变化情况，<b>异常件标注供人工核查</b>。人才住房保障实行动态管理，保障资格每年审查一次。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-calendar-check"></i></div>
+      <div><div class="s-label">2027 年度批次</div><div class="s-value">3</div>
+        <div class="s-trend text-2">按入住月份分批</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-users"></i></div>
+      <div><div class="s-label">本批次待审</div><div class="s-value">486</div>
+        <div class="s-trend text-2">第 1 批</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-code-compare"></i></div>
+      <div><div class="s-label">异常件</div><div class="s-value">62</div>
+        <div class="s-trend ">转人工核查</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-circle-check"></i></div>
+      <div><div class="s-label">已完成年审</div><div class="s-value">338</div>
+        <div class="s-trend text-2">完成率 69.5%</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>批次编号</label><input type="text" placeholder="批次编号"></div>
+      <div class="filter-item"><label>年审年度</label><select><option value="">全部</option><option>2027 年度</option><option>2026 年度</option></select></div>
+      <div class="filter-item"><label>批次状态</label><select><option value="">全部</option><option>待发起</option><option>进行中</option><option>已结束</option></select></div>
+      <div class="filter-item"><label>发起日期</label><input type="date"></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>批次编号</th><th class="cell-lg">批次名称</th><th>年审年度</th><th>待审户数</th><th>已完成</th><th>异常件</th><th>办理截止</th><th>批次状态</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr class="row-warn"><td>NS2027-01</td><td>2027 年度第 1 批资格年审（入住月份 1—4 月）</td><td>2027 年度</td><td class="num">486</td><td class="num">338</td><td class="num">62</td><td>2027-01-20</td><td><span class="badge orange">进行中</span></td><td><span class="link" onclick="location.href='annual-list.html'">待审名单</span></td></tr>
+          <tr><td>NS2027-02</td><td>2027 年度第 2 批资格年审（入住月份 5—8 月）</td><td>2027 年度</td><td class="num">428</td><td class="num">0</td><td class="num">0</td><td>2027-05-20</td><td><span class="badge gray">待发起</span></td><td><span class="link" onclick="PMS.openDrawer('nsDrawer')">发起批次</span></td></tr>
+          <tr><td>NS2027-03</td><td>2027 年度第 3 批资格年审（入住月份 9—12 月）</td><td>2027 年度</td><td class="num">372</td><td class="num">0</td><td class="num">0</td><td>2027-09-20</td><td><span class="badge gray">待发起</span></td><td><span class="link" onclick="PMS.openDrawer('nsDrawer')">发起批次</span></td></tr>
+          <tr><td>NS2026-01</td><td>2026 年度第 1 批资格年审</td><td>2026 年度</td><td class="num">386</td><td class="num">386</td><td class="num">42</td><td>2026-01-20</td><td><span class="badge green">已结束</span></td><td><span class="link" onclick="PMS.toast('386 户全部完成年审：通过 344 户、转市场租金 34 户、启动退出 8 户')">批次结果</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>政策依据</b> 管理办法第十二条：人才住房保障实行动态管理，保障资格每年审查一次</span>
+    <span><b>年审周期</b> 自入住之日起每满 1 年发起一次，按入住月份分批</span>
+    <span><b>复核数据</b> 住房、就业、纳税、社保四项 + 欠费情况</span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="nsDrawer">
+  <div class="drawer-head">
+    <h3>发起年审批次</h3>
+    <span class="badge blue">年度年审</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>发起后系统<b>自动生成待审名单</b>并调取四项数据自动复核，异常件标注供人工核查。年审通知将多通道推送至承租人。</div>
+  </div>
+
+      <div class="form-grid form-align">
+        <div class="form-item">
+          <label>批次编号 <span class="req">*</span></label>
+          <input type="text" value="NS2027-02" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>批次名称 <span class="req">*</span></label>
+          <input type="text" value="2027 年度第 2 批资格年审（入住月份 5—8 月）">
+        </div>
+        <div class="form-item">
+          <label>年审年度 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>2027 年度</option><option>2028 年度</option></select>
+        </div>
+        <div class="form-item">
+          <label>待审范围 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>按入住月份（5—8 月）</option><option>按楼盘</option><option>全量在租</option></select>
+        </div>
+        <div class="form-item">
+          <label>待审户数 <span class="req">*</span></label>
+          <input type="text" value="428" readonly>
+          <div class="hint">系统按范围自动生成</div>
+        </div>
+        <div class="form-item">
+          <label>发起日期 <span class="req">*</span></label>
+          <input type="date">
+        </div>
+        <div class="form-item">
+          <label>办理截止 <span class="req">*</span></label>
+          <input type="date">
+          <div class="hint">承租人须在此前完成在线确认</div>
+        </div>
+        <div class="form-item col-full">
+          <label>复核项 <span class="req">*</span></label>
+          <input type="text" value="住房、就业、纳税、社保、欠费" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>批次说明 <span class="req">*</span></label>
+          <textarea rows="3" placeholder="必填，说明本批次年审范围与要求">本批次对 2027 年度入住月份为 5—8 月的 428 户在租承租人开展资格年审，自动复核住房、就业、纳税、社保与欠费五项，请承租人于办理截止日前完成在线确认，异常件转人工核查。</textarea>
+        </div>
+      </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认发起 2027 年度第 2 批资格年审？涉及 428 户。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已发起，年审通知已推送至 428 户承租人','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 8; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

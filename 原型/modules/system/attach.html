@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>附件与影像管理 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="admin" data-active="system-12">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 权限与系统管理
+      <span class="sep">/</span> 基础配置与运维
+      <span class="sep">/</span> <span class="cur">附件与影像管理</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>统一管理材料影像的<b>存储、预览、水印与保留期限</b>。影像界面加水印展示，下载需授权并留痕；保留期限到期前自动提醒归档。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-images"></i></div>
+      <div><div class="s-label">影像总量</div><div class="s-value">86,420</div>
+        <div class="s-trend text-2">份</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-hard-drive"></i></div>
+      <div><div class="s-label">占用存储</div><div class="s-value">428.6 GB</div>
+        <div class="s-trend text-2">配额 1 TB</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-stamp"></i></div>
+      <div><div class="s-label">水印覆盖率</div><div class="s-value">100%</div>
+        <div class="s-trend text-2">全部影像加水印</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-clock"></i></div>
+      <div><div class="s-label">保留期临期</div><div class="s-value">186</div>
+        <div class="s-trend ">份 · 待归档</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>业务类型</label><select><option value="">全部</option><option>资格申请材料</option><option>合同与签署存证</option><option>交付验收凭证</option><option>核查取证</option><option>工单完工照片</option><option>审定文件</option><option>其他</option></select></div>
+      <div class="filter-item"><label>文件类型</label><select><option value="">全部</option><option>图片</option><option>PDF</option><option>Office 文档</option></select></div>
+      <div class="filter-item"><label>保留状态</label><select><option value="">全部</option><option>保留中</option><option>临期</option><option>已归档</option><option>已销毁</option></select></div>
+      <div class="filter-item"><label>上传日期</label><input type="date"></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>业务类型</th><th>影像份数</th><th>占用存储</th><th>水印</th><th>保留期限</th><th class="cell-lg">保留起算</th><th>临期份数</th><th>下载授权</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>资格申请材料</td><td class="num">42,860</td><td>186.4 GB</td><td><span class="badge green">已加</span></td><td>长期</td><td>自申请办结之日起长期留存（满足审计与督查要求）</td><td class="num">0</td><td><span class="badge orange">需授权</span></td><td><span class="link" onclick="PMS.openDrawer('fjDrawer')">配置</span></td></tr>
+          <tr><td>合同与签署存证</td><td class="num">1,842</td><td>24.6 GB</td><td><span class="badge green">已加</span></td><td>长期</td><td>自合同解除或到期之日起长期留存</td><td class="num">0</td><td><span class="badge orange">需授权</span></td><td><span class="link" onclick="PMS.openDrawer('fjDrawer')">配置</span></td></tr>
+          <tr><td>交付验收凭证</td><td class="num">2,486</td><td>62.8 GB</td><td><span class="badge green">已加</span></td><td>长期</td><td>自房源退出之日起长期留存（退租对照依据）</td><td class="num">0</td><td><span class="badge orange">需授权</span></td><td><span class="link" onclick="PMS.openDrawer('fjDrawer')">配置</span></td></tr>
+          <tr><td>核查取证</td><td class="num">1,286</td><td>32.4 GB</td><td><span class="badge green">已加</span></td><td>长期</td><td>含 GPS 定位与时间水印，自核查结论出具之日起长期留存</td><td class="num">0</td><td><span class="badge orange">需授权</span></td><td><span class="link" onclick="PMS.openDrawer('fjDrawer')">配置</span></td></tr>
+          <tr class="row-warn"><td>工单完工照片</td><td class="num">36,420</td><td>108.2 GB</td><td><span class="badge green">已加</span></td><td>3 年</td><td>自工单办结之日起保留 3 年，到期前自动提醒归档</td><td class="num">186</td><td><span class="badge green">岗位权限</span></td><td><span class="link" onclick="PMS.openDrawer('fjDrawer')">配置</span></td></tr>
+          <tr><td>审定文件</td><td class="num">86</td><td>1.2 GB</td><td><span class="badge green">已加</span></td><td>长期</td><td>一事一议减免标准审定文件、规则版本审批文件等，长期留存</td><td class="num">0</td><td><span class="badge orange">需授权</span></td><td><span class="link" onclick="PMS.openDrawer('fjDrawer')">配置</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>水印规则</b> 影像界面展示时加「株洲市人才公寓管理平台 + 查看人 + 时间」水印</span>
+    <span><b>下载控制</b> 资格材料、合同存证、核查取证类下载需授权并留痕</span>
+    <span><b>保留期限</b> 业务材料长期留存；工单照片保留 3 年，到期前自动提醒归档</span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="fjDrawer">
+  <div class="drawer-head">
+    <h3>附件与影像策略配置</h3>
+    <span class="badge orange">临期</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>工单完工照片有 <b>186 份</b>保留期临期。<b>到期前须归档</b>，归档后从在线存储移至归档存储，仍可按需调阅但不再计入在线配额。</div>
+  </div>
+
+      <div class="form-grid form-align">
+        <div class="form-item">
+          <label>业务类型 <span class="req">*</span></label>
+          <input type="text" value="工单完工照片" readonly>
+        </div>
+        <div class="form-item">
+          <label>影像份数 <span class="req">*</span></label>
+          <input type="text" value="36420" readonly>
+        </div>
+        <div class="form-item">
+          <label>占用存储 <span class="req">*</span></label>
+          <input type="text" value="108.2 GB" readonly>
+        </div>
+        <div class="form-item">
+          <label>保留期限 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>长期</option><option>5 年</option><option>3 年</option><option>1 年</option></select>
+        </div>
+        <div class="form-item col-full">
+          <label>保留起算 <span class="req">*</span></label>
+          <input type="text" value="自工单办结之日起" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>水印内容 <span class="req">*</span></label>
+          <input type="text" value="株洲市人才公寓管理平台 + 查看人姓名 + 查看时间" readonly>
+        </div>
+        <div class="form-item">
+          <label>下载权限 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>岗位权限内可下载</option><option>需专项授权</option><option>禁止下载</option></select>
+        </div>
+        <div class="form-item">
+          <label>到期处理 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>自动提醒归档</option><option>自动归档</option><option>自动销毁</option></select>
+        </div>
+        <div class="form-item">
+          <label>临期提醒提前量（天） <span class="req">*</span></label>
+          <input type="text" value="30">
+        </div>
+        <div class="form-item col-full">
+          <label>配置说明 <span class="req">*</span></label>
+          <textarea rows="3" placeholder="必填，说明保留期限设定依据"></textarea>
+        </div>
+      </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认保存工单完工照片保留策略？186 份临期影像将按策略提醒归档。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已保存，临期影像将按策略提醒归档','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 6; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

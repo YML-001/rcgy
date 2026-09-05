@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>验收单详情 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="housing" data-active="house-04">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 房源筹集与楼盘表
+      <span class="sep">/</span> 房源筹集与项目
+      <span class="sep">/</span> 拎包入住验收
+      <span class="sep">/</span> <span class="cur">验收单详情</span>
+    </div>
+    <div class="page-actions">
+      <a class="btn" href="acceptance-list.html"><i class="fa-solid fa-arrow-left"></i> 返回</a>
+      <button class="btn" onclick="PMS.toast('已向收购主体推送整改催办','success')"><i class="fa-solid fa-bullhorn"></i> 催办整改</button>
+      <button class="btn btn-primary" onclick="PMS.confirm({title:'复验确认',message:'确认对本套房源办理复验？',detail:'复验须现场逐项核对缺配项是否配齐并重新留存照片。复验合格后房源方可投放配租。',type:'warning',okText:'开始复验',onOk:function(){PMS.toast('已进入复验流程','success');}})"><i class="fa-solid fa-clipboard-check"></i> 办理复验</button>
+    </div>
+  </div>
+
+  <div class="alert alert-danger">
+    <i class="fa-solid fa-circle-exclamation"></i>
+    <div>本套房源<b>验收不合格</b>：家电家具缺配洗衣机、微波炉共 2 项。按管理办法第五条，<b>未达拎包入住标准的房源不得投放配租</b>，须整改复验合格后方可投放。</div>
+  </div>
+
+  <div class="card" data-tabs-scope>
+    <div class="tabs">
+      <div class="tab active" data-tab="basic">验收基本信息</div>
+      <div class="tab" data-tab="items">验收项明细 <span class="badge red">2</span></div>
+      <div class="tab" data-tab="meter">水电气表底数</div>
+      <div class="tab" data-tab="flow">整改跟踪 <span class="badge orange">在办</span></div>
+    </div>
+    <div class="tab-panel active" data-panel="basic">
+      <div class="card-body">
+        <dl class="desc-list">
+          <div class="desc-item"><dt>验收单号</dt><dd>YS2026-08-0302</dd></div>
+          <div class="desc-item"><dt>房源</dt><dd>董家塅安居苑 3 栋 1102</dd></div>
+          <div class="desc-item"><dt>房源编号</dt><dd>FY-LS-DJD-03-1102</dd></div>
+          <div class="desc-item"><dt>户型 / 面积</dt><dd>二室一厅　72.00 ㎡</dd></div>
+          <div class="desc-item"><dt>项目</dt><dd>董家塅安居苑（XM2026-005）</dd></div>
+          <div class="desc-item"><dt>收购主体</dt><dd>株洲市芦淞城市发展投资有限公司</dd></div>
+          <div class="desc-item"><dt>验收人</dt><dd>唐凯（市住保中心房源管理科）</dd></div>
+          <div class="desc-item"><dt>验收时间</dt><dd>2026-08-29 10:26</dd></div>
+          <div class="desc-item"><dt>验收结论</dt><dd><span class="badge red">不合格</span></dd></div>
+          <div class="desc-item"><dt>整改期限</dt><dd>2026-09-15</dd></div>
+          <div class="desc-item full"><dt>验收意见</dt><dd>装饰装修核验合格。<b>家电家具缺配洗衣机、微波炉共 2 项</b>，不符合管理办法第五条拎包入住标准，判定不合格。要求收购主体于 2026-09-15 前配齐并申请复验，复验合格后方可投放配租。</dd></div>
+        </dl>
+      </div>
+    </div>
+    <div class="tab-panel" data-panel="items">
+      <div class="card-body">
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 28 项逐项核验结果<span class="sub">缺配 2 项</span></div>
+          <div class="sp-b">
+        <div class="sp-check">
+          <div class="ck pass"><i class="fa-solid fa-circle-check"></i>
+            <div class="cb"><div class="ct">装饰装修 · 合格</div>
+              <div class="cd">墙面、地面、门窗、吊顶平整无开裂；水电线路已通电检测；卫生间与厨房防水试水合格。</div></div>
+            <div class="co"><span class="badge green">合格</span></div></div>
+          <div class="ck pass"><i class="fa-solid fa-circle-check"></i>
+            <div class="cb"><div class="ct">客厅 7 项 · 齐全</div>
+              <div class="cd">沙发、茶几、餐桌椅、电视柜、55 吋液晶电视、窗帘、灯具全部配齐且完好。</div></div>
+            <div class="co"><span class="badge green">齐全</span></div></div>
+          <div class="ck pass"><i class="fa-solid fa-circle-check"></i>
+            <div class="cb"><div class="ct">卧室 7 项 × 2 间 · 齐全</div>
+              <div class="cd">床、床垫、床头柜、衣柜、书桌椅、空调、窗帘全部配齐且完好。</div></div>
+            <div class="co"><span class="badge green">齐全</span></div></div>
+          <div class="ck block"><i class="fa-solid fa-circle-xmark"></i>
+            <div class="cb"><div class="ct">厨房 6 项 · 缺配 1 项</div>
+              <div class="cd">整体橱柜、油烟机、燃气灶、冰箱、热水器已配齐；<b>缺配微波炉</b>。</div></div>
+            <div class="co"><span class="badge red">缺配</span></div></div>
+          <div class="ck block"><i class="fa-solid fa-circle-xmark"></i>
+            <div class="cb"><div class="ct">卫生间 5 项 · 缺配 1 项</div>
+              <div class="cd">坐便器、淋浴、洗手台、镜柜已配齐；<b>缺配洗衣机</b>。</div></div>
+            <div class="co"><span class="badge red">缺配</span></div></div>
+          <div class="ck pass"><i class="fa-solid fa-circle-check"></i>
+            <div class="cb"><div class="ct">其他 3 项 · 齐全</div>
+              <div class="cd">宽带接入已开通；门禁卡 2 张；烟感报警器已安装并测试正常。</div></div>
+            <div class="co"><span class="badge green">齐全</span></div></div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tab-panel" data-panel="meter">
+      <div class="card-body">
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 初始读数<span class="sub">作为承租人计费起点</span></div>
+          <div class="sp-b">
+        <div class="sp-kv">
+          <div class="kv"><span class="k">水表初始读数</span><span class="v">0 ㎥</span></div>
+          <div class="kv"><span class="k">电表初始读数</span><span class="v">12 度</span><span class="muted">装修用电</span></div>
+          <div class="kv"><span class="k">燃气表初始读数</span><span class="v">0 ㎥</span></div>
+          <div class="kv"><span class="k">抄录时间</span><span class="v">2026-08-29 10:22</span></div>
+          <div class="kv"><span class="k">照片留存</span><span class="v"><span class="badge green">已拍照 3 张</span></span></div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tab-panel" data-panel="flow">
+      <div class="card-body">
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 整改闭环<span class="sub">P3-04 / P11-06</span></div>
+          <div class="sp-b">
+        <div class="timeline">
+          <div class="tl-item done"><div class="tl-dot"></div>
+            <div class="tl-title">首次验收</div>
+            <div class="tl-meta">唐凯 · 2026-08-29 10:26</div>
+            <div class="tl-desc">判定不合格：家电家具缺配洗衣机、微波炉共 2 项。</div></div>
+          <div class="tl-item done"><div class="tl-dot"></div>
+            <div class="tl-title">下发整改要求</div>
+            <div class="tl-meta">系统 · 2026-08-29 10:28</div>
+            <div class="tl-desc">已推送株洲市芦淞城市发展投资有限公司，整改期限 2026-09-15。</div></div>
+          <div class="tl-item"><div class="tl-dot"></div>
+            <div class="tl-title">收购主体整改</div>
+            <div class="tl-meta">株洲市芦淞城市发展投资有限公司 · 进行中</div>
+            <div class="tl-desc">已采购洗衣机与微波炉，预计 2026-09-10 安装完成。</div></div>
+          <div class="tl-item pending"><div class="tl-dot"></div>
+            <div class="tl-title">申请复验</div>
+            <div class="tl-meta">待办理</div></div>
+          <div class="tl-item pending"><div class="tl-dot"></div>
+            <div class="tl-title">复验合格并投放配租</div>
+            <div class="tl-meta">待办理</div></div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>政策依据</b> 管理办法第五条 · 拎包入住标准</span>
+    <span><b>整改期限</b> 2026-09-15</span>
+    <span><b>关联项目</b> <span class="link" onclick="location.href='proj-detail.html?id=XM2026-005'">董家塅安居苑</span></span>
+  </div>
+</main>
+
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

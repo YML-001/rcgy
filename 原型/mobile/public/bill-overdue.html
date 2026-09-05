@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>逾期自动提醒 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/mobile.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body class="m-body" data-mtitle="逾期提醒规则" data-mmod="M9 租金缴纳与账单" data-mcode="M9-03"
+      data-mdesc="账单到期前后分级推送催缴提醒，并提示欠费将影响年审与续租。" data-mback="bill-list.html" data-mtabset="public" data-mtab="msg">
+<div class="m-stage">
+  <div class="m-phone">
+    <div class="m-screen">
+      <div class="m-view">
+        <div class="m-note"><i class="fa-solid fa-circle-info"></i>
+          <div>账单到期前后<b>分级推送催缴提醒</b>。当前无逾期账单，本页展示提醒规则与历史提醒记录。</div>
+        </div>
+        <div class="m-sect">分级提醒规则</div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-bell"></i>六级提醒</div>
+          <div class="m-card-b">
+            <div class="m-check">
+              <div class="ok"><i class="fa-solid fa-1"></i><div class="m-chl"><b>账单生成时　友好提醒</b><span>账单生成当日推送「本期账单已生成，个人应缴 XXX 元」</span></div></div>
+              <div class="ok"><i class="fa-solid fa-2"></i><div class="m-chl"><b>到期前 5 日　到期提醒</b><span>推送「距缴费截止还有 5 天」</span></div></div>
+              <div class="wait"><i class="fa-solid fa-3"></i><div class="m-chl"><b>到期前 1 日　紧急提醒</b><span>湘易办站内消息 + 微信模板消息 + 短信三通道同时推送</span></div></div>
+              <div class="wait"><i class="fa-solid fa-4"></i><div class="m-chl"><b>逾期 1 日　首次催缴</b><span>推送并提示<b>欠费将影响年度资格审查与续租审核</b></span></div></div>
+              <div class="bad"><i class="fa-solid fa-5"></i><div class="m-chl"><b>逾期 15 日　升级催缴</b><span>同步告知用人单位经办人与运营机构，纳入欠租台账账龄分析</span></div></div>
+              <div class="bad"><i class="fa-solid fa-6"></i><div class="m-chl"><b>逾期 90 日　纳入重点催收</b><span>长期欠缴且催缴无效的，按不符合条件<b>启动退出流程</b></span></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="m-sect">欠费的业务联动<span class="m-sect-x">R-R3</span></div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-link"></i>关联影响</div>
+          <div class="m-card-b">
+          <div class="m-kv">
+            <div><span>年度资格审查</span><span>读取欠租台账，<b>存在未结清欠费的须结清后方可通过</b></span></div>
+            <div><span>续租资格复核</span><span>欠费情况作为复核项之一，影响续租结论</span></div>
+            <div><span>配租资格</span><span>历史欠费记录纳入人才档案，作为诚信记录</span></div>
+            <div><span>长期欠缴处置</span><span>催缴无效且影响年审结论的，启动退出腾退</span></div>
+          </div>
+          </div>
+        </div>
+        <div class="m-sect">我的提醒记录</div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-clock-rotate-left"></i>历史提醒</div>
+          <div class="m-card-b">
+          <div class="m-tl">
+            <div class="m-ti on"><div class="m-tt">2026-09-01 09:00　本期账单已生成</div><div class="m-td">个人应缴 424.44 元，截止 2026-09-15　·	已读</div></div>
+            <div class="m-ti done"><div class="m-tt">2026-08-10 09:00　距缴费截止还有 5 天</div><div class="m-td">8 月账单 424.44 元　·	已于 2026-08-11 缴清</div></div>
+            <div class="m-ti done"><div class="m-tt">2026-08-01 09:00　8 月账单已生成</div><div class="m-td">个人应缴 424.44 元　·	已读</div></div>
+            <div class="m-ti done"><div class="m-tt">2026-07-08 09:00　距缴费截止还有 5 天</div><div class="m-td">7 月账单 424.44 元　·	已于 2026-07-09 缴清</div></div>
+          </div>
+          </div>
+        </div>
+        <div class="m-note success"><i class="fa-solid fa-circle-check"></i>
+          <div>您<b>历史账单均按期缴清</b>，无欠费记录，不影响年审与续租。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../../assets/js/mobile.js"></script>
+</body>
+</html>

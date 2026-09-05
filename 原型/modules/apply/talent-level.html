@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>人才分层分类 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="reviewer" data-active="apply-02">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 人才档案与资格联审
+      <span class="sep">/</span> 人才档案
+      <span class="sep">/</span> <span class="cur">人才分层分类</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>按<b>创业青年人才、就业青年人才、免毕业年限特殊人才</b>（高企或大中型企业中层以上管理、中级以上职称、高级技师且 35 周岁及以下）等类别打标，作为<b>配租房型匹配与租金减免标准</b>的判定依据。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-briefcase"></i></div>
+      <div><div class="s-label">就业青年人才</div><div class="s-value">2,486</div>
+        <div class="s-trend text-2">占 76.6%</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-store"></i></div>
+      <div><div class="s-label">创业青年人才</div><div class="s-value">628</div>
+        <div class="s-trend text-2">占 19.3%</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-user-tie"></i></div>
+      <div><div class="s-label">免年限特殊人才</div><div class="s-value">132</div>
+        <div class="s-trend text-2">占 4.1%</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-tags"></i></div>
+      <div><div class="s-label">待复核分类</div><div class="s-value">18</div>
+        <div class="s-trend text-2">职称技能证书待核</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>姓名</label><input type="text" placeholder="人才姓名"></div>
+      <div class="filter-item"><label>人才类别</label><select data-dict="applyType" data-ph="全部"></select></div>
+      <div class="filter-item"><label>人才层次</label><select data-dict="talentLevel" data-ph="全部"></select></div>
+      <div class="filter-item"><label>最高学历</label><select data-dict="education" data-ph="全部"></select></div>
+      <div class="filter-item"><label>分类状态</label><select><option value="">全部</option><option>已打标</option><option>待复核</option><option>待补证</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>人才编号</th><th>姓名</th><th>人才类别</th><th>人才层次</th><th class="cell-lg">免年限依据</th><th class="num">年龄</th><th>可配租房型</th><th>减免适用</th><th>分类状态</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>RC2026-04182</td><td>王梓涵</td><td><span class="badge blue">就业青年人才</span></td><td>普通青年人才</td><td><span class="muted">按毕业 2 年内条件判定</span></td><td class="num">25</td><td>单间 / 一室一厅</td><td><span class="badge green">标准减免</span></td><td><span class="badge green">已打标</span></td><td><span class="link" onclick="PMS.openDrawer('lvDrawer')">调整分类</span></td></tr>
+          <tr><td>RC2026-03864</td><td>贺文韬</td><td><span class="badge orange">特殊人才</span></td><td>专业技术人才</td><td>中级以上职称（工程师，2022 年取得）+ 35 周岁以下</td><td class="num">35</td><td>不限房型</td><td><span class="badge green">标准减免</span></td><td><span class="badge green">已打标</span></td><td><span class="link" onclick="PMS.openDrawer('lvDrawer')">调整分类</span></td></tr>
+          <tr><td>RC2026-03918</td><td>肖俊</td><td><span class="badge orange">特殊人才</span></td><td>经营管理人才</td><td>高新技术企业中层以上管理职务（人力资源部部长）+ 34 周岁</td><td class="num">34</td><td>不限房型</td><td><span class="badge green">标准减免</span></td><td><span class="badge green">已打标</span></td><td><span class="link" onclick="PMS.openDrawer('lvDrawer')">调整分类</span></td></tr>
+          <tr><td>RC2026-04206</td><td>邓亦凡</td><td><span class="badge cyan">创业青年人才</span></td><td>普通青年人才</td><td><span class="muted">按毕业 2 年内条件判定</span></td><td class="num">24</td><td>单间 / 一室一厅</td><td><span class="badge green">标准减免</span></td><td><span class="badge green">已打标</span></td><td><span class="link" onclick="PMS.openDrawer('lvDrawer')">调整分类</span></td></tr>
+          <tr class="row-bad"><td>RC2026-04288</td><td>龙建华</td><td><span class="badge orange">特殊人才</span></td><td>技能人才</td><td>高级技师资格证待核验（证书影像不清晰）+ 33 周岁</td><td class="num">33</td><td><span class="muted">—</span></td><td><span class="badge gray">待定</span></td><td><span class="badge red">待补证</span></td><td><span class="link" onclick="PMS.openDrawer('lvDrawer')">调整分类</span> <span class="link" onclick="PMS.toast('已推送补证提醒至该人才与所在单位')">通知补证</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>政策依据</b> 管理办法第三条、第七条第一项、第十条</span>
+    <span><b>判定用途</b> 配租房型匹配与租金减免标准的判定依据</span>
+    <span><b>规则配置</b> <span class="link" onclick="location.href='../rule/cond-rule.html'">申请条件规则配置</span></span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="lvDrawer">
+  <div class="drawer-head">
+    <h3>人才分层分类打标</h3>
+    <span class="badge blue">分类判定</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div><b>免毕业年限特殊人才</b>须同时满足：①担任高新技术企业或大中型企业中层以上管理职务，或具有中级以上职称，或持高级技师资格证；②<b>35 周岁（含）以下</b>（申请时截至 35 岁生日当天）。</div>
+  </div>
+
+      <div class="form-grid form-align">
+        <div class="form-item">
+          <label>人才编号 <span class="req">*</span></label>
+          <input type="text" value="RC2026-04288" readonly>
+        </div>
+        <div class="form-item">
+          <label>姓名 <span class="req">*</span></label>
+          <input type="text" value="龙建华" readonly>
+        </div>
+        <div class="form-item">
+          <label>出生日期 <span class="req">*</span></label>
+          <input type="text" value="1993-05-18" readonly>
+          <div class="hint">申请时 33 周岁，符合 35 周岁以下</div>
+        </div>
+        <div class="form-item">
+          <label>人才类别 <span class="req">*</span></label>
+          <select data-dict="applyType" data-ph="全部"></select>
+        </div>
+        <div class="form-item">
+          <label>人才层次 <span class="req">*</span></label>
+          <select data-dict="talentLevel" data-ph="全部"></select>
+        </div>
+        <div class="form-item col-full">
+          <label>免年限依据 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>高企或大中型企业中层以上管理职务</option><option>中级以上职称</option><option>高级技师资格证</option><option>不适用</option></select>
+        </div>
+        <div class="form-item col-full">
+          <label>依据证明材料 <span class="req">*</span></label>
+          <input type="text" data-upload="1">
+          <div class="hint">职称证书 / 技能等级证书 / 单位任职证明</div>
+        </div>
+        <div class="form-item col-full">
+          <label>人社核验结果 <span class="req">*</span></label>
+          <input type="text" value="人社系统未返回该证书信息，需人工核验" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>打标说明 <span class="req">*</span></label>
+          <textarea rows="3" placeholder="必填，说明分类判定依据">申请人持人社部门核发的高级技师职业资格证书，现年 33 周岁，符合「高级技师且 35 周岁以下」条件，打标为免毕业年限特殊人才（技能人才），证书影像经人社核验后确认。</textarea>
+        </div>
+      </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认对龙建华打标为「特殊人才（技能人才）」？',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已打标，分类结果已同步至人才档案','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 3246; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

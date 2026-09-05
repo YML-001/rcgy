@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>电子印章管理 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="admin" data-active="system-14">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 权限与系统管理
+      <span class="sep">/</span> 基础配置与运维
+      <span class="sep">/</span> <span class="cur">电子印章管理</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.openDrawer('yzDrawer')"><i class="fa-solid fa-plus"></i> 印章申领</button>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>管理电子印章的<b>申领、授权、使用与注销</b>，<b>用章记录可查</b>。印章使用须在授权范围内，每次用章记录操作人、时间与业务对象。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-stamp"></i></div>
+      <div><div class="s-label">在用印章</div><div class="s-value">4</div>
+        <div class="s-trend text-2">含 1 枚政府印章</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-certificate"></i></div>
+      <div><div class="s-label">数字证书</div><div class="s-value">4</div>
+        <div class="s-trend text-2">均在有效期内</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-clock-rotate-left"></i></div>
+      <div><div class="s-label">本月用章</div><div class="s-value">230</div>
+        <div class="s-trend text-2">次</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-triangle-exclamation"></i></div>
+      <div><div class="s-label">证书临期</div><div class="s-value">1</div>
+        <div class="s-trend ">剩 46 天</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>印章编号</label><input type="text" placeholder="印章编号"></div>
+      <div class="filter-item"><label>印章名称</label><input type="text" placeholder="印章名称"></div>
+      <div class="filter-item"><label>所属机构</label><input type="text" placeholder="机构名称"></div>
+      <div class="filter-item"><label>印章状态</label><select><option value="">全部</option><option>在用</option><option>已停用</option><option>已注销</option></select></div>
+      <div class="filter-item"><label>到期日期</label><input type="date"></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>印章编号</th><th class="cell-lg">印章名称</th><th class="cell-lg">所属机构</th><th>印章类型</th><th>授权用章范围</th><th>有效期至</th><th>剩余有效期</th><th>本月用章</th><th>状态</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>YZ-001</td><td>株洲市人才安居服务有限公司合同专用章</td><td>株洲市人才安居服务有限公司</td><td><span class="badge blue">企业印章</span></td><td>租赁合同、变更协议、解除协议</td><td>2027-06-30</td><td><div class="sp-days"><span class="dv">298 天</span><span class="db"><span style="width:82%"></span></span></div></td><td class="num">142</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('yzDrawer')">管理</span></td></tr>
+          <tr><td>YZ-002</td><td>株洲市保障性住房服务中心电子印章</td><td>市保障性住房服务中心</td><td><span class="badge orange">政府印章</span></td><td>审核结论告知书、腾退通知、取消资格决定书</td><td>2027-12-31</td><td><div class="sp-days"><span class="dv">482 天</span><span class="db"><span style="width:100%"></span></span></div></td><td class="num">44</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('yzDrawer')">管理</span></td></tr>
+          <tr class="row-warn"><td>YZ-003</td><td>株洲城建人才公寓运营管理有限公司合同专用章</td><td>株洲城建人才公寓运营管理有限公司</td><td><span class="badge blue">企业印章</span></td><td>租赁合同、变更协议</td><td>2026-10-21</td><td><div class="sp-days d30"><span class="dv">46 天</span><span class="db"><span style="width:12%"></span></span></div></td><td class="num">38</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('yzDrawer')">管理</span></td></tr>
+          <tr><td>YZ-004</td><td>株洲清水塘安居服务有限公司合同专用章</td><td>株洲清水塘安居服务有限公司</td><td><span class="badge blue">企业印章</span></td><td>租赁合同、变更协议</td><td>2027-03-31</td><td><div class="sp-days"><span class="dv">206 天</span><span class="db"><span style="width:57%"></span></span></div></td><td class="num">6</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('yzDrawer')">管理</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>管理环节</b> 申领 → 授权 → 使用 → 注销，全环节留痕</span>
+    <span><b>用章控制</b> 按机构与业务类型控制用章范围，超范围用章被拦截</span>
+    <span><b>到期提醒</b> 数字证书到期前 60 天提醒续期，到期后无法签章</span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="yzDrawer">
+  <div class="drawer-head">
+    <h3>电子印章管理</h3>
+    <span class="badge orange">证书临期</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>该印章数字证书将于 <b>2026-10-21</b> 到期（剩 46 天）。<b>到期后无法签章</b>，将影响该机构租赁合同签署。请及时办理续期。</div>
+  </div>
+
+      <div class="form-grid form-align">
+        <div class="form-item">
+          <label>印章编号 <span class="req">*</span></label>
+          <input type="text" value="YZ-003" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>印章名称 <span class="req">*</span></label>
+          <input type="text" value="株洲城建人才公寓运营管理有限公司合同专用章">
+        </div>
+        <div class="form-item col-full">
+          <label>所属机构 <span class="req">*</span></label>
+          <input type="text" value="株洲城建人才公寓运营管理有限公司" readonly>
+        </div>
+        <div class="form-item">
+          <label>印章类型 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>企业印章</option><option>政府印章</option></select>
+        </div>
+        <div class="form-item">
+          <label>CA 机构 <span class="req">*</span></label>
+          <input type="text" value="第三方 CA 服务机构" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>证书序列号 <span class="req">*</span></label>
+          <input type="text" value="2B9F4A***E08C" readonly>
+        </div>
+        <div class="form-item">
+          <label>有效期至 <span class="req">*</span></label>
+          <input type="text" value="2026-10-21（剩 46 天）" readonly>
+        </div>
+        <div class="form-item">
+          <label>办理事项 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>证书续期</option><option>授权范围调整</option><option>停用印章</option><option>注销印章</option></select>
+        </div>
+        <div class="form-item col-full">
+          <label>授权用章范围 <span class="req">*</span></label>
+          <textarea rows="3">租赁合同（HT-TPL-001 / HT-TPL-002）、合同变更协议、合同解除协议。不得用于审核结论告知书、腾退通知等政府文书。</textarea>
+        </div>
+        <div class="form-item col-full">
+          <label>授权用章人 <span class="req">*</span></label>
+          <input type="text" value="曾志远（株洲城建人才公寓运营管理有限公司）">
+        </div>
+        <div class="form-item col-full">
+          <label>办理说明 <span class="req">*</span></label>
+          <textarea rows="2" placeholder="必填"></textarea>
+        </div>
+      </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认提交印章 YZ-003 证书续期申请？到期后将无法签章。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已提交，续期办理中，完成后自动更新证书','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 4; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

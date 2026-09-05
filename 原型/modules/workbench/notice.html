@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>通知公告 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="reviewer" data-active="wb-04">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 待办与协同
+      <span class="sep">/</span> <span class="cur">通知公告</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.openDrawer('ggDrawer')"><i class="fa-solid fa-plus"></i> 发布公告</button>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-danger">
+    <i class="fa-solid fa-circle-exclamation"></i>
+    <div>接收并发布<b>内部通知、政策文件与操作指引</b>。公告可按角色与机构定向发布，重要公告支持强制阅读确认。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-bullhorn"></i></div>
+      <div><div class="s-label">在发公告</div><div class="s-value">12</div>
+        <div class="s-trend text-2">条</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon red"><i class="fa-solid fa-circle-exclamation"></i></div>
+      <div><div class="s-label">未读</div><div class="s-value">3</div>
+        <div class="s-trend ">含 1 条强制确认</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
+      <div><div class="s-label">阅读确认率</div><div class="s-value">94.6%</div>
+        <div class="s-trend text-2">强制确认类</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-file-lines"></i></div>
+      <div><div class="s-label">政策文件</div><div class="s-value">6</div>
+        <div class="s-trend text-2">含 2 份征求意见稿</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>公告标题</label><input type="text" placeholder="关键词"></div>
+      <div class="filter-item"><label>公告类型</label><select><option value="">全部</option><option>内部通知</option><option>政策文件</option><option>操作指引</option><option>系统公告</option></select></div>
+      <div class="filter-item"><label>发布单位</label><input type="text" placeholder="单位名称"></div>
+      <div class="filter-item"><label>阅读状态</label><select><option value="">全部</option><option>未读</option><option>已读</option><option>已确认</option></select></div>
+      <div class="filter-item"><label>发布日期</label><input type="date"></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>公告编号</th><th class="cell-lg">标题</th><th>公告类型</th><th>发布单位</th><th>适用角色</th><th>强制确认</th><th>发布时间</th><th>阅读状态</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr class="row-bad"><td>GG2026-09-0018</td><td>关于「正常纳税」判定口径暂按人工核实处理的通知</td><td><span class="badge blue">内部通知</span></td><td>市住建局住房保障科</td><td>资格审核员、城区经办员</td><td><span class="badge red">需确认</span></td><td>2026-09-05 09:00</td><td><span class="badge red">未读</span></td><td><span class="link" onclick="PMS.openDrawer('ggDrawer')">阅读并确认</span></td></tr>
+          <tr class="row-warn"><td>GG2026-09-0016</td><td>2026 年第 3 批配租工作安排</td><td><span class="badge blue">内部通知</span></td><td>市保障性住房服务中心</td><td>配租经办员、城区经办员</td><td><span class="badge gray">无需</span></td><td>2026-09-04 16:22</td><td><span class="badge red">未读</span></td><td><span class="link" onclick="PMS.openDrawer('ggDrawer')">阅读</span></td></tr>
+          <tr class="row-warn"><td>GG2026-09-0012</td><td>关于学信网接口不稳定期间人工兜底操作指引</td><td><span class="badge cyan">操作指引</span></td><td>市住保中心信息科</td><td>资格审核员</td><td><span class="badge gray">无需</span></td><td>2026-09-02 10:08</td><td><span class="badge red">未读</span></td><td><span class="link" onclick="PMS.openDrawer('ggDrawer')">阅读</span></td></tr>
+          <tr><td>GG2026-08-0006</td><td>《株洲市城区创业就业青年人才住房保障管理办法》（征求意见稿）</td><td><span class="badge orange">政策文件</span></td><td>市住建局、市委人才办、市财政局</td><td>全部角色</td><td><span class="badge red">需确认</span></td><td>2026-08-12 09:00</td><td><span class="badge green">已确认</span></td><td><span class="link" onclick="PMS.toast('2026-08-12 10:26 已阅读并确认，确认记录已留痕')">阅读记录</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>发布范围</b> 可按角色与机构定向发布</span>
+    <span><b>强制确认</b> 重要公告支持强制阅读确认，确认记录留痕</span>
+    <span><b>政策公开</b> <span class="link" onclick="location.href='../rule/content-manage.html'">政策宣传内容管理</span></span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="ggDrawer">
+  <div class="drawer-head">
+    <h3>公告阅读与确认</h3>
+    <span class="badge red">需确认</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>本公告为<b>强制阅读确认</b>类。请阅读全文后勾选确认，确认记录将留痕并计入阅读确认率统计。</div>
+  </div>
+
+      <div class="form-grid form-align">
+        <div class="form-item">
+          <label>公告编号 <span class="req">*</span></label>
+          <input type="text" value="GG2026-09-0018" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>标题 <span class="req">*</span></label>
+          <input type="text" value="关于「正常纳税」判定口径暂按人工核实处理的通知" readonly>
+        </div>
+        <div class="form-item">
+          <label>发布单位 <span class="req">*</span></label>
+          <input type="text" value="市住建局住房保障科" readonly>
+        </div>
+        <div class="form-item">
+          <label>发布时间 <span class="req">*</span></label>
+          <input type="text" value="2026-09-05 09:00" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>正文</label>
+          <textarea rows="8" readonly>各区住房保障服务中心、市保障性住房服务中心资格审核科：
+
+创业青年人才申请人才公寓时，需核验其所办企业的纳税申报与实际缴税情况，以筛除只注册登记但无实际经营纳税的空壳企业。经与市税务局沟通，「正常纳税」的具体判定口径（连续申报期数、是否有实际缴税金额门槛）尚需进一步明确，现暂按以下要求执行：
+
+一、企业无任何纳税申报记录或全部为零申报的，转人工核实，要求申请人补充提供经营场所租赁凭证、业务合同、银行流水等实际经营凭证；
+二、企业有连续申报且有实际缴税的，予以通过；
+三、部分期数零申报的，结合工商经营状态综合判断，转人工核实；
+四、上述判定一律不得直接以「无纳税」为由出具不予通过结论，须经人工核实并在结论说明中写明依据。
+
+待市税务局明确判定口径后，将在申请条件规则配置中落库，并按生效时间对新受理件生效。请各单位遵照执行。
+
+市住建局住房保障科
+2026 年 9 月 5 日</textarea>
+        </div>
+        <div class="form-item col-full">
+          <label>阅读确认 <span class="req">*</span></label>
+          <input type="text" value="本人已阅读并知晓上述要求" readonly>
+        </div>
+      </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认已阅读本公告并知晓「正常纳税」暂按人工核实处理的要求？',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已阅读并确认，确认记录已留痕','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 12; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

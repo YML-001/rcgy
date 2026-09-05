@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>审核时限提醒 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/mobile.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body class="m-body" data-mtitle="审核时限提醒" data-mmod="G1 移动审批" data-mcode="G1-02"
+      data-mdesc="对 3 个工作日审核时限临期与超期的申请件推送提醒，按经办人、承办部门分别统计在办件与超期件数量。" data-mback="home.html" data-mtabset="gov" data-mtab="home">
+<div class="m-stage">
+  <div class="m-phone">
+    <div class="m-screen">
+      <div class="m-view">
+        <div class="m-note warn"><i class="fa-solid fa-triangle-exclamation"></i>
+          <div>审核时限为<b>自收到申请资料之日起 3 个工作日</b>。临期标黄、超期标红并向经办人及负责人预警，<b>超期须记录原因</b>。</div>
+        </div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-clock"></i>我的时限概览</div>
+          <div class="m-card-b">
+            <div class="m-mini">
+              <div><div class="mv">9</div><div class="ml">我的在办件</div></div>
+              <div><div class="mv warn">3</div><div class="ml">临期(黄)</div></div>
+              <div><div class="mv bad">1</div><div class="ml">超期(红)</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="m-sect">时限分档规则</div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-layer-group"></i>四档</div>
+          <div class="m-card-b">
+            <div class="m-check">
+              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>正常（蓝）</b><span>剩余 2 个工作日以上</span></div></div>
+              <div class="wait"><i class="fa-solid fa-clock"></i><div class="m-chl"><b>临期（黄）</b><span>剩余 1 个工作日，向<b>经办人</b>推送提醒</span></div></div>
+              <div class="bad"><i class="fa-solid fa-circle-exclamation"></i><div class="m-chl"><b>超期（红）</b><span>已超 3 个工作日，向<b>经办人及负责人</b>同时预警，<b>须记录超期原因</b></span></div></div>
+              <div class="ok"><i class="fa-solid fa-pause"></i><div class="m-chl"><b>时限中止</b><span>退回补正期间时限中止，申请人补齐重新提交后继续计时</span></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="m-sect">按经办人统计<span class="m-sect-x">资格审核科</span></div>
+        <div class="m-cells">
+          <div class="m-cell"><span class="m-ci red"><i class="fa-solid fa-user"></i></span><span class="m-cl"><b>刘志刚（本人）</b><span class="m-cs">在办 9 件 · 临期 3 · 超期 1</span></span><span class="m-cv"><span class="m-tag red">超期 1</span></span></div>
+          <div class="m-cell"><span class="m-ci orange"><i class="fa-solid fa-user"></i></span><span class="m-cl"><b>周敏（天元区）</b><span class="m-cs">在办 11 件 · 临期 2 · 超期 0</span></span><span class="m-cv"><span class="m-tag orange">临期 2</span></span></div>
+          <div class="m-cell"><span class="m-ci green"><i class="fa-solid fa-user"></i></span><span class="m-cl"><b>谭建军（窗口）</b><span class="m-cs">在办 6 件 · 临期 0 · 超期 0</span></span><span class="m-cv"><span class="m-tag green">正常</span></span></div>
+        </div>
+        <div class="m-sect">按承办部门统计</div>
+        <div class="m-cells">
+          <div class="m-cell"><span class="m-ci red"><i class="fa-solid fa-building-columns"></i></span><span class="m-cl"><b>市住保中心资格审核科</b><span class="m-cs">在办 23 件 · 临期 3 · 超期 1 · 3 日办结率 96.4%</span></span><span class="m-cv"><span class="m-tag red">1</span></span></div>
+          <div class="m-cell"><span class="m-ci orange"><i class="fa-solid fa-building-columns"></i></span><span class="m-cl"><b>天元区住房保障服务中心</b><span class="m-cs">在办 11 件 · 临期 2 · 超期 0 · 3 日办结率 98.2%</span></span><span class="m-cv"><span class="m-tag orange">2</span></span></div>
+          <div class="m-cell"><span class="m-ci green"><i class="fa-solid fa-building-columns"></i></span><span class="m-cl"><b>荷塘区住房保障服务中心</b><span class="m-cs">在办 8 件 · 临期 0 · 超期 0 · 3 日办结率 100%</span></span><span class="m-cv"><span class="m-tag green">0</span></span></div>
+          <div class="m-cell"><span class="m-ci green"><i class="fa-solid fa-building-columns"></i></span><span class="m-cl"><b>市政务服务中心窗口</b><span class="m-cs">在办 6 件 · 临期 0 · 超期 0 · 3 日办结率 100%</span></span><span class="m-cv"><span class="m-tag green">0</span></span></div>
+        </div>
+        <div class="m-sect">超期件明细</div>
+        <div class="m-cells">
+          <a class="m-cell" href="approve-detail.html"><span class="m-ci red"><i class="fa-solid fa-circle-exclamation"></i></span><span class="m-cl"><b>RC2026-0902-0148　王××</b><span class="m-cs">受理 2026-09-02 · 应办结 2026-09-05 · 不动产核验不一致</span></span><span class="m-cv"><span class="m-tag red">超期 1 天</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+        </div>
+        <div class="m-note"><i class="fa-solid fa-circle-info"></i>
+          <div>完整时限台账与超期原因统计可在 PC 管理端<a href="../../modules/apply/timelimit-manage.html" style="color:var(--primary)">审核时限管理</a>查看。</div>
+        </div>
+      </div>
+      <div class="m-actbar">
+        <a class="m-btn primary block" href="approve-detail.html"><i class="fa-solid fa-arrow-right"></i> 处理超期件</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../../assets/js/mobile.js"></script>
+</body>
+</html>

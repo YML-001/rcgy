@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>预申请转化分析 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="leader" data-active="stat-16">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 统计分析
+      <span class="sep">/</span> 人才与配租分析
+      <span class="sep">/</span> <span class="cur">预申请转化分析</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>统计<b>应届生预申请数量、转正式申请比例与到期作废比例</b>，评估预申请机制效果。转正率是供需测算的关键参数。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-graduation-cap"></i></div>
+      <div><div class="s-label">累计预申请</div><div class="s-value">426</div>
+        <div class="s-trend text-2">人</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-arrow-up-right-dots"></i></div>
+      <div><div class="s-label">已转正</div><div class="s-value">146</div>
+        <div class="s-trend text-2">转正率 78.6%</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon red"><i class="fa-solid fa-ban"></i></div>
+      <div><div class="s-label">到期作废</div><div class="s-value">40</div>
+        <div class="s-trend ">作废率 21.4%</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-hourglass-half"></i></div>
+      <div><div class="s-label">在库锁定</div><div class="s-value">186</div>
+        <div class="s-trend text-2">待毕业补齐材料</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <h3><i class="fa-solid fa-graduation-cap"></i> 预申请转化</h3>
+      <span class="sub">S3-06 · 累计 426 人</span>
+    </div>
+    <div class="card-body">
+      <div class="section-title" data-icon="fa-chart-pie">转化结果（已到期 186 人）</div>
+      <div class="flex items-center gap-16">
+        <div class="donut" style="background:conic-gradient(var(--success) 0% 78.6%, var(--danger) 78.6% 100%)">
+          <div class="donut-hole"><b>78.6%</b><span class="text-sm">转正率</span></div>
+        </div>
+        <div class="legend" style="flex:1">
+          <div class="lg-item"><span class="lg-color" style="background:var(--success)"></span> 已转正式申请　146 人　78.6%</div>
+          <div class="lg-item"><span class="lg-color" style="background:var(--danger)"></span> 到期未补齐作废　40 人　21.4%</div>
+        </div>
+      </div>
+      <div class="section-title" data-icon="fa-chart-simple">按院校转化情况</div>
+      <div class="dc-bars">
+        <div class="b-item"><span class="b-label">湖南工业大学　186 人 · 转正 82.8%</span><span class="b-track"><span class="b-fill" style="width:82.8%"></span></span><span class="b-val">本地高校主力</span></div>
+        <div class="b-item"><span class="b-label">中南大学等省内高校　112 人 · 转正 79.5%</span><span class="b-track"><span class="b-fill" style="width:79.5%"></span></span><span class="b-val">省内跨市引才</span></div>
+        <div class="b-item"><span class="b-label">湖南中医药高等专科学校　68 人 · 转正 76.5%</span><span class="b-track"><span class="b-fill" style="width:76.5%"></span></span><span class="b-val"></span></div>
+        <div class="b-item warn"><span class="b-label">省外高校　60 人 · 转正 68.3%</span><span class="b-track"><span class="b-fill" style="width:68.3%"></span></span><span class="b-val">转正率偏低，需加强跟进</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="card list-card">
+    <div class="card-head">
+      <h3><i class="fa-solid fa-table-list"></i> 明细下钻</h3>
+      <span class="sub">可逐级下钻至明细清单</span>
+    </div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>统计维度</th><th class="cell-lg">分类</th><th>预申请人数</th><th>已转正</th><th>转正率</th><th>作废</th><th>作废率</th><th class="cell-lg">归因分析</th><th>下钻</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="badge blue">院校</span></td><td>湖南工业大学</td><td class="num">186</td><td class="num">72</td><td><span class="badge green">82.8%</span></td><td class="num">15</td><td><span class="badge orange">17.2%</span></td><td>本地高校留株意愿最强，转正率最高；作废主因是毕业后未在市城区就业</td><td><span class="link" onclick="location.href='../alloc/pre-upgrade.html'">预申请转正</span></td></tr>
+          <tr><td><span class="badge blue">院校</span></td><td>中南大学等省内高校</td><td class="num">112</td><td class="num">35</td><td><span class="badge green">79.5%</span></td><td class="num">9</td><td><span class="badge orange">20.5%</span></td><td>省内跨市引才效果良好；作废主因是选择长沙等其他城市就业</td><td><span class="link" onclick="location.href='../alloc/pre-upgrade.html'">预申请转正</span></td></tr>
+          <tr class="row-warn"><td><span class="badge blue">院校</span></td><td>省外高校</td><td class="num">60</td><td class="num">13</td><td><span class="badge orange">68.3%</span></td><td class="num">6</td><td><span class="badge red">31.7%</span></td><td><b>转正率最低</b>：省外学生对株洲了解有限，毕业后回原籍或去一线城市；建议加强校园宣讲与实习对接</td><td><span class="link" onclick="location.href='../rule/content-manage.html'">政策宣传内容</span></td></tr>
+          <tr><td><span class="badge red">作废原因</span></td><td>毕业后未在市城区就业创业</td><td class="num">22</td><td><span class="muted">—</span></td><td><span class="muted">—</span></td><td class="num">22</td><td><span class="badge red">55.0%</span></td><td>占作废总数 55%。属正常人才流动，非机制问题</td><td><span class="link" onclick="location.href='../../mobile/public/pre-expire.html'">预定资格作废</span></td></tr>
+          <tr><td><span class="badge red">作废原因</span></td><td>未按提醒补齐材料</td><td class="num">12</td><td><span class="muted">—</span></td><td><span class="muted">—</span></td><td class="num">12</td><td><span class="badge orange">30.0%</span></td><td>占作废总数 30%。已履行 90/30/7 天三级提醒义务；建议增加电话提醒</td><td><span class="link" onclick="location.href='../../mobile/public/pre-remind.html'">材料补齐提醒</span></td></tr>
+          <tr><td><span class="badge green">合计</span></td><td><b>已到期 186 人</b></td><td class="num">186</td><td class="num">146</td><td><span class="badge green">78.6%</span></td><td class="num">40</td><td><span class="badge orange">21.4%</span></td><td>转正率 78.6% 作为<b>供需测算的关键参数</b>（预申请锁定名额 × 转正率）</td><td><span class="link" onclick="location.href='../house/house-forecast.html'">供需测算</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>转正率口径</b> 已转正人数 ÷ 已到期（毕业并达补齐截止）人数</span>
+    <span><b>测算用途</b> 转正率是房源供需测算的关键参数</span>
+    <span><b>政策依据</b> 管理办法第九条：未获得毕业证书之前可提交预申请</span>
+  </div>
+</main>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 8; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

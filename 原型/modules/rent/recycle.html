@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>退出房源回收 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="reviewer" data-active="rent-15">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 租金收缴与年审退出
+      <span class="sep">/</span> 年审续租与退出
+      <span class="sep">/</span> <span class="cur">退出房源回收</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>腾退完成后房源<b>自动转入维修或可配租状态</b>，按需投放下一配租批次，<b>缩短空置周期</b>。需修复的先转维修，复验合格后再投放。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-recycle"></i></div>
+      <div><div class="s-label">本年回收房源</div><div class="s-value">86</div>
+        <div class="s-trend text-2">套</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-house-circle-check"></i></div>
+      <div><div class="s-label">直接转可配租</div><div class="s-value">62</div>
+        <div class="s-trend text-2">占 72.1%</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+      <div><div class="s-label">转维修后投放</div><div class="s-value">24</div>
+        <div class="s-trend text-2">占 27.9%</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-clock"></i></div>
+      <div><div class="s-label">平均再投放间隔</div><div class="s-value">12.6 天</div>
+        <div class="s-trend text-success">↓ 缩短 4.2 天</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>房源编号</label><input type="text" placeholder="房源编号"></div>
+      <div class="filter-item"><label>原承租人</label><input type="text" placeholder="姓名"></div>
+      <div class="filter-item"><label>腾退原因</label><select data-dict="quitReason" data-ph="全部"></select></div>
+      <div class="filter-item"><label>回收后房态</label><select><option value="">全部</option><option>可配租</option><option>维修中</option><option>已冻结</option></select></div>
+      <div class="filter-item"><label>再投放批次</label><input type="text" placeholder="批次编号"></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>房源编号</th><th class="cell-lg">房源</th><th>原承租人</th><th>腾退原因</th><th>腾退完成日</th><th>验收结论</th><th>回收后房态</th><th>再投放批次</th><th>空置天数</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>FY-HT-CGT-05-0802</td><td>茨菇塘公寓 5 栋 0802</td><td>蒋志远</td><td><span class="badge red">违规清退</span></td><td>2026-08-20</td><td><span class="badge orange">需保洁与局部修补</span></td><td><span class="badge green">维修中→可配租</span></td><td>PZ2026-03</td><td class="num">16</td><td><span class="link" onclick="PMS.toast('2026-08-20 腾退验收后转维修（保洁 + 墙面修补），2026-09-05 复验合格转可配租，已纳入第 3 批投放')">回收记录</span></td></tr>
+          <tr><td>FY-TY-LYJY-03-0608</td><td>栗雨佳苑 3 栋 0608</td><td>谭建国</td><td><span class="badge blue">保障期届满</span></td><td>2026-04-10</td><td><span class="badge green">家电家具完好，房屋正常</span></td><td><span class="badge green">可配租</span></td><td>PZ2026-02</td><td class="num">8</td><td><span class="link" onclick="PMS.toast('2026-04-10 腾退验收合格直接转可配租，2026-04-18 纳入第 2 批投放')">回收记录</span></td></tr>
+          <tr class="row-warn"><td>FY-SF-QST-01-1204</td><td>清水塘新苑 1 栋 1204</td><td>黄××</td><td><span class="badge orange">离职离株</span></td><td><span class="muted">—</span></td><td><span class="badge gray">待验收</span></td><td><span class="badge orange">待腾退</span></td><td><span class="muted">—</span></td><td><span class="text-danger">已超期 21 天</span></td><td><span class="link" onclick="location.href='quit-manage.html'">腾退管理</span></td></tr>
+          <tr class="row-warn"><td>FY-TY-LYJY-03-0904</td><td>栗雨佳苑 3 栋 0904</td><td>周宇轩</td><td><span class="badge orange">离职离株</span></td><td><span class="muted">—</span></td><td><span class="badge gray">待验收</span></td><td><span class="badge orange">待腾退</span></td><td><span class="muted">—</span></td><td class="num">—</td><td><span class="link" onclick="location.href='quit-manage.html'">腾退管理</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>回收规则</b> 验收合格直接转可配租；需修复的先转维修，复验合格后投放</span>
+    <span><b>空置治理</b> 平均再投放间隔 12.6 天，缩短空置周期</span>
+    <span><b>房态联动</b> <span class="link" onclick="location.href='../house/house-status-map.html'">房态图管理</span></span>
+  </div>
+</main>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 86; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

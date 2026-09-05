@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>分账核算 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="keeper" data-active="rent-02">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 租金收缴与年审退出
+      <span class="sep">/</span> 租金与费用
+      <span class="sep">/</span> <span class="cur">分账核算</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>按合同<b>自动拆分财政补助金额与租户个人应缴金额</b>，两部分<b>分别形成台账</b>。财政补助台账作为财政拨付补助资金的依据；经办与复核岗位分设。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-scale-balanced"></i></div>
+      <div><div class="s-label">本月应收租金</div><div class="s-value">1,286,400.00</div>
+        <div class="s-trend text-2">元 · 1,286 份合同</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+      <div><div class="s-label">财政补助</div><div class="s-value">842,760.00</div>
+        <div class="s-trend text-2">占 65.5%</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-user"></i></div>
+      <div><div class="s-label">个人自付</div><div class="s-value">443,640.00</div>
+        <div class="s-trend text-2">占 34.5%</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-hourglass-half"></i></div>
+      <div><div class="s-label">待财政复核</div><div class="s-value">1</div>
+        <div class="s-trend ">2026-08 台账</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>台账期间</label><input type="month"></div>
+      <div class="filter-item"><label>楼盘</label><input type="text" placeholder="楼盘名称"></div>
+      <div class="filter-item"><label>运营机构</label><input type="text" placeholder="机构名称"></div>
+      <div class="filter-item"><label>复核状态</label><select><option value="">全部</option><option>待复核</option><option>已复核</option><option>已拨付</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>台账编号</th><th>台账期间</th><th class="cell-lg">楼盘</th><th>合同数</th><th>应收租金总额</th><th>财政补助</th><th>个人自付</th><th>经办人</th><th>复核人</th><th>状态</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr class="row-warn"><td>FZ2026-08-001</td><td>2026-08</td><td>全部楼盘（汇总）</td><td class="num">1,286</td><td class="num">1,286,400.00</td><td class="num">842,760.00</td><td class="num">443,640.00</td><td>罗湘</td><td><span class="muted">—</span></td><td><span class="badge orange">待复核</span></td><td><span class="link" onclick="PMS.openDrawer('fzDrawer')">提交复核</span></td></tr>
+          <tr><td>FZ2026-07-001</td><td>2026-07</td><td>全部楼盘（汇总）</td><td class="num">1,242</td><td class="num">1,242,180.00</td><td class="num">814,062.00</td><td class="num">428,118.00</td><td>罗湘</td><td>曾国华</td><td><span class="badge green">已拨付</span></td><td><span class="link" onclick="PMS.toast('2026-08-12 财政拨付补助资金 814,062.00 元至运营机构账户')">拨付记录</span></td></tr>
+          <tr><td>FZ2026-08-002</td><td>2026-08</td><td>湘江1958 人才公寓</td><td class="num">472</td><td class="num">472,860.00</td><td class="num">331,002.00</td><td class="num">141,858.00</td><td>罗湘</td><td><span class="muted">—</span></td><td><span class="badge orange">待复核</span></td><td><span class="link" onclick="PMS.openDrawer('fzDrawer')">提交复核</span></td></tr>
+          <tr><td>FZ2026-08-003</td><td>2026-08</td><td>栗雨佳苑人才公寓</td><td class="num">232</td><td class="num">201,318.00</td><td class="num">140,922.60</td><td class="num">60,395.40</td><td>罗湘</td><td><span class="muted">—</span></td><td><span class="badge orange">待复核</span></td><td><span class="link" onclick="PMS.openDrawer('fzDrawer')">提交复核</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>计费依据</b> 按合同要素台账（计租面积 × 租金标准 × 减免比例）自动拆分</span>
+    <span><b>岗位控制</b> 经办（租金核算员）、复核（财政审核员）、审批（分管领导）三岗分设</span>
+    <span><b>拨付依据</b> 财政补助台账作为财政拨付补助资金的依据</span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="fzDrawer">
+  <div class="drawer-head">
+    <h3>分账台账提交复核</h3>
+    <span class="badge orange">待复核</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>资金业务实行<b>经办、复核、审批岗位分设</b>，<b>同一人不得跨岗操作同一笔资金业务</b>。提交后转财政审核员复核。</div>
+  </div>
+
+      <div class="form-grid form-align">
+        <div class="form-item">
+          <label>台账编号 <span class="req">*</span></label>
+          <input type="text" value="FZ2026-08-001" readonly>
+        </div>
+        <div class="form-item">
+          <label>台账期间 <span class="req">*</span></label>
+          <input type="text" value="2026-08" readonly>
+        </div>
+        <div class="form-item">
+          <label>合同数 <span class="req">*</span></label>
+          <input type="text" value="1286" readonly>
+        </div>
+        <div class="form-item">
+          <label>应收租金总额（元） <span class="req">*</span></label>
+          <input type="text" value="1,286,400.00" readonly>
+        </div>
+        <div class="form-item">
+          <label>财政补助金额（元） <span class="req">*</span></label>
+          <input type="text" value="842,760.00" readonly>
+          <div class="hint">按各合同减免比例加权计算</div>
+        </div>
+        <div class="form-item">
+          <label>个人自付金额（元） <span class="req">*</span></label>
+          <input type="text" value="443,640.00" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>核算说明 <span class="req">*</span></label>
+          <textarea rows="3">按 1,286 份在租合同的计租面积与减免比例逐笔计算并汇总。其中湘江1958、栗雨佳苑减免 70%，茨菇塘公寓减免 65%，董家塅安居苑减免 68%。已核对合同要素台账，无差异。</textarea>
+        </div>
+        <div class="form-item col-full">
+          <label>附件 <span class="req">*</span></label>
+          <input type="text" data-upload="1">
+          <div class="hint">分账明细表（逐合同）</div>
+        </div>
+      </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认提交 2026-08 分账台账复核？经办人与复核人不得为同一人。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已提交，待财政审核员复核','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 48; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

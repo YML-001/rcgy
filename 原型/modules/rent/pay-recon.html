@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>翼支付收缴与对账 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="keeper" data-active="rent-05">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 租金收缴与年审退出
+      <span class="sep">/</span> 租金与费用
+      <span class="sep">/</span> <span class="cur">翼支付收缴对账</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>对接<b>电信翼支付</b>完成线上收缴并自动核销账单，<b>逐日对账并生成差错清单</b>，按楼盘、运营机构、缴费周期统计收缴率与到账情况。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-mobile-screen-button"></i></div>
+      <div><div class="s-label">本月收缴笔数</div><div class="s-value">2,486</div>
+        <div class="s-trend text-2">含租金与代收项</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
+      <div><div class="s-label">实收金额</div><div class="s-value">1,203,180.00</div>
+        <div class="s-trend text-2">收缴率 93.5%</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-right-left"></i></div>
+      <div><div class="s-label">对账一致</div><div class="s-value">2,483</div>
+        <div class="s-trend text-2">占 99.9%</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon red"><i class="fa-solid fa-triangle-exclamation"></i></div>
+      <div><div class="s-label">对账差错</div><div class="s-value">3</div>
+        <div class="s-trend ">流水未匹配账单</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>对账日期</label><input type="date"></div>
+      <div class="filter-item"><label>支付流水号</label><input type="text" placeholder="流水号"></div>
+      <div class="filter-item"><label>账单编号</label><input type="text" placeholder="账单编号"></div>
+      <div class="filter-item"><label>对账结果</label><select><option value="">全部</option><option>一致</option><option>流水未匹配账单</option><option>账单未收到流水</option><option>金额不一致</option></select></div>
+      <div class="filter-item"><label>处理状态</label><select><option value="">全部</option><option>待处理</option><option>已核销</option><option>已退款</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>对账编号</th><th>对账日期</th><th>支付流水号</th><th>账单编号</th><th>承租人</th><th>流水金额</th><th>账单金额</th><th class="cell-lg">差错说明</th><th>对账结果</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr class="row-bad"><td>DZ2026-09-04-001</td><td>2026-09-04</td><td>YZF20260904163218</td><td><span class="muted">—</span></td><td>肖梦洁</td><td class="num">284.04</td><td><span class="muted">—</span></td><td>翼支付到账流水未匹配到账单：支付时选择的账单已被前次支付核销，系重复支付，须办理退款</td><td><span class="badge red">流水未匹配</span></td><td><span class="link" onclick="PMS.openDrawer('dzDrawer')">处理</span></td></tr>
+          <tr class="row-bad"><td>DZ2026-09-04-002</td><td>2026-09-04</td><td>YZF20260904174602</td><td><span class="muted">—</span></td><td>龙××</td><td class="num">260.28</td><td><span class="muted">—</span></td><td>流水备注的账单编号格式错误（多一位字符），系统无法匹配，须人工指定账单后核销</td><td><span class="badge red">流水未匹配</span></td><td><span class="link" onclick="PMS.openDrawer('dzDrawer')">处理</span></td></tr>
+          <tr class="row-warn"><td>DZ2026-09-04-003</td><td>2026-09-04</td><td>YZF20260904191426</td><td>ZD2026-09-00386</td><td>李子康</td><td class="num">233.00</td><td class="num">233.28</td><td>金额不一致：少缴 0.28 元（疑为支付时手工输入金额），须补缴或按尾差处理</td><td><span class="badge orange">金额不一致</span></td><td><span class="link" onclick="PMS.openDrawer('dzDrawer')">处理</span></td></tr>
+          <tr><td>DZ2026-09-05-001</td><td>2026-09-05</td><td>YZF20260905094218</td><td>ZD2026-09-00862</td><td>王梓涵</td><td class="num">284.04</td><td class="num">284.04</td><td><span class="muted">—</span></td><td><span class="badge green">一致</span></td><td><span class="link" onclick="PMS.toast('2026-09-05 09:42:20 自动核销，缴费凭证已归档，可申领电子票据')">核销记录</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>对账周期</b> 逐日对账（每日 03:00），生成差错清单转人工核实</span>
+    <span><b>支付通道</b> 电信翼支付平台，支付结果实时回写核销状态</span>
+    <span><b>统计维度</b> 按楼盘、运营机构、缴费周期统计收缴率与到账情况</span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="dzDrawer">
+  <div class="drawer-head">
+    <h3>对账差错处理</h3>
+    <span class="badge red">差错</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+  <div class="alert alert-danger">
+    <i class="fa-solid fa-circle-exclamation"></i>
+    <div>对账差错须<b>人工核实并处理</b>。重复支付的办理退款；流水未匹配的人工指定账单核销；金额不一致的补缴或按尾差处理。处理结果全程留痕。</div>
+  </div>
+
+      <div class="form-grid form-align">
+        <div class="form-item">
+          <label>对账编号 <span class="req">*</span></label>
+          <input type="text" value="DZ2026-09-04-001" readonly>
+        </div>
+        <div class="form-item">
+          <label>支付流水号 <span class="req">*</span></label>
+          <input type="text" value="YZF20260904163218" readonly>
+        </div>
+        <div class="form-item">
+          <label>流水金额（元） <span class="req">*</span></label>
+          <input type="text" value="284.04" readonly>
+        </div>
+        <div class="form-item">
+          <label>差错类型 <span class="req">*</span></label>
+          <input type="text" value="流水未匹配账单（疑重复支付）" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>处理方式 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>办理退款</option><option>人工指定账单核销</option><option>补缴差额</option><option>按尾差核销</option><option>转人工再核实</option></select>
+        </div>
+        <div class="form-item col-full">
+          <label>指定账单编号</label>
+          <input type="text" placeholder="选择人工核销时必填">
+        </div>
+        <div class="form-item col-full">
+          <label>处理说明 <span class="req">*</span></label>
+          <textarea rows="4">经核实，该笔流水为承租人肖梦洁于 2026-09-04 16:32 重复支付 2026-09 租金。原账单 ZD2026-09-00228 已于 2026-09-04 10:18 由前次支付（流水 YZF20260904101812）核销完毕。本笔属重复支付，办理原路退款 284.04 元至翼支付账户。</textarea>
+        </div>
+      </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认按「办理退款」处理该笔对账差错？退款 284.04 元。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已处理并留痕，退款将原路退回翼支付账户','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 2486; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

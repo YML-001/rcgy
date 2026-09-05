@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>全过程留痕与电子档案 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="reviewer" data-active="apply-21">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 人才档案与资格联审
+      <span class="sep">/</span> 资格受理与复核
+      <span class="sep">/</span> <span class="cur">全过程电子档案</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="SP.dual('批量导出含身份证号等敏感字段，需授权并全程留痕。导出任务将由系统管理员审批。')"><i class="fa-solid fa-download"></i> 批量导出归档</button>
+    </div>
+  </div>
+
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>将<b>每一次提交、修改、驳回、补材料</b>的操作与材料影像、核验报告、审批意见归入电子档案，支持<b>回溯查阅与批量导出归档</b>，满足审计与督查要求。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-box-archive"></i></div>
+      <div><div class="s-label">电子档案</div><div class="s-value">3,246</div>
+        <div class="s-trend text-2">一件一档</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-clock-rotate-left"></i></div>
+      <div><div class="s-label">留痕条数</div><div class="s-value">38,952</div>
+        <div class="s-trend text-2">平均 12 条/件</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-images"></i></div>
+      <div><div class="s-label">材料影像</div><div class="s-value">8,462</div>
+        <div class="s-trend text-2">带水印存储</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-download"></i></div>
+      <div><div class="s-label">本月导出归档</div><div class="s-value">186</div>
+        <div class="s-trend text-2">需授权并留痕</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>档案编号</label><input type="text" placeholder="档案编号"></div>
+      <div class="filter-item"><label>申请编号</label><input type="text" placeholder="申请编号"></div>
+      <div class="filter-item"><label>申请人</label><input type="text" placeholder="姓名"></div>
+      <div class="filter-item"><label>档案状态</label><select><option value="">全部</option><option>已归档</option><option>在办（暂存）</option></select></div>
+      <div class="filter-item"><label>归档日期</label><input type="date"></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>档案编号</th><th>申请编号</th><th>申请人</th><th>申请类型</th><th class="num">留痕条数</th><th class="num">材料影像</th><th>核验报告</th><th>审核结论</th><th>归档时间</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>DZ2026-RC-0162</td><td>RC2026-0903-0162</td><td>王梓涵</td><td><span class="badge blue">就业</span></td><td class="num">12</td><td class="num">2</td><td><span class="badge green">已归入</span></td><td><span class="badge green">审核通过</span></td><td>2026-09-05 09:15</td><td><span class="link" onclick="location.href='archive-detail.html?id=DZ2026-RC-0162'">查阅</span></td></tr>
+          <tr><td>DZ2026-RC-0148</td><td>RC2026-0902-0148</td><td>王志远</td><td><span class="badge blue">就业</span></td><td class="num">14</td><td class="num">5</td><td><span class="badge green">已归入</span></td><td><span class="badge red">不予通过</span></td><td>2026-09-06 09:19</td><td><span class="link" onclick="location.href='archive-detail.html?id=DZ2026-RC-0148'">查阅</span></td></tr>
+          <tr class="row-warn"><td>DZ2026-RC-0171</td><td>RC2026-0903-0171</td><td>周宇轩</td><td><span class="badge blue">就业</span></td><td class="num">9</td><td class="num">3</td><td><span class="badge green">已归入</span></td><td><span class="badge orange">退回补正</span></td><td><span class="muted">在办暂存</span></td><td><span class="link" onclick="location.href='archive-detail.html?id=DZ2026-RC-0171'">查阅</span></td></tr>
+          <tr><td>DZ2026-RC-0086</td><td>RC2026-0812-0086</td><td>彭立军</td><td><span class="badge blue">就业</span></td><td class="num">18</td><td class="num">4</td><td><span class="badge green">已归入</span></td><td><span class="badge green">审核通过</span></td><td>2026-08-18 14:26</td><td><span class="link" onclick="location.href='archive-detail.html?id=DZ2026-RC-0086'">查阅</span></td></tr>
+          <tr class="row-bad"><td>DZ2025-RC-1206</td><td>RC2025-0418-1206</td><td>蒋志远</td><td><span class="badge blue">就业</span></td><td class="num">26</td><td class="num">8</td><td><span class="badge green">已归入</span></td><td><span class="badge red">违规清退</span></td><td>2026-08-16 16:42</td><td><span class="link" onclick="location.href='archive-detail.html?id=DZ2025-RC-1206'">查阅</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>归档内容</b> 操作留痕 + 材料影像 + 核验报告 + 审批意见 + 告知书</span>
+    <span><b>保留期限</b> 长期留存，日志不可篡改</span>
+    <span><b>导出控制</b> 含敏感字段的导出需授权并全程留痕</span>
+  </div>
+</main>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 3246; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

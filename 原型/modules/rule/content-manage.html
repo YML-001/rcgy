@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>政策宣传内容管理 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="manager" data-active="rule-01">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 信息公开与规则配置
+      <span class="sep">/</span> 信息公开与公示
+      <span class="sep">/</span> <span class="cur">政策宣传内容管理</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.openDrawer('nrDrawer')"><i class="fa-solid fa-plus"></i> 新增内容</button>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>统一编辑并发布<b>政策解读、办事指南、常见问题</b>至<b>湘易办与「株洲人才」公众号</b>。内容变更后自动同步至移动端政策专区展示。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-file-lines"></i></div>
+      <div><div class="s-label">在发内容</div><div class="s-value">26</div>
+        <div class="s-trend text-2">条</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-mobile-screen-button"></i></div>
+      <div><div class="s-label">湘易办已同步</div><div class="s-value">26</div>
+        <div class="s-trend text-2">全部</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-comment"></i></div>
+      <div><div class="s-label">公众号已同步</div><div class="s-value">24</div>
+        <div class="s-trend text-2">占 92.3%</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-triangle-exclamation"></i></div>
+      <div><div class="s-label">待更新</div><div class="s-value">2</div>
+        <div class="s-trend ">政策调整后需复核</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>内容编号</label><input type="text" placeholder="内容编号"></div>
+      <div class="filter-item"><label>标题</label><input type="text" placeholder="关键词"></div>
+      <div class="filter-item"><label>内容类型</label><select><option value="">全部</option><option>政策原文</option><option>政策解读</option><option>一图读懂</option><option>办事指南</option><option>常见问题</option></select></div>
+      <div class="filter-item"><label>发布渠道</label><select><option value="">全部</option><option>湘易办</option><option>株洲人才公众号</option><option>两者</option></select></div>
+      <div class="filter-item"><label>内容状态</label><select><option value="">全部</option><option>在发</option><option>待发布</option><option>待更新</option><option>已下架</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>内容编号</th><th class="cell-lg">标题</th><th>内容类型</th><th>发布渠道</th><th>阅读量</th><th>编辑人</th><th>发布时间</th><th>状态</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>NR2026-0086</td><td>《株洲市城区创业就业青年人才住房保障管理办法》（征求意见稿）</td><td><span class="badge orange">政策原文</span></td><td>湘易办 + 公众号</td><td class="num">18,462</td><td>贺文斌</td><td>2026-08-12 09:00</td><td><span class="badge green">在发</span></td><td><span class="link" onclick="PMS.openDrawer('nrDrawer')">编辑</span></td></tr>
+          <tr><td>NR2026-0092</td><td>人才公寓政策一图读懂</td><td><span class="badge blue">一图读懂</span></td><td>湘易办 + 公众号</td><td class="num">26,842</td><td>贺文斌</td><td>2026-08-12 09:00</td><td><span class="badge green">在发</span></td><td><span class="link" onclick="PMS.openDrawer('nrDrawer')">编辑</span></td></tr>
+          <tr><td>NR2026-0104</td><td>人才公寓申请办事指南（全流程）</td><td><span class="badge cyan">办事指南</span></td><td>湘易办 + 公众号</td><td class="num">12,486</td><td>谭建军</td><td>2026-09-01 09:00</td><td><span class="badge green">在发</span></td><td><span class="link" onclick="PMS.openDrawer('nrDrawer')">编辑</span></td></tr>
+          <tr class="row-warn"><td>NR2026-0118</td><td>创业青年人才申请常见问题解答</td><td><span class="badge blue">常见问题</span></td><td>仅湘易办</td><td class="num">4,286</td><td>刘志刚</td><td>2026-06-08 14:26</td><td><span class="badge orange">待更新</span></td><td><span class="link" onclick="PMS.openDrawer('nrDrawer')">编辑</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>发布渠道</b> 湘易办服务页面 + 「株洲人才」微信公众号</span>
+    <span><b>同步机制</b> 内容变更后自动同步至移动端政策专区展示</span>
+    <span><b>知识库联动</b> <span class="link" onclick="location.href='../ops/kb-list.html'">知识库维护</span></span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="nrDrawer">
+  <div class="drawer-head">
+    <h3>政策宣传内容编辑</h3>
+    <span class="badge orange">待更新</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>内容须<b>写清申请门槛、所需材料、租金减免标准与办理时限</b>。发布后自动同步至<b>湘易办与公众号</b>。</div>
+  </div>
+
+      <div class="form-grid form-align">
+        <div class="form-item">
+          <label>内容编号 <span class="req">*</span></label>
+          <input type="text" value="NR2026-0118" readonly>
+        </div>
+        <div class="form-item">
+          <label>内容类型 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>政策原文</option><option>政策解读</option><option>一图读懂</option><option>办事指南</option><option>常见问题</option></select>
+        </div>
+        <div class="form-item col-full">
+          <label>标题 <span class="req">*</span></label>
+          <input type="text" value="创业青年人才申请常见问题解答">
+        </div>
+        <div class="form-item col-full">
+          <label>发布渠道 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>湘易办 + 株洲人才公众号</option><option>仅湘易办</option><option>仅公众号</option></select>
+        </div>
+        <div class="form-item col-full">
+          <label>正文 <span class="req">*</span></label>
+          <textarea rows="6">一、我刚注册公司多久可以申请？
+只要您已取得全日制大专及以上学历且在毕业 2 年内，作为法定代表人或经营者在市城区首次登记注册创业企业或个体工商户，即可申请，无注册时长门槛。
+
+二、企业还没纳税可以申请吗？
+系统会核验企业纳税申报与实际缴税情况，以筛除只注册但无实际经营纳税的空壳企业。无纳税记录的将转人工核实，需补充经营场所租赁凭证、业务合同、银行流水等实际经营凭证。具体判定口径待市税务局明确后公布。
+
+三、注册在渌口区可以申请吗？
+不可以。本办法适用于市城区（不含渌口区）范围，注册地须在市城区。渌口区可参照本办法制定具体实施细则。</textarea>
+        </div>
+        <div class="form-item col-full">
+          <label>关联政策条款 <span class="req">*</span></label>
+          <input type="text" value="第二条、第三条">
+        </div>
+        <div class="form-item col-full">
+          <label>配图 / 长图</label>
+          <input type="text" data-upload="1">
+        </div>
+        <div class="form-item col-full">
+          <label>更新说明 <span class="req">*</span></label>
+          <textarea rows="2" placeholder="必填，说明本次更新内容"></textarea>
+        </div>
+      </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认发布该内容并同步至湘易办与公众号？',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已发布并同步至湘易办、公众号与知识库','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 26; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

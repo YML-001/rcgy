@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>用户与登录分析 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="admin" data-active="stat-28">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 统计分析
+      <span class="sep">/</span> 系统运行与用户
+      <span class="sep">/</span> <span class="cur">用户与登录分析</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>统计<b>人才侧与政务侧的用户量、活跃度、登录渠道分布</b>，评估<b>湘易办入口的实际使用情况</b>。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-users"></i></div>
+      <div><div class="s-label">人才侧用户</div><div class="s-value">12,486</div>
+        <div class="s-trend text-2">湘易办自动建档</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-user-shield"></i></div>
+      <div><div class="s-label">政务侧账号</div><div class="s-value">246</div>
+        <div class="s-trend text-2">在册</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-mobile-screen-button"></i></div>
+      <div><div class="s-label">湘易办占比</div><div class="s-value">86.4%</div>
+        <div class="s-trend text-2">人才侧登录</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-chart-line"></i></div>
+      <div><div class="s-label">月活跃率</div><div class="s-value">42.6%</div>
+        <div class="s-trend text-2">人才侧</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <h3><i class="fa-solid fa-mobile-screen-button"></i> 用户与渠道</h3>
+      <span class="sub">S6-01 · 人才侧入口固定为湘易办</span>
+    </div>
+    <div class="card-body">
+      <div class="section-title" data-icon="fa-chart-pie">人才侧登录渠道分布</div>
+      <div class="flex items-center gap-16">
+        <div class="donut" style="background:conic-gradient(var(--primary) 0% 86.4%, var(--success) 86.4% 96.2%, var(--info) 96.2% 100%)">
+          <div class="donut-hole"><b>12,486</b><span class="text-sm">人才侧用户</span></div>
+        </div>
+        <div class="legend" style="flex:1">
+          <div class="lg-item"><span class="lg-color" style="background:var(--primary)"></span> 湘易办小程序 / APP　10,788 人　86.4%</div>
+          <div class="lg-item"><span class="lg-color" style="background:var(--success)"></span> 株洲人才微信公众号　1,224 人　9.8%</div>
+          <div class="lg-item"><span class="lg-color" style="background:var(--info)"></span> 政务窗口代办　474 人　3.8%</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card list-card">
+    <div class="card-head">
+      <h3><i class="fa-solid fa-table-list"></i> 明细下钻</h3>
+      <span class="sub">可逐级下钻至明细清单</span>
+    </div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>统计维度</th><th class="cell-lg">分类</th><th>用户数</th><th>占比</th><th>月活跃</th><th>活跃率</th><th class="cell-lg">口径说明</th><th>下钻</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="badge blue">人才侧</span></td><td>湘易办小程序 / APP</td><td class="num">10,788</td><td><span class="badge blue">86.4%</span></td><td class="num">4,862</td><td><span class="badge green">45.1%</span></td><td>人才侧<b>固定办事入口</b>；实名信息自动授权登录，无需注册</td><td><span class="link" onclick="location.href='../../mobile/public/login-entry.html'">湘易办统一入口</span></td></tr>
+          <tr><td><span class="badge blue">人才侧</span></td><td>株洲人才微信公众号</td><td class="num">1,224</td><td><span class="badge blue">9.8%</span></td><td class="num">428</td><td><span class="badge green">35.0%</span></td><td>承担政策宣传与配租公告；同时提供一条登录入口</td><td><span class="link" onclick="location.href='../rule/content-manage.html'">政策宣传内容管理</span></td></tr>
+          <tr><td><span class="badge blue">人才侧</span></td><td>政务窗口代办</td><td class="num">474</td><td><span class="badge green">3.8%</span></td><td class="num">186</td><td><span class="badge green">39.2%</span></td><td>兜底代办，主要服务无智能手机或操作不便的申请人</td><td><span class="link" onclick="location.href='../apply/pool-list.html'">多渠道件池</span></td></tr>
+          <tr><td><span class="badge cyan">政务侧</span></td><td>政务网统一身份认证</td><td class="num">186</td><td><span class="badge cyan">75.6%</span></td><td class="num">168</td><td><span class="badge green">90.3%</span></td><td>工作人员免密登录，为推荐方式</td><td><span class="link" onclick="location.href='../system/sys-loginlog.html'">登录日志</span></td></tr>
+          <tr><td><span class="badge cyan">政务侧</span></td><td>本系统账号密码</td><td class="num">60</td><td><span class="badge cyan">24.4%</span></td><td class="num">42</td><td><span class="badge green">70.0%</span></td><td>兜底登录方式；主要为运营机构与用人单位账号</td><td><span class="link" onclick="location.href='../system/sys-user.html'">用户账号管理</span></td></tr>
+          <tr><td><span class="badge green">合计</span></td><td><b>全部用户</b></td><td class="num">12,732</td><td><span class="badge green">100%</span></td><td class="num">5,686</td><td><span class="badge green">44.7%</span></td><td>人才侧 12,486 人（湘易办占 86.4%）+ 政务侧 246 人</td><td><span class="link" onclick="location.href='func-usage.html'">功能使用分析</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>人才侧口径</b> 湘易办实名信息自动建档的用户数，无需注册</span>
+    <span><b>活跃口径</b> 当月至少登录 1 次的用户数 ÷ 用户总数</span>
+    <span><b>渠道结论</b> 湘易办作为固定入口占比 86.4%，符合建设定位</span>
+  </div>
+</main>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 6; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

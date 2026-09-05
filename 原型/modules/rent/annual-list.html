@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>年审待审名单 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="reviewer" data-active="rent-11">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 租金收缴与年审退出
+      <span class="sep">/</span> 年审续租与退出
+      <span class="sep">/</span> 年度资格审查
+      <span class="sep">/</span> <span class="cur">待审名单</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.confirm({title:'批量操作确认',message:'确认批量通过 338 件四项均符合且承租人已确认的正常件？',detail:'批量操作将逐件写入年审结论并电子送达。异常件与未确认件不在本次范围内。',type:'warning',okText:'确认批量通过',onOk:function(){PMS.toast('已批量通过 338 件，结论已电子送达','success');}})"><i class="fa-solid fa-check"></i> 批量通过正常件</button>
+      <button class="btn" onclick="PMS.toast('已向 148 户未确认承租人推送年审确认提醒','success')"><i class="fa-solid fa-bullhorn"></i> 催办确认</button>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>本批次待审 <b>486 户</b>，系统已完成四项数据自动复核。<b>正常件支持批量通过</b>，异常件逐件人工核查并出具结论。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-users"></i></div>
+      <div><div class="s-label">本批次待审</div><div class="s-value">486</div>
+        <div class="s-trend text-2">NS2027-01</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
+      <div><div class="s-label">四项均符合</div><div class="s-value">424</div>
+        <div class="s-trend text-2">可批量通过</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-code-compare"></i></div>
+      <div><div class="s-label">异常件</div><div class="s-value">62</div>
+        <div class="s-trend ">需人工核查</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-paper-plane"></i></div>
+      <div><div class="s-label">承租人已确认</div><div class="s-value">338</div>
+        <div class="s-trend text-2">确认率 69.5%</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>承租人</label><input type="text" placeholder="姓名"></div>
+      <div class="filter-item"><label>合同编号</label><input type="text" placeholder="合同编号"></div>
+      <div class="filter-item"><label>楼盘</label><input type="text" placeholder="楼盘名称"></div>
+      <div class="filter-item"><label>异常项</label><select><option value="">全部</option><option>住房情况</option><option>就业情况</option><option>纳税情况</option><option>社保情况</option><option>欠费情况</option></select></div>
+      <div class="filter-item"><label>年审状态</label><select><option value="">全部</option><option>待承租人确认</option><option>待人工核查</option><option>已通过</option><option>已出异常结论</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>承租人</th><th>合同编号</th><th class="cell-lg">房源</th><th>住房</th><th>就业</th><th>纳税</th><th>社保</th><th>欠费</th><th>承租人确认</th><th>年审状态</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>王梓涵</td><td>RZ2026-00862</td><td>湘江1958 A6-1502</td><td><span class="badge green">符合</span></td><td><span class="badge green">符合</span></td><td><span class="badge green">符合</span></td><td><span class="badge green">符合</span></td><td><span class="badge green">无欠费</span></td><td><span class="badge green">已确认</span></td><td><span class="badge green">已通过</span></td><td><span class="link" onclick="PMS.toast('2027-01-08 年审通过：住房、就业、纳税、社保四项均符合，无欠费，房屋使用正常')">年审结论</span></td></tr>
+          <tr class="row-warn"><td>李子康</td><td>RZ2026-00386</td><td>湘江1958 A3-1108 主卧</td><td><span class="badge green">符合</span></td><td><span class="badge green">符合</span></td><td><span class="badge green">符合</span></td><td><span class="badge green">符合</span></td><td><span class="badge green">无欠费</span></td><td><span class="badge orange">待确认</span></td><td><span class="badge orange">待承租人确认</span></td><td><span class="link" onclick="PMS.toast('已推送年审确认提醒（截止前 7 天 / 3 天分级提醒）')">催办</span></td></tr>
+          <tr class="row-bad"><td>周宇轩</td><td>RZ2026-00518</td><td>栗雨佳苑 3-0904</td><td><span class="badge green">符合</span></td><td><span class="badge red">已离职</span></td><td><span class="badge red">无记录</span></td><td><span class="badge red">已停缴</span></td><td><span class="badge red">欠费 1 期</span></td><td><span class="badge green">已确认</span></td><td><span class="badge orange">待人工核查</span></td><td><span class="link" onclick="PMS.openDrawer('nlDrawer')">人工核查</span></td></tr>
+          <tr class="row-bad"><td>唐雅琴</td><td>RZ2026-00742</td><td>栗雨佳苑 3-1104</td><td><span class="badge green">符合</span></td><td><span class="badge red">已离职</span></td><td><span class="badge green">符合</span></td><td><span class="badge red">已停缴</span></td><td><span class="badge green">无欠费</span></td><td><span class="badge red">未确认</span></td><td><span class="badge orange">待人工核查</span></td><td><span class="link" onclick="PMS.openDrawer('nlDrawer')">人工核查</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>复核方式</b> 系统自动复核四项数据 + 欠费情况，异常件标注供人工核查</span>
+    <span><b>批量处理</b> 四项均符合且承租人已确认的正常件支持批量通过</span>
+    <span><b>移动端落点</b> <span class="link" onclick="location.href='../../mobile/public/review-form.html'">在线年审</span></span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="nlDrawer">
+  <div class="drawer-head">
+    <h3>年审人工核查</h3>
+    <span class="badge orange">待审</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+    <div class="sp-dual">
+      <i class="lead fa-solid fa-user-shield"></i>
+      <div>本环节按<b>不相容岗位控制</b>，经办人与复核人不得为同一自然人，全程留痕。</div>
+      <div class="who"><span class="muted">经办人</span><b>李慧敏</b></div>
+    </div>
+      <div class="form-grid form-align">
+        <div class="form-item col-full">
+          <label>审核结论 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>年审通过</option><option>转按市场租金续租</option><option>启动退出清退</option><option>退回补充说明</option></select>
+        </div>
+        <div class="form-item col-full">
+          <label>结论说明 <span class="req">*</span></label>
+          <textarea id="nlDrawerTxt" rows="4" placeholder="必填，不少于 10 字。说明对申请人完整可见">经人工核查，承租人已离职并停缴社保、当年无纳税记录且欠费 1 期，已不符合就业青年人才保障条件，按管理办法第十二条转按市场租金续租并限期结清欠费。</textarea>
+        </div>
+      </div>
+    <p class="hint" style="margin-top:12px"><i class="fa-solid fa-circle-info"></i> 结论提交后写入办件状态流水（含操作人、时间、IP 与前后值），可被审计追溯。</p>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="auditOk('nlDrawer','已出具年审结论并电子送达')"><i class="fa-solid fa-check"></i> 提交结论</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 486; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+<script>
+function auditOk(id, msg) {
+  var t = document.getElementById(id + 'Txt');
+  if (t && (t.value || '').trim().length < 10) {
+    PMS.toast('结论说明为必填且不少于 10 字', 'error'); t.focus(); return;
+  }
+  PMS.confirm({
+    title: '提交确认', message: '确认提交审核结论？',
+    detail: '提交后写入办件状态流水，结论将电子送达相关方，更正须走异常处理流程。',
+    type: 'warning', okText: '确认提交',
+    onOk: function () { PMS.closeDrawer(); PMS.toast(msg, 'success'); }
+  });
+}
+</script>
+</body>
+</html>

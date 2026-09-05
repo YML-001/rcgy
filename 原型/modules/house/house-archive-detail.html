@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>房源档案详情 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="housing" data-active="house-14">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 房源筹集与楼盘表
+      <span class="sep">/</span> 房源档案与房态
+      <span class="sep">/</span> 房源档案
+      <span class="sep">/</span> <span class="cur">档案详情</span>
+    </div>
+    <div class="page-actions">
+      <a class="btn" href="house-archive.html"><i class="fa-solid fa-arrow-left"></i> 返回</a>
+      <a class="btn" href="house-status-map.html"><i class="fa-solid fa-house-chimney"></i> 房态图</a>
+      <button class="btn btn-primary" onclick="SP.dual('房源冻结为高敏操作，需短信验证码二次确认。冻结期间不参与配租。')"><i class="fa-solid fa-lock"></i> 冻结房源</button>
+    </div>
+  </div>
+
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>本房源当前<b>在租</b>，承租人王梓涵，保障期至 2028-01-05（剩余 21 个月）。房源档案面积是<b>租金计费与减免核算的唯一取值来源</b>，面积变更须审批并全程留痕。</div>
+  </div>
+
+  <div class="card" data-tabs-scope>
+    <div class="tabs">
+      <div class="tab active" data-tab="basic">房源基本信息</div>
+      <div class="tab" data-tab="items">家电家具配置 <span class="badge green">28</span></div>
+      <div class="tab" data-tab="rent">配租与承租</div>
+      <div class="tab" data-tab="open">对外展示配置</div>
+    </div>
+    <div class="tab-panel active" data-panel="basic">
+      <div class="card-body">
+        <dl class="desc-list">
+          <div class="desc-item"><dt>房源编号</dt><dd>FY-TY-XJ-A6-1502</dd></div>
+          <div class="desc-item"><dt>房态</dt><dd><span class="sp-st done">在租</span></dd></div>
+          <div class="desc-item"><dt>项目</dt><dd>湘江1958 人才公寓</dd></div>
+          <div class="desc-item full"><dt>坐落</dt><dd>天元区泰山路 1958 号 A6 栋 1 单元 15 层 1502 室</dd></div>
+          <div class="desc-item"><dt>户型</dt><dd>一室一厅一卫一厨</dd></div>
+          <div class="desc-item"><dt>朝向</dt><dd>南</dd></div>
+          <div class="desc-item"><dt>楼层</dt><dd>15 / 26 层（有电梯）</dd></div>
+          <div class="desc-item"><dt>建筑面积</dt><dd>52.60 ㎡</dd></div>
+          <div class="desc-item"><dt>套内面积</dt><dd>41.80 ㎡</dd></div>
+          <div class="desc-item"><dt>分摊面积</dt><dd>10.80 ㎡</dd></div>
+          <div class="desc-item"><dt>管理模式</dt><dd><span class="badge blue">整套配租</span>　可配租 1 人</dd></div>
+          <div class="desc-item"><dt>装修标准</dt><dd><span class="badge green">精装 · 拎包入住</span></dd></div>
+          <div class="desc-item"><dt>来源渠道</dt><dd><span class="badge blue">收购存量商品房</span></dd></div>
+          <div class="desc-item full"><dt>产权信息</dt><dd>株洲市人才安居服务有限公司</dd></div>
+          <div class="desc-item"><dt>运营机构</dt><dd>株洲市人才安居服务有限公司</dd></div>
+          <div class="desc-item"><dt>租金标准</dt><dd>18.00 元/㎡·月</dd></div>
+        </dl>
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 租金与减免计费<span class="sub">R-R1 分账核算公式</span></div>
+          <div class="sp-b">
+            <div class="sp-fx">
+              <b>应缴租金总额</b>　= 计租面积 52.60 ㎡ × 租金标准 18.00 元/㎡·月 × 1 个月 = <b>946.80 元</b><br>
+              <b>财政补助</b>　= 946.80 × 减免比例 70% = <b>662.76 元</b><br>
+              <b>个人实际应缴</b>　= 946.80 − 662.76 = <b>284.04 元</b>
+            </div>
+        <div class="sp-kv">
+          <div class="kv"><span class="k">减免依据</span><span class="v">《湘江1958 人才公寓租金减免标准会商意见》（2025-12-18）</span></div>
+          <div class="kv"><span class="k">减免比例</span><span class="v">70%</span><span class="link" onclick="location.href='../rule/relief-rule.html'">减免配置</span></div>
+          <div class="kv"><span class="k">押金</span><span class="v">1,000.00 元</span></div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tab-panel" data-panel="items">
+      <div class="card-body">
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 配置清单<span class="sub">28 项 · 全部完好</span></div>
+          <div class="sp-b">
+  <div class="sp-tw">
+    <table class="data-table compact">
+      <thead><tr><th>区域</th><th class="cell-lg">配置项</th><th class="num">数量</th><th>状态</th></tr></thead>
+      <tbody>
+      <tr><td>客厅</td><td>沙发、茶几、餐桌椅、电视柜、55 吋液晶电视、窗帘、灯具</td><td class="num">7</td><td><span class="badge green">完好</span></td></tr>
+      <tr><td>卧室</td><td>床、床垫、床头柜、衣柜、书桌椅、空调、窗帘</td><td class="num">7</td><td><span class="badge green">完好</span></td></tr>
+      <tr><td>厨房</td><td>整体橱柜、油烟机、燃气灶、冰箱、微波炉、热水器</td><td class="num">6</td><td><span class="badge green">完好</span></td></tr>
+      <tr><td>卫生间</td><td>坐便器、淋浴、洗手台、镜柜、洗衣机</td><td class="num">5</td><td><span class="badge green">完好</span></td></tr>
+      <tr><td>其他</td><td>宽带接入、门禁卡（2 张）、烟感报警器</td><td class="num">3</td><td><span class="badge green">完好</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tab-panel" data-panel="rent">
+      <div class="card-body">
+        <dl class="desc-list">
+          <div class="desc-item"><dt>当前承租人</dt><dd>王梓涵</dd></div>
+          <div class="desc-item"><dt>合同编号</dt><dd>RZ2026-00862</dd></div>
+          <div class="desc-item"><dt>配租批次</dt><dd>2026 年第 3 批（PZ2026-03）</dd></div>
+          <div class="desc-item"><dt>入住日期</dt><dd>2026-01-06</dd></div>
+          <div class="desc-item"><dt>保障期止</dt><dd>2028-01-05</dd></div>
+          <div class="desc-item"><dt>剩余保障期</dt><dd>21 个月</dd></div>
+          <div class="desc-item"><dt>历史承租次数</dt><dd>1 次</dd></div>
+          <div class="desc-item"><dt>累计出租时长</dt><dd>3 个月</dd></div>
+        </dl>
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 房态变更留痕<span class="sub">P4-09 全程留痕</span></div>
+          <div class="sp-b">
+        <div class="timeline">
+          <div class="tl-item done"><div class="tl-dot"></div>
+            <div class="tl-title">纳入统一楼盘表</div>
+            <div class="tl-meta">唐凯 · 2025-11-22</div>
+            <div class="tl-desc">批量导入，房源编号 FY-TY-XJ-A6-1502。</div></div>
+          <div class="tl-item done"><div class="tl-dot"></div>
+            <div class="tl-title">拎包入住验收合格</div>
+            <div class="tl-meta">唐凯 · 2025-11-25</div>
+            <div class="tl-desc">装修与 28 项家电家具核验合格，置为可配租。</div></div>
+          <div class="tl-item done"><div class="tl-dot"></div>
+            <div class="tl-title">配租锁定</div>
+            <div class="tl-meta">系统 · 2026-09-12 10:32</div>
+            <div class="tl-desc">王梓涵在 2026 年第 3 批配租中选定并锁定。</div></div>
+          <div class="tl-item done"><div class="tl-dot"></div>
+            <div class="tl-title">已签约</div>
+            <div class="tl-meta">系统 · 2026-09-20 15:08</div>
+            <div class="tl-desc">电子租赁合同 RZ2026-00862 签署生效。</div></div>
+          <div class="tl-item done"><div class="tl-dot"></div>
+            <div class="tl-title">交付并转在租</div>
+            <div class="tl-meta">彭雪梅 · 2026-01-06 10:16</div>
+            <div class="tl-desc">交付验收单 JF2026-00862 双方签署，抄录表底数。</div></div>
+          <div class="tl-item"><div class="tl-dot"></div>
+            <div class="tl-title">在租中</div>
+            <div class="tl-meta">当前状态</div>
+            <div class="tl-desc">保障期至 2028-01-05。</div></div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tab-panel" data-panel="open">
+      <div class="card-body">
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 移动端展示<span class="sub">P4-12</span></div>
+          <div class="sp-b">
+        <div class="sp-kv">
+          <div class="kv"><span class="k">是否对外展示</span><span class="v"><span class="badge green">展示</span></span><span class="link" onclick="location.href='house-display.html'">展示配置</span></div>
+          <div class="kv"><span class="k">VR 素材</span><span class="v"><span class="badge green">已上传</span></span><span class="link" onclick="location.href='../../mobile/public/house-vr.html'">看 VR</span></div>
+          <div class="kv"><span class="k">实景照片</span><span class="v">6 张</span></div>
+          <div class="kv"><span class="k">户型图</span><span class="v"><span class="badge green">已上传</span></span></div>
+          <div class="kv"><span class="k">剩余套数同步</span><span class="v">实时同步，已锁定或已签约即时扣减</span></div>
+          <div class="kv"><span class="k">上架时间</span><span class="v">2025-11-25</span></div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>一房一码</b> 房源编号全局唯一，不可修改</span>
+    <span><b>留痕要求</b> 房态变更全程留痕，可回溯查阅</span>
+  </div>
+</main>
+
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

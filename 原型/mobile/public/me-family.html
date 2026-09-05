@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>我的家庭成员 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/mobile.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body class="m-body" data-mtitle="我的家庭成员" data-mmod="M2 个人中心" data-mcode="M2-07"
+      data-mdesc="维护配偶及家庭成员信息，作为无房核查与家庭共同申请的依据。" data-mback="me.html" data-mtabset="public" data-mtab="me">
+<div class="m-stage">
+  <div class="m-phone">
+    <div class="m-screen">
+      <div class="m-view">
+        <div class="m-note"><i class="fa-solid fa-circle-info"></i>
+          <div>家庭成员信息用于<b>无房核查</b>——系统将核查申请人及其家庭成员在市城区范围内的房产情况。已婚且夫妻双方均符合条件的可合并为一份<b>家庭申请</b>，只占用一套房源指标。</div>
+        </div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-people-roof"></i>当前家庭情况</div>
+          <div class="m-card-b">
+          <div class="m-kv">
+            <div><span>婚姻状况</span><span>未婚 <span class="m-tag green">民政系统核验</span></span></div>
+            <div><span>家庭成员数</span><span>0 人</span></div>
+            <div><span>无房核查范围</span><span>本人（市城区，不含渌口区）</span></div>
+            <div><span>可否家庭申请</span><span><span class="m-tag dark">否 · 未婚</span></span></div>
+          </div>
+          </div>
+        </div>
+        <div class="m-empty">
+          <i class="fa-solid fa-user-plus"></i>
+          <p>暂无家庭成员记录<br>婚姻状况为未婚，无需录入配偶信息</p>
+          <button class="m-btn ghost" type="button" data-sheet="addFamily"><i class="fa-solid fa-plus"></i> 添加家庭成员</button>
+        </div>
+        <div class="m-sect">家庭申请规则<span class="m-sect-x">R-C9 / 管理办法第十一条</span></div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-scale-balanced"></i>规则说明</div>
+          <div class="m-card-b">
+            <div class="m-check">
+              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>每人限申请一间（套）</b><span>每名创业就业青年人才仅限申请 1 间（套）人才住房</span></div></div>
+              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>家庭为单位共同申请</b><span>已婚且夫妻双方均符合申请条件的，可以以家庭为单位提交申请</span></div></div>
+              <div class="bad"><i class="fa-solid fa-circle-exclamation"></i><div class="m-chl"><b>只占用一套房源指标</b><span>合并为家庭申请后，夫妻双方合计只占用一套房源指标，不可分别申请两套</span></div></div>
+              <div class="bad"><i class="fa-solid fa-circle-exclamation"></i><div class="m-chl"><b>无房核查含家庭成员</b><span>申请人及其家庭成员在市城区范围内有自有住房的，不符合申请条件</span></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="m-actbar">
+        <button class="m-btn primary block" type="button" onclick="MB.sheet('addFamily')"><i class="fa-solid fa-plus"></i> 添加家庭成员</button>
+      </div>
+      <div class="m-sheet" id="addFamily">
+        <div class="m-sh-h"><i class="fa-solid fa-user-plus" style="color:var(--primary)"></i> 添加家庭成员<button class="m-sh-x" type="button"><i class="fa-solid fa-xmark"></i></button></div>
+        <div class="m-sh-b">
+        <div class="m-form">
+          <div class="m-fi">
+            <label>与本人关系 <span class="req">*</span></label>
+            <div class="m-fc"><select><option value="">请选择</option><option>配偶</option><option>子女</option><option>其他</option></select></div>
+          </div>
+          <div class="m-fi">
+            <label>姓名 <span class="req">*</span></label>
+            <div class="m-fc"><input type="text" placeholder="请输入姓名"></div>
+          </div>
+          <div class="m-fi">
+            <label>身份证号 <span class="req">*</span></label>
+            <div class="m-fc"><input type="text" placeholder="请输入身份证号"><div class="m-fh">将用于核查该成员名下不动产与保障历史</div></div>
+          </div>
+          <div class="m-fi">
+            <label>联系电话</label>
+            <div class="m-fc"><input type="tel" placeholder="请输入手机号"></div>
+          </div>
+        </div>
+        <div class="m-note warn"><i class="fa-solid fa-triangle-exclamation"></i>
+          <div>录入后系统将核查该成员在市城区范围内的<b>不动产登记记录</b>与<b>政策性住房承租记录</b>，核查结果影响申请资格。</div>
+        </div>
+        </div>
+        <div class="m-sh-f">
+        <button class="m-btn" type="button" onclick="MB.closeSheet()">取消</button>
+        <button class="m-btn primary" type="button" onclick="MB.validate('#addFamily')&&(MB.closeSheet(),MB.toast('已保存，系统正在核查该成员房产情况'))"><i class="fa-solid fa-check"></i> 保存</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../../assets/js/mobile.js"></script>
+</body>
+</html>

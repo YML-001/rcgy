@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>投诉建议 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/mobile.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body class="m-body" data-mtitle="投诉建议" data-mmod="M10 入住交付与租后服务" data-mcode="M10-05"
+      data-mdesc="对运营机构与物业服务提交投诉建议，可查看办理结果与回访情况。" data-mback="me.html" data-mtabset="public" data-mtab="me">
+<div class="m-stage">
+  <div class="m-phone">
+    <div class="m-screen">
+      <div class="m-view">
+        <div class="m-note"><i class="fa-solid fa-circle-info"></i>
+          <div>投诉建议将<b>分类登记、限时办结并开展回访</b>。办理结果与回访情况可在本页查看，办结时效纳入运营机构考核。</div>
+        </div>
+        <div class="m-form">
+          <div class="m-fi">
+            <label>投诉对象 <span class="req">*</span></label>
+            <div class="m-fc"><select><option value="">请选择</option><option>运营管理机构</option><option>物业服务</option><option>维修人员</option><option>其他</option></select></div>
+          </div>
+          <div class="m-fi">
+            <label>投诉类别 <span class="req">*</span></label>
+            <div class="m-fc"><select><option value="">请选择</option><option>报修不及时</option><option>维修质量差</option><option>服务态度问题</option><option>费用争议</option><option>公共区域卫生</option><option>安全隐患</option><option>其他</option></select></div>
+          </div>
+          <div class="m-fi">
+            <label>涉及房源 <span class="req">*</span></label>
+            <div class="m-fc"><input type="text" value="湘江1958 人才公寓 A6 栋 1502" readonly></div>
+          </div>
+          <div class="m-fi">
+            <label>关联工单</label>
+            <div class="m-fc"><input type="text" placeholder="如与某工单相关请填写工单号，选填"></div>
+          </div>
+          <div class="m-fi">
+            <label>投诉内容 <span class="req">*</span></label>
+            <div class="m-fc"><textarea rows="4" placeholder="请客观描述情况，不少于 10 字。包含时间、地点、涉及人员与具体问题">本栋楼道声控灯多处损坏，晚间上下楼漆黑存在安全隐患，已通过物业前台反映两次仍未修复，特此投诉并请尽快处理。</textarea></div>
+          </div>
+          <div class="m-fi">
+            <label>期望处理结果</label>
+            <div class="m-fc"><textarea rows="2" placeholder="选填">希望三日内完成楼道照明维修，并建立公共设施定期巡检机制，避免类似情况再次发生。</textarea></div>
+          </div>
+          <div class="m-fi">
+            <label>联系电话 <span class="req">*</span></label>
+            <div class="m-fc"><input type="tel" value="13802456207"><div class="m-fh">办理与回访将电话联系</div></div>
+          </div>
+          <div class="m-fi">
+            <label>是否匿名</label>
+            <div class="m-fc"><select data-dict="yesNo" data-ph="否"></select><div class="m-fh">匿名投诉不影响受理，但可能影响回访</div></div>
+          </div>
+        </div>
+        <div class="m-sect">我的历史投诉</div>
+        <div class="m-cells">
+          <div class="m-cell"><span class="m-ci green"><i class="fa-solid fa-circle-check"></i></span><span class="m-cl"><b>公共区域垃圾清运不及时</b><span class="m-cs">2026-06-18 提交 · 2026-06-20 办结 · 已回访</span></span><span class="m-cv"><span class="m-tag green">已办结</span></span></div>
+        </div>
+        <div class="m-sect">办理时效</div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-clock"></i>限时办结</div>
+          <div class="m-card-b">
+          <div class="m-kv">
+            <div><span>受理</span><span>提交后 1 个工作日内受理</span></div>
+            <div><span>办结</span><span>受理后 5 个工作日内办结</span></div>
+            <div><span>回访</span><span>办结后 3 个工作日内电话回访</span></div>
+            <div><span>超时处置</span><span>超时未办结的向责任机构<b>督办</b>并纳入考核扣分</span></div>
+            <div><span>考核关联</span><span>投诉办结时效为运营机构考核指标之一</span></div>
+          </div>
+          </div>
+        </div>
+      </div>
+      <div class="m-actbar">
+        <button class="m-btn primary block" type="button" onclick="MB.submit('.m-view','确认提交投诉建议？将由市住保中心分类登记并限时办结。','确认提交','me.html')"><i class="fa-solid fa-paper-plane"></i> 提交投诉建议</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../../assets/js/mobile.js"></script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>审批详情与核验报告 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/mobile.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body class="m-body" data-mtitle="审批详情" data-mmod="G1 移动审批" data-mcode="G1-01"
+      data-mdesc="查看申请材料影像与多部门数据核验报告，一键通过或驳回并选择驳回理由模板。" data-mback="approve-list.html" data-mtabset="gov" data-mtab="home">
+<div class="m-stage">
+  <div class="m-phone">
+    <div class="m-screen">
+      <div class="m-view">
+        <div class="m-note danger"><i class="fa-solid fa-circle-exclamation"></i>
+          <div>本件<b>不动产核验不一致</b>且已<b>超期 1 天</b>。请立即核实并出具结论，超期原因须记录。</div>
+        </div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-circle-info"></i>办件信息</div>
+          <div class="m-card-b">
+          <div class="m-kv">
+            <div><span>申请编号</span><span>RC2026-0902-0148</span></div>
+            <div><span>申请人</span><span>王××（430211********1826）</span></div>
+            <div><span>申请类型</span><span>就业青年人才</span></div>
+            <div><span>受理渠道</span><span>湘易办小程序</span></div>
+            <div><span>受理时间</span><span>2026-09-02 14:18</span></div>
+            <div><span>应办结</span><span><b style="color:var(--danger)">2026-09-05（超期 1 天）</b></span></div>
+            <div><span>就业单位</span><span>株洲硬质合金集团有限公司</span></div>
+            <div><span>初审人</span><span>周敏（天元区住房保障服务中心）</span></div>
+            <div><span>当前状态</span><span><span class="m-tag orange">待复核</span></span></div>
+          </div>
+          </div>
+        </div>
+        <div class="m-sect">多部门核验报告<span class="m-sect-x">8 项 / 1 项不一致</span></div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-shield-halved"></i>核验结果</div>
+          <div class="m-card-b">
+            <div class="m-check">
+              <div class="bad"><i class="fa-solid fa-circle-xmark"></i><div class="m-chl"><b>不动产登记核验 · 不一致</b><span>不动产登记系统查得<b>家庭成员（配偶）在天元区名下有 1 套住房</b>（建筑面积 96.40 ㎡，登记时间 2024-03-18），与申请人填报「无自有住房」不符。数据时间戳 2026-09-02 14:19</span></div>
+                <div class="co"><span class="m-tag red">一票否决</span></div></div>
+              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>婚姻登记核验 · 一致</b><span>民政系统：已婚，配偶 李××</span></div></div>
+              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>学历学位核验 · 一致</b><span>中南大学 全日制硕士 2025-06-30，在毕业 2 年内</span></div></div>
+              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>养老保险核验 · 一致</b><span>连续缴纳 14 个月，单位与劳动合同一致</span></div></div>
+              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>个人所得税核验 · 一致</b><span>连续缴纳 14 个月，在本地实际从业</span></div></div>
+              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>政策性住房核验 · 一致</b><span>未承租公租房、人才公寓、直管公房</span></div></div>
+              <div class="na"><i class="fa-solid fa-minus"></i><div class="m-chl"><b>工商登记核验 · 不适用</b><span>申请类型为就业青年人才，本项不参与判定</span></div></div>
+              <div class="na"><i class="fa-solid fa-clock"></i><div class="m-chl"><b>人脸核身 · 待关键节点触发</b><span>将在确认配租与电子签约环节触发</span></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="m-sect">申报材料<span class="m-sect-x">5 项</span></div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-folder-open"></i>材料影像</div>
+          <div class="m-card-b">
+            <div class="m-up">
+              <div class="m-uc ok"><img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=600&q=80" alt="身份证"><span class="m-uc-n">身份证.jpg</span></div>
+              <div class="m-uc ok"><img src="https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?w=600&q=80" alt="毕业证"><span class="m-uc-n">毕业证.jpg</span></div>
+              <div class="m-uc ok"><img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&q=80" alt="劳动合同"><span class="m-uc-n">劳动合同.pdf</span></div>
+              <div class="m-uc ok"><img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80" alt="结婚证"><span class="m-uc-n">结婚证.jpg</span></div>
+              <div class="m-uc ok"><img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80" alt="承诺书"><span class="m-uc-n">承诺书.pdf</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="m-sect">初审意见</div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-user-check"></i>城区初审</div>
+          <div class="m-card-b">
+          <div class="m-kv">
+            <div><span>初审人</span><span>周敏（天元区住房保障服务中心）</span></div>
+            <div><span>初审时间</span><span>2026-09-03 10:22</span></div>
+            <div><span>初审意见</span><span>材料影像与填报内容一致。<b>但不动产核验显示配偶名下有房，疑不符合第七条第二项，转市住保中心复核认定。</b></span></div>
+          </div>
+          </div>
+        </div>
+        <div class="m-note warn"><i class="fa-solid fa-triangle-exclamation"></i>
+          <div>按<b>不相容岗位控制</b>，初审人周敏与复核人不得为同一人。您（刘志刚）非本件初审人，可以复核。</div>
+        </div>
+      </div>
+      <div class="m-actbar">
+        <button class="m-btn w-auto" type="button" onclick="MB.toast('已转办给市住保中心资格审核科其他经办人')">转办</button>
+        <a class="m-btn primary" href="approve-action.html"><i class="fa-solid fa-stamp"></i> 出具结论</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../../assets/js/mobile.js"></script>
+</body>
+</html>

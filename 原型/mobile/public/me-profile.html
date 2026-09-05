@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>我的资料 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/mobile.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body class="m-body" data-mtitle="我的资料" data-mmod="M2 个人中心" data-mcode="M2-01"
+      data-mdesc="维护本人基本信息、联系方式、就业或创业单位信息，关键身份信息由实名认证结果带入不可随意修改。" data-mback="me.html" data-mtabset="public" data-mtab="me">
+<div class="m-stage">
+  <div class="m-phone">
+    <div class="m-screen">
+      <div class="m-view">
+        <div class="m-note"><i class="fa-solid fa-circle-info"></i>
+          <div>带<i class="fa-solid fa-lock"></i>标记的字段由<b>湘易办实名认证结果</b>与部门共享数据带入，不可修改；如有误请前往湘易办更正。</div>
+        </div>
+        <div class="m-sect">身份信息<span class="m-sect-x">实名带入</span></div>
+        <div class="m-form">
+          <div class="m-fi">
+            <label>姓名 <span class="req">*</span></label>
+            <div class="m-fc"><input type="text" value="王梓涵" readonly><div class="m-fh"><i class="fa-solid fa-lock"></i> 湘易办实名信息</div></div>
+          </div>
+          <div class="m-fi">
+            <label>身份证号 <span class="req">*</span></label>
+            <div class="m-fc"><input type="text" value="430211********2418" readonly><div class="m-fh"><i class="fa-solid fa-lock"></i> 脱敏展示，办理时系统调用明文</div></div>
+          </div>
+          <div class="m-fi">
+            <label>性别 <span class="req">*</span></label>
+            <div class="m-fc"><input type="text" value="男" readonly><div class="m-fh"><i class="fa-solid fa-lock"></i> 由身份证号推导</div></div>
+          </div>
+          <div class="m-fi">
+            <label>出生日期 <span class="req">*</span></label>
+            <div class="m-fc"><input type="text" value="2001-03-12" readonly><div class="m-fh"><i class="fa-solid fa-lock"></i> 由身份证号推导</div></div>
+          </div>
+        </div>
+        <div class="m-sect">学历信息<span class="m-sect-x">学信网核验</span></div>
+        <div class="m-form">
+          <div class="m-fi">
+            <label>最高学历 <span class="req">*</span></label>
+            <div class="m-fc"><input type="text" value="全日制本科" readonly><div class="m-fh"><i class="fa-solid fa-lock"></i> 学信网核验结果</div></div>
+          </div>
+          <div class="m-fi">
+            <label>毕业院校</label>
+            <div class="m-fc"><input type="text" value="湖南工业大学" readonly></div>
+          </div>
+          <div class="m-fi">
+            <label>专业</label>
+            <div class="m-fc"><input type="text" value="电气工程及其自动化" readonly></div>
+          </div>
+          <div class="m-fi">
+            <label>毕业时间 <span class="req">*</span></label>
+            <div class="m-fc"><input type="text" value="2025-07-01" readonly><div class="m-fh">距毕业 2 年期满还有 10 个月</div></div>
+          </div>
+        </div>
+        <div class="m-sect">联系方式与单位<span class="m-sect-x">可编辑</span></div>
+        <div class="m-form">
+          <div class="m-fi">
+            <label>手机号 <span class="req">*</span></label>
+            <div class="m-fc"><input type="tel" value="13802456207"><div class="m-fh">用于接收办理进度与提醒</div></div>
+          </div>
+          <div class="m-fi">
+            <label>常用邮箱</label>
+            <div class="m-fc"><input type="text" value="wangzh@csrzic.com"></div>
+          </div>
+          <div class="m-fi">
+            <label>申请类型 <span class="req">*</span></label>
+            <div class="m-fc"><select data-dict="applyType"></select><div class="m-fh">切换类型将重新加载申请条件与材料清单</div></div>
+          </div>
+          <div class="m-fi">
+            <label>就业单位 <span class="req">*</span></label>
+            <div class="m-fc"><input type="text" value="中车株洲电力机车研究所有限公司"><div class="m-fh">须与社保缴纳单位一致</div></div>
+          </div>
+          <div class="m-fi">
+            <label>单位所在区 <span class="req">*</span></label>
+            <div class="m-fc"><select data-dict="district"></select></div>
+          </div>
+          <div class="m-fi">
+            <label>岗位</label>
+            <div class="m-fc"><input type="text" value="电气工程师"></div>
+          </div>
+          <div class="m-fi">
+            <label>意向居住片区</label>
+            <div class="m-fc"><input type="text" value="天元区（栗雨片区）"><div class="m-fh">用于房源到位通知与供需测算</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="m-actbar">
+        <a class="m-btn w-auto" href="me.html">取消</a>
+        <button class="m-btn primary" type="button" onclick="MB.submit('.m-view','确认保存资料修改？就业单位变更后将触发承租资格复核。','确认保存','me.html')"><i class="fa-solid fa-check"></i> 保存</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../../assets/js/mobile.js"></script>
+</body>
+</html>

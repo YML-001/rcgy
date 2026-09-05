@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>流程编排配置 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="manager" data-active="rule-10">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 信息公开与规则配置
+      <span class="sep">/</span> 政策规则配置
+      <span class="sep">/</span> <span class="cur">流程编排配置</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.openDrawer('lcDrawer')"><i class="fa-solid fa-plus"></i> 新建流程</button>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>配置<b>办理环节、承办角色、办理时限、流转与回退条件</b>，<b>适应联审环节和责任分工的调整</b>。流程变更对新受理件生效，在办件按原流程执行。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-diagram-project"></i></div>
+      <div><div class="s-label">在用流程</div><div class="s-value">6</div>
+        <div class="s-trend text-2">资格 / 配租 / 年审 / 续租 / 清退 / 规则</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-list-ol"></i></div>
+      <div><div class="s-label">办理环节</div><div class="s-value">42</div>
+        <div class="s-trend text-2">跨 6 个流程</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-clock"></i></div>
+      <div><div class="s-label">限时环节</div><div class="s-value">12</div>
+        <div class="s-trend text-2">含 3 个法定时限</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-code-branch"></i></div>
+      <div><div class="s-label">待审批变更</div><div class="s-value">1</div>
+        <div class="s-trend ">资格审核流程</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>流程编号</label><input type="text" placeholder="流程编号"></div>
+      <div class="filter-item"><label>流程名称</label><input type="text" placeholder="流程名称"></div>
+      <div class="filter-item"><label>业务类型</label><select><option value="">全部</option><option>资格审核</option><option>配租选房</option><option>年度年审</option><option>续租复核</option><option>违规清退</option><option>规则发布</option></select></div>
+      <div class="filter-item"><label>流程状态</label><select><option value="">全部</option><option>在用</option><option>待审批</option><option>已停用</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>流程编号</th><th class="cell-lg">流程名称</th><th>环节数</th><th>限时环节</th><th class="cell-lg">关键环节与承办角色</th><th>版本</th><th>生效日期</th><th>状态</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>LC-001</td><td>人才公寓资格审核流程</td><td class="num">7</td><td class="num">2</td><td>多渠道受理（系统/窗口）→ 系统自动联审 → 生成核验报告 → 城区初审（城区经办员，1 工作日）→ <b>复核审定（资格审核员，3 工作日法定）</b> → 结论电子送达 → 归入电子档案</td><td><span class="sp-vt cur">V2026-09</span></td><td>2026-09-01</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('lcDrawer')">编排</span></td></tr>
+          <tr><td>LC-002</td><td>配租选房流程</td><td class="num">7</td><td class="num">3</td><td>拟定批次 → <b>业务管理员审批</b> → 发布公告 → 在线报名（限期）→ 生成顺序名单并公示（2 天）→ 分时段选房（锁房 30 分钟）→ 配租结果公开</td><td><span class="sp-vt cur">V2026-09</span></td><td>2026-09-01</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('lcDrawer')">编排</span></td></tr>
+          <tr><td>LC-003</td><td>年度资格年审流程</td><td class="num">6</td><td class="num">2</td><td>发起批次 → 自动生成待审名单 → 四项数据自动复核 → 承租人在线确认（限期）→ 异常件人工核查（资格审核员）→ 结论处置并电子送达</td><td><span class="sp-vt cur">V2026-09</span></td><td>2026-09-01</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('lcDrawer')">编排</span></td></tr>
+          <tr class="row-warn"><td>LC-001-N</td><td>人才公寓资格审核流程（拟调整）</td><td class="num">8</td><td class="num">3</td><td>拟在城区初审后<b>增加「税务例外件专项复核」环节</b>（承办角色：资格审核员，时限 1 工作日），以应对企业纳税判定口径未明确期间的人工核实需要</td><td><span class="sp-vt">V2026-10（待审批）</span></td><td>2026-10-01</td><td><span class="badge orange">待审批</span></td><td><span class="link" onclick="PMS.openDrawer('lcDrawer')">编排</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>配置目的</b> 适应联审环节和责任分工的调整，不需修改代码</span>
+    <span><b>生效口径</b> 流程变更对新受理件生效，在办件按原流程执行</span>
+    <span><b>法定时限</b> 资格审核 3 个工作日为法定时限，不允许在流程中放宽</span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="lcDrawer">
+  <div class="drawer-head">
+    <h3>流程环节编排</h3>
+    <span class="badge orange">待审批</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>流程变更<b>对新受理件生效，在办件按原流程执行</b>。<b>资格审核 3 个工作日为法定时限，不允许在流程中放宽</b>。</div>
+  </div>
+
+      <div class="form-grid form-align">
+        <div class="form-item">
+          <label>流程编号 <span class="req">*</span></label>
+          <input type="text" value="LC-001-N" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>流程名称 <span class="req">*</span></label>
+          <input type="text" value="人才公寓资格审核流程（拟调整）">
+        </div>
+        <div class="form-item">
+          <label>业务类型 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>资格审核</option><option>配租选房</option><option>年度年审</option><option>续租复核</option><option>违规清退</option><option>规则发布</option></select>
+        </div>
+        <div class="form-item">
+          <label>版本号 <span class="req">*</span></label>
+          <input type="text" value="V2026-10">
+        </div>
+        <div class="form-item col-full">
+          <label>环节编排 <span class="req">*</span></label>
+          <textarea rows="8">1. 多渠道受理（系统自动 / 窗口受理员）· 即时
+2. 系统自动联审（系统）· T+0，8 项并行
+3. 生成核验报告（系统）· T+0
+4. 城区初审（城区经办员）· 1 个工作日 · 可回退至受理
+5. 税务例外件专项复核（资格审核员）· 1 个工作日 · 仅企业纳税或个税例外件流转
+6. 复核审定（资格审核员）· 3 个工作日（法定，含前序环节）· 可回退至补正
+7. 结论电子送达（系统）· 即时
+8. 归入电子档案（系统）· 即时</textarea>
+        </div>
+        <div class="form-item col-full">
+          <label>回退条件 <span class="req">*</span></label>
+          <textarea rows="3">①城区初审可回退至受理（材料影像不清晰）；②复核审定可回退至申请人补正（缺件），补正期间时限中止；③专项复核不可回退，须出具核实意见后流转。</textarea>
+        </div>
+        <div class="form-item">
+          <label>生效日期 <span class="req">*</span></label>
+          <input type="date">
+        </div>
+        <div class="form-item col-full">
+          <label>变更说明 <span class="req">*</span></label>
+          <textarea rows="3" placeholder="必填，说明调整原因与影响"></textarea>
+        </div>
+      </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认提交资格审核流程 V2026-10 编排审批？在办件仍按原流程执行。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已提交，待业务管理员审批后对新件生效','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 6; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

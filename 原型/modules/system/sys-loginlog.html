@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>登录日志与在线监控 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="admin" data-active="system-07">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 权限与系统管理
+      <span class="sep">/</span> 用户与权限
+      <span class="sep">/</span> <span class="cur">登录日志与在线</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>记录<b>登录时间、账号、IP、终端与结果</b>，<b>实时查看当前在线用户</b>。管理员可强制指定用户下线。日志长期留存供审计查询。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-users"></i></div>
+      <div><div class="s-label">当前在线</div><div class="s-value">38</div>
+        <div class="s-trend text-2">含 6 家外部机构</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-right-to-bracket"></i></div>
+      <div><div class="s-label">今日登录</div><div class="s-value">186</div>
+        <div class="s-trend text-2">次</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon red"><i class="fa-solid fa-triangle-exclamation"></i></div>
+      <div><div class="s-label">登录失败</div><div class="s-value">12</div>
+        <div class="s-trend ">含 2 次触发锁定</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-shield-halved"></i></div>
+      <div><div class="s-label">异地登录</div><div class="s-value">2</div>
+        <div class="s-trend text-2">已短信提醒</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>登录账号</label><input type="text" placeholder="账号"></div>
+      <div class="filter-item"><label>姓名</label><input type="text" placeholder="姓名"></div>
+      <div class="filter-item"><label>登录结果</label><select><option value="">全部</option><option>成功</option><option>密码错误</option><option>验证码错误</option><option>账号锁定</option><option>账号停用</option></select></div>
+      <div class="filter-item"><label>认证方式</label><select><option value="">全部</option><option>账号密码</option><option>政务网统一认证</option></select></div>
+      <div class="filter-item"><label>登录日期</label><input type="date"></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>登录账号</th><th>姓名</th><th class="cell-lg">所属机构</th><th>认证方式</th><th>登录 IP</th><th>终端</th><th>登录时间</th><th>会话状态</th><th>登录结果</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>liuzg</td><td>刘志刚</td><td>市保障性住房服务中心资格审核科</td><td><span class="badge green">政务网统一认证</span></td><td>10.62.***.28</td><td>Chrome / Windows 11</td><td>2026-09-05 08:42</td><td><span class="badge green">在线</span></td><td><span class="badge green">成功</span></td><td><span class="link" onclick="PMS.openDrawer('lgDrawer')">强制下线</span></td></tr>
+          <tr><td>lihm</td><td>李慧敏</td><td>市住建局住房保障科</td><td><span class="badge green">政务网统一认证</span></td><td>10.62.***.106</td><td>Chrome / Windows 11</td><td>2026-09-05 09:12</td><td><span class="badge green">在线</span></td><td><span class="badge green">成功</span></td><td><span class="link" onclick="PMS.openDrawer('lgDrawer')">强制下线</span></td></tr>
+          <tr><td>pengxm</td><td>彭雪梅</td><td>株洲市人才安居服务有限公司</td><td><span class="badge blue">账号密码</span></td><td>218.76.***.86</td><td>Chrome / Windows 10</td><td>2026-09-05 09:26</td><td><span class="badge green">在线</span></td><td><span class="badge green">成功</span></td><td><span class="link" onclick="PMS.openDrawer('lgDrawer')">强制下线</span></td></tr>
+          <tr class="row-bad"><td>zengzh</td><td>曾志豪</td><td>荷塘区住房保障服务中心</td><td><span class="badge blue">账号密码</span></td><td>10.62.***.142</td><td>Chrome / Windows 11</td><td>2026-09-03 16:42</td><td><span class="badge red">已锁定</span></td><td><span class="badge red">账号锁定</span></td><td><span class="link" onclick="location.href='sys-user.html'">解锁账号</span></td></tr>
+          <tr class="row-warn"><td>tangk</td><td>唐凯</td><td>市保障性住房服务中心房源管理科</td><td><span class="badge blue">账号密码</span></td><td>183.42.***.208</td><td>Safari / iOS 18.2</td><td>2026-09-04 21:26</td><td><span class="badge gray">已退出</span></td><td><span class="badge green">成功</span></td><td><span class="link" onclick="PMS.toast('登录 IP 归属地为长沙，非常用地，已向本人手机推送异地登录提醒短信')">异地登录提醒</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>记录内容</b> 登录时间、账号、IP、终端与结果</span>
+    <span><b>在线监控</b> 实时查看当前在线用户；管理员可强制指定用户下线</span>
+    <span><b>保留期限</b> 日志长期留存，供审计查询</span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="lgDrawer">
+  <div class="drawer-head">
+    <h3>强制用户下线</h3>
+    <span class="badge orange">在线</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>强制下线将<b>立即终止该用户会话</b>，未提交的表单内容将丢失。请确认必要性并说明原因，操作将记入日志。</div>
+  </div>
+
+      <div class="form-grid form-align">
+        <div class="form-item">
+          <label>登录账号 <span class="req">*</span></label>
+          <input type="text" value="pengxm" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>姓名 / 机构 <span class="req">*</span></label>
+          <input type="text" value="彭雪梅　株洲市人才安居服务有限公司" readonly>
+        </div>
+        <div class="form-item">
+          <label>登录时间 <span class="req">*</span></label>
+          <input type="text" value="2026-09-05 09:26" readonly>
+        </div>
+        <div class="form-item">
+          <label>登录 IP / 终端 <span class="req">*</span></label>
+          <input type="text" value="218.76.***.86　Chrome / Windows 10" readonly>
+        </div>
+        <div class="form-item">
+          <label>下线原因 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>账号异常使用</option><option>安全事件处置</option><option>离岗交接</option><option>系统维护</option><option>其他</option></select>
+        </div>
+        <div class="form-item">
+          <label>是否同时停用账号 <span class="req">*</span></label>
+          <select data-dict="yesNo" data-ph="全部"></select>
+        </div>
+        <div class="form-item col-full">
+          <label>处理说明 <span class="req">*</span></label>
+          <textarea rows="3" placeholder="必填，不少于 10 字。说明强制下线原因"></textarea>
+        </div>
+      </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认强制该用户下线？未提交的表单内容将丢失。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已强制下线，操作已记入日志','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 186; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

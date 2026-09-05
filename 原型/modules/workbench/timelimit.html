@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>审核时限台账 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="reviewer" data-active="wb-02">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 待办与协同
+      <span class="sep">/</span> <span class="cur">审核时限台账</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.toast('已向经办人与承办部门负责人推送超期督办','success')"><i class="fa-solid fa-bullhorn"></i> 超期督办</button>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>对每件申请按<b>收到申请资料之日起 3 个工作日</b>自动计时，<b>临期标黄、超期标红</b>并向经办人及负责人预警。按经办人、承办部门分别统计在办件与超期件数量。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-clock"></i></div>
+      <div><div class="s-label">全市在办件</div><div class="s-value">48</div>
+        <div class="s-trend text-2">含各区与窗口</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
+      <div><div class="s-label">3 日办结率</div><div class="s-value">96.4%</div>
+        <div class="s-trend text-2">2026 年 9 月</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-hourglass-half"></i></div>
+      <div><div class="s-label">临期</div><div class="s-value">5</div>
+        <div class="s-trend text-2">剩 1 个工作日</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon red"><i class="fa-solid fa-circle-exclamation"></i></div>
+      <div><div class="s-label">超期</div><div class="s-value">1</div>
+        <div class="s-trend ">须记录原因</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>承办部门</label><select><option value="">全部</option><option>市住保中心资格审核科</option><option>天元区住房保障服务中心</option><option>荷塘区住房保障服务中心</option><option>芦淞区住房保障服务中心</option><option>石峰区住房保障服务中心</option><option>市政务服务中心窗口</option></select></div>
+      <div class="filter-item"><label>经办人</label><input type="text" placeholder="经办人姓名"></div>
+      <div class="filter-item"><label>业务类型</label><select><option value="">全部</option><option>资格审核</option><option>年度年审</option><option>续租复核</option><option>腾退办理</option><option>资金拨付</option></select></div>
+      <div class="filter-item"><label>时限档位</label><select><option value="">全部</option><option>正常</option><option>临期</option><option>超期</option><option>时限中止</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>统计维度</th><th class="cell-lg">名称</th><th>在办件</th><th>正常</th><th>临期</th><th>超期</th><th>时限中止</th><th>本月办结</th><th>3 日办结率</th><th>平均用时</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr class="row-warn"><td><span class="badge cyan">部门</span></td><td>市保障性住房服务中心资格审核科</td><td class="num">23</td><td class="num">18</td><td class="num">3</td><td class="num">1</td><td class="num">1</td><td class="num">286</td><td><span class="badge green">96.2%</span></td><td>1.6 天</td><td><span class="link" onclick="location.href='../apply/timelimit-manage.html'">明细</span></td></tr>
+          <tr><td><span class="badge cyan">部门</span></td><td>天元区住房保障服务中心</td><td class="num">11</td><td class="num">9</td><td class="num">2</td><td class="num">0</td><td class="num">0</td><td class="num">486</td><td><span class="badge green">98.2%</span></td><td>1.2 天</td><td><span class="link" onclick="location.href='../apply/timelimit-manage.html'">明细</span></td></tr>
+          <tr><td><span class="badge cyan">部门</span></td><td>荷塘区住房保障服务中心</td><td class="num">8</td><td class="num">8</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">268</td><td><span class="badge green">100%</span></td><td>1.0 天</td><td><span class="link" onclick="location.href='../apply/timelimit-manage.html'">明细</span></td></tr>
+          <tr><td><span class="badge cyan">部门</span></td><td>市政务服务中心窗口</td><td class="num">6</td><td class="num">6</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">186</td><td><span class="badge green">100%</span></td><td>0.8 天</td><td><span class="link" onclick="location.href='../apply/timelimit-manage.html'">明细</span></td></tr>
+          <tr><td><span class="badge green">合计</span></td><td><b>全市合计</b></td><td class="num">48</td><td class="num">41</td><td class="num">5</td><td class="num">1</td><td class="num">1</td><td class="num">1,286</td><td><span class="badge green">96.4%</span></td><td>1.4 天</td><td><span class="link" onclick="location.href='../stat/audit-perf.html'">审核效能分析</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>政策依据</b> 管理办法第九条：市保障性住房服务中心应当在收到申请资料之日起 3 个工作日内完成审核</span>
+    <span><b>工作日口径</b> 剔除法定节假日与双休日；退回补正期间时限中止</span>
+    <span><b>下钻</b> <span class="link" onclick="location.href='../stat/audit-perf.html'">审核效能分析</span></span>
+  </div>
+</main>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 6; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

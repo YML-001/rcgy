@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>合同模板管理 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="allocator" data-active="alloc-08">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 配租选房与合同
+      <span class="sep">/</span> 合同管理
+      <span class="sep">/</span> <span class="cur">合同模板管理</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.openDrawer('tplDrawer')"><i class="fa-solid fa-plus"></i> 新增模板</button>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>按<b>房源类型与租金减免方案</b>配置多套合同模板与条款变量，<b>模板变更须审批并保留版本</b>。已签合同不受模板变更影响。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-file-contract"></i></div>
+      <div><div class="s-label">在用模板</div><div class="s-value">4</div>
+        <div class="s-trend text-2">覆盖全部房源类型</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-code-branch"></i></div>
+      <div><div class="s-label">模板版本</div><div class="s-value">9</div>
+        <div class="s-trend text-2">历史版本可追溯</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-brackets-curly"></i></div>
+      <div><div class="s-label">条款变量</div><div class="s-value">28</div>
+        <div class="s-trend text-2">自动填充合同要素</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-file-signature"></i></div>
+      <div><div class="s-label">待审批版本</div><div class="s-value">1</div>
+        <div class="s-trend text-2">V2026-04 待发布</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>模板编号</label><input type="text" placeholder="模板编号"></div>
+      <div class="filter-item"><label>模板名称</label><input type="text" placeholder="模板名称"></div>
+      <div class="filter-item"><label>适用房源类型</label><select data-dict="houseSource" data-ph="全部"></select></div>
+      <div class="filter-item"><label>模板状态</label><select><option value="">全部</option><option>在用</option><option>待审批</option><option>已停用</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>模板编号</th><th class="cell-lg">模板名称</th><th>适用房源类型</th><th>适用管理模式</th><th>当前版本</th><th class="num">条款变量</th><th>生效日期</th><th>模板状态</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>HT-TPL-001</td><td>株洲市青年人才住房租赁合同（整套配租）</td><td><span class="badge blue">通用</span></td><td><span class="badge blue">整套配租</span></td><td><span class="sp-vt cur">V2026-03</span></td><td class="num">28</td><td>2026-03-01</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('tplDrawer')">查看模板</span> <span class="link" onclick="PMS.toast('V2026-03（在用）· V2025-09 · V2025-03，历史版本可追溯')">版本历史</span></td></tr>
+          <tr><td>HT-TPL-002</td><td>株洲市青年人才住房租赁合同（按间配租）</td><td><span class="badge blue">通用</span></td><td><span class="badge orange">按间配租</span></td><td><span class="sp-vt cur">V2026-03</span></td><td class="num">26</td><td>2026-03-01</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('tplDrawer')">查看模板</span></td></tr>
+          <tr><td>HT-TPL-003</td><td>株洲市青年人才住房租赁合同（保租房“一间房”）</td><td><span class="badge cyan">保租房“一间房”</span></td><td><span class="badge orange">按间配租</span></td><td><span class="sp-vt cur">V2026-01</span></td><td class="num">24</td><td>2026-01-15</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('tplDrawer')">查看模板</span></td></tr>
+          <tr class="row-warn"><td>HT-TPL-004</td><td>株洲市青年人才住房租赁合同（市场租金续租）</td><td><span class="badge blue">通用</span></td><td><span class="badge blue">整套配租</span></td><td><span class="sp-vt">V2026-04（待审批）</span></td><td class="num">22</td><td>2026-10-01</td><td><span class="badge orange">待审批</span></td><td><span class="link" onclick="PMS.openDrawer('tplDrawer')">办理审批</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>变更控制</b> 模板变更须审批并保留版本，已签合同不受影响</span>
+    <span><b>变量填充</b> 条款变量自动取合同要素台账值（承租人、房源、面积、租金、减免、保障期）</span>
+    <span><b>续租模板</b> 转按市场租金续租的适用 HT-TPL-004（不含减免条款）</span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="tplDrawer">
+  <div class="drawer-head">
+    <h3>合同模板与条款变量</h3>
+    <span class="badge blue">V2026-03</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>模板通过<b>条款变量</b>自动填充合同要素。变量值一律取自<b>合同要素台账</b>，不允许在签约时手工改写。</div>
+  </div>
+
+      <div class="form-grid form-align">
+        <div class="form-item">
+          <label>模板编号 <span class="req">*</span></label>
+          <input type="text" value="HT-TPL-001" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>模板名称 <span class="req">*</span></label>
+          <input type="text" value="株洲市青年人才住房租赁合同（整套配租）">
+        </div>
+        <div class="form-item">
+          <label>适用房源类型 <span class="req">*</span></label>
+          <select data-dict="houseSource" data-ph="全部"></select>
+        </div>
+        <div class="form-item">
+          <label>适用管理模式 <span class="req">*</span></label>
+          <select data-dict="unitMode" data-ph="全部"></select>
+        </div>
+        <div class="form-item">
+          <label>版本号 <span class="req">*</span></label>
+          <input type="text" value="V2026-04">
+        </div>
+        <div class="form-item">
+          <label>生效日期 <span class="req">*</span></label>
+          <input type="date">
+          <div class="hint">按签约日期匹配当时有效模板</div>
+        </div>
+        <div class="form-item col-full">
+          <label>关键条款变量 <span class="req">*</span></label>
+          <textarea rows="6">{承租人姓名} {身份证号} {出租方} {房源坐落} {建筑面积} {套内面积} {分摊面积} {计租面积} {户型} {管理模式} {租金标准} {应缴租金总额} {减免比例} {财政补助金额} {个人实际应缴} {押金} {保障期起} {保障期止} {保障期限} {入住日期} {合同编号} {签署日期} {归档编号} {运营机构} {联系人} {联系电话} {减免依据文件} {配租批次}</textarea>
+        </div>
+        <div class="form-item col-full">
+          <label>模板文件 <span class="req">*</span></label>
+          <input type="text" data-upload="1">
+        </div>
+        <div class="form-item col-full">
+          <label>变更说明 <span class="req">*</span></label>
+          <textarea rows="3" placeholder="必填，说明本次模板变更内容与依据">本次 V2026-04 版在原模板基础上新增「减免依据文件」与「配租批次」两个条款变量，以满足一事一议审定文件关联与配租批次统计要求，依据市住建局合同范本更新通知修订，发布后仅对新签合同生效。</textarea>
+        </div>
+      </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认提交合同模板 V2026-04 审批？发布后对新签合同生效，已签合同不受影响。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已提交，待业务管理员审批后发布','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 4; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

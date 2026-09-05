@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>在线办理入住 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/mobile.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body class="m-body" data-mtitle="办理入住" data-mmod="M10 入住交付与租后服务" data-mcode="M10-01"
+      data-mdesc="预约入住时间并确认房源交付，入住日期作为 2 年保障期的起算点，自动写入租赁合同并作为租金减免计费与年审周期的起算依据。" data-mback="sign-done.html" data-mtabset="public" data-mtab="apply">
+<div class="m-stage">
+  <div class="m-phone">
+    <div class="m-screen">
+      <div class="m-view">
+        <div class="m-note warn"><i class="fa-solid fa-triangle-exclamation"></i>
+          <div><b>入住日期是 2 年保障期的起算点</b>，将自动写入租赁合同并作为租金减免计费与年审周期的起算依据，请如实预约。</div>
+        </div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-house-chimney"></i>待交付房源</div>
+          <div class="m-card-b">
+          <div class="m-kv">
+            <div><span>合同编号</span><span>RZ2026-00862（已生效）</span></div>
+            <div><span>房源</span><span>湘江1958 人才公寓 A6 栋 1502</span></div>
+            <div><span>户型 / 面积</span><span>一室一厅　52.60 ㎡</span></div>
+            <div><span>运营机构</span><span>株洲市人才安居服务有限公司</span></div>
+            <div><span>联系人</span><span>彭雪梅　0731-2822****</span></div>
+            <div><span>当前状态</span><span><span class="m-tag orange">待办理入住</span></span></div>
+          </div>
+          </div>
+        </div>
+        <div class="m-sect">预约入住</div>
+        <div class="m-form">
+          <div class="m-fi">
+            <label>预约入住日期 <span class="req">*</span></label>
+            <div class="m-fc"><input type="date" value="2026-01-06"><div class="m-fh">该日期将作为 2 年保障期起算点</div></div>
+          </div>
+          <div class="m-fi">
+            <label>预约时段 <span class="req">*</span></label>
+            <div class="m-fc"><select><option value="">请选择</option><option>上午 09:00—12:00</option><option>下午 14:00—17:30</option></select></div>
+          </div>
+          <div class="m-fi">
+            <label>联系电话 <span class="req">*</span></label>
+            <div class="m-fc"><input type="tel" value="13802456207"><div class="m-fh">运营机构将电话确认</div></div>
+          </div>
+          <div class="m-fi">
+            <label>同住人数 <span class="req">*</span></label>
+            <div class="m-fc"><input type="number" value="1" readonly><div class="m-fh">按配租人数确定，一室一厅配租 1 人</div></div>
+          </div>
+          <div class="m-fi">
+            <label>备注</label>
+            <div class="m-fc"><textarea rows="2" placeholder="选填，如有特殊需求可说明">本人将携带身份证本人到场配合交付验收，如需提前抄录水电气表底数请提前电话通知。</textarea></div>
+          </div>
+        </div>
+        <div class="m-sect">交付时需完成<span class="m-sect-x">M10-02</span></div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-clipboard-check"></i>交付验收四项</div>
+          <div class="m-card-b">
+            <div class="m-check">
+              <div class="na"><i class="fa-solid fa-list-check"></i><div class="m-chl"><b>逐项确认家电家具配置清单</b><span>对照清单核对客厅、卧室、厨房、卫生间各项配置</span></div></div>
+              <div class="na"><i class="fa-solid fa-house-crack"></i><div class="m-chl"><b>确认房屋现状</b><span>墙面、地面、门窗、水电设施等现状拍照留存</span></div></div>
+              <div class="na"><i class="fa-solid fa-gauge"></i><div class="m-chl"><b>抄录水电气表底数</b><span>作为水电燃气费计费起点，拍照留存</span></div></div>
+              <div class="na"><i class="fa-solid fa-signature"></i><div class="m-chl"><b>双方电子签确认</b><span>形成<b>交付凭证</b>，作为退租对照依据</span></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="m-note"><i class="fa-solid fa-circle-info"></i>
+          <div>请携带<b>身份证</b>本人到场办理。交付验收单由双方现场电子签确认，签署后自动写入入住日期并启动保障期计时。</div>
+        </div>
+      </div>
+      <div class="m-actbar">
+        <button class="m-btn w-auto" type="button" onclick="MB.toast('原型演示：拨打 0731-2822****')">联系运营机构</button>
+        <button class="m-btn primary" type="button" onclick="MB.submit('.m-view','确认预约 2026-01-06 办理入住？<b>该日期将作为 2 年保障期起算点</b>。','确认预约','checkin-handover.html')"><i class="fa-solid fa-calendar-check"></i> 提交预约</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../../assets/js/mobile.js"></script>
+</body>
+</html>

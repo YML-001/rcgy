@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>组织机构管理 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="admin" data-active="system-01">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 权限与系统管理
+      <span class="sep">/</span> 用户与权限
+      <span class="sep">/</span> <span class="cur">组织机构管理</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.openDrawer('orgDrawer')"><i class="fa-solid fa-plus"></i> 新增机构</button>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>维护<b>市住建局、住保中心、市委人才办、财政局、各区与经开区、运营机构、用人单位</b>等<b>多级组织架构</b>。机构是账号归属与数据权限范围的基础。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-sitemap"></i></div>
+      <div><div class="s-label">在册机构</div><div class="s-value">26</div>
+        <div class="s-trend text-2">含 4 级层级</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-building-columns"></i></div>
+      <div><div class="s-label">政府部门</div><div class="s-value">14</div>
+        <div class="s-trend text-2">市级 8 / 区级 6</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-handshake"></i></div>
+      <div><div class="s-label">运营机构</div><div class="s-value">3</div>
+        <div class="s-trend text-2">受托房源 2,486 套</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-users-gear"></i></div>
+      <div><div class="s-label">用人单位</div><div class="s-value">9</div>
+        <div class="s-trend text-2">已认证</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>机构编号</label><input type="text" placeholder="机构编号"></div>
+      <div class="filter-item"><label>机构名称</label><input type="text" placeholder="机构名称"></div>
+      <div class="filter-item"><label>机构类型</label><select><option value="">全部</option><option>市级部门</option><option>区级部门</option><option>事业单位</option><option>运营机构</option><option>用人单位</option></select></div>
+      <div class="filter-item"><label>机构状态</label><select><option value="">全部</option><option>启用</option><option>停用</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>机构编号</th><th class="cell-lg">机构名称</th><th>机构层级</th><th>上级机构</th><th>机构类型</th><th>账号数</th><th>数据范围</th><th>状态</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>JG-0001</td><td>株洲市住房和城乡建设局</td><td>1 级</td><td><span class="muted">—</span></td><td><span class="badge blue">市级部门</span></td><td class="num">12</td><td><span class="badge blue">全市统一</span></td><td><span class="badge green">启用</span></td><td><span class="link" onclick="PMS.openDrawer('orgDrawer')">编辑</span></td></tr>
+          <tr><td>JG-0002</td><td>株洲市住房和城乡建设局住房保障科</td><td>2 级</td><td>株洲市住房和城乡建设局</td><td><span class="badge blue">市级部门</span></td><td class="num">6</td><td><span class="badge blue">全市统一</span></td><td><span class="badge green">启用</span></td><td><span class="link" onclick="PMS.openDrawer('orgDrawer')">编辑</span></td></tr>
+          <tr><td>JG-0006</td><td>株洲市保障性住房服务中心</td><td>2 级</td><td>株洲市住房和城乡建设局</td><td><span class="badge cyan">事业单位</span></td><td class="num">42</td><td><span class="badge blue">全市统一</span></td><td><span class="badge green">启用</span></td><td><span class="link" onclick="PMS.openDrawer('orgDrawer')">编辑</span></td></tr>
+          <tr><td>JG-0008</td><td>株洲市保障性住房服务中心资格审核科</td><td>3 级</td><td>株洲市保障性住房服务中心</td><td><span class="badge cyan">事业单位</span></td><td class="num">8</td><td><span class="badge blue">全市统一</span></td><td><span class="badge green">启用</span></td><td><span class="link" onclick="PMS.openDrawer('orgDrawer')">编辑</span></td></tr>
+          <tr><td>JG-0016</td><td>天元区住房保障服务中心</td><td>2 级</td><td>株洲市住房和城乡建设局</td><td><span class="badge orange">区级部门</span></td><td class="num">6</td><td><span class="badge orange">本区（天元区）</span></td><td><span class="badge green">启用</span></td><td><span class="link" onclick="PMS.openDrawer('orgDrawer')">编辑</span></td></tr>
+          <tr><td>JG-0024</td><td>株洲市人才安居服务有限公司</td><td>2 级</td><td><span class="muted">—</span></td><td><span class="badge green">运营机构</span></td><td class="num">8</td><td><span class="badge green">受托房源</span></td><td><span class="badge green">启用</span></td><td><span class="link" onclick="PMS.openDrawer('orgDrawer')">编辑</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>机构作用</b> 账号归属与数据权限范围的基础</span>
+    <span><b>层级设计</b> 最多 4 级：市局 → 科室/中心 → 科室 → 岗位组</span>
+    <span><b>数据范围</b> 市级机构全市统一；区级机构限本区；运营机构限受托房源</span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="orgDrawer">
+  <div class="drawer-head">
+    <h3>组织机构维护</h3>
+    <span class="badge blue">启用</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>机构<b>数据范围</b>决定该机构下全部账号可见的行级数据边界。停用机构将同时停用其下全部账号，须先办理离岗交接。</div>
+  </div>
+
+      <div class="form-grid form-align">
+        <div class="form-item">
+          <label>机构编号 <span class="req">*</span></label>
+          <input type="text" value="JG-0016" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>机构名称 <span class="req">*</span></label>
+          <input type="text" value="天元区住房保障服务中心">
+        </div>
+        <div class="form-item">
+          <label>机构类型 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>市级部门</option><option>区级部门</option><option>事业单位</option><option>运营机构</option><option>用人单位</option></select>
+        </div>
+        <div class="form-item">
+          <label>上级机构 <span class="req">*</span></label>
+          <input type="text" value="株洲市住房和城乡建设局">
+        </div>
+        <div class="form-item">
+          <label>机构层级 <span class="req">*</span></label>
+          <input type="text" value="2 级" readonly>
+        </div>
+        <div class="form-item">
+          <label>数据范围 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>全市统一</option><option>市县分级（本区）</option><option>本单位</option><option>受托房源</option></select>
+        </div>
+        <div class="form-item">
+          <label>适用区县</label>
+          <select data-dict="district" data-ph="全部"></select>
+          <div class="hint">区级机构须指定</div>
+        </div>
+        <div class="form-item col-full">
+          <label>联系人 / 电话 <span class="req">*</span></label>
+          <input type="text" value="周敏　0731-2836****">
+        </div>
+        <div class="form-item col-full">
+          <label>机构地址</label>
+          <input type="text" value="株洲市天元区泰山路 88 号">
+        </div>
+        <div class="form-item">
+          <label>机构状态 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>启用</option><option>停用</option></select>
+        </div>
+      </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认保存机构信息？数据范围变更将影响该机构下全部账号的数据可见范围。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已保存，机构信息已更新','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 26; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

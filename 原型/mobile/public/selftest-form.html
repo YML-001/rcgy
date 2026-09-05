@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>资格智能自测 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/mobile.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body class="m-body" data-mtitle="资格智能自测" data-mmod="M3 政策宣传与资格自测" data-mcode="M3-03"
+      data-mdesc="问卷式采集学历、毕业时间、年龄、职称技能等级、社保缴纳、纳税、婚姻、房产情况，即时给出是否符合人才公寓申请条件的结论。" data-mback="policy-list.html" data-mtabset="public" data-mtab="home">
+<div class="m-stage">
+  <div class="m-phone">
+    <div class="m-screen">
+      <div class="m-view">
+        <div class="m-note"><i class="fa-solid fa-circle-info"></i>
+          <div>共 8 题，约 1 分钟。自测结果<b>不代表最终审核结论</b>；符合条件的可一键转入正式申请并<b>带入已填信息</b>。</div>
+        </div>
+        <div class="m-form">
+          <div class="m-fi">
+            <label>最高学历 <span class="req">*</span></label>
+            <div class="m-fc"><select data-dict="education"></select><div class="m-fh">须为全日制大专及以上</div></div>
+          </div>
+          <div class="m-fi">
+            <label>最高学历毕业时间 <span class="req">*</span></label>
+            <div class="m-fc"><input type="date" value="2025-07-01"><div class="m-fh">用于判定是否在毕业 2 年内</div></div>
+          </div>
+          <div class="m-fi">
+            <label>出生日期 <span class="req">*</span></label>
+            <div class="m-fc"><input type="date" value="2001-03-12"><div class="m-fh">免毕业年限人才需 35 周岁（含）以下</div></div>
+          </div>
+          <div class="m-fi">
+            <label>当前身份 <span class="req">*</span></label>
+            <div class="m-fc"><select data-dict="applyType"></select></div>
+          </div>
+        </div>
+        <div class="m-sect">职称与技能<span class="m-sect-x">免毕业年限判定用</span></div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-certificate"></i>请选择（单选）</div>
+          <div class="m-card-b">
+          <div class="m-opts">
+            <div class="m-opt"><span class="m-ok"><i class="fa-solid fa-check"></i></span><span class="m-ol"><b>担任高企或大中型企业中层以上管理职务</b><span>经营管理人才，可免毕业年限</span></span></div>
+            <div class="m-opt"><span class="m-ok"><i class="fa-solid fa-check"></i></span><span class="m-ol"><b>具有中级以上职称</b><span>专业技术人才，可免毕业年限</span></span></div>
+            <div class="m-opt"><span class="m-ok"><i class="fa-solid fa-check"></i></span><span class="m-ol"><b>持高级技师资格证</b><span>技能人才，可免毕业年限</span></span></div>
+            <div class="m-opt on"><span class="m-ok"><i class="fa-solid fa-check"></i></span><span class="m-ol"><b>以上均不符合</b><span>按毕业 2 年内条件判定</span></span></div>
+          </div>
+          </div>
+        </div>
+        <div class="m-sect">就业与纳税情况</div>
+        <div class="m-form">
+          <div class="m-fi">
+            <label>用人单位所在区 <span class="req">*</span></label>
+            <div class="m-fc"><select data-dict="district"></select><div class="m-fh">须在市城区（不含渌口区）</div></div>
+          </div>
+          <div class="m-fi">
+            <label>养老保险缴纳月数 <span class="req">*</span></label>
+            <div class="m-fc"><input type="number" value="13"><div class="m-fh">须由市城区用人单位正常缴纳</div></div>
+          </div>
+          <div class="m-fi">
+            <label>是否有个人所得税缴纳记录 <span class="req">*</span></label>
+            <div class="m-fc"><select data-dict="yesNo"></select><div class="m-fh">核实是否在本地实际从业</div></div>
+          </div>
+        </div>
+        <div class="m-sect">婚姻与房产情况</div>
+        <div class="m-form">
+          <div class="m-fi">
+            <label>婚姻状况 <span class="req">*</span></label>
+            <div class="m-fc"><select data-dict="marriage"></select><div class="m-fh">已婚且双方均符合可家庭申请</div></div>
+          </div>
+          <div class="m-fi">
+            <label>本人及家庭成员在市城区是否有自有住房 <span class="req">*</span></label>
+            <div class="m-fc"><select data-dict="yesNo"></select><div class="m-fh">有自有住房的不符合条件</div></div>
+          </div>
+          <div class="m-fi">
+            <label>是否承租过政策性住房或享受租赁补贴 <span class="req">*</span></label>
+            <div class="m-fc"><select data-dict="yesNo"></select><div class="m-fh">公租房、人才公寓、直管公房</div></div>
+          </div>
+        </div>
+        <div class="m-note warn"><i class="fa-solid fa-triangle-exclamation"></i>
+          <div>自测采集的信息仅用于即时判定，<b>不作为申请材料</b>。正式申请时系统将调取部门数据核验。</div>
+        </div>
+      </div>
+      <div class="m-actbar">
+        <button class="m-btn w-auto" type="button" onclick="MB.toast('已清空自测答案')">重填</button>
+        <button class="m-btn primary" type="button" onclick="MB.go('selftest-result.html')"><i class="fa-solid fa-bolt"></i> 立即测算</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../../assets/js/mobile.js"></script>
+</body>
+</html>

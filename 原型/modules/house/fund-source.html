@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>资金来源标注 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="housing" data-active="house-06">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 房源筹集与楼盘表
+      <span class="sep">/</span> 房源筹集与项目
+      <span class="sep">/</span> <span class="cur">资金来源标注</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>标注项目对应的资金渠道（<b>一般公共预算、专项债券、政策性再贷款</b>等），为<b>房源筹集成本核算与资金使用情况统计</b>提供口径。市财政局负责筹集城区创业就业青年人才住房专项补助资金。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-coins"></i></div>
+      <div><div class="s-label">筹集总投入</div><div class="s-value">480,121,200.00</div>
+        <div class="s-trend text-2">单位：元</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
+      <div><div class="s-label">已拨付</div><div class="s-value">340,426,200.00</div>
+        <div class="s-trend text-2">执行率 70.9%</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-calculator"></i></div>
+      <div><div class="s-label">平均单套成本</div><div class="s-value">193,130.81</div>
+        <div class="s-trend text-2">单位：元/套</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-hourglass-half"></i></div>
+      <div><div class="s-label">待拨付</div><div class="s-value">139,695,000.00</div>
+        <div class="s-trend ">涉及 3 个项目</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>项目名称</label><input type="text" placeholder="项目名称"></div>
+      <div class="filter-item"><label>资金渠道</label><select><option value="">全部</option><option>一般公共预算</option><option>专项债券</option><option>政策性再贷款</option><option>企业自筹</option></select></div>
+      <div class="filter-item"><label>执行率</label><select><option value="">全部</option><option>100%</option><option>60%—100%</option><option>60% 以下</option></select></div>
+      <div class="filter-item"><label>年度</label><select><option value="">全部</option><option>2026 年</option><option>2025 年</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>项目编号</th><th class="cell-lg">项目名称</th><th>资金渠道</th><th class="num">套数</th><th class="num">房源筹集成本</th><th class="num">单套成本</th><th class="num">已拨付</th><th>执行率</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>XM2025-001</td><td>湘江1958 人才公寓（一、二期）</td><td><span class="badge blue">专项债券</span></td><td class="num">620</td><td class="num">132,684,000.00</td><td class="num">214,006.45</td><td class="num">132,684,000.00</td><td><span class="badge green">100%</span></td><td><span class="link" onclick="location.href='proj-detail.html?id=XM2025-001'">详情</span></td></tr>
+          <tr><td>XM2025-004</td><td>栗雨佳苑人才公寓</td><td><span class="badge cyan">一般公共预算</span></td><td class="num">366</td><td class="num">42,846,000.00</td><td class="num">117,065.57</td><td class="num">42,846,000.00</td><td><span class="badge green">100%</span></td><td><span class="link" onclick="location.href='proj-detail.html?id=XM2025-004'">详情</span></td></tr>
+          <tr><td>XM2026-002</td><td>茨菇塘公寓</td><td><span class="badge cyan">一般公共预算</span></td><td class="num">486</td><td class="num">56,862,000.00</td><td class="num">117,000.00</td><td class="num">56,862,000.00</td><td><span class="badge green">100%</span></td><td><span class="link" onclick="location.href='proj-detail.html?id=XM2026-002'">详情</span></td></tr>
+          <tr class="row-warn"><td>XM2026-005</td><td>董家塅安居苑</td><td><span class="badge blue">专项债券</span></td><td class="num">328</td><td class="num">115,250,000.00</td><td class="num">351,371.95</td><td class="num">75,898,200.00</td><td><span class="badge orange">65.9%</span></td><td><span class="link" onclick="location.href='proj-detail.html?id=XM2026-005'">详情</span></td></tr>
+          <tr class="row-warn"><td>XM2026-008</td><td>清水塘新苑</td><td><span class="badge cyan">一般公共预算</span></td><td class="num">412</td><td class="num">48,204,000.00</td><td class="num">116,999.99</td><td class="num">32,136,000.00</td><td><span class="badge orange">66.7%</span></td><td><span class="link" onclick="location.href='proj-detail.html?id=XM2026-008'">详情</span></td></tr>
+          <tr class="row-bad"><td>XM2026-011</td><td>云龙人才苑</td><td><span class="badge orange">政策性再贷款</span></td><td class="num">274</td><td class="num">84,275,200.00</td><td class="num">307,573.72</td><td class="num">0.00</td><td><span class="badge red">0%</span></td><td><span class="link" onclick="location.href='proj-detail.html?id=XM2026-011'">详情</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>口径用途</b> 房源筹集成本核算与资金使用情况统计</span>
+    <span><b>资金主管</b> 市财政局负责筹集专项补助资金</span>
+    <span><b>岗位控制</b> 资金业务经办、复核、审批三岗分设</span>
+  </div>
+</main>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 6; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>指标下钻 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="admin" data-active="stat-25">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 统计分析
+      <span class="sep">/</span> 报表与数据服务
+      <span class="sep">/</span> <span class="cur">指标下钻</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>所有统计指标支持从<b>汇总数逐级下钻至明细清单</b>，直至<b>单个申请件或房源档案</b>，做到<b>数出有据</b>。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+      <div><div class="s-label">可下钻指标</div><div class="s-value">86</div>
+        <div class="s-trend text-2">覆盖 6 个分析模块</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-layer-group"></i></div>
+      <div><div class="s-label">平均下钻层级</div><div class="s-value">3.2</div>
+        <div class="s-trend text-2">层</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-link"></i></div>
+      <div><div class="s-label">下钻终点</div><div class="s-value">2</div>
+        <div class="s-trend text-2">申请件 / 房源档案</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-check-double"></i></div>
+      <div><div class="s-label">口径校验</div><div class="s-value">100%</div>
+        <div class="s-trend text-2">汇总与明细一致</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="card-head">
+      <h3><i class="fa-solid fa-table-list"></i> 明细下钻</h3>
+      <span class="sub">可逐级下钻至明细清单</span>
+    </div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>指标名称</th><th>当前值</th><th class="cell-lg">下钻路径</th><th>层级数</th><th>下钻终点</th><th class="cell-lg">口径校验</th><th>下钻</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>在租人才户数</td><td class="num">1,286</td><td>全市 → 按区域 → 按楼盘 → 按房源 → <b>合同详情 / 人才档案</b></td><td class="num">5</td><td>合同 + 人才档案</td><td>各区在租数之和 = 542 + 268 + 214 + 146 + 116 = <b>1,286</b> ✓</td><td><span class="link" onclick="location.href='../alloc/contract-list.html'">合同要素台账</span></td></tr>
+          <tr><td>本月应收租金</td><td class="num">1,286,400.00</td><td>全市 → 按楼盘 → 按合同 → <b>账单明细</b>（含计算依据）</td><td class="num">4</td><td>账单 + 合同要素</td><td>财政补助 842,760.00 + 个人自付 443,640.00 = <b>1,286,400.00</b> ✓</td><td><span class="link" onclick="location.href='../rent/bill-list.html'">账单台账</span></td></tr>
+          <tr><td>房源总量</td><td class="num">2,486</td><td>全市 → 按区域 → 按项目 → 按楼栋 → <b>房源档案</b>（一房一码）</td><td class="num">5</td><td>房源档案</td><td>收购 1,144 + 盘活 836 + 保租房 506 = <b>2,486</b> ✓</td><td><span class="link" onclick="location.href='../house/building-table.html'">统一楼盘表</span></td></tr>
+          <tr><td>本月受理件数</td><td class="num">1,286</td><td>全市 → 按渠道 → 按承办部门 → 按经办人 → <b>办件详情</b>（含核验报告）</td><td class="num">5</td><td>申请件 + 电子档案</td><td>审核通过 1,092 + 不予通过 194 = <b>1,286</b> ✓</td><td><span class="link" onclick="location.href='../apply/pool-list.html'">多渠道件池</span></td></tr>
+          <tr><td>核验调用总量</td><td class="num">10,288</td><td>全部核验 → 按核验项 → 按结论 → <b>单件核验记录</b>（含取数时间戳）</td><td class="num">4</td><td>核验记录</td><td>8 项核验调用量之和 = 1,286×3 + 1,842×2 + 1,000 + 286×2 = <b>10,288</b> ✓</td><td><span class="link" onclick="location.href='../apply/verify-report.html'">核验报告</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>下钻原则</b> 所有统计指标均可逐级下钻至明细清单直至单个申请件或房源档案</span>
+    <span><b>口径校验</b> 汇总数与明细之和必须完全一致，做到数出有据</span>
+    <span><b>权限约束</b> 下钻结果受角色数据权限约束；敏感字段同样脱敏</span>
+  </div>
+</main>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 5; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>工单进度与评价 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/mobile.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body class="m-body" data-mtitle="工单详情" data-mmod="M10 入住交付与租后服务" data-mcode="M10-04"
+      data-mdesc="跟踪派单、上门、完工进度，完工后对维修质量与时效评价。" data-mback="repair-list.html" data-mtabset="public" data-mtab="me">
+<div class="m-stage">
+  <div class="m-phone">
+    <div class="m-screen">
+      <div class="m-view">
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-screwdriver-wrench"></i>工单信息</div>
+          <div class="m-card-b">
+          <div class="m-kv">
+            <div><span>工单编号</span><span>GD2026-08-00362</span></div>
+            <div><span>报修类别</span><span>家电维修</span></div>
+            <div><span>故障描述</span><span>卧室空调运行但不制冷，出风为常温</span></div>
+            <div><span>房源</span><span>湘江1958 A6-1502　卧室</span></div>
+            <div><span>紧急程度</span><span>较急（24 小时内）</span></div>
+            <div><span>提交时间</span><span>2026-08-25 20:14</span></div>
+            <div><span>完工时间</span><span>2026-08-26 11:32</span></div>
+            <div><span>处理时长</span><span>15 小时 18 分（<span style="color:var(--success)">未超时</span>）</span></div>
+            <div><span>工单状态</span><span><span class="m-tag cyan">待评价</span></span></div>
+          </div>
+          </div>
+        </div>
+        <div class="m-sect">处理进度</div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-timeline"></i>时间轴</div>
+          <div class="m-card-b">
+          <div class="m-tl">
+            <div class="m-ti done"><div class="m-tt">提交报修</div><div class="m-td">王梓涵　2026-08-25 20:14　·	上传故障照片 2 张</div></div>
+            <div class="m-ti done"><div class="m-tt">受理</div><div class="m-td">运营机构客服　2026-08-25 20:41　·	已受理</div></div>
+            <div class="m-ti done"><div class="m-tt">派单</div><div class="m-td">彭雪梅　2026-08-25 21:06　·	派单至维修人员黄卫兵</div></div>
+            <div class="m-ti done"><div class="m-tt">上门维修</div><div class="m-td">黄卫兵　2026-08-26 09:20 上门　·	检测为制冷剂不足</div></div>
+            <div class="m-ti done"><div class="m-tt">完工</div><div class="m-td">黄卫兵　2026-08-26 11:32　·	补充制冷剂并清洗滤网，材料费 120.00 元（运营机构承担）</div></div>
+            <div class="m-ti on"><div class="m-tt">待住户评价</div><div class="m-td">请对维修质量与时效评价</div></div>
+          </div>
+          </div>
+        </div>
+        <div class="m-sect">完工照片</div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-images"></i>维修人员上传</div>
+          <div class="m-card-b">
+            <div class="m-up">
+              <div class="m-uc ok"><img src="https://images.unsplash.com/photo-1581244277943-fe4a9c777189?w=600&q=80" alt="维修前"><span class="m-uc-n">维修前.jpg</span></div>
+              <div class="m-uc ok"><img src="https://images.unsplash.com/photo-1581244277943-fe4a9c777189?w=600&q=80" alt="维修中"><span class="m-uc-n">维修中.jpg</span></div>
+              <div class="m-uc ok"><img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?w=800&q=80" alt="完工"><span class="m-uc-n">完工.jpg</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="m-sect">评价维修服务</div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-star"></i>请为本次服务打分</div>
+          <div class="m-card-b">
+            <div class="m-fi col">
+              <label>维修质量 <span class="req">*</span></label>
+              <div class="m-fc">
+                <div class="m-pills">
+                  <button class="on">很满意</button><button>满意</button><button>一般</button><button>不满意</button>
+                </div>
+              </div>
+            </div>
+            <div class="m-fi col">
+              <label>响应时效 <span class="req">*</span></label>
+              <div class="m-fc">
+                <div class="m-pills">
+                  <button class="on">很及时</button><button>及时</button><button>一般</button><button>太慢</button>
+                </div>
+              </div>
+            </div>
+            <div class="m-fi col">
+              <label>维修人员服务态度 <span class="req">*</span></label>
+              <div class="m-fc">
+                <div class="m-pills">
+                  <button class="on">很好</button><button>好</button><button>一般</button><button>差</button>
+                </div>
+              </div>
+            </div>
+            <div class="m-fi col">
+              <label>评价内容</label>
+              <div class="m-fc"><textarea rows="3" placeholder="选填，您的评价将汇入物业考核评价">维修师傅上门很及时，检测准确，补充制冷剂并清洗滤网后空调制冷恢复正常，服务态度好，非常满意。</textarea></div>
+            </div>
+          </div>
+        </div>
+        <div class="m-note"><i class="fa-solid fa-circle-info"></i>
+          <div>您的评价将<b>汇入运营机构考核评价</b>，与续约资格、新增房源委托量挂钩。</div>
+        </div>
+      </div>
+      <div class="m-actbar">
+        <a class="m-btn w-auto" href="repair-new.html">重新报修</a>
+        <button class="m-btn primary" type="button" onclick="MB.confirm('确认提交评价？评价将汇入运营机构考核，提交后不可修改。','确认提交',function(){MB.toast('评价已提交，感谢您的反馈');setTimeout(function(){location.href='repair-list.html'},1200)})"><i class="fa-solid fa-star"></i> 提交评价</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../../assets/js/mobile.js"></script>
+</body>
+</html>

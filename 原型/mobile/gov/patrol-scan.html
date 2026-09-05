@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>房源扫码巡检 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/mobile.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body class="m-body" data-mtitle="房源扫码巡检" data-mmod="G2 现场核查与巡检" data-mcode="G2-02"
+      data-mdesc="扫描房源二维码调取房源档案与承租信息，现场登记空置、在租、维修等房态并拍照，数据实时回写房态图，巡检记录纳入运营机构考核取数。" data-mback="home.html" data-mtabset="gov" data-mtab="check">
+<div class="m-stage">
+  <div class="m-phone">
+    <div class="m-screen">
+      <div class="m-view">
+        <div class="m-note"><i class="fa-solid fa-circle-info"></i>
+          <div>每套房源<b>一房一码</b>。扫码即可调取房源档案与承租信息，现场登记房态并拍照，数据<b>实时回写房态图</b>。</div>
+        </div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-qrcode"></i>扫码识别</div>
+          <div class="m-card-b">
+            <div style="text-align:center;padding:10px 0">
+              <div style="width:180px;height:180px;margin:0 auto;border-radius:12px;border:2px dashed var(--primary-soft);background:var(--primary-light-2);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px">
+                <i class="fa-solid fa-qrcode" style="font-size:58px;color:var(--primary-soft)"></i>
+                <span style="font-size:12.5px;color:var(--text-3)">将房源二维码置于框内</span>
+              </div>
+              <div style="margin-top:14px">
+                <button class="m-btn ghost" type="button" onclick="MB.toast('原型演示：调起相机扫码')"><i class="fa-solid fa-camera"></i> 开始扫码</button>
+                <button class="m-btn" type="button" onclick="MB.toast('原型演示：手动输入房源编号')" style="margin-left:8px">手动输入</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="m-sect">本月巡检进度</div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-chart-simple"></i>巡检覆盖率</div>
+          <div class="m-card-b">
+            <div class="m-mini">
+              <div><div class="mv">186</div><div class="ml">应巡检(套)</div></div>
+              <div><div class="mv ok">142</div><div class="ml">已巡检</div></div>
+              <div><div class="mv warn">44</div><div class="ml">待巡检</div></div>
+            </div>
+            <div class="m-bar" style="margin-top:12px"><span class="green" style="width:76%"></span></div>
+            <div style="margin-top:6px;font-size:11.5px;color:var(--text-3);text-align:center">完成率 76.3%　·	巡检记录纳入运营机构考核取数</div>
+          </div>
+        </div>
+        <div class="m-sect">最近扫码记录</div>
+        <div class="m-cells">
+          <a class="m-cell" href="patrol-form.html"><span class="m-ci green"><i class="fa-solid fa-house-chimney"></i></span><span class="m-cl"><b>栗雨佳苑 3 栋 1104</b><span class="m-cs">2026-09-05 09:42 · 在租 · 正常</span></span><span class="m-cv"><span class="m-tag green">在租</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="patrol-form.html"><span class="m-ci red"><i class="fa-solid fa-house-circle-exclamation"></i></span><span class="m-cl"><b>栗雨佳苑 3 栋 0904</b><span class="m-cs">2026-09-05 09:28 · 疑似空置 · 已转入户核查</span></span><span class="m-cv"><span class="m-tag red">疑空置</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="patrol-form.html"><span class="m-ci orange"><i class="fa-solid fa-house-chimney"></i></span><span class="m-cl"><b>栗雨佳苑 5 栋 0602</b><span class="m-cs">2026-09-05 09:14 · 维修中 · 卫生间漏水施工</span></span><span class="m-cv"><span class="m-tag orange">维修中</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="patrol-form.html"><span class="m-ci"><i class="fa-solid fa-house-chimney"></i></span><span class="m-cl"><b>栗雨佳苑 5 栋 0708</b><span class="m-cs">2026-09-04 16:22 · 在租 · 疑改变用途已转核查</span></span><span class="m-cv"><span class="m-tag orange">疑改用途</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+        </div>
+        <div class="m-sect">可登记房态<span class="m-sect-x">字典 houseStatus</span></div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-tags"></i>房态口径</div>
+          <div class="m-card-b">
+          <div class="m-kv">
+            <div><span>可配租</span><span>空置且验收合格，可参与配租</span></div>
+            <div><span>已锁定</span><span>配租选房锁定中</span></div>
+            <div><span>已签约</span><span>已签合同待交付</span></div>
+            <div><span>在租</span><span>已交付并实际居住</span></div>
+            <div><span>待腾退</span><span>已下发腾退通知</span></div>
+            <div><span>维修中</span><span>施工中，暂不可配租</span></div>
+            <div><span>已冻结</span><span>因查封、政策调整等冻结</span></div>
+          </div>
+          </div>
+        </div>
+        <div class="m-note warn"><i class="fa-solid fa-triangle-exclamation"></i>
+          <div>巡检发现<b>空置不住、疑似转租转借、改变房屋用途</b>的，可直接转<a href="check-list.html" style="color:var(--primary)">入户核查任务</a>做进一步取证。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../../assets/js/mobile.js"></script>
+</body>
+</html>

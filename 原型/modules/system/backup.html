@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>数据备份与恢复 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="admin" data-active="system-15">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 权限与系统管理
+      <span class="sep">/</span> 基础配置与运维
+      <span class="sep">/</span> <span class="cur">数据备份与恢复</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>配置<b>备份策略</b>并支持<b>数据恢复演练</b>。全量备份每周一次、增量备份每日一次，影像文件单独备份。恢复演练每季度至少一次。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-database"></i></div>
+      <div><div class="s-label">备份任务</div><div class="s-value">3</div>
+        <div class="s-trend text-2">全量 / 增量 / 影像</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
+      <div><div class="s-label">近 30 日成功率</div><div class="s-value">100%</div>
+        <div class="s-trend text-2">无失败</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-hard-drive"></i></div>
+      <div><div class="s-label">备份占用</div><div class="s-value">1.68 TB</div>
+        <div class="s-trend text-2">保留 90 天</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-vials"></i></div>
+      <div><div class="s-label">恢复演练</div><div class="s-value">待安排</div>
+        <div class="s-trend ">第三季度</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>任务名称</label><input type="text" placeholder="任务名称"></div>
+      <div class="filter-item"><label>备份类型</label><select><option value="">全部</option><option>全量备份</option><option>增量备份</option><option>影像文件备份</option></select></div>
+      <div class="filter-item"><label>执行结果</label><select><option value="">全部</option><option>成功</option><option>失败</option><option>进行中</option></select></div>
+      <div class="filter-item"><label>执行日期</label><input type="date"></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>任务编号</th><th class="cell-lg">任务名称</th><th>备份类型</th><th>执行周期</th><th>备份范围</th><th>最近执行</th><th>耗时</th><th>备份大小</th><th>结果</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>BF-001</td><td>业务数据全量备份</td><td><span class="badge blue">全量备份</span></td><td>每周日 01:00</td><td>全部业务库表</td><td>2026-08-31 01:00</td><td>42 分 16 秒</td><td>186.4 GB</td><td><span class="badge green">成功</span></td><td><span class="link" onclick="PMS.openDrawer('bfDrawer')">配置</span></td></tr>
+          <tr><td>BF-002</td><td>业务数据增量备份</td><td><span class="badge cyan">增量备份</span></td><td>每日 01:00</td><td>当日变更数据</td><td>2026-09-05 01:00</td><td>6 分 42 秒</td><td>2.8 GB</td><td><span class="badge green">成功</span></td><td><span class="link" onclick="PMS.openDrawer('bfDrawer')">配置</span></td></tr>
+          <tr><td>BF-003</td><td>材料影像文件备份</td><td><span class="badge orange">影像文件备份</span></td><td>每日 02:30</td><td>当日新增影像文件</td><td>2026-09-05 02:30</td><td>18 分 08 秒</td><td>12.6 GB</td><td><span class="badge green">成功</span></td><td><span class="link" onclick="PMS.openDrawer('bfDrawer')">配置</span></td></tr>
+          <tr class="row-warn"><td>HF-2026Q3</td><td>第三季度数据恢复演练</td><td><span class="badge red">恢复演练</span></td><td>每季度至少一次</td><td>抽取 1 个业务日的全量数据恢复至演练环境</td><td><span class="muted">—</span></td><td><span class="muted">—</span></td><td><span class="muted">—</span></td><td><span class="badge orange">待安排</span></td><td><span class="link" onclick="PMS.openDrawer('bfDrawer')">安排演练</span></td></tr>
+          <tr><td>HF-2026Q2</td><td>第二季度数据恢复演练</td><td><span class="badge red">恢复演练</span></td><td>每季度至少一次</td><td>恢复 2026-05-18 全量数据至演练环境并校验完整性</td><td>2026-06-22 09:00</td><td>2 小时 08 分</td><td>176.2 GB</td><td><span class="badge green">成功</span></td><td><span class="link" onclick="PMS.toast('恢复数据完整性校验通过，业务功能抽测 26 项全部正常，恢复时间 2 小时 08 分，满足 RTO 4 小时要求')">演练报告</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>备份策略</b> 全量每周 + 增量每日 + 影像每日，备份保留 90 天</span>
+    <span><b>演练要求</b> 每季度至少一次数据恢复演练，校验完整性并抽测业务功能</span>
+    <span><b>指标要求</b> RTO（恢复时间目标）≤ 4 小时；RPO（恢复点目标）≤ 24 小时</span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="bfDrawer">
+  <div class="drawer-head">
+    <h3>备份策略与恢复演练</h3>
+    <span class="badge orange">待安排</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>第三季度<b>数据恢复演练待安排</b>。演练须在<b>独立演练环境</b>进行，不得影响生产环境。演练后须出具报告，校验数据完整性并抽测业务功能。</div>
+  </div>
+
+      <div class="form-grid form-align">
+        <div class="form-item">
+          <label>任务编号 <span class="req">*</span></label>
+          <input type="text" value="HF-2026Q3" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>任务名称 <span class="req">*</span></label>
+          <input type="text" value="第三季度数据恢复演练">
+        </div>
+        <div class="form-item">
+          <label>演练类型 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>全量数据恢复</option><option>增量数据恢复</option><option>影像文件恢复</option><option>全链路恢复</option></select>
+        </div>
+        <div class="form-item">
+          <label>演练环境 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>独立演练环境</option><option>灾备环境</option></select>
+          <div class="hint">不得在生产环境演练</div>
+        </div>
+        <div class="form-item">
+          <label>恢复数据日期 <span class="req">*</span></label>
+          <input type="date">
+          <div class="hint">抽取该业务日的备份数据</div>
+        </div>
+        <div class="form-item">
+          <label>计划演练时间 <span class="req">*</span></label>
+          <input type="date">
+        </div>
+        <div class="form-item">
+          <label>RTO 目标 <span class="req">*</span></label>
+          <input type="text" value="≤ 4 小时" readonly>
+        </div>
+        <div class="form-item">
+          <label>RPO 目标 <span class="req">*</span></label>
+          <input type="text" value="≤ 24 小时" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>校验项 <span class="req">*</span></label>
+          <textarea rows="4">①数据完整性校验：业务库表行数、关键业务单据数量与备份时一致
+②数据一致性校验：合同要素与账单金额、房态与配租记录交叉核对
+③业务功能抽测：登录、资格审核、配租选房、账单生成、报表导出等 26 项
+④影像文件校验：抽取 100 份影像校验可正常预览与下载</textarea>
+        </div>
+        <div class="form-item col-full">
+          <label>演练说明 <span class="req">*</span></label>
+          <textarea rows="2" placeholder="必填，说明演练目标与范围"></textarea>
+        </div>
+      </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认安排第三季度数据恢复演练？演练在独立环境进行，不影响生产。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已安排演练计划，届时将在演练环境执行','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 5; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>系统运行监控 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="admin" data-active="stat-31">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 统计分析
+      <span class="sep">/</span> 系统运行与用户
+      <span class="sep">/</span> <span class="cur">系统运行监控</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>监控系统<b>可用性、响应时长与并发情况</b>，在<b>配租选房等高并发时段</b>提供性能保障依据。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-heart-pulse"></i></div>
+      <div><div class="s-label">系统可用率</div><div class="s-value">99.96%</div>
+        <div class="s-trend text-2">近 30 日</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-bolt"></i></div>
+      <div><div class="s-label">平均响应</div><div class="s-value">0.42 秒</div>
+        <div class="s-trend text-2">页面加载</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-users"></i></div>
+      <div><div class="s-label">峰值并发</div><div class="s-value">486</div>
+        <div class="s-trend ">选房时段</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-server"></i></div>
+      <div><div class="s-label">资源使用率</div><div class="s-value">62.4%</div>
+        <div class="s-trend text-2">CPU 峰值</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <h3><i class="fa-solid fa-server"></i> 运行指标</h3>
+      <span class="sub">S6-04 · 近 30 日</span>
+    </div>
+    <div class="card-body">
+      <div class="section-title" data-icon="fa-chart-simple">高并发时段与资源使用</div>
+      <div class="dc-bars">
+        <div class="b-item warn"><span class="b-label">选房时段（09-15 10:00—10:30）　486 并发</span><span class="b-track"><span class="b-fill" style="width:100%"></span></span><span class="b-val">峰值 · CPU 62.4%</span></div>
+        <div class="b-item"><span class="b-label">配租报名首日（09-05 09:00—10:00）　286 并发</span><span class="b-track"><span class="b-fill" style="width:58.8%"></span></span><span class="b-val">CPU 42.6%</span></div>
+        <div class="b-item"><span class="b-label">名单公示首日（09-13 09:00—10:00）　214 并发</span><span class="b-track"><span class="b-fill" style="width:44.0%"></span></span><span class="b-val">CPU 32.8%</span></div>
+        <div class="b-item warn"><span class="b-label">账单生成时段（09-01 02:00—03:00）　86 并发</span><span class="b-track"><span class="b-fill" style="width:17.7%"></span></span><span class="b-val">批量任务 · CPU 78.2%</span></div>
+        <div class="b-item"><span class="b-label">日常工作时段平均　68 并发</span><span class="b-track"><span class="b-fill" style="width:14.0%"></span></span><span class="b-val">CPU 18.4%</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="card list-card">
+    <div class="card-head">
+      <h3><i class="fa-solid fa-table-list"></i> 明细下钻</h3>
+      <span class="sub">可逐级下钻至明细清单</span>
+    </div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>监控项</th><th>当前值</th><th>目标值</th><th>达标</th><th>峰值</th><th>峰值时段</th><th class="cell-lg">分析与保障措施</th><th>下钻</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>系统可用率</td><td><span class="badge green">99.96%</span></td><td><span class="badge blue">≥ 99.9%</span></td><td><span class="badge green">达标</span></td><td><span class="muted">—</span></td><td><span class="muted">—</span></td><td>近 30 日仅 1 次计划内维护（09-01 02:00—02:20，账单生成期间），无非计划中断</td><td><span class="link" onclick="PMS.toast('总时长 43,200 分钟，不可用 17 分钟（计划内维护），可用率 99.96%')">可用率明细</span></td></tr>
+          <tr><td>页面平均响应时长</td><td><span class="badge green">0.42 秒</span></td><td><span class="badge blue">≤ 1 秒</span></td><td><span class="badge green">达标</span></td><td>1.86 秒</td><td>选房时段</td><td>选房时段峰值 1.86 秒仍在目标内。<b>分时段放号（每段 5 人）</b>有效控制并发</td><td><span class="link" onclick="location.href='../alloc/slot-plan.html'">选房时段编排</span></td></tr>
+          <tr class="row-warn"><td>峰值并发用户数</td><td class="num">486</td><td><span class="badge blue">≤ 800</span></td><td><span class="badge green">达标</span></td><td class="num">486</td><td>09-15 10:00—10:30</td><td><b>选房时段为最高并发场景</b>。已通过分时段放号 + 锁房倒计时机制控制并发；建议下批次前做一次压测</td><td><span class="link" onclick="location.href='../alloc/batch-list.html'">配租批次管理</span></td></tr>
+          <tr class="row-warn"><td>CPU 峰值使用率</td><td><span class="badge orange">78.2%</span></td><td><span class="badge blue">≤ 80%</span></td><td><span class="badge orange">接近阈值</span></td><td><span class="badge orange">78.2%</span></td><td>09-01 02:00 账单生成</td><td>账单批量生成（1,286 份）为最高 CPU 场景。建议将账单生成与影像备份错峰执行（当前 02:00 与 02:30 部分重叠）</td><td><span class="link" onclick="location.href='../rent/bill-batch.html'">账单批量生成</span></td></tr>
+          <tr><td>数据库连接池使用率</td><td><span class="badge green">42.6%</span></td><td><span class="badge blue">≤ 70%</span></td><td><span class="badge green">达标</span></td><td><span class="badge green">62.8%</span></td><td>选房时段</td><td>连接池配置合理，选房峰值仍有余量</td><td><span class="link" onclick="PMS.toast('连接池上限 200，峰值使用 126')">资源明细</span></td></tr>
+          <tr><td>存储使用率</td><td><span class="badge green">42.9%</span></td><td><span class="badge blue">≤ 80%</span></td><td><span class="badge green">达标</span></td><td><span class="badge green">42.9%</span></td><td><span class="muted">—</span></td><td>影像文件占 428.6 GB（配额 1 TB）。工单照片保留 3 年，到期归档可释放约 108 GB</td><td><span class="link" onclick="location.href='../system/attach.html'">附件与影像管理</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>保障场景</b> 配租选房、配租报名、名单公示、账单生成为高并发/高负载场景</span>
+    <span><b>并发控制</b> 选房分时段放号（每段 5 人）+ 锁房倒计时，有效控制并发</span>
+    <span><b>指标目标</b> 可用率 ≥ 99.9%；响应 ≤ 1 秒；CPU ≤ 80%；存储 ≤ 80%</span>
+  </div>
+</main>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 8; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

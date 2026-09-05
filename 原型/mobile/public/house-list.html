@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>房源列表 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/mobile.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body class="m-body" data-mtitle="人才公寓房源" data-mmod="M4 房源展示与看房选房" data-mcode="M4-03 / M4-01"
+      data-mdesc="以列表和 GIS 地图两种方式展示全部可租房源。剩余可租房源数量与后台房态实时同步，已锁定或已签约房源即时扣减，避免申请人看到无效房源。" data-mback="home.html" data-mtabset="public" data-mtab="house" data-mact="fa-sliders">
+<div class="m-stage">
+  <div class="m-phone">
+    <div class="m-screen">
+      <div class="m-view">
+        <div class="m-search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" placeholder="搜索小区名称、片区">
+          <span class="m-s-ai" onclick="MB.go('ai-search.html')">AI 检索</span>
+        </div>
+        <div class="m-pills" style="margin-top:10px">
+          <a class="on" href="house-list.html"><i class="fa-solid fa-list"></i> 列表</a>
+          <a href="house-map.html"><i class="fa-solid fa-map-location-dot"></i> 地图</a>
+          <a href="house-filter.html"><i class="fa-solid fa-filter"></i> 筛选</a>
+          <a href="house-compare.html"><i class="fa-solid fa-code-compare"></i> 对比</a>
+          <a href="house-favorite.html"><i class="fa-regular fa-star"></i> 收藏</a>
+        </div>
+        <div class="m-card">
+          <div class="m-card-b">
+            <div class="m-mini">
+              <div><div class="mv">6</div><div class="ml">在售楼盘</div></div>
+              <div><div class="mv ok">159</div><div class="ml">可租房源(套)</div></div>
+              <div><div class="mv">3</div><div class="ml">房源来源</div></div>
+            </div>
+            <div style="margin-top:8px;font-size:11.5px;color:var(--text-3);text-align:center">
+              <i class="fa-solid fa-arrows-rotate"></i> 剩余套数与后台房态实时同步，更新于 09-05 08:42
+            </div>
+          </div>
+        </div>
+        <div class="m-note"><i class="fa-solid fa-circle-info"></i>
+          <div>房源覆盖<b>收购的存量商品房、盘活的公租房闲置房源、保障性租赁住房「一间房」</b>三个渠道，在同一套列表中分类展示。</div>
+        </div>
+        <div class="m-sect">全部房源<span class="m-sect-x">按剩余套数排序</span></div>
+        <a class="m-hcard" href="house-detail.html">
+          <div class="m-hc-img"><img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80" alt="湘江1958 人才公寓">
+            <div class="m-hc-badge"><span class="m-tag blue">收购商品房</span><span class="m-tag green">拎包入住</span></div>
+            <div class="m-hc-vr"><i class="fa-solid fa-vr-cardboard"></i> VR 看房</div>
+          </div>
+          <div class="m-hc-b">
+            <div class="m-hc-t">湘江1958 人才公寓</div>
+            <div class="m-hc-m">天元区 · 泰山路 <span class="dot">|</span> 单间/一室/二室 <span class="dot">|</span> 42—78.60 ㎡</div>
+            <div class="m-hc-tags"><span class="m-tag dark">家电齐全</span><span class="m-tag dark">近 3 号线</span><span class="m-tag dark">配套成熟</span><span class="m-tag dark">精装</span></div>
+            <div class="m-hc-f">
+              <div class="m-hc-p"><div class="p1">424.44 <small>元/月起</small></div><div class="p2">市场租金 1,414.80 元/月</div></div>
+              <span class="m-hc-left">剩 26 套</span>
+            </div>
+          </div>
+        </a>
+        <a class="m-hcard" href="house-detail.html" style="margin-top:12px;display:block">
+          <div class="m-hc-img"><img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&q=80" alt="栗雨佳苑人才公寓">
+            <div class="m-hc-badge"><span class="m-tag green">公租房盘活</span><span class="m-tag green">拎包入住</span></div>
+            <div class="m-hc-vr"><i class="fa-solid fa-vr-cardboard"></i> VR 看房</div>
+          </div>
+          <div class="m-hc-b">
+            <div class="m-hc-t">栗雨佳苑人才公寓</div>
+            <div class="m-hc-m">天元区 · 栗雨路 <span class="dot">|</span> 一室/二室 <span class="dot">|</span> 48—72.40 ㎡</div>
+            <div class="m-hc-tags"><span class="m-tag dark">家电齐全</span><span class="m-tag dark">临栗雨公园</span><span class="m-tag dark">学校近</span></div>
+            <div class="m-hc-f">
+              <div class="m-hc-p"><div class="p1">390.96 <small>元/月起</small></div><div class="p2">市场租金 1,303.20 元/月</div></div>
+              <span class="m-hc-left">剩 17 套</span>
+            </div>
+          </div>
+        </a>
+        <a class="m-hcard" href="house-detail.html" style="margin-top:12px;display:block">
+          <div class="m-hc-img"><img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=800&q=80" alt="云龙人才苑">
+            <div class="m-hc-badge"><span class="m-tag cyan">保租房“一间房”</span><span class="m-tag green">拎包入住</span></div>
+            <div class="m-hc-vr"><i class="fa-solid fa-vr-cardboard"></i> VR 看房</div>
+          </div>
+          <div class="m-hc-b">
+            <div class="m-hc-t">云龙人才苑</div>
+            <div class="m-hc-m">经开区 · 云龙大道 <span class="dot">|</span> 单间/一室 <span class="dot">|</span> 38—52 ㎡</div>
+            <div class="m-hc-tags"><span class="m-tag dark">家电齐全</span><span class="m-tag dark">园区通勤班车</span><span class="m-tag dark">新装</span></div>
+            <div class="m-hc-f">
+              <div class="m-hc-p"><div class="p1">249.60 <small>元/月起</small></div><div class="p2">市场租金 832.00 元/月</div></div>
+              <span class="m-hc-left">剩 24 套</span>
+            </div>
+          </div>
+        </a>
+        <a class="m-hcard" href="house-detail.html" style="margin-top:12px;display:block">
+          <div class="m-hc-img"><img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80" alt="茨菇塘公寓">
+            <div class="m-hc-badge"><span class="m-tag green">公租房盘活</span></div>
+            <div class="m-hc-vr"><i class="fa-solid fa-vr-cardboard"></i> VR 看房</div>
+          </div>
+          <div class="m-hc-b">
+            <div class="m-hc-t">茨菇塘公寓</div>
+            <div class="m-hc-m">荷塘区 · 茨菇塘路 <span class="dot">|</span> 一室/二室 <span class="dot">|</span> 46—68 ㎡</div>
+            <div class="m-hc-tags"><span class="m-tag dark">家电齐全</span><span class="m-tag dark">菜市场近</span><span class="m-tag dark">公交便利</span></div>
+            <div class="m-hc-f">
+              <div class="m-hc-p"><div class="p1">339.84 <small>元/月起</small></div><div class="p2">市场租金 1,132.80 元/月</div></div>
+              <span class="m-hc-left">剩 32 套</span>
+            </div>
+          </div>
+        </a>
+        <a class="m-hcard" href="house-detail.html" style="margin-top:12px;display:block">
+          <div class="m-hc-img"><img src="https://images.unsplash.com/photo-1567767292278-a4f21aa2d36e?w=800&q=80" alt="董家塅安居苑">
+            <div class="m-hc-badge"><span class="m-tag blue">收购商品房</span><span class="m-tag green">拎包入住</span></div>
+            <div class="m-hc-vr"><i class="fa-solid fa-vr-cardboard"></i> VR 看房</div>
+          </div>
+          <div class="m-hc-b">
+            <div class="m-hc-t">董家塅安居苑</div>
+            <div class="m-hc-m">芦淞区 · 董家塅 <span class="dot">|</span> 单间/一室 <span class="dot">|</span> 40—54 ㎡</div>
+            <div class="m-hc-tags"><span class="m-tag dark">家电齐全</span><span class="m-tag dark">临航空城</span><span class="m-tag dark">医院近</span></div>
+            <div class="m-hc-f">
+              <div class="m-hc-p"><div class="p1">259.20 <small>元/月起</small></div><div class="p2">市场租金 864.00 元/月</div></div>
+              <span class="m-hc-left">剩 18 套</span>
+            </div>
+          </div>
+        </a>
+        <a class="m-hcard" href="house-detail.html" style="margin-top:12px;display:block">
+          <div class="m-hc-img"><img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?w=800&q=80" alt="清水塘新苑">
+            <div class="m-hc-badge"><span class="m-tag green">公租房盘活</span><span class="m-tag orange">空置较多</span></div>
+            <div class="m-hc-vr"><i class="fa-solid fa-vr-cardboard"></i> VR 看房</div>
+          </div>
+          <div class="m-hc-b">
+            <div class="m-hc-t">清水塘新苑</div>
+            <div class="m-hc-m">石峰区 · 清水塘 <span class="dot">|</span> 一室/二室 <span class="dot">|</span> 50—74 ㎡</div>
+            <div class="m-hc-tags"><span class="m-tag dark">家电齐全</span><span class="m-tag dark">环境改造中</span></div>
+            <div class="m-hc-f">
+              <div class="m-hc-p"><div class="p1">355.20 <small>元/月起</small></div><div class="p2">市场租金 1,184.00 元/月</div></div>
+              <span class="m-hc-left">剩 42 套</span>
+            </div>
+          </div>
+        </a>
+        <div class="m-note warn"><i class="fa-solid fa-triangle-exclamation"></i>
+          <div>已锁定或已签约的房源<b>即时扣减</b>不再显示。剩余套数为 0 的楼盘可<a href="house-favorite.html" style="color:var(--primary)">收藏并设置到位提醒</a>。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../../assets/js/mobile.js"></script>
+</body>
+</html>

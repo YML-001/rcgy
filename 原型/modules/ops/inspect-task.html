@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>检查与整改跟踪 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="manager" data-active="ops-06">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 运营考核与工单服务
+      <span class="sep">/</span> 运营机构考核
+      <span class="sep">/</span> <span class="cur">检查与整改跟踪</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-danger">
+    <i class="fa-solid fa-circle-exclamation"></i>
+    <div>下发检查任务、记录问题清单、跟踪<b>整改期限与复查结果</b>，形成<b>闭环</b>。整改不到位的在考核中加倍扣分。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-clipboard-check"></i></div>
+      <div><div class="s-label">本年检查任务</div><div class="s-value">12</div>
+        <div class="s-trend text-2">次</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-triangle-exclamation"></i></div>
+      <div><div class="s-label">发现问题</div><div class="s-value">46</div>
+        <div class="s-trend text-2">项</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
+      <div><div class="s-label">整改完成</div><div class="s-value">38</div>
+        <div class="s-trend text-2">完成率 82.6%</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon red"><i class="fa-solid fa-circle-exclamation"></i></div>
+      <div><div class="s-label">逾期未整改</div><div class="s-value">4</div>
+        <div class="s-trend ">加倍扣分</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>检查编号</label><input type="text" placeholder="检查编号"></div>
+      <div class="filter-item"><label>被检查机构</label><input type="text" placeholder="机构名称"></div>
+      <div class="filter-item"><label>问题类别</label><select><option value="">全部</option><option>房源完好</option><option>消防安全</option><option>公共区域</option><option>服务响应</option><option>档案管理</option><option>其他</option></select></div>
+      <div class="filter-item"><label>整改状态</label><select><option value="">全部</option><option>待整改</option><option>整改中</option><option>待复查</option><option>已闭环</option><option>逾期未整改</option></select></div>
+      <div class="filter-item"><label>检查日期</label><input type="date"></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>检查编号</th><th class="cell-lg">被检查机构</th><th>检查日期</th><th>问题类别</th><th class="cell-lg">问题清单</th><th>整改期限</th><th>复查结果</th><th>整改状态</th><th>考核影响</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr class="row-bad"><td>JC2026-08-0012</td><td>株洲清水塘安居服务有限公司</td><td>2026-08-18</td><td><span class="badge red">消防安全</span></td><td>①1 栋 3 层消防通道被杂物占用　②2 栋消防栓水压不足　③公共区域烟感报警器 6 个失效</td><td>2026-09-18</td><td><span class="badge red">复查未通过</span></td><td><span class="badge red">逾期未整改</span></td><td><span class="badge red">加倍扣分 -6</span></td><td><span class="link" onclick="PMS.openDrawer('jcDrawer')">整改跟踪</span></td></tr>
+          <tr class="row-warn"><td>JC2026-08-0014</td><td>株洲清水塘安居服务有限公司</td><td>2026-08-18</td><td><span class="badge orange">公共区域</span></td><td>①1—4 栋楼道杂物堆放　②电梯厅照明部分损坏　③垃圾清运不及时</td><td>2026-09-18</td><td><span class="badge orange">部分整改</span></td><td><span class="badge orange">待复查</span></td><td><span class="badge orange">扣分 -2</span></td><td><span class="link" onclick="PMS.openDrawer('jcDrawer')">整改跟踪</span></td></tr>
+          <tr><td>JC2026-08-0016</td><td>株洲市人才安居服务有限公司</td><td>2026-08-20</td><td><span class="badge blue">档案管理</span></td><td>①交付验收单归档不完整（缺 3 份表底数照片）</td><td>2026-09-20</td><td><span class="badge green">复查通过</span></td><td><span class="badge green">已闭环</span></td><td><span class="badge yellow">扣分 -1</span></td><td><span class="link" onclick="PMS.toast('2026-09-08 补齐 3 份表底数照片并归档，2026-09-12 复查通过，问题闭环')">闭环记录</span></td></tr>
+          <tr><td>JC2026-05-0006</td><td>株洲城建人才公寓运营管理有限公司</td><td>2026-05-12</td><td><span class="badge orange">服务响应</span></td><td>①2 单报修工单超 24 小时未上门　②投诉办结超 5 个工作日 1 件</td><td>2026-06-12</td><td><span class="badge green">复查通过</span></td><td><span class="badge green">已闭环</span></td><td><span class="badge orange">扣分 -2</span></td><td><span class="link" onclick="PMS.toast('已调整值班与派单机制，2026-06-10 复查通过')">闭环记录</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>闭环要求</b> 下发任务 → 记录问题 → 跟踪整改 → 复查确认 → 问题闭环</span>
+    <span><b>加倍扣分</b> 整改不到位或逾期未整改的在考核中加倍扣分</span>
+    <span><b>考核联动</b> <span class="link" onclick="location.href='kpi-score.html'">考核评分</span></span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="jcDrawer">
+  <div class="drawer-head">
+    <h3>整改跟踪与复查</h3>
+    <span class="badge red">逾期未整改</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+  <div class="alert alert-danger">
+    <i class="fa-solid fa-circle-exclamation"></i>
+    <div>该检查任务已<b>逾期未整改</b>且复查未通过。按办法在考核中<b>加倍扣分</b>，并纳入下轮重点检查。整改仍不到位的可暂停新增房源委托。</div>
+  </div>
+
+      <div class="form-grid form-align">
+        <div class="form-item">
+          <label>检查编号 <span class="req">*</span></label>
+          <input type="text" value="JC2026-08-0012" readonly>
+        </div>
+        <div class="form-item">
+          <label>被检查机构 <span class="req">*</span></label>
+          <input type="text" value="株洲清水塘安居服务有限公司" readonly>
+        </div>
+        <div class="form-item">
+          <label>问题类别 <span class="req">*</span></label>
+          <input type="text" value="消防安全" readonly>
+        </div>
+        <div class="form-item">
+          <label>整改期限 <span class="req">*</span></label>
+          <input type="text" value="2026-09-18（已逾期）" readonly>
+        </div>
+        <div class="form-item">
+          <label>复查结果 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>复查通过</option><option>部分整改</option><option>复查未通过</option></select>
+        </div>
+        <div class="form-item">
+          <label>复查日期 <span class="req">*</span></label>
+          <input type="date">
+        </div>
+        <div class="form-item col-full">
+          <label>复查情况 <span class="req">*</span></label>
+          <textarea rows="4">2026-09-22 现场复查：①1 栋 3 层消防通道杂物已清理，整改到位；②2 栋消防栓水压仍不足，机构称待物业维修基金审批，未见实质进展；③公共区域烟感报警器已更换 2 个，仍有 4 个失效未更换。综合判定复查未通过。</textarea>
+        </div>
+        <div class="form-item col-full">
+          <label>处置措施 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>再次下发整改要求并延期</option><option>考核加倍扣分</option><option>暂停新增房源委托</option><option>提请终止合作</option></select>
+        </div>
+        <div class="form-item">
+          <label>新整改期限 <span class="req">*</span></label>
+          <input type="date">
+        </div>
+        <div class="form-item col-full">
+          <label>复查照片 <span class="req">*</span></label>
+          <input type="text" data-upload="1">
+        </div>
+      </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认复查未通过并执行加倍扣分？将纳入下轮重点检查。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已记录复查结果，考核加倍扣分已计入','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 46; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

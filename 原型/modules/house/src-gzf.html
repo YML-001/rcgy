@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>公租房房源数据调用 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="housing" data-active="house-10">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 房源筹集与楼盘表
+      <span class="sep">/</span> 楼盘表与多源归集
+      <span class="sep">/</span> <span class="cur">公租房房源调用</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.toast('已发起同步，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-arrows-rotate"></i> 立即同步</button>
+      <a class="btn" href="revitalize-list.html"><i class="fa-solid fa-file-signature"></i> 盘活审批</a>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>对接<b>公租房管理系统</b>，调用闲置可盘活房源清单与房源状态，作为人才公寓房源的补充来源。同一接口还用于：<b>核查申请人是否已承租公租房或正在领取公租房租赁补贴</b>（防止重复享受），以及支撑<b>不再符合人才条件但仍满足公租房条件</b>的续租判定。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-house-user"></i></div>
+      <div><div class="s-label">公租房房源</div><div class="s-value">12,486</div>
+        <div class="s-trend text-2">全部在册</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-house-circle-exclamation"></i></div>
+      <div><div class="s-label">闲置可盘活</div><div class="s-value">1,572</div>
+        <div class="s-trend text-2">闲置 12 个月以上</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-recycle"></i></div>
+      <div><div class="s-label">已盘活为人才住房</div><div class="s-value">836</div>
+        <div class="s-trend text-2">占房源总量 33.6%</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-file-signature"></i></div>
+      <div><div class="s-label">盘活审批中</div><div class="s-value">412</div>
+        <div class="s-trend text-2">清水塘新苑</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>公租房编码</label><input type="text" placeholder="房源编码"></div>
+      <div class="filter-item"><label>项目 / 房号</label><input type="text" placeholder="项目名称或房号"></div>
+      <div class="filter-item"><label>所在区</label><select data-dict="district" data-ph="全部"></select></div>
+      <div class="filter-item"><label>公租房状态</label><select><option value="">全部</option><option>在租</option><option>闲置</option><option>已转出</option><option>维修中</option></select></div>
+      <div class="filter-item"><label>盘活状态</label><select><option value="">全部</option><option>已盘活</option><option>审批中</option><option>待核实</option><option>不盘活</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>公租房编码</th><th class="cell-lg">项目 / 房号</th><th>所在区</th><th>户型</th><th class="num">面积</th><th class="num">闲置月数</th><th>公租房状态</th><th>盘活状态</th><th>同步时间</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>ZZ-GZF-0042186</td><td>栗雨佳苑 / 3 栋 0904</td><td>天元区</td><td>一室一厅</td><td class="num">48.20</td><td class="num">—</td><td><span class="badge gray">已转出</span></td><td><span class="badge green">已盘活</span></td><td>2026-09-05 02:00</td><td><span class="link" onclick="location.href='house-convert.html'">转换台账</span></td></tr>
+          <tr><td>ZZ-GZF-0056402</td><td>茨菇塘公寓 / 5 栋 0602</td><td>荷塘区</td><td>一室一厅</td><td class="num">46.00</td><td class="num">—</td><td><span class="badge gray">已转出</span></td><td><span class="badge green">已盘活</span></td><td>2026-09-05 02:00</td><td><span class="link" onclick="location.href='house-convert.html'">转换台账</span></td></tr>
+          <tr class="row-warn"><td>ZZ-GZF-0071208</td><td>清水塘新苑 / 1 栋 0708</td><td>石峰区</td><td>一室一厅</td><td class="num">50.00</td><td class="num">18</td><td><span class="badge orange">闲置</span></td><td><span class="badge orange">审批中</span></td><td>2026-09-05 02:00</td><td><span class="link" onclick="location.href='revitalize-list.html'">盘活审批</span></td></tr>
+          <tr class="row-warn"><td>ZZ-GZF-0071214</td><td>清水塘新苑 / 1 栋 0710</td><td>石峰区</td><td>一室一厅</td><td class="num">50.00</td><td class="num">22</td><td><span class="badge orange">闲置</span></td><td><span class="badge orange">审批中</span></td><td>2026-09-05 02:00</td><td><span class="link" onclick="location.href='revitalize-list.html'">盘活审批</span></td></tr>
+          <tr><td>ZZ-GZF-0086104</td><td>田心安居苑 / 2 栋 0904</td><td>石峰区</td><td>二室一厅</td><td class="num">64.00</td><td class="num">14</td><td><span class="badge orange">闲置</span></td><td><span class="badge gray">待核实</span></td><td>2026-09-05 02:00</td><td><span class="link" onclick="PMS.toast('已向市住保中心公租房管理科发起闲置情况核实')">核实闲置</span></td></tr>
+          <tr><td>ZZ-GZF-0091802</td><td>金山公租房 / 4 栋 1204</td><td>天元区</td><td>一室一厅</td><td class="num">44.00</td><td class="num">2</td><td><span class="badge blue">在租</span></td><td><span class="badge gray">不盘活</span></td><td>2026-09-05 02:00</td><td><span class="link" onclick="PMS.toast('该房源公租房在租中，不属闲置可盘活范围')">说明</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>数据来源</b> 公租房管理系统</span>
+    <span><b>三项用途</b> ①调用闲置房源作为人才公寓来源　②核查重复享受　③支撑公租房条件续租判定</span>
+    <span><b>配合单位</b> 市保障性住房服务中心</span>
+  </div>
+</main>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 1572; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

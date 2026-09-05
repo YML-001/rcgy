@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>失信名单管理 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="reviewer" data-active="apply-04">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 人才档案与资格联审
+      <span class="sep">/</span> 人才档案
+      <span class="sep">/</span> <span class="cur">失信名单管理</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-danger">
+    <i class="fa-solid fa-circle-exclamation"></i>
+    <div>对查实的<b>提交虚假材料、隐瞒实情、转租转借</b>等行为标记失信并执行清退，落地<b>放弃资格后不得再次申请</b>的硬控制。标记失信为高敏不可逆操作，需双人授权 + 人脸二次确认并留存法律文书。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card dc-alarm">
+      <div class="s-icon red"><i class="fa-solid fa-user-slash"></i></div>
+      <div><div class="s-label">失信标记</div><div class="s-value">6</div>
+        <div class="s-trend ">不得再次申请</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-ban"></i></div>
+      <div><div class="s-label">放弃配租标记</div><div class="s-value">18</div>
+        <div class="s-trend text-2">不得再次申请</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-gavel"></i></div>
+      <div><div class="s-label">本年清退执行</div><div class="s-value">6</div>
+        <div class="s-trend text-2">已全部腾退</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-shield-halved"></i></div>
+      <div><div class="s-label">申请阻断次数</div><div class="s-value">42</div>
+        <div class="s-trend text-2">命中即阻断</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>姓名</label><input type="text" placeholder="人才姓名"></div>
+      <div class="filter-item"><label>身份证号</label><input type="text" placeholder="身份证号"></div>
+      <div class="filter-item"><label>标记类型</label><select><option value="">全部</option><option>失信（虚假材料）</option><option>失信（隐瞒实情）</option><option>失信（转租转借）</option><option>放弃配租</option></select></div>
+      <div class="filter-item"><label>标记状态</label><select><option value="">全部</option><option>生效中</option><option>待审批</option></select></div>
+      <div class="filter-item"><label>标记时间</label><input type="date"></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>标记编号</th><th>姓名</th><th class="cell-lg">身份证号</th><th>标记类型</th><th class="cell-lg">查实情形</th><th>法律文书</th><th>审批人</th><th>标记时间</th><th>状态</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr class="row-bad"><td>SX2026-08-0006</td><td>蒋志远</td><td><span class="sp-mask">430204********0842<span class="mk" onclick="SP.mask(this.parentElement,'430204199807080842')">查看明文</span></span></td><td><span class="badge red">失信（转租转借）</span></td><td>入户核查查实擅自将房源转租给他人居住，实际居住人非承租人，已取证</td><td><span class="badge green">已留存</span></td><td>李慧敏</td><td>2026-08-16</td><td><span class="badge red">生效中</span></td><td><span class="link" onclick="PMS.toast('已留存《取消保障资格决定书》与入户核查取证材料（GPS + 现场照片 5 张）')">查看法律文书</span></td></tr>
+          <tr class="row-bad"><td>SX2026-06-0004</td><td>彭立军</td><td><span class="sp-mask">430202********1518<span class="mk" onclick="SP.mask(this.parentElement,'430202199612151518')">查看明文</span></span></td><td><span class="badge red">失信（虚假材料）</span></td><td>联审比对发现提交的劳动合同为伪造，用工单位否认存在劳动关系</td><td><span class="badge green">已留存</span></td><td>李慧敏</td><td>2026-06-22</td><td><span class="badge red">生效中</span></td><td><span class="link" onclick="PMS.toast('已留存《取消保障资格决定书》与用工单位书面否认函')">查看法律文书</span></td></tr>
+          <tr class="row-bad"><td>SX2026-04-0002</td><td>曾小敏</td><td><span class="sp-mask">430211********2842<span class="mk" onclick="SP.mask(this.parentElement,'430211199503282842')">查看明文</span></span></td><td><span class="badge red">失信（隐瞒实情）</span></td><td>年审复核发现 2025 年已在天元区购买住房但未主动申报，隐瞒实情</td><td><span class="badge green">已留存</span></td><td>李慧敏</td><td>2026-04-10</td><td><span class="badge red">生效中</span></td><td><span class="link" onclick="PMS.toast('已留存《取消保障资格决定书》与不动产登记查询结果')">查看法律文书</span></td></tr>
+          <tr class="row-warn"><td>FQ2026-09-0018</td><td>黄志强</td><td><span class="sp-mask">430203********0926<span class="mk" onclick="SP.mask(this.parentElement,'430203200104090926')">查看明文</span></span></td><td><span class="badge orange">放弃配租</span></td><td>2026 年第 2 批配租选房后不服从配租房源且不办理入住，已电子签确认放弃</td><td><span class="badge green">已留存</span></td><td>李慧敏</td><td>2026-09-02</td><td><span class="badge orange">生效中</span></td><td><span class="link" onclick="PMS.toast('已留存《放弃承租资格确认书》电子签署记录')">查看确认书</span></td></tr>
+          <tr class="row-warn"><td>SX2026-09-0008</td><td>唐雅琴</td><td><span class="sp-mask">430211********2206<span class="mk" onclick="SP.mask(this.parentElement,'430211200011222206')">查看明文</span></span></td><td><span class="badge red">失信（隐瞒实情）</span></td><td>离职后未主动申报，经用人单位上报后核实，拟标记失信并清退</td><td><span class="badge orange">待补</span></td><td><span class="muted">—</span></td><td><span class="muted">—</span></td><td><span class="badge orange">待审批</span></td><td><span class="link" onclick="PMS.openDrawer('sxDrawer')">办理审批</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>政策依据</b> 管理办法第九条（放弃资格的不得再次申请）、第十三条（虚假材料、隐瞒实情取消资格）</span>
+    <span><b>高敏控制</b> 需双人授权 + 人脸二次确认，须留存法律文书</span>
+    <span><b>硬控制落点</b> 申请提交时自动校验，命中即阻断并说明原因</span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="sxDrawer">
+  <div class="drawer-head">
+    <h3>失信标记与清退审批</h3>
+    <span class="badge red">高敏不可逆</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+    <div class="sp-dual">
+      <i class="lead fa-solid fa-user-shield"></i>
+      <div>标记失信与执行清退为<b>高敏不可逆操作</b>，需<b>双人授权 + 人脸二次确认</b>，且<b>必须留存法律文书</b>。发起人与审批人必须为不同人员。</div>
+      <div class="who"><span class="muted">发起人</span><b>刘志刚</b></div>
+    </div>
+  <div class="alert alert-danger">
+    <i class="fa-solid fa-circle-exclamation"></i>
+    <div>标记失信后：<b>取消保障资格、生成清退工单交运营管理机构执行、记入失信名单后不得再次申请</b>。本操作<b>不可撤销</b>。</div>
+  </div>
+
+      <div class="form-grid form-align">
+        <div class="form-item col-full">
+          <label>标记对象 <span class="req">*</span></label>
+          <input type="text" value="唐雅琴（430211********2206）" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>承租房源 <span class="req">*</span></label>
+          <input type="text" value="湘江1958 人才公寓 A6 栋 1806" readonly>
+        </div>
+        <div class="form-item">
+          <label>标记类型 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>失信（虚假材料）</option><option>失信（隐瞒实情）</option><option>失信（转租转借）</option></select>
+        </div>
+        <div class="form-item">
+          <label>查实依据 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>联审数据比对</option><option>入户核查取证</option><option>扫码巡检发现</option><option>用人单位上报</option><option>举报核实</option></select>
+        </div>
+        <div class="form-item col-full">
+          <label>查实情形 <span class="req">*</span></label>
+          <textarea rows="4">该承租人于 2026-08-31 从中车株洲电力机车研究所离职并停缴社保，未按管理办法第十二条主动申报条件变化。经用人单位于 2026-09-05 上报后核实，其已不符合就业青年人才条件且存在隐瞒实情情形。</textarea>
+        </div>
+        <div class="form-item col-full">
+          <label>法律文书 <span class="req">*</span></label>
+          <input type="text" data-upload="1">
+          <div class="hint">《取消保障资格决定书》+ 查实依据材料</div>
+        </div>
+        <div class="form-item col-full">
+          <label>清退工单执行机构 <span class="req">*</span></label>
+          <input type="text" value="株洲市人才安居服务有限公司" readonly>
+        </div>
+        <div class="form-item">
+          <label>腾退期限 <span class="req">*</span></label>
+          <input type="date">
+        </div>
+        <div class="form-item">
+          <label>人脸二次确认 <span class="req">*</span></label>
+          <input type="text" placeholder="点击右侧完成人脸核身">
+          <div class="hint"><span class="link" onclick="PMS.toast('人脸核身通过（相似度 98.2%），已留痕')">开始人脸核身</span></div>
+        </div>
+      </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-danger" onclick="PMS.confirm({title:'高敏不可逆操作确认',message:'确认对唐雅琴标记失信并取消保障资格？',detail:'标记后取消保障资格、生成清退工单交运营机构执行、记入失信名单后不得再次申请。本操作不可撤销，须已留存法律文书。',type:'error',okText:'确认标记并清退',onOk:function(){PMS.closeDrawer();PMS.toast('已标记失信，清退工单已生成并派发','success');}})"><i class="fa-solid fa-gavel"></i> 确认标记并清退</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 24; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>核心指标看板 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="leader" data-active="stat-02">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 统计分析
+      <span class="sep">/</span> 领导驾驶舱
+      <span class="sep">/</span> <span class="cur">核心指标看板</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>集中展示<b>房源总量、可配租余量、在租户数、累计保障人次、平均配租周期、租金减免总额</b>等核心指标，并对比年度目标完成情况。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-building"></i></div>
+      <div><div class="s-label">房源总量</div><div class="s-value">2,486</div>
+        <div class="s-trend text-2">计划完成率 82.9%</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-users"></i></div>
+      <div><div class="s-label">累计保障人次</div><div class="s-value">1,842</div>
+        <div class="s-trend text-success">↑ 较上年 46.2%</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-clock"></i></div>
+      <div><div class="s-label">平均配租周期</div><div class="s-value">18.6 天</div>
+        <div class="s-trend text-success">↓ 缩短 4.2 天</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+      <div><div class="s-label">累计减免总额</div><div class="s-value">11,842,600.00</div>
+        <div class="s-trend text-2">元</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <h3><i class="fa-solid fa-gauge-high"></i> 核心指标</h3>
+      <span class="sub">S1-02 · 2026 年度</span>
+    </div>
+    <div class="card-body">
+      <div class="section-title" data-icon="fa-chart-column">2026 年月度房源到位套数</div>
+      <div class="bar-chart">
+        <div class="bar-col"><span class="bar-val">186</span><div class="bar" style="height:38%"></div><span class="bar-label">1 月</span></div>
+        <div class="bar-col"><span class="bar-val">142</span><div class="bar" style="height:29%"></div><span class="bar-label">2 月</span></div>
+        <div class="bar-col"><span class="bar-val">268</span><div class="bar" style="height:55%"></div><span class="bar-label">3 月</span></div>
+        <div class="bar-col"><span class="bar-val">312</span><div class="bar" style="height:64%"></div><span class="bar-label">4 月</span></div>
+        <div class="bar-col"><span class="bar-val">286</span><div class="bar" style="height:58%"></div><span class="bar-label">5 月</span></div>
+        <div class="bar-col"><span class="bar-val">344</span><div class="bar" style="height:70%"></div><span class="bar-label">6 月</span></div>
+        <div class="bar-col"><span class="bar-val">402</span><div class="bar" style="height:82%"></div><span class="bar-label">7 月</span></div>
+        <div class="bar-col"><span class="bar-val">356</span><div class="bar" style="height:73%"></div><span class="bar-label">8 月</span></div>
+        <div class="bar-col"><span class="bar-val">190</span><div class="bar" style="height:39%"></div><span class="bar-label">9 月</span></div>
+      </div>
+      <div class="section-title" data-icon="fa-chart-simple">年度关键指标完成情况</div>
+      <div class="dc-bars">
+        <div class="b-item warn"><span class="b-label">房源筹集完成率</span><span class="b-track"><span class="b-fill" style="width:82.9%"></span></span><span class="b-val">2,486 / 3,000 套 · 82.9%</span></div>
+        <div class="b-item"><span class="b-label">资格审核 3 日办结率</span><span class="b-track"><span class="b-fill" style="width:96.4%"></span></span><span class="b-val">1,240 / 1,286 件 · 96.4%</span></div>
+        <div class="b-item"><span class="b-label">配租认领率</span><span class="b-track"><span class="b-fill" style="width:85.6%"></span></span><span class="b-val">274 / 320 套 · 85.6%</span></div>
+        <div class="b-item"><span class="b-label">租金收缴率</span><span class="b-track"><span class="b-fill" style="width:93.5%"></span></span><span class="b-val">1,203,180 / 1,286,400 元 · 93.5%</span></div>
+        <div class="b-item"><span class="b-label">报修及时率</span><span class="b-track"><span class="b-fill" style="width:93.4%"></span></span><span class="b-val">454 / 486 单 · 93.4%</span></div>
+        <div class="b-item"><span class="b-label">住户满意度</span><span class="b-track"><span class="b-fill" style="width:92.4%"></span></span><span class="b-val">4.62 / 5.00 分 · 折算 92.4%</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="card list-card">
+    <div class="card-head">
+      <h3><i class="fa-solid fa-table-list"></i> 明细下钻</h3>
+      <span class="sub">可逐级下钻至明细清单</span>
+    </div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>指标名称</th><th>当前值</th><th>年度目标</th><th>完成率</th><th>同比</th><th>达标</th><th class="cell-lg">口径说明</th><th>下钻</th></tr>
+        </thead>
+        <tbody>
+          <tr class="row-warn"><td>房源筹集套数</td><td class="num">2,486</td><td class="num">3,000</td><td><span class="badge orange">82.9%</span></td><td>+46.2%</td><td><span class="badge orange">未达标</span></td><td>按交付验收合格之日归集；剩余 3 个月需月均到位 172 套</td><td><span class="link" onclick="location.href='house-plan.html'">筹集完成率</span></td></tr>
+          <tr><td>在租人才户数</td><td class="num">1,286</td><td class="num">1,200</td><td><span class="badge green">107.2%</span></td><td>+58.4%</td><td><span class="badge green">已达标</span></td><td>按已完成交付验收并在保障期内的合同数统计</td><td><span class="link" onclick="location.href='talent-profile.html'">人才画像</span></td></tr>
+          <tr><td>累计保障人次</td><td class="num">1,842</td><td class="num">1,600</td><td><span class="badge green">115.1%</span></td><td>+46.2%</td><td><span class="badge green">已达标</span></td><td>含正常退出 538 人次；同一人多次保障计多人次</td><td><span class="link" onclick="location.href='policy-effect.html'">政策成效</span></td></tr>
+          <tr><td>资格审核 3 日办结率</td><td><span class="badge green">96.4%</span></td><td><span class="badge blue">95%</span></td><td><span class="badge green">101.5%</span></td><td>+3.2pp</td><td><span class="badge green">已达标</span></td><td>自收到申请资料之日起 3 个工作日内办结的件数占比（法定时限）</td><td><span class="link" onclick="location.href='audit-perf.html'">审核效能</span></td></tr>
+          <tr class="row-warn"><td>配租认领率</td><td><span class="badge orange">85.6%</span></td><td><span class="badge blue">90%</span></td><td><span class="badge orange">95.1%</span></td><td>-2.4pp</td><td><span class="badge orange">未达标</span></td><td>完成选房并签约的人数占报名人数比；主要流失在配租排序→完成选房环节</td><td><span class="link" onclick="location.href='funnel.html'">申请漏斗</span></td></tr>
+          <tr><td>租金收缴率</td><td><span class="badge green">93.5%</span></td><td><span class="badge blue">95%</span></td><td><span class="badge green">98.4%</span></td><td>+1.8pp</td><td><span class="badge orange">接近达标</span></td><td>实收个人自付部分 ÷ 应收个人自付部分；欠费 62 户 83,220.00 元</td><td>租金收缴分析</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>统计周期</b> 2026 年 1 月至 9 月累计</span>
+    <span><b>同比口径</b> 与 2025 年同期对比</span>
+    <span><b>下钻要求</b> 所有指标可从汇总数逐级下钻至明细清单直至单个申请件或房源档案</span>
+  </div>
+</main>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 12; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

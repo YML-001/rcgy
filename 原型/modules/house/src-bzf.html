@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>保租房房源数据调用 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="housing" data-active="house-09">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 房源筹集与楼盘表
+      <span class="sep">/</span> 楼盘表与多源归集
+      <span class="sep">/</span> <span class="cur">保租房房源调用</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.confirm({title:'同步确认',message:'确认立即从省保租房系统同步房源数据？',detail:'同步将生成对账差异清单，差异项转人工核实处理。定时同步时间为每日 02:00。',type:'info',okText:'确认同步',onOk:function(){PMS.toast('已发起同步，完成后在顶栏消息区提醒','success');}})"><i class="fa-solid fa-arrows-rotate"></i> 立即同步</button>
+      <a class="btn" href="src-sync.html"><i class="fa-solid fa-code-compare"></i> 对账差异</a>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>对接<b>省保障性租赁住房系统</b>，调用其房源基本信息与状态，包含省厅面向人才引进开发的<b>「一间房」</b>房源。<b>本系统只做归集展示与配租衔接，不重复建设省厅已有功能</b>——房源的新增、修改、房态维护仍在省系统完成。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-house-flag"></i></div>
+      <div><div class="s-label">省系统房源</div><div class="s-value">1,268</div>
+        <div class="s-trend text-2">含非人才引进房源</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-tag"></i></div>
+      <div><div class="s-label">“一间房”房源</div><div class="s-value">506</div>
+        <div class="s-trend text-2">纳入归集范围</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
+      <div><div class="s-label">已归集</div><div class="s-value">498</div>
+        <div class="s-trend text-2">占 98.4%</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-triangle-exclamation"></i></div>
+      <div><div class="s-label">差异待核</div><div class="s-value">8</div>
+        <div class="s-trend ">状态或面积不一致</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>省系统编码</label><input type="text" placeholder="房源编码"></div>
+      <div class="filter-item"><label>项目 / 房号</label><input type="text" placeholder="项目名称或房号"></div>
+      <div class="filter-item"><label>所在区</label><select data-dict="district" data-ph="全部"></select></div>
+      <div class="filter-item"><label>“一间房”标识</label><select><option value="">全部</option><option>是</option><option>否</option></select></div>
+      <div class="filter-item"><label>归集状态</label><select><option value="">全部</option><option>已归集</option><option>差异待核</option><option>不归集</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>省系统房源编码</th><th class="cell-lg">项目 / 房号</th><th>所在区</th><th>户型</th><th class="num">面积</th><th>“一间房”标识</th><th>省系统状态</th><th>本系统归集</th><th>同步时间</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>HN430200-BZF-0086212</td><td>云龙人才苑 / 2 栋 0708</td><td>经开区</td><td>单间配套</td><td class="num">38.00</td><td><span class="badge cyan">一间房</span></td><td><span class="badge green">可租</span></td><td><span class="badge green">已归集</span></td><td>2026-09-05 02:00</td><td><span class="link" onclick="location.href='building-table.html'">楼盘表</span> <span class="link" onclick="location.href='src-tag.html'">打标</span></td></tr>
+          <tr><td>HN430200-BZF-0086218</td><td>云龙人才苑 / 2 栋 0710</td><td>经开区</td><td>单间配套</td><td class="num">38.00</td><td><span class="badge cyan">一间房</span></td><td><span class="badge green">可租</span></td><td><span class="badge green">已归集</span></td><td>2026-09-05 02:00</td><td><span class="link" onclick="location.href='building-table.html'">楼盘表</span> <span class="link" onclick="location.href='src-tag.html'">打标</span></td></tr>
+          <tr><td>HN430200-BZF-0086402</td><td>云龙人才苑 / 3 栋 1102</td><td>经开区</td><td>一室一厅</td><td class="num">52.00</td><td><span class="badge cyan">一间房</span></td><td><span class="badge blue">在租</span></td><td><span class="badge green">已归集</span></td><td>2026-09-05 02:00</td><td><span class="link" onclick="location.href='building-table.html'">楼盘表</span></td></tr>
+          <tr class="row-warn"><td>HN430200-BZF-0086508</td><td>时代新城人才公寓 / 1 栋 0804</td><td>天元区</td><td>一室一厅</td><td class="num">56.00</td><td><span class="badge cyan">一间房</span></td><td><span class="badge green">可租</span></td><td><span class="badge orange">差异待核</span></td><td>2026-09-05 02:00</td><td><span class="link" onclick="location.href='src-sync.html'">对账</span></td></tr>
+          <tr><td>HN430200-BZF-0086610</td><td>时代新城人才公寓 / 1 栋 1206</td><td>天元区</td><td>二室一厅</td><td class="num">74.00</td><td><span class="muted">—</span></td><td><span class="badge blue">在租</span></td><td><span class="badge gray">不归集</span></td><td>2026-09-05 02:00</td><td><span class="link" onclick="PMS.toast('该房源非面向人才引进的「一间房」房源，不纳入人才公寓归集范围')">说明</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>数据来源</b> 省保障性租赁住房系统（含「一间房」功能）</span>
+    <span><b>功能边界</b> 本系统不重复建设省厅已有的房源管理功能，只做归集展示与配租衔接</span>
+    <span><b>配合单位</b> 省住建厅、市住建局</span>
+    <span><b>同步频次</b> 每日 02:00 定时同步 + 手动触发</span>
+  </div>
+</main>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 506; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

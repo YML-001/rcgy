@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>规则版本与生效期 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="manager" data-active="rule-08">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 信息公开与规则配置
+      <span class="sep">/</span> 版本与变更留痕
+      <span class="sep">/</span> <span class="cur">规则版本与生效期</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="SP.dual('规则版本发布为高敏操作，需短信验证码二次确认，且须已完成历史件回归测试。')"><i class="fa-solid fa-code-branch"></i> 发布新版本</button>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>管理<b>规则版本与生效起止时间</b>，<b>按申请受理时点匹配当时有效的规则</b>，保证新旧政策衔接期判定<b>可解释、可追溯</b>。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-code-branch"></i></div>
+      <div><div class="s-label">规则版本</div><div class="s-value">4</div>
+        <div class="s-trend text-2">含 1 个待发布</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
+      <div><div class="s-label">当前生效</div><div class="s-value">V2026-09</div>
+        <div class="s-trend text-2">2026-09-01 起</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-hourglass-half"></i></div>
+      <div><div class="s-label">待发布</div><div class="s-value">1</div>
+        <div class="s-trend ">V2026-10 待回归测试</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-clock-rotate-left"></i></div>
+      <div><div class="s-label">历史版本</div><div class="s-value">2</div>
+        <div class="s-trend text-2">可追溯查询</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>版本号</label><input type="text" placeholder="如 V2026-09"></div>
+      <div class="filter-item"><label>规则类型</label><select><option value="">全部</option><option>申请条件</option><option>租金减免</option><option>区域差异化</option><option>流程编排</option><option>表单材料</option><option>核验开关</option></select></div>
+      <div class="filter-item"><label>版本状态</label><select><option value="">全部</option><option>生效中</option><option>待发布</option><option>已失效</option></select></div>
+      <div class="filter-item"><label>生效日期</label><input type="date"></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>版本号</th><th class="cell-lg">版本名称</th><th>涉及规则类型</th><th>规则条数</th><th>生效起</th><th>生效止</th><th class="cell-lg">主要变更</th><th>回归测试</th><th>状态</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr class="row-warn"><td><span class="sp-vt">V2026-10</span></td><td>人才住房保障规则集 V2026-10（拟发布）</td><td>申请条件 + 流程编排</td><td class="num">15</td><td>2026-10-01</td><td><span class="muted">—</span></td><td>①R-C12 企业纳税判定口径落库（待市税务局明确）②资格审核流程增加「税务例外件专项复核」环节</td><td><span class="badge red">未测试</span></td><td><span class="badge orange">待发布</span></td><td><span class="link" onclick="location.href='rule-test.html'">规则测试</span></td></tr>
+          <tr><td><span class="sp-vt cur">V2026-09</span></td><td>人才住房保障规则集 V2026-09</td><td>申请条件 + 租金减免 + 核验开关</td><td class="num">13</td><td>2026-09-01</td><td><span class="muted">—</span></td><td>①董家塅安居苑减免比例 68% 落库　②学历与企业纳税核验临时切换为非强制</td><td><span class="badge green">已通过</span></td><td><span class="badge green">生效中</span></td><td><span class="link" onclick="PMS.openDrawer('bbDrawer')">版本详情</span></td></tr>
+          <tr><td><span class="sp-vt">V2026-06</span></td><td>人才住房保障规则集 V2026-06</td><td>申请条件 + 租金减免</td><td class="num">12</td><td>2026-06-01</td><td>2026-08-31</td><td>①茨菇塘公寓减免比例 65% 落库　②明确渌口区房产不计入无房核查</td><td><span class="badge green">已通过</span></td><td><span class="badge gray">已失效</span></td><td><span class="link" onclick="PMS.openDrawer('bbDrawer')">版本详情</span></td></tr>
+          <tr><td><span class="sp-vt">V2026-01</span></td><td>人才住房保障规则集 V2026-01（首版）</td><td>申请条件 + 租金减免 + 流程编排 + 表单材料 + 核验开关</td><td class="num">10</td><td>2026-01-01</td><td>2026-05-31</td><td>首版规则集，按管理办法（征求意见稿）配置全部条件与流程</td><td><span class="badge green">已通过</span></td><td><span class="badge gray">已失效</span></td><td><span class="link" onclick="PMS.openDrawer('bbDrawer')">版本详情</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>匹配口径</b> 按申请受理时点匹配当时有效的规则，保证新旧政策衔接期判定可解释</span>
+    <span><b>发布前置</b> 须完成历史件回归测试方可发布</span>
+    <span><b>变更留痕</b> <span class="link" onclick="location.href='rule-log.html'">规则变更留痕</span></span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="bbDrawer">
+  <div class="drawer-head">
+    <h3>规则版本详情</h3>
+    <span class="badge green">生效中</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>规则版本按<b>申请受理时点</b>匹配。已受理在办件<b>仍按受理时有效的版本执行</b>，保证新旧政策衔接期判定可解释、可追溯。</div>
+  </div>
+
+      <div class="form-grid form-align">
+        <div class="form-item">
+          <label>版本号 <span class="req">*</span></label>
+          <input type="text" value="V2026-09" readonly>
+        </div>
+        <div class="form-item">
+          <label>版本状态 <span class="req">*</span></label>
+          <input type="text" value="生效中" readonly>
+        </div>
+        <div class="form-item">
+          <label>生效起 <span class="req">*</span></label>
+          <input type="text" value="2026-09-01" readonly>
+        </div>
+        <div class="form-item">
+          <label>生效止 <span class="req">*</span></label>
+          <input type="text" value="—（当前最新）" readonly>
+        </div>
+        <div class="form-item">
+          <label>涉及规则条数 <span class="req">*</span></label>
+          <input type="text" value="13" readonly>
+        </div>
+        <div class="form-item">
+          <label>回归测试结果 <span class="req">*</span></label>
+          <input type="text" value="已通过（历史件 1,286 件，判定一致率 100%）" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>主要变更</label>
+          <textarea rows="4" readonly>①新增 R-R-005 董家塅安居苑减免比例 68%（一事一议审定文件已关联）
+②学历学位核验因学信网接口失败率 12.4% 临时切换为「非强制（临时人工）」
+③企业纳税核验因判定口径待明确临时切换为「非强制（临时人工）」
+④修订 R-C5 无房核查范围说明，明确渌口区房产不计入</textarea>
+        </div>
+        <div class="form-item col-full">
+          <label>适用件数 <span class="req">*</span></label>
+          <input type="text" value="2026-09-01 起受理的 486 件" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>审批人 / 时间 <span class="req">*</span></label>
+          <input type="text" value="李慧敏　2026-08-28 16:22" readonly>
+        </div>
+      </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'关闭版本详情？',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已查看版本详情','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 4; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

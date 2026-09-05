@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>合同归档与查询 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="allocator" data-active="alloc-13">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 配租选房与合同
+      <span class="sep">/</span> 合同管理
+      <span class="sep">/</span> <span class="cur">合同归档与查询</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="SP.dual('批量导出合同含身份证号等敏感字段，需授权并全程留痕。')"><i class="fa-solid fa-download"></i> 批量导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>电子合同<b>集中归档</b>，支持按<b>承租人、房源、批次、期限</b>多维查询与导出。归档合同含签署存证、用章日志与变更协议全套材料。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-box-archive"></i></div>
+      <div><div class="s-label">归档合同</div><div class="s-value">1,842</div>
+        <div class="s-trend text-2">含已到期与已解除</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-file-signature"></i></div>
+      <div><div class="s-label">签署存证</div><div class="s-value">1,842</div>
+        <div class="s-trend text-2">第三方 CA 存证</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-file-pen"></i></div>
+      <div><div class="s-label">变更协议</div><div class="s-value">74</div>
+        <div class="s-trend text-2">附于原合同卷内</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-download"></i></div>
+      <div><div class="s-label">本月导出</div><div class="s-value">42</div>
+        <div class="s-trend text-2">需授权并留痕</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>归档编号</label><input type="text" placeholder="归档编号"></div>
+      <div class="filter-item"><label>承租人</label><input type="text" placeholder="姓名"></div>
+      <div class="filter-item"><label>房源</label><input type="text" placeholder="项目名称或房号"></div>
+      <div class="filter-item"><label>配租批次</label><input type="text" placeholder="批次编号"></div>
+      <div class="filter-item"><label>合同状态</label><select data-dict="contractStatus" data-ph="全部"></select></div>
+      <div class="filter-item"><label>签署日期</label><input type="date"></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>归档编号</th><th>合同编号</th><th>承租人</th><th class="cell-lg">房源</th><th>配租批次</th><th>签署日期</th><th>保障期</th><th>变更协议</th><th>合同状态</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>GD2026-RZ-00862</td><td>RZ2026-00862</td><td>王梓涵</td><td>湘江1958 A6-1502</td><td>PZ2026-03</td><td>2026-09-20</td><td>2026-01-06 至 2028-01-05</td><td class="num">0</td><td><span class="badge green">已生效</span></td><td><span class="link" onclick="location.href='contract-detail.html?id=RZ2026-00862'">查阅</span></td></tr>
+          <tr><td>GD2026-RZ-00386</td><td>RZ2026-00386</td><td>李子康</td><td>湘江1958 A3-1108 主卧</td><td>PZ2026-01</td><td>2026-02-26</td><td>2026-03-08 至 2028-03-07</td><td class="num">1</td><td><span class="badge cyan">已变更</span></td><td><span class="link" onclick="location.href='contract-detail.html?id=RZ2026-00386'">查阅</span></td></tr>
+          <tr class="row-warn"><td>GD2026-RZ-00518</td><td>RZ2026-00518</td><td>周宇轩</td><td>栗雨佳苑 3-0904</td><td>PZ2026-02</td><td>2026-04-02</td><td>2026-04-12 至 2028-04-11</td><td class="num">1</td><td><span class="badge orange">已解除</span></td><td><span class="link" onclick="location.href='contract-detail.html?id=RZ2026-00518'">查阅</span></td></tr>
+          <tr><td>GD2024-RZ-00206</td><td>RZ2024-00206</td><td>谭建国</td><td>栗雨佳苑 3-0608</td><td>PZ2024-01</td><td>2024-03-06</td><td>2024-03-12 至 2026-03-11</td><td class="num">1</td><td><span class="badge gray">已到期</span></td><td><span class="link" onclick="location.href='contract-detail.html?id=RZ2024-00206'">查阅</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>归档内容</b> 合同文本 + 签署存证 + 用章日志 + 变更协议 + 交付凭证</span>
+    <span><b>查询维度</b> 承租人 / 房源 / 批次 / 期限 / 状态</span>
+    <span><b>导出控制</b> 含身份证号等敏感字段的导出需授权并全程留痕</span>
+  </div>
+</main>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 1842; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

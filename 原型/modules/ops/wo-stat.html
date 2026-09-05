@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>工单统计与督办 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="manager" data-active="ops-09">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 运营考核与工单服务
+      <span class="sep">/</span> 工单与服务
+      <span class="sep">/</span> <span class="cur">工单统计与督办</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>统计<b>待办、超时、积压工单</b>并向责任机构<b>督办</b>。统计结果与运营机构考核取数一致，可下钻至单个工单。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-list-check"></i></div>
+      <div><div class="s-label">在办工单</div><div class="s-value">25</div>
+        <div class="s-trend text-2">含投诉转工单</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon red"><i class="fa-solid fa-circle-exclamation"></i></div>
+      <div><div class="s-label">超时工单</div><div class="s-value">9</div>
+        <div class="s-trend ">已自动升级</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-boxes-stacked"></i></div>
+      <div><div class="s-label">积压 7 天以上</div><div class="s-value">4</div>
+        <div class="s-trend text-2">纳入督办清单</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-clock"></i></div>
+      <div><div class="s-label">平均完工时长</div><div class="s-value">18.6 小时</div>
+        <div class="s-trend text-success">↓ 缩短 3.2 小时</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>运营机构</label><input type="text" placeholder="机构名称"></div>
+      <div class="filter-item"><label>楼盘</label><input type="text" placeholder="楼盘名称"></div>
+      <div class="filter-item"><label>报修类别</label><select data-dict="woType" data-ph="全部"></select></div>
+      <div class="filter-item"><label>统计维度</label><select><option value="">全部</option><option>按运营机构</option><option>按楼盘</option><option>按报修类别</option><option>按维修人员</option></select></div>
+      <div class="filter-item"><label>统计期间</label><input type="month"></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>维度</th><th class="cell-lg">名称</th><th>工单量</th><th>已办结</th><th>处理中</th><th>超时</th><th>积压 7 天+</th><th>及时率</th><th>完工率</th><th>平均时长</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="badge blue">机构</span></td><td>株洲市人才安居服务有限公司</td><td class="num">286</td><td class="num">272</td><td class="num">14</td><td class="num">4</td><td class="num">1</td><td><span class="badge green">96.2%</span></td><td><span class="badge green">98.4%</span></td><td>16.2 小时</td><td><span class="link" onclick="PMS.toast('已向该机构推送 4 单超时工单督办')">督办</span></td></tr>
+          <tr><td><span class="badge blue">机构</span></td><td>株洲城建人才公寓运营管理有限公司</td><td class="num">128</td><td class="num">122</td><td class="num">6</td><td class="num">2</td><td class="num">1</td><td><span class="badge green">92.8%</span></td><td><span class="badge green">96.2%</span></td><td>19.8 小时</td><td><span class="link" onclick="PMS.toast('已向该机构推送 2 单超时工单督办')">督办</span></td></tr>
+          <tr class="row-bad"><td><span class="badge blue">机构</span></td><td>株洲清水塘安居服务有限公司</td><td class="num">72</td><td class="num">58</td><td class="num">5</td><td class="num">3</td><td class="num">2</td><td><span class="badge red">82.4%</span></td><td><span class="badge red">88.6%</span></td><td>28.6 小时</td><td><span class="link" onclick="PMS.openDrawer('wsDrawer')">督办</span></td></tr>
+          <tr><td><span class="badge cyan">类别</span></td><td>水暖管道</td><td class="num">146</td><td class="num">134</td><td class="num">8</td><td class="num">4</td><td class="num">1</td><td><span class="badge green">91.8%</span></td><td><span class="badge green">94.5%</span></td><td>22.4 小时</td><td><span class="link" onclick="PMS.toast('水暖管道为工单量最高类别，占 30.0%；建议加强管道预防性维护')">类别分析</span></td></tr>
+          <tr><td><span class="badge green">合计</span></td><td><b>全市合计</b></td><td class="num">486</td><td class="num">452</td><td class="num">25</td><td class="num">9</td><td class="num">4</td><td><span class="badge green">93.4%</span></td><td><span class="badge green">93.0%</span></td><td>18.6 小时</td><td>工单分析</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>统计口径</b> 与运营机构考核取数一致，可下钻至单个工单</span>
+    <span><b>督办清单</b> 超时工单 + 积压 7 天以上工单纳入市住保中心督办清单</span>
+    <span><b>下钻</b> 工单分析</span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="wsDrawer">
+  <div class="drawer-head">
+    <h3>责任机构督办</h3>
+    <span class="badge red">督办</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+  <div class="alert alert-danger">
+    <i class="fa-solid fa-circle-exclamation"></i>
+    <div>株洲清水塘安居服务有限公司<b>及时率 82.4%、完工率 88.6%</b>，均低于合格线，且有 <b>3 单超时、2 单积压 7 天以上</b>。督办将同步计入考核扣分。</div>
+  </div>
+
+      <div class="form-grid form-align">
+        <div class="form-item col-full">
+          <label>被督办机构 <span class="req">*</span></label>
+          <input type="text" value="株洲清水塘安居服务有限公司" readonly>
+        </div>
+        <div class="form-item">
+          <label>统计期间 <span class="req">*</span></label>
+          <input type="month">
+        </div>
+        <div class="form-item">
+          <label>超时工单数 <span class="req">*</span></label>
+          <input type="text" value="3" readonly>
+        </div>
+        <div class="form-item">
+          <label>积压工单数 <span class="req">*</span></label>
+          <input type="text" value="2" readonly>
+        </div>
+        <div class="form-item">
+          <label>及时率 <span class="req">*</span></label>
+          <input type="text" value="82.4%（合格线 85%）" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>督办方式 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>系统督办提醒</option><option>书面督办函</option><option>纳入检查任务</option><option>约谈机构负责人</option></select>
+        </div>
+        <div class="form-item col-full">
+          <label>督办要求 <span class="req">*</span></label>
+          <textarea rows="4">要求 2026-09-10 前完成 3 单超时工单与 2 单积压工单的处理并反馈。同时提交维修力量配备与派单机制整改方案。本期及时率与完工率均低于合格线，已计入 2026 Q3 考核扣分；如下期仍不达标将暂停新增房源委托。</textarea>
+        </div>
+      </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认向株洲清水塘安居服务有限公司发起督办？',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已督办并同步计入考核扣分','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 12; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

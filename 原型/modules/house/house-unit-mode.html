@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>按套与按间管理 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="housing" data-active="house-15">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 房源筹集与楼盘表
+      <span class="sep">/</span> 房源档案与房态
+      <span class="sep">/</span> <span class="cur">按套与按间管理</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>同一房源可<b>按整套配租</b>，或拆分为<b>间、床位</b>配租，并配置配租人数规则，满足单身与家庭的差异化需求。按间配租时<b>按分摊面积计算租赁面积</b>并分别计租。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-house"></i></div>
+      <div><div class="s-label">整套配租</div><div class="s-value">2,186</div>
+        <div class="s-trend text-2">占 87.9%</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-door-open"></i></div>
+      <div><div class="s-label">按间配租</div><div class="s-value">286</div>
+        <div class="s-trend text-2">主要为二室、三室</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-bed"></i></div>
+      <div><div class="s-label">按床位配租</div><div class="s-value">14</div>
+        <div class="s-trend text-2">集体宿舍型</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-users"></i></div>
+      <div><div class="s-label">可配租总人数</div><div class="s-value">2,842</div>
+        <div class="s-trend text-2">高于房源套数 2,486</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>房源编号</label><input type="text" placeholder="房源编号"></div>
+      <div class="filter-item"><label>项目 / 房号</label><input type="text" placeholder="项目名称或房号"></div>
+      <div class="filter-item"><label>户型</label><select data-dict="roomType" data-ph="全部"></select></div>
+      <div class="filter-item"><label>管理模式</label><select data-dict="unitMode" data-ph="全部"></select></div>
+      <div class="filter-item"><label>房态</label><select data-dict="houseStatus" data-ph="全部"></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>房源编号</th><th class="cell-lg">项目 / 房号</th><th>户型</th><th class="num">建筑面积</th><th>管理模式</th><th class="num">可配租人数</th><th class="num">已配租</th><th>计租口径</th><th>房态</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>FY-TY-XJ-A6-1502</td><td>湘江1958 / A6 栋 1502</td><td>一室一厅</td><td class="num">52.60</td><td><span class="badge blue">整套配租</span></td><td class="num">1</td><td class="num">1</td><td>按建筑面积 52.60 ㎡</td><td><span class="sp-st done">在租</span></td><td><span class="link" onclick="PMS.openDrawer('modeDrawer')">调整模式</span></td></tr>
+          <tr><td>FY-TY-XJ-A3-1108</td><td>湘江1958 / A3 栋 1108</td><td>二室一厅</td><td class="num">78.60</td><td><span class="badge orange">按间配租</span></td><td class="num">2</td><td class="num">2</td><td>按分摊面积（主卧 43.20 / 次卧 35.40 ㎡）</td><td><span class="sp-st done">在租</span></td><td><span class="link" onclick="PMS.openDrawer('modeDrawer')">查看分间</span></td></tr>
+          <tr><td>FY-TY-XJ-A6-1802</td><td>湘江1958 / A6 栋 1802</td><td>二室一厅</td><td class="num">78.60</td><td><span class="badge blue">整套配租</span></td><td class="num">2</td><td class="num">0</td><td>按建筑面积 78.60 ㎡</td><td><span class="sp-st doing">可配租</span></td><td><span class="link" onclick="PMS.openDrawer('modeDrawer')">调整模式</span></td></tr>
+          <tr class="row-warn"><td>FY-HT-CGT-05-1204</td><td>茨菇塘公寓 / 5 栋 1204</td><td>三室一厅</td><td class="num">118.60</td><td><span class="badge orange">按间配租</span></td><td class="num">3</td><td class="num">2</td><td>按分摊面积（3 间各 39.53 ㎡）</td><td><span class="sp-st wait">部分在租</span></td><td><span class="link" onclick="PMS.openDrawer('modeDrawer')">查看分间</span></td></tr>
+          <tr><td>FY-JK-YL-02-0708</td><td>云龙人才苑 / 2 栋 0708</td><td>单间配套</td><td class="num">38.00</td><td><span class="badge blue">整套配租</span></td><td class="num">1</td><td class="num">0</td><td>按建筑面积 38.00 ㎡</td><td><span class="sp-st doing">可配租</span></td><td><span class="link" onclick="PMS.openDrawer('modeDrawer')">调整模式</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>政策依据</b> 管理办法第六条：涉及大户型的按分摊面积计算租赁面积</span>
+    <span><b>配租规则</b> 一室一厅配租 1 人、二室一厅配租 2 人，以此类推</span>
+    <span><b>移动端提示</b> <span class="link" onclick="location.href='../../mobile/public/alloc-rule.html'">配租人数规则提示</span></span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="modeDrawer">
+  <div class="drawer-head">
+    <h3>按套与按间管理配置</h3>
+    <span class="badge orange">按间配租</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>调整管理模式将影响<b>可配租人数与计租面积</b>。已配租房源不允许调整，须先办理换房或退租。</div>
+  </div>
+
+        <div class="sp-block">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 分间明细<span class="sub">FY-TY-XJ-A3-1108 · 二室一厅 78.60 ㎡</span></div>
+          <div class="sp-b">
+  <div class="sp-tw">
+    <table class="data-table compact">
+      <thead><tr><th>房间</th><th class="num">套内面积</th><th class="num">分摊面积</th><th class="num">计租面积</th><th class="num">应缴租金</th><th class="num">个人自付</th><th>承租人</th><th>状态</th></tr></thead>
+      <tbody>
+      <tr><td>主卧</td><td class="num">18.40</td><td class="num">24.80</td><td class="num">43.20</td><td class="num">777.60</td><td class="num">233.28</td><td>李××</td><td><span class="badge green">在租</span></td></tr>
+      <tr><td>次卧</td><td class="num">14.20</td><td class="num">21.20</td><td class="num">35.40</td><td class="num">637.20</td><td class="num">191.16</td><td>陈××</td><td><span class="badge green">在租</span></td></tr>
+      <tr><td><b>合计</b></td><td class="num">32.60</td><td class="num">46.00</td><td class="num">78.60</td><td class="num">1,414.80</td><td class="num">424.44</td><td>2 人</td><td><span class="badge green">满租</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+          </div>
+        </div>
+    <div class="sp-fx" style="margin-top:12px">
+      <b>分摊口径</b>　某房间计租面积 = 该房间套内面积 + 公共区域按房间数分摊面积<br>
+      <b>示例</b>　主卧 18.40 ㎡ + 分摊 24.80 ㎡ = <b>43.20 ㎡</b>；两间计租面积之和等于建筑面积 78.60 ㎡
+    </div>
+      <div class="form-grid form-align">
+        <div class="form-item">
+          <label>管理模式 <span class="req">*</span></label>
+          <select data-dict="unitMode" data-ph="全部"></select>
+        </div>
+        <div class="form-item">
+          <label>可配租人数 <span class="req">*</span></label>
+          <input type="text" value="2">
+        </div>
+        <div class="form-item col-full">
+          <label>分摊方式 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>按房间套内面积比例分摊</option><option>按房间数等额分摊</option></select>
+        </div>
+        <div class="form-item col-full">
+          <label>调整原因 <span class="req">*</span></label>
+          <textarea rows="3" placeholder="必填，说明调整依据。如为满足单身人才需求将二室一厅拆分按间配租"></textarea>
+        </div>
+      </div>
+  </div>
+  <div class="drawer-foot">
+      <button class="btn" data-close-drawer onclick="">取消</button>
+      <button class="btn btn-primary" onclick="PMS.confirm({title:'保存确认',message:'确认调整本房源管理模式？',detail:'调整将影响可配租人数与计租面积，进而影响租金计费与减免核算。已配租房源不允许调整。',type:'warning',okText:'确认保存',onOk:function(){PMS.closeDrawer();PMS.toast('已保存，配租人数规则已更新','success');}})"><i class="fa-solid fa-check"></i> 保存配置</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 2486; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

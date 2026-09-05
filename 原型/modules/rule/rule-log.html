@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>规则变更留痕 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="manager" data-active="rule-14">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 信息公开与规则配置
+      <span class="sep">/</span> 版本与变更留痕
+      <span class="sep">/</span> <span class="cur">规则变更留痕</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>记录每次规则变更的<b>操作人、时间、变更内容与生效范围</b>，<b>供审计核查</b>。日志不可篡改并长期留存。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-clock-rotate-left"></i></div>
+      <div><div class="s-label">变更记录</div><div class="s-value">46</div>
+        <div class="s-trend text-2">2026 年度</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-file-shield"></i></div>
+      <div><div class="s-label">审批齐备</div><div class="s-value">46</div>
+        <div class="s-trend text-2">全部经审批</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-code-branch"></i></div>
+      <div><div class="s-label">涉及版本</div><div class="s-value">4</div>
+        <div class="s-trend text-2">V2026-01 至 V2026-10</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-user-shield"></i></div>
+      <div><div class="s-label">高敏变更</div><div class="s-value">8</div>
+        <div class="s-trend text-2">需二次验证</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>变更编号</label><input type="text" placeholder="变更编号"></div>
+      <div class="filter-item"><label>规则号</label><input type="text" placeholder="如 R-C12"></div>
+      <div class="filter-item"><label>变更类型</label><select><option value="">全部</option><option>新增规则</option><option>修改参数</option><option>停用规则</option><option>开关切换</option><option>版本发布</option></select></div>
+      <div class="filter-item"><label>操作人</label><input type="text" placeholder="姓名"></div>
+      <div class="filter-item"><label>变更日期</label><input type="date"></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>变更编号</th><th>规则号</th><th>变更类型</th><th class="cell-lg">变更内容（前 → 后）</th><th>生效范围</th><th>操作人</th><th>审批人</th><th>变更时间</th><th>二次验证</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr class="row-warn"><td>BG2026-09-0046</td><td>R-C12</td><td><span class="badge orange">开关切换</span></td><td>企业纳税核验「是否强制」：<b>强制 → 非强制（临时人工）</b>。原因：判定口径待市税务局明确，暂统一转人工核实</td><td>2026-09-05 起新受理件</td><td>李慧敏</td><td>李慧敏</td><td>2026-09-05 09:12</td><td><span class="badge green">已验证</span></td><td><span class="link" onclick="PMS.toast('变更前后值、操作人、时间、IP（10.62.***.106）、终端已完整记录，日志不可篡改')">留痕详情</span></td></tr>
+          <tr class="row-warn"><td>BG2026-09-0042</td><td>R-C4</td><td><span class="badge orange">开关切换</span></td><td>学历学位核验「是否强制」：<b>一票否决 → 非强制（临时人工）</b>。原因：学信网接口失败率 12.4% 超阈值</td><td>2026-09-02 起新受理件</td><td>李慧敏</td><td>李慧敏</td><td>2026-09-02 10:26</td><td><span class="badge green">已验证</span></td><td><span class="link" onclick="PMS.toast('已完整记录，日志不可篡改')">留痕详情</span></td></tr>
+          <tr><td>BG2026-08-0038</td><td>R-R-005</td><td><span class="badge green">新增规则</span></td><td>新增董家塅安居苑减免规则：<b>无 → 按比例减免 68%</b>，关联《董家塅安居苑租金减免标准会商意见》（2026-08-20）</td><td>2026-09-01 起新签合同</td><td>贺文斌</td><td>李慧敏</td><td>2026-08-26 15:08</td><td><span class="badge green">已验证</span></td><td><span class="link" onclick="PMS.toast('已完整记录，含审定文件附件哈希')">留痕详情</span></td></tr>
+          <tr><td>BG2026-08-0036</td><td>—</td><td><span class="badge blue">版本发布</span></td><td>发布规则集 <b>V2026-09</b>（13 条规则），回归测试样本 1,286 件判定一致率 100%</td><td>2026-09-01 起新受理件</td><td>李慧敏</td><td>张卫东</td><td>2026-08-28 16:22</td><td><span class="badge green">已验证</span></td><td><span class="link" onclick="location.href='version.html'">版本详情</span></td></tr>
+          <tr><td>BG2026-05-0018</td><td>R-C5</td><td><span class="badge cyan">修改参数</span></td><td>无房核查范围说明：<b>「市城区范围内」→「市城区（不含渌口区）范围内」</b>，明确渌口区房产不计入核查</td><td>2026-06-01 起新受理件</td><td>李慧敏</td><td>李慧敏</td><td>2026-05-26 11:42</td><td><span class="badge gray">不涉及</span></td><td><span class="link" onclick="PMS.toast('已完整记录变更前后值')">留痕详情</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>留痕内容</b> 操作人、时间、IP、终端、变更前后值、生效范围、审批人</span>
+    <span><b>审计用途</b> 供审计核查规则调整的合规性与可追溯性</span>
+    <span><b>保留期限</b> 日志不可篡改并长期留存</span>
+  </div>
+</main>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 46; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

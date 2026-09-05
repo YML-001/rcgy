@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>表单与材料清单配置 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="manager" data-active="rule-11">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 信息公开与规则配置
+      <span class="sep">/</span> 政策规则配置
+      <span class="sep">/</span> <span class="cur">表单与材料清单</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.openDrawer('bdDrawer')"><i class="fa-solid fa-plus"></i> 新增配置项</button>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>配置<b>资格审核表字段与各申请类型的材料清单</b>，<b>材料增减不影响已受理在办件</b>。凡可通过部门接口核验的材料可配置为「免上传」。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-list-check"></i></div>
+      <div><div class="s-label">表单字段</div><div class="s-value">20</div>
+        <div class="s-trend text-2">含 11 项自动回填</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-shield-halved"></i></div>
+      <div><div class="s-label">免上传材料</div><div class="s-value">5</div>
+        <div class="s-trend text-2">接口核验替代</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+      <div><div class="s-label">需上传材料</div><div class="s-value">6</div>
+        <div class="s-trend text-2">按类型差异</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-code-branch"></i></div>
+      <div><div class="s-label">当前版本</div><div class="s-value">V2026-09</div>
+        <div class="s-trend text-2">2026-09-01 生效</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>配置类型</label><select><option value="">全部</option><option>表单字段</option><option>材料清单</option></select></div>
+      <div class="filter-item"><label>字段/材料名称</label><input type="text" placeholder="名称"></div>
+      <div class="filter-item"><label>适用类型</label><select data-dict="applyType" data-ph="全部"></select></div>
+      <div class="filter-item"><label>是否必填</label><select data-dict="yesNo" data-ph="全部"></select></div>
+      <div class="filter-item"><label>取值方式</label><select><option value="">全部</option><option>自动回填</option><option>智能识别</option><option>手工填报</option><option>在线签署</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>编号</th><th>配置类型</th><th class="cell-lg">名称</th><th>适用类型</th><th>是否必填</th><th>取值方式</th><th class="cell-lg">口径说明</th><th>状态</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>BD-01</td><td><span class="badge blue">表单字段</span></td><td>申请人姓名 / 身份证号 / 性别 / 出生日期</td><td>不限</td><td><span class="badge red">必填</span></td><td><span class="badge cyan">自动回填</span></td><td>湘易办实名信息 + 公安人口信息带入，<b>不可修改</b></td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('bdDrawer')">编辑</span></td></tr>
+          <tr><td>BD-06</td><td><span class="badge blue">表单字段</span></td><td>最高学历 / 毕业院校 / 专业 / 毕业时间</td><td>不限</td><td><span class="badge red">必填</span></td><td><span class="badge cyan">自动回填</span></td><td>学信网学历学位信息核验带入；毕业时间用于毕业 2 年内判定</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('bdDrawer')">编辑</span></td></tr>
+          <tr><td>CL-02</td><td><span class="badge orange">材料清单</span></td><td>身份证明</td><td>不限</td><td><span class="badge red">必需</span></td><td><span class="badge green">免上传</span></td><td>湘易办实名信息 + 公安人口信息核验替代，无需上传纸质材料</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('bdDrawer')">编辑</span></td></tr>
+          <tr><td>CL-10</td><td><span class="badge orange">材料清单</span></td><td>劳动合同</td><td><span class="badge blue">就业</span></td><td><span class="badge red">必需</span></td><td><span class="badge cyan">智能识别</span></td><td>上传后 OCR 提取单位名称、签订日期、期限、工作地点，与社保缴纳单位比对</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('bdDrawer')">编辑</span></td></tr>
+          <tr><td>CL-07</td><td><span class="badge orange">材料清单</span></td><td>营业执照</td><td><span class="badge cyan">创业</span></td><td><span class="badge red">必需</span></td><td><span class="badge green">免上传</span></td><td>市场监管系统核验注册信息、经营状态与法定代表人一致性</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('bdDrawer')">编辑</span></td></tr>
+          <tr class="row-warn"><td>CL-13</td><td><span class="badge orange">材料清单</span></td><td>中层以上管理职务证明</td><td><span class="badge orange">特殊人才</span></td><td><span class="badge orange">条件必需</span></td><td><span class="badge blue">手工填报</span></td><td>由用人单位出具并加盖公章；须核对企业是否为高企或大中型企业</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('bdDrawer')">编辑</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>配置原则</b> 凡可通过部门接口核验的材料配置为免上传，减少申请人负担</span>
+    <span><b>生效口径</b> 材料增减不影响已受理在办件</span>
+    <span><b>表单来源</b> 《株洲市创业就业青年人才住房资格审核表》（管理办法附件）</span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="bdDrawer">
+  <div class="drawer-head">
+    <h3>表单与材料配置</h3>
+    <span class="badge blue">V2026-09</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div><b>材料增减不影响已受理在办件</b>。配置为「免上传」的材料须确认对应<b>部门接口已开通且稳定</b>；接口不稳定的应保留上传通道作为兜底。</div>
+  </div>
+
+      <div class="form-grid form-align">
+        <div class="form-item">
+          <label>编号 <span class="req">*</span></label>
+          <input type="text" value="CL-10" readonly>
+        </div>
+        <div class="form-item">
+          <label>配置类型 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>表单字段</option><option>材料清单</option></select>
+        </div>
+        <div class="form-item col-full">
+          <label>名称 <span class="req">*</span></label>
+          <input type="text" value="劳动合同">
+        </div>
+        <div class="form-item">
+          <label>适用申请类型 <span class="req">*</span></label>
+          <select data-dict="applyType" data-ph="全部"></select>
+        </div>
+        <div class="form-item">
+          <label>是否必填/必需 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>必填</option><option>条件必填</option><option>选填</option></select>
+        </div>
+        <div class="form-item">
+          <label>取值方式 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>自动回填（接口核验）</option><option>智能识别（OCR）</option><option>手工填报</option><option>在线签署</option><option>免上传</option></select>
+        </div>
+        <div class="form-item">
+          <label>关联核验项</label>
+          <select data-dict="verifyItem" data-ph="全部"></select>
+        </div>
+        <div class="form-item col-full">
+          <label>识别提取字段</label>
+          <textarea rows="3">用工单位、合同签订日期、合同期限、工作地点、岗位、月工资</textarea>
+        </div>
+        <div class="form-item col-full">
+          <label>一致性校验规则 <span class="req">*</span></label>
+          <textarea rows="3">①用工单位须与社保缴纳单位一致，不一致的转人工核实；②工作地点须在市城区范围内；③合同须在有效期内。识别结果与填报内容不一致时高亮提示。</textarea>
+        </div>
+        <div class="form-item">
+          <label>生效日期 <span class="req">*</span></label>
+          <input type="date">
+        </div>
+        <div class="form-item col-full">
+          <label>配置说明 <span class="req">*</span></label>
+          <textarea rows="2" placeholder="必填"></textarea>
+        </div>
+      </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认保存材料清单配置？材料增减不影响已受理在办件。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已保存，配置对新受理件生效','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 26; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

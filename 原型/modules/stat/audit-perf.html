@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>审核效能分析 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="leader" data-active="stat-13">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 统计分析
+      <span class="sep">/</span> 人才与配租分析
+      <span class="sep">/</span> <span class="cur">审核效能分析</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>统计<b>平均审核时长、3 个工作日办结率、按经办人与部门的效率对比</b>，<b>暴露超期原因分布</b>。法定时限为 3 个工作日。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-clock"></i></div>
+      <div><div class="s-label">平均审核时长</div><div class="s-value">1.4 天</div>
+        <div class="s-trend text-2">法定 3 个工作日</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
+      <div><div class="s-label">3 日办结率</div><div class="s-value">96.4%</div>
+        <div class="s-trend text-success">↑ 较上月 3.2pp</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon red"><i class="fa-solid fa-circle-exclamation"></i></div>
+      <div><div class="s-label">超期件</div><div class="s-value">46</div>
+        <div class="s-trend ">占 3.6%</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-robot"></i></div>
+      <div><div class="s-label">自动核验替代人工</div><div class="s-value">89.4%</div>
+        <div class="s-trend text-2">人工只处理例外件</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <h3><i class="fa-solid fa-gauge-high"></i> 效能与超期归因</h3>
+      <span class="sub">S3-03 · 2026 年 9 月</span>
+    </div>
+    <div class="card-body">
+      <div class="section-title" data-icon="fa-chart-simple">超期原因分布（46 件）</div>
+      <div class="dc-bars">
+        <div class="b-item warn"><span class="b-label">核验数据不一致需人工核实　22 件</span><span class="b-track"><span class="b-fill" style="width:47.8%"></span></span><span class="b-val">47.8%（主因）</span></div>
+        <div class="b-item warn"><span class="b-label">接口不可用转人工兜底　12 件</span><span class="b-track"><span class="b-fill" style="width:26.1%"></span></span><span class="b-val">26.1%</span></div>
+        <div class="b-item"><span class="b-label">申请人补充说明等待　6 件</span><span class="b-track"><span class="b-fill" style="width:13.0%"></span></span><span class="b-val">13.0%</span></div>
+        <div class="b-item"><span class="b-label">经办人工作量集中　4 件</span><span class="b-track"><span class="b-fill" style="width:8.7%"></span></span><span class="b-val">8.7%</span></div>
+        <div class="b-item"><span class="b-label">其他原因　2 件</span><span class="b-track"><span class="b-fill" style="width:4.3%"></span></span><span class="b-val">4.3%</span></div>
+      </div>
+      <div class="section-title" data-icon="fa-chart-simple">各承办部门 3 日办结率</div>
+      <div class="dc-bars">
+        <div class="b-item"><span class="b-label">荷塘区住房保障服务中心　100%</span><span class="b-track"><span class="b-fill" style="width:100%"></span></span><span class="b-val">268 件全部按期</span></div>
+        <div class="b-item"><span class="b-label">市政务服务中心窗口　100%</span><span class="b-track"><span class="b-fill" style="width:100%"></span></span><span class="b-val">186 件全部按期</span></div>
+        <div class="b-item"><span class="b-label">天元区住房保障服务中心　98.2%</span><span class="b-track"><span class="b-fill" style="width:98.2%"></span></span><span class="b-val">486 件 / 超期 9 件</span></div>
+        <div class="b-item warn"><span class="b-label">市住保中心资格审核科　96.2%</span><span class="b-track"><span class="b-fill" style="width:96.2%"></span></span><span class="b-val">286 件 / 超期 11 件</span></div>
+        <div class="b-item warn"><span class="b-label">石峰区住房保障服务中心　93.8%</span><span class="b-track"><span class="b-fill" style="width:93.8%"></span></span><span class="b-val">146 件 / 超期 9 件</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="card list-card">
+    <div class="card-head">
+      <h3><i class="fa-solid fa-table-list"></i> 明细下钻</h3>
+      <span class="sub">可逐级下钻至明细清单</span>
+    </div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>统计维度</th><th class="cell-lg">名称</th><th>办结件数</th><th>平均时长</th><th>3 日办结率</th><th>超期件</th><th>例外件占比</th><th class="cell-lg">效能分析</th><th>下钻</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="badge cyan">部门</span></td><td>市政务服务中心窗口</td><td class="num">186</td><td>0.8 天</td><td><span class="badge green">100%</span></td><td class="num">0</td><td><span class="badge green">2.2%</span></td><td>窗口代办件多为材料齐备的简单件，例外件少，办理最快</td><td><span class="link" onclick="location.href='../workbench/timelimit.html'">审核时限台账</span></td></tr>
+          <tr><td><span class="badge cyan">部门</span></td><td>荷塘区住房保障服务中心</td><td class="num">268</td><td>1.0 天</td><td><span class="badge green">100%</span></td><td class="num">0</td><td><span class="badge green">6.4%</span></td><td>初审环节把关到位，转市住保中心的例外件说明清晰</td><td><span class="link" onclick="location.href='../workbench/timelimit.html'">审核时限台账</span></td></tr>
+          <tr class="row-warn"><td><span class="badge cyan">部门</span></td><td>市住保中心资格审核科</td><td class="num">286</td><td>1.6 天</td><td><span class="badge green">96.2%</span></td><td class="num">11</td><td><span class="badge orange">18.6%</span></td><td>承担全市例外件复核，例外件占比最高（18.6%），超期主因为核验不一致件人工核实耗时</td><td><span class="link" onclick="location.href='../apply/audit-desk.html'">复核工作台</span></td></tr>
+          <tr class="row-bad"><td><span class="badge cyan">部门</span></td><td>石峰区住房保障服务中心</td><td class="num">146</td><td>2.2 天</td><td><span class="badge orange">93.8%</span></td><td class="num">9</td><td><span class="badge orange">14.4%</span></td><td><b>办结率最低</b>：经办人仅 2 人，8 月申请量激增 42% 导致工作量集中；建议增配经办力量或跨区调剂</td><td><span class="link" onclick="location.href='../workbench/timelimit.html'">审核时限台账</span></td></tr>
+          <tr><td><span class="badge blue">经办人</span></td><td>刘志刚（市住保中心资格审核科）</td><td class="num">286</td><td>1.6 天</td><td><span class="badge green">96.2%</span></td><td class="num">11</td><td><span class="badge orange">18.6%</span></td><td>人均办结量最高；例外件复核占其工作量 62%</td><td><span class="link" onclick="location.href='../apply/timelimit-manage.html'">审核时限管理</span></td></tr>
+          <tr><td><span class="badge green">合计</span></td><td><b>全市合计</b></td><td class="num">1,286</td><td>1.4 天</td><td><span class="badge green">96.4%</span></td><td class="num">46</td><td><span class="badge green">12.8%</span></td><td>整体效能良好；超期主因是<b>核验数据不一致（47.8%）与接口不可用（26.1%）</b>，属外部依赖问题</td><td><span class="link" onclick="location.href='../workbench/coop-board.html'">跨部门协同看板</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>时限口径</b> 自收到申请资料之日起 3 个工作日；补正期间时限中止</span>
+    <span><b>例外件口径</b> 核验结论存在不一致或数据缺失，需人工核实的申请件</span>
+    <span><b>超期归因</b> 超期须记录原因，归因分布用于流程与接口优化</span>
+  </div>
+</main>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 12; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>保障全景一张图 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="leader" data-active="stat-01">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 统计分析
+      <span class="sep">/</span> 领导驾驶舱
+      <span class="sep">/</span> <span class="cur">保障全景一张图</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>在<b>地图上叠加房源分布、在租热力与区域供需缺口</b>，可按区域、房源来源、人才层次切换图层。点击区域可下钻至该区房源结构与轮候明细。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-building"></i></div>
+      <div><div class="s-label">房源总量</div><div class="s-value">2,486</div>
+        <div class="s-trend text-2">覆盖 5 个城区</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-users"></i></div>
+      <div><div class="s-label">在租人才</div><div class="s-value">1,286</div>
+        <div class="s-trend text-2">出租率 51.7%</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-hourglass-half"></i></div>
+      <div><div class="s-label">轮候在库</div><div class="s-value">612</div>
+        <div class="s-trend text-2">含预申请 186</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon red"><i class="fa-solid fa-arrow-trend-down"></i></div>
+      <div><div class="s-label">供需缺口</div><div class="s-value">-268</div>
+        <div class="s-trend ">经开区最大</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <h3><i class="fa-solid fa-map-location-dot"></i> 区域全景</h3>
+      <span class="sub">S1-01 · 市城区（不含渌口区）</span>
+    </div>
+    <div class="card-body">
+      <div class="section-title" data-icon="fa-chart-simple">各区房源规模与供需缺口</div>
+      <div class="dc-bars">
+        <div class="b-item warn"><span class="b-label">天元区　房源 986 / 在租 542</span><span class="b-track"><span class="b-fill" style="width:100%"></span></span><span class="b-val">缺口 -114</span></div>
+        <div class="b-item"><span class="b-label">茨菇塘所在荷塘区　房源 486 / 在租 268</span><span class="b-track"><span class="b-fill" style="width:49.3%"></span></span><span class="b-val">缺口 -72</span></div>
+        <div class="b-item"><span class="b-label">芦淞区　房源 412 / 在租 214</span><span class="b-track"><span class="b-fill" style="width:41.8%"></span></span><span class="b-val">缺口 -62</span></div>
+        <div class="b-item"><span class="b-label">石峰区　房源 328 / 在租 146</span><span class="b-track"><span class="b-fill" style="width:33.3%"></span></span><span class="b-val">盈余 +40</span></div>
+        <div class="b-item warn"><span class="b-label">经开区　房源 274 / 在租 116</span><span class="b-track"><span class="b-fill" style="width:27.8%"></span></span><span class="b-val">缺口 -178</span></div>
+      </div>
+      <div class="section-title" data-icon="fa-gauge-simple-high">全景指标</div>
+      <div class="dc-mini">
+        <div class="mi"><div class="mv">2,486</div><div class="ml">房源总量(套)</div></div>
+        <div class="mi"><div class="mv ok">1,286</div><div class="ml">在租(户)</div></div>
+        <div class="mi"><div class="mv">412</div><div class="ml">可配租(套)</div></div>
+        <div class="mi"><div class="mv warn">612</div><div class="ml">轮候(人)</div></div>
+        <div class="mi"><div class="mv bad">-268</div><div class="ml">总缺口(套)</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="card list-card">
+    <div class="card-head">
+      <h3><i class="fa-solid fa-table-list"></i> 明细下钻</h3>
+      <span class="sub">可逐级下钻至明细清单</span>
+    </div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>区域</th><th>房源总量</th><th>可配租</th><th>在租</th><th>轮候人数</th><th>预申请锁定</th><th>供需缺口</th><th>出租率</th><th class="cell-lg">重点情况</th><th>下钻</th></tr>
+        </thead>
+        <tbody>
+          <tr class="row-warn"><td>天元区</td><td class="num">986</td><td class="num">186</td><td class="num">542</td><td class="num">214</td><td class="num">86</td><td class="num">-114</td><td><span class="badge green">55.0%</span></td><td>需求最集中，一室一厅缺口最大；湘江1958 与栗雨佳苑认领率高</td><td><span class="link" onclick="location.href='house-struct.html'">房源结构</span></td></tr>
+          <tr class="row-bad"><td>经开区</td><td class="num">274</td><td class="num">24</td><td class="num">116</td><td class="num">160</td><td class="num">42</td><td class="num">-178</td><td><span class="badge orange">42.3%</span></td><td><b>缺口最大</b>：轮候 160 人 + 预申请 42 人，可配租仅 24 套，建议优先筹集 140 套</td><td><span class="link" onclick="location.href='house-supply.html'">供需匹配</span></td></tr>
+          <tr><td>荷塘区</td><td class="num">486</td><td class="num">62</td><td class="num">268</td><td class="num">106</td><td class="num">28</td><td class="num">-72</td><td><span class="badge green">55.1%</span></td><td>茨菇塘公寓认领情况良好，缺口可控</td><td><span class="link" onclick="location.href='house-struct.html'">房源结构</span></td></tr>
+          <tr><td>芦淞区</td><td class="num">412</td><td class="num">42</td><td class="num">214</td><td class="num">86</td><td class="num">18</td><td class="num">-62</td><td><span class="badge green">51.9%</span></td><td>董家塅安居苑 42 套未达拎包入住标准待整改</td><td><span class="link" onclick="location.href='house-plan.html'">筹集完成率</span></td></tr>
+          <tr class="row-warn"><td>石峰区</td><td class="num">328</td><td class="num">98</td><td class="num">146</td><td class="num">46</td><td class="num">12</td><td class="num">+40</td><td><span class="badge orange">44.5%</span></td><td><b>供给盈余但空置偏高</b>：清水塘片区空置超 90 天 24 套，需空置治理</td><td><span class="link" onclick="location.href='house-vacancy.html'">空置分析</span></td></tr>
+          <tr><td><b>全市合计</b></td><td class="num">2,486</td><td class="num">412</td><td class="num">1,286</td><td class="num">612</td><td class="num">186</td><td class="num">-268</td><td><span class="badge green">51.7%</span></td><td>总体供不足需，但区域间冷热不均：经开区缺口大、石峰区空置多</td><td><span class="link" onclick="location.href='../house/house-forecast.html'">供需测算</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>图层维度</b> 按区域 / 按房源来源 / 按人才层次三个图层可切换</span>
+    <span><b>缺口口径</b> 可配租房源 − (轮候人数 + 预申请锁定 × 转正率 + 历史月均申请 × 预测月数)</span>
+    <span><b>数据更新</b> 每日 02:00 同步，指标可逐级下钻至单个房源与申请件</span>
+  </div>
+</main>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 6; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

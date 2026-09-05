@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>分时段线上选房 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/mobile.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body class="m-body" data-mtitle="线上选房" data-mmod="M7 配租与线上选房" data-mcode="M7-04"
+      data-mdesc="按配租顺序在指定时段内选房并锁定房源，锁房设置倒计时，超时未确认自动释放给下一顺序人。" data-mback="alloc-order.html" data-mtabset="public" data-mtab="apply">
+<div class="m-stage">
+  <div class="m-phone">
+    <div class="m-screen">
+      <div class="m-view">
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-stopwatch"></i>我的选房时段</div>
+          <div class="m-card-b">
+            <div class="m-count">
+              <i class="fa-solid fa-stopwatch"></i> 本时段剩余
+              <span class="m-cn">26:18</span>
+            </div>
+          <div class="m-kv">
+            <div><span>我的顺序号</span><span>天元区第 12 位</span></div>
+            <div><span>选房时段</span><span>2026-09-15 10:00—10:30</span></div>
+            <div><span>可选房型</span><span>单间配套 / 一室一厅（配租 1 人）</span></div>
+            <div><span>当前可选</span><span><b style="color:var(--success)">43 套</b></span></div>
+          </div>
+          </div>
+        </div>
+        <div class="m-note danger"><i class="fa-solid fa-circle-exclamation"></i>
+          <div>请在时段内完成选房并确认。<b>锁房后仍有 30 分钟确认时限，超时未确认将自动释放给下一顺序人</b>。</div>
+        </div>
+        <div class="m-pills">
+          <button class="on">全部 43</button><button>天元区 28</button><button>荷塘区 9</button>
+          <button>芦淞区 6</button><button>单间 18</button><button>一室一厅 25</button>
+        </div>
+        <div class="m-sect">可选房源<span class="m-sect-x">按剩余套数排序</span></div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-key"></i>可选房源清单<a class="m-more" href="house-detail.html">查看详情 <i class="fa-solid fa-angle-right"></i></a></div>
+          <div class="m-card-b">
+            <div class="m-check">
+              <div class="ok"><i class="fa-solid fa-door-open"></i><div class="m-chl"><b>湘江1958　A6 栋 1502　一室一厅</b><span>52.60 ㎡　·	15/26 层　·	精装家电齐全　·	自付 <b style="color:var(--danger)">284.04 元/月</b></span></div>
+                <div class="co"><button class="m-btn sm primary" type="button" onclick="lock('湘江1958 A6-1502')">选定</button></div></div>
+              <div class="ok"><i class="fa-solid fa-door-open"></i><div class="m-chl"><b>湘江1958　A6 栋 0806　单间配套</b><span>42.00 ㎡　·	8/26 层　·	精装家电齐全　·	自付 <b style="color:var(--danger)">226.80 元/月</b></span></div>
+                <div class="co"><button class="m-btn sm primary" type="button" onclick="lock('湘江1958 A6-0806')">选定</button></div></div>
+              <div class="ok"><i class="fa-solid fa-door-open"></i><div class="m-chl"><b>栗雨佳苑　3 栋 1104　一室一厅</b><span>48.20 ㎡　·	11/18 层　·	精装家电齐全　·	自付 <b style="color:var(--danger)">260.28 元/月</b></span></div>
+                <div class="co"><button class="m-btn sm primary" type="button" onclick="lock('栗雨佳苑 3-1104')">选定</button></div></div>
+              <div class="ok"><i class="fa-solid fa-door-open"></i><div class="m-chl"><b>茨菇塘公寓　5 栋 0602　一室一厅</b><span>46.00 ㎡　·	6/12 层　·	家电齐全　·	自付 <b style="color:var(--danger)">248.40 元/月</b></span></div>
+                <div class="co"><button class="m-btn sm primary" type="button" onclick="lock('茨菇塘公寓 5-0602')">选定</button></div></div>
+              <div class="na"><i class="fa-solid fa-lock"></i><div class="m-chl"><b>湘江1958　A6 栋 1802　二室一厅</b><span>78.60 ㎡　·	<b>需 2 人配租，您不可选</b></span></div>
+                <div class="co"><span class="m-tag dark">不可选</span></div></div>
+              <div class="na"><i class="fa-solid fa-lock"></i><div class="m-chl"><b>栗雨佳苑　3 栋 0904　一室一厅</b><span>48.20 ㎡　·	<b>已被第 8 位申请人锁定</b></span></div>
+                <div class="co"><span class="m-tag orange">已锁定</span></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="m-note warn"><i class="fa-solid fa-triangle-exclamation"></i>
+          <div>房源剩余套数<b>实时同步</b>，已锁定或已签约房源即时扣减。若刷新后房源消失，说明已被前序申请人锁定。</div>
+        </div>
+        <div class="m-cells">
+          <a class="m-cell" href="house-vr.html"><span class="m-ci cyan"><i class="fa-solid fa-vr-cardboard"></i></span><span class="m-cl"><b>VR 全景看房</b><span class="m-cs">选定前可先在线环视户型</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="alloc-giveup.html"><span class="m-ci red"><i class="fa-solid fa-ban"></i></span><span class="m-cl"><b>我要放弃本批次配租</b><span class="m-cs">放弃后不得再次申请，请慎重</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+        </div>
+      </div>
+      <div class="m-actbar">
+        <button class="m-btn w-auto" type="button" onclick="MB.toast('已刷新，当前可选 43 套')">刷新房源</button>
+        <button class="m-btn" type="button" onclick="MB.go('alloc-queue.html')">我不选房，进入轮候</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../../assets/js/mobile.js"></script>
+<script>
+function lock(h) {
+  MB.confirm('确认选定 <b>' + h + '</b>？<br>锁定后其他申请人不可选该房源，您需在 <b>30 分钟内确认</b>，超时将自动释放给下一顺序人。',
+    '确认锁定', function () {
+      MB.toast('已锁定 ' + h + '，请在 30 分钟内确认');
+      setTimeout(function () { location.href = 'alloc-select-confirm.html'; }, 1200);
+    });
+}
+</script>
+</body>
+</html>

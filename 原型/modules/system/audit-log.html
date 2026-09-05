@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>操作日志与审计留痕 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="admin" data-active="system-13">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 权限与系统管理
+      <span class="sep">/</span> 基础配置与运维
+      <span class="sep">/</span> <span class="cur">操作日志与审计</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="SP.dual('审计日志导出需授权并留痕。导出范围与用途须书面说明。')"><i class="fa-solid fa-download"></i> 审计导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-danger">
+    <i class="fa-solid fa-circle-exclamation"></i>
+    <div>记录<b>每一次查询、修改、审批、支付操作</b>的人员、时间、终端与<b>前后值</b>，<b>日志不可篡改并长期留存</b>。支持按人员、业务、时间多维审计查询。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-clock-rotate-left"></i></div>
+      <div><div class="s-label">本月日志</div><div class="s-value">186,420</div>
+        <div class="s-trend text-2">条</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-shield-halved"></i></div>
+      <div><div class="s-label">不可篡改</div><div class="s-value">100%</div>
+        <div class="s-trend text-2">哈希链校验</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-user-shield"></i></div>
+      <div><div class="s-label">高敏操作日志</div><div class="s-value">86</div>
+        <div class="s-trend text-2">含二次验证记录</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon red"><i class="fa-solid fa-triangle-exclamation"></i></div>
+      <div><div class="s-label">异常操作告警</div><div class="s-value">2</div>
+        <div class="s-trend ">非工作时间批量导出</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>操作人</label><input type="text" placeholder="姓名或账号"></div>
+      <div class="filter-item"><label>所属机构</label><input type="text" placeholder="机构名称"></div>
+      <div class="filter-item"><label>操作类型</label><select><option value="">全部</option><option>查询</option><option>新增</option><option>修改</option><option>删除</option><option>审批</option><option>支付</option><option>导出</option><option>配置</option></select></div>
+      <div class="filter-item"><label>业务模块</label><select><option value="">全部</option><option>资格审核</option><option>房源管理</option><option>配租选房</option><option>合同管理</option><option>租金收缴</option><option>年审退出</option><option>运营考核</option><option>规则配置</option><option>系统管理</option></select></div>
+      <div class="filter-item"><label>操作日期</label><input type="date"></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>日志编号</th><th>操作人</th><th class="cell-lg">所属机构</th><th>操作类型</th><th>业务模块</th><th class="cell-lg">操作内容（前 → 后）</th><th>操作时间</th><th>终端 / IP</th><th>二次验证</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr class="row-bad"><td>RZ2026-09-186420</td><td>陈晓琳</td><td>市住保中心配租管理科</td><td><span class="badge orange">导出</span></td><td>配租选房</td><td>导出 2026 年 9 月配租台账（486 条，含身份证号明文）</td><td>2026-09-04 15:26</td><td>PC / 10.62.***.86</td><td><span class="badge green">已验证</span></td><td><span class="link" onclick="PMS.openDrawer('rzDrawer')">日志详情</span></td></tr>
+          <tr class="row-warn"><td>RZ2026-09-186286</td><td>李慧敏</td><td>市住建局住房保障科</td><td><span class="badge cyan">配置</span></td><td>规则配置</td><td>企业纳税核验「是否强制」：<b>强制 → 非强制（临时人工）</b></td><td>2026-09-05 09:12</td><td>PC / 10.62.***.106</td><td><span class="badge green">已验证</span></td><td><span class="link" onclick="PMS.openDrawer('rzDrawer')">日志详情</span></td></tr>
+          <tr><td>RZ2026-09-186142</td><td>刘志刚</td><td>市住保中心资格审核科</td><td><span class="badge blue">审批</span></td><td>资格审核</td><td>RC2026-0903-0162 审核结论：<b>待复核 → 审核通过</b></td><td>2026-09-05 09:14</td><td>PC / 10.62.***.28</td><td><span class="badge gray">不涉及</span></td><td><span class="link" onclick="PMS.openDrawer('rzDrawer')">日志详情</span></td></tr>
+          <tr><td>RZ2026-09-186086</td><td>罗湘</td><td>市住保中心财务科</td><td><span class="badge cyan">修改</span></td><td>租金收缴</td><td>ZD2026-09-00862 账单状态：<b>待缴 → 已缴清</b>（翼支付流水回写核销）</td><td>2026-09-05 09:42</td><td>系统自动 / 内部调用</td><td><span class="badge gray">不涉及</span></td><td><span class="link" onclick="PMS.openDrawer('rzDrawer')">日志详情</span></td></tr>
+          <tr class="row-bad"><td>RZ2026-09-185826</td><td>唐凯</td><td>市住保中心房源管理科</td><td><span class="badge orange">导出</span></td><td>房源管理</td><td>导出统一楼盘表全量数据（2,486 条）· <b>非工作时间操作，已告警</b></td><td>2026-09-02 23:18</td><td>PC / 183.42.***.208</td><td><span class="badge green">已验证</span></td><td><span class="link" onclick="PMS.openDrawer('rzDrawer')">日志详情</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>记录内容</b> 操作人、时间、IP、终端、业务模块、操作类型、前后值、二次验证记录</span>
+    <span><b>防篡改</b> 日志采用哈希链校验，任何修改可被发现</span>
+    <span><b>保留期限</b> 长期留存，满足审计与督查要求</span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="rzDrawer">
+  <div class="drawer-head">
+    <h3>操作日志详情</h3>
+    <span class="badge red">高敏</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+  <div class="alert alert-danger">
+    <i class="fa-solid fa-circle-exclamation"></i>
+    <div>本条为<b>高敏操作日志</b>（含身份证号明文导出）。日志采用<b>哈希链校验，不可篡改</b>，任何修改可被发现。</div>
+  </div>
+
+      <div class="form-grid form-align">
+        <div class="form-item">
+          <label>日志编号 <span class="req">*</span></label>
+          <input type="text" value="RZ2026-09-186420" readonly>
+        </div>
+        <div class="form-item">
+          <label>操作人 <span class="req">*</span></label>
+          <input type="text" value="陈晓琳（chenxl）" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>所属机构 / 角色 <span class="req">*</span></label>
+          <input type="text" value="市住保中心配租管理科 / 配租经办员" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>操作类型 / 业务模块 <span class="req">*</span></label>
+          <input type="text" value="导出 / 配租选房" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>操作内容</label>
+          <textarea rows="3" readonly>导出 2026 年 9 月配租台账，共 486 条记录，含配租对象身份证号明文字段。导出文件名 配租台账_202609_486条.xlsx，文件哈希 9F3C...D28A。</textarea>
+        </div>
+        <div class="form-item col-full">
+          <label>授权情况</label>
+          <textarea rows="3" readonly>专项授权：龙志宏（市住保中心信息科 / 系统管理员）2026-09-04 15:12 授权，用途「报送市委人才办用于人才认定信息核对」，授权有效期至 2026-09-11。</textarea>
+        </div>
+        <div class="form-item col-full">
+          <label>二次验证 <span class="req">*</span></label>
+          <input type="text" value="短信验证码（发送至 138****3286，2026-09-04 15:24 验证通过）" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>终端 / IP <span class="req">*</span></label>
+          <input type="text" value="PC / Chrome 141 / Windows 11 / 10.62.***.86" readonly>
+        </div>
+        <div class="form-item">
+          <label>操作时间 <span class="req">*</span></label>
+          <input type="text" value="2026-09-04 15:26:18" readonly>
+        </div>
+        <div class="form-item">
+          <label>日志哈希 <span class="req">*</span></label>
+          <input type="text" value="A3F8C21D...（前序哈希 7B2E9F04）" readonly>
+        </div>
+      </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'关闭日志详情？',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已查看日志详情','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 186420; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

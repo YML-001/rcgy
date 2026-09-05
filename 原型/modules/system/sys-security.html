@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>安全策略配置 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="admin" data-active="system-06">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 权限与系统管理
+      <span class="sep">/</span> 用户与权限
+      <span class="sep">/</span> <span class="cur">安全策略配置</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>配置<b>密码策略、登录失败锁定、会话管理、重要操作二次验证</b>与首次登录强制改密。策略变更即时生效，全部关键操作留痕形成可审计日志。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-shield-halved"></i></div>
+      <div><div class="s-label">安全策略项</div><div class="s-value">12</div>
+        <div class="s-trend text-2">覆盖 P1-03 至 P1-07</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-key"></i></div>
+      <div><div class="s-label">密码有效期</div><div class="s-value">90 天</div>
+        <div class="s-trend text-2">到期强制修改</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-user-lock"></i></div>
+      <div><div class="s-label">本月锁定账号</div><div class="s-value">2</div>
+        <div class="s-trend text-2">连续输错达阈值</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon red"><i class="fa-solid fa-user-shield"></i></div>
+      <div><div class="s-label">高敏操作二次验证</div><div class="s-value">8</div>
+        <div class="s-trend ">类</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>策略类别</label><select><option value="">全部</option><option>密码策略</option><option>登录失败锁定</option><option>会话管理</option><option>二次验证</option><option>首次改密</option></select></div>
+      <div class="filter-item"><label>策略项</label><input type="text" placeholder="策略名称"></div>
+      <div class="filter-item"><label>策略状态</label><select><option value="">全部</option><option>启用</option><option>停用</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>策略编号</th><th>策略类别</th><th class="cell-lg">策略项</th><th>当前配置</th><th class="cell-lg">说明</th><th>最近变更</th><th>状态</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>AQ-01</td><td><span class="badge blue">密码策略</span></td><td>密码最小长度</td><td>8 位</td><td>不少于 8 位字符</td><td>2026-01-15</td><td><span class="badge green">启用</span></td><td><span class="link" onclick="PMS.openDrawer('aqDrawer')">配置</span></td></tr>
+          <tr><td>AQ-02</td><td><span class="badge blue">密码策略</span></td><td>密码复杂度组合</td><td>大写 + 小写 + 数字 + 特殊字符（至少 3 类）</td><td>防止弱口令</td><td>2026-01-15</td><td><span class="badge green">启用</span></td><td><span class="link" onclick="PMS.openDrawer('aqDrawer')">配置</span></td></tr>
+          <tr><td>AQ-03</td><td><span class="badge blue">密码策略</span></td><td>密码有效期 / 历史不可重复</td><td>90 天 / 最近 5 次</td><td>到期强制修改；不可重复使用最近 5 次密码</td><td>2026-01-15</td><td><span class="badge green">启用</span></td><td><span class="link" onclick="PMS.openDrawer('aqDrawer')">配置</span></td></tr>
+          <tr><td>AQ-04</td><td><span class="badge cyan">首次改密</span></td><td>首次登录强制修改初始密码</td><td>强制</td><td>管理员创建账号后下发初始密码，用户<b>首次登录必须修改</b>方可使用系统</td><td>2026-01-15</td><td><span class="badge green">启用</span></td><td><span class="link" onclick="PMS.openDrawer('aqDrawer')">配置</span></td></tr>
+          <tr class="row-warn"><td>AQ-05</td><td><span class="badge orange">登录失败锁定</span></td><td>失败次数阈值 / 锁定时长</td><td>5 次 / 30 分钟</td><td>触发后自动锁定并记录，防止暴力破解；可由管理员或短信方式解锁</td><td>2026-01-15</td><td><span class="badge green">启用</span></td><td><span class="link" onclick="PMS.openDrawer('aqDrawer')">配置</span></td></tr>
+          <tr><td>AQ-06</td><td><span class="badge blue">会话管理</span></td><td>会话超时时长</td><td>30 分钟</td><td>超时自动退出；管理员可强制指定用户下线</td><td>2026-01-15</td><td><span class="badge green">启用</span></td><td><span class="link" onclick="PMS.openDrawer('aqDrawer')">配置</span></td></tr>
+          <tr class="row-bad"><td>AQ-07</td><td><span class="badge red">二次验证</span></td><td>高敏操作二次验证范围</td><td>8 类操作 · 短信验证码或人脸确认</td><td>资格取消、违规清退、房源冻结、租金减免标准调整、放弃标记、规则版本发布、配租结果回滚、敏感字段明文导出</td><td>2026-09-05</td><td><span class="badge green">启用</span></td><td><span class="link" onclick="PMS.openDrawer('aqDrawer')">配置</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>策略范围</b> P1-03 首次改密、P1-04 密码策略、P1-05 失败锁定、P1-06 会话管理、P1-07 二次验证</span>
+    <span><b>高敏清单</b> 8 类高风险操作需短信验证码或人脸二次确认，确认记录与操作日志一并留存</span>
+    <span><b>审计留痕</b> <span class="link" onclick="location.href='audit-log.html'">操作日志与审计</span></span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="aqDrawer">
+  <div class="drawer-head">
+    <h3>安全策略配置</h3>
+    <span class="badge red">高敏</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+  <div class="alert alert-danger">
+    <i class="fa-solid fa-circle-exclamation"></i>
+    <div>高敏操作二次验证清单调整<b>直接影响系统安全边界</b>，须审批并留痕。<b>不得将一票否决类与不可逆操作移出二次验证范围</b>。</div>
+  </div>
+
+      <div class="form-grid form-align">
+        <div class="form-item">
+          <label>策略编号 <span class="req">*</span></label>
+          <input type="text" value="AQ-07" readonly>
+        </div>
+        <div class="form-item">
+          <label>策略类别 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>密码策略</option><option>登录失败锁定</option><option>会话管理</option><option>二次验证</option><option>首次改密</option></select>
+        </div>
+        <div class="form-item col-full">
+          <label>策略项 <span class="req">*</span></label>
+          <input type="text" value="高敏操作二次验证范围" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>验证方式 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>短信验证码</option><option>人脸确认</option><option>短信或人脸（二选一）</option><option>短信 + 人脸（双因子）</option></select>
+        </div>
+        <div class="form-item col-full">
+          <label>二次验证操作清单 <span class="req">*</span></label>
+          <textarea rows="6">① 取消保障资格（双人授权 + 人脸确认）
+② 违规清退执行（双人授权 + 人脸确认）
+③ 写入放弃配租标记（短信验证）
+④ 房源冻结与停租（短信验证）
+⑤ 租金减免标准调整（双人授权 + 短信验证）
+⑥ 规则版本发布（短信验证）
+⑦ 配租结果纠错回滚（双人授权 + 人脸确认）
+⑧ 敏感字段明文查看与导出（短信验证）</textarea>
+        </div>
+        <div class="form-item">
+          <label>生效方式 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>即时生效</option><option>次日生效</option></select>
+        </div>
+        <div class="form-item col-full">
+          <label>变更说明 <span class="req">*</span></label>
+          <textarea rows="3" placeholder="必填，说明调整依据"></textarea>
+        </div>
+      </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认保存高敏操作二次验证配置？将即时影响 8 类操作的验证要求。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已保存，安全策略即时生效','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 12; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

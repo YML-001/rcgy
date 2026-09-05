@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>驳回补正与重新提交 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/mobile.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body class="m-body" data-mtitle="驳回补正" data-mmod="M5 人才公寓资格申请" data-mcode="M5-09"
+      data-mdesc="审核不通过时线上写明具体原因与缺件项，申请人在线补齐后重新提交，自动回到原审核环节。" data-mback="me-apply-list.html" data-mtabset="public" data-mtab="apply">
+<div class="m-stage">
+  <div class="m-phone">
+    <div class="m-screen">
+      <div class="m-view">
+        <div class="m-note danger"><i class="fa-solid fa-circle-exclamation"></i>
+          <div>您的申请<b>需要补正</b>。请按下方缺件清单补齐材料后重新提交，<b>补齐后自动回到原审核环节</b>，受理时间不变、不重新排队。</div>
+        </div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-circle-exclamation"></i>驳回信息</div>
+          <div class="m-card-b">
+          <div class="m-kv">
+            <div><span>申请编号</span><span>RC2026-0902-0148</span></div>
+            <div><span>当前状态</span><span><span class="m-tag red">待补正</span></span></div>
+            <div><span>驳回时间</span><span>2026-09-04 16:22</span></div>
+            <div><span>驳回环节</span><span>市住保中心复核</span></div>
+            <div><span>经办人</span><span>刘志刚</span></div>
+            <div><span>补正截止</span><span><b style="color:var(--danger)">2026-09-19（剩 14 天）</b></span></div>
+          </div>
+          </div>
+        </div>
+        <div class="m-sect">驳回原因<span class="m-sect-x">一次性告知</span></div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-comment-dots"></i>审核意见</div>
+          <div class="m-card-b">
+            <div style="font-size:13.5px;line-height:1.9;color:var(--text-2)">
+              经核验，申请人个人所得税缴纳记录与养老保险缴纳期数不匹配（社保 13 个月、个税 3 个月），
+              需补充提供<b>实际从业证明材料</b>（如工资发放流水、单位在职证明）；
+              同时所上传劳动合同第 2 页影像不清晰，关键条款无法识别，请<b>重新拍摄上传</b>。
+            </div>
+          </div>
+        </div>
+        <div class="m-sect">缺件清单<span class="m-sect-x">2 项</span></div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-cloud-arrow-up"></i>请补齐以下材料</div>
+          <div class="m-card-b">
+            <div class="m-fi col">
+              <label>实际从业证明材料 <span class="req">*</span></label>
+              <div class="m-fc">
+                <div class="m-up">
+                  <div class="m-uadd" data-toast="原型演示：调起相机或从相册选择"><i class="fa-solid fa-camera"></i><span>上传</span></div>
+                </div>
+                <div class="m-fh bad"><i class="fa-solid fa-circle-exclamation"></i> 未上传　·	工资发放流水或单位在职证明</div>
+              </div>
+            </div>
+            <div class="m-fi col">
+              <label>劳动合同（重新上传第 2 页） <span class="req">*</span></label>
+              <div class="m-fc">
+                <div class="m-up">
+                  <div class="m-uc ok"><img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&q=80" alt="劳动合同第1页"><span class="m-uc-n">第1页（已通过）</span></div>
+                  <div class="m-uadd" data-toast="原型演示：调起相机或从相册选择"><i class="fa-solid fa-camera"></i><span>重拍第2页</span></div>
+                </div>
+                <div class="m-fh bad"><i class="fa-solid fa-circle-exclamation"></i> 原影像不清晰，请在光线充足处平铺拍摄</div>
+              </div>
+            </div>
+            <div class="m-fi col">
+              <label>补充说明</label>
+              <div class="m-fc">
+                <textarea rows="3" placeholder="可说明个税期数少于社保的原因，如入职当年未达起征点等">本人于 2025 年 7 月入职，入职当年前几个月月薪未达个税起征点，故个税缴纳期数少于社保；现补充工资发放流水与单位在职证明佐证实际从业。</textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="m-note warn"><i class="fa-solid fa-triangle-exclamation"></i>
+          <div>超过补正截止时间未补齐的，申请将<b>自动失效</b>。如需重新申请，受理时间按新申请计算，配租顺序相应后移。</div>
+        </div>
+        <div class="m-cells">
+          <a class="m-cell" href="apply-trace.html"><span class="m-ci cyan"><i class="fa-solid fa-timeline"></i></span><span class="m-cl"><b>查看全过程留痕</b><span class="m-cs">驳回与补正记录全程可回溯</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="apply-guide.html"><span class="m-ci"><i class="fa-solid fa-book-open"></i></span><span class="m-cl"><b>查看办事指南</b><span class="m-cs">材料清单与补正说明</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+        </div>
+      </div>
+      <div class="m-actbar">
+        <button class="m-btn w-auto" type="button" onclick="MB.toast('已保存补正草稿')">保存草稿</button>
+        <button class="m-btn primary" type="button" onclick="MB.confirm('确认补齐材料并重新提交？提交后<b>自动回到原审核环节</b>，受理时间不变。','确认提交',function(){MB.toast('已重新提交，待市住保中心复核');setTimeout(function(){location.href='me-apply-detail.html'},1200)})"><i class="fa-solid fa-paper-plane"></i> 补齐并重新提交</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../../assets/js/mobile.js"></script>
+</body>
+</html>

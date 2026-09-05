@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>房源同步与对账 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="housing" data-active="house-13">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 房源筹集与楼盘表
+      <span class="sep">/</span> 楼盘表与多源归集
+      <span class="sep">/</span> <span class="cur">房源同步与对账</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.confirm({title:'同步确认',message:'确认立即同步两个外部系统的房源数据？',detail:'同步过程约需 4 分钟，完成后生成对账差异清单。',type:'info',okText:'确认同步',onOk:function(){PMS.toast('已发起同步，完成后在顶栏消息区提醒','success');}})"><i class="fa-solid fa-arrows-rotate"></i> 立即同步</button>
+      <button class="btn" onclick="PMS.toast('差异清单已导出','success')"><i class="fa-solid fa-download"></i> 导出差异清单</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>定时同步外部系统房源数据并<b>生成对账差异清单，差异项转人工核实处理</b>。本次同步产生 <b>12 条差异</b>，其中状态不一致 2 条、面积不一致 1 条、户型不一致 1 条已转人工。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-arrows-rotate"></i></div>
+      <div><div class="s-label">今日同步调用</div><div class="s-value">13,754</div>
+        <div class="s-trend text-2">两个系统合计</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
+      <div><div class="s-label">同步成功率</div><div class="s-value">99.2%</div>
+        <div class="s-trend text-2">近 7 日</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon red"><i class="fa-solid fa-code-compare"></i></div>
+      <div><div class="s-label">待核实差异</div><div class="s-value">12</div>
+        <div class="s-trend ">状态 / 面积 / 户型</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-clock"></i></div>
+      <div><div class="s-label">平均耗时</div><div class="s-value">2 分 18 秒</div>
+        <div class="s-trend text-2">公租房系统较慢</div></div>
+    </div>
+  </div>
+
+  <div class="card" data-tabs-scope>
+    <div class="tabs">
+      <div class="tab active" data-tab="diff">对账差异清单 <span class="badge red">12</span></div>
+      <div class="tab" data-tab="log">同步日志</div>
+      <div class="tab" data-tab="cfg">同步配置</div>
+    </div>
+    <div class="tab-panel active" data-panel="diff">
+      <div class="card-body">
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 2026-09-05 同步差异<span class="sub">共 12 条</span></div>
+          <div class="sp-b">
+  <div class="sp-tw">
+    <table class="data-table compact">
+      <thead><tr><th>差异编号</th><th>来源系统</th><th class="cell-lg">房源</th><th>差异字段</th><th>本系统值</th><th>对方系统值</th><th>差异类型</th><th>处理</th></tr></thead>
+      <tbody>
+      <tr class="row-bad"><td>CY2026-09-0002</td><td><span class="badge cyan">省保租房系统</span></td><td>时代新城 / 1 栋 0804</td><td>房源状态</td><td>可配租</td><td>已下架</td><td><span class="badge red">状态不一致</span></td><td><span class="link" onclick="PMS.openDrawer('diffDrawer')">核实</span></td></tr>
+      <tr class="row-bad"><td>CY2026-09-0004</td><td><span class="badge cyan">省保租房系统</span></td><td>云龙人才苑 / 3 栋 1108</td><td>建筑面积</td><td>52.00 ㎡</td><td>52.40 ㎡</td><td><span class="badge red">面积不一致</span></td><td><span class="link" onclick="PMS.openDrawer('diffDrawer')">核实</span></td></tr>
+      <tr class="row-bad"><td>CY2026-09-0006</td><td><span class="badge green">公租房系统</span></td><td>清水塘新苑 / 2 栋 0906</td><td>户型</td><td>一室一厅</td><td>单间配套</td><td><span class="badge red">户型不一致</span></td><td><span class="link" onclick="PMS.openDrawer('diffDrawer')">核实</span></td></tr>
+      <tr class="row-bad"><td>CY2026-09-0008</td><td><span class="badge green">公租房系统</span></td><td>清水塘新苑 / 2 栋 1204</td><td>房源状态</td><td>可配租</td><td>在租</td><td><span class="badge red">状态不一致</span></td><td><span class="link" onclick="location.href='src-dup.html'">重复校验</span></td></tr>
+      <tr class="row-warn"><td>CY2026-09-0010</td><td><span class="badge cyan">省保租房系统</span></td><td>云龙人才苑 / 2 栋 0712</td><td>“一间房”标识</td><td>是</td><td>否</td><td><span class="badge orange">标识不一致</span></td><td><span class="link" onclick="PMS.openDrawer('diffDrawer')">核实</span></td></tr>
+      <tr><td>CY2026-09-0012</td><td><span class="badge green">公租房系统</span></td><td>田心安居苑 / 2 栋 0904</td><td>闲置月数</td><td>14</td><td>16</td><td><span class="badge yellow">数值差异</span></td><td><span class="link" onclick="PMS.toast('已按公租房系统值更新为 16 个月')">按对方为准</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tab-panel" data-panel="log">
+      <div class="card-body">
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 近 7 次同步记录<span class="sub">每日 02:00</span></div>
+          <div class="sp-b">
+  <div class="sp-tw">
+    <table class="data-table compact">
+      <thead><tr><th>同步批次</th><th>来源系统</th><th>同步方式</th><th class="num">调用量</th><th class="num">新增</th><th class="num">更新</th><th class="num">差异</th><th>耗时</th><th>结果</th><th>同步时间</th></tr></thead>
+      <tbody>
+      <tr><td>TB2026-09-05-01</td><td><span class="badge cyan">省保租房系统</span></td><td><span class="badge blue">定时</span></td><td class="num">1,268</td><td class="num">0</td><td class="num">42</td><td class="num">6</td><td>46 秒</td><td><span class="badge green">成功</span></td><td>2026-09-05 02:00</td></tr>
+      <tr><td>TB2026-09-05-02</td><td><span class="badge green">公租房系统</span></td><td><span class="badge blue">定时</span></td><td class="num">12,486</td><td class="num">0</td><td class="num">186</td><td class="num">6</td><td>3 分 12 秒</td><td><span class="badge green">成功</span></td><td>2026-09-05 02:04</td></tr>
+      <tr><td>TB2026-09-04-01</td><td><span class="badge cyan">省保租房系统</span></td><td><span class="badge blue">定时</span></td><td class="num">1,268</td><td class="num">8</td><td class="num">26</td><td class="num">4</td><td>44 秒</td><td><span class="badge green">成功</span></td><td>2026-09-04 02:00</td></tr>
+      <tr class="row-bad"><td>TB2026-09-04-02</td><td><span class="badge green">公租房系统</span></td><td><span class="badge blue">定时</span></td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td>超时</td><td><span class="badge red">失败</span></td><td>2026-09-04 02:04</td></tr>
+      <tr class="row-warn"><td>TB2026-09-04-03</td><td><span class="badge green">公租房系统</span></td><td><span class="badge orange">重试</span></td><td class="num">12,486</td><td class="num">14</td><td class="num">208</td><td class="num">8</td><td>4 分 06 秒</td><td><span class="badge green">成功</span></td><td>2026-09-04 02:34</td></tr>
+      <tr><td>TB2026-09-03-01</td><td><span class="badge cyan">省保租房系统</span></td><td><span class="badge blue">定时</span></td><td class="num">1,260</td><td class="num">0</td><td class="num">18</td><td class="num">2</td><td>42 秒</td><td><span class="badge green">成功</span></td><td>2026-09-03 02:00</td></tr>
+      <tr><td>TB2026-09-03-02</td><td><span class="badge green">公租房系统</span></td><td><span class="badge blue">定时</span></td><td class="num">12,472</td><td class="num">0</td><td class="num">142</td><td class="num">4</td><td>3 分 02 秒</td><td><span class="badge green">成功</span></td><td>2026-09-03 02:04</td></tr>
+      </tbody>
+    </table>
+  </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tab-panel" data-panel="cfg">
+      <div class="card-body">
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 同步策略<span class="sub">系统管理员配置</span></div>
+          <div class="sp-b">
+        <div class="sp-kv">
+          <div class="kv"><span class="k">省保租房系统 · 同步时间</span><span class="v">每日 02:00</span></div>
+          <div class="kv"><span class="k">省保租房系统 · 同步范围</span><span class="v">面向人才引进的「一间房」房源基本信息与状态</span></div>
+          <div class="kv"><span class="k">公租房系统 · 同步时间</span><span class="v">每日 02:04</span></div>
+          <div class="kv"><span class="k">公租房系统 · 同步范围</span><span class="v">闲置可盘活房源清单、房源状态、公租房承租记录</span></div>
+          <div class="kv"><span class="k">失败重试</span><span class="v">失败后 30 分钟自动重试，最多 3 次</span></div>
+          <div class="kv"><span class="k">差异处理</span><span class="v">自动生成对账差异清单，差异项<b>转人工核实</b></span></div>
+          <div class="kv"><span class="k">冲突优先级</span><span class="v">房源基础属性以<b>对方系统为准</b>；人才公寓业务属性以<b>本系统为准</b></span></div>
+          <div class="kv"><span class="k">告警阈值</span><span class="v warn">差异条数超过 20 条或失败率超过 10% 时告警</span><span class="link" onclick="location.href='../system/api-monitor.html'">接口监控</span></div>
+        </div>
+          </div>
+        </div>
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div><b>不重复建设边界</b>：房源的新增、修改、房态维护仍在对方系统完成，本系统只做<b>归集展示与配租衔接</b>。因此基础属性差异一律以对方系统为准，不在本系统直接改写。</div>
+  </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>同步频次</b> 每日 02:00 定时同步，失败自动重试</span>
+    <span><b>差异处理</b> 自动生成差异清单，差异项转人工核实</span>
+    <span><b>接口健康</b> <span class="link" onclick="location.href='../stat/api-health.html'">接口健康分析</span></span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="diffDrawer">
+  <div class="drawer-head">
+    <h3>对账差异核实</h3>
+    <span class="badge orange">待核实</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>房源<b>基础属性</b>（面积、户型、状态）差异一律<b>以对方系统为准</b>；<b>人才公寓业务属性</b>（配租状态、承租人、租金）以本系统为准。</div>
+  </div>
+
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 差异对照<span class="sub">CY2026-09-0004</span></div>
+          <div class="sp-b">
+            <div class="sp-diff">
+              <div class="dh"><span>本系统</span><span>省保租房系统</span></div>
+              <div class="dr"><span class="dk">房源</span><span class="dv">云龙人才苑 3 栋 1108</span><span class="dv">云龙人才苑 3 栋 1108</span></div>
+              <div class="dr"><span class="dk">建筑面积</span><span class="dv bad">52.00 ㎡</span><span class="dv">52.40 ㎡</span></div>
+              <div class="dr"><span class="dk">套内面积</span><span class="dv">41.60 ㎡</span><span class="dv">41.92 ㎡</span></div>
+              <div class="dr"><span class="dk">户型</span><span class="dv">一室一厅</span><span class="dv">一室一厅</span></div>
+              <div class="dr"><span class="dk">房源状态</span><span class="dv">可配租</span><span class="dv">可租</span></div>
+            </div>
+          </div>
+        </div>
+      <div class="form-grid form-align">
+        <div class="form-item col-full">
+          <label>处理方式 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>按对方系统值更新本系统</option><option>保留本系统值并反馈对方系统</option><option>转人工再核实</option></select>
+        </div>
+        <div class="form-item col-full">
+          <label>影响评估 <span class="req">*</span></label>
+          <textarea rows="3">面积由 52.00 ㎡ 调整为 52.40 ㎡，租金标准 18.00 元/㎡·月不变，应缴租金总额由 936.00 元/月调整为 943.20 元/月，影响后续新签合同计费；该房源当前为可配租状态，无在租合同，不涉及已签合同变更。</textarea>
+        </div>
+        <div class="form-item col-full">
+          <label>核实说明 <span class="req">*</span></label>
+          <textarea rows="3" placeholder="必填，不少于 10 字"></textarea>
+        </div>
+      </div>
+  </div>
+  <div class="drawer-foot">
+      <button class="btn" data-close-drawer onclick="">取消</button>
+      <button class="btn btn-primary" onclick="PMS.confirm({title:'处理确认',message:'确认按对方系统值更新本系统面积为 52.40 ㎡？',detail:'面积变更将影响该房源后续新签合同的租金计费。已签合同不受影响。变更全程留痕。',type:'warning',okText:'确认更新',onOk:function(){PMS.closeDrawer();PMS.toast('已更新并留痕','success');}})"><i class="fa-solid fa-check"></i> 提交处理</button>
+  </div>
+</div>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

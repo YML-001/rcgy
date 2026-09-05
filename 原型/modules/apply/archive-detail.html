@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>电子档案卷宗 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="reviewer" data-active="apply-21">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 人才档案与资格联审
+      <span class="sep">/</span> 资格受理与复核
+      <span class="sep">/</span> 全过程电子档案
+      <span class="sep">/</span> <span class="cur">档案卷宗</span>
+    </div>
+    <div class="page-actions">
+      <a class="btn" href="archive-list.html"><i class="fa-solid fa-arrow-left"></i> 返回</a>
+      <a class="btn" href="audit-desk.html"><i class="fa-solid fa-file-lines"></i> 查看办件</a>
+      <button class="btn btn-primary" onclick="SP.dual('导出卷宗含身份证号等敏感字段，需授权并全程留痕。')"><i class="fa-solid fa-download"></i> 导出卷宗</button>
+    </div>
+  </div>
+
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>本卷宗共 <b>12 条操作留痕</b>、6 份卷内材料，已于 2026-09-05 09:15 归档。<b>每一次提交、修改、驳回、补材料全部记录</b>，后期可回溯查阅，满足审计与督查要求。</div>
+  </div>
+
+  <div class="card" data-tabs-scope>
+    <div class="tabs">
+      <div class="tab active" data-tab="base">卷宗基本信息</div>
+      <div class="tab" data-tab="trace">全过程留痕 <span class="badge blue">12</span></div>
+      <div class="tab" data-tab="docs">材料影像 <span class="badge cyan">2</span></div>
+      <div class="tab" data-tab="audit">审计追溯</div>
+    </div>
+    <div class="tab-panel active" data-panel="base">
+      <div class="card-body">
+        <dl class="desc-list">
+          <div class="desc-item"><dt>档案编号</dt><dd>DZ2026-RC-0162</dd></div>
+          <div class="desc-item"><dt>申请编号</dt><dd>RC2026-0903-0162</dd></div>
+          <div class="desc-item"><dt>申请人</dt><dd>王梓涵</dd></div>
+          <div class="desc-item"><dt>申请类型</dt><dd><span class="badge blue">就业青年人才</span></dd></div>
+          <div class="desc-item"><dt>受理渠道</dt><dd>湘易办 APP</dd></div>
+          <div class="desc-item"><dt>受理时间</dt><dd>2026-09-03 10:26</dd></div>
+          <div class="desc-item"><dt>审核结论</dt><dd><span class="badge green">审核通过</span></dd></div>
+          <div class="desc-item"><dt>办结时间</dt><dd>2026-09-05 09:14</dd></div>
+          <div class="desc-item full"><dt>承办部门</dt><dd>市保障性住房服务中心资格审核科</dd></div>
+          <div class="desc-item"><dt>归档时间</dt><dd>2026-09-05 09:15</dd></div>
+          <div class="desc-item"><dt>留痕条数</dt><dd>12 条</dd></div>
+          <div class="desc-item"><dt>卷宗状态</dt><dd><span class="badge green">已归档</span></dd></div>
+        </dl>
+      </div>
+    </div>
+    <div class="tab-panel" data-panel="trace">
+      <div class="card-body">
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 操作留痕时间轴<span class="sub">每次提交、修改、驳回、补材料</span></div>
+          <div class="sp-b">
+        <div class="timeline">
+          <div class="tl-item done"><div class="tl-dot"></div>
+            <div class="tl-title">创建申请草稿</div>
+            <div class="tl-meta">王梓涵 · 2026-09-03 10:04 · 湘易办 APP · IP 218.76.***.142</div></div>
+          <div class="tl-item done"><div class="tl-dot"></div>
+            <div class="tl-title">填报资格审核表</div>
+            <div class="tl-meta">王梓涵 · 2026-09-03 10:12</div>
+            <div class="tl-desc">填写 9 个字段，11 个字段由部门共享数据自动回填。</div></div>
+          <div class="tl-item done"><div class="tl-dot"></div>
+            <div class="tl-title">上传劳动合同</div>
+            <div class="tl-meta">王梓涵 · 2026-09-03 10:18</div>
+            <div class="tl-desc">2 页影像，证照智能识别提取 6 个关键字段。</div></div>
+          <div class="tl-item done"><div class="tl-dot"></div>
+            <div class="tl-title">修改月工资填报值</div>
+            <div class="tl-meta">王梓涵 · 2026-09-03 10:21</div>
+            <div class="tl-desc">8,000 → 8,500（按识别结果回填）。前后值已留痕。</div></div>
+          <div class="tl-item done"><div class="tl-dot"></div>
+            <div class="tl-title">签署真实性承诺书</div>
+            <div class="tl-meta">王梓涵 · 2026-09-03 10:24</div>
+            <div class="tl-desc">人脸核身通过（相似度 98.6%），签署记录已存证。</div></div>
+          <div class="tl-item done"><div class="tl-dot"></div>
+            <div class="tl-title">提交申请</div>
+            <div class="tl-meta">王梓涵 · 2026-09-03 10:26</div>
+            <div class="tl-desc">受理时间即配租顺序排序依据。</div></div>
+          <div class="tl-item done"><div class="tl-dot"></div>
+            <div class="tl-title">系统自动联审</div>
+            <div class="tl-meta">系统 · 2026-09-03 10:27</div>
+            <div class="tl-desc">并行调用 8 项核验：6 一致、1 不一致、2 不适用（含 1 项待触发）。</div></div>
+          <div class="tl-item done"><div class="tl-dot"></div>
+            <div class="tl-title">生成核验报告</div>
+            <div class="tl-meta">系统 · 2026-09-03 10:27</div>
+            <div class="tl-desc">个人所得税期数与社保不匹配，标记为例外件。</div></div>
+          <div class="tl-item done"><div class="tl-dot"></div>
+            <div class="tl-title">天元区初审</div>
+            <div class="tl-meta">周敏 · 2026-09-04 09:12</div>
+            <div class="tl-desc">材料影像与填报内容一致，个税例外项已备注，转市住保中心复核。</div></div>
+          <div class="tl-item done"><div class="tl-dot"></div>
+            <div class="tl-title">人工核实个税情形</div>
+            <div class="tl-meta">刘志刚 · 2026-09-05 08:46</div>
+            <div class="tl-desc">核实系入职当年未达个税起征点，非挂靠社保，予以通过。</div></div>
+          <div class="tl-item done"><div class="tl-dot"></div>
+            <div class="tl-title">出具审核结论</div>
+            <div class="tl-meta">刘志刚 · 2026-09-05 09:14</div>
+            <div class="tl-desc">审核通过。结论说明 186 字，对申请人完整可见。</div></div>
+          <div class="tl-item done"><div class="tl-dot"></div>
+            <div class="tl-title">结论电子送达并归档</div>
+            <div class="tl-meta">系统 · 2026-09-05 09:15</div>
+            <div class="tl-desc">三通道送达成功，卷宗归档编号 DZ2026-RC-0162。</div></div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tab-panel" data-panel="docs">
+      <div class="card-body">
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 卷内材料<span class="sub">带水印存储</span></div>
+          <div class="sp-b">
+      <div class="file-view">
+        <span class="file-chip"><i class="fa-regular fa-file-lines"></i><span class="fv-name">株洲市创业就业青年人才住房资格审核表.pdf</span></span>
+        <span class="file-chip"><i class="fa-regular fa-image"></i><span class="fv-name">劳动合同-第1页.jpg</span></span>
+        <span class="file-chip"><i class="fa-regular fa-image"></i><span class="fv-name">劳动合同-第2页.jpg</span></span>
+        <span class="file-chip"><i class="fa-regular fa-file-lines"></i><span class="fv-name">材料真实性承诺书.pdf</span></span>
+        <span class="file-chip"><i class="fa-regular fa-file-lines"></i><span class="fv-name">多部门数据核验报告.pdf</span></span>
+        <span class="file-chip"><i class="fa-regular fa-file-lines"></i><span class="fv-name">资格审核通过告知书.pdf</span></span>
+      </div>
+        <div class="sp-kv">
+          <div class="kv"><span class="k">影像存储</span><span class="v">统一管理存储与保留期限，界面加水印展示</span><span class="link" onclick="location.href='../system/attach.html'">附件与影像管理</span></div>
+          <div class="kv"><span class="k">免上传项</span><span class="v ok">身份、婚姻、不动产、学历、社保共 5 项由接口核验，无纸质材料</span></div>
+          <div class="kv"><span class="k">查阅控制</span><span class="v warn">查阅与导出需授权并全程留痕</span></div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tab-panel" data-panel="audit">
+      <div class="card-body">
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 档案查阅记录<span class="sub">不可篡改</span></div>
+          <div class="sp-b">
+  <div class="sp-tw">
+    <table class="data-table compact">
+      <thead><tr><th>查阅人</th><th class="cell-lg">所属机构</th><th>查阅内容</th><th>查阅时间</th><th>终端 / IP</th><th>授权情况</th></tr></thead>
+      <tbody>
+      <tr><td>刘志刚</td><td>市住保中心资格审核科</td><td>全卷查阅</td><td>2026-09-05 08:46</td><td>PC / 10.62.***.28</td><td><span class="badge green">岗位权限</span></td></tr>
+      <tr><td>李慧敏</td><td>市住建局住房保障科</td><td>审核结论 + 核验报告</td><td>2026-09-08 10:12</td><td>PC / 10.62.***.106</td><td><span class="badge green">岗位权限</span></td></tr>
+      <tr><td>张卫东</td><td>市住建局</td><td>审核结论</td><td>2026-09-12 15:26</td><td>PC / 10.62.***.12</td><td><span class="badge green">岗位权限</span></td></tr>
+      <tr class="row-warn"><td>龙志宏</td><td>市住保中心信息科</td><td>身份证号明文</td><td>2026-09-15 09:08</td><td>PC / 10.62.***.86</td><td><span class="badge orange">专项授权</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+          </div>
+        </div>
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>档案<b>日志不可篡改并长期留存</b>。查阅敏感字段明文须<b>专项授权</b>，授权记录与查阅记录一并留痕，供审计与督查核查。</div>
+  </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>留痕范围</b> 提交、修改、驳回、补材料、核验、审批、送达全环节</span>
+    <span><b>保留期限</b> 长期留存，日志不可篡改</span>
+    <span><b>审计用途</b> 满足审计与督查要求，支持回溯查阅与批量导出归档</span>
+  </div>
+</main>
+
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

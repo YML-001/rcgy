@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>用户账号管理 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="admin" data-active="system-02">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 权限与系统管理
+      <span class="sep">/</span> 用户与权限
+      <span class="sep">/</span> <span class="cur">用户账号管理</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.openDrawer('usrDrawer')"><i class="fa-solid fa-plus"></i> 新增账号</button>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>新增、修改、停用、启用账号，办理<b>离岗交接与密码重置</b>，账号与<b>组织机构、岗位绑定</b>。管理员创建账号后下发初始密码，用户<b>首次登录必须修改</b>方可使用系统。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-users"></i></div>
+      <div><div class="s-label">在册账号</div><div class="s-value">246</div>
+        <div class="s-trend text-2">含 3 家运营机构</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-user-check"></i></div>
+      <div><div class="s-label">正常启用</div><div class="s-value">238</div>
+        <div class="s-trend text-2">占 96.7%</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-user-clock"></i></div>
+      <div><div class="s-label">待首次改密</div><div class="s-value">4</div>
+        <div class="s-trend ">新建账号</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon red"><i class="fa-solid fa-user-lock"></i></div>
+      <div><div class="s-label">已锁定</div><div class="s-value">2</div>
+        <div class="s-trend text-2">连续输错达阈值</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>登录账号</label><input type="text" placeholder="账号"></div>
+      <div class="filter-item"><label>姓名</label><input type="text" placeholder="姓名"></div>
+      <div class="filter-item"><label>所属机构</label><input type="text" placeholder="机构名称"></div>
+      <div class="filter-item"><label>岗位角色</label><input type="text" placeholder="角色名称"></div>
+      <div class="filter-item"><label>账号状态</label><select><option value="">全部</option><option>正常</option><option>待首次改密</option><option>已锁定</option><option>已停用</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>登录账号</th><th>姓名</th><th class="cell-lg">所属机构</th><th>岗位角色</th><th>数据范围</th><th>手机号</th><th>最近登录</th><th>账号状态</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>liuzg</td><td>刘志刚</td><td>市保障性住房服务中心资格审核科</td><td>资格审核员</td><td><span class="badge blue">全市统一</span></td><td><span class="sp-mask">139****2618<span class="mk" onclick="SP.mask(this.parentElement,'13907312618')">查看明文</span></span></td><td>2026-09-05 08:42</td><td><span class="badge green">正常</span></td><td><span class="link" onclick="PMS.openDrawer('usrDrawer')">编辑</span></td></tr>
+          <tr><td>lihm</td><td>李慧敏</td><td>市住建局住房保障科</td><td>业务管理员</td><td><span class="badge blue">全市统一</span></td><td><span class="sp-mask">138****4206<span class="mk" onclick="SP.mask(this.parentElement,'13802464206')">查看明文</span></span></td><td>2026-09-05 09:12</td><td><span class="badge green">正常</span></td><td><span class="link" onclick="PMS.openDrawer('usrDrawer')">编辑</span></td></tr>
+          <tr><td>zhoum</td><td>周敏</td><td>天元区住房保障服务中心</td><td>城区经办员</td><td><span class="badge orange">本区（天元区）</span></td><td><span class="sp-mask">137****8842<span class="mk" onclick="SP.mask(this.parentElement,'13708368842')">查看明文</span></span></td><td>2026-09-05 08:26</td><td><span class="badge green">正常</span></td><td><span class="link" onclick="PMS.openDrawer('usrDrawer')">编辑</span></td></tr>
+          <tr class="row-warn"><td>tangjb</td><td>唐建波</td><td>株洲清水塘安居服务有限公司</td><td>运营机构经办</td><td><span class="badge green">受托房源</span></td><td><span class="sp-mask">135****6204<span class="mk" onclick="SP.mask(this.parentElement,'13508466204')">查看明文</span></span></td><td><span class="muted">—</span></td><td><span class="badge orange">待首次改密</span></td><td><span class="link" onclick="PMS.openDrawer('usrDrawer')">编辑</span></td></tr>
+          <tr class="row-bad"><td>zengzh</td><td>曾志豪</td><td>荷塘区住房保障服务中心</td><td>城区经办员</td><td><span class="badge orange">本区（荷塘区）</span></td><td><span class="sp-mask">136****3128<span class="mk" onclick="SP.mask(this.parentElement,'13628463128')">查看明文</span></span></td><td>2026-09-03 16:42</td><td><span class="badge red">已锁定</span></td><td><span class="link" onclick="PMS.openDrawer('usrDrawer')">解锁</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>创建流程</b> 管理员按组织机构分级创建 → 下发初始密码 → 用户首次登录强制改密</span>
+    <span><b>离岗交接</b> 停用账号前须办理离岗交接，在办件转办至同岗位其他经办人</span>
+    <span><b>岗位互斥</b> <span class="link" onclick="location.href='sys-post.html'">岗位分设与互斥</span></span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="usrDrawer">
+  <div class="drawer-head">
+    <h3>账号维护与解锁</h3>
+    <span class="badge red">已锁定</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+  <div class="alert alert-danger">
+    <i class="fa-solid fa-circle-exclamation"></i>
+    <div>该账号因<b>连续输错密码达阈值</b>被自动锁定。解锁可由管理员直接操作或通过短信方式。重置密码后用户<b>下次登录须强制修改</b>。</div>
+  </div>
+
+      <div class="form-grid form-align">
+        <div class="form-item">
+          <label>登录账号 <span class="req">*</span></label>
+          <input type="text" value="zengzh" readonly>
+        </div>
+        <div class="form-item">
+          <label>姓名 <span class="req">*</span></label>
+          <input type="text" value="曾志豪">
+        </div>
+        <div class="form-item col-full">
+          <label>所属机构 <span class="req">*</span></label>
+          <input type="text" value="荷塘区住房保障服务中心">
+        </div>
+        <div class="form-item">
+          <label>岗位角色 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>窗口受理员</option><option>资格审核员</option><option>配租经办员</option><option>租金核算员</option><option>房源管理员</option><option>业务管理员</option><option>人才政策经办</option><option>财政审核员</option><option>城区经办员</option><option>运营机构经办</option><option>单位经办人</option><option>分管领导</option><option>系统管理员</option></select>
+        </div>
+        <div class="form-item">
+          <label>数据范围 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>全市统一</option><option>市县分级（本区）</option><option>本单位</option><option>受托房源</option></select>
+        </div>
+        <div class="form-item">
+          <label>手机号 <span class="req">*</span></label>
+          <input type="tel" value="13628463128">
+          <div class="hint">用于短信解锁与二次验证</div>
+        </div>
+        <div class="form-item col-full">
+          <label>锁定原因 <span class="req">*</span></label>
+          <input type="text" value="连续输错密码 5 次（阈值 5 次），2026-09-03 16:42 自动锁定" readonly>
+        </div>
+        <div class="form-item">
+          <label>处理方式 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>解锁账号</option><option>解锁并重置密码</option><option>停用账号</option></select>
+        </div>
+        <div class="form-item">
+          <label>账号状态 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>正常</option><option>已停用</option></select>
+        </div>
+        <div class="form-item col-full">
+          <label>处理说明 <span class="req">*</span></label>
+          <textarea rows="3" placeholder="必填，说明处理原因"></textarea>
+        </div>
+      </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认解锁账号 zengzh 并重置密码？重置后用户下次登录须强制修改。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已解锁并重置密码，用户下次登录须强制改密','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 246; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

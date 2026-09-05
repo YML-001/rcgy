@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>房源来源构成分析 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="housing" data-active="stat-06">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 统计分析
+      <span class="sep">/</span> 房源分析
+      <span class="sep">/</span> <span class="cur">房源来源构成</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>分析<b>收购存量商品房、公租房盘活、保租房「一间房」</b>三类来源的<b>占比与变化趋势</b>，为筹集策略优化提供依据。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-cart-shopping"></i></div>
+      <div><div class="s-label">收购存量商品房</div><div class="s-value">1,144</div>
+        <div class="s-trend text-2">占 46.0%</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-recycle"></i></div>
+      <div><div class="s-label">公租房盘活</div><div class="s-value">836</div>
+        <div class="s-trend text-2">占 33.6%</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-house-flag"></i></div>
+      <div><div class="s-label">保租房“一间房”</div><div class="s-value">506</div>
+        <div class="s-trend text-2">占 20.4%</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-money-bill-wave"></i></div>
+      <div><div class="s-label">平均单套成本</div><div class="s-value">193,130.81</div>
+        <div class="s-trend text-2">元</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <h3><i class="fa-solid fa-chart-pie"></i> 来源构成与成本</h3>
+      <span class="sub">S2-02 · 不重复建设省厅已有功能</span>
+    </div>
+    <div class="card-body">
+      <div class="section-title" data-icon="fa-chart-pie">来源构成</div>
+      <div class="flex items-center gap-16">
+        <div class="donut" style="background:conic-gradient(var(--primary) 0% 46.0%, var(--success) 46.0% 79.6%, var(--info) 79.6% 100%)">
+          <div class="donut-hole"><b>2,486</b><span class="text-sm">房源总量</span></div>
+        </div>
+        <div class="legend" style="flex:1">
+          <div class="lg-item"><span class="lg-color" style="background:var(--primary)"></span> 收购存量商品房　1,144 套　46.0%</div>
+          <div class="lg-item"><span class="lg-color" style="background:var(--success)"></span> 公租房盘活　836 套　33.6%</div>
+          <div class="lg-item"><span class="lg-color" style="background:var(--info)"></span> 保租房“一间房”　506 套　20.4%</div>
+        </div>
+      </div>
+      <div class="section-title" data-icon="fa-chart-simple">三类来源成本对比</div>
+      <div class="dc-bars">
+        <div class="b-item warn"><span class="b-label">收购存量商品房　单套成本 302,514 元</span><span class="b-track"><span class="b-fill" style="width:100%"></span></span><span class="b-val">成本最高，但房源品质与位置最优</span></div>
+        <div class="b-item"><span class="b-label">公租房盘活　单套成本 117,022 元</span><span class="b-track"><span class="b-fill" style="width:38.7%"></span></span><span class="b-val">成本最低，需投入装修与家电配置</span></div>
+        <div class="b-item"><span class="b-label">保租房“一间房”　本系统零成本</span><span class="b-track"><span class="b-fill" style="width:0%"></span></span><span class="b-val">省厅已建，本系统只做归集展示</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="card list-card">
+    <div class="card-head">
+      <h3><i class="fa-solid fa-table-list"></i> 明细下钻</h3>
+      <span class="sub">可逐级下钻至明细清单</span>
+    </div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>来源渠道</th><th>房源套数</th><th>占比</th><th>累计投入</th><th>单套成本</th><th>数据主系统</th><th class="cell-lg">管理边界</th><th>下钻</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="badge blue">收购存量商品房</span></td><td class="num">1,144</td><td><span class="badge blue">46.0%</span></td><td class="num">346,076,000.00</td><td class="num">302,514.00</td><td>本系统</td><td><b>全流程管理</b>：收购计划、踏勘、评估定价、审批、合同、付款、过户、验收</td><td><span class="link" onclick="location.href='../house/purchase-list.html'">收购管理</span></td></tr>
+          <tr><td><span class="badge green">公租房盘活</span></td><td class="num">836</td><td><span class="badge green">33.6%</span></td><td class="num">97,830,400.00</td><td class="num">117,022.00</td><td>公租房管理系统</td><td><b>调用 + 盘活审批</b>：调用闲置房源清单与状态，登记盘活审批与原属性</td><td><span class="link" onclick="location.href='../house/src-gzf.html'">公租房调用</span></td></tr>
+          <tr><td><span class="badge cyan">保租房“一间房”</span></td><td class="num">506</td><td><span class="badge cyan">20.4%</span></td><td class="num">0.00</td><td class="num">0.00</td><td>省保障性租赁住房系统</td><td><b>仅归集展示</b>：省厅已开发面向人才引进的「一间房」功能，本系统不重复建设</td><td><span class="link" onclick="location.href='../house/src-bzf.html'">保租房调用</span></td></tr>
+          <tr><td><span class="badge orange">合计</span></td><td class="num">2,486</td><td><span class="badge green">100%</span></td><td class="num">443,906,400.00</td><td class="num">178,562.75</td><td><span class="muted">—</span></td><td>三类来源在统一楼盘表中按来源打标归集，原属性与现用途双轨记录</td><td><span class="link" onclick="location.href='../house/src-tag.html'">来源与属性打标</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>不重复建设</b> 省住建厅已开发的保租房「一间房」房源管理功能不重复建设</span>
+    <span><b>成本口径</b> 含收购价款 + 装修与家电配置投入；保租房归集本系统零成本</span>
+    <span><b>资金标注</b> <span class="link" onclick="location.href='../house/fund-source.html'">资金来源标注</span></span>
+  </div>
+</main>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 4; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

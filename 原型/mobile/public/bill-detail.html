@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>账单分项展示 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/mobile.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body class="m-body" data-mtitle="账单明细" data-mmod="M9 租金缴纳与账单" data-mcode="M9-01"
+      data-mdesc="账单明确区分应缴租金总额、财政补助（减免）金额、个人实际应缴金额，并列明计算依据。" data-mback="bill-list.html" data-mtabset="public" data-mtab="home">
+<div class="m-stage">
+  <div class="m-phone">
+    <div class="m-screen">
+      <div class="m-view">
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-receipt"></i>2026 年 9 月租金账单</div>
+          <div class="m-card-b">
+            <div class="m-amt">
+              <div class="a1"><small>¥</small>424.44</div>
+              <div class="a2">个人实际应缴　·	缴费截止 2026-09-15</div>
+            </div>
+          </div>
+        </div>
+        <div class="m-sect">分项明细<span class="m-sect-x">三项分开核算</span></div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-calculator"></i>账单构成</div>
+          <div class="m-card-b">
+          <div class="m-kv">
+            <div><span>① 应缴租金总额</span><span><b>1,414.80 元</b></span></div>
+            <div><span>② 财政补助（减免）</span><span><b style="color:var(--success)">-990.36 元</b></span></div>
+            <div><span>③ 个人实际应缴</span><span><b style="color:var(--danger)">424.44 元</b></span></div>
+          </div>
+            <div style="margin-top:12px;padding-top:12px;border-top:1px dashed var(--border)">
+              <div style="font-size:12.5px;font-weight:700;color:var(--text-1)">计算依据</div>
+              <div style="margin-top:6px;font-size:12.5px;line-height:1.9;color:var(--text-2)">
+                应缴租金总额 = 计租面积 <b>78.60 ㎡</b> × 租金标准 <b>18.00 元/㎡·月</b> × 计费 <b>1 个月</b> = <b>1,414.80 元</b><br>
+                财政补助 = 1,414.80 × 减免比例 <b>70%</b> = <b>990.36 元</b><br>
+                个人应缴 = 1,414.80 − 990.36 = <b>424.44 元</b>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="m-sect">账单信息</div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-circle-info"></i>账单要素</div>
+          <div class="m-card-b">
+          <div class="m-kv">
+            <div><span>账单编号</span><span>ZD2026-09-00862</span></div>
+            <div><span>账单周期</span><span>2026-09-01 至 2026-09-30</span></div>
+            <div><span>生成时间</span><span>2026-09-01 02:00（系统批量生成）</span></div>
+            <div><span>缴费截止</span><span>2026-09-15</span></div>
+            <div><span>合同编号</span><span>RZ2026-00862</span></div>
+            <div><span>房源</span><span>湘江1958 A6-1502</span></div>
+            <div><span>计租面积</span><span>78.60 ㎡（整套配租）</span></div>
+            <div><span>减免依据</span><span>一事一议审定 · 二室一厅减免 70%</span></div>
+            <div><span>账单状态</span><span><span class="m-tag red">待缴</span></span></div>
+          </div>
+          </div>
+        </div>
+        <div class="m-note"><i class="fa-solid fa-circle-info"></i>
+          <div>财政补助部分与个人自付部分<b>分开核算</b>，两部分分别形成台账。财政补助部分作为财政拨付补助资金的依据，无需您缴纳。</div>
+        </div>
+        <div class="m-cells">
+          <a class="m-cell" href="me-subsidy.html"><span class="m-ci cyan"><i class="fa-solid fa-hand-holding-dollar"></i></span><span class="m-cl"><b>查看减免依据</b><span class="m-cs">政策条款与一事一议审定文件</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="bill-utility.html"><span class="m-ci orange"><i class="fa-solid fa-faucet-drip"></i></span><span class="m-cl"><b>水电燃气物业费</b><span class="m-cs">按规定标准由租户自行承担</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+        </div>
+      </div>
+      <div class="m-actbar">
+        <button class="m-btn w-auto is-off" type="button" onclick="MB.toast('本账单尚未缴费，缴费后方可申领电子票据')">申领票据</button>
+        <a class="m-btn primary" href="bill-pay.html"><i class="fa-solid fa-mobile-screen-button"></i> 立即缴纳 424.44 元</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../../assets/js/mobile.js"></script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>欠租台账与催收 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="keeper" data-active="rent-06">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 租金收缴与年审退出
+      <span class="sep">/</span> 租金与费用
+      <span class="sep">/</span> <span class="cur">欠租台账与催收</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.confirm({title:'催缴确认',message:'确认向 62 户欠费承租人推送催缴提醒？',detail:'催缴将经湘易办站内消息、微信模板消息、短信三通道触达，并提示欠费影响年审与续租。',type:'warning',okText:'确认推送',onOk:function(){PMS.toast('已向 62 户推送催缴提醒','success');}})"><i class="fa-solid fa-bullhorn"></i> 批量催缴</button>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-danger">
+    <i class="fa-solid fa-circle-exclamation"></i>
+    <div>自动生成<b>欠费名单与账龄分析</b>，推送催缴并<b>将欠费情况关联年审与续租审核</b>。长期欠缴且催缴无效的按不符合条件启动退出流程。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card dc-alarm">
+      <div class="s-icon red"><i class="fa-solid fa-triangle-exclamation"></i></div>
+      <div><div class="s-label">欠费户数</div><div class="s-value">62</div>
+        <div class="s-trend ">欠费 83,220.00 元</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-hourglass-half"></i></div>
+      <div><div class="s-label">账龄 90 天以上</div><div class="s-value">12</div>
+        <div class="s-trend text-2">纳入重点催收</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-bullhorn"></i></div>
+      <div><div class="s-label">本月催缴推送</div><div class="s-value">186</div>
+        <div class="s-trend text-2">次</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
+      <div><div class="s-label">本月催缴后结清</div><div class="s-value">42</div>
+        <div class="s-trend text-2">结清率 40.4%</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>承租人</label><input type="text" placeholder="姓名"></div>
+      <div class="filter-item"><label>合同编号</label><input type="text" placeholder="合同编号"></div>
+      <div class="filter-item"><label>楼盘</label><input type="text" placeholder="楼盘名称"></div>
+      <div class="filter-item"><label>账龄</label><select><option value="">全部</option><option>30 天以内</option><option>30—60 天</option><option>60—90 天</option><option>90 天以上</option></select></div>
+      <div class="filter-item"><label>催收状态</label><select><option value="">全部</option><option>待催缴</option><option>已催缴</option><option>已结清</option><option>已启动退出</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>承租人</th><th>合同编号</th><th class="cell-lg">房源</th><th>欠费月份</th><th>欠费金额</th><th>账龄</th><th>催缴次数</th><th>年审影响</th><th>催收状态</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr class="row-bad"><td>蒋××</td><td>RZ2025-00286</td><td>茨菇塘公寓 5-0806</td><td>2026-05 至 2026-09（5 期）</td><td class="num">1,301.40</td><td><div class="sp-days dx"><span class="dv">128 天</span><span class="db"><span style="width:100%"></span></span></div></td><td class="num">12</td><td><span class="badge red">年审不予通过</span></td><td><span class="badge red">已启动退出</span></td><td><span class="link" onclick="location.href='quit-manage.html'">腾退管理</span></td></tr>
+          <tr class="row-bad"><td>曾××</td><td>RZ2026-00164</td><td>湘江1958 A3-0906</td><td>2026-07 至 2026-09（3 期）</td><td class="num">852.12</td><td><div class="sp-days dx"><span class="dv">96 天</span><span class="db"><span style="width:100%"></span></span></div></td><td class="num">8</td><td><span class="badge orange">须结清后通过</span></td><td><span class="badge orange">已催缴</span></td><td><span class="link" onclick="PMS.openDrawer('qzDrawer')">催收处置</span></td></tr>
+          <tr class="row-warn"><td>周宇轩</td><td>RZ2026-00518</td><td>栗雨佳苑 3-0904</td><td>2026-09（1 期）</td><td class="num">260.28</td><td><div class="sp-days d60"><span class="dv">21 天</span><span class="db"><span style="width:23%"></span></span></div></td><td class="num">3</td><td><span class="badge orange">须结清后通过</span></td><td><span class="badge orange">已催缴</span></td><td><span class="link" onclick="PMS.openDrawer('qzDrawer')">催收处置</span></td></tr>
+          <tr><td>罗××</td><td>RZ2026-00246</td><td>董家塅安居苑 2-1102</td><td>2026-08（已结清）</td><td class="num">0.00</td><td><div class="sp-days"><span class="dv">已结清</span><span class="db"><span style="width:0%"></span></span></div></td><td class="num">2</td><td><span class="badge green">不影响</span></td><td><span class="badge green">已结清</span></td><td><span class="link" onclick="PMS.toast('2026-09-02 经催缴后结清 260.28 元，账龄归零，不影响年审与续租')">结清记录</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>政策联动</b> 欠费情况关联年度资格审查与续租审核，须结清后方可通过</span>
+    <span><b>账龄分档</b> 30 天以内 / 30—60 / 60—90 / 90 天以上，90 天以上纳入重点催收</span>
+    <span><b>退出条件</b> 长期欠缴且催缴无效、影响年审结论的按不符合条件启动退出</span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="qzDrawer">
+  <div class="drawer-head">
+    <h3>欠费催收处置</h3>
+    <span class="badge orange">催收</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>欠费情况将<b>关联年度资格审查与续租审核</b>。长期欠缴且催缴无效、影响年审结论的，按不符合条件<b>启动退出流程</b>。</div>
+  </div>
+
+      <div class="form-grid form-align">
+        <div class="form-item col-full">
+          <label>承租人 <span class="req">*</span></label>
+          <input type="text" value="曾××（RZ2026-00164）" readonly>
+        </div>
+        <div class="form-item">
+          <label>欠费月份 <span class="req">*</span></label>
+          <input type="text" value="2026-07 至 2026-09（3 期）" readonly>
+        </div>
+        <div class="form-item">
+          <label>欠费金额（元） <span class="req">*</span></label>
+          <input type="text" value="852.12" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>账龄 <span class="req">*</span></label>
+          <input type="text" value="96 天（90 天以上，重点催收）" readonly>
+        </div>
+        <div class="form-item">
+          <label>已催缴次数 <span class="req">*</span></label>
+          <input type="text" value="8" readonly>
+        </div>
+        <div class="form-item">
+          <label>处置方式 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>继续分级催缴</option><option>同步告知用人单位与运营机构</option><option>纳入重点催收清单</option><option>启动退出流程</option></select>
+        </div>
+        <div class="form-item col-full">
+          <label>处置说明 <span class="req">*</span></label>
+          <textarea rows="4" placeholder="必填，不少于 10 字。说明催缴经过、承租人反馈与拟采取措施">已通过湘易办、微信、短信三通道累计催缴 8 次并电话联系承租人，其反馈近期资金周转困难，承诺 9 月 15 日前一次性结清 3 期欠费 852.12 元；拟纳入重点催收清单并同步告知用人单位，逾期仍不缴的启动退出流程。</textarea>
+        </div>
+      </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认提交欠费催收处置意见？',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已处置并留痕，催缴记录已同步至年审依据','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 62; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

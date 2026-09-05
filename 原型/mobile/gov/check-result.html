@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>核查结论与工单生成 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/mobile.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body class="m-body" data-mtitle="核查结论" data-mmod="G2 现场核查与巡检" data-mcode="G2-01"
+      data-mdesc="核查结论可直接生成整改或清退工单，采集的定位与照片作为核查凭证归档。" data-mback="check-form.html" data-mtabset="gov" data-mtab="check">
+<div class="m-stage">
+  <div class="m-phone">
+    <div class="m-screen">
+      <div class="m-view">
+        <div class="m-result">
+          <div class="m-ri wait"><i class="fa-solid fa-clipboard-check"></i></div>
+          <div class="m-rt">核查已提交，整改工单已生成</div>
+          <div class="m-rd">核查任务 HC2026-09-00186 已办结<br>整改工单 ZG2026-09-00042 已推送承租人与运营机构</div>
+        </div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-clipboard-check"></i>核查记录</div>
+          <div class="m-card-b">
+          <div class="m-kv">
+            <div><span>核查任务号</span><span>HC2026-09-00186</span></div>
+            <div><span>核查结论</span><span><span class="m-tag red">查实空置不住</span></span></div>
+            <div><span>核查人</span><span>刘志刚</span></div>
+            <div><span>核查时间</span><span>2026-09-05 10:38</span></div>
+            <div><span>GPS 定位</span><span>112.9862° E, 27.8214° N（精度 8 m）</span></div>
+            <div><span>现场照片</span><span>3 张（带定位与时间水印）</span></div>
+            <div><span>凭证归档</span><span><span class="m-tag green">已归档</span></span></div>
+          </div>
+          </div>
+        </div>
+        <div class="m-sect">生成的工单</div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-file-circle-exclamation"></i>整改工单</div>
+          <div class="m-card-b">
+          <div class="m-kv">
+            <div><span>工单类型</span><span><span class="m-tag orange">整改工单</span></span></div>
+            <div><span>工单编号</span><span>ZG2026-09-00042</span></div>
+            <div><span>整改对象</span><span>周××（栗雨佳苑 3 栋 0904）</span></div>
+            <div><span>整改要求</span><span>限期恢复实际居住，或主动申请退出房源</span></div>
+            <div><span>整改期限</span><span>2026-09-20（15 日）</span></div>
+            <div><span>执行机构</span><span>株洲市人才安居服务有限公司</span></div>
+            <div><span>复查安排</span><span>2026-09-22 二次入户核查</span></div>
+            <div><span>逾期处置</span><span>复查仍空置的<b>启动退出清退流程</b></span></div>
+          </div>
+          </div>
+        </div>
+        <div class="m-sect">处置流程</div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-diagram-project"></i>闭环处置</div>
+          <div class="m-card-b">
+          <div class="m-tl">
+            <div class="m-ti done"><div class="m-tt">1　发现线索</div><div class="m-td">扫码巡检 + 水电用量异常预警　2026-09-01</div></div>
+            <div class="m-ti done"><div class="m-tt">2　入户核查取证</div><div class="m-td">刘志刚　2026-09-05 10:26—10:38　·	GPS + 3 张现场照片</div></div>
+            <div class="m-ti done"><div class="m-tt">3　违规事实认定</div><div class="m-td">查实空置不住　2026-09-05 10:38</div></div>
+            <div class="m-ti on"><div class="m-tt">4　下发整改工单</div><div class="m-td">限期 2026-09-20 整改　·	已推送承租人与运营机构</div></div>
+            <div class="m-ti"><div class="m-tt">5　二次复查</div><div class="m-td">2026-09-22 安排复查</div></div>
+            <div class="m-ti"><div class="m-tt">6　复查仍违规则启动清退</div><div class="m-td">由业务管理员审批（<b>双人授权 + 人脸二次确认</b>）</div></div>
+          </div>
+          </div>
+        </div>
+        <div class="m-note warn"><i class="fa-solid fa-triangle-exclamation"></i>
+          <div>空置不住属<b>先整改后清退</b>情形。若为擅自转租转借或提交虚假材料，则<b>查实即取消保障资格并标记失信</b>，不设整改期。</div>
+        </div>
+        <div class="m-cells">
+          <a class="m-cell" href="check-list.html"><span class="m-ci"><i class="fa-solid fa-list-check"></i></span><span class="m-cl"><b>返回核查任务</b><span class="m-cs">还有 3 户待核查</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="../../modules/rent/violation.html"><span class="m-ci red"><i class="fa-solid fa-gavel"></i></span><span class="m-cl"><b>PC 端违规清退管理</b><span class="m-cs">高敏操作在 PC 管理端办理</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+        </div>
+      </div>
+      <div class="m-actbar">
+        <a class="m-btn primary block" href="check-list.html"><i class="fa-solid fa-angle-right"></i> 继续核查下一户</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../../assets/js/mobile.js"></script>
+</body>
+</html>

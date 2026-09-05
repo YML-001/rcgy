@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>接口健康分析 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="admin" data-active="stat-30">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 统计分析
+      <span class="sep">/</span> 系统运行与用户
+      <span class="sep">/</span> <span class="cur">接口健康分析</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-danger">
+    <i class="fa-solid fa-circle-exclamation"></i>
+    <div>统计各外部接口的<b>调用量、成功率、平均响应时长与失败原因分布</b>，为<b>数据共享质量评估与部门协调</b>提供依据。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-plug"></i></div>
+      <div><div class="s-label">监控接口</div><div class="s-value">19</div>
+        <div class="s-trend text-2">外部对接全覆盖</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-plug-circle-check"></i></div>
+      <div><div class="s-label">平均成功率</div><div class="s-value">96.4%</div>
+        <div class="s-trend text-2">近 30 日</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon red"><i class="fa-solid fa-plug-circle-xmark"></i></div>
+      <div><div class="s-label">低于阈值接口</div><div class="s-value">2</div>
+        <div class="s-trend ">学信网 / 企业纳税</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-clock"></i></div>
+      <div><div class="s-label">平均响应</div><div class="s-value">1.2 秒</div>
+        <div class="s-trend text-2">全部接口</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <h3><i class="fa-solid fa-heart-pulse"></i> 接口健康度</h3>
+      <span class="sub">S6-03 · 近 30 日</span>
+    </div>
+    <div class="card-body">
+      <div class="section-title" data-icon="fa-chart-simple">各接口成功率（近 30 日）</div>
+      <div class="dc-bars">
+        <div class="b-item"><span class="b-label">湘易办统一认证　99.9%</span><span class="b-track"><span class="b-fill" style="width:99.9%"></span></span><span class="b-val">12,486 次 / 失败 12</span></div>
+        <div class="b-item"><span class="b-label">不动产登记　99.3%</span><span class="b-track"><span class="b-fill" style="width:99.3%"></span></span><span class="b-val">1,842 次 / 失败 13</span></div>
+        <div class="b-item"><span class="b-label">民政婚姻登记　99.5%</span><span class="b-track"><span class="b-fill" style="width:99.5%"></span></span><span class="b-val">1,286 次 / 失败 6</span></div>
+        <div class="b-item"><span class="b-label">人社养老保险　99.6%</span><span class="b-track"><span class="b-fill" style="width:99.6%"></span></span><span class="b-val">1,286 次 / 失败 5</span></div>
+        <div class="b-item"><span class="b-label">电信翼支付　99.8%</span><span class="b-track"><span class="b-fill" style="width:99.8%"></span></span><span class="b-val">2,486 次 / 失败 5</span></div>
+        <div class="b-item warn"><span class="b-label">税务个人所得税　91.4%</span><span class="b-track"><span class="b-fill" style="width:91.4%"></span></span><span class="b-val">1,000 次 / 失败 86</span></div>
+        <div class="b-item warn"><span class="b-label">税务企业纳税　91.4%</span><span class="b-track"><span class="b-fill" style="width:91.4%"></span></span><span class="b-val">286 次 / 失败 25</span></div>
+        <div class="b-item warn"><span class="b-label">学信网学历学位　87.6%</span><span class="b-track"><span class="b-fill" style="width:87.6%"></span></span><span class="b-val">1,286 次 / 失败 159</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="card list-card">
+    <div class="card-head">
+      <h3><i class="fa-solid fa-table-list"></i> 明细下钻</h3>
+      <span class="sub">可逐级下钻至明细清单</span>
+    </div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>接口名称</th><th class="cell-lg">配合单位</th><th>调用量</th><th>成功率</th><th>平均响应</th><th>失败次数</th><th class="cell-lg">失败原因分布</th><th>健康度</th><th>下钻</th></tr>
+        </thead>
+        <tbody>
+          <tr class="row-bad"><td>学信网学历学位核验</td><td>市教育局 / 学信网</td><td class="num">1,286</td><td><span class="badge red">87.6%</span></td><td>1.8 秒</td><td class="num">159</td><td>连接超时 118 次（74.2%）、返回异常码 32 次（20.1%）、数据格式错误 9 次（5.7%）</td><td><span class="badge red">差</span></td><td><span class="link" onclick="location.href='../system/api-monitor.html'">接口监控</span></td></tr>
+          <tr class="row-bad"><td>税务个人所得税核验</td><td>市税务局</td><td class="num">1,000</td><td><span class="badge orange">91.4%</span></td><td>1.6 秒</td><td class="num">86</td><td>连接超时 62 次（72.1%）、网关限流 18 次（20.9%）、其他 6 次（7.0%）</td><td><span class="badge orange">较差</span></td><td><span class="link" onclick="location.href='../system/api-monitor.html'">接口监控</span></td></tr>
+          <tr class="row-warn"><td>税务企业纳税核验</td><td>市税务局</td><td class="num">286</td><td><span class="badge orange">91.4%</span></td><td>2.8 秒</td><td class="num">25</td><td>连接超时 18 次（72.0%）、网关限流 5 次（20.0%）、其他 2 次（8.0%）。<b>响应时长最长</b></td><td><span class="badge orange">较差</span></td><td><span class="link" onclick="location.href='../system/api-monitor.html'">接口监控</span></td></tr>
+          <tr><td>湘易办统一认证</td><td>市数据局 / 省政务服务平台</td><td class="num">12,486</td><td><span class="badge green">99.9%</span></td><td>0.4 秒</td><td class="num">12</td><td>瞬时网络抖动 12 次，均自动重试成功</td><td><span class="badge green">优</span></td><td><span class="link" onclick="PMS.toast('人才侧固定入口，表现优异，响应最快')">接口详情</span></td></tr>
+          <tr><td>不动产登记核验</td><td>市自然资源和规划局</td><td class="num">1,842</td><td><span class="badge green">99.3%</span></td><td>0.8 秒</td><td class="num">13</td><td>连接超时 13 次，均自动重试成功</td><td><span class="badge green">优</span></td><td><span class="link" onclick="PMS.toast('表现稳定，一票否决核验依赖度高')">接口详情</span></td></tr>
+          <tr><td><span class="badge green">合计</span></td><td><b>19 个接口</b></td><td class="num">23,486</td><td><span class="badge green">96.4%</span></td><td>1.2 秒</td><td class="num">846</td><td>超时占 71.4% 为主因；建议协调税务与学信网提升接口稳定性或扩容网关</td><td><span class="muted">—</span></td><td><span class="link" onclick="location.href='../workbench/coop-board.html'">跨部门协同看板</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>健康度分档</b> 优 ≥ 99% / 良 ≥ 95% / 较差 ≥ 90% / 差 < 90%</span>
+    <span><b>评估用途</b> 数据共享质量评估与部门协调依据</span>
+    <span><b>兜底联动</b> 低于阈值的接口自动触发人工兜底通道</span>
+  </div>
+</main>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 19; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>配租顺序查询 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/mobile.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body class="m-body" data-mtitle="配租顺序" data-mmod="M7 配租与线上选房" data-mcode="M7-03"
+      data-mdesc="查询本人在本批次的配租顺序号与前后位次，可查看完整的配租顺序名单，排序规则与名单生成时间公开可回溯。" data-mback="alloc-notice.html" data-mtabset="public" data-mtab="apply">
+<div class="m-stage">
+  <div class="m-phone">
+    <div class="m-screen">
+      <div class="m-view">
+        <div class="m-note success"><i class="fa-solid fa-circle-check"></i>
+          <div>您在本批次的配租顺序为<b>天元区第 12 位</b>。本批次天元区投放 186 套，<b>顺序在投放套数内，预计可选到房源</b>。</div>
+        </div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-list-ol"></i>我的配租顺序</div>
+          <div class="m-card-b">
+            <div class="m-mini">
+              <div><div class="mv ok">12</div><div class="ml">我的顺序号</div></div>
+              <div><div class="mv">186</div><div class="ml">天元区投放(套)</div></div>
+              <div><div class="mv">214</div><div class="ml">天元区报名(人)</div></div>
+            </div>
+            <div class="m-bar" style="margin-top:12px"><span class="green" style="width:6%"></span></div>
+            <div style="margin-top:6px;font-size:11.5px;color:var(--text-3);text-align:center">前方 11 人　·	选房时段 2026-09-15 10:00—10:30</div>
+          </div>
+        </div>
+        <div class="m-sect">排序依据<span class="m-sect-x">公开可回溯</span></div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-scale-balanced"></i>排序口径</div>
+          <div class="m-card-b">
+          <div class="m-kv">
+            <div><span>排序规则</span><span>按<b>申请受理时间</b>先后（管理办法第九条）</span></div>
+            <div><span>我的受理时间</span><span>2026-09-03 10:26</span></div>
+            <div><span>名单生成时间</span><span>2026-09-13 09:00</span></div>
+            <div><span>名单公示期</span><span>2026-09-13 至 2026-09-14</span></div>
+            <div><span>细分排序规则</span><span>受理时间相同时依次比较：特殊人才 → 家庭申请 → 学历层次 → 申请编号</span></div>
+            <div><span>是否可手工调序</span><span><b style="color:var(--danger)">否</b>，系统自动生成，不支持人工调整</span></div>
+          </div>
+          </div>
+        </div>
+        <div class="m-sect">完整顺序名单<span class="m-sect-x">天元区前 20 位</span></div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-list-check"></i>顺序名单</div>
+          <div class="m-card-b">
+            <div class="m-check">
+              <div class="ok"><i class="fa-solid fa-1"></i><div class="m-chl"><b>第 1—5 位</b><span>李×× / 陈×× / 张×× / 刘×× / 周××　·	受理 2026-09-01 09:02 — 09:41</span></div></div>
+              <div class="ok"><i class="fa-solid fa-6"></i><div class="m-chl"><b>第 6—11 位</b><span>吴×× / 郑×× / 谭×× / 罗×× / 彭×× / 曾××　·	受理 2026-09-01 10:12 — 09-02 16:38</span></div></div>
+              <div class="on" style="border-left:3px solid var(--primary);background:var(--primary-light-2);padding-left:9px"><i class="fa-solid fa-user" style="color:var(--primary)"></i><div class="m-chl"><b style="color:var(--primary)">第 12 位　王梓涵（本人）</b><span>受理 2026-09-03 10:26　·	就业青年人才　·	全日制本科</span></div></div>
+              <div class="ok"><i class="fa-solid fa-list"></i><div class="m-chl"><b>第 13—20 位</b><span>邓×× / 唐×× / 贺×× / 肖×× / 龙×× / 蒋×× / 黄×× / 何××　·	受理 2026-09-03 11:04 — 09-04 15:22</span></div></div>
+            </div>
+            <div style="margin-top:10px">
+              <button class="m-btn sm ghost" type="button" onclick="MB.toast('完整名单共 214 人，已按顺序号展示。配租对象姓名按姓 + ×× 脱敏')">查看完整名单（214 人）</button>
+            </div>
+          </div>
+        </div>
+        <div class="m-note"><i class="fa-solid fa-circle-info"></i>
+          <div>配租顺序名单与配租结果<b>全过程公开，接受社会监督</b>。名单中配租对象姓名按<b>姓 + ××</b> 脱敏，不公开联系方式与身份证号。</div>
+        </div>
+        <div class="m-cells">
+          <a class="m-cell" href="alloc-select.html"><span class="m-ci orange"><i class="fa-solid fa-key"></i></span><span class="m-cl"><b>我的选房时段</b><span class="m-cs">2026-09-15 10:00—10:30</span></span><span class="m-cv"><span class="m-tag orange">待选房</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="alloc-queue.html"><span class="m-ci"><i class="fa-solid fa-hourglass-half"></i></span><span class="m-cl"><b>轮候排位查询</b><span class="m-cs">若本批次未选到房源</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="alloc-rule.html"><span class="m-ci cyan"><i class="fa-solid fa-people-roof"></i></span><span class="m-cl"><b>配租人数规则</b><span class="m-cs">房型与可配租人数</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../../assets/js/mobile.js"></script>
+</body>
+</html>

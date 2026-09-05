@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>授权审批与临时授权 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+</head>
+<body data-role="admin" data-active="system-23">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 权限与系统管理
+      <span class="sep">/</span> 用户与权限
+      <span class="sep">/</span> <span class="cur">授权审批与临时授权</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.openDrawer('apDrawer')"><i class="fa-solid fa-plus"></i> 发起授权申请</button>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>对<b>市级管理员、资金审批</b>等高敏感角色的授权设置<b>审批环节</b>，经上级审批后方可生效；支持设定起止时间的<b>临时授权</b>（如顶岗、专项检查），<b>到期系统自动回收权限并留痕</b>。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-file-signature"></i></div>
+      <div><div class="s-label">授权申请</div><div class="s-value">18</div>
+        <div class="s-trend text-2">本年度累计</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-hourglass-half"></i></div>
+      <div><div class="s-label">待审批</div><div class="s-value">2</div>
+        <div class="s-trend ">含 1 件临期</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
+      <div><div class="s-label">临时授权在效</div><div class="s-value">4</div>
+        <div class="s-trend text-2">到期自动回收</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon red"><i class="fa-solid fa-rotate-left"></i></div>
+      <div><div class="s-label">本月自动回收</div><div class="s-value">3</div>
+        <div class="s-trend text-2">均已通知授权人</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>申请单号</label><input type="text" placeholder="申请单号"></div>
+      <div class="filter-item"><label>被授权人</label><input type="text" placeholder="姓名"></div>
+      <div class="filter-item"><label>授权角色</label><select><option value="">全部</option><option>系统管理员</option><option>业务管理员</option><option>财政审核员</option><option>城区经办员</option><option>租金核算员</option><option>配租经办员</option></select></div>
+      <div class="filter-item"><label>授权类型</label><select><option value="">全部</option><option>长期授权</option><option>临时授权（顶岗）</option><option>临时授权（专项检查）</option></select></div>
+      <div class="filter-item"><label>审批状态</label><select><option value="">全部</option><option>待审批</option><option>已生效</option><option>已驳回</option><option>已到期回收</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>申请单号</th><th class="cell-lg">被授权人 / 机构</th><th>授权角色</th><th>授权类型</th><th class="cell-lg">授权事由</th><th>有效期</th><th>审批人</th><th>状态</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr class="row-warn"><td>SQ2026-09-0018</td><td>李慧敏　市住建局住房保障科</td><td><span class="badge red">业务管理员（扩权）</span></td><td><span class="badge blue">长期授权</span></td><td>新增「配租结果纠错回滚」高敏按钮权限，用于处理 2026 年第 3 批配租的 2 件排序纠错</td><td>长期有效</td><td>龙志宏（分管领导）</td><td><span class="badge orange">待审批</span></td><td><span class="link" onclick="PMS.openDrawer('apDrawer')">审批</span></td></tr>
+          <tr class="row-warn"><td>SQ2026-09-0017</td><td>陈晓琳　市住保中心配租管理科</td><td><span class="badge orange">租金核算员</span></td><td><span class="badge orange">临时授权（顶岗）</span></td><td>租金核算员张伟休产假，顶岗办理 9 月账单核算，不含资金复核与拨付审批</td><td>2026-09-01 至 2026-09-12</td><td>龙志宏（分管领导）</td><td><span class="badge green">已生效</span></td><td><span class="link" onclick="PMS.openDrawer('apDrawer')">查看</span></td></tr>
+          <tr><td>SQ2026-08-0015</td><td>唐凯　市住保中心房源管理科</td><td><span class="badge orange">城区经办员</span></td><td><span class="badge cyan">临时授权（专项检查）</span></td><td>参加市委人才办 2026 年人才安居专项检查，需查看渌口区房源与承租数据</td><td>2026-08-18 至 2026-08-29</td><td>李慧敏（业务管理员）</td><td><span class="badge gray">已到期回收</span></td><td><span class="link" onclick="PMS.toast('临时授权于 2026-08-29 24:00 自动回收，已向被授权人与审批人推送通知，回收记录写入权限变更留痕')">自动回收记录</span></td></tr>
+          <tr><td>SQ2026-08-0012</td><td>罗湘　市财政局行政政法科</td><td><span class="badge blue">财政审核员</span></td><td><span class="badge blue">长期授权</span></td><td>新任行政政法科副科长，接替曾国华承担人才公寓资金复核工作</td><td>长期有效</td><td>龙志宏（分管领导）</td><td><span class="badge green">已生效</span></td><td><span class="link" onclick="PMS.openDrawer('apDrawer')">查看</span></td></tr>
+          <tr class="row-bad"><td>SQ2026-07-0009</td><td>曾志豪　荷塘区住房保障服务中心</td><td><span class="badge red">系统管理员</span></td><td><span class="badge blue">长期授权</span></td><td>申请系统管理员权限用于本区数据导出</td><td>—</td><td>龙志宏（分管领导）</td><td><span class="badge red">已驳回</span></td><td><span class="link" onclick="PMS.toast('系统管理员属权限管理岗，与业务办理岗不相容，区级经办人员不得授予。数据导出需求请通过「台账导出」功能办理，或向市住保中心提交专项授权申请')">驳回理由</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>审批范围</b> 系统管理员、业务管理员、财政审核员等高敏感角色授权一律须审批</span>
+    <span><b>审批层级</b> 市级角色由分管领导审批；区级与机构角色由业务管理员审批</span>
+    <span><b>临时授权</b> 须明确起止时间与授权事由，到期系统自动回收并通知被授权人与审批人</span>
+    <span><b>留痕要求</b> 申请、审批、生效、回收四个节点全部写入<span class="link" onclick="location.href='sys-perm-log.html'">权限变更留痕</span></span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="apDrawer">
+  <div class="drawer-head">
+    <h3>高敏角色授权审批</h3>
+    <span class="badge orange">待审</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+    <div class="sp-dual">
+      <i class="lead fa-solid fa-user-shield"></i>
+      <div>本环节按<b>不相容岗位控制</b>，经办人与复核人不得为同一自然人，全程留痕。</div>
+      <div class="who"><span class="muted">经办人</span><b>李慧敏</b></div>
+    </div>
+      <div class="form-grid form-align">
+        <div class="form-item col-full">
+          <label>审核结论 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>同意授权</option><option>同意授权（缩短有效期）</option><option>不同意授权</option><option>退回补充事由</option></select>
+        </div>
+        <div class="form-item col-full">
+          <label>结论说明 <span class="req">*</span></label>
+          <textarea id="apDrawerTxt" rows="4" placeholder="必填，不少于 10 字。说明对申请人完整可见"></textarea>
+        </div>
+      </div>
+    <p class="hint" style="margin-top:12px"><i class="fa-solid fa-circle-info"></i> 结论提交后写入办件状态流水（含操作人、时间、IP 与前后值），可被审计追溯。</p>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="auditOk('apDrawer','审批结论已提交，授权将按结论即时生效')"><i class="fa-solid fa-check"></i> 提交结论</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 18; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+<script>
+function auditOk(id, msg) {
+  var t = document.getElementById(id + 'Txt');
+  if (t && (t.value || '').trim().length < 10) {
+    PMS.toast('结论说明为必填且不少于 10 字', 'error'); t.focus(); return;
+  }
+  PMS.confirm({
+    title: '提交确认', message: '确认提交审核结论？',
+    detail: '提交后写入办件状态流水，结论将电子送达相关方，更正须走异常处理流程。',
+    type: 'warning', okText: '确认提交',
+    onOk: function () { PMS.closeDrawer(); PMS.toast(msg, 'success'); }
+  });
+}
+</script>
+</body>
+</html>

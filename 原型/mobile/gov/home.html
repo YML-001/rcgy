@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>移动待办工作台 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/mobile.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body class="m-body" data-mtitle="政务端工作台" data-mmod="G1 移动审批" data-mcode="G1-01"
+      data-mdesc="在移动端处理待办件，与 PC 端待办共用同一件池，处理结果实时同步；重点管控资格审核 3 个工作日的法定时限。" data-mtabset="gov" data-mtab="home" data-mtint="1" data-mnav="0">
+<div class="m-stage">
+  <div class="m-phone">
+    <div class="m-screen">
+      <div class="m-view">
+        <div class="m-hero">
+          <div class="m-hero-t">上午好，刘志刚</div>
+          <div class="m-hero-s">市保障性住房服务中心资格审核科　·　资格审核员</div>
+          <div class="m-hero-row">
+            <div class="m-hs"><div class="v">9</div><div class="l">待我审批</div></div>
+            <div class="m-hs"><div class="v">3</div><div class="l">临期(黄)</div></div>
+            <div class="m-hs"><div class="v">1</div><div class="l">超期(红)</div></div>
+          </div>
+        </div>
+        <div class="m-note danger"><i class="fa-solid fa-circle-exclamation"></i>
+          <div><b>1 件已超期</b>：RC2026-0902-0148 不动产核验不一致，已超 3 个工作日法定时限，请立即处理。</div>
+        </div>
+        <div class="m-sect">待办事项<span class="m-sect-x">与 PC 端共用同一件池</span></div>
+        <div class="m-cells">
+          <a class="m-cell" href="approve-list.html"><span class="m-ci red"><i class="fa-solid fa-stamp"></i></span><span class="m-cl"><b>资格审核待复核</b><span class="m-cs">9 件 · 其中临期 3 件、超期 1 件</span></span><span class="m-cv"><span class="m-tag red">9</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="check-list.html"><span class="m-ci orange"><i class="fa-solid fa-location-dot"></i></span><span class="m-cl"><b>入户核查任务</b><span class="m-cs">4 户疑似空置不住待现场核查</span></span><span class="m-cv"><span class="m-tag orange">4</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="patrol-scan.html"><span class="m-ci cyan"><i class="fa-solid fa-qrcode"></i></span><span class="m-cl"><b>房源扫码巡检</b><span class="m-cs">本月待巡检 186 套 · 已完成 142 套</span></span><span class="m-cv"><span class="m-tag cyan">44</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="handover-onsite.html"><span class="m-ci green"><i class="fa-solid fa-clipboard-check"></i></span><span class="m-cl"><b>交付现场办理</b><span class="m-cs">2 户待办理房源交付验收</span></span><span class="m-cv"><span class="m-tag green">2</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="quit-onsite.html"><span class="m-ci"><i class="fa-solid fa-door-open"></i></span><span class="m-cl"><b>退租现场验收</b><span class="m-cs">1 户待办理退租验收与结算</span></span><span class="m-cv">1</span><i class="m-ca fa-solid fa-angle-right"></i></a>
+        </div>
+        <div class="m-sect">审核时限管控<span class="m-sect-x">G1-02</span></div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-clock"></i>时限分档</div>
+          <div class="m-card-b">
+            <div class="m-check">
+              <div class="bad"><i class="fa-solid fa-circle-exclamation"></i><div class="m-chl"><b>已超期 1 件</b><span>RC2026-0902-0148　王××　受理 2026-09-02　应办结 2026-09-05　·	<b>超期 1 天</b></span></div>
+                <div class="co"><a class="m-btn sm danger" href="approve-detail.html">立即处理</a></div></div>
+              <div class="wait"><i class="fa-solid fa-clock"></i><div class="m-chl"><b>临期 3 件</b><span>剩余 1 个工作日办结，逾期将标红并向负责人预警</span></div>
+                <div class="co"><a class="m-btn sm" href="approve-timeout.html">查看</a></div></div>
+              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>正常 5 件</b><span>剩余 2 个工作日以上</span></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="m-sect">今日办理</div>
+        <div class="m-card">
+          <div class="m-card-b">
+            <div class="m-mini">
+              <div><div class="mv ok">14</div><div class="ml">今日办结</div></div>
+              <div><div class="mv">96.4%</div><div class="ml">3 日办结率</div></div>
+              <div><div class="mv warn">6</div><div class="ml">例外件处理</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="m-note"><i class="fa-solid fa-circle-info"></i>
+          <div>移动端处理结果与 <b>PC 端实时同步</b>。复杂例外件建议在 PC 管理端的<a href="../../modules/apply/audit-desk.html" style="color:var(--primary)">人工复核工作台</a>处理，可并排比对材料影像与核验报告。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../../assets/js/mobile.js"></script>
+</body>
+</html>

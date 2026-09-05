@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>数据权限配置 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="admin" data-active="system-04">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 权限与系统管理
+      <span class="sep">/</span> 用户与权限
+      <span class="sep">/</span> <span class="cur">数据权限配置</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>按<b>区县、项目、楼盘、机构</b>维度配置<b>行级数据可见范围</b>。<b>运营机构仅能看到受托房源与承租人必要信息</b>，用人单位仅能看到本单位职工申报件。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-shield-halved"></i></div>
+      <div><div class="s-label">数据范围档位</div><div class="s-value">6</div>
+        <div class="s-trend text-2">全市/分级/本单位/本人/公开/无</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-filter"></i></div>
+      <div><div class="s-label">配置规则</div><div class="s-value">26</div>
+        <div class="s-trend text-2">按机构逐条配置</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-eye-slash"></i></div>
+      <div><div class="s-label">脱敏字段</div><div class="s-value">4</div>
+        <div class="s-trend text-2">身份证/手机/银行账户/住址</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-user-shield"></i></div>
+      <div><div class="s-label">授权查看明文</div><div class="s-value">6</div>
+        <div class="s-trend text-2">本月 · 全部留痕</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>机构名称</label><input type="text" placeholder="机构名称"></div>
+      <div class="filter-item"><label>角色</label><input type="text" placeholder="角色名称"></div>
+      <div class="filter-item"><label>数据范围</label><select><option value="">全部</option><option>全市统一</option><option>市县分级</option><option>本单位</option><option>本人</option><option>公开</option><option>无</option></select></div>
+      <div class="filter-item"><label>配置状态</label><select><option value="">全部</option><option>在用</option><option>待审批</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th class="cell-lg">机构 / 角色</th><th>数据范围</th><th>可见区县 / 机构</th><th class="cell-lg">可见业务数据</th><th class="cell-lg">脱敏与限制</th><th>状态</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>市住保中心资格审核科 / 资格审核员</td><td><span class="badge blue">全市统一</span></td><td>市城区全部区县</td><td>全部申请件、核验报告、人才档案、年审与退出记录</td><td>身份证号、银行账户界面脱敏；查看明文需授权留痕</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('dsDrawer')">配置</span></td></tr>
+          <tr><td>天元区住房保障服务中心 / 城区经办员</td><td><span class="badge orange">市县分级</span></td><td>天元区</td><td>本区受理的申请件、本区房源与承租户、本区年审名单</td><td>跨区数据不返回；本区汇总指标可见，明细仅限本区</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('dsDrawer')">配置</span></td></tr>
+          <tr><td>株洲市人才安居服务有限公司 / 运营机构经办</td><td><span class="badge green">本单位</span></td><td>本机构受托楼盘</td><td>受托房源房态、已配租承租人<b>必要信息</b>、应收账单、工单与巡检记录</td><td><b>不可见</b>申请审核过程、核验报告、其他机构房源与人才档案</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('dsDrawer')">配置</span></td></tr>
+          <tr><td>中车株洲电力机车研究所 / 单位经办人</td><td><span class="badge green">本单位</span></td><td>本单位（统一社会信用代码）</td><td>本单位职工申报件进度与结果、本单位安居汇总数据</td><td>仅见本单位职工；<b>不可见</b>职工房产、婚姻、纳税等核验明细</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('dsDrawer')">配置</span></td></tr>
+          <tr><td>市住建局 / 分管领导</td><td><span class="badge blue">全市统一</span></td><td>市城区全部区县</td><td>全部统计指标与可下钻明细清单</td><td><b>只读</b>，不可办理业务；下钻至含敏感字段的明细时同样脱敏</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('dsDrawer')">配置</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>配置维度</b> 区县、项目、楼盘、机构四个维度</span>
+    <span><b>最小必要</b> 运营机构仅能看到受托房源与承租人必要信息</span>
+    <span><b>脱敏联动</b> <span class="link" onclick="location.href='sys-sensitive.html'">敏感信息保护</span></span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="dsDrawer">
+  <div class="drawer-head">
+    <h3>数据权限配置</h3>
+    <span class="badge green">在用</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>数据权限决定<b>行级可见范围</b>。运营机构与用人单位一律按<b>最小必要原则</b>配置，不得开放申请审核过程与核验明细。</div>
+  </div>
+
+      <div class="form-grid form-align">
+        <div class="form-item col-full">
+          <label>机构 <span class="req">*</span></label>
+          <input type="text" value="株洲市人才安居服务有限公司" readonly>
+        </div>
+        <div class="form-item">
+          <label>角色 <span class="req">*</span></label>
+          <input type="text" value="运营机构经办" readonly>
+        </div>
+        <div class="form-item">
+          <label>数据范围档位 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>全市统一</option><option>市县分级</option><option>本单位</option><option>本人</option><option>公开</option><option>无</option></select>
+        </div>
+        <div class="form-item col-full">
+          <label>可见维度 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>按机构（受托房源）</option><option>按区县</option><option>按项目</option><option>按楼盘</option></select>
+        </div>
+        <div class="form-item col-full">
+          <label>可见业务数据 <span class="req">*</span></label>
+          <textarea rows="4">✔ 受托房源档案与房态
+✔ 已配租承租人必要信息（姓名、联系电话、合同编号、保障期）
+✔ 应收账单与收缴记录
+✔ 报修工单与巡检记录
+✘ 申请审核过程与核验报告
+✘ 人才档案完整信息（学历、婚姻、房产、纳税）
+✘ 其他运营机构受托房源</textarea>
+        </div>
+        <div class="form-item col-full">
+          <label>脱敏字段 <span class="req">*</span></label>
+          <input type="text" value="身份证号、银行账户、家庭住址（一律脱敏，不提供明文入口）" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>配置说明 <span class="req">*</span></label>
+          <textarea rows="2" placeholder="必填，说明配置依据"></textarea>
+        </div>
+      </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认保存数据权限配置？将即时影响该机构下 8 个账号的数据可见范围。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已保存，数据范围即时生效','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 26; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

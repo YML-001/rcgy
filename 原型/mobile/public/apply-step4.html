@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>申请规则前置校验 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/mobile.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body class="m-body" data-mtitle="规则校验（4/5）" data-mmod="M5 人才公寓资格申请" data-mcode="M5-06"
+      data-mdesc="提交前校验每人限申请一间（套）、未承租其他政策性住房、未正在享受公租房租赁补贴等规则，命中即拦截并说明原因。" data-mback="apply-step3.html" data-mtabset="public" data-mtab="apply">
+<div class="m-stage">
+  <div class="m-phone">
+    <div class="m-screen">
+      <div class="m-view">
+        <div class="m-steps">
+          <div class="m-sp done"><div class="n"><i class="fa-solid fa-check"></i></div><div class="t">基本信息</div></div>
+          <div class="m-sp done"><div class="n"><i class="fa-solid fa-check"></i></div><div class="t">家庭成员</div></div>
+          <div class="m-sp done"><div class="n"><i class="fa-solid fa-check"></i></div><div class="t">材料上传</div></div>
+          <div class="m-sp on"><div class="n">4</div><div class="t">规则校验</div></div>
+          <div class="m-sp"><div class="n">5</div><div class="t">签署提交</div></div>
+        </div>
+        <div class="m-note success"><i class="fa-solid fa-circle-check"></i>
+          <div>共校验 <b>7 项</b>提交前规则，<b>全部通过</b>，可继续签署承诺书并提交。</div>
+        </div>
+        <div class="m-sect">校验结果<span class="m-sect-x">R-C4 至 R-C13</span></div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-shield-halved"></i>逐条校验</div>
+          <div class="m-card-b">
+            <div class="m-check">
+              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>R-C4　属于保障对象 · 通过</b><span>就业青年人才：全日制本科、毕业 2 年内、市城区用人单位劳动合同、养老保险正常缴纳</span></div></div>
+              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>R-C5　市城区范围内无自有住房 · 通过</b><span>不动产登记系统核查：本人及家庭成员均无自有住房记录，无房屋交易记录</span></div></div>
+              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>R-C6　未承租政策性住房 · 通过</b><span>未承租市本级公共租赁住房、人才公寓、直管公房</span></div></div>
+              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>R-C7　未享受公租房租赁补贴 · 通过</b><span>公租房管理系统核查：无在领租赁补贴记录</span></div></div>
+              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>R-C8　每人限申请 1 间（套）· 通过</b><span>未发现本人其他在办或已生效的人才住房申请</span></div></div>
+              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>R-C10　未被标记放弃或失信 · 通过</b><span>人才档案无放弃配租标记、无失信记录</span></div></div>
+              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>R-C11　实际在本地从业 · 通过</b><span>有个人所得税缴纳记录（3 个月），期数少于社保将在复核环节人工核实</span></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="m-sect">材料完整性</div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-list-check"></i>提交前检查</div>
+          <div class="m-card-b">
+            <div class="m-check">
+              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>资格审核表</b><span>全部必填字段已填写完整</span></div></div>
+              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>劳动合同</b><span>已上传 2 页并完成智能识别</span></div></div>
+              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>接口核验类材料</b><span>身份、婚姻、不动产、学历、社保共 5 项已核验，无需上传</span></div></div>
+              <div class="bad"><i class="fa-solid fa-circle-exclamation"></i><div class="m-chl"><b>材料真实性承诺书</b><span>尚未签署，<b>签署后方可提交</b></span></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="m-note warn"><i class="fa-solid fa-triangle-exclamation"></i>
+          <div>如校验命中拦截项，系统将<b>说明具体原因</b>并给出处理建议，不会直接以「无权限」「失败」等含糊提示阻断办理。</div>
+        </div>
+        <div class="m-sect">命中拦截时的处理示例</div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-comment-dots"></i>拦截提示口径</div>
+          <div class="m-card-b">
+            <div class="m-check">
+              <div class="bad"><i class="fa-solid fa-circle-xmark"></i><div class="m-chl"><b>若已有在办申请</b><span>提示「您已有在办申请 RC2026-0820-0104，每人限申请 1 间（套）。请先撤回原申请后再提交」并提供撤回入口</span></div></div>
+              <div class="bad"><i class="fa-solid fa-circle-xmark"></i><div class="m-chl"><b>若有自有住房</b><span>提示「不动产登记系统查得您或家庭成员在天元区有自有住房，不符合管理办法第七条第二项。如信息有误请前往市自然资源和规划局更正」</span></div></div>
+              <div class="bad"><i class="fa-solid fa-circle-xmark"></i><div class="m-chl"><b>若已享受公租房补贴</b><span>提示「您正在享受公共租赁住房租赁补贴，不符合申请条件。如已停止领取请联系市住保中心更新数据」</span></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="m-actbar">
+        <a class="m-btn w-auto" href="apply-step3.html">上一步</a>
+        <a class="m-btn primary" href="apply-commit.html"><i class="fa-solid fa-angle-right"></i> 下一步：签署承诺书</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../../assets/js/mobile.js"></script>
+</body>
+</html>

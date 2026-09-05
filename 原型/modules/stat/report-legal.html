@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>法定报表自动生成 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="admin" data-active="stat-23">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 统计分析
+      <span class="sep">/</span> 报表与数据服务
+      <span class="sep">/</span> <span class="cur">法定报表自动生成</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>按<b>住建、财政、人才主管部门</b>要求的口径自动生成月报、季报与年报，<b>支持导出与留档</b>。报表口径固定，数据自动取数。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-file-excel"></i></div>
+      <div><div class="s-label">法定报表</div><div class="s-value">8</div>
+        <div class="s-trend text-2">类</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
+      <div><div class="s-label">本月已生成</div><div class="s-value">6</div>
+        <div class="s-trend text-2">按期报送</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-hourglass-half"></i></div>
+      <div><div class="s-label">待报送</div><div class="s-value">2</div>
+        <div class="s-trend ">截止 09-10</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-box-archive"></i></div>
+      <div><div class="s-label">累计留档</div><div class="s-value">86</div>
+        <div class="s-trend text-2">份</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="card-head">
+      <h3><i class="fa-solid fa-table-list"></i> 明细下钻</h3>
+      <span class="sub">可逐级下钻至明细清单</span>
+    </div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>报表编号</th><th class="cell-lg">报表名称</th><th>报送对象</th><th>报送周期</th><th>报表期间</th><th>生成时间</th><th>报送截止</th><th>状态</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr class="row-warn"><td>BB-01</td><td>人才住房保障工作月报</td><td>市住建局、市委人才办</td><td>月报</td><td>2026-08</td><td>2026-09-01 02:00</td><td>2026-09-10</td><td><span class="badge orange">待报送</span></td><td><span class="link" onclick="PMS.toast('含房源筹集进度、申请受理与审核、配租签约、租金收缴、年审退出五部分')">报表内容</span></td></tr>
+          <tr class="row-warn"><td>BB-02</td><td>人才住房专项补助资金使用情况月报</td><td>市财政局</td><td>月报</td><td>2026-08</td><td>2026-09-01 02:00</td><td>2026-09-10</td><td><span class="badge orange">待报送</span></td><td><span class="link" onclick="PMS.toast('含预算执行、分账核算、拨付情况、票据开具四部分')">报表内容</span></td></tr>
+          <tr><td>BB-03</td><td>保障性住房筹集与使用情况季报</td><td>省住建厅、市住建局</td><td>季报</td><td>2026 Q2</td><td>2026-07-01 02:00</td><td>2026-07-10</td><td><span class="badge green">已报送</span></td><td><span class="link" onclick="PMS.toast('2026-07-08 报送，含三类来源房源筹集与配租使用情况')">报送记录</span></td></tr>
+          <tr><td>BB-05</td><td>青年人才安居政策成效年报</td><td>市委人才办、市政府</td><td>年报</td><td>2025 年度</td><td>2026-01-05 02:00</td><td>2026-01-20</td><td><span class="badge green">已报送</span></td><td><span class="link" onclick="PMS.toast('2026-01-15 报送，含保障人次、学历结构、行业分布、留株率等成效指标')">报送记录</span></td></tr>
+          <tr><td>BB-07</td><td>运营机构考核情况季报</td><td>市住建局</td><td>季报</td><td>2026 Q2</td><td>2026-07-01 02:00</td><td>2026-07-10</td><td><span class="badge green">已报送</span></td><td><span class="link" onclick="PMS.toast('含 3 家机构考核得分、扣分项归因与结果应用')">报送记录</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>口径固定</b> 按住建、财政、人才主管部门要求的口径自动取数生成</span>
+    <span><b>生成时间</b> 月报每月 1 日 02:00；季报季初首日 02:00；年报次年 1 月 5 日 02:00</span>
+    <span><b>留档要求</b> 报表生成后自动留档，支持导出与回溯查询</span>
+  </div>
+</main>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 8; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

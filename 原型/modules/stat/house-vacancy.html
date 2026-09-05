@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>空置分析 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="housing" data-active="stat-08">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 统计分析
+      <span class="sep">/</span> 房源分析
+      <span class="sep">/</span> <span class="cur">空置分析</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>统计<b>空置房源数量、空置时长分布与空置率</b>，按<b>楼盘、户型归因</b>，为投放策略调整提供依据。空置超 90 天的纳入重点治理。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-house-circle-exclamation"></i></div>
+      <div><div class="s-label">空置房源</div><div class="s-value">412</div>
+        <div class="s-trend text-2">空置率 16.6%</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-clock"></i></div>
+      <div><div class="s-label">空置超 90 天</div><div class="s-value">36</div>
+        <div class="s-trend ">纳入重点治理</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-calendar-day"></i></div>
+      <div><div class="s-label">平均空置时长</div><div class="s-value">42.6 天</div>
+        <div class="s-trend text-success">↓ 缩短 8.4 天</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-rotate"></i></div>
+      <div><div class="s-label">本月消化空置</div><div class="s-value">86</div>
+        <div class="s-trend text-2">套</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <h3><i class="fa-solid fa-house-circle-exclamation"></i> 空置分布与归因</h3>
+      <span class="sub">S2-04 · 空置超 90 天纳入重点治理</span>
+    </div>
+    <div class="card-body">
+      <div class="section-title" data-icon="fa-chart-simple">空置时长分布")</div>
+      <div class="dc-bars">
+        <div class="b-item"><span class="b-label">30 天以内　248 套</span><span class="b-track"><span class="b-fill" style="width:60.2%"></span></span><span class="b-val">正常投放周期</span></div>
+        <div class="b-item"><span class="b-label">30—60 天　86 套</span><span class="b-track"><span class="b-fill" style="width:20.9%"></span></span><span class="b-val">需关注</span></div>
+        <div class="b-item warn"><span class="b-label">60—90 天　42 套</span><span class="b-track"><span class="b-fill" style="width:10.2%"></span></span><span class="b-val">需干预</span></div>
+        <div class="b-item warn"><span class="b-label">90 天以上　36 套</span><span class="b-track"><span class="b-fill" style="width:8.7%"></span></span><span class="b-val">重点治理</span></div>
+      </div>
+      <div class="section-title" data-icon="fa-chart-simple">各楼盘空置情况</div>
+      <div class="dc-bars">
+        <div class="b-item warn"><span class="b-label">清水塘新苑（石峰区）　98 套 · 空置率 23.8%</span><span class="b-track"><span class="b-fill" style="width:100%"></span></span><span class="b-val">位置偏远 + 素材缺失</span></div>
+        <div class="b-item"><span class="b-label">栗雨佳苑（天元区）　100 套 · 空置率 27.3%</span><span class="b-track"><span class="b-fill" style="width:100%"></span></span><span class="b-val">新投放批次，正常</span></div>
+        <div class="b-item"><span class="b-label">湘江1958（天元区）　86 套 · 空置率 13.9%</span><span class="b-track"><span class="b-fill" style="width:57%"></span></span><span class="b-val">认领率高，正常</span></div>
+        <div class="b-item"><span class="b-label">茨菇塘公寓（荷塘区）　62 套 · 空置率 12.8%</span><span class="b-track"><span class="b-fill" style="width:42%"></span></span><span class="b-val">正常</span></div>
+        <div class="b-item warn"><span class="b-label">董家塅安居苑（芦淞区）　42 套 · 空置率 12.8%</span><span class="b-track"><span class="b-fill" style="width:28%"></span></span><span class="b-val">42 套未验收</span></div>
+        <div class="b-item"><span class="b-label">云龙人才苑（经开区）　24 套 · 空置率 8.8%</span><span class="b-track"><span class="b-fill" style="width:16%"></span></span><span class="b-val">认领率最高</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="card list-card">
+    <div class="card-head">
+      <h3><i class="fa-solid fa-table-list"></i> 明细下钻</h3>
+      <span class="sub">可逐级下钻至明细清单</span>
+    </div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>楼盘</th><th>所在区</th><th>房源总量</th><th>空置套数</th><th>空置率</th><th>超 90 天</th><th>平均空置时长</th><th class="cell-lg">归因分析</th><th>处置建议</th></tr>
+        </thead>
+        <tbody>
+          <tr class="row-bad"><td>清水塘新苑</td><td>石峰区</td><td class="num">412</td><td class="num">98</td><td><span class="badge red">23.8%</span></td><td class="num">24</td><td>86.4 天</td><td>①位置偏远（清水塘老工业区改造片区）②周边配套不足 ③<b>VR 与户型图素材缺失 18 套</b>影响认领④运营机构考核不合格，服务响应偏慢</td><td><span class="link" onclick="location.href='../house/house-display.html'">展示配置</span></td></tr>
+          <tr class="row-warn"><td>董家塅安居苑</td><td>芦淞区</td><td class="num">328</td><td class="num">42</td><td><span class="badge orange">12.8%</span></td><td class="num">8</td><td>62.8 天</td><td><b>42 套未达拎包入住标准</b>（家电缺配 22 套、墙面待返工 20 套），未验收不得投放</td><td><span class="link" onclick="location.href='../house/acceptance-list.html'">去验收</span></td></tr>
+          <tr><td>栗雨佳苑人才公寓</td><td>天元区</td><td class="num">366</td><td class="num">100</td><td><span class="badge orange">27.3%</span></td><td class="num">2</td><td>18.6 天</td><td>2026 年第 3 批新投放 100 套，尚在正常投放周期内，认领进度符合预期</td><td><span class="link" onclick="PMS.toast('持续跟踪认领进度，第 3 批选房结束后复评')">处置建议</span></td></tr>
+          <tr><td>湘江1958 人才公寓</td><td>天元区</td><td class="num">620</td><td class="num">86</td><td><span class="badge green">13.9%</span></td><td class="num">2</td><td>16.2 天</td><td>位置与配套优势明显，认领率高，空置属正常周转</td><td><span class="link" onclick="PMS.toast('维持现状，可作为其他楼盘的对标样板')">处置建议</span></td></tr>
+          <tr><td>云龙人才苑</td><td>经开区</td><td class="num">274</td><td class="num">24</td><td><span class="badge green">8.8%</span></td><td class="num">0</td><td>12.4 天</td><td><b>空置率最低</b>：园区通勤班车 + 经开区人才需求集中</td><td><span class="link" onclick="PMS.toast('建议在经开区优先增加筹集，缺口 -178 套')">处置建议</span></td></tr>
+          <tr><td><span class="badge green">合计</span></td><td><span class="muted">—</span></td><td class="num">2,486</td><td class="num">412</td><td><span class="badge orange">16.6%</span></td><td class="num">36</td><td>42.6 天</td><td>空置主因：石峰区位置与素材问题、芦淞区验收未完成、天元区新投放周期</td><td><span class="link" onclick="location.href='house-turnover.html'">房源周转</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>空置口径</b> 房态为「可配租」且未被锁定的房源；剔除维修中与已冻结</span>
+    <span><b>治理阈值</b> 空置超 90 天纳入重点治理，需归因并提出处置措施</span>
+    <span><b>处置联动</b> 素材缺失的催办运营机构；未验收的推进验收；位置问题的调整投放策略</span>
+  </div>
+</main>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 6; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

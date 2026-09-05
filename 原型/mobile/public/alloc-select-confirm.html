@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>选房确认 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/mobile.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body class="m-body" data-mtitle="选房确认" data-mmod="M7 配租与线上选房" data-mcode="M7-04"
+      data-mdesc="锁房后在倒计时内完成确认配租；确认需人脸核身。超时未确认自动释放给下一顺序人。" data-mback="alloc-select.html" data-mtabset="public" data-mtab="apply">
+<div class="m-stage">
+  <div class="m-phone">
+    <div class="m-screen">
+      <div class="m-view">
+        <div class="m-card">
+          <div class="m-card-b">
+            <div class="m-count">
+              <i class="fa-solid fa-stopwatch"></i> 确认倒计时
+              <span class="m-cn">28:42</span>
+            </div>
+            <div style="margin-top:8px;font-size:12px;color:var(--danger);text-align:center">
+              超时未确认将<b>自动释放给下一顺序人</b>，本批次配租机会失效
+            </div>
+          </div>
+        </div>
+        <div class="m-card" style="padding:0;overflow:hidden;margin-top:12px">
+          <div class="m-hc-img" style="height:170px"><img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80" alt="湘江1958 A6-1502">
+            <div class="m-hc-badge"><span class="m-tag orange">已锁定</span><span class="m-tag green">拎包入住</span></div>
+          </div>
+          <div class="m-card-b">
+          <div class="m-kv">
+            <div><span>房源</span><span>湘江1958 人才公寓 A6 栋 1502</span></div>
+            <div><span>户型 / 面积</span><span>一室一厅　52.60 ㎡</span></div>
+            <div><span>楼层</span><span>15 / 26 层（有电梯）</span></div>
+            <div><span>装修标准</span><span>精装 · 家电家具齐全</span></div>
+            <div><span>配租人数</span><span>1 人（整套配租）</span></div>
+            <div><span>房源来源</span><span>收购存量商品房</span></div>
+            <div><span>运营机构</span><span>株洲市人才安居服务有限公司</span></div>
+          </div>
+          </div>
+        </div>
+        <div class="m-sect">租金与减免</div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-hand-holding-dollar"></i>费用明细</div>
+          <div class="m-card-b">
+          <div class="m-kv">
+            <div><span>应缴租金总额</span><span>946.80 元/月（52.60 ㎡ × 18.00 元/㎡·月）</span></div>
+            <div><span>财政补助（减免 70%）</span><span><span style="color:var(--success)">-662.76 元/月</span></span></div>
+            <div><span><b>个人实际应缴</b></span><span><b style="color:var(--danger)">284.04 元/月</b></span></div>
+            <div><span>押金</span><span>1,000.00 元（退租时按结算单抵扣后退还）</span></div>
+            <div><span>减免期限</span><span>自入住之日起 2 年</span></div>
+            <div><span>自理费用</span><span>物业费、水、电、气按规定标准自行承担</span></div>
+          </div>
+          </div>
+        </div>
+        <div class="m-sect">确认前请知晓</div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-triangle-exclamation"></i>风险告知</div>
+          <div class="m-card-b">
+            <div class="m-check">
+              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>确认后进入签约环节</b><span>需在限期内与运营管理机构在线签署电子租赁合同</span></div></div>
+              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>保障期自入住之日起算</b><span>入住日期由交付验收单确认后写入合同，作为 2 年租金减免计费与年审周期起算依据</span></div></div>
+              <div class="bad"><i class="fa-solid fa-circle-exclamation"></i><div class="m-chl"><b>确认后不办理入住视同放弃</b><span>不服从配租房源且不办理入住的，<b>视同放弃承租资格，放弃后不得再次申请</b></span></div></div>
+              <div class="bad"><i class="fa-solid fa-circle-exclamation"></i><div class="m-chl"><b>确认需人脸核身</b><span>触发活体检测并与公安人脸比对，确保为本人操作，结果留痕</span></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="m-actbar">
+        <button class="m-btn w-auto" type="button" onclick="MB.go('alloc-giveup.html')">放弃该房源</button>
+        <button class="m-btn primary" type="button" onclick="MB.confirm('确认配租 <b>湘江1958 A6-1502</b>？确认后进入签约环节，须在限期内完成电子签约并办理入住。','人脸核身并确认',function(){MB.toast('人脸核身通过，配租已确认');setTimeout(function(){location.href='sign-terms.html'},1300)})"><i class="fa-solid fa-check"></i> 人脸核身并确认配租</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../../assets/js/mobile.js"></script>
+</body>
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>人工复核工作台 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="reviewer" data-active="apply-07">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 人才档案与资格联审
+      <span class="sep">/</span> 资格受理与复核
+      <span class="sep">/</span> <span class="cur">人工复核工作台</span>
+    </div>
+    <div class="page-actions">
+      <a class="btn" href="pool-list.html"><i class="fa-solid fa-arrow-left"></i> 返回件池</a>
+      <a class="btn" href="verify-report.html"><i class="fa-solid fa-shield-halved"></i> 查看核验报告</a>
+      <button class="btn" onclick="PMS.toast('已转办给市住保中心资格审核科其他经办人')"><i class="fa-solid fa-share"></i> 转办</button>
+      <button class="btn btn-primary" onclick="PMS.toast('已跳转至下一件待复核：RC2026-0903-0163')"><i class="fa-solid fa-angle-right"></i> 下一件</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>本件<b>个人所得税核验不一致</b>：社保连续缴纳 13 个月但个税仅 3 个月缴纳记录，须核实是否存在挂靠社保骗取资格情形。按 R-C11 转人工核实，<b>不直接否决</b>。</div>
+  </div>
+
+  <div class="sp-dual">
+    <i class="lead fa-solid fa-user-shield"></i>
+    <div>本环节为<b>复核审定</b>，按不相容岗位控制，初审人与复核人不得为同一自然人。全过程留痕，可被审计追溯。</div>
+    <div class="who"><span class="muted">初审人</span><b>周敏</b></div>
+  </div>
+
+  <div class="sp-three">
+  <div class="card">
+    <div class="card-head">
+      <h3><i class="fa-solid fa-folder-open"></i> 申报材料</h3>
+      <span class="sub">6 项 · 全部已上传</span>
+    </div>
+    <div class="card-body">
+        <div class="sp-doc"><i class="fa-regular fa-file-lines"></i>株洲市创业就业青年人才住房资格审核表.pdf</div>
+        <div class="file-view" style="margin-top:10px">
+          <span class="file-chip"><i class="fa-regular fa-image"></i><span class="fv-name">身份证正反面.jpg</span></span>
+          <span class="file-chip"><i class="fa-regular fa-image"></i><span class="fv-name">毕业证书.jpg</span></span>
+          <span class="file-chip"><i class="fa-regular fa-file-lines"></i><span class="fv-name">劳动合同.pdf</span></span>
+          <span class="file-chip"><i class="fa-regular fa-file-lines"></i><span class="fv-name">养老保险缴纳证明.pdf</span></span>
+          <span class="file-chip"><i class="fa-regular fa-image"></i><span class="fv-name">结婚证.jpg</span></span>
+          <span class="file-chip"><i class="fa-regular fa-file-lines"></i><span class="fv-name">材料真实性承诺书.pdf</span></span>
+        </div>
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 证照智能识别结果<span class="sub">P6-10 · 电信 AI 能力平台</span></div>
+          <div class="sp-b">
+        <div class="sp-kv">
+          <div class="kv"><span class="k">识别姓名</span><span class="v">王梓涵</span><span class="badge green">与填报一致</span></div>
+          <div class="kv"><span class="k">身份证号</span><span class="v"><span class="sp-mask">430211********2418<span class="mk" onclick="SP.mask(this.parentElement,'430211200103122418')">查看明文</span></span></span></div>
+          <div class="kv"><span class="k">毕业院校</span><span class="v">湖南工业大学</span><span class="badge green">与学信网一致</span></div>
+          <div class="kv"><span class="k">毕业时间</span><span class="v">2025-07-01</span><span class="badge green">毕业 2 年内</span></div>
+          <div class="kv"><span class="k">劳动合同单位</span><span class="v">中车株洲电力机车研究所有限公司</span></div>
+          <div class="kv"><span class="k">社保缴纳单位</span><span class="v">中车株洲电力机车研究所有限公司</span><span class="badge green">一致</span></div>
+        </div>
+          </div>
+        </div>
+        <p class="hint" style="margin-top:10px">
+          <i class="fa-solid fa-circle-info"></i>
+          识别结果与填报内容不一致时高亮提示。原件影像与识别结果一并归入电子档案，可回溯查阅。
+        </p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-head">
+      <h3><i class="fa-solid fa-circle-info"></i> 办件信息与核验结果</h3>
+      <span class="sub">8 项核验 · 1 项例外</span>
+    </div>
+    <div class="card-body">
+        <div class="sp-block">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 办件基本信息<span class="sub">RC2026-0903-0162</span></div>
+          <div class="sp-b">
+        <div class="sp-kv">
+          <div class="kv"><span class="k">申请状态</span><span class="v"><span class="sp-st wait">待复核</span></span></div>
+          <div class="kv"><span class="k">受理渠道</span><span class="v">湘易办 APP</span></div>
+          <div class="kv"><span class="k">受理时间</span><span class="v">2026-09-03 10:26</span></div>
+          <div class="kv"><span class="k">申请人</span><span class="v">王梓涵</span></div>
+          <div class="kv"><span class="k">申请类型</span><span class="v">就业青年人才</span></div>
+          <div class="kv"><span class="k">最高学历</span><span class="v">全日制本科</span></div>
+          <div class="kv"><span class="k">毕业时间</span><span class="v">2025-07-01</span><span class="badge green">毕业 2 年内</span></div>
+          <div class="kv"><span class="k">联系电话</span><span class="v"><span class="sp-mask">138****6207<span class="mk" onclick="SP.mask(this.parentElement,'13802456207')">查看明文</span></span></span></div>
+          <div class="kv"><span class="k">婚姻状况</span><span class="v">未婚</span></div>
+          <div class="kv"><span class="k">就业单位</span><span class="v">中车株洲电力机车研究所</span></div>
+          <div class="kv"><span class="k">意向片区</span><span class="v">天元区（栗雨片区）</span></div>
+          <div class="kv"><span class="k">家庭成员</span><span class="v">无</span><span class="muted">不涉及家庭申请</span></div>
+        </div>
+          </div>
+        </div>
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 多部门数据核验结果<span class="sub">P6-09 · 8 项核验 / 1 项例外</span></div>
+          <div class="sp-b">
+        <div class="sp-check">
+          <div class="ck pass"><i class="fa-solid fa-circle-check"></i>
+            <div class="cb"><div class="ct">婚姻登记核验 · 一致</div>
+              <div class="cd">民政系统返回未婚，与填报一致。数据时间戳 2026-09-03 10:27。</div></div>
+            <div class="co"><span class="badge green">通过</span></div></div>
+          <div class="ck pass"><i class="fa-solid fa-circle-check"></i>
+            <div class="cb"><div class="ct">不动产登记核验 · 一致</div>
+              <div class="cd">申请人在市城区范围内<b>无自有住房</b>，无房屋交易记录。</div></div>
+            <div class="co"><span class="badge green">通过</span></div></div>
+          <div class="ck pass"><i class="fa-solid fa-circle-check"></i>
+            <div class="cb"><div class="ct">学历学位核验 · 一致</div>
+              <div class="cd">学信网返回湖南工业大学全日制本科，毕业时间 2025-07-01，<b>在毕业 2 年内</b>。</div></div>
+            <div class="co"><span class="badge green">通过</span></div></div>
+          <div class="ck pass"><i class="fa-solid fa-circle-check"></i>
+            <div class="cb"><div class="ct">养老保险核验 · 一致</div>
+              <div class="cd">连续缴纳 13 个月，缴纳单位与劳动合同单位一致。</div></div>
+            <div class="co"><span class="badge green">通过</span></div></div>
+          <div class="ck pass"><i class="fa-solid fa-circle-check"></i>
+            <div class="cb"><div class="ct">政策性住房核验 · 一致</div>
+              <div class="cd">未承租公租房、人才公寓、直管公房，未享受公租房租赁补贴。</div></div>
+            <div class="co"><span class="badge green">通过</span></div></div>
+          <div class="ck block"><i class="fa-solid fa-circle-xmark"></i>
+            <div class="cb"><div class="ct">个人所得税核验 · 不一致</div>
+              <div class="cd">税务系统返回 2026 年度<b>仅 3 个月</b>个税缴纳记录，社保却已连续缴纳 13 个月，两者期数不匹配，须核实是否存在挂靠社保情形。</div></div>
+            <div class="co"><a class="link" href="verify-tax-personal.html">去核验</a></div></div>
+          <div class="ck pass"><i class="fa-solid fa-circle-check"></i>
+            <div class="cb"><div class="ct">工商登记核验 · 不适用</div>
+              <div class="cd">申请类型为就业青年人才，本项不参与判定。</div></div>
+            <div class="co"><span class="badge gray">跳过</span></div></div>
+          <div class="ck wait"><i class="fa-solid fa-lock"></i>
+            <div class="cb"><div class="ct">人脸核身 · 待关键节点触发</div>
+              <div class="cd">将在确认配租与电子签约环节触发活体检测，与公安人脸比对服务比对。</div></div></div>
+        </div>
+          </div>
+        </div>
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 申请规则前置校验<span class="sub">R-C4 至 R-C13</span></div>
+          <div class="sp-b">
+        <div class="sp-kv">
+          <div class="kv"><span class="k">每人限申请一间（套）</span><span class="v ok">未发现其他在办申请</span><span class="badge green">通过</span></div>
+          <div class="kv"><span class="k">市城区范围内无自有住房</span><span class="v ok">不动产核验一致</span><span class="badge green">通过</span></div>
+          <div class="kv"><span class="k">未承租政策性住房</span><span class="v ok">公租房系统核验一致</span><span class="badge green">通过</span></div>
+          <div class="kv"><span class="k">未被标记放弃或失信</span><span class="v ok">人才档案无失信记录</span><span class="badge green">通过</span></div>
+          <div class="kv"><span class="k">就业人才实际在本地从业</span><span class="v bad">个税记录期数不足</span><span class="badge orange">转人工</span></div>
+        </div>
+          </div>
+        </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-head">
+      <h3><i class="fa-solid fa-stamp"></i> 审核结论</h3>
+    </div>
+    <div class="card-body">
+      <div class="form-grid form-align">
+        <div class="form-item col-full">
+          <label>审核结论 <span class="req">*</span></label>
+          <select id="result">
+            <option value="">请选择</option>
+            <option>通过</option>
+            <option>不予通过</option>
+            <option>退回补正</option>
+          </select>
+        </div>
+        <div class="form-item col-full">
+          <label>不通过 / 补正原因</label>
+          <select id="reason-tpl" data-dict="rejectReason" data-ph="选择理由模板（可选）"></select>
+          <div class="hint">选择模板后自动填入结论说明，可继续编辑</div>
+        </div>
+        <div class="form-item col-full">
+          <label>结论说明 <span class="req">*</span></label>
+          <textarea id="reason" rows="5" placeholder="必填，不少于 10 字。说明对申请人完整可见，须写明具体原因与缺件项">经复核，申请材料齐全，学历、社保、婚姻及市城区无房核查均一致；个人所得税缴纳期数不足一项经人工核实系年中入职所致，情况属实且符合就业青年人才申请条件，予以通过。</textarea>
+        </div>
+      </div>
+      <div class="btn-row" style="margin-top:14px">
+        <button class="btn btn-success" onclick="submitAudit('通过')"><i class="fa-solid fa-check"></i> 通过</button>
+        <button class="btn btn-danger" onclick="submitAudit('不予通过')"><i class="fa-solid fa-xmark"></i> 不予通过</button>
+        <button class="btn" onclick="submitAudit('退回补正')">退回补正</button>
+      </div>
+      <p class="hint" style="margin-top:12px">
+        <i class="fa-solid fa-circle-info"></i>
+        结论提交后自动生成审核意见与告知书并向申请人电子送达，同时写入办件状态流水（含操作人、时间、IP 与前后值），可被审计追溯。
+      </p>
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 办理时限<span class="sub">R-T4 · 3 个工作日</span></div>
+          <div class="sp-b">
+            <div class="sp-days d60"><span class="dv">剩 1 天</span><span class="db"><span style="width:66%"></span></span></div>
+            <p class="hint" style="margin-top:8px"><i class="fa-regular fa-calendar"></i> 受理 2026-09-03　应办结 2026-09-08</p>
+        <div class="sp-kv">
+          <div class="kv"><span class="k">已用时</span><span class="v warn">2 个工作日</span></div>
+          <div class="kv"><span class="k">补正中止时长</span><span class="v">0 天</span></div>
+          <div class="kv"><span class="k">超期风险</span><span class="v warn">临期</span><span class="badge yellow">标黄预警</span></div>
+        </div>
+          </div>
+        </div>
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 办理流程留痕<span class="sub">P6-15 全过程电子档案</span></div>
+          <div class="sp-b">
+        <div class="timeline">
+          <div class="tl-item done"><div class="tl-dot"></div>
+            <div class="tl-title">湘易办提交申请</div>
+            <div class="tl-meta">王梓涵 · 2026-09-03 10:26</div>
+            <div class="tl-desc">通过湘易办 APP 提交，材料 6 项，已签署真实性承诺书。</div></div>
+          <div class="tl-item done"><div class="tl-dot"></div>
+            <div class="tl-title">系统自动联审</div>
+            <div class="tl-meta">系统 · 2026-09-03 10:27</div>
+            <div class="tl-desc">并行调用 8 项核验，返回 6 项一致、1 项不一致、1 项不适用。</div></div>
+          <div class="tl-item done"><div class="tl-dot"></div>
+            <div class="tl-title">天元区初审</div>
+            <div class="tl-meta">周敏 · 2026-09-04 09:12</div>
+            <div class="tl-desc">材料影像与填报内容一致，个税例外项已备注，转市住保中心复核。</div></div>
+          <div class="tl-item"><div class="tl-dot"></div>
+            <div class="tl-title">市住保中心复核</div>
+            <div class="tl-meta">刘志刚 · 进行中</div></div>
+          <div class="tl-item pending"><div class="tl-dot"></div>
+            <div class="tl-title">结论电子送达</div>
+            <div class="tl-meta">待办理</div></div>
+          <div class="tl-item pending"><div class="tl-dot"></div>
+            <div class="tl-title">归入电子档案</div>
+            <div class="tl-meta">待办理</div></div>
+        </div>
+          </div>
+        </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="sp-src">
+    <span><b>审核时限</b> 自收到申请资料之日起 3 个工作日，补正期间中止</span>
+    <span><b>核验规则版本</b> <span class="sp-vt cur">V2026-09</span></span>
+    <span><b>口径来源</b> 功能清单 P6-11 人工复核工作台</span>
+  </div>
+</main>
+
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+<script>
+function submitAudit(kind) {
+  var sel = document.getElementById('result');
+  var txt = document.getElementById('reason');
+  if (!sel.value) { PMS.toast('审核结论为必填项', 'error'); sel.focus(); return; }
+  if ((txt.value || '').trim().length < 10) {
+    PMS.toast('结论说明为必填且不少于 10 字', 'error'); txt.focus(); return;
+  }
+  PMS.confirm({
+    title: '复核结论提交确认',
+    message: '确认对 RC2026-0903-0162 出具「' + kind + '」结论？',
+    detail: '提交后自动生成告知书并向申请人电子送达，结论写入办件流水后不可直接修改，更正须走配租异常处理流程。',
+    type: kind === '通过' ? 'info' : 'warning',
+    okText: '确认提交',
+    onOk: function () {
+      PMS.toast('已提交，结论「' + kind + '」已电子送达申请人', 'success');
+    }
+  });
+}
+document.getElementById('reason-tpl').addEventListener('change', function () {
+  if (!this.value) return;
+  var map = {
+    '1': '经核验，申请人个人所得税缴纳记录与养老保险缴纳期数不匹配，请补充提供实际从业证明材料（如工资发放流水、单位在职证明）后重新提交。',
+    '2': '经核验，申请人及其家庭成员在市城区范围内已有自有住房，不符合《株洲市城区创业就业青年人才住房保障管理办法》第七条第二项规定的申请条件。',
+    '3': '经核验，申请人最高学历毕业时间已超过 2 年，且不属于免毕业年限的特殊人才，不符合本办法第三条规定的保障对象范围。',
+    '4': '申请材料缺少境外学历学位认证书，请补齐经教育部留学服务中心认证的国（境）外学历学位认证书后重新提交。',
+    '5': '经核验，申请人所办企业无实际纳税记录，按空壳企业过滤，请补充提供企业实际经营与纳税凭证。'
+  };
+  document.getElementById('reason').value = map[this.value] || '';
+  PMS.toast('已填入理由模板，可继续编辑');
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>菜单与路由管理 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+</head>
+<body data-role="admin" data-active="system-18">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 权限与系统管理
+      <span class="sep">/</span> 用户与权限
+      <span class="sep">/</span> <span class="cur">菜单与路由管理</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.openDrawer('mnDrawer')"><i class="fa-solid fa-plus"></i> 新增菜单</button>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>以<b>树形</b>维护菜单层级、路由地址、组件路径、图标、排序与显隐状态，区分<b>目录、菜单、外链</b>三类节点。菜单是<b>权限授予与前端路由生成的共同依据</b>，新增业务模块只需登记菜单即可纳入授权范围。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-bars"></i></div>
+      <div><div class="s-label">菜单节点</div><div class="s-value">132</div>
+        <div class="s-trend text-2">目录 28 / 菜单 102 / 外链 2</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-sitemap"></i></div>
+      <div><div class="s-label">子系统</div><div class="s-value">10</div>
+        <div class="s-trend text-2">含统计分析与口径说明</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-eye"></i></div>
+      <div><div class="s-label">显示中</div><div class="s-value">128</div>
+        <div class="s-trend text-2">隐藏 4 个（内部调试）</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-code-branch"></i></div>
+      <div><div class="s-label">最大层级</div><div class="s-value">3 级</div>
+        <div class="s-trend text-2">子系统 → 分组 → 菜单</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>所属子系统</label><select><option value="">全部</option><option>房源筹集与楼盘表</option><option>人才档案与资格联审</option><option>配租与合同</option><option>租金收缴与年审退出</option><option>运营考核与工单</option><option>信息公开与规则引擎</option><option>运营机构端与用人单位端</option><option>统计分析</option><option>权限与系统管理</option><option>原型说明与口径</option></select></div>
+      <div class="filter-item"><label>节点类型</label><select><option value="">全部</option><option>目录</option><option>菜单</option><option>外链</option></select></div>
+      <div class="filter-item"><label>菜单名称</label><input type="text" placeholder="菜单名称"></div>
+      <div class="filter-item"><label>显示状态</label><select><option value="">全部</option><option>显示</option><option>隐藏</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>菜单标识</th><th class="cell-lg">菜单名称</th><th>节点类型</th><th class="cell-lg">路由地址</th><th>图标</th><th>层级</th><th>排序</th><th>按钮权限</th><th>状态</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>house</td><td>房源筹集与楼盘表</td><td><span class="badge gray">目录</span></td><td><span class="muted">—</span></td><td>fa-building</td><td>1 级</td><td class="num">10</td><td class="num">0</td><td><span class="badge green">显示</span></td><td><span class="link" onclick="PMS.openDrawer('mnDrawer')">编辑</span></td></tr>
+          <tr><td>house-01</td><td>　├ 项目表管理</td><td><span class="badge blue">菜单</span></td><td>modules/house/proj-list.html</td><td>fa-city</td><td>3 级</td><td class="num">11</td><td class="num">6</td><td><span class="badge green">显示</span></td><td><span class="link" onclick="PMS.openDrawer('mnDrawer')">编辑</span></td></tr>
+          <tr><td>house-21</td><td>　├ 项目批量导入</td><td><span class="badge blue">菜单</span></td><td>modules/house/proj-import.html</td><td>fa-file-import</td><td>3 级</td><td class="num">12</td><td class="num">4</td><td><span class="badge green">显示</span></td><td><span class="link" onclick="PMS.openDrawer('mnDrawer')">编辑</span></td></tr>
+          <tr><td>house-07</td><td>　├ 统一楼盘表</td><td><span class="badge blue">菜单</span></td><td>modules/house/building-table.html</td><td>fa-table-cells</td><td>3 级</td><td class="num">20</td><td class="num">7</td><td><span class="badge green">显示</span></td><td><span class="link" onclick="PMS.openDrawer('mnDrawer')">编辑</span></td></tr>
+          <tr><td>apply-06</td><td>　├ 多渠道件池</td><td><span class="badge blue">菜单</span></td><td>modules/apply/pool-list.html</td><td>fa-inbox</td><td>3 级</td><td class="num">30</td><td class="num">8</td><td><span class="badge green">显示</span></td><td><span class="link" onclick="PMS.openDrawer('mnDrawer')">编辑</span></td></tr>
+          <tr><td>stat-01</td><td>　├ 保障全景一张图</td><td><span class="badge blue">菜单</span></td><td>modules/stat/map-overview.html</td><td>fa-map-location-dot</td><td>3 级</td><td class="num">40</td><td class="num">2</td><td><span class="badge green">显示</span></td><td><span class="link" onclick="PMS.openDrawer('mnDrawer')">编辑</span></td></tr>
+          <tr><td>ext-01</td><td>　├ 省保租房系统</td><td><span class="badge cyan">外链</span></td><td>https://zfgjj.hunan.gov.cn/bzf（新窗口打开）</td><td>fa-arrow-up-right-from-square</td><td>3 级</td><td class="num">90</td><td class="num">0</td><td><span class="badge green">显示</span></td><td><span class="link" onclick="PMS.openDrawer('mnDrawer')">编辑</span></td></tr>
+          <tr class="row-warn"><td>dev-01</td><td>　├ 接口调试台</td><td><span class="badge blue">菜单</span></td><td>modules/system/api-monitor.html</td><td>fa-bug</td><td>3 级</td><td class="num">99</td><td class="num">2</td><td><span class="badge orange">隐藏</span></td><td><span class="link" onclick="PMS.toast('内部调试菜单，仅系统管理员在开发环境可见，生产环境隐藏且接口同步鉴权')">隐藏说明</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>菜单作用</b> 菜单是权限授予与前端路由生成的共同依据</span>
+    <span><b>节点类型</b> 目录（仅分组不跳转）、菜单（对应页面路由）、外链（新窗口打开外部系统）</span>
+    <span><b>扩展方式</b> 新增业务模块只需登记菜单即可纳入授权范围，无需改代码</span>
+    <span><b>按钮联动</b> <span class="link" onclick="location.href='sys-button.html'">按钮与操作权限</span></span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="mnDrawer">
+  <div class="drawer-head">
+    <h3>菜单节点维护</h3>
+    <span class="badge blue">菜单</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>路由地址即页面文件路径，<b>由外壳 shell.html 以 iframe 方式加载</b>。隐藏菜单在界面不渲染，但<b>后端接口仍按权限标识同步鉴权</b>，不可绕过。</div>
+  </div>
+
+      <div class="form-grid form-align">
+        <div class="form-item">
+          <label>菜单标识 <span class="req">*</span></label>
+          <input type="text" value="house-21" readonly>
+          <div class="hint">权限授予与鉴权的唯一标识</div>
+        </div>
+        <div class="form-item col-full">
+          <label>上级节点 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>房源筹集与楼盘表 / 房源筹集与项目</option><option>房源筹集与楼盘表 / 楼盘表与多源归集</option><option>房源筹集与楼盘表 / 房源档案与房态</option></select>
+        </div>
+        <div class="form-item">
+          <label>菜单名称 <span class="req">*</span></label>
+          <input type="text" value="项目批量导入">
+        </div>
+        <div class="form-item">
+          <label>节点类型 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>目录</option><option>菜单</option><option>外链</option></select>
+        </div>
+        <div class="form-item col-full">
+          <label>路由地址 <span class="req">*</span></label>
+          <input type="text" value="modules/house/proj-import.html">
+        </div>
+        <div class="form-item col-full">
+          <label>组件路径</label>
+          <input type="text" value="（原型阶段与路由地址一致）" readonly>
+        </div>
+        <div class="form-item">
+          <label>菜单图标</label>
+          <input type="text" value="fa-file-import">
+        </div>
+        <div class="form-item">
+          <label>排序号 <span class="req">*</span></label>
+          <input type="text" value="12">
+          <div class="hint">同级内升序排列</div>
+        </div>
+        <div class="form-item">
+          <label>显示状态 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>显示</option><option>隐藏</option></select>
+        </div>
+        <div class="form-item">
+          <label>是否缓存页签</label>
+          <select data-dict="yesNo" data-ph="全部"></select>
+        </div>
+        <div class="form-item col-full">
+          <label>对应功能点 <span class="req">*</span></label>
+          <input type="text" value="P3-02 项目批量导入" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>变更说明 <span class="req">*</span></label>
+          <textarea rows="2" placeholder="必填，说明新增或调整依据"></textarea>
+        </div>
+      </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认保存菜单配置？路由地址变更将影响已授权角色的访问入口。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已保存，菜单与路由即时生效','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 132; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

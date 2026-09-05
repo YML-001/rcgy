@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>账单批量生成 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="keeper" data-active="rent-03">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 租金收缴与年审退出
+      <span class="sep">/</span> 租金与费用
+      <span class="sep">/</span> <span class="cur">账单批量生成</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>按周期<b>批量生成账单并推送至移动端</b>，明细含<b>租金、减免、自付、物业与水电燃气代收项</b>。生成时间为每月 1 日 02:00，生成后自动推送提醒。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+      <div><div class="s-label">本月生成账单</div><div class="s-value">1,286</div>
+        <div class="s-trend text-2">份</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-paper-plane"></i></div>
+      <div><div class="s-label">推送成功</div><div class="s-value">1,282</div>
+        <div class="s-trend text-2">成功率 99.7%</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-calendar-day"></i></div>
+      <div><div class="s-label">下次生成</div><div class="s-value">2026-10-01 02:00</div>
+        <div class="s-trend text-2">系统自动</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-triangle-exclamation"></i></div>
+      <div><div class="s-label">生成异常</div><div class="s-value">4</div>
+        <div class="s-trend ">合同要素缺失</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>生成批次</label><input type="text" placeholder="批次编号"></div>
+      <div class="filter-item"><label>账单周期</label><input type="month"></div>
+      <div class="filter-item"><label>生成方式</label><select><option value="">全部</option><option>定时自动</option><option>手动触发</option><option>补生成</option></select></div>
+      <div class="filter-item"><label>生成结果</label><select><option value="">全部</option><option>成功</option><option>部分失败</option><option>失败</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>生成批次</th><th>账单周期</th><th>生成方式</th><th>应生成</th><th>成功生成</th><th>生成失败</th><th>推送成功</th><th class="cell-lg">失败原因</th><th>生成时间</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr class="row-warn"><td>ZDB2026-09-001</td><td>2026-09</td><td><span class="badge blue">定时自动</span></td><td class="num">1,290</td><td class="num">1,286</td><td class="num">4</td><td class="num">1,282</td><td>4 份合同的减免方案未落库（清水塘新苑 2 份、云龙人才苑 2 份），无法计算财政补助金额</td><td>2026-09-01 02:00</td><td><span class="link" onclick="PMS.openDrawer('zdDrawer')">补生成</span></td></tr>
+          <tr><td>ZDB2026-08-001</td><td>2026-08</td><td><span class="badge blue">定时自动</span></td><td class="num">1,286</td><td class="num">1,286</td><td class="num">0</td><td class="num">1,286</td><td><span class="muted">—</span></td><td>2026-08-01 02:00</td><td><span class="link" onclick="PMS.toast('1,286 份账单全部生成并推送成功，含租金 1,286 项、物业与水电燃气代收 1,286 项')">生成明细</span></td></tr>
+          <tr><td>ZDB2026-07-001</td><td>2026-07</td><td><span class="badge blue">定时自动</span></td><td class="num">1,242</td><td class="num">1,242</td><td class="num">0</td><td class="num">1,240</td><td>2 份账单短信推送失败（手机号停机），站内消息与微信已送达</td><td>2026-07-01 02:00</td><td><span class="link" onclick="PMS.toast('已重新发送，2 份短信仍失败，已通知运营机构电话告知')">推送记录</span></td></tr>
+          <tr><td>ZDB2026-09-002</td><td>2026-09</td><td><span class="badge orange">补生成</span></td><td class="num">4</td><td class="num">0</td><td class="num">4</td><td class="num">0</td><td>减免方案仍未落库，须先完成一事一议会商并录入审定文件</td><td>2026-09-03 10:26</td><td><span class="link" onclick="location.href='relief-plan.html'">减免方案配置</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>生成周期</b> 每月 1 日 02:00 自动生成，支持手动触发与补生成</span>
+    <span><b>账单明细</b> 租金、财政补助、个人自付、物业费、水电燃气代收项</span>
+    <span><b>推送通道</b> 湘易办站内消息 + 微信模板消息 + 短信</span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="zdDrawer">
+  <div class="drawer-head">
+    <h3>账单补生成</h3>
+    <span class="badge orange">补生成</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>本次有 <b>4 份</b>账单因<b>减免方案未落库</b>无法生成。请先完成一事一议会商并录入审定文件，再执行补生成。</div>
+  </div>
+
+      <div class="form-grid form-align">
+        <div class="form-item">
+          <label>生成批次 <span class="req">*</span></label>
+          <input type="text" value="ZDB2026-09-002" readonly>
+        </div>
+        <div class="form-item">
+          <label>账单周期 <span class="req">*</span></label>
+          <input type="month">
+        </div>
+        <div class="form-item col-full">
+          <label>补生成范围 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>仅失败的 4 份</option><option>指定楼盘</option><option>指定合同</option></select>
+        </div>
+        <div class="form-item col-full">
+          <label>涉及楼盘 <span class="req">*</span></label>
+          <input type="text" value="清水塘新苑（2 份）、云龙人才苑（2 份）" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>前置检查 <span class="req">*</span></label>
+          <input type="text" value="减免方案未落库，无法计算财政补助金额" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>补生成说明 <span class="req">*</span></label>
+          <textarea rows="3" placeholder="必填，说明补生成原因与前置条件是否已满足">本次补生成清水塘新苑、云龙人才苑共 4 份因减免方案未落库而失败的账单；经核相关减免方案已完成一事一议会商并录入审定文件，前置条件已满足，可执行补生成。</textarea>
+        </div>
+      </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认执行账单补生成？请确认减免方案已落库，否则仍将失败。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已提交补生成任务，完成后在顶栏消息区提醒','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 48; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>知识库维护 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="manager" data-active="ops-10">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 运营考核与工单服务
+      <span class="sep">/</span> 工单与服务
+      <span class="sep">/</span> <span class="cur">知识库维护</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>维护<b>政策问答、常见问题与办理指引</b>，供<b>政务窗口坐席统一调用</b>。政策调整后关联条目自动标记待更新。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-book"></i></div>
+      <div><div class="s-label">知识条目</div><div class="s-value">186</div>
+        <div class="s-trend text-2">条</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-headset"></i></div>
+      <div><div class="s-label">坐席引用</div><div class="s-value">8,462</div>
+        <div class="s-trend text-2">次 / 本月</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-thumbs-up"></i></div>
+      <div><div class="s-label">答复满意率</div><div class="s-value">94.6%</div>
+        <div class="s-trend text-2">用户反馈</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-triangle-exclamation"></i></div>
+      <div><div class="s-label">待更新</div><div class="s-value">12</div>
+        <div class="s-trend ">政策调整后需复核</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>条目编号</label><input type="text" placeholder="条目编号"></div>
+      <div class="filter-item"><label>标题</label><input type="text" placeholder="关键词"></div>
+      <div class="filter-item"><label>知识类别</label><select><option value="">全部</option><option>政策问答</option><option>常见问题</option><option>办理指引</option><option>操作说明</option></select></div>
+      <div class="filter-item"><label>关联政策条款</label><input type="text" placeholder="如第七条"></div>
+      <div class="filter-item"><label>条目状态</label><select><option value="">全部</option><option>在用</option><option>待更新</option><option>已下架</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>条目编号</th><th class="cell-lg">标题</th><th>知识类别</th><th>关联政策条款</th><th>引用次数</th><th>满意率</th><th>维护人</th><th>更新时间</th><th>状态</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>ZS-0086</td><td>大专毕业一年半能否申请人才公寓？</td><td><span class="badge blue">政策问答</span></td><td>第三条、第十条</td><td class="num">1,846</td><td><span class="badge green">96.8%</span></td><td>贺文斌</td><td>2026-08-12</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('kbDrawer')">编辑</span></td></tr>
+          <tr><td>ZS-0092</td><td>租金能减免多少？水电费谁承担？</td><td><span class="badge blue">政策问答</span></td><td>第六条</td><td class="num">1,428</td><td><span class="badge green">95.2%</span></td><td>贺文斌</td><td>2026-08-12</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('kbDrawer')">编辑</span></td></tr>
+          <tr><td>ZS-0104</td><td>不服从配租会有什么后果？</td><td><span class="badge blue">政策问答</span></td><td>第九条</td><td class="num">986</td><td><span class="badge green">97.4%</span></td><td>陈晓琳</td><td>2026-08-20</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('kbDrawer')">编辑</span></td></tr>
+          <tr class="row-warn"><td>ZS-0118</td><td>创业企业「正常纳税」如何判定？</td><td><span class="badge blue">政策问答</span></td><td>第三条</td><td class="num">428</td><td><span class="badge orange">82.6%</span></td><td>刘志刚</td><td>2026-06-08</td><td><span class="badge orange">待更新</span></td><td><span class="link" onclick="PMS.openDrawer('kbDrawer')">编辑</span></td></tr>
+          <tr><td>ZS-0126</td><td>人才公寓申请办事指引（全流程）</td><td><span class="badge cyan">办理指引</span></td><td>第八条、第九条</td><td class="num">2,486</td><td><span class="badge green">98.2%</span></td><td>谭建军</td><td>2026-09-01</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('kbDrawer')">编辑</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>调用方</b> 政务窗口坐席（窗口代办答复口径）</span>
+    <span><b>引用要求</b> 答复须附引用政策条款，可追溯到原文</span>
+    <span><b>更新机制</b> 政策调整后关联条目自动标记待更新，须复核后发布</span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="kbDrawer">
+  <div class="drawer-head">
+    <h3>知识条目维护</h3>
+    <span class="badge orange">待更新</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>本条目答复满意率 <b>82.6%</b>，低于 90% 阈值，且关联的<b>「正常纳税」判定口径待市税务局明确</b>，已标记待更新。发布后供窗口坐席统一调用。</div>
+  </div>
+
+      <div class="form-grid form-align">
+        <div class="form-item">
+          <label>条目编号 <span class="req">*</span></label>
+          <input type="text" value="ZS-0118" readonly>
+        </div>
+        <div class="form-item">
+          <label>知识类别 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>政策问答</option><option>常见问题</option><option>办理指引</option><option>操作说明</option></select>
+        </div>
+        <div class="form-item col-full">
+          <label>标题 <span class="req">*</span></label>
+          <input type="text" value="创业企业「正常纳税」如何判定？">
+        </div>
+        <div class="form-item col-full">
+          <label>关联政策条款 <span class="req">*</span></label>
+          <input type="text" value="《株洲市城区创业就业青年人才住房保障管理办法》第三条">
+        </div>
+        <div class="form-item col-full">
+          <label>答复内容 <span class="req">*</span></label>
+          <textarea rows="5">创业青年人才申请人才公寓时，系统将核验其所办企业的纳税申报与实际缴税情况，用于筛除只注册登记但无实际经营纳税的空壳企业。具体判定口径（连续申报期数、是否有实际缴税）目前待市税务局明确，暂按人工核实处理：无任何纳税申报记录或全部为零申报的，转人工核实并要求补充经营凭证；有连续申报且有实际缴税的，予以通过。</textarea>
+        </div>
+        <div class="form-item col-full">
+          <label>待明确事项</label>
+          <textarea rows="2">「正常纳税」的连续申报期数与实际缴税金额门槛，需市税务局明确后更新本条目并同步调整申请条件规则。</textarea>
+        </div>
+        <div class="form-item col-full">
+          <label>发布范围 <span class="req">*</span></label>
+          <select><option>窗口坐席内部使用</option><option>窗口坐席 + 办事指南同步</option></select>
+        </div>
+      </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认更新知识条目 ZS-0118 并发布？',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已保存，窗口坐席即可按新口径答复','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 186; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

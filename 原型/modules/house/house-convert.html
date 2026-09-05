@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>房源用途转换台账 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="housing" data-active="house-17">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 房源筹集与楼盘表
+      <span class="sep">/</span> 房源档案与房态
+      <span class="sep">/</span> <span class="cur">用途转换台账</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.openDrawer('cvDrawer')"><i class="fa-solid fa-plus"></i> 新增转换单</button>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>办理<b>保租房转人才公寓、公租房转人才公寓</b>的审批并<b>保留原属性</b>，形成转换台账。原属性与现用途双轨记录，满足审计溯源。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-right-left"></i></div>
+      <div><div class="s-label">转换记录</div><div class="s-value">1,342</div>
+        <div class="s-trend text-2">累计</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-recycle"></i></div>
+      <div><div class="s-label">公租房转入</div><div class="s-value">836</div>
+        <div class="s-trend text-2">占 62.3%</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-house-flag"></i></div>
+      <div><div class="s-label">保租房归集</div><div class="s-value">506</div>
+        <div class="s-trend text-2">占 37.7%</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-file-signature"></i></div>
+      <div><div class="s-label">审批中</div><div class="s-value">412</div>
+        <div class="s-trend text-2">清水塘新苑</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>转换单号</label><input type="text" placeholder="转换单号"></div>
+      <div class="filter-item"><label>房源 / 项目</label><input type="text" placeholder="项目名称或房号"></div>
+      <div class="filter-item"><label>原属性</label><select><option value="">全部</option><option>公共租赁住房</option><option>保障性租赁住房</option><option>商品住房</option><option>直管公房</option></select></div>
+      <div class="filter-item"><label>现用途</label><select><option value="">全部</option><option>青年人才住房</option><option>公共租赁住房</option></select></div>
+      <div class="filter-item"><label>审批状态</label><select><option value="">全部</option><option>已审批</option><option>审批中</option><option>待提交</option><option>不予转换</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>转换单号</th><th class="cell-lg">房源 / 项目</th><th class="num">套数</th><th>原属性</th><th>现用途</th><th>原系统编码</th><th>转换依据</th><th>审批状态</th><th>审批时间</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>ZH2025-01</td><td>栗雨佳苑（原公租房 3—5 栋）</td><td class="num">366</td><td><span class="badge gray">公共租赁住房</span></td><td><span class="badge blue">青年人才住房</span></td><td>ZZ-GZF-0042***</td><td>PH2025-01 盘活审批</td><td><span class="badge green">已审批</span></td><td>2025-12-06</td><td><span class="link" onclick="PMS.toast('原属性：公共租赁住房；原系统：公租房管理系统；转换依据：PH2025-01')">溯源</span></td></tr>
+          <tr><td>ZH2026-01</td><td>茨菇塘公寓（原公租房 1—6 栋）</td><td class="num">486</td><td><span class="badge gray">公共租赁住房</span></td><td><span class="badge blue">青年人才住房</span></td><td>ZZ-GZF-0056***</td><td>PH2026-01 盘活审批</td><td><span class="badge green">已审批</span></td><td>2026-03-12</td><td><span class="link" onclick="PMS.toast('原属性：公共租赁住房；原系统：公租房管理系统；转换依据：PH2026-01')">溯源</span></td></tr>
+          <tr><td>ZH2026-02</td><td>云龙人才苑（保租房“一间房”）</td><td class="num">274</td><td><span class="badge gray">保障性租赁住房</span></td><td><span class="badge blue">青年人才住房</span></td><td>HN430200-BZF-0086***</td><td>省厅“一间房”房源归集</td><td><span class="badge green">已审批</span></td><td>2026-06-18</td><td><span class="link" onclick="PMS.toast('原属性：保障性租赁住房；原系统：省保障性租赁住房系统；本系统只做归集展示，不重复建设')">溯源</span></td></tr>
+          <tr class="row-warn"><td>ZH2026-03</td><td>清水塘新苑（原公租房 1—4 栋）</td><td class="num">412</td><td><span class="badge gray">公共租赁住房</span></td><td><span class="badge gray">待定</span></td><td>ZZ-GZF-0071***</td><td>PH2026-02 盘活审批</td><td><span class="badge orange">审批中</span></td><td><span class="muted">—</span></td><td><span class="link" onclick="PMS.openDrawer('cvDrawer')">办理审批</span></td></tr>
+          <tr><td>ZH2026-04</td><td>时代新城人才公寓（保租房）</td><td class="num">186</td><td><span class="badge gray">保障性租赁住房</span></td><td><span class="badge gray">待定</span></td><td>HN430200-BZF-0086***</td><td>省厅房源数据调用</td><td><span class="badge gray">待提交</span></td><td><span class="muted">—</span></td><td><span class="link" onclick="PMS.openDrawer('cvDrawer')">办理审批</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>溯源要求</b> 原属性与现用途双轨记录，保留原系统编码</span>
+    <span><b>审计用途</b> 转换台账供审计核查房源用途变更的合规性</span>
+    <span><b>关联页面</b> <span class="link" onclick="location.href='src-tag.html'">来源与属性打标</span></span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="cvDrawer">
+  <div class="drawer-head">
+    <h3>房源用途转换审批</h3>
+    <span class="badge orange">审批中</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>转换须<b>保留原属性信息</b>形成可追溯路径。审批通过后房源纳入人才公寓归集范围，<b>原属性与现用途双轨记录</b>。</div>
+  </div>
+
+      <div class="form-grid form-align">
+        <div class="form-item">
+          <label>转换单号 <span class="req">*</span></label>
+          <input type="text" value="ZH2026-03" readonly>
+        </div>
+        <div class="form-item">
+          <label>房源 / 项目 <span class="req">*</span></label>
+          <input type="text" value="清水塘新苑（原公租房 1—4 栋）" readonly>
+        </div>
+        <div class="form-item">
+          <label>转换套数 <span class="req">*</span></label>
+          <input type="text" value="412">
+        </div>
+        <div class="form-item">
+          <label>原属性 <span class="req">*</span></label>
+          <input type="text" value="公共租赁住房" readonly>
+          <div class="hint">不可修改，保留溯源</div>
+        </div>
+        <div class="form-item">
+          <label>原系统编码前缀 <span class="req">*</span></label>
+          <input type="text" value="ZZ-GZF-0071***" readonly>
+        </div>
+        <div class="form-item">
+          <label>转换后用途 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>青年人才住房</option></select>
+        </div>
+        <div class="form-item col-full">
+          <label>转换依据 <span class="req">*</span></label>
+          <input type="text" value="PH2026-02 公租房盘活审批">
+        </div>
+        <div class="form-item col-full">
+          <label>转换理由 <span class="req">*</span></label>
+          <textarea rows="3">石峰区青年人才轮候 68 人，可租房源仅 42 套，供需存在缺口。该批公租房连续 18 个月出租率低于 40%，属长期闲置，盘活后经装修与家电配置可达拎包入住标准。</textarea>
+        </div>
+        <div class="form-item col-full">
+          <label>审批附件 <span class="req">*</span></label>
+          <input type="text" data-upload="1">
+        </div>
+      </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认提交清水塘新苑 412 套用途转换审批？',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已提交，待业务管理员审批','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 5; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

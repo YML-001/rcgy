@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>报修工单流转 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="manager" data-active="ops-07">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 运营考核与工单服务
+      <span class="sep">/</span> 工单与服务
+      <span class="sep">/</span> <span class="cur">报修工单流转</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>覆盖<b>受理、派单、处理、验收、评价</b>全流程，配置各环节时限并对<b>超时工单自动升级</b>。办理结果计入运营机构考核。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+      <div><div class="s-label">本月工单</div><div class="s-value">486</div>
+        <div class="s-trend text-2">含投诉转工单</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
+      <div><div class="s-label">已办结</div><div class="s-value">452</div>
+        <div class="s-trend text-2">完工率 93.0%</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-clock"></i></div>
+      <div><div class="s-label">处理中</div><div class="s-value">25</div>
+        <div class="s-trend ">含 9 单超时</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-star"></i></div>
+      <div><div class="s-label">平均评价</div><div class="s-value">4.62</div>
+        <div class="s-trend text-2">满分 5 分</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>工单编号</label><input type="text" placeholder="工单编号"></div>
+      <div class="filter-item"><label>报修人</label><input type="text" placeholder="姓名"></div>
+      <div class="filter-item"><label>房源</label><input type="text" placeholder="项目名称或房号"></div>
+      <div class="filter-item"><label>报修类别</label><select data-dict="woType" data-ph="全部"></select></div>
+      <div class="filter-item"><label>工单状态</label><select data-dict="woStatus" data-ph="全部"></select></div>
+      <div class="filter-item"><label>运营机构</label><input type="text" placeholder="机构名称"></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>工单编号</th><th>报修人</th><th class="cell-lg">房源</th><th>报修类别</th><th>紧急程度</th><th>派单时间</th><th>时限</th><th>剩余</th><th>运营机构</th><th>状态</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr class="row-bad"><td>GD2026-09-00402</td><td>李××</td><td>湘江1958 A3-1108</td><td><span class="badge blue">水暖管道</span></td><td><span class="badge orange">较急</span></td><td>2026-09-03 20:12</td><td>24 小时</td><td><div class="sp-days dx"><span class="dv">超时 12h</span><span class="db"><span style="width:100%"></span></span></div></td><td>株洲市人才安居服务有限公司</td><td><span class="badge red">已超时</span></td><td><span class="link" onclick="PMS.openDrawer('woDrawer')">督办</span></td></tr>
+          <tr class="row-warn"><td>GD2026-09-00418</td><td>王梓涵</td><td>湘江1958 A6-1502</td><td><span class="badge blue">水暖管道</span></td><td><span class="badge orange">较急</span></td><td>2026-09-04 20:38</td><td>24 小时</td><td><div class="sp-days d60"><span class="dv">剩 8h</span><span class="db"><span style="width:67%"></span></span></div></td><td>株洲市人才安居服务有限公司</td><td><span class="badge orange">处理中</span></td><td><span class="link" onclick="PMS.openDrawer('woDrawer')">督办</span></td></tr>
+          <tr><td>GD2026-09-00424</td><td>唐雅琴</td><td>栗雨佳苑 3-1104</td><td><span class="badge cyan">家电维修</span></td><td><span class="badge blue">一般</span></td><td>2026-09-05 08:46</td><td>3 工作日</td><td><div class="sp-days"><span class="dv">剩 2 天</span><span class="db"><span style="width:33%"></span></span></div></td><td>株洲市人才安居服务有限公司</td><td><span class="badge blue">待派单</span></td><td><span class="link" onclick="PMS.openDrawer('woDrawer')">督办</span></td></tr>
+          <tr><td>GD2026-08-00362</td><td>王梓涵</td><td>湘江1958 A6-1502</td><td><span class="badge cyan">家电维修</span></td><td><span class="badge orange">较急</span></td><td>2026-08-25 21:06</td><td>24 小时</td><td><div class="sp-days"><span class="dv">已办结</span><span class="db"><span style="width:0%"></span></span></div></td><td>株洲市人才安居服务有限公司</td><td><span class="badge green">已办结</span></td><td><span class="link" onclick="PMS.toast('2026-08-26 11:32 完工（用时 15h18m，未超时），住户评价 5 星，材料费 120.00 元由机构承担')">办结记录</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>时限配置</b> 紧急 4 小时 / 较急 24 小时 / 一般 3 个工作日内上门</span>
+    <span><b>升级规则</b> 超时自动升级至运营机构负责人；超 48 小时纳入市住保中心督办清单</span>
+    <span><b>考核联动</b> 报修及时率、完工率、住户满意度均为考核指标</span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="woDrawer">
+  <div class="drawer-head">
+    <h3>工单督办</h3>
+    <span class="badge red">已超时</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+  <div class="alert alert-danger">
+    <i class="fa-solid fa-circle-exclamation"></i>
+    <div>该工单已<b>超时 12 小时</b>，已自动升级至运营机构负责人。督办将同步告知机构负责人并计入考核扣分。</div>
+  </div>
+
+      <div class="form-grid form-align">
+        <div class="form-item">
+          <label>工单编号 <span class="req">*</span></label>
+          <input type="text" value="GD2026-09-00402" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>报修人 / 房源 <span class="req">*</span></label>
+          <input type="text" value="李××　湘江1958 A3-1108" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>报修内容 <span class="req">*</span></label>
+          <input type="text" value="卫生间漏水，地面积水较多" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>超时时长 <span class="req">*</span></label>
+          <input type="text" value="12 小时（应上门时限 2026-09-04 20:12）" readonly>
+        </div>
+        <div class="form-item">
+          <label>督办方式 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>系统督办提醒</option><option>电话督办</option><option>书面督办函</option><option>纳入检查任务</option></select>
+        </div>
+        <div class="form-item">
+          <label>督办对象 <span class="req">*</span></label>
+          <input type="text" value="彭雪梅（运营机构负责人）" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>督办要求 <span class="req">*</span></label>
+          <textarea rows="3">要求 2026-09-05 18:00 前完成上门维修并反馈处理结果。本单超时已计入 2026 Q3 报修及时率考核扣分。如再次超时将纳入检查任务并加倍扣分。</textarea>
+        </div>
+      </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认对超时工单 GD2026-09-00402 发起督办？',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已督办，已同步告知运营机构负责人','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+  </div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 486; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

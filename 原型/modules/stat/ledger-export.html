@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>业务台账导出 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="admin" data-active="stat-27">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 统计分析
+      <span class="sep">/</span> 报表与数据服务
+      <span class="sep">/</span> <span class="cur">业务台账导出</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>支持导出<b>房源台账、申请台账、合同台账、租金台账、退出台账</b>等业务底表，满足<b>审计与检查</b>需要。含敏感字段的导出需授权并留痕。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-table-list"></i></div>
+      <div><div class="s-label">业务台账</div><div class="s-value">8</div>
+        <div class="s-trend text-2">类</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-download"></i></div>
+      <div><div class="s-label">本月导出</div><div class="s-value">42</div>
+        <div class="s-trend text-2">次</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-user-shield"></i></div>
+      <div><div class="s-label">需授权台账</div><div class="s-value">4</div>
+        <div class="s-trend ">含敏感字段</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-clock-rotate-left"></i></div>
+      <div><div class="s-label">导出留痕</div><div class="s-value">100%</div>
+        <div class="s-trend text-2">全部记录</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="card-head">
+      <h3><i class="fa-solid fa-table-list"></i> 明细下钻</h3>
+      <span class="sub">可逐级下钻至明细清单</span>
+    </div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>台账编号</th><th class="cell-lg">台账名称</th><th>数据条数</th><th>字段数</th><th>含敏感字段</th><th>导出权限</th><th class="cell-lg">用途说明</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>TZ-01</td><td>房源台账（统一楼盘表全量）</td><td class="num">2,486</td><td class="num">26</td><td><span class="badge green">否</span></td><td><span class="badge green">岗位权限</span></td><td>审计核查房源筹集、归集与配租使用情况；含房源编号、来源、面积、房态、承租情况</td><td><span class="link" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒')">导出</span></td></tr>
+          <tr class="row-warn"><td>TZ-02</td><td>申请台账（含核验结论）</td><td class="num">3,246</td><td class="num">32</td><td><span class="badge red">是（身份证号）</span></td><td><span class="badge orange">需授权</span></td><td>审计核查申请受理、联审与审核结论；含申请编号、申请人、核验结论、审核意见</td><td><span class="link" onclick="PMS.openDrawer('tzDrawer')">申请授权导出</span></td></tr>
+          <tr class="row-warn"><td>TZ-03</td><td>合同台账（含承租人信息）</td><td class="num">1,842</td><td class="num">28</td><td><span class="badge red">是（身份证号）</span></td><td><span class="badge orange">需授权</span></td><td>审计核查合同要素、租金计费与减免核算；含合同编号、承租人、计租面积、减免比例</td><td><span class="link" onclick="PMS.openDrawer('tzDrawer')">申请授权导出</span></td></tr>
+          <tr class="row-warn"><td>TZ-04</td><td>租金台账（含账单与收缴）</td><td class="num">12,486</td><td class="num">24</td><td><span class="badge red">是（银行账户）</span></td><td><span class="badge orange">需授权</span></td><td>审计核查租金分账、收缴与财政补助拨付；含账单编号、应收、补助、自付、收缴</td><td><span class="link" onclick="PMS.openDrawer('tzDrawer')">申请授权导出</span></td></tr>
+          <tr><td>TZ-06</td><td>退出台账（含退出原因）</td><td class="num">86</td><td class="num">22</td><td><span class="badge green">否</span></td><td><span class="badge green">岗位权限</span></td><td>审计核查年审、续租与退出处置；含退出方式、原因、结算与押金退还</td><td><span class="link" onclick="PMS.toast('已提交导出任务')">导出</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>审计用途</b> 满足审计与检查需要，台账字段覆盖业务全要素</span>
+    <span><b>授权控制</b> 含身份证号、银行账户的台账导出需专项授权并全程留痕</span>
+    <span><b>留痕内容</b> 导出人、时间、范围、用途、文件哈希</span>
+  </div>
+</main>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 8; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

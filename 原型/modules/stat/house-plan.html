@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>筹集完成率分析 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="housing" data-active="stat-05">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 统计分析
+      <span class="sep">/</span> 房源分析
+      <span class="sep">/</span> <span class="cur">筹集完成率分析</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>按<b>年度、区域、收购主体、房源性质</b>统计筹集计划完成率与到位进度。到位套数以<b>交付验收合格</b>之日归集，未达拎包入住标准的不计入。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-bullseye"></i></div>
+      <div><div class="s-label">年度计划</div><div class="s-value">3,000</div>
+        <div class="s-trend text-2">套</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
+      <div><div class="s-label">实际到位</div><div class="s-value">2,486</div>
+        <div class="s-trend text-2">完成率 82.9%</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-arrow-trend-down"></i></div>
+      <div><div class="s-label">计划差额</div><div class="s-value">-514</div>
+        <div class="s-trend ">需月均 172 套</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-calendar-day"></i></div>
+      <div><div class="s-label">剩余月份</div><div class="s-value">3</div>
+        <div class="s-trend text-2">2026 年 10—12 月</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <h3><i class="fa-solid fa-chart-column"></i> 完成率与进度</h3>
+      <span class="sub">S2-01 · 2026 年度</span>
+    </div>
+    <div class="card-body">
+      <div class="section-title" data-icon="fa-chart-simple">各区筹集完成率</div>
+      <div class="dc-bars">
+        <div class="b-item"><span class="b-label">天元区　1,000 计划 / 986 到位</span><span class="b-track"><span class="b-fill" style="width:98.6%"></span></span><span class="b-val">98.6%</span></div>
+        <div class="b-item"><span class="b-label">荷塘区　500 计划 / 486 到位</span><span class="b-track"><span class="b-fill" style="width:97.2%"></span></span><span class="b-val">97.2%</span></div>
+        <div class="b-item"><span class="b-label">芦淞区　400 计划 / 412 到位</span><span class="b-track"><span class="b-fill" style="width:100%"></span></span><span class="b-val">103.0%</span></div>
+        <div class="b-item warn"><span class="b-label">石峰区　500 计划 / 328 到位</span><span class="b-track"><span class="b-fill" style="width:65.6%"></span></span><span class="b-val">65.6%</span></div>
+        <div class="b-item warn"><span class="b-label">经开区　600 计划 / 274 到位</span><span class="b-track"><span class="b-fill" style="width:45.7%"></span></span><span class="b-val">45.7%</span></div>
+      </div>
+      <div class="section-title" data-icon="fa-chart-column">月度到位套数</div>
+      <div class="bar-chart">
+        <div class="bar-col"><span class="bar-val">186</span><div class="bar" style="height:38%"></div><span class="bar-label">1 月</span></div>
+        <div class="bar-col"><span class="bar-val">142</span><div class="bar" style="height:29%"></div><span class="bar-label">2 月</span></div>
+        <div class="bar-col"><span class="bar-val">268</span><div class="bar" style="height:55%"></div><span class="bar-label">3 月</span></div>
+        <div class="bar-col"><span class="bar-val">312</span><div class="bar" style="height:64%"></div><span class="bar-label">4 月</span></div>
+        <div class="bar-col"><span class="bar-val">286</span><div class="bar" style="height:58%"></div><span class="bar-label">5 月</span></div>
+        <div class="bar-col"><span class="bar-val">344</span><div class="bar" style="height:70%"></div><span class="bar-label">6 月</span></div>
+        <div class="bar-col"><span class="bar-val">402</span><div class="bar" style="height:82%"></div><span class="bar-label">7 月</span></div>
+        <div class="bar-col"><span class="bar-val">356</span><div class="bar" style="height:73%"></div><span class="bar-label">8 月</span></div>
+        <div class="bar-col"><span class="bar-val">190</span><div class="bar" style="height:39%"></div><span class="bar-label">9 月</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="card list-card">
+    <div class="card-head">
+      <h3><i class="fa-solid fa-table-list"></i> 明细下钻</h3>
+      <span class="sub">可逐级下钻至明细清单</span>
+    </div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>分解维度</th><th class="cell-lg">名称</th><th>年度计划</th><th>实际到位</th><th>完成率</th><th>收购到位</th><th>盘活到位</th><th>保租房归集</th><th>差额</th><th>下钻</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="badge blue">区域</span></td><td>天元区</td><td class="num">1,000</td><td class="num">986</td><td><span class="badge green">98.6%</span></td><td class="num">620</td><td class="num">366</td><td class="num">0</td><td class="num">-14</td><td><span class="link" onclick="location.href='../house/proj-list.html'">项目台账</span></td></tr>
+          <tr><td><span class="badge blue">区域</span></td><td>芦淞区</td><td class="num">400</td><td class="num">412</td><td><span class="badge green">103.0%</span></td><td class="num">286</td><td class="num">126</td><td class="num">0</td><td class="num">+12</td><td><span class="link" onclick="location.href='../house/proj-list.html'">项目台账</span></td></tr>
+          <tr class="row-warn"><td><span class="badge blue">区域</span></td><td>石峰区</td><td class="num">500</td><td class="num">328</td><td><span class="badge orange">65.6%</span></td><td class="num">0</td><td class="num">328</td><td class="num">0</td><td class="num">-172</td><td><span class="link" onclick="location.href='../house/revitalize-list.html'">盘活审批</span></td></tr>
+          <tr class="row-bad"><td><span class="badge blue">区域</span></td><td>经开区</td><td class="num">600</td><td class="num">274</td><td><span class="badge red">45.7%</span></td><td class="num">0</td><td class="num">0</td><td class="num">274</td><td class="num">-326</td><td><span class="link" onclick="location.href='../house/src-bzf.html'">保租房调用</span></td></tr>
+          <tr><td><span class="badge cyan">房源性质</span></td><td>收购存量商品房</td><td class="num">1,400</td><td class="num">1,144</td><td><span class="badge orange">81.7%</span></td><td class="num">1,144</td><td class="num">0</td><td class="num">0</td><td class="num">-256</td><td><span class="link" onclick="location.href='../house/purchase-list.html'">收购管理</span></td></tr>
+          <tr><td><span class="badge green">合计</span></td><td><b>全市城区合计</b></td><td class="num">3,000</td><td class="num">2,486</td><td><span class="badge orange">82.9%</span></td><td class="num">1,144</td><td class="num">836</td><td class="num">506</td><td class="num">-514</td><td><span class="link" onclick="location.href='../house/plan-progress.html'">筹集计划</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>统计口径</b> 按交付验收合格之日归集到位套数</span>
+    <span><b>未达标不计入</b> 未达拎包入住标准的房源不计入到位（当前 42 套待整改）</span>
+    <span><b>测算依据</b> <span class="link" onclick="location.href='../house/house-forecast.html'">房源供需测算</span></span>
+  </div>
+</main>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 12; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

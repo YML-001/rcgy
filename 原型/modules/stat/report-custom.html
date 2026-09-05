@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>自定义报表 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="admin" data-active="stat-24">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 统计分析
+      <span class="sep">/</span> 报表与数据服务
+      <span class="sep">/</span> <span class="cur">自定义报表</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>支持按<b>时间、区域、房源、人才类别</b>等条件自由组合生成报表，<b>可保存为常用模板</b>。生成的报表数据与统计分析口径一致。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-table-list"></i></div>
+      <div><div class="s-label">自定义模板</div><div class="s-value">26</div>
+        <div class="s-trend text-2">个</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-star"></i></div>
+      <div><div class="s-label">常用模板</div><div class="s-value">8</div>
+        <div class="s-trend text-2">已收藏</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-play"></i></div>
+      <div><div class="s-label">本月生成</div><div class="s-value">186</div>
+        <div class="s-trend text-2">次</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-users"></i></div>
+      <div><div class="s-label">使用人数</div><div class="s-value">42</div>
+        <div class="s-trend text-2">跨 8 个部门</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="card-head">
+      <h3><i class="fa-solid fa-table-list"></i> 明细下钻</h3>
+      <span class="sub">可逐级下钻至明细清单</span>
+    </div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>模板编号</th><th class="cell-lg">模板名称</th><th>创建人</th><th>数据范围</th><th class="cell-lg">筛选条件</th><th>输出字段数</th><th>本月生成</th><th>常用</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>MB-001</td><td>按区域房源筹集与配租情况表</td><td>唐凯</td><td>全市统一</td><td>时间：本年度；区域：全部；房源来源：全部；房态：全部</td><td class="num">18</td><td class="num">42</td><td><span class="badge green">已收藏</span></td><td><span class="link" onclick="PMS.toast('已提交生成任务，完成后在顶栏消息区提醒')">生成报表</span></td></tr>
+          <tr><td>MB-004</td><td>按人才类别申请审核情况表</td><td>刘志刚</td><td>全市统一</td><td>时间：本季度；人才类别：全部；办件状态：全部；承办部门：全部</td><td class="num">22</td><td class="num">38</td><td><span class="badge green">已收藏</span></td><td><span class="link" onclick="PMS.toast('已提交生成任务')">生成报表</span></td></tr>
+          <tr><td>MB-008</td><td>租金收缴与欠费明细表</td><td>罗湘</td><td>全市统一</td><td>时间：本月；楼盘：全部；账单状态：欠费；账龄：全部</td><td class="num">16</td><td class="num">26</td><td><span class="badge green">已收藏</span></td><td><span class="link" onclick="PMS.toast('已提交生成任务')">生成报表</span></td></tr>
+          <tr><td>MB-012</td><td>天元区人才安居情况表</td><td>周敏</td><td>本区（天元区）</td><td>时间：本年度；区域：天元区；含在租、轮候、退出全量</td><td class="num">20</td><td class="num">18</td><td><span class="badge gray">未收藏</span></td><td><span class="link" onclick="PMS.toast('已提交生成任务（数据范围限本区）')">生成报表</span></td></tr>
+          <tr><td>MB-018</td><td>运营机构考核取数明细表</td><td>李慧敏</td><td>全市统一</td><td>时间：本季度；机构：全部；含 8 项考核指标原始取数</td><td class="num">26</td><td class="num">12</td><td><span class="badge green">已收藏</span></td><td><span class="link" onclick="PMS.toast('已提交生成任务')">生成报表</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>口径一致</b> 自定义报表数据与统计分析页口径完全一致</span>
+    <span><b>数据范围</b> 受角色数据权限约束，区级用户仅可生成本区报表</span>
+    <span><b>敏感字段</b> 含身份证号等敏感字段的报表导出需授权并留痕</span>
+  </div>
+</main>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 26; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

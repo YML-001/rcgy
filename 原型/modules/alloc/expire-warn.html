@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>到期预警 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="allocator" data-active="alloc-12">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 配租选房与合同
+      <span class="sep">/</span> 合同管理
+      <span class="sep">/</span> <span class="cur">到期预警</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>保障期届满前<b>分级预警</b>，自动<b>联动续租资格复核与腾退任务生成</b>。预警档位：180 天（蓝）/ 90 天（黄）/ 30 天（橙）/ 已届满（红）。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-calendar-days"></i></div>
+      <div><div class="s-label">180 天内届满</div><div class="s-value">186</div>
+        <div class="s-trend text-2">已纳入预警</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-hourglass-half"></i></div>
+      <div><div class="s-label">90 天内届满</div><div class="s-value">86</div>
+        <div class="s-trend text-2">已发起续租复核</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon red"><i class="fa-solid fa-circle-exclamation"></i></div>
+      <div><div class="s-label">30 天内届满</div><div class="s-value">26</div>
+        <div class="s-trend ">须尽快出具结论</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-rotate"></i></div>
+      <div><div class="s-label">已发起复核</div><div class="s-value">86</div>
+        <div class="s-trend text-2">自动触发</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>合同编号</label><input type="text" placeholder="合同编号"></div>
+      <div class="filter-item"><label>承租人</label><input type="text" placeholder="姓名"></div>
+      <div class="filter-item"><label>预警档位</label><select data-dict="lvColor" data-ph="全部"></select></div>
+      <div class="filter-item"><label>复核状态</label><select><option value="">全部</option><option>未发起</option><option>复核中</option><option>已出结论</option></select></div>
+      <div class="filter-item"><label>保障期止</label><input type="date"></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>合同编号</th><th>承租人</th><th class="cell-lg">房源</th><th>入住日期</th><th>保障期止</th><th>剩余天数</th><th>预警档位</th><th>续租复核</th><th>腾退任务</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr class="row-bad"><td>RZ2024-00206</td><td>谭建国</td><td>栗雨佳苑 3-0608</td><td>2024-03-12</td><td>2026-03-11</td><td><div class="sp-days dx"><span class="dv">已届满</span><span class="db"><span style="width:100%"></span></span></div></td><td><span class="badge red">红 · 已届满</span></td><td><span class="badge green">已出结论</span></td><td><span class="badge orange">已生成</span></td><td><span class="link" onclick="location.href='../rent/renew-conclusion.html'">续租结论</span></td></tr>
+          <tr class="row-bad"><td>RZ2026-00518</td><td>周宇轩</td><td>栗雨佳苑 3-0904</td><td>2026-04-12</td><td>2028-04-11</td><td><div class="sp-days d30"><span class="dv">28 天</span><span class="db"><span style="width:8%"></span></span></div></td><td><span class="badge orange">橙 · 预警</span></td><td><span class="badge orange">复核中</span></td><td><span class="badge gray">待生成</span></td><td><span class="link" onclick="location.href='../rent/renew-check.html'">续租复核</span></td></tr>
+          <tr class="row-warn"><td>RZ2026-00386</td><td>李子康</td><td>湘江1958 A3-1108 主卧</td><td>2026-03-08</td><td>2028-03-07</td><td><div class="sp-days d60"><span class="dv">86 天</span><span class="db"><span style="width:24%"></span></span></div></td><td><span class="badge yellow">黄 · 提示</span></td><td><span class="badge orange">复核中</span></td><td><span class="badge gray">待生成</span></td><td><span class="link" onclick="location.href='../rent/renew-check.html'">续租复核</span></td></tr>
+          <tr><td>RZ2026-00862</td><td>王梓涵</td><td>湘江1958 A6-1502</td><td>2026-01-06</td><td>2028-01-05</td><td><div class="sp-days"><span class="dv">168 天</span><span class="db"><span style="width:47%"></span></span></div></td><td><span class="badge blue">蓝 · 正常</span></td><td><span class="badge gray">未发起</span></td><td><span class="badge gray">待生成</span></td><td><span class="link" onclick="PMS.toast('保障期届满前 90 天自动发起续租资格复核；30 天内未出结论的向负责人预警')">预警规则</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>预警档位</b> 180 天蓝 / 90 天黄 / 30 天橙 / 已届满红，四色固定不自创</span>
+    <span><b>自动联动</b> 届满前 90 天自动发起续租资格复核；结论为退出的自动生成腾退任务</span>
+    <span><b>政策依据</b> 管理办法第六条（保障 2 年）、第十二条（动态管理）</span>
+  </div>
+</main>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 186; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

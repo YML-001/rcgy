@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>数据核验命中分析 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="leader" data-active="stat-14">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 统计分析
+      <span class="sep">/</span> 人才与配租分析
+      <span class="sep">/</span> <span class="cur">数据核验命中分析</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-danger">
+    <i class="fa-solid fa-circle-exclamation"></i>
+    <div>统计各<b>核验项的命中不符率</b>（如有房、超毕业年限、无纳税记录），评估<b>联审拦截效果</b>并识别申请人高频不符原因。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-shield-halved"></i></div>
+      <div><div class="s-label">核验调用总量</div><div class="s-value">10,288</div>
+        <div class="s-trend text-2">8 项 × 1,286 件</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon red"><i class="fa-solid fa-gavel"></i></div>
+      <div><div class="s-label">一票否决拦截</div><div class="s-value">298</div>
+        <div class="s-trend ">占受理 23.2%</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-user-check"></i></div>
+      <div><div class="s-label">转人工核实</div><div class="s-value">234</div>
+        <div class="s-trend text-2">占受理 18.2%</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-percent"></i></div>
+      <div><div class="s-label">联审替代人工</div><div class="s-value">89.4%</div>
+        <div class="s-trend text-2">人工只处理例外件</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <h3><i class="fa-solid fa-shield-halved"></i> 命中率与拦截效果</h3>
+      <span class="sub">S3-04 · 2026 年 9 月</span>
+    </div>
+    <div class="card-body">
+      <div class="section-title" data-icon="fa-chart-simple">各核验项命中不符率</div>
+      <div class="dc-bars">
+        <div class="b-item warn"><span class="b-label">企业纳税　命中不符 16.1%</span><span class="b-track"><span class="b-fill" style="width:16.1%"></span></span><span class="b-val">46 / 286 件（创业类）</span></div>
+        <div class="b-item warn"><span class="b-label">工商登记　命中不符 13.3%</span><span class="b-track"><span class="b-fill" style="width:13.3%"></span></span><span class="b-val">38 / 286 件（创业类）</span></div>
+        <div class="b-item warn"><span class="b-label">个人所得税　命中不符 9.6%</span><span class="b-track"><span class="b-fill" style="width:9.6%"></span></span><span class="b-val">96 / 1,000 件（就业类）</span></div>
+        <div class="b-item warn"><span class="b-label">学历学位　命中不符 6.7%</span><span class="b-track"><span class="b-fill" style="width:6.7%"></span></span><span class="b-val">86 / 1,286 件</span></div>
+        <div class="b-item"><span class="b-label">不动产登记　命中不符 5.8%</span><span class="b-track"><span class="b-fill" style="width:5.8%"></span></span><span class="b-val">106 / 1,842 件</span></div>
+        <div class="b-item"><span class="b-label">养老保险　命中不符 4.8%</span><span class="b-track"><span class="b-fill" style="width:4.8%"></span></span><span class="b-val">62 / 1,286 件</span></div>
+        <div class="b-item"><span class="b-label">政策性住房　命中不符 2.3%</span><span class="b-track"><span class="b-fill" style="width:2.3%"></span></span><span class="b-val">42 / 1,842 件</span></div>
+        <div class="b-item"><span class="b-label">婚姻登记　命中不符 0.9%</span><span class="b-track"><span class="b-fill" style="width:0.9%"></span></span><span class="b-val">12 / 1,286 件</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="card list-card">
+    <div class="card-head">
+      <h3><i class="fa-solid fa-table-list"></i> 明细下钻</h3>
+      <span class="sub">可逐级下钻至明细清单</span>
+    </div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>核验项</th><th>调用量</th><th>命中不符</th><th>不符率</th><th>处置类型</th><th class="cell-lg">高频不符原因</th><th>拦截效果</th><th>下钻</th></tr>
+        </thead>
+        <tbody>
+          <tr class="row-bad"><td>企业纳税</td><td class="num">286</td><td class="num">46</td><td><span class="badge red">16.1%</span></td><td><span class="badge orange">转人工核实</span></td><td>无任何纳税申报 22 件、全部零申报 18 件、有申报无实际缴税 6 件。判定口径待市税务局明确</td><td>有效识别<b>疑空壳企业</b></td><td><span class="link" onclick="location.href='../apply/verify-tax-corp.html'">企业纳税核验</span></td></tr>
+          <tr class="row-bad"><td>工商登记</td><td class="num">286</td><td class="num">38</td><td><span class="badge red">13.3%</span></td><td><span class="badge orange">转人工核实</span></td><td>列入经营异常名录 32 件、注册地不在市城区 6 件、法定代表人非申请人 6 件</td><td>有效识别经营异常与主体不符</td><td><span class="link" onclick="location.href='../apply/verify-business.html'">工商核验</span></td></tr>
+          <tr class="row-warn"><td>个人所得税</td><td class="num">1,000</td><td class="num">96</td><td><span class="badge orange">9.6%</span></td><td><span class="badge orange">转人工核实</span></td><td>期数少于社保 78 件（多为入职当年未达起征点，属正常）、无缴纳记录 18 件（挂靠社保嫌疑）</td><td>有效识别<b>挂靠社保</b>骗取资格</td><td><span class="link" onclick="location.href='../apply/verify-tax-personal.html'">个税核验</span></td></tr>
+          <tr class="row-warn"><td>学历学位</td><td class="num">1,286</td><td class="num">86</td><td><span class="badge orange">6.7%</span></td><td><span class="badge red">一票否决</span></td><td>毕业超 2 年且非免年限人才 58 件、非全日制学历 22 件、境外学历未认证 6 件</td><td>一票否决直接拦截，无需人工</td><td><span class="link" onclick="location.href='../apply/verify-edu.html'">学历核验</span></td></tr>
+          <tr><td>不动产登记</td><td class="num">1,842</td><td class="num">106</td><td><span class="badge orange">5.8%</span></td><td><span class="badge red">一票否决</span></td><td>本人有房 62 件、配偶有房 38 件、其他家庭成员有房 6 件</td><td><b>拦截效果最显著</b>：直接不予通过，节省大量人工核查</td><td><span class="link" onclick="location.href='../apply/verify-realty.html'">不动产核验</span></td></tr>
+          <tr><td>政策性住房</td><td class="num">1,842</td><td class="num">42</td><td><span class="badge green">2.3%</span></td><td><span class="badge red">一票否决</span></td><td>已承租公租房 26 件、正在享受公租房租赁补贴 12 件、已承租人才公寓 4 件</td><td>有效防止<b>重复享受</b>政策</td><td><span class="link" onclick="location.href='../apply/talent-history.html'">保障历史全景</span></td></tr>
+          <tr><td><span class="badge green">合计</span></td><td class="num">10,288</td><td class="num">532</td><td><span class="badge green">5.2%</span></td><td><span class="muted">—</span></td><td>一票否决 298 件（有房、超年限、重复享受）+ 转人工 234 件（纳税、社保、工商）</td><td>联审自动替代人工 89.4%，人工只处理例外件</td><td><span class="link" onclick="location.href='../apply/verify-report.html'">核验报告</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>不符率口径</b> 命中不符件数 ÷ 该核验项调用量</span>
+    <span><b>处置区分</b> 一票否决项直接不予通过；转人工核实项不直接否决</span>
+    <span><b>优化用途</b> 高频不符原因用于政策宣传与申请指引优化，减少无效申请</span>
+  </div>
+</main>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 8; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

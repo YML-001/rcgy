@@ -40,7 +40,8 @@
       finance:   { tag: 'PC 管理端', user: '曾国华', role: '市财政局行政政法科 · 财政审核员' },
       district:  { tag: 'PC 管理端', user: '周敏',   role: '天元区住房保障服务中心 · 城区经办员' },
       leader:    { tag: 'PC 管理端', user: '张卫东', role: '市住建局 · 分管领导' },
-      admin:     { tag: 'PC 管理端', user: '龙志宏', role: '市保障性住房服务中心信息科 · 系统管理员' }
+      admin:     { tag: 'PC 管理端', user: '龙志宏', role: '市保障性住房服务中心信息科 · 系统管理员' },
+      agency:    { tag: 'PC 管理端', user: '彭建华', role: '株洲市人才安居服务有限公司 · 运营机构经办' }
     },
 
     /* ---------- 外部角色（跳转其他应用，不在本外壳内呈现）----------
@@ -68,7 +69,7 @@
       /* 资格审核员：资格受理与多部门联审 */
       reviewer: ['home', 'wb-01', 'wb-02', 'wb-03', 'wb-04',
         'apply-01', 'apply-02', 'apply-03', 'apply-04', 'apply-05',
-        'apply-06', 'apply-07', 'apply-08', 'apply-09', 'apply-10', 'apply-11', 'apply-12', 'apply-21',
+        'apply-06', 'apply-07', 'apply-08', 'apply-09', 'apply-10', 'apply-11', 'apply-12', 'apply-21', 'apply-22',
         'apply-13', 'apply-14', 'apply-15', 'apply-16', 'apply-17', 'apply-18', 'apply-19', 'apply-20',
         'house-14', 'house-16', 'rent-09', 'rent-11', 'rent-12',
         'stat-12', 'stat-13', 'stat-14'
@@ -77,21 +78,24 @@
       allocator: ['home', 'wb-01', 'wb-02', 'wb-04',
         'alloc-01', 'alloc-02', 'alloc-03', 'alloc-04', 'alloc-05', 'alloc-06', 'alloc-07',
         'alloc-08', 'alloc-09', 'alloc-10', 'alloc-11', 'alloc-12', 'alloc-13',
-        'house-14', 'house-15', 'house-16', 'house-19', 'house-20',
+        'house-14', 'house-15', 'house-16', 'house-19', 'house-20', 'house-27',
         'apply-01', 'apply-03', 'rule-02', 'rule-03',
         'stat-15', 'stat-16', 'stat-17'
         ],
-      /* 租金核算员：租金、账单、票据、押金 */
+      /* 租金核算员：租金、账单、票据、押金、租房补贴核发 */
       keeper: ['home', 'wb-01', 'wb-04',
         'rent-01', 'rent-02', 'rent-03', 'rent-04', 'rent-05', 'rent-06', 'rent-07', 'rent-08',
+        'rent-16', 'rent-17', 'rent-18', 'rent-19', 'rent-20',
         'alloc-10', 'alloc-12', 'stat-27'
         ],
-      /* 房源管理员：房源筹集、楼盘表、房态 */
+      /* 房源管理员：房源筹集、楼盘表、房态、发布与导入建账 */
       housing: ['home', 'wb-01', 'wb-04',
         'house-01', 'house-02', 'house-03', 'house-04', 'house-05', 'house-06',
         'house-07', 'house-08', 'house-09', 'house-10', 'house-11', 'house-12', 'house-13',
         'house-14', 'house-15', 'house-16', 'house-17', 'house-18', 'house-19', 'house-20',
         'house-21', 'house-22', 'house-23',
+        'house-24', 'house-25', 'house-26', 'house-27',
+        'house-28', 'house-29', 'house-30', 'house-31', 'house-32', 'house-33', 'house-34', 'house-35',
         'rent-15', 'ops-05', 'stat-05', 'stat-06', 'stat-07', 'stat-08', 'stat-09', 'stat-10'
         ],
       /* 业务管理员：全量业务，不含系统管理 */
@@ -100,15 +104,19 @@
         'house-07', 'house-08', 'house-09', 'house-10', 'house-11', 'house-12', 'house-13',
         'house-14', 'house-15', 'house-16', 'house-17', 'house-18', 'house-19', 'house-20',
         'house-21', 'house-22', 'house-23',
+        'house-24', 'house-25', 'house-26', 'house-27',
+        'house-28', 'house-29', 'house-30', 'house-31', 'house-32', 'house-33', 'house-34', 'house-35',
         'apply-01', 'apply-02', 'apply-03', 'apply-04', 'apply-05',
-        'apply-06', 'apply-07', 'apply-08', 'apply-09', 'apply-10', 'apply-11', 'apply-12', 'apply-21',
+        'apply-06', 'apply-07', 'apply-08', 'apply-09', 'apply-10', 'apply-11', 'apply-12', 'apply-21', 'apply-22',
         'apply-13', 'apply-14', 'apply-15', 'apply-16', 'apply-17', 'apply-18', 'apply-19', 'apply-20',
         'alloc-01', 'alloc-02', 'alloc-03', 'alloc-04', 'alloc-05', 'alloc-06', 'alloc-07',
         'alloc-08', 'alloc-09', 'alloc-10', 'alloc-11', 'alloc-12', 'alloc-13',
         'rent-01', 'rent-02', 'rent-03', 'rent-04', 'rent-05', 'rent-06', 'rent-07', 'rent-08',
         'rent-09', 'rent-10', 'rent-11', 'rent-12', 'rent-13', 'rent-14', 'rent-15',
+        'rent-16', 'rent-17', 'rent-18', 'rent-19', 'rent-20',
         'ops-01', 'ops-02', 'ops-03', 'ops-04', 'ops-05', 'ops-06',
-        'ops-07', 'ops-08', 'ops-09', 'ops-10',
+        'ops-07', 'ops-08', 'ops-09', 'ops-10', 'ops-11', 'ops-12', 'ops-13', 'ops-14',
+        'agency-01', 'agency-02',
         'rule-01', 'rule-02', 'rule-03', 'rule-05',
         'rule-06', 'rule-07', 'rule-09', 'rule-10', 'rule-11', 'rule-12',
         'rule-08', 'rule-13', 'rule-14',
@@ -125,6 +133,7 @@
       /* 财政审核员：资金、票据、补助核算 */
       finance: ['home', 'wb-01', 'wb-04',
         'house-06', 'rent-01', 'rent-02', 'rent-04', 'rent-05', 'rent-08',
+        'rent-18', 'rent-19', 'rent-20',
         'stat-23', 'stat-27'
         ],
       /* 城区经办员：本区数据范围内的受理与房源 */
@@ -139,6 +148,8 @@
         'stat-09', 'stat-10', 'stat-11', 'stat-12', 'stat-13', 'stat-14', 'stat-15', 'stat-16',
         'stat-17', 'stat-18', 'stat-23', 'stat-24', 'stat-25', 'stat-26', 'stat-27'
         ],
+      /* 运营机构经办：本机构的申请初审、补助申报，以及承接的工单与本机构评价结果 */
+      agency: ['home', 'wb-01', 'wb-04', 'agency-01', 'agency-02', 'ops-07', 'ops-13'],
       /* 系统管理员：全部可见 */
       admin: null
     },
@@ -202,6 +213,28 @@
               { key: 'house-19', label: '房源展示配置', href: 'modules/house/house-display.html' },
               { key: 'house-20', label: '房源供需测算', href: 'modules/house/house-forecast.html' }
             ]
+          },
+          {
+            label: '房源发布与预约', icon: 'fa-tower-broadcast',
+            children: [
+              { key: 'house-24', label: '房源发布标准配置', href: 'modules/house/publish-standard.html' },
+              { key: 'house-25', label: '房源单位报送与审核', href: 'modules/house/org-report.html' },
+              { key: 'house-26', label: '批量上架与下架', href: 'modules/house/shelf-batch.html' },
+              { key: 'house-27', label: '预约名单管理', href: 'modules/house/book-manage.html' }
+            ]
+          },
+          {
+            label: '房源导入与来源台账', icon: 'fa-file-import',
+            children: [
+              { key: 'house-28', label: '房源来源分类配置', href: 'modules/house/source-config.html' },
+              { key: 'house-29', label: '分渠道筹集台账', href: 'modules/house/source-ledger.html' },
+              { key: 'house-30', label: '报送账号与范围', href: 'modules/house/report-account.html' },
+              { key: 'house-31', label: '分批导入与断点续传', href: 'modules/house/import-load.html' },
+              { key: 'house-32', label: '导入校验规则配置', href: 'modules/house/import-rule.html' },
+              { key: 'house-33', label: '导入失败明细与重传', href: 'modules/house/import-fail.html' },
+              { key: 'house-34', label: '导入批次回滚', href: 'modules/house/import-rollback.html' },
+              { key: 'house-35', label: '入库类型标识与切换', href: 'modules/house/intake-type.html' }
+            ]
           }
         ]
       },
@@ -219,12 +252,18 @@
             ]
           },
           {
-            label: '资格受理与复核', icon: 'fa-inbox',
+            label: '资格受理与初审', icon: 'fa-inbox',
             children: [
               { key: 'apply-06', label: '多渠道件池', href: 'modules/apply/pool-list.html' },
-              { key: 'apply-07', label: '人工复核工作台', href: 'modules/apply/audit-desk.html' },
-              { key: 'apply-08', label: '智能预审核验报告', href: 'modules/apply/verify-report.html' },
+              { key: 'apply-22', label: '初审与复审分级办理', href: 'modules/apply/two-level-audit.html' },
               { key: 'apply-09', label: '证照智能识别', href: 'modules/apply/verify-ocr.html' },
+              { key: 'apply-08', label: '智能预审核验报告', href: 'modules/apply/verify-report.html' }
+            ]
+          },
+          {
+            label: '复核与结论', icon: 'fa-user-check',
+            children: [
+              { key: 'apply-07', label: '人工复核工作台', href: 'modules/apply/audit-desk.html' },
               { key: 'apply-10', label: '审核时限管理', href: 'modules/apply/timelimit-manage.html' },
               { key: 'apply-11', label: '驳回与重新提交', href: 'modules/apply/reject-list.html' },
               { key: 'apply-12', label: '审核结论与送达', href: 'modules/apply/conclusion.html' },
@@ -301,6 +340,16 @@
               { key: 'rent-14', label: '腾退全流程管理', href: 'modules/rent/quit-manage.html' },
               { key: 'rent-15', label: '退出房源回收', href: 'modules/rent/recycle.html' }
             ]
+          },
+          {
+            label: '租房补贴核发', icon: 'fa-hand-holding-dollar',
+            children: [
+              { key: 'rent-16', label: '补贴标准与计费配置', href: 'modules/rent/subsidy-rule.html' },
+              { key: 'rent-17', label: '资格与服务核验', href: 'modules/rent/subsidy-verify.html' },
+              { key: 'rent-18', label: '补助金额核定', href: 'modules/rent/subsidy-amount.html' },
+              { key: 'rent-19', label: '财政复核与拨付', href: 'modules/rent/subsidy-pay.html' },
+              { key: 'rent-20', label: '补助台账与追溯', href: 'modules/rent/subsidy-ledger.html' }
+            ]
           }
         ]
       },
@@ -325,6 +374,27 @@
               { key: 'ops-08', label: '投诉建议办理', href: 'modules/ops/complaint.html' },
               { key: 'ops-09', label: '工单统计与督办', href: 'modules/ops/wo-stat.html' },
               { key: 'ops-10', label: '知识库维护', href: 'modules/ops/kb-list.html' }
+            ]
+          },
+          {
+            label: '服务评价管理', icon: 'fa-star-half-stroke',
+            children: [
+              { key: 'ops-11', label: '评价问卷配置', href: 'modules/ops/eval-form.html' },
+              { key: 'ops-12', label: '评价采集与回收', href: 'modules/ops/eval-collect.html' },
+              { key: 'ops-13', label: '评价结果统计与公开', href: 'modules/ops/eval-stat.html' },
+              { key: 'ops-14', label: '评价与补助挂钩', href: 'modules/ops/eval-subsidy.html' }
+            ]
+          }
+        ]
+      },
+      {
+        key: 'agency', name: '运营机构端', icon: 'fa-building-user', line: '运营协同',
+        menu: [
+          {
+            label: '初审与补助申报', icon: 'fa-clipboard-check',
+            children: [
+              { key: 'agency-01', label: '申请初审办理', href: 'modules/agency/first-audit.html' },
+              { key: 'agency-02', label: '补助申请发起', href: 'modules/agency/subsidy-apply.html' }
             ]
           }
         ]
@@ -495,6 +565,26 @@
       houseSource: [
         ['1', '收购存量商品房'], ['2', '公租房盘活'], ['3', '保租房“一间房”']
       ],
+      /* 会议明确的四类房源来源渠道，作为筹集进度考核与统计口径基准 */
+      srcChannel: [
+        ['1', '市本级存量'], ['2', '收购商品房转化'], ['3', '收购保租房转化'], ['4', '园区公租房纳管']
+      ],
+      /* 入库方式：与来源渠道分别标注、互不替代 */
+      intakeType: [['1', '批量导入'], ['2', '接口对接']],
+      reportOrg: [
+        ['1', '株洲城发高科集团'], ['2', '清水塘投资集团'], ['3', '株洲高新区管委会'],
+        ['4', '株洲经开区管委会'], ['5', '市保障性住房服务中心']
+      ],
+      bookStatus: [
+        ['1', '预约中'], ['2', '已确认'], ['3', '已改约'], ['4', '已取消'],
+        ['5', '已转申请'], ['6', '已配租']
+      ],
+      subsidyStatus: [
+        ['1', '待发起'], ['2', '待核验'], ['3', '待核定'], ['4', '待财政复核'],
+        ['5', '已拨付'], ['6', '已退回']
+      ],
+      evalObject: [['1', '物业服务'], ['2', '运营单位服务']],
+      evalCycle: [['1', '按月'], ['2', '按季']],
       houseStatus: [
         ['1', '可配租'], ['2', '已锁定'], ['3', '已签约'], ['4', '在租'],
         ['5', '待腾退'], ['6', '维修中'], ['7', '已冻结']
@@ -503,7 +593,8 @@
         ['1', '单间配套'], ['2', '一室一厅'], ['3', '二室一厅'], ['4', '三室一厅']
       ],
       unitMode: [['1', '整套配租'], ['2', '按间配租'], ['3', '按床位配租']],
-      allocWay: [['1', '顺序配租'], ['2', '摇号配租']],
+      /* 会议决议：不采用摇号方式确定顺序，故只保留顺序配租 */
+      allocWay: [['1', '顺序配租']],
       queueStatus: [
         ['1', '正常轮候'], ['2', '意向预定'], ['3', '已配租'], ['4', '已作废'], ['5', '已放弃']
       ],
@@ -814,6 +905,29 @@
           { c: 'orange', i: 'fa-clock-rotate-left', l: '操作日志与审计', h: 'modules/system/audit-log.html' },
           { c: 'purple', i: 'fa-book', l: '数据字典管理', h: 'modules/system/dict.html' },
           { c: 'red', i: 'fa-database', l: '数据备份与恢复', h: 'modules/system/backup.html' }
+        ]
+      },
+      agency: {
+        welcome: '运营机构申请初审与补助申报工作台',
+        heroStats: [{ v: '18', l: '待初审' }, { v: '1', l: '待申报' }, { v: '3', l: '评价待改进' }],
+        kpis: [
+          { c: 'blue', i: 'fa-clipboard-check', l: '本月待初审', v: '18', t: '分派至本机构' },
+          { c: 'green', i: 'fa-circle-check', l: '已提交复审', v: '164', t: '初审通过率 92.1%' },
+          { c: 'orange', i: 'fa-building', l: '在管房源', v: '1,286', t: '在租 1,192 套' },
+          { c: 'cyan', i: 'fa-hand-holding-dollar', l: '上期已拨补助', v: '842,760.00', t: '2026 年 8 月' }
+        ],
+        todos: [
+          { c: 'orange', tag: '申请初审', txt: 'RC2026-0904-0186 谭×× 材料完整性与在租状态待初审', time: '剩 4h', warn: 1, h: 'modules/agency/first-audit.html' },
+          { c: 'blue', tag: '补助申报', txt: '2026 年 9 月租房补助待就 1,192 套在租房源批量发起申请', time: '剩 3天', h: 'modules/agency/subsidy-apply.html' },
+          { c: 'red', tag: '评价改进', txt: '湘江1958 报修及时率评分 78.2 分，低于约定标准将扣减补助', time: '剩 5天', warn: 1, h: 'modules/ops/eval-stat.html' }
+        ],
+        shortcuts: [
+          { c: 'blue', i: 'fa-clipboard-check', l: '申请初审办理', h: 'modules/agency/first-audit.html' },
+          { c: 'green', i: 'fa-hand-holding-dollar', l: '补助申请发起', h: 'modules/agency/subsidy-apply.html' },
+          { c: 'cyan', i: 'fa-screwdriver-wrench', l: '报修工单流转', h: 'modules/ops/wo-list.html' },
+          { c: 'orange', i: 'fa-star-half-stroke', l: '服务评价结果', h: 'modules/ops/eval-stat.html' },
+          { c: 'purple', i: 'fa-list-check', l: '待办任务中心', h: 'modules/workbench/todo-center.html' },
+          { c: 'red', i: 'fa-bullhorn', l: '通知公告', h: 'modules/workbench/notice.html' }
         ]
       }
     }

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>补助金额核定 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="keeper" data-active="rent-18">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 租金收缴与年审退出
+      <span class="sep">/</span> 租房补贴核发
+      <span class="sep">/</span> <span class="cur">补助金额核定</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.confirm({title:'生成支付申请',message:'确认按 2026-09 核定结果生成支付申请报财政复核？',detail:'本期核定金额 524,724.90 元，按运营单位分别生成 4 笔支付申请。生成后转市财政局复核，复核通过后拨付至运营单位账户并回传支付结果。',type:'warning',okText:'确认生成',onOk:function(){PMS.toast('已生成支付申请，待财政复核','success');location.href='subsidy-pay.html';}})"><i class="fa-solid fa-file-invoice-dollar"></i> 生成支付申请</button>
+      <a class="btn" href="subsidy-verify.html"><i class="fa-solid fa-arrow-left"></i> 返回核验</a>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出核算表</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>按<b>补助标准 × 计租面积 × 服务月数</b>自动核算应补金额，<b>结合服务评价结果扣减后形成核定金额</b>。核定金额是财政复核与拨付的唯一依据，经办与复核岗位分设。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-calculator"></i></div>
+      <div><div class="s-label">应补金额</div><div class="s-value">548,940.00</div>
+        <div class="s-trend text-2">元 · 78,420.00 ㎡ × 7.00 元 × 1 个月</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-arrow-trend-down"></i></div>
+      <div><div class="s-label">评价扣减</div><div class="s-value">24,215.10</div>
+        <div class="s-trend text-2">元 · 占应补 4.41% · 涉及 3 个楼盘</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-stamp"></i></div>
+      <div><div class="s-label">核定金额</div><div class="s-value">524,724.90</div>
+        <div class="s-trend text-2">元 · 含待确认 2 项 254,172.10 元</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon red"><i class="fa-solid fa-hourglass-half"></i></div>
+      <div><div class="s-label">核定完成率</div><div class="s-value">60.0%</div>
+        <div class="s-trend ">5 个楼盘 · 已核定 3 个 · 待核定 2 个</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card" data-tabs-scope>
+    <div class="tabs">
+      <div class="tab active" data-tab="hsmx"><i class="fa-solid fa-calculator"></i> 核算明细 <span class="badge blue">6</span></div>
+      <div class="tab" data-tab="hdgz"><i class="fa-solid fa-list"></i> 核定算式与扣减规则</div>
+    </div>
+    <div class="tab-panel active" data-panel="hsmx">
+    <div class="card-body tight">
+    <div class="filter-bar">
+      <div class="filter-item"><label>核定期间</label><input type="month" value="2026-09"></div>
+      <div class="filter-item"><label>运营机构</label><select><option value="">全部</option><option>株洲市人才安居服务有限公司</option><option>株洲城发物业服务有限公司</option><option>清水塘社区服务有限公司</option></select></div>
+      <div class="filter-item"><label>楼盘</label><select><option value="">全部</option><option>湘江1958 人才公寓</option><option>云龙人才公寓</option><option>清水塘·未来社区</option><option>董家塅人才公寓</option><option>田心人才公寓</option></select></div>
+      <div class="filter-item"><label>核定状态</label><select data-dict="subsidyStatus" data-ph="全部"></select></div>
+      <div class="filter-item"><label>结算周期</label><select data-dict="evalCycle" data-ph="全部"></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th class="cell-lg">运营机构</th><th class="cell-lg">楼盘</th><th class="num">在租套数</th><th class="num">计租面积（㎡）</th><th class="num">补助单价</th><th class="num">服务月数</th><th class="num">应补金额</th><th class="num">服务评价得分</th><th class="num">扣减比例</th><th class="num">扣减金额</th><th class="num">核定金额</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr class="row-warn"><td>株洲市人才安居服务有限公司</td><td>湘江1958 人才公寓</td><td class="num">386</td><td class="num">25,662.00</td><td class="num">7.00</td><td class="num">1</td><td class="num">179,634.00</td><td class="num"><span class="badge red">78.2</span></td><td class="num">10%</td><td class="num text-danger">17,963.40</td><td class="num">161,670.60</td><td><span class="link" onclick="PMS.openDrawer('hdDrawer')">核定确认</span> <span class="link" onclick="PMS.toast('25,662.00 ㎡ × 7.00 元/㎡·月 × 1 个月 = 179,634.00 元；评价 78.2 分落 70—79.9 档扣减 10% = 17,963.40 元；核定 161,670.60 元')">算式</span></td></tr>
+          <tr><td>株洲市人才安居服务有限公司</td><td>云龙人才公寓</td><td class="num">268</td><td class="num">17,822.00</td><td class="num">7.00</td><td class="num">1</td><td class="num">124,754.00</td><td class="num"><span class="badge green">91.6</span></td><td class="num">0%</td><td class="num">0.00</td><td class="num">124,754.00</td><td><span class="link" onclick="PMS.toast('2026-09-06 10:24 由罗湘核定，核定金额 124,754.00 元，已生成支付申请 ZF2026-09-01')">已核定</span> <span class="link" onclick="PMS.toast('17,822.00 ㎡ × 7.00 元/㎡·月 × 1 个月 = 124,754.00 元；评价 91.6 分不扣减；核定 124,754.00 元')">算式</span></td></tr>
+          <tr><td>株洲市人才安居服务有限公司</td><td>田心人才公寓</td><td class="num">152</td><td class="num">9,880.00</td><td class="num">7.00</td><td class="num">1</td><td class="num">69,160.00</td><td class="num"><span class="badge orange">88.4</span></td><td class="num">2%</td><td class="num text-danger">1,383.20</td><td class="num">67,776.80</td><td><span class="link" onclick="PMS.toast('2026-09-06 10:26 由罗湘核定，核定金额 67,776.80 元，已生成支付申请 ZF2026-09-02')">已核定</span> <span class="link" onclick="PMS.toast('9,880.00 ㎡ × 7.00 元/㎡·月 × 1 个月 = 69,160.00 元；评价 88.4 分落 85—89.9 档扣减 2% = 1,383.20 元；核定 67,776.80 元')">算式</span></td></tr>
+          <tr class="row-warn"><td>株洲城发物业服务有限公司</td><td>董家塅人才公寓</td><td class="num">214</td><td class="num">13,910.00</td><td class="num">7.00</td><td class="num">1</td><td class="num">97,370.00</td><td class="num"><span class="badge orange">84.6</span></td><td class="num">5%</td><td class="num text-danger">4,868.50</td><td class="num">92,501.50</td><td><span class="link" onclick="PMS.openDrawer('hdDrawer')">核定确认</span> <span class="link" onclick="PMS.toast('13,910.00 ㎡ × 7.00 元/㎡·月 × 1 个月 = 97,370.00 元；评价 84.6 分落 80—84.9 档扣减 5% = 4,868.50 元；核定 92,501.50 元')">算式</span></td></tr>
+          <tr><td>清水塘社区服务有限公司</td><td>清水塘·未来社区</td><td class="num">172</td><td class="num">11,146.00</td><td class="num">7.00</td><td class="num">1</td><td class="num">78,022.00</td><td class="num"><span class="badge green">92.3</span></td><td class="num">0%</td><td class="num">0.00</td><td class="num">78,022.00</td><td><span class="link" onclick="PMS.toast('2026-09-05 16:10 由罗湘核定，核定金额 78,022.00 元，已生成支付申请 ZF2026-09-03')">已核定</span> <span class="link" onclick="PMS.toast('11,146.00 ㎡ × 7.00 元/㎡·月 × 1 个月 = 78,022.00 元；评价 92.3 分不扣减；核定 78,022.00 元')">算式</span></td></tr>
+          <tr><td><span class="badge green">合计</span></td><td><b>5 个楼盘 · 3 家运营机构</b></td><td class="num"><b>1,192</b></td><td class="num"><b>78,420.00</b></td><td class="num">7.00</td><td class="num">1</td><td class="num"><b>548,940.00</b></td><td class="num"><span class="muted">—</span></td><td class="num"><span class="muted">4.41%</span></td><td class="num"><b>24,215.10</b></td><td class="num"><b>524,724.90</b></td><td><span class="link" onclick="location.href='subsidy-pay.html'">财政复核与拨付</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+    </div>
+    <div class="tab-panel" data-panel="hdgz">
+    <div class="card-body tight">
+    <div class="sp-scroll">
+  <div class="sp-block">
+    <div class="sp-h"><i class="fa-solid fa-list"></i> 核定算式与扣减规则<span class="sub">N4-04 · 服务评价结果与补助资金核定挂钩</span></div>
+    <div class="sp-b">
+      <div class="sp-fx" style="margin-bottom:10px">
+        <span class="lb">核定算式</span><b>核定金额 = 补助单价 × 计租面积 × 服务月数 − 评价扣减</b><br>
+        <span class="lb">评价扣减</span>评价扣减 = 应补金额 × 扣减比例（按服务评价得分分档取值）<br>
+        <span class="lb">本期取值</span>78,420.00 ㎡ × 7.00 元/㎡·月 × 1 个月 = <b>548,940.00 元</b>，评价扣减 <em>24,215.10 元</em>，核定 <b>524,724.90 元</b>
+      </div>
+      <div class="sp-tw">
+        <table class="data-table compact">
+          <thead><tr><th>分档</th><th>服务评价得分</th><th class="num">扣减比例</th><th class="cell-lg">扣减与整改要求</th></tr></thead>
+          <tbody>
+            <tr><td><span class="sp-lv g1">优</span></td><td>90 分及以上</td><td class="num">不扣减</td><td>服务达到约定标准，<b>补助按应补金额全额核定</b></td></tr>
+            <tr><td><span class="sp-lv g2">良</span></td><td>85 分（含）— 89.9 分</td><td class="num">扣减 2%</td><td>个别指标低于约定标准，扣减后核定，<b>责令一个考核周期内整改</b></td></tr>
+            <tr><td><span class="sp-lv g3">中</span></td><td>80 分（含）— 84.9 分</td><td class="num">扣减 5%</td><td>多项指标低于约定标准，扣减后核定，<b>下发服务整改通知书</b></td></tr>
+            <tr><td><span class="sp-lv g3">差</span></td><td>70 分（含）— 79.9 分</td><td class="num">扣减 10%</td><td>服务明显低于约定标准，扣减后核定，<b>纳入年度运营考核扣分项</b></td></tr>
+            <tr><td><span class="sp-lv g4">不合格</span></td><td>70 分以下</td><td class="num">扣减 20%</td><td>严重低于约定标准，扣减后核定，<b>约谈运营单位并限期整改</b>，连续两期不合格的启动运营单位退出程序</td></tr>
+            <tr><td><b>补充</b></td><td>评价结果未出</td><td class="num">暂不计入</td><td>评价未出具的<b>暂不计入本期核定</b>，待评价出具后在下期一并核算，不追溯调整已拨付款项</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+    </div>
+    </div>
+    </div>
+  </div>
+
+  <div class="sp-src">
+    <span><b>依据</b> 2026 年 9 月 6 日向市住建局汇报讨论会议决议：服务评价结果与政府购买服务补助资金核定挂钩</span>
+    <span><b>算式</b> 核定金额 = 补助单价 × 计租面积 × 服务月数 − 评价扣减</span>
+    <span><b>下一环节</b> <span class="link" onclick="location.href='subsidy-pay.html'">财政复核与拨付</span></span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="hdDrawer">
+  <div class="drawer-head">
+    <h3>补助金额核定确认</h3>
+    <span class="badge orange">待核定</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+    <div class="alert alert-warning">
+      <i class="fa-solid fa-triangle-exclamation"></i>
+      <div>核定金额<b>由系统按算式自动带出</b>，人工调整须在核定说明中写明理由并附佐证。核定确认后<b>自动生成支付申请报财政复核</b>，核定结果不可直接修改。</div>
+    </div>
+
+    <div class="form-grid form-align">
+      <div class="form-item">
+        <label>核定期间 <span class="req">*</span></label>
+        <input type="text" value="2026-09" readonly>
+      </div>
+      <div class="form-item">
+        <label>结算周期 <span class="req">*</span></label>
+        <select data-dict="evalCycle" data-ph="" data-selected="1"></select>
+      </div>
+      <div class="form-item col-full">
+        <label>运营机构 <span class="req">*</span></label>
+        <input type="text" value="株洲市人才安居服务有限公司（湘江1958 人才公寓）" readonly>
+      </div>
+      <div class="form-item">
+        <label>在租套数（套）</label>
+        <input type="text" value="386" readonly>
+      </div>
+      <div class="form-item">
+        <label>计租面积（㎡）</label>
+        <input type="text" value="25,662.00" readonly>
+      </div>
+      <div class="form-item">
+        <label>应补金额（元） <span class="req">*</span></label>
+        <input type="text" value="179,634.00" readonly>
+        <div class="hint">25,662.00 ㎡ × 7.00 元/㎡·月 × 1 个月</div>
+      </div>
+      <div class="form-item">
+        <label>服务评价得分 <span class="req">*</span></label>
+        <input type="text" value="78.2" readonly>
+        <div class="hint">2026 年 9 月运营单位服务评价 · 报修及时率偏低</div>
+      </div>
+      <div class="form-item">
+        <label>扣减比例 <span class="req">*</span></label>
+        <input type="text" value="10%" readonly>
+        <div class="hint">落 70—79.9 分档，扣减 10%，扣减金额 17,963.40 元</div>
+      </div>
+      <div class="form-item">
+        <label>核定金额（元） <span class="req">*</span></label>
+        <input type="text" value="161,670.60">
+        <div class="hint">应补 179,634.00 − 扣减 17,963.40 = 161,670.60</div>
+      </div>
+      <div class="form-item col-full">
+        <label>核定说明 <span class="req">*</span></label>
+        <textarea rows="4">经核验，湘江1958 人才公寓 2026 年 9 月在租 386 套、计租面积 25,662.00 ㎡，按全市默认标准 BZ-01 财政补助单价 7.00 元/㎡·月、服务月数 1 个月核算，应补金额 179,634.00 元。该项目 2026 年 9 月运营单位服务评价 78.2 分，报修及时率低于约定标准，落 70—79.9 分档按 10% 扣减，扣减金额 17,963.40 元，核定金额 161,670.60 元。已同步下达服务整改要求，纳入年度运营考核扣分项。</textarea>
+      </div>
+      <div class="form-item col-full">
+        <label>核定附件 <span class="req">*</span></label>
+        <input type="text" data-upload="1">
+        <div class="hint">逐套核算明细表、服务评价结果确认单</div>
+      </div>
+    </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'核定确认',message:'确认核定湘江1958 人才公寓 2026-09 补助金额 161,670.60 元？',detail:'应补 179,634.00 元，评价 78.2 分按 10% 扣减 17,963.40 元。核定确认后自动生成支付申请报市财政局复核，核定结果写入台账后不可直接修改。',type:'warning',okText:'确认核定',onOk:function(){PMS.closeDrawer();PMS.toast('已核定并生成支付申请，待财政复核','success');}})"><i class="fa-solid fa-check"></i> 提交核定</button>
+  </div>
+</div>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 6; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

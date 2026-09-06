@@ -20,6 +20,8 @@
     </div>
     <div class="page-actions">
       <a class="btn" href="building-table.html"><i class="fa-solid fa-arrow-left"></i> 返回楼盘表</a>
+      <a class="btn" href="import-load.html"><i class="fa-solid fa-layer-group"></i> 分批导入与断点续传</a>
+      <a class="btn" href="import-rule.html"><i class="fa-solid fa-sliders"></i> 导入校验规则配置</a>
       <button class="btn" onclick="PMS.toast('差错清单已下载，修正后可重新导入','success')"><i class="fa-solid fa-download"></i> 下载差错清单</button>
       <button class="btn btn-primary" onclick="PMS.toast('已重新校验，差错 12 行仍待修正')"><i class="fa-solid fa-rotate"></i> 重新校验</button>
     </div>
@@ -27,14 +29,19 @@
 
   <div class="alert alert-warning">
     <i class="fa-solid fa-triangle-exclamation"></i>
-    <div>本次导入 486 行，<b>校验差错 12 行</b>（含<b>重复登记 2 行</b>）。差错行不入库，须修正后重新校验。命中<b>多源重复校验</b>的房源已自动锁定，须人工核实后方可上架。</div>
+    <div>按<b>项目—楼栋—单元—楼层—房号</b>五级层级批量导入房源，同步导入<b>建筑面积、套内面积、户型、朝向、装修标准、家电家具配置、租金标准</b>等字段，导入后<b>自动生成一房一码</b>。<b>本期为房源建账的主要方式，需支撑一万套规模的分批导入</b>（省保租房系统、公租房系统接口暂不对接）。</div>
+  </div>
+
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>本次导入 486 行，<b>校验差错 12 行</b>（含<b>重复登记 2 行</b>）。差错行不入库，须修正后重新校验，<b>差错不影响本批已校验通过行与已入库房源</b>。命中<b>多源重复校验</b>的房源已自动锁定，须人工核实后方可上架。</div>
   </div>
 
   <div class="stat-grid">
     <div class="stat-card">
       <div class="s-icon blue"><i class="fa-solid fa-file-excel"></i></div>
       <div><div class="s-label">本次导入行数</div><div class="s-value">486</div>
-        <div class="s-trend text-2">清水塘新苑</div></div>
+        <div class="s-trend text-2">清水塘新苑 · 第 6 批 / 累计建账 2,486 套（全市约 1 万套）</div></div>
     </div>
     <div class="stat-card">
       <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
@@ -64,29 +71,52 @@
         <div class="import-drop" onclick="PMS.toast('原型演示：选择 Excel 文件上传')">
           <i class="fa-solid fa-cloud-arrow-up"></i>
           <div class="t">将楼盘表 Excel 文件拖放到此处，或点击选择文件</div>
-          <div class="d">支持 .xlsx / .xls，单次最多 5,000 行，文件大小不超过 20 MB</div>
+          <div class="d">支持 .xlsx / .xls，<b>单批最多 5,000 行</b>，文件大小不超过 20 MB。全市约 1 万套房源<b>按项目分批导入</b>，一万套约需 2—3 批</div>
         </div>
         <div class="sp-block" style="margin-top:12px">
-          <div class="sp-h"><i class="fa-solid fa-list"></i> 导入模板<span class="sub">由市住保中心提供</span></div>
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 导入模板字段清单<span class="sub">由市住保中心提供 · 项目—楼栋—单元—楼层—房号五级层级</span></div>
           <div class="sp-b">
   <div class="sp-tw">
     <table class="data-table compact">
-      <thead><tr><th>列名</th><th>是否必填</th><th>格式要求</th><th>校验规则</th></tr></thead>
+      <thead><tr><th>层级 / 字段组</th><th>列名</th><th>是否必填</th><th>格式要求</th><th class="cell-lg">校验规则</th></tr></thead>
       <tbody>
-      <tr><td>项目名称</td><td><span class="badge red">必填</span></td><td>文本</td><td>须与项目台账中已登记项目一致，否则报错</td></tr>
-      <tr><td>楼栋</td><td><span class="badge red">必填</span></td><td>文本</td><td>如「A6 栋」</td></tr>
-      <tr><td>单元</td><td><span class="badge red">必填</span></td><td>文本</td><td>如「1 单元」</td></tr>
-      <tr><td>楼层</td><td><span class="badge red">必填</span></td><td>整数</td><td>1—99</td></tr>
-      <tr><td>房号</td><td><span class="badge red">必填</span></td><td>文本</td><td>同一楼栋单元内不可重复</td></tr>
-      <tr><td>户型</td><td><span class="badge red">必填</span></td><td>字典值</td><td>单间配套 / 一室一厅 / 二室一厅 / 三室一厅</td></tr>
-      <tr><td>建筑面积</td><td><span class="badge red">必填</span></td><td>两位小数</td><td>大于 0 且小于 300</td></tr>
-      <tr><td>套内面积</td><td><span class="badge red">必填</span></td><td>两位小数</td><td>须小于建筑面积</td></tr>
-      <tr><td>分摊面积</td><td><span class="badge red">必填</span></td><td>两位小数</td><td>建筑面积 − 套内面积，误差不超过 0.10 ㎡</td></tr>
-      <tr><td>来源渠道</td><td><span class="badge red">必填</span></td><td>字典值</td><td>收购商品房 / 公租房盘活 / 保租房“一间房”</td></tr>
-      <tr><td>管理模式</td><td><span class="badge red">必填</span></td><td>字典值</td><td>整套配租 / 按间配租 / 按床位配租</td></tr>
-      <tr><td>租金标准</td><td><span class="badge red">必填</span></td><td>两位小数</td><td>元/㎡·月</td></tr>
-      <tr><td>装修标准</td><td><span class="badge orange">选填</span></td><td>字典值</td><td>精装 · 拎包入住 / 简装 / 毛坯</td></tr>
-      <tr><td>产权信息</td><td><span class="badge orange">选填</span></td><td>文本</td><td>产权人全称</td></tr>
+      <tr><td><span class="badge blue">层级 ①</span> 项目</td><td>项目名称</td><td><span class="badge red">必填</span></td><td>文本</td><td>须与项目台账中已登记项目一致，否则报错</td></tr>
+      <tr><td><span class="badge blue">层级 ②</span> 楼栋</td><td>楼栋</td><td><span class="badge red">必填</span></td><td>文本</td><td>如「A6 栋」，同一项目内唯一</td></tr>
+      <tr><td><span class="badge blue">层级 ③</span> 单元</td><td>单元</td><td><span class="badge red">必填</span></td><td>文本</td><td>如「1 单元」，同一楼栋内唯一</td></tr>
+      <tr><td><span class="badge blue">层级 ④</span> 楼层</td><td>楼层</td><td><span class="badge red">必填</span></td><td>整数</td><td>1—99</td></tr>
+      <tr><td><span class="badge blue">层级 ⑤</span> 房号</td><td>房号</td><td><span class="badge red">必填</span></td><td>文本</td><td>同一楼栋单元内不可重复；五级齐全后<b>自动生成一房一码</b></td></tr>
+      <tr><td><span class="badge cyan">房源属性</span></td><td>户型</td><td><span class="badge red">必填</span></td><td>字典值</td><td>单间配套 / 一室一厅 / 二室一厅 / 三室一厅</td></tr>
+      <tr><td><span class="badge cyan">房源属性</span></td><td>建筑面积</td><td><span class="badge red">必填</span></td><td>两位小数</td><td>大于 0 且小于 300，单位 ㎡</td></tr>
+      <tr><td><span class="badge cyan">房源属性</span></td><td>套内面积</td><td><span class="badge red">必填</span></td><td>两位小数</td><td>须小于建筑面积，单位 ㎡</td></tr>
+      <tr><td><span class="badge cyan">房源属性</span></td><td>分摊面积</td><td><span class="badge red">必填</span></td><td>两位小数</td><td>建筑面积 − 套内面积，误差不超过 0.10 ㎡；按间配租时据此计租</td></tr>
+      <tr><td><span class="badge cyan">房源属性</span></td><td>朝向</td><td><span class="badge red">必填</span></td><td>字典值</td><td>南 / 北 / 东 / 西 / 南北通透 / 东南 / 西南，用于移动端房源展示与筛选</td></tr>
+      <tr><td><span class="badge orange">配置与租金</span></td><td>装修标准</td><td><span class="badge red">必填</span></td><td>字典值</td><td>精装 · 拎包入住 / 简装 / 毛坯；非精装的须在验收环节说明整改计划</td></tr>
+      <tr><td><span class="badge orange">配置与租金</span></td><td>家电家具配置</td><td><span class="badge red">必填</span></td><td>文本（分项计数）</td><td>按客厅 / 卧室 / 厨房 / 卫生间分项填写项数，如「客厅 7 项、卧室 7 项×2、厨房 6 项、卫生间 5 项、其他 3 项，共 28 项」；达到<b>拎包入住标准</b>方可投放</td></tr>
+      <tr><td><span class="badge orange">配置与租金</span></td><td>租金标准</td><td><span class="badge red">必填</span></td><td>两位小数</td><td>元/㎡·月，与租金减免、政府购买服务补助核算联动</td></tr>
+      <tr><td><span class="badge gray">来源与管理</span></td><td>来源渠道</td><td><span class="badge red">必填</span></td><td>字典值</td><td>市本级存量 / 收购商品房转化 / 收购保租房转化 / 园区公租房纳管</td></tr>
+      <tr><td><span class="badge gray">来源与管理</span></td><td>入库类型</td><td><span class="badge red">必填</span></td><td>字典值</td><td><b>批量导入 / 接口对接</b>；本模板导入的一律为<b>批量导入</b>，系统自动写入本批导入批次号，与来源渠道分别标注</td></tr>
+      <tr><td><span class="badge gray">来源与管理</span></td><td>报送单位</td><td><span class="badge red">必填</span></td><td>字典值</td><td>株洲城发高科集团 / 清水塘投资集团 / 株洲高新区管委会 / 株洲经开区管委会 / 市保障性住房服务中心</td></tr>
+      <tr><td><span class="badge gray">来源与管理</span></td><td>管理模式</td><td><span class="badge red">必填</span></td><td>字典值</td><td>整套配租 / 按间配租 / 按床位配租</td></tr>
+      <tr><td><span class="badge gray">来源与管理</span></td><td>产权信息</td><td><span class="badge orange">选填</span></td><td>文本</td><td>产权人全称</td></tr>
+      </tbody>
+    </table>
+  </div>
+          </div>
+        </div>
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 分批导入口径<span class="sub">本期建账主方式 · 支撑一万套规模</span></div>
+          <div class="sp-b">
+  <div class="sp-tw">
+    <table class="data-table compact">
+      <thead><tr><th>项</th><th class="cell-lg">说明</th></tr></thead>
+      <tbody>
+      <tr><td><b>R-1 本期定位</b></td><td>省保租房系统、公租房系统接口<b>暂不对接</b>，批量导入是<b>本期房源建账的主要方式</b>；房源先由各提供单位按统一模板报送、住建部门审核后导入建账，保证平台按期上线可用</td></tr>
+      <tr><td><b>R-2 规模要求</b></td><td>须支撑<b>全市约一万套房源的分批导入</b>：单批上限 <b>5,000 行</b>、单文件不超过 20 MB，一万套约需 2—3 批；导入按<b>项目</b>组织，每个项目一至多批，互不影响</td></tr>
+      <tr><td><b>R-3 分批策略</b></td><td>按<b>项目 → 楼栋</b>拆批：同一楼栋的房源尽量放在同一批，避免跨批出现同楼栋房号重复的误判；每批生成独立<b>导入批次号</b>（如 DR2026-09-118），可<b>按批次整批回滚</b></td></tr>
+      <tr><td><b>R-4 失败隔离</b></td><td><b>差错不影响已入库房源</b>：差错行不入库，同批已校验通过行正常建账；<b>本批失败不影响前序批次</b>，也不阻塞其他项目的导入。修正差错后仅需<b>重新导入差错行</b>，无需整批重传</td></tr>
+      <tr><td><b>R-5 断点续传</b></td><td>大批量导入按 500 行为一段落库，中断后<b>从最后成功段续传</b>，不产生重复房源。<span class="link" onclick="location.href='import-load.html'">分批导入与断点续传</span></td></tr>
+      <tr><td><b>R-6 校验规则</b></td><td>必填缺失、字典值非法、数值越界、面积一致性、房号重复、多源重复登记六类校验，容差与开关可配置。<span class="link" onclick="location.href='import-rule.html'">导入校验规则配置</span></td></tr>
+      <tr><td><b>R-7 一房一码</b></td><td>五级层级齐全且校验通过后<b>自动生成一房一码</b>并写入统一楼盘表，同时写入入库类型「批量导入」与本批导入批次号</td></tr>
       </tbody>
     </table>
   </div>
@@ -94,6 +124,8 @@
         </div>
         <div class="btn-row" style="margin-top:14px">
           <button class="btn" onclick="PMS.toast('导入模板已下载','success')"><i class="fa-solid fa-download"></i> 下载导入模板</button>
+          <a class="btn" href="import-load.html"><i class="fa-solid fa-layer-group"></i> 分批导入与断点续传</a>
+          <a class="btn" href="import-rule.html"><i class="fa-solid fa-sliders"></i> 导入校验规则配置</a>
           <button class="btn btn-primary" onclick="PMS.toast('已开始校验，请在「校验结果」页签查看')"><i class="fa-solid fa-check"></i> 开始校验</button>
         </div>
       </div>
@@ -158,8 +190,11 @@
     </div>
   </div>
   <div class="sp-src">
-    <span><b>校验项</b> 必填缺失、字典值非法、数值越界、面积一致性、房号重复、多源重复登记</span>
-    <span><b>差错处理</b> 差错行不入库，修正后重新导入；重复登记行自动锁定待核实</span>
+    <span><b>导入层级</b> 项目—楼栋—单元—楼层—房号五级，齐全后自动生成一房一码</span>
+    <span><b>同步字段</b> 建筑面积、套内面积、户型、朝向、装修标准、家电家具配置、租金标准等</span>
+    <span><b>本期定位</b> <b>房源建账的主要方式</b>，须支撑全市约<b>一万套规模的分批导入</b>（单批上限 5,000 行，按项目分批）</span>
+    <span><b>差错处理</b> 差错行不入库，修正后重新导入；<b>失败不影响已入库房源与前序批次</b>；重复登记行自动锁定待核实</span>
+    <span><b>关联页面</b> <span class="link" onclick="location.href='import-load.html'">分批导入与断点续传</span>　<span class="link" onclick="location.href='import-rule.html'">导入校验规则配置</span></span>
   </div>
 </main>
 

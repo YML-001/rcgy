@@ -10,24 +10,28 @@
 <link rel="stylesheet" href="../../assets/css/ext.css">
 </head>
 <body class="m-body" data-mtitle="配租顺序" data-mmod="M7 配租与线上选房" data-mcode="M7-03"
-      data-mdesc="查询本人在本批次的配租顺序号与前后位次，可查看完整的配租顺序名单，排序规则与名单生成时间公开可回溯。" data-mback="alloc-notice.html" data-mtabset="public" data-mtab="apply">
+      data-mdesc="查询本人按申请顺序排定的配租位次；已预约本批次房源的，位次优先于普通轮候。配租不采用摇号方式，排序规则与名单生成时间公开可回溯。" data-mback="alloc-notice.html" data-mtabset="public" data-mtab="apply">
 <div class="m-stage">
   <div class="m-phone">
     <div class="m-screen">
       <div class="m-view">
         <div class="m-note success"><i class="fa-solid fa-circle-check"></i>
-          <div>您在本批次的配租顺序为<b>天元区第 12 位</b>。本批次天元区投放 186 套，<b>顺序在投放套数内，预计可选到房源</b>。</div>
+          <div>您在本批次的配租顺序为<b>天元区第 12 位</b>（普通轮候段）。本批次天元区投放 186 套，<b>顺序在投放套数内，预计可选到房源</b>。</div>
+        </div>
+        <div class="m-note"><i class="fa-solid fa-scale-balanced"></i>
+          <div>位次<b>按申请受理顺序排定，不采用摇号方式</b>；<b>已预约本批次房源的，位次优先于普通轮候</b>，在名单中标注 <span class="m-tag orange">预约优先</span>。</div>
         </div>
         <div class="m-card">
           <div class="m-card-h"><i class="fa-solid fa-list-ol"></i>我的配租顺序</div>
           <div class="m-card-b">
             <div class="m-mini">
               <div><div class="mv ok">12</div><div class="ml">我的顺序号</div></div>
+              <div><div class="mv">4</div><div class="ml">预约优先(人)</div></div>
               <div><div class="mv">186</div><div class="ml">天元区投放(套)</div></div>
               <div><div class="mv">214</div><div class="ml">天元区报名(人)</div></div>
             </div>
             <div class="m-bar" style="margin-top:12px"><span class="green" style="width:6%"></span></div>
-            <div style="margin-top:6px;font-size:11.5px;color:var(--text-3);text-align:center">前方 11 人　·	选房时段 2026-09-15 10:00—10:30</div>
+            <div style="margin-top:6px;font-size:11.5px;color:var(--text-3);text-align:center">前方 11 人（含预约优先 4 人）　·	选房时段 2026-09-15 10:00—10:30　·	确认截止 2026-09-16 18:00</div>
           </div>
         </div>
         <div class="m-sect">排序依据<span class="m-sect-x">公开可回溯</span></div>
@@ -35,7 +39,10 @@
           <div class="m-card-h"><i class="fa-solid fa-scale-balanced"></i>排序口径</div>
           <div class="m-card-b">
           <div class="m-kv">
-            <div><span>排序规则</span><span>按<b>申请受理时间</b>先后（管理办法第九条）</span></div>
+            <div><span>是否摇号</span><span><b style="color:var(--danger)">不采用摇号方式</b>，按申请顺序排定</span></div>
+            <div><span>排序规则</span><span>先<b>房源预约优先</b>，再按<b>申请受理时间</b>先后（管理办法第九条）</span></div>
+            <div><span>预约优先口径</span><span>已预约本批次房源的<b>位次优先于普通轮候</b>；多人预约同一房源的按<b>预约时间先后</b>确定序位</span></div>
+            <div><span>我的预约情况</span><span>未预约本批次房源，<span class="m-tag dark">普通轮候</span></span></div>
             <div><span>我的受理时间</span><span>2026-09-03 10:26</span></div>
             <div><span>名单生成时间</span><span>2026-09-13 09:00</span></div>
             <div><span>名单公示期</span><span>2026-09-13 至 2026-09-14</span></div>
@@ -49,23 +56,27 @@
           <div class="m-card-h"><i class="fa-solid fa-list-check"></i>顺序名单</div>
           <div class="m-card-b">
             <div class="m-check">
-              <div class="ok"><i class="fa-solid fa-1"></i><div class="m-chl"><b>第 1—5 位</b><span>李×× / 陈×× / 张×× / 刘×× / 周××　·	受理 2026-09-01 09:02 — 09:41</span></div></div>
-              <div class="ok"><i class="fa-solid fa-6"></i><div class="m-chl"><b>第 6—11 位</b><span>吴×× / 郑×× / 谭×× / 罗×× / 彭×× / 曾××　·	受理 2026-09-01 10:12 — 09-02 16:38</span></div></div>
-              <div class="on" style="border-left:3px solid var(--primary);background:var(--primary-light-2);padding-left:9px"><i class="fa-solid fa-user" style="color:var(--primary)"></i><div class="m-chl"><b style="color:var(--primary)">第 12 位　王梓涵（本人）</b><span>受理 2026-09-03 10:26　·	就业青年人才　·	全日制本科</span></div></div>
-              <div class="ok"><i class="fa-solid fa-list"></i><div class="m-chl"><b>第 13—20 位</b><span>邓×× / 唐×× / 贺×× / 肖×× / 龙×× / 蒋×× / 黄×× / 何××　·	受理 2026-09-03 11:04 — 09-04 15:22</span></div></div>
+              <div class="ok"><i class="fa-solid fa-star"></i><div class="m-chl"><b>第 1—4 位　<span class="m-tag orange">预约优先</span></b><span>李×× / 陈×× / 张×× / 刘××　·	已预约本批次房源，位次优先于普通轮候　·	按预约时间 2026-09-08 09:12 — 09-10 16:38 先后排序</span></div></div>
+              <div class="ok"><i class="fa-solid fa-5"></i><div class="m-chl"><b>第 5—11 位　<span class="m-tag dark">普通轮候</span></b><span>周×× / 吴×× / 郑×× / 谭×× / 罗×× / 彭×× / 曾××　·	受理 2026-09-01 09:02 — 09-02 16:38</span></div></div>
+              <div class="on" style="border-left:3px solid var(--primary);background:var(--primary-light-2);padding-left:9px"><i class="fa-solid fa-user" style="color:var(--primary)"></i><div class="m-chl"><b style="color:var(--primary)">第 12 位　王梓涵（本人）　<span class="m-tag dark">普通轮候</span></b><span>受理 2026-09-03 10:26　·	就业青年人才　·	全日制本科　·	未预约本批次房源</span></div></div>
+              <div class="ok"><i class="fa-solid fa-list"></i><div class="m-chl"><b>第 13—20 位　<span class="m-tag dark">普通轮候</span></b><span>邓×× / 唐×× / 贺×× / 肖×× / 龙×× / 蒋×× / 黄×× / 何××　·	受理 2026-09-03 11:04 — 09-04 15:22</span></div></div>
             </div>
             <div style="margin-top:10px">
-              <button class="m-btn sm ghost" type="button" onclick="MB.toast('完整名单共 214 人，已按顺序号展示。配租对象姓名按姓 + ×× 脱敏')">查看完整名单（214 人）</button>
+              <button class="m-btn sm ghost" type="button" onclick="MB.toast('完整名单共 214 人，其中预约优先 4 人排在最前，其余按受理时间排序。配租对象姓名按姓 + ×× 脱敏')">查看完整名单（214 人）</button>
             </div>
           </div>
         </div>
         <div class="m-note"><i class="fa-solid fa-circle-info"></i>
           <div>配租顺序名单与配租结果<b>全过程公开，接受社会监督</b>。名单中配租对象姓名按<b>姓 + ××</b> 脱敏，不公开联系方式与身份证号。</div>
         </div>
+        <div class="m-note warn"><i class="fa-solid fa-stopwatch"></i>
+          <div>轮到本人选房时以<b>短信</b>通知，<b>限 1 个工作日内上线确认</b>；<b>逾期未确认自动顺延至下一顺序人，本人轮候资格不取消、自动排入下一轮</b>。</div>
+        </div>
         <div class="m-cells">
-          <a class="m-cell" href="alloc-select.html"><span class="m-ci orange"><i class="fa-solid fa-key"></i></span><span class="m-cl"><b>我的选房时段</b><span class="m-cs">2026-09-15 10:00—10:30</span></span><span class="m-cv"><span class="m-tag orange">待选房</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="alloc-select.html"><span class="m-ci orange"><i class="fa-solid fa-key"></i></span><span class="m-cl"><b>我的选房时段</b><span class="m-cs">2026-09-15 10:00—10:30 · 限 1 个工作日内确认</span></span><span class="m-cv"><span class="m-tag orange">待选房</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="book-list.html"><span class="m-ci"><i class="fa-solid fa-calendar-check"></i></span><span class="m-cl"><b>我的房源预约</b><span class="m-cs">预约本批次房源可获得预约优先位次</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
           <a class="m-cell" href="alloc-queue.html"><span class="m-ci"><i class="fa-solid fa-hourglass-half"></i></span><span class="m-cl"><b>轮候排位查询</b><span class="m-cs">若本批次未选到房源</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
-          <a class="m-cell" href="alloc-rule.html"><span class="m-ci cyan"><i class="fa-solid fa-people-roof"></i></span><span class="m-cl"><b>配租人数规则</b><span class="m-cs">房型与可配租人数</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="alloc-rule.html"><span class="m-ci cyan"><i class="fa-solid fa-people-roof"></i></span><span class="m-cl"><b>配租规则说明</b><span class="m-cs">不摇号 · 预约优先 · 房型与可配租人数</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
         </div>
       </div>
     </div>

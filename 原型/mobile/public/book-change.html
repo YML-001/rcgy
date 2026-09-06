@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>预约改约 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/mobile.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body class="m-body" data-mtitle="预约改约" data-mmod="N1 房源预约与预定" data-mcode="N1-02"
+      data-mdesc="对预约中的记录变更意向楼盘、户型与入住时间；同一批次限改约 1 次，改约后重新排定预约序位。" data-mback="book-list.html" data-mtabset="public" data-mtab="me">
+<div class="m-stage">
+  <div class="m-phone">
+    <div class="m-screen">
+      <div class="m-view">
+        <div class="m-note warn"><i class="fa-solid fa-triangle-exclamation"></i>
+          <div>改约规则：同一配租批次内<b>限改约 1 次</b>；改约提交后原房源意向名额立即释放，<b>按新意向重新排定预约序位</b>，原序位不予保留。</div>
+        </div>
+        <div class="m-sect">原预约信息<span class="m-sect-x">改约后失效</span></div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-calendar-check"></i>预约 YY2026-0906-0428<span class="m-tag orange" style="margin-left:auto">预约中</span></div>
+          <div class="m-card-b">
+          <div class="m-kv">
+            <div><span>意向房源</span><span>湘江1958 人才公寓 A6-1502</span></div>
+            <div><span>户型与面积</span><span>二室一厅　78.60 ㎡</span></div>
+            <div><span>意向入住时间</span><span>2026-10-08</span></div>
+            <div><span>当前预约序位</span><span>第 3 位（前方 2 人）</span></div>
+            <div><span>名额锁定至</span><span>2026-09-20 23:59</span></div>
+            <div><span>本批次改约次数</span><span><b style="color:var(--danger)">0 / 1 次</b>（改约后不可再次变更）</span></div>
+          </div>
+          </div>
+        </div>
+        <div class="m-sect">新的预约意向</div>
+        <div class="m-form">
+          <div class="m-fi">
+            <label>新意向楼盘 <span class="req">*</span></label>
+            <div class="m-fc">
+              <select>
+                <option>湘江1958 人才公寓（天元区 · 剩 7 套）</option>
+                <option selected>栗雨佳苑人才公寓（天元区 · 剩 17 套）</option>
+                <option>云龙人才苑（经开区 · 剩 24 套）</option>
+                <option>茨菇塘公寓（荷塘区 · 剩 32 套）</option>
+                <option>董家塅安居苑（芦淞区 · 剩 18 套）</option>
+                <option>清水塘新苑（石峰区 · 剩 42 套）</option>
+              </select>
+              <div class="m-fh">仅可选择本批次已发布且仍有剩余套数的楼盘</div>
+            </div>
+          </div>
+          <div class="m-fi">
+            <label>新意向户型 <span class="req">*</span></label>
+            <div class="m-fc"><select data-dict="roomType"></select><div class="m-fh">户型变更将同步调整可配租人数与自付租金</div></div>
+          </div>
+          <div class="m-fi">
+            <label>新意向入住时间 <span class="req">*</span></label>
+            <div class="m-fc"><input type="date" value="2026-10-20"><div class="m-fh">名额锁定期自改约成功之日起重新计算 14 天</div></div>
+          </div>
+          <div class="m-fi">
+            <label>联系电话 <span class="req">*</span></label>
+            <div class="m-fc"><input type="tel" value="15873012408"><div class="m-fh">用于接收改约结果与新的到位提醒</div></div>
+          </div>
+          <div class="m-fi">
+            <label>改约原因 <span class="req">*</span></label>
+            <div class="m-fc"><textarea rows="3">原意向房源为二室一厅，个人实际居住需求为一室一厅且通勤更近，申请改约至栗雨佳苑人才公寓，入住时间相应顺延至 10 月 20 日。</textarea><div class="m-fh">改约原因将随预约记录留痕，供运营单位核对</div></div>
+          </div>
+        </div>
+        <div class="m-sect">改约后的影响</div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-circle-info"></i>请确认知悉</div>
+          <div class="m-card-b">
+            <div class="m-check">
+              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>预约优先权保留</b><span>改约后仍属预约记录，<b>配租时优先于普通轮候排序</b></span></div></div>
+              <div class="bad"><i class="fa-solid fa-circle-exclamation"></i><div class="m-chl"><b>预约序位重新排定</b><span>按改约提交时间在新意向房源的预约队列中重新计算序位，原第 3 位不予保留</span></div></div>
+              <div class="bad"><i class="fa-solid fa-circle-exclamation"></i><div class="m-chl"><b>原房源名额立即释放</b><span>湘江1958 A6-1502 的意向名额提交后即释放并顺延给下一位预约人</span></div></div>
+              <div class="wait"><i class="fa-solid fa-clock"></i><div class="m-chl"><b>本批次不可再次改约</b><span>本次改约后同一批次内不再受理改约，如需变更只能取消预约后重新预约</span></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="m-actbar">
+        <a class="m-btn w-auto" href="book-list.html">放弃改约</a>
+        <button class="m-btn primary" type="button" onclick="MB.submit('.m-view','确认提交改约？原房源意向名额将立即释放，系统按新意向重新排定预约序位，同一批次限改约 1 次。','确认改约','book-list.html')"><i class="fa-solid fa-rotate"></i> 提交改约</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../../assets/js/mobile.js"></script>
+</body>
+</html>

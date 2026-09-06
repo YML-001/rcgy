@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>批量上架与下架 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="housing" data-active="house-26">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 房源筹集与楼盘表
+      <span class="sep">/</span> 房源发布与预约
+      <span class="sep">/</span> <span class="cur">批量上架与下架</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.openDrawer('shelfDrawer')"><i class="fa-solid fa-plus"></i> 新建上架任务</button>
+      <a class="btn" href="org-report.html"><i class="fa-solid fa-user-check"></i> 报送与审核</a>
+      <a class="btn" href="house-display.html"><i class="fa-solid fa-images"></i> 对外展示效果</a>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出任务台账</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>支持<b>按项目或按报送批次批量上架、下架</b>房源，并支持<b>定时发布</b>。上架须先通过报送审核且要素齐全；<b>已预约、已锁定、已签约的房源不得直接下架</b>，须先解除业务关联。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-tower-broadcast"></i></div>
+      <div><div class="s-label">在架房源</div><div class="s-value">9,258</div>
+        <div class="s-trend text-2">套 · 占一万套目标 92.6%</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-box-open"></i></div>
+      <div><div class="s-label">待上架</div><div class="s-value">742</div>
+        <div class="s-trend ">在途 502 + 未启动 240</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-arrow-down-long"></i></div>
+      <div><div class="s-label">本月下架</div><div class="s-value">126</div>
+        <div class="s-trend text-2">套 · 维修中 86 / 用途转换 40</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-clock"></i></div>
+      <div><div class="s-label">定时任务</div><div class="s-value">4</div>
+        <div class="s-trend text-2">本月任务台账共 8 项</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>任务号</label><input type="text" value="SX2026-09" placeholder="任务号"></div>
+      <div class="filter-item"><label>操作类型</label><select><option value="">全部</option><option>批量上架</option><option>批量下架</option><option>定时发布</option></select></div>
+      <div class="filter-item"><label>关联项目</label><input type="text" value="湘江1958 人才公寓" placeholder="项目名称或批次号"></div>
+      <div class="filter-item"><label>执行状态</label><select><option value="">全部</option><option>待执行</option><option>执行中</option><option>已完成</option><option>已取消</option><option>执行失败</option></select></div>
+      <div class="filter-item"><label>计划执行日期</label><input type="date" value="2026-09-20"></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>任务号</th><th>操作类型</th><th class="cell-lg">关联项目 / 报送批次</th><th class="num">涉及套数</th><th>计划执行时间</th><th>执行状态</th><th>操作人</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>SX2026-09-001</td><td><span class="badge green">批量上架</span></td><td>湘江1958 人才公寓（一、二期）／ BS2026-09-01</td><td class="num">2,000</td><td>2026-09-08 09:00</td><td><span class="badge green">已完成</span></td><td>唐凯</td><td><span class="link" onclick="PMS.openDrawer('shelfDrawer')">查看</span></td></tr>
+          <tr><td>SX2026-09-002</td><td><span class="badge green">批量上架</span></td><td>清水塘·未来社区（一期）／ BS2026-09-02</td><td class="num">1,800</td><td>2026-09-08 09:00</td><td><span class="badge green">已完成</span></td><td>唐凯</td><td><span class="link" onclick="PMS.openDrawer('shelfDrawer')">查看</span></td></tr>
+          <tr><td>SX2026-09-003</td><td><span class="badge blue">定时发布</span></td><td>云龙人才公寓／ BS2026-09-03</td><td class="num">1,400</td><td>2026-09-15 08:00</td><td><span class="badge orange">待执行</span></td><td>彭雪梅</td><td><span class="link" onclick="PMS.confirm({title:'立即执行确认',message:'确认将定时任务 SX2026-09-003 提前立即执行？',detail:'涉及云龙人才公寓 1,400 套房源，执行后立即对外发布，原定时时间 2026-09-15 08:00 作废。',type:'warning',okText:'确认执行',onOk:function(){PMS.toast('已立即执行，1,400 套房源已对外发布','success');}})">执行</span> <span class="link" onclick="PMS.confirm({title:'取消确认',message:'确认取消定时任务 SX2026-09-003？',detail:'取消后 1,400 套房源仍保持待上架状态，需重新创建任务方可发布。',type:'warning',okText:'确认取消',onOk:function(){PMS.toast('定时任务已取消','success');}})">取消</span></td></tr>
+          <tr><td>SX2026-09-004</td><td><span class="badge blue">定时发布</span></td><td>董家塅人才公寓／ BS2026-09-04</td><td class="num">1,200</td><td>2026-09-20 08:00</td><td><span class="badge orange">待执行</span></td><td>彭雪梅</td><td><span class="link" onclick="PMS.confirm({title:'立即执行确认',message:'确认将定时任务 SX2026-09-004 提前立即执行？',detail:'涉及董家塅人才公寓 1,200 套房源，执行后立即对外发布。',type:'warning',okText:'确认执行',onOk:function(){PMS.toast('已立即执行，1,200 套房源已对外发布','success');}})">执行</span> <span class="link" onclick="PMS.confirm({title:'取消确认',message:'确认取消定时任务 SX2026-09-004？',detail:'取消后 1,200 套房源仍保持待上架状态。',type:'warning',okText:'确认取消',onOk:function(){PMS.toast('定时任务已取消','success');}})">取消</span></td></tr>
+          <tr><td>SX2026-09-005</td><td><span class="badge blue">定时发布</span></td><td>田心人才公寓／ BS2026-09-05</td><td class="num">1,000</td><td>2026-09-25 08:00</td><td><span class="badge gray">已取消</span></td><td>唐凯</td><td><span class="link" onclick="PMS.openDrawer('shelfDrawer')">查看</span></td></tr>
+          <tr><td>SX2026-09-006</td><td><span class="badge blue">定时发布</span></td><td>栗雨佳苑人才公寓／ BS2026-09-06-R</td><td class="num">486</td><td>2026-09-28 08:00</td><td><span class="badge orange">待执行</span></td><td>唐凯</td><td><span class="link" onclick="PMS.confirm({title:'立即执行确认',message:'确认将定时任务 SX2026-09-006 提前立即执行？',detail:'涉及栗雨佳苑人才公寓 486 套房源，该批次为补正后重新报送批次。',type:'warning',okText:'确认执行',onOk:function(){PMS.toast('已立即执行，486 套房源已对外发布','success');}})">执行</span> <span class="link" onclick="PMS.confirm({title:'取消确认',message:'确认取消定时任务 SX2026-09-006？',detail:'取消后 486 套房源仍保持待上架状态。',type:'warning',okText:'确认取消',onOk:function(){PMS.toast('定时任务已取消','success');}})">取消</span></td></tr>
+          <tr><td>SX2026-09-007</td><td><span class="badge orange">批量下架</span></td><td>茨菇塘公寓 B 栋（整栋维修）</td><td class="num">86</td><td>2026-09-10 18:00</td><td><span class="badge green">已完成</span></td><td>彭雪梅</td><td><span class="link" onclick="PMS.openDrawer('shelfDrawer')">查看</span></td></tr>
+          <tr class="row-warn"><td>SX2026-09-008</td><td><span class="badge orange">批量下架</span></td><td>湘江1958 人才公寓 A6 栋（用途转换）</td><td class="num">40</td><td>2026-09-12 18:00</td><td><span class="badge red">执行失败</span></td><td>唐凯</td><td><span class="link" onclick="PMS.toast('12 套已预约、6 套已签约，须先解除业务关联后重试')">查看</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sp-block" style="margin-top:12px">
+      <div class="sp-h"><i class="fa-solid fa-list"></i> 上架前置条件与下架限制<span class="sub">SJ-1 至 SJ-5 须全部满足 · XJ-1 至 XJ-4 须先解除业务关联</span></div>
+      <div class="sp-b">
+        <div class="grid-2">
+        <div class="sp-tw">
+          <table class="data-table compact">
+            <thead><tr><th>条件号</th><th>前置条件</th><th class="cell-lg">校验说明</th></tr></thead>
+            <tbody>
+            <tr><td><b>SJ-1</b></td><td>已通过报送审核</td><td>审核状态须为「审核通过」，退回补正的批次不进入上架队列</td></tr>
+            <tr><td><b>SJ-2</b></td><td>要素齐全</td><td>11 项必填发布要素完整度须达 100%，缺项房源自动剔除</td></tr>
+            <tr><td><b>SJ-3</b></td><td>无重复登记</td><td>按一房一码校验房号唯一性，命中重复的自动锁定并排除</td></tr>
+            <tr><td><b>SJ-4</b></td><td>房态为可配租</td><td>已锁定、在租、维修中、已冻结的房源不得上架</td></tr>
+            <tr><td><b>SJ-5</b></td><td>租金标准已核定</td><td>须已核定且落在 8.00—30.00 元/㎡·月区间</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="sp-tw">
+          <table class="data-table compact">
+            <thead><tr><th>限制号</th><th>受限情形</th><th class="cell-lg">解除方式</th></tr></thead>
+            <tbody>
+            <tr><td><b>XJ-1</b></td><td>已预约房源</td><td>先取消预约或改约至其他房源，见<span class="link" onclick="location.href='book-manage.html'">预约名单管理</span></td></tr>
+            <tr><td><b>XJ-2</b></td><td>已锁定房源</td><td>先解除选房锁定并释放房源，见<span class="link" onclick="location.href='../alloc/slot-plan.html'">选房编排</span></td></tr>
+            <tr><td><b>XJ-3</b></td><td>已签约在租房源</td><td>先办理合同解除或到期腾退，见<span class="link" onclick="location.href='../alloc/contract-list.html'">合同台账</span></td></tr>
+            <tr><td><b>XJ-4</b></td><td>已进入配租批次</td><td>先移出批次投放清单，见<span class="link" onclick="location.href='../alloc/batch-list.html'">配租批次管理</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        </div>
+      </div>
+  </div>
+
+  <div class="sp-src">
+    <span><b>依据</b> 2026 年 9 月 6 日向市住建局汇报讨论会议决议</span>
+    <span><b>上架口径</b> 房源一次性上架全市约一万套，按项目或报送批次分批执行，支持定时发布</span>
+    <span><b>任务号规则</b> SX + 年月 + 当月序号，一个任务对应一个项目或一个报送批次</span>
+    <span><b>下架留痕</b> 下架原因、涉及套数、业务关联解除记录与操作人全程留痕</span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="shelfDrawer">
+  <div class="drawer-head">
+    <h3>新建上架任务</h3>
+    <span class="badge blue">草稿</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+    <div class="alert alert-warning">
+      <i class="fa-solid fa-triangle-exclamation"></i>
+      <div>任务执行前自动校验<b>上架前置条件 SJ-1 至 SJ-5</b>，不满足的房源自动剔除并生成剔除清单。选择<b>定时发布</b>的任务到点自动执行，执行结果通过站内消息告知操作人。</div>
+    </div>
+
+    <div class="form-grid form-align">
+      <div class="form-item">
+        <label>任务号 <span class="req">*</span></label>
+        <input type="text" value="SX2026-09-009" readonly>
+        <div class="hint">系统自动生成</div>
+      </div>
+      <div class="form-item">
+        <label>操作类型 <span class="req">*</span></label>
+        <select><option>批量上架</option><option>批量下架</option><option>定时发布</option></select>
+      </div>
+      <div class="form-item">
+        <label>选择范围 <span class="req">*</span></label>
+        <select><option>按项目</option><option>按报送批次</option></select>
+      </div>
+      <div class="form-item">
+        <label>项目名称 <span class="req">*</span></label>
+        <select><option>清水塘·未来社区（二期）</option><option>湘江1958 人才公寓（一、二期）</option><option>云龙人才公寓</option><option>董家塅人才公寓</option><option>田心人才公寓</option><option>栗雨佳苑人才公寓</option><option>茨菇塘公寓</option><option>渌口人才公寓</option></select>
+      </div>
+      <div class="form-item">
+        <label>关联报送批次 <span class="req">*</span></label>
+        <input type="text" value="BS2026-09-08" readonly>
+      </div>
+      <div class="form-item">
+        <label>涉及套数 <span class="req">*</span></label>
+        <input type="text" value="502 套（校验后可上架 486 套，剔除 16 套）" readonly>
+        <div class="hint">按所选范围自动统计，不可手工修改</div>
+      </div>
+      <div class="form-item">
+        <label>发布方式 <span class="req">*</span></label>
+        <select><option>定时发布</option><option>立即发布</option></select>
+      </div>
+      <div class="form-item">
+        <label>定时时间 <span class="req">*</span></label>
+        <input type="datetime-local" value="2026-09-30T08:00">
+      </div>
+      <div class="form-item col-full">
+        <label>前置条件校验结果 <span class="req">*</span></label>
+        <textarea rows="5" readonly>SJ-1 已通过报送审核　通过（BS2026-09-08 审核通过，审核人 唐凯）
+SJ-2 要素齐全　　　　通过 486 套 / 不通过 10 套（缺 VR 全景链接）
+SJ-3 无重复登记　　　通过 496 套 / 命中重复 6 套（已自动锁定）
+SJ-4 房态为可配租　　通过 502 套
+SJ-5 租金标准已核定　通过 502 套（13.00 元/㎡·月）
+校验结论：可上架 486 套，剔除 16 套并生成剔除清单</textarea>
+      </div>
+      <div class="form-item col-full">
+        <label>剔除清单附件</label>
+        <input type="text" data-upload="1" value="SX2026-09-009_剔除清单_20260906.xlsx">
+      </div>
+      <div class="form-item col-full">
+        <label>备注 <span class="req">*</span></label>
+        <textarea rows="3">清水塘·未来社区（二期）502 套房源经报送审核通过，按前置条件校验可上架 486 套，剔除缺 VR 全景链接 10 套与重复登记 6 套。定时于 2026-09-30 08:00 统一对外发布，剔除房源已退回清水塘投资集团补正。</textarea>
+      </div>
+    </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn" onclick="PMS.toast('已保存为草稿，未创建定时任务','success')">存草稿</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认创建定时上架任务 SX2026-09-009？',detail:'任务将于 2026-09-30 08:00 自动执行，上架清水塘·未来社区（二期）486 套房源，剔除 16 套不达标房源并退回补正。执行结果通过站内消息告知。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('定时上架任务已创建，将于 2026-09-30 08:00 自动执行','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+  </div>
+</div>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 8; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

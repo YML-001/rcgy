@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>分批导入与断点续传 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="housing" data-active="house-31">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 房源筹集与楼盘表
+      <span class="sep">/</span> 房源导入与来源台账
+      <span class="sep">/</span> <span class="cur">分批导入与断点续传</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.openDrawer('loadDrawer')"><i class="fa-solid fa-file-import"></i> 新建导入批次</button>
+      <a class="btn" href="import-rule.html"><i class="fa-solid fa-shield-halved"></i> 校验规则配置</a>
+      <a class="btn" href="import-fail.html"><i class="fa-solid fa-triangle-exclamation"></i> 失败明细与重传</a>
+      <a class="btn" href="import-rollback.html"><i class="fa-solid fa-rotate-left"></i> 批次回滚</a>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出批次台账</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>面向<b>万套级</b>房源规模，支持<b>按项目、按批次分批导入</b>。<b>单批校验失败不影响已入库数据，导入中断后可从断点续传</b>，避免整批重来。单批条数上限默认 2,000 条，按行号记录水位，续传只处理未入库行。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-database"></i></div>
+      <div><div class="s-label">累计导入</div><div class="s-value">10,000</div>
+        <div class="s-trend text-2">套 · 一房一码去重后计数</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-layer-group"></i></div>
+      <div><div class="s-label">本月批次</div><div class="s-value">32</div>
+        <div class="s-trend text-2">批 · 涉及 5 家报送单位</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-stopwatch"></i></div>
+      <div><div class="s-label">平均单批耗时</div><div class="s-value">4分26秒</div>
+        <div class="s-trend text-2">单批 2,000 条上限</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-plug-circle-exclamation"></i></div>
+      <div><div class="s-label">中断待续传</div><div class="s-value">1</div>
+        <div class="s-trend ">批 · 水位在第 1,268 行</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>批次号</label><input type="text" value="DR2026-09" placeholder="批次号"></div>
+      <div class="filter-item"><label>导入项目</label><input type="text" value="清水塘·未来社区" placeholder="项目名称"></div>
+      <div class="filter-item"><label>报送单位</label><select data-dict="reportOrg" data-ph="全部"></select></div>
+      <div class="filter-item"><label>批次状态</label><select><option value="">全部</option><option>已完成</option><option>进行中</option><option>已中断</option><option>校验失败</option><option>已回滚</option></select></div>
+      <div class="filter-item"><label>开始日期</label><input type="date" value="2026-09-01"></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>批次号</th><th class="cell-lg">导入项目</th><th class="cell-lg">报送单位</th><th class="num">计划条数</th><th class="num">已入库</th><th class="num">失败</th><th>进度</th><th>批次状态</th><th>开始时间</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>DR2026-09-115</td><td>湘江1958 人才公寓（一期）</td><td>株洲城发高科集团</td><td class="num">1,000</td><td class="num">1,000</td><td class="num">0</td><td><div class="progress green"><span style="width:100%"></span></div><span class="muted">100%</span></td><td><span class="badge green">已完成</span></td><td>2026-09-01 09:26</td><td><span class="link" onclick="PMS.openDrawer('loadDrawer')">查看</span> <span class="link" onclick="location.href='import-rollback.html'">回滚</span></td></tr>
+          <tr><td>DR2026-09-118</td><td>湘江1958 人才公寓（二期）</td><td>株洲城发高科集团</td><td class="num">2,000</td><td class="num">1,946</td><td class="num">54</td><td><div class="progress green"><span style="width:97.3%"></span></div><span class="muted">97.3%</span></td><td><span class="badge green">已完成</span></td><td>2026-09-01 14:08</td><td><span class="link" onclick="location.href='import-fail.html'">查看失败</span> <span class="link" onclick="location.href='import-rollback.html'">回滚</span></td></tr>
+          <tr class="row-bad"><td>DR2026-09-121</td><td>清水塘·未来社区（一期）</td><td>清水塘投资集团</td><td class="num">1,800</td><td class="num">0</td><td class="num">88</td><td><div class="progress red"><span style="width:2%"></span></div><span class="muted">0%（整批拦截）</span></td><td><span class="badge red">校验失败</span></td><td>2026-09-02 10:12</td><td><span class="link" onclick="location.href='import-fail.html'">查看失败</span> <span class="link" onclick="PMS.toast('校验失败批次无入库数据，无需回滚')">回滚</span></td></tr>
+          <tr class="row-warn"><td>DR2026-09-122</td><td>清水塘·未来社区（二期）</td><td>清水塘投资集团</td><td class="num">2,000</td><td class="num">1,268</td><td class="num">0</td><td><div class="progress orange"><span style="width:63.4%"></span></div><span class="muted">63.4%（水位第 1,268 行）</span></td><td><span class="badge orange">已中断</span></td><td>2026-09-03 15:36</td><td><span class="link" onclick="PMS.confirm({title:'续传确认',message:'确认从断点续传批次 DR2026-09-122？',detail:'当前水位在第 1,268 行，续传将从第 1,269 行开始处理剩余 732 行。已入库的 1,268 条不重复入库，同一房号按唯一性幂等拦截。',type:'warning',okText:'确认续传',onOk:function(){PMS.toast('已从第 1,269 行续传，剩余 732 行处理中','success');}})">续传</span> <span class="link" onclick="location.href='import-rollback.html'">回滚</span></td></tr>
+          <tr><td>DR2026-09-124</td><td>云龙人才公寓</td><td>株洲高新区管委会</td><td class="num">1,400</td><td class="num">1,352</td><td class="num">48</td><td><div class="progress"><span style="width:96.6%"></span></div><span class="muted">96.6%</span></td><td><span class="badge blue">进行中</span></td><td>2026-09-06 09:02</td><td><span class="link" onclick="PMS.toast('批次进行中，预计 1 分 12 秒后完成，请稍后查看')">查看</span></td></tr>
+          <tr><td>DR2026-09-126</td><td>董家塅人才公寓</td><td>市保障性住房服务中心</td><td class="num">1,200</td><td class="num">1,164</td><td class="num">36</td><td><div class="progress green"><span style="width:97.0%"></span></div><span class="muted">97.0%</span></td><td><span class="badge green">已完成</span></td><td>2026-09-04 09:18</td><td><span class="link" onclick="location.href='import-fail.html'">查看失败</span> <span class="link" onclick="location.href='import-rollback.html'">回滚</span></td></tr>
+          <tr><td>DR2026-09-129</td><td>田心人才公寓</td><td>株洲经开区管委会</td><td class="num">1,000</td><td class="num">974</td><td class="num">26</td><td><div class="progress green"><span style="width:97.4%"></span></div><span class="muted">97.4%</span></td><td><span class="badge green">已完成</span></td><td>2026-09-04 16:42</td><td><span class="link" onclick="location.href='import-fail.html'">查看失败</span> <span class="link" onclick="location.href='import-rollback.html'">回滚</span></td></tr>
+          <tr><td>DR2026-09-131</td><td>渌口人才公寓</td><td>市保障性住房服务中心</td><td class="num">600</td><td class="num">584</td><td class="num">16</td><td><div class="progress green"><span style="width:97.3%"></span></div><span class="muted">97.3%</span></td><td><span class="badge green">已完成</span></td><td>2026-09-05 10:26</td><td><span class="link" onclick="location.href='import-fail.html'">查看失败</span> <span class="link" onclick="location.href='import-rollback.html'">回滚</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sp-block" style="margin-top:12px">
+    <div class="sp-h"><i class="fa-solid fa-list"></i> 断点续传机制<span class="sub">XC-1 至 XC-6 · 万套级导入的可靠性保障</span></div>
+    <div class="sp-b">
+      <div class="sp-tw">
+        <table class="data-table compact">
+          <thead><tr><th>机制号</th><th>机制项</th><th class="cell-lg">实现说明</th></tr></thead>
+          <tbody>
+          <tr><td><b>XC-1</b></td><td>按行号记录水位</td><td>每处理 100 行落一次<b>水位标记</b>，记录批次号与最后成功入库行号；导入中断后水位即为续传起点</td></tr>
+          <tr><td><b>XC-2</b></td><td>事务按批提交</td><td>以 100 行为一个<b>提交批</b>，单个提交批内失败整批回退，已提交的提交批不受影响，避免长事务锁表</td></tr>
+          <tr><td><b>XC-3</b></td><td>续传只处理未入库行</td><td>续传时<b>从水位下一行开始</b>，已入库行直接跳过，不重复读取、不重复写入</td></tr>
+          <tr><td><b>XC-4</b></td><td>房号唯一性幂等</td><td><b>同一房号重复导入按房号唯一性拦截</b>（校验规则 JY-01），重复提交同一文件亦不会产生重复房源</td></tr>
+          <tr><td><b>XC-5</b></td><td>单批不影响其他批</td><td><b>单批校验失败不影响已入库数据</b>，各批次独立记账，失败批次可单独修正重传或整批回滚</td></tr>
+          <tr><td><b>XC-6</b></td><td>单批条数上限</td><td>默认<b>2,000 条</b>一批，超出自动拆分为多批顺序执行；上限可按服务器负载在 500—5,000 条区间调整</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="sp-src">
+    <span><b>依据</b> 2026 年 9 月 6 日向市住建局汇报讨论会议决议</span>
+    <span><b>导入口径</b> 前期不对接省保租房、公租房系统接口，房源由各提供单位按统一模板报送、住建部门审核后导入建账</span>
+    <span><b>批次号规则</b> DR + 年月 + 当月序号，一个项目可拆为多批，单批默认上限 2,000 条</span>
+    <span><b>可靠性</b> 单批校验失败不影响已入库数据，导入中断后可从断点续传，不需整批重来</span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="loadDrawer">
+  <div class="drawer-head">
+    <h3>新建导入批次</h3>
+    <span class="badge blue">草稿</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+    <div class="alert alert-warning">
+      <i class="fa-solid fa-triangle-exclamation"></i>
+      <div>上传文件超过<b>单批条数上限</b>时系统<b>自动拆分为多批</b>顺序执行。失败处理方式选<b>整批拦截</b>时任一行不通过即全批不入库；选<b>跳过失败行</b>时通过行正常入库，失败行进入<span class="link" onclick="location.href='import-fail.html'">失败明细</span>待修正重传。</div>
+    </div>
+
+    <div class="form-grid form-align">
+      <div class="form-item">
+        <label>批次号 <span class="req">*</span></label>
+        <input type="text" value="DR2026-09-132" readonly>
+        <div class="hint">系统自动生成，拆分后追加 -1、-2 序号</div>
+      </div>
+      <div class="form-item">
+        <label>导入项目 <span class="req">*</span></label>
+        <select><option>清水塘·未来社区（二期）</option><option>湘江1958 人才公寓（三期）</option><option>云龙人才公寓</option><option>董家塅人才公寓</option><option>田心人才公寓</option><option>栗雨佳苑人才公寓</option><option>茨菇塘公寓</option><option>渌口人才公寓</option></select>
+      </div>
+      <div class="form-item">
+        <label>报送单位 <span class="req">*</span></label>
+        <select data-dict="reportOrg" data-selected="2" data-ph=""></select>
+      </div>
+      <div class="form-item">
+        <label>导入模板 <span class="req">*</span></label>
+        <select><option>楼盘表房源导入模板 V2.1（当前有效）</option><option>楼盘表房源导入模板 V2.0（兼容期）</option><option>项目台账导入模板 V2.1</option></select>
+      </div>
+      <div class="form-item col-full">
+        <label>上传文件 <span class="req">*</span></label>
+        <input type="text" data-upload="1" value="清水塘未来社区二期楼盘表_20260906.xlsx">
+        <div class="hint">支持 .xlsx / .xls，单文件不超过 20 MB，超出单批上限自动拆分</div>
+      </div>
+      <div class="form-item">
+        <label>单批条数上限 <span class="req">*</span></label>
+        <input type="text" value="2000">
+        <div class="hint">可在 500—5,000 条区间调整，本次文件 2,486 行将拆为 2 批</div>
+      </div>
+      <div class="form-item">
+        <label>校验规则集 <span class="req">*</span></label>
+        <select><option>房源导入标准规则集（JY-01 至 JY-12，启用 11 条）</option><option>房源导入基础规则集（仅必填与格式校验）</option><option>接口同步规则集（JY-01 至 JY-10）</option></select>
+      </div>
+      <div class="form-item">
+        <label>失败处理方式 <span class="req">*</span></label>
+        <select><option>跳过失败行（通过行正常入库）</option><option>整批拦截（任一行失败全批不入库）</option></select>
+      </div>
+      <div class="form-item">
+        <label>断点续传 <span class="req">*</span></label>
+        <select><option>启用（按行号记录水位，中断后可续传）</option><option>不启用（中断后整批重来）</option></select>
+      </div>
+      <div class="form-item col-full">
+        <label>导入预检结果 <span class="req">*</span></label>
+        <textarea rows="5" readonly>文件解析：2,486 行有效数据（表头 1 行，空行 3 行已忽略）
+拆分方案：DR2026-09-132-1（第 1—2,000 行）、DR2026-09-132-2（第 2,001—2,486 行）
+模板匹配：V2.1，26 个字段全部匹配，无多余列
+授权校验：清水塘投资集团已授权项目「清水塘·未来社区（二期）」，通过
+预估耗时：约 5 分 40 秒（按平均单批 4 分 26 秒估算）</textarea>
+      </div>
+      <div class="form-item col-full">
+        <label>备注 <span class="req">*</span></label>
+        <textarea rows="3">清水塘投资集团报送清水塘·未来社区（二期）2,486 套房源，按单批 2,000 条上限拆分为 2 批顺序导入，采用跳过失败行方式，失败行进入失败明细待修正重传。启用断点续传，导入中断后可从水位行续传，不影响已入库数据。</textarea>
+      </div>
+    </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn" onclick="PMS.toast('已保存为草稿，未开始导入','success')">存草稿</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认开始导入批次 DR2026-09-132？',detail:'2,486 行数据将拆为 2 批顺序导入，采用跳过失败行方式，失败行进入失败明细待修正重传。启用断点续传，中断后可从水位行续传，单批失败不影响已入库数据。预估耗时约 5 分 40 秒。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('导入批次已启动，可在批次台账查看实时进度','success');}})"><i class="fa-solid fa-check"></i> 提交并开始导入</button>
+  </div>
+</div>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 32; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

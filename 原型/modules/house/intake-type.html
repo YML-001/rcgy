@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>入库类型标识与切换 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="housing" data-active="house-35">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 房源筹集与楼盘表
+      <span class="sep">/</span> 房源导入与来源台账
+      <span class="sep">/</span> <span class="cur">入库类型标识与切换</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.openDrawer('itDrawer')"><i class="fa-solid fa-right-left"></i> 按项目切换入库类型</button>
+      <a class="btn" href="source-config.html"><i class="fa-solid fa-sitemap"></i> 来源分类配置</a>
+      <a class="btn" href="src-sync.html"><i class="fa-solid fa-plug"></i> 接口同步管理</a>
+      <button class="btn" onclick="PMS.toast('已按入库类型导出房源清单（批量导入 9,742 套 / 接口对接 258 套）','success')"><i class="fa-solid fa-download"></i> 按入库类型导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div><b>接口前期未开通</b>，当前入库类型<b>以批量导入为主</b>，接口启用开关<b>单独配置</b>。项目表与房源表统一设置<b>入库类型</b>字段：导入的记录留存<b>报送单位与导入批次号</b>，接口接入的记录留存<b>来源系统与同步时间</b>。入库类型与来源渠道<b>分别标注、互不替代</b>。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-file-import"></i></div>
+      <div><div class="s-label">批量导入房源</div><div class="s-value">9,742</div>
+        <div class="s-trend text-2">套 · 占 97.4%，留存报送单位与批次号</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-plug"></i></div>
+      <div><div class="s-label">接口对接房源</div><div class="s-value">258</div>
+        <div class="s-trend text-2">套 · 占 2.6%，留存来源系统与同步时间</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
+      <div><div class="s-label">已切换项目</div><div class="s-value">2</div>
+        <div class="s-trend text-2">个 · 已导入房源保留原标记</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-hourglass-half"></i></div>
+      <div><div class="s-label">待切换项目</div><div class="s-value">6</div>
+        <div class="s-trend ">个 · 未切换 5 / 切换中 1</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card" data-tabs-scope>
+    <div class="filter-bar">
+      <div class="filter-item"><label>项目名称</label><input type="text" value="湘江1958 人才公寓" placeholder="项目名称"></div>
+      <div class="filter-item"><label>来源渠道</label><select data-dict="srcChannel" data-ph="全部"></select></div>
+      <div class="filter-item"><label>入库类型</label><select data-dict="intakeType" data-ph="全部"></select></div>
+      <div class="filter-item"><label>切换状态</label><select><option value="">全部</option><option>未切换</option><option>切换中</option><option>已切换</option></select></div>
+      <div class="filter-item"><label>报送单位</label><select data-dict="reportOrg" data-ph="全部"></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+    <div class="tabs">
+      <div class="tab active" data-tab="cross">入库类型与来源渠道交叉统计 <span class="badge blue">4 类渠道</span></div>
+      <div class="tab" data-tab="proj">按项目的入库类型与切换状态 <span class="badge orange">8</span></div>
+    </div>
+    <div class="tab-panel active" data-panel="cross">
+    <div class="card-body">
+    <p class="hint">行 = 四类来源渠道，列 = 入库类型 · 两个维度<b>分别标注、互不替代</b>，同一房源既有来源渠道标记也有入库类型标记</p>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th class="cell-lg">来源渠道</th><th class="num">批量导入（套）</th><th class="num">接口对接（套）</th><th class="num">合计（套）</th><th class="cell-lg">口径说明</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="badge blue">市本级存量</span></td><td class="num">2,540</td><td class="num">60</td><td class="num">2,600</td><td>市保障性住房服务中心按统一模板报送导入 2,540 套；60 套已由公租房管理系统试点同步</td><td><span class="link" onclick="location.href='source-ledger.html'">渠道台账</span></td></tr>
+          <tr><td><span class="badge green">收购商品房转化</span></td><td class="num">3,760</td><td class="num">40</td><td class="num">3,800</td><td>株洲城发高科集团全量批量导入；40 套因用途转换由省保障性租赁住房系统回传同步</td><td><span class="link" onclick="location.href='source-ledger.html'">渠道台账</span></td></tr>
+          <tr><td><span class="badge cyan">收购保租房转化</span></td><td class="num">1,880</td><td class="num">120</td><td class="num">2,000</td><td>清水塘投资集团批量导入 1,880 套；120 套已在省保障性租赁住房系统备案并试点同步</td><td><span class="link" onclick="location.href='source-ledger.html'">渠道台账</span></td></tr>
+          <tr><td><span class="badge purple">园区公租房纳管</span></td><td class="num">1,562</td><td class="num">38</td><td class="num">1,600</td><td>两个园区管委会批量导入 1,562 套；38 套由公租房管理系统同步纳管</td><td><span class="link" onclick="location.href='source-ledger.html'">渠道台账</span></td></tr>
+          <tr><td><span class="badge orange">合计</span></td><td class="num">9,742</td><td class="num">258</td><td class="num">10,000</td><td>两类入库类型合计等于一万套建设目标；<b>入库类型与来源渠道分别标注，不因入库方式变化而改变渠道归集</b></td><td><span class="link" onclick="location.href='../stat/house-source.html'">来源结构统计</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+    </div>
+    <div class="tab-panel" data-panel="proj">
+    <div class="card-body">
+    <p class="hint">批量导入留存<b>报送单位 + 导入批次号</b>，接口对接留存<b>来源系统 + 同步时间</b> · 两类记录并存，可按项目分批切换</p>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th class="cell-lg">项目名称</th><th>来源渠道</th><th>入库类型</th><th class="cell-lg">报送单位 / 来源系统</th><th class="cell-lg">导入批次号 / 同步时间</th><th class="num">套数</th><th>切换状态</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>湘江1958 人才公寓（一、二期）</td><td><span class="badge green">收购商品房转化</span></td><td><span class="badge blue">批量导入</span></td><td>株洲城发高科集团</td><td>DR2026-09-118</td><td class="num">2,000</td><td><span class="badge gray">未切换</span></td><td><span class="link" onclick="PMS.openDrawer('itDrawer')">切换为接口对接</span> <span class="link" onclick="PMS.toast('已打开该项目入库类型变更留痕，共 3 条记录')">查看留痕</span></td></tr>
+          <tr><td>清水塘·未来社区（一期）</td><td><span class="badge cyan">收购保租房转化</span></td><td><span class="badge blue">批量导入</span></td><td>清水塘投资集团</td><td>DR2026-09-121</td><td class="num">1,800</td><td><span class="badge gray">未切换</span></td><td><span class="link" onclick="PMS.openDrawer('itDrawer')">切换为接口对接</span> <span class="link" onclick="PMS.toast('已打开该项目入库类型变更留痕，共 2 条记录')">查看留痕</span></td></tr>
+          <tr><td>云龙人才公寓</td><td><span class="badge purple">园区公租房纳管</span></td><td><span class="badge blue">批量导入</span></td><td>株洲高新区管委会</td><td>DR2026-09-124</td><td class="num">1,400</td><td><span class="badge gray">未切换</span></td><td><span class="link" onclick="PMS.openDrawer('itDrawer')">切换为接口对接</span> <span class="link" onclick="PMS.toast('已打开该项目入库类型变更留痕，共 1 条记录')">查看留痕</span></td></tr>
+          <tr><td>董家塅人才公寓</td><td><span class="badge blue">市本级存量</span></td><td><span class="badge blue">批量导入</span></td><td>市保障性住房服务中心</td><td>DR2026-09-126</td><td class="num">1,200</td><td><span class="badge gray">未切换</span></td><td><span class="link" onclick="PMS.openDrawer('itDrawer')">切换为接口对接</span> <span class="link" onclick="PMS.toast('已打开该项目入库类型变更留痕，共 1 条记录')">查看留痕</span></td></tr>
+          <tr><td>田心人才公寓</td><td><span class="badge purple">园区公租房纳管</span></td><td><span class="badge blue">批量导入</span></td><td>株洲经开区管委会</td><td>DR2026-09-129</td><td class="num">1,000</td><td><span class="badge gray">未切换</span></td><td><span class="link" onclick="PMS.openDrawer('itDrawer')">切换为接口对接</span> <span class="link" onclick="PMS.toast('已打开该项目入库类型变更留痕，共 1 条记录')">查看留痕</span></td></tr>
+          <tr class="row-warn"><td>渌口人才公寓</td><td><span class="badge blue">市本级存量</span></td><td><span class="badge blue">批量导入</span></td><td>市保障性住房服务中心</td><td>DR2026-09-131</td><td class="num">600</td><td><span class="badge orange">切换中</span></td><td><span class="link" onclick="PMS.toast('切换中项目暂不支持重复提交，预计 2026-11-01 完成首次同步')">切换为接口对接</span> <span class="link" onclick="PMS.toast('已打开该项目入库类型变更留痕，共 4 条记录')">查看留痕</span></td></tr>
+          <tr><td>茨菇塘公寓</td><td><span class="badge cyan">收购保租房转化</span></td><td><span class="badge cyan">接口对接</span></td><td>省保障性租赁住房系统</td><td>2026-09-06 02:00:00</td><td class="num">120</td><td><span class="badge green">已切换</span></td><td><span class="link" onclick="PMS.toast('该项目已为接口对接，如需回退请联系系统管理员')">切换为接口对接</span> <span class="link" onclick="PMS.toast('已打开该项目入库类型变更留痕，共 5 条记录')">查看留痕</span></td></tr>
+          <tr><td>栗雨佳苑人才公寓</td><td><span class="badge blue">市本级存量</span></td><td><span class="badge cyan">接口对接</span></td><td>公租房管理系统</td><td>2026-09-06 02:00:00</td><td class="num">60</td><td><span class="badge green">已切换</span></td><td><span class="link" onclick="PMS.toast('该项目已为接口对接，如需回退请联系系统管理员')">切换为接口对接</span> <span class="link" onclick="PMS.toast('已打开该项目入库类型变更留痕，共 6 条记录')">查看留痕</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+    </div>
+  </div>
+
+  <div class="sp-block" style="margin-top:8px">
+    <div class="sp-h"><i class="fa-solid fa-list"></i> 字段留存对照<span class="sub">两类入库类型的必留字段互不相同，均不可为空</span></div>
+    <div class="sp-b">
+      <div class="sp-tw">
+        <table class="data-table compact">
+          <thead><tr><th>入库类型</th><th class="cell-lg">必留字段</th><th class="cell-lg">示例值</th><th class="cell-lg">补充说明</th></tr></thead>
+          <tbody>
+          <tr><td><span class="badge blue">批量导入</span></td><td><b>报送单位 + 导入批次号</b></td><td>株洲城发高科集团 / DR2026-09-118</td><td>由报送单位按统一模板报送、住建部门审核后导入建账；批次号可回溯至原始导入文件与失败明细</td></tr>
+          <tr><td><span class="badge cyan">接口对接</span></td><td><b>来源系统 + 同步时间</b></td><td>省保障性租赁住房系统 / 2026-11-01 02:00:00</td><td>接口开通后新同步房源自动标记为接口对接；同步时间为每次增量同步的实际执行时刻，逐次留痕</td></tr>
+          <tr><td><b>共同要求</b></td><td>入库类型字段在<b>项目表与房源表统一设置</b>，与来源渠道字段<b>并列存储、分别标注</b></td><td>入库类型 = 批量导入；来源渠道 = 收购商品房转化（两个字段互不替代）</td><td>可<b>按入库类型筛选、统计与导出</b>；两类记录<b>并存</b>，<b>已导入房源保留原标记</b>，无需推倒重来</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="sp-src">
+    <span><b>依据</b> 2026 年 9 月 6 日向市住建局汇报讨论会议决议</span>
+    <span><b>标注口径</b> 入库类型（批量导入 / 接口对接）与房源来源渠道（四类）分别标注、互不替代</span>
+    <span><b>切换口径</b> 接口开通后新同步房源自动标记为接口对接，已导入房源保留原标记，两类记录并存且可按项目分批切换</span>
+    <span><b>接口开关</b> 接口前期未开通，启用开关单独配置；未开通期间入库类型以批量导入为主</span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="itDrawer">
+  <div class="drawer-head">
+    <h3>按项目切换入库类型</h3>
+    <span class="badge gray">未切换</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+    <div class="alert alert-warning">
+      <i class="fa-solid fa-triangle-exclamation"></i>
+      <div>切换<b>按项目分批进行，无需推倒重来</b>。切换后<b>新同步房源自动标记为接口对接</b>，<b>已导入房源保留原标记（报送单位 + 导入批次号）</b>，<b>两类记录并存</b>。入库类型与来源渠道<b>分别标注、互不替代</b>，切换不改变来源渠道归集。</div>
+    </div>
+
+    <div class="form-grid form-align">
+      <div class="form-item col-full">
+        <label>项目名称 <span class="req">*</span></label>
+        <input type="text" value="湘江1958 人才公寓（一、二期）" readonly>
+      </div>
+      <div class="form-item">
+        <label>来源渠道 <span class="req">*</span></label>
+        <input type="text" value="收购商品房转化（QD-02）" readonly>
+        <div class="hint">来源渠道不因入库类型切换而改变</div>
+      </div>
+      <div class="form-item">
+        <label>当前入库类型 <span class="req">*</span></label>
+        <input type="text" value="批量导入（株洲城发高科集团 / DR2026-09-118 / 2,000 套）" readonly>
+      </div>
+      <div class="form-item">
+        <label>目标入库类型 <span class="req">*</span></label>
+        <select data-dict="intakeType" data-selected="2" data-ph=""></select>
+      </div>
+      <div class="form-item">
+        <label>来源系统 <span class="req">*</span></label>
+        <select><option>省保障性租赁住房系统</option><option>公租房管理系统</option></select>
+      </div>
+      <div class="form-item col-full">
+        <label>接口启用开关说明 <span class="req">*</span></label>
+        <textarea rows="4" readonly>当前状态：接口未开通（前期不对接省保租房系统、公租房系统接口）
+启用开关：由系统管理员在接口同步管理中单独配置，与本页切换动作解耦
+开通计划：省保障性租赁住房系统接口计划 2026-11-01 开通，首次全量同步后转增量同步
+未开通期间：入库类型以批量导入为主，切换申请保存为「切换中」，接口开通后自动生效</textarea>
+      </div>
+      <div class="form-item">
+        <label>切换范围 <span class="req">*</span></label>
+        <select><option>仅新增同步房源（推荐）</option><option>全项目重新标记</option></select>
+      </div>
+      <div class="form-item">
+        <label>已导入房源处理方式 <span class="req">*</span></label>
+        <select><option>保留原标记（报送单位 + 导入批次号）</option><option>改标为接口对接（不推荐，将丢失批次可追溯性）</option></select>
+      </div>
+      <div class="form-item">
+        <label>首次同步时间 <span class="req">*</span></label>
+        <input type="datetime-local" value="2026-11-01T02:00">
+      </div>
+      <div class="form-item">
+        <label>同步频率 <span class="req">*</span></label>
+        <select><option>每日 02:00 增量同步</option><option>每 4 小时增量同步</option><option>仅手工触发</option></select>
+      </div>
+      <div class="form-item col-full">
+        <label>切换后字段留存对照 <span class="req">*</span></label>
+        <textarea rows="5" readonly>已导入 2,000 套（保留原标记）：入库类型 = 批量导入；报送单位 = 株洲城发高科集团；导入批次号 = DR2026-09-118
+新同步房源（自动标记）：入库类型 = 接口对接；来源系统 = 省保障性租赁住房系统；同步时间 = 2026-11-01 02:00:00
+来源渠道（两类均不变）：收购商品房转化（QD-02），入库类型与来源渠道分别标注、互不替代
+统计与导出：可按入库类型筛选、统计与导出，两类记录在同一项目下并存</textarea>
+      </div>
+      <div class="form-item col-full">
+        <label>切换说明 <span class="req">*</span></label>
+        <textarea rows="4">按 2026 年 9 月 6 日会议明确的过渡安排，湘江1958 人才公寓（一、二期）在省保障性租赁住房系统接口开通后切换为接口对接。切换范围限定为「仅新增同步房源」，已批量导入的 2,000 套房源保留原标记（报送单位 株洲城发高科集团、导入批次号 DR2026-09-118），两类记录并存，不做全项目重新标记，避免丢失导入批次可追溯性。来源渠道仍归集为收购商品房转化，不因入库方式变化而调整。</textarea>
+      </div>
+    </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn" onclick="PMS.toast('已保存为草稿，接口开通后可再提交','success')">存草稿</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认将项目「湘江1958 人才公寓（一、二期）」切换为接口对接？',detail:'切换范围为仅新增同步房源，首次同步时间 2026-11-01 02:00。已导入房源保留原标记（株洲城发高科集团 / DR2026-09-118），两类记录并存，可按入库类型分别筛选、统计与导出。来源渠道仍为收购商品房转化，入库类型与来源渠道分别标注、互不替代。接口未开通期间本申请保存为「切换中」，接口开通后自动生效。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('切换申请已提交，状态为切换中；已导入房源保留原标记，两类记录并存','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+  </div>
+</div>
+
+<script>
+(function () {
+  var ts = document.querySelectorAll('main.app-main .table-wrap > table.data-table');
+  if (ts[0]) { ts[0]._total = 5; }
+  if (ts[1]) { ts[1]._total = 8; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

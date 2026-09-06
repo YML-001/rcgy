@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>评价结果统计与公开 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="manager" data-active="ops-13">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 运营考核与工单服务
+      <span class="sep">/</span> 服务评价管理
+      <span class="sep">/</span> <span class="cur">评价结果统计与公开</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.confirm({title:'公开确认',message:'确认向管理端公开 2026 年 9 月服务评价结果？',detail:'公开范围为管理端（市住建部门、市保障性住房服务中心、各运营机构管理账号），不向社会公众发布；公开内容含机构排名、楼盘得分与指标短板，承租人姓名一律脱敏（姓 + ××），意见正文只展示归类摘要。公开后运营机构可在运营机构端查看本机构结果并提出复议。',type:'warning',okText:'确认公开',onOk:function(){PMS.toast('已向管理端公开本期评价结果，承租人姓名已脱敏','success');}})"><i class="fa-solid fa-bullhorn"></i> 向管理端公开本期结果</button>
+      <button class="btn" onclick="location.href='eval-subsidy.html'"><i class="fa-solid fa-link"></i> 补助挂钩核定</button>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出评价结果</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>按<b>运营机构、楼盘、月份</b>统计物业服务与运营单位服务评价得分并<b>排名</b>，结果<b>向管理端公开</b>（承租人姓名脱敏）。<b>低于约定标准（90 分）的按分档扣减政府购买服务补助</b>，扣减比例按楼盘评价得分逐楼盘适用。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-broom"></i></div>
+      <div><div class="s-label">本期物业均分</div><div class="s-value">83.6</div>
+        <div class="s-trend text-2">满分 100 分 · 剔除无效问卷后</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-building-user"></i></div>
+      <div><div class="s-label">本期运营均分</div><div class="s-value">85.1</div>
+        <div class="s-trend text-danger">全市综合 84.4 · 较上期 ↓ 0.2 分</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-ranking-star"></i></div>
+      <div><div class="s-label">最高分机构</div><div class="s-value">91.3</div>
+        <div class="s-trend text-2">株洲市人才安居服务有限公司 · 优秀</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon red"><i class="fa-solid fa-arrow-trend-down"></i></div>
+      <div><div class="s-label">低于约定标准的楼盘</div><div class="s-value">4</div>
+        <div class="s-trend ">个 · 共 5 个楼盘 · 约定标准 90 分</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card" data-tabs-scope>
+    <div class="tabs" style="margin-bottom:0;padding:8px 12px 0">
+      <div class="tab active" data-tab="rank">运营机构排名 <span class="badge blue">3</span></div>
+      <div class="tab" data-tab="month">按楼盘 × 月份</div>
+      <div class="tab" data-tab="weak">指标短板分析 <span class="badge orange">6</span></div>
+      <div class="tab" data-tab="rule">统计口径</div>
+    </div>
+
+    <div class="tab-panel active" data-panel="rank">
+      <div class="card-body" style="padding:0">
+        <div class="filter-bar">
+          <div class="filter-item"><label>评价周期</label><select><option>2026 年 9 月</option><option>2026 年 8 月</option><option>2026 年 7 月</option><option>2026 年第三季度</option></select></div>
+          <div class="filter-item"><label>运营机构</label><select><option value="">全部</option><option>株洲市人才安居服务有限公司</option><option>株洲城发物业服务有限公司</option><option>清水塘社区服务有限公司</option></select></div>
+          <div class="filter-item"><label>评价对象</label><select data-dict="evalObject" data-ph="全部"></select></div>
+          <div class="filter-item"><label>评价等级</label><select><option value="">全部</option><option>优秀（≥ 90）</option><option>良好（85—89.9）</option><option>合格（80—84.9）</option><option>待改进（70—79.9）</option><option>不合格（&lt; 70）</option></select></div>
+          <div class="filter-actions">
+            <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+            <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th class="num">排名</th><th class="cell-lg">运营机构</th><th class="num">在管楼盘数</th><th class="num">在管房源</th><th class="num">物业服务得分</th><th class="num">运营服务得分</th><th class="num">综合得分</th><th>较上期升降</th><th>评价等级</th><th>对应扣减比例</th><th>操作</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="num">1</td><td>株洲市人才安居服务有限公司</td><td class="num">2</td><td class="num">720</td><td class="num">90.7</td><td class="num">91.9</td><td class="num"><b>91.3</b></td><td><span class="text-success">↑ 0.4</span></td><td><span class="badge green">优秀</span></td><td><span class="badge green">不扣减</span></td><td><span class="link" onclick="location.href='eval-subsidy.html'">补助挂钩明细</span></td></tr>
+              <tr class="row-warn"><td class="num">2</td><td>株洲城发物业服务有限公司</td><td class="num">2</td><td class="num">370</td><td class="num">80.0</td><td class="num">81.6</td><td class="num"><b>80.8</b></td><td><span class="text-danger">↓ 0.8</span></td><td><span class="badge orange">合格</span></td><td><span class="badge orange">所辖楼盘扣减 5% / 10%</span></td><td><span class="link" onclick="location.href='eval-subsidy.html'">补助挂钩明细</span></td></tr>
+              <tr class="row-bad"><td class="num">3</td><td>清水塘社区服务有限公司</td><td class="num">1</td><td class="num">260</td><td class="num">67.8</td><td class="num">69.4</td><td class="num"><b>68.6</b></td><td><span class="text-danger">↓ 1.6</span></td><td><span class="badge red">不合格</span></td><td><span class="badge red">扣减 20% + 约谈整改</span></td><td><span class="link" onclick="location.href='eval-subsidy.html'">补助挂钩明细</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-panel" data-panel="month">
+      <div class="card-body">
+        <div class="sp-scroll">
+          <div class="sp-block" style="margin-bottom:0">
+            <div class="sp-h"><i class="fa-solid fa-calendar-days"></i> 按楼盘 × 月份综合得分<span class="sub">N5-03 · 2026 年 7—9 月 · 综合得分 =（物业服务 + 运营单位服务）÷ 2</span></div>
+            <div class="sp-b">
+              <div class="sp-tw">
+                <table class="data-table compact">
+                  <thead><tr><th class="cell-lg">楼盘</th><th class="cell-lg">运营机构</th><th class="num">7 月</th><th class="num">8 月</th><th class="num">9 月</th><th>趋势</th><th>本期等级</th><th class="cell-lg">主要短板指标</th><th>操作</th></tr></thead>
+                  <tbody>
+                    <tr><td>云龙人才公寓</td><td>株洲市人才安居服务有限公司</td><td class="num">89.8</td><td class="num">91.0</td><td class="num"><b>93.7</b></td><td><span class="text-success">↑ 连续上升</span></td><td><span class="badge green">优秀</span></td><td><span class="muted">无明显短板</span></td><td><span class="link" onclick="location.href='eval-collect.html'">评价明细</span></td></tr>
+                    <tr><td>湘江1958 人才公寓</td><td>株洲市人才安居服务有限公司</td><td class="num">91.6</td><td class="num">90.8</td><td class="num"><b>89.6</b></td><td><span class="text-danger">↓ 连续下降</span></td><td><span class="badge green">良好</span></td><td class="cell-lg">报修及时率 78.2（权重 25%），周末无值班维修</td><td><span class="link" onclick="location.href='eval-collect.html'">评价明细</span></td></tr>
+                    <tr><td>董家塅人才公寓</td><td>株洲城发物业服务有限公司</td><td class="num">84.6</td><td class="num">83.8</td><td class="num"><b>83.3</b></td><td><span class="text-danger">↓ 小幅下降</span></td><td><span class="badge orange">合格</span></td><td>公共设施维护 79.4，电梯与公共照明故障处理慢</td><td><span class="link" onclick="location.href='eval-collect.html'">评价明细</span></td></tr>
+                    <tr class="row-warn"><td>田心人才公寓</td><td>株洲城发物业服务有限公司</td><td class="num">80.2</td><td class="num">78.6</td><td class="num"><b>77.4</b></td><td><span class="text-danger">↓ 连续下降</span></td><td><span class="badge orange">待改进</span></td><td>环境卫生 72.6，楼道杂物堆放、垃圾清运不及时</td><td><span class="link" onclick="location.href='eval-collect.html'">评价明细</span></td></tr>
+                    <tr class="row-bad"><td>清水塘·未来社区</td><td>清水塘社区服务有限公司</td><td class="num">72.4</td><td class="num">70.2</td><td class="num"><b>68.6</b></td><td><span class="text-danger">↓ 连续下降</span></td><td><span class="badge red">不合格</span></td><td class="cell-lg">房屋交付质量 64.8、报修及时率 62.4、投诉处理 66.2</td><td><span class="link" onclick="location.href='eval-collect.html'">评价明细</span></td></tr>
+                    <tr><td><span class="badge green">合计</span> <b>全市加权均分</b></td><td><b>3 家运营机构 / 1,192 户</b></td><td class="num"><b>85.3</b></td><td class="num"><b>84.6</b></td><td class="num"><b>84.4</b></td><td><span class="text-danger">↓ 连续下降</span></td><td><span class="badge orange">合格</span></td><td>报修及时率 81.8 为全市均分最低指标</td><td><span class="muted">—</span></td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="hint" style="margin-top:8px">
+                <i class="fa-solid fa-circle-info"></i>
+                全市加权均分按各楼盘在租套数（386 / 268 / 214 / 186 / 138，合计 1,192 户）加权计算。连续两期评价等级为待改进及以下的，由市保障性住房服务中心约谈整改。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-panel" data-panel="weak">
+      <div class="card-body">
+        <div class="sp-scroll">
+          <div class="sp-block" style="margin-bottom:0">
+            <div class="sp-h"><i class="fa-solid fa-magnifying-glass-chart"></i> 指标短板分析<span class="sub">N5-03 · 按全市均分由低到高排列</span></div>
+            <div class="sp-b">
+              <div class="sp-tw">
+                <table class="data-table compact">
+                  <thead><tr><th>指标名称</th><th>所属问卷类型</th><th class="num">全市均分</th><th class="cell-lg">最低楼盘</th><th class="num">最低分</th><th class="cell-lg">主要意见归类</th><th class="cell-lg">改进要求</th></tr></thead>
+                  <tbody>
+                    <tr class="row-bad"><td>报修及时率</td><td><span class="badge blue">物业服务</span></td><td class="num">81.8</td><td>清水塘·未来社区</td><td class="num">62.4</td><td class="cell-lg">周末与夜间无人上门（占 46.2%）、超时未反馈进度（占 31.4%）</td><td class="cell-lg">10 月起落实周末值班维修并公布值班电话，紧急工单 4 小时内上门</td></tr>
+                    <tr class="row-warn"><td>投诉处理</td><td><span class="badge blue">物业服务</span></td><td class="num">82.4</td><td>清水塘·未来社区</td><td class="num">66.2</td><td class="cell-lg">办结慢（占 51.8%）、办理结果未回告（占 26.4%）</td><td class="cell-lg">投诉件 5 个工作日内办结并电话回告，纳入运营机构考核扣分</td></tr>
+                    <tr class="row-bad"><td>房屋交付质量</td><td><span class="badge cyan">运营单位服务</span></td><td class="num">82.6</td><td>清水塘·未来社区</td><td class="num">64.8</td><td class="cell-lg">家电故障（占 42.6%）、交付未清洁（占 28.2%）、验收单据不全（占 18.4%）</td><td class="cell-lg">交付前逐套验房并签交付验收单，家电通电测试留影像存档</td></tr>
+                    <tr class="row-warn"><td>公共设施维护</td><td><span class="badge blue">物业服务</span></td><td class="num">83.0</td><td>董家塅人才公寓</td><td class="num">79.4</td><td class="cell-lg">电梯故障频次高（占 38.6%）、公共照明与充电桩损坏（占 34.2%）</td><td class="cell-lg">建立公共设施台账并按月巡检，电梯故障 24 小时内修复</td></tr>
+                    <tr><td>环境卫生</td><td><span class="badge blue">物业服务</span></td><td class="num">84.6</td><td>田心人才公寓</td><td class="num">72.6</td><td class="cell-lg">楼道堆放杂物（占 44.8%）、垃圾清运不及时（占 32.6%）</td><td>楼道杂物一周内清理到位，垃圾清运每日不少于两次</td></tr>
+                    <tr><td>政策告知</td><td><span class="badge cyan">运营单位服务</span></td><td class="num">84.8</td><td>田心人才公寓</td><td class="num">76.8</td><td class="cell-lg">续租年审政策不清楚（占 48.2%）、补助分担未主动说明（占 30.6%）</td><td class="cell-lg">入住与年审前主动书面告知，服务专员一对一解释并留签收记录</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="hint" style="margin-top:8px">
+                <i class="fa-solid fa-circle-info"></i>
+                全市均分按各指标权重加权后即为问卷类型均分：物业服务 83.6 分、运营单位服务 85.1 分。改进要求随本期结果一并向运营机构下达，10 月周期复评。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-panel" data-panel="rule">
+      <div class="card-body">
+        <div class="sp-scroll">
+          <div class="sp-block" style="margin-bottom:0">
+            <div class="sp-h"><i class="fa-solid fa-list"></i> 统计口径<span class="sub">N5-03 · 得分与等级算法</span></div>
+            <div class="sp-b">
+              <div class="sp-tw">
+                <table class="data-table compact">
+                  <thead><tr><th>口径编码</th><th>口径名称</th><th class="cell-lg">算法与说明</th></tr></thead>
+                  <tbody>
+                    <tr><td><b>TJ-01</b></td><td>单份问卷得分</td><td class="cell-lg"><b>得分 = Σ（指标折算百分制得分 × 指标权重）</b>，权重取该问卷所属版本（当前 V2026-09）的口径</td></tr>
+                    <tr><td><b>TJ-02</b></td><td>5 星折百分制</td><td class="cell-lg">承租人 5 星评分按每星 20 分折算：1 星 = 20 分、3 星 = 60 分、5 星 = 100 分；报修及时率由工单数据折算</td></tr>
+                    <tr><td><b>TJ-03</b></td><td>剔除无效问卷</td><td class="cell-lg">标记为「无效-重复提交」「无效-恶意评分」的问卷<b>不参与</b>均分与排名；本期剔除 16 份，按有效 1,008 份计算</td></tr>
+                    <tr><td><b>TJ-04</b></td><td>楼盘与机构得分</td><td class="cell-lg">楼盘得分 = 该楼盘有效问卷算术平均；机构得分 = 所辖楼盘得分按<b>在租套数加权平均</b>；<b>综合得分 =（物业服务得分 + 运营单位服务得分）÷ 2</b>，均保留一位小数</td></tr>
+                    <tr><td><b>TJ-05</b></td><td>评价等级划分</td><td class="cell-lg">优秀 ≥ 90 / 良好 85—89.9 / 合格 80—84.9 / 待改进 70—79.9 / 不合格 &lt; 70，对应扣减 0% / 2% / 5% / 10% / 20%</td></tr>
+                    <tr><td><b>TJ-06</b></td><td>回收率不足 60%</td><td class="cell-lg">该评价周期结果<b>仅作参考，不作为补助扣减依据</b>；本期各楼盘回收率均高于 60%，结果可用于扣减</td></tr>
+                    <tr><td><b>TJ-07</b></td><td>连续两期待改进</td><td class="cell-lg">连续两期评价等级为待改进及以下的，由市保障性住房服务中心<b>约谈整改</b>并纳入运营机构考核结果应用</td></tr>
+                    <tr><td><b>TJ-08</b></td><td>扣减适用层级</td><td class="cell-lg">扣减比例按<b>楼盘</b>评价得分逐楼盘适用于该楼盘应补金额；机构综合得分仅用于排名与公开，不直接用于扣减计算</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sp-src">
+    <span><b>依据</b> 2026 年 9 月 6 日向市住建局汇报讨论会议决议</span>
+    <span><b>等级划分</b> 优秀 ≥ 90 / 良好 85—89.9 / 合格 80—84.9 / 待改进 70—79.9 / 不合格 &lt; 70</span>
+    <span><b>公开范围</b> 管理端公开，承租人姓名脱敏（姓 + ××）</span>
+    <span><b>下游环节</b> <span class="link" onclick="location.href='eval-subsidy.html'">评价与补助挂钩</span></span>
+  </div>
+</main>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 3; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

@@ -25,14 +25,14 @@
 
   <div class="alert alert-warning">
     <i class="fa-solid fa-triangle-exclamation"></i>
-    <div>保障期届满前<b>自动发起续租资格复核</b>，调取<b>住房、就业、纳税、社保</b>数据自动比对。复核于届满前 90 天自动触发，异常件转人工核查。</div>
+    <div><b>保障期满 2 年前自动发起续租资格复核</b>：承租满 2 年、保障期届满前 90 天由系统自动触发，调取<b>住房、就业、纳税、社保</b>数据自动比对，异常件转人工核查。结论分四种情形 —— 仍符合人才条件的<b>继续享受租金减免</b>；不再符合人才条件但<b>符合公租房条件的可续租、按实际市场租金标准计费、不再享受财政补助</b>；均不符合的<b>启动退出腾退</b>；<b>保障期内经核查已购房的一并纳入退出处理</b>。<span class="link" onclick="location.href='renew-conclusion.html'">续租结论处理</span></div>
   </div>
 
   <div class="stat-grid">
     <div class="stat-card">
       <div class="s-icon blue"><i class="fa-solid fa-rotate"></i></div>
       <div><div class="s-label">在办复核</div><div class="s-value">86</div>
-        <div class="s-trend text-2">届满前 90 天内</div></div>
+        <div class="s-trend text-2">保障期满 2 年前自动发起 · 届满前 90 天内</div></div>
     </div>
     <div class="stat-card">
       <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
@@ -46,8 +46,8 @@
     </div>
     <div class="stat-card">
       <div class="s-icon red"><i class="fa-solid fa-circle-exclamation"></i></div>
-      <div><div class="s-label">完全不符合</div><div class="s-value">2</div>
-        <div class="s-trend text-2">启动退出清退</div></div>
+      <div><div class="s-label">拟启动退出腾退</div><div class="s-value">2</div>
+        <div class="s-trend text-2">含保障期内已购房 1 件</div></div>
     </div>
   </div>
 
@@ -56,7 +56,8 @@
       <div class="filter-item"><label>复核批次</label><input type="text" placeholder="批次编号"></div>
       <div class="filter-item"><label>承租人</label><input type="text" placeholder="姓名"></div>
       <div class="filter-item"><label>合同编号</label><input type="text" placeholder="合同编号"></div>
-      <div class="filter-item"><label>异常项</label><select><option value="">全部</option><option>住房情况</option><option>就业情况</option><option>纳税情况</option><option>社保情况</option><option>欠费情况</option></select></div>
+      <div class="filter-item"><label>异常项</label><select><option value="">全部</option><option>住房情况</option><option>保障期内已购房</option><option>就业情况</option><option>纳税情况</option><option>社保情况</option><option>欠费情况</option></select></div>
+      <div class="filter-item"><label>结论倾向</label><select><option value="">全部</option><option>继续享受租金减免</option><option>符合公租房条件续租（市场租金）</option><option>启动退出腾退</option><option>已购房纳入退出处理</option></select></div>
       <div class="filter-item"><label>复核状态</label><select><option value="">全部</option><option>复核中</option><option>已出结论</option><option>转人工核查</option></select></div>
       <div class="filter-actions">
         <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
@@ -67,21 +68,27 @@
     <div class="table-wrap">
       <table class="data-table">
         <thead>
-          <tr><th>复核编号</th><th>承租人</th><th class="cell-lg">房源</th><th>保障期止</th><th>住房</th><th>就业</th><th>纳税</th><th>社保</th><th>欠费</th><th>复核状态</th><th>操作</th></tr>
+          <tr><th>复核编号</th><th>承租人</th><th class="cell-lg">房源</th><th>保障期止</th><th>触发时点</th><th>住房</th><th>就业</th><th>纳税</th><th>社保</th><th>欠费</th><th class="cell-lg">结论倾向</th><th>复核状态</th><th>操作</th></tr>
         </thead>
         <tbody>
-          <tr class="row-bad"><td>XZ2026-12-0186</td><td>谭建国</td><td>栗雨佳苑 3-0608</td><td>2026-03-11</td><td><span class="badge green">符合</span></td><td><span class="badge green">符合</span></td><td><span class="badge green">符合</span></td><td><span class="badge green">符合</span></td><td><span class="badge green">无欠费</span></td><td><span class="badge green">已出结论</span></td><td><span class="link" onclick="location.href='renew-conclusion.html'">三类结论</span></td></tr>
-          <tr class="row-warn"><td>XZ2026-12-0202</td><td>周宇轩</td><td>栗雨佳苑 3-0904</td><td>2028-04-11</td><td><span class="badge green">符合</span></td><td><span class="badge red">已离职</span></td><td><span class="badge red">无记录</span></td><td><span class="badge red">已停缴</span></td><td><span class="badge red">欠费 1 期</span></td><td><span class="badge orange">转人工核查</span></td><td><span class="link" onclick="PMS.openDrawer('xzDrawer')">人工核查</span></td></tr>
-          <tr class="row-warn"><td>XZ2026-12-0214</td><td>李子康</td><td>湘江1958 A3-1108 主卧</td><td>2028-03-07</td><td><span class="badge green">符合</span></td><td><span class="badge green">符合</span></td><td><span class="badge green">符合</span></td><td><span class="badge green">符合</span></td><td><span class="badge green">无欠费</span></td><td><span class="badge orange">复核中</span></td><td><span class="link" onclick="PMS.openDrawer('xzDrawer')">人工核查</span></td></tr>
-          <tr class="row-bad"><td>XZ2026-12-0228</td><td>曾××</td><td>湘江1958 A3-0906</td><td>2028-02-18</td><td><span class="badge red">已购房</span></td><td><span class="badge green">符合</span></td><td><span class="badge green">符合</span></td><td><span class="badge green">符合</span></td><td><span class="badge red">欠费 3 期</span></td><td><span class="badge orange">转人工核查</span></td><td><span class="link" onclick="PMS.openDrawer('xzDrawer')">人工核查</span></td></tr>
+          <tr class="row-bad"><td>XZ2026-12-0186</td><td>谭建国</td><td>栗雨佳苑 3-0608</td><td>2026-03-11</td><td>2025-12-11<br><span class="muted">满 2 年前 90 天</span></td><td><span class="badge green">符合</span></td><td><span class="badge green">符合</span></td><td><span class="badge green">符合</span></td><td><span class="badge green">符合</span></td><td><span class="badge green">无欠费</span></td><td><span class="badge orange">符合公租房条件续租</span><br><span class="muted">按实际市场租金计费，不再享受财政补助</span></td><td><span class="badge green">已出结论</span></td><td><span class="link" onclick="location.href='renew-conclusion.html'">结论处理</span></td></tr>
+          <tr class="row-warn"><td>XZ2026-12-0202</td><td>周宇轩</td><td>栗雨佳苑 3-0904</td><td>2028-04-11</td><td>2028-01-11<br><span class="muted">满 2 年前 90 天</span></td><td><span class="badge green">符合</span></td><td><span class="badge red">已离职</span></td><td><span class="badge red">无记录</span></td><td><span class="badge red">已停缴</span></td><td><span class="badge red">欠费 1 期</span></td><td><span class="badge red">启动退出腾退</span><br><span class="muted">人才条件与公租房条件均不符合</span></td><td><span class="badge orange">转人工核查</span></td><td><span class="link" onclick="PMS.openDrawer('xzDrawer')">人工核查</span></td></tr>
+          <tr class="row-warn"><td>XZ2026-12-0214</td><td>李子康</td><td>湘江1958 A3-1108 主卧</td><td>2028-03-07</td><td>2027-12-07<br><span class="muted">满 2 年前 90 天</span></td><td><span class="badge green">符合</span></td><td><span class="badge green">符合</span></td><td><span class="badge green">符合</span></td><td><span class="badge green">符合</span></td><td><span class="badge green">无欠费</span></td><td><span class="badge green">继续享受租金减免</span><br><span class="muted">仍符合人才条件，租金标准不变</span></td><td><span class="badge orange">复核中</span></td><td><span class="link" onclick="PMS.openDrawer('xzDrawer')">人工核查</span></td></tr>
+          <tr class="row-bad"><td>XZ2026-12-0228</td><td>曾××</td><td>湘江1958 A3-0906</td><td>2028-02-18</td><td>2027-11-18<br><span class="muted">满 2 年前 90 天</span></td><td><span class="badge red">已购房</span></td><td><span class="badge green">符合</span></td><td><span class="badge green">符合</span></td><td><span class="badge green">符合</span></td><td><span class="badge red">欠费 3 期</span></td><td><span class="badge red">已购房纳入退出处理</span><br><span class="muted">保障期内经核查已购房，一并纳入退出</span></td><td><span class="badge orange">转人工核查</span></td><td><span class="link" onclick="PMS.openDrawer('xzDrawer')">人工核查</span></td></tr>
+          <tr class="row-bad"><td>XZ2026-12-0246</td><td>郑××</td><td>茨菇塘公寓 5-1204</td><td>2028-06-30</td><td>2026-09-02<br><span class="muted text-danger">购房核查即时触发</span></td><td><span class="badge red">已购房</span></td><td><span class="badge green">符合</span></td><td><span class="badge green">符合</span></td><td><span class="badge green">符合</span></td><td><span class="badge green">无欠费</span></td><td><span class="badge red">已购房纳入退出处理</span><br><span class="muted">保障期内（距届满 21 个月）在天元区购房，不待满 2 年即启动退出</span></td><td><span class="badge orange">转人工核查</span></td><td><span class="link" onclick="PMS.openDrawer('xzDrawer')">人工核查</span></td></tr>
         </tbody>
       </table>
     </div>
   </div>
   <div class="sp-src">
-    <span><b>触发时点</b> 保障期届满前 90 天自动发起</span>
+    <span><b>触发时点</b> <b>保障期满 2 年前自动发起续租资格复核</b>：承租满 2 年、保障期届满前 90 天由系统自动触发，无需承租人申请；<b>保障期内经核查已购房的即时触发</b>，不待满 2 年</span>
     <span><b>复核数据</b> 住房（不动产）、就业（人社 + 单位上报）、纳税（税务）、社保（人社）、欠费（本系统台账）</span>
-    <span><b>政策依据</b> 管理办法第十二条：动态管理，承租满 2 年后仍符合条件的可继续承租</span>
+    <span><b>结论一</b> 仍符合人才条件的<b>继续享受租金减免</b>，租金标准与减免比例不变，进入下一年审周期</span>
+    <span><b>结论二</b> 不再符合人才条件但<b>符合公租房条件的可续租</b>，<b>按实际市场租金标准计费、不再享受财政补助</b></span>
+    <span><b>结论三</b> 人才条件与公租房条件<b>均不符合的启动退出腾退</b></span>
+    <span><b>情形四</b> <b>保障期内经核查已购房的一并纳入退出处理</b>，无论人才条件与公租房条件是否符合，一律按退出腾退办理</span>
+    <span><b>异常处理</b> 存在异常项的转人工核查，按不相容岗位控制由经办人与复核人分别办理，全程留痕</span>
+    <span><b>政策依据</b> 管理办法第十二条：动态管理，承租满 2 年后仍符合条件的可继续承租　·　<span class="link" onclick="location.href='renew-conclusion.html'">续租结论处理</span></span>
   </div>
 </main>
 
@@ -101,11 +108,12 @@
       <div class="form-grid form-align">
         <div class="form-item col-full">
           <label>审核结论 <span class="req">*</span></label>
-          <select><option value="">全部</option><option>继续享受人才住房政策</option><option>转按市场租金续租</option><option>启动退出清退</option></select>
+          <select><option>继续享受租金减免（仍符合人才条件）</option><option>符合公租房条件续租（按实际市场租金计费、不再享受财政补助）</option><option>启动退出腾退（均不符合）</option><option>已购房纳入退出处理（保障期内经核查已购房）</option></select>
+          <div class="hint">四种情形按 R-X1 至 R-X4 判定；已购房的一律纳入退出处理</div>
         </div>
         <div class="form-item col-full">
           <label>结论说明 <span class="req">*</span></label>
-          <textarea id="xzDrawerTxt" rows="4" placeholder="必填，不少于 10 字。说明对申请人完整可见">经人工核查，承租人已离职并停缴社保、无当年纳税记录且欠费 1 期，已不符合人才住房保障条件；按管理办法第十二条不再享受人才政策，转按市场租金续租并限期结清欠费。</textarea>
+          <textarea id="xzDrawerTxt" rows="4" placeholder="必填，不少于 10 字。说明对申请人完整可见">经人工核查，承租人已离职并停缴社保、无当年纳税记录且欠费 1 期，已不符合人才住房保障条件；经核对公租房管理系统，亦不符合公租房申请条件。按管理办法第十二条，人才条件与公租房条件均不符合，启动退出腾退，同时限期结清欠费。如后续核查发现保障期内已购房，一并纳入退出处理。</textarea>
         </div>
       </div>
     <p class="hint" style="margin-top:12px"><i class="fa-solid fa-circle-info"></i> 结论提交后写入办件状态流水（含操作人、时间、IP 与前后值），可被审计追溯。</p>

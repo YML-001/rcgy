@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>导入失败明细与重传 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="housing" data-active="house-33">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 房源筹集与楼盘表
+      <span class="sep">/</span> 房源导入与来源台账
+      <span class="sep">/</span> <span class="cur">导入失败明细与重传</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.openDrawer('retryDrawer')"><i class="fa-solid fa-upload"></i> 批次重传</button>
+      <button class="btn" onclick="PMS.confirm({title:'导出确认',message:'确认导出本月导入失败清单？',detail:'清单按批次分表，逐行包含行号、房号、命中规则编码、字段名、原始值、错误原因与修正建议，共 268 行，可直接在原报送文件中定位修正。',type:'info',okText:'确认导出',onOk:function(){PMS.toast('失败清单已导出（268 行），修正后可就该批次重新上传','success');}})"><i class="fa-solid fa-download"></i> 导出失败清单</button>
+      <a class="btn" href="import-rule.html"><i class="fa-solid fa-shield-halved"></i> 校验规则配置</a>
+      <a class="btn" href="import-load.html"><i class="fa-solid fa-file-import"></i> 分批导入</a>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>按批次展示成功与失败条数，<b>失败明细连同错误原因一并导出</b>。修正后可<b>就该批次重新上传</b>，<b>不影响其他批次</b>；已入库成功行按房号幂等，不重复入库。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card dc-alarm">
+      <div class="s-icon red"><i class="fa-solid fa-circle-xmark"></i></div>
+      <div><div class="s-label">本月失败行</div><div class="s-value">268</div>
+        <div class="s-trend ">行 · 占本月导入量 2.7%</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-layer-group"></i></div>
+      <div><div class="s-label">涉及批次</div><div class="s-value">6</div>
+        <div class="s-trend text-2">批 · 均已回显错误行号</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-rotate"></i></div>
+      <div><div class="s-label">已修正重传</div><div class="s-value">4</div>
+        <div class="s-trend text-2">批 · 累计补入库 204 行</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-hourglass-half"></i></div>
+      <div><div class="s-label">待处理</div><div class="s-value">2</div>
+        <div class="s-trend ">批 · 已催办报送单位</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card" data-tabs-scope>
+    <div class="filter-bar">
+      <div class="filter-item"><label>批次号</label><input type="text" value="DR2026-09-118" placeholder="批次号"></div>
+      <div class="filter-item"><label>导入项目</label><input type="text" value="湘江1958 人才公寓" placeholder="项目名称"></div>
+      <div class="filter-item"><label>房号</label><input type="text" value="A6-1502" placeholder="房号"></div>
+      <div class="filter-item"><label>命中规则</label><select><option value="">全部</option><option>JY-01 房号唯一性</option><option>JY-02 建筑面积格式</option><option>JY-03 面积逻辑</option><option>JY-04 装修标准字典</option><option>JY-05 租金标准区间</option><option>JY-06 楼层逻辑</option><option>JY-08 家电家具非空</option><option>JY-10 来源渠道字典</option></select></div>
+      <div class="filter-item"><label>处理状态</label><select><option value="">全部</option><option>待处理</option><option>处理中</option><option>已修正重传</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+    <div class="tabs">
+      <div class="tab active" data-tab="sum">按批次汇总 <span class="badge blue">6</span></div>
+      <div class="tab" data-tab="detail">失败明细 <span class="badge red">268</span></div>
+    </div>
+    <div class="tab-panel active" data-panel="sum">
+    <div class="card-body">
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>批次号</th><th class="cell-lg">导入项目</th><th class="num">总条数</th><th class="num">成功</th><th class="num">失败</th><th>失败率</th><th class="cell-lg">主要失败原因</th><th>状态</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>DR2026-09-118</td><td>湘江1958 人才公寓（二期）</td><td class="num">2,000</td><td class="num">1,946</td><td class="num">54</td><td><span class="badge orange">2.7%</span></td><td>JY-01 房号唯一性：批次内重复 12 行、与 DR2026-09-115 跨批次重复 42 行</td><td><span class="badge green">已重传完成</span></td><td><span class="link" onclick="PMS.toast('已定位至该批次失败明细，共 54 行')">查看明细</span> <span class="link" onclick="PMS.openDrawer('retryDrawer')">重传</span> <span class="link" onclick="PMS.toast('DR2026-09-118 失败清单已导出（54 行）','success')">导出失败清单</span></td></tr>
+          <tr class="row-bad"><td>DR2026-09-121</td><td>清水塘·未来社区（一期）</td><td class="num">1,800</td><td class="num">0</td><td class="num">88</td><td><span class="badge red">4.9%</span></td><td>JY-03 面积逻辑错误 62 行、JY-02 建筑面积格式错误 26 行，<b>整批拦截，全批未入库</b></td><td><span class="badge orange">待处理</span></td><td><span class="link" onclick="PMS.toast('已定位至该批次失败明细，共 88 行')">查看明细</span> <span class="link" onclick="PMS.openDrawer('retryDrawer')">重传</span> <span class="link" onclick="PMS.toast('DR2026-09-121 失败清单已导出（88 行）','success')">导出失败清单</span></td></tr>
+          <tr><td>DR2026-09-124</td><td>云龙人才公寓</td><td class="num">1,400</td><td class="num">1,352</td><td class="num">48</td><td><span class="badge orange">3.4%</span></td><td>JY-05 租金标准超出 8.00—30.00 区间 32 行、JY-10 来源渠道非四类口径 16 行</td><td><span class="badge green">已重传完成</span></td><td><span class="link" onclick="PMS.toast('已定位至该批次失败明细，共 48 行')">查看明细</span> <span class="link" onclick="PMS.openDrawer('retryDrawer')">重传</span> <span class="link" onclick="PMS.toast('DR2026-09-124 失败清单已导出（48 行）','success')">导出失败清单</span></td></tr>
+          <tr><td>DR2026-09-126</td><td>董家塅人才公寓</td><td class="num">1,200</td><td class="num">1,164</td><td class="num">36</td><td><span class="badge orange">3.0%</span></td><td>JY-04 装修标准非字典值 36 行（填报「全装修」，应为「精装 · 拎包入住」）</td><td><span class="badge green">已重传完成</span></td><td><span class="link" onclick="PMS.toast('已定位至该批次失败明细，共 36 行')">查看明细</span> <span class="link" onclick="PMS.openDrawer('retryDrawer')">重传</span> <span class="link" onclick="PMS.toast('DR2026-09-126 失败清单已导出（36 行）','success')">导出失败清单</span></td></tr>
+          <tr><td>DR2026-09-129</td><td>田心人才公寓</td><td class="num">1,000</td><td class="num">974</td><td class="num">26</td><td><span class="badge orange">2.6%</span></td><td>JY-08 家电家具配置清单为空或少于 8 项 26 行（仅提示级别，未入库）</td><td><span class="badge green">已重传完成</span></td><td><span class="link" onclick="PMS.toast('已定位至该批次失败明细，共 26 行')">查看明细</span> <span class="link" onclick="PMS.openDrawer('retryDrawer')">重传</span> <span class="link" onclick="PMS.toast('DR2026-09-129 失败清单已导出（26 行）','success')">导出失败清单</span></td></tr>
+          <tr class="row-warn"><td>DR2026-09-131</td><td>渌口人才公寓</td><td class="num">600</td><td class="num">584</td><td class="num">16</td><td><span class="badge orange">2.7%</span></td><td>JY-06 所在楼层大于总层数 16 行（F1 栋总层数填报为 16，实际 18 层）</td><td><span class="badge orange">待处理</span></td><td><span class="link" onclick="PMS.toast('已定位至该批次失败明细，共 16 行')">查看明细</span> <span class="link" onclick="PMS.openDrawer('retryDrawer')">重传</span> <span class="link" onclick="PMS.toast('DR2026-09-131 失败清单已导出（16 行）','success')">导出失败清单</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+    </div>
+    <div class="tab-panel" data-panel="detail">
+    <div class="card-body">
+    <p class="hint">行号对应原报送文件中的行号 · 命中规则编码与<span class="link" onclick="location.href='import-rule.html'">导入校验规则配置</span>中的 JY-01 至 JY-12 一一对应</p>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th class="num">行号</th><th>批次号</th><th>房号</th><th>命中规则</th><th>字段名</th><th>原始值</th><th class="cell-lg">错误原因</th><th class="cell-lg">修正建议</th><th>处理状态</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="num">486</td><td>DR2026-09-118</td><td>A6-1502</td><td><span class="badge purple">JY-01</span></td><td>房号</td><td>A6-1502</td><td>房号 A6-1502 在批次 DR2026-09-118 内重复出现（第 486 行与第 1,208 行），命中房号唯一性校验</td><td>核实两行是否为同一套房源，删除重复行后重传</td><td><span class="badge green">已修正重传</span></td></tr>
+          <tr><td class="num">1208</td><td>DR2026-09-118</td><td>A6-1502</td><td><span class="badge purple">JY-01</span></td><td>房号</td><td>A6-1502</td><td>同第 486 行重复；一房一码经 MD5(项目编码 + 楼栋 + 单元 + 房号) 计算后完全一致</td><td>保留面积与租金标准正确的一行，删除另一行</td><td><span class="badge green">已修正重传</span></td></tr>
+          <tr class="row-warn"><td class="num">1526</td><td>DR2026-09-118</td><td>A6-1508</td><td><span class="badge purple">JY-01</span></td><td>房号</td><td>A6-1508</td><td>房号 A6-1508 与批次 DR2026-09-115 已入库房源跨批次重复，属一期已建账房源</td><td>本批次删除该行；如需修改已入库房源请走房源档案变更流程</td><td><span class="badge orange">待处理</span></td></tr>
+          <tr class="row-bad"><td class="num">268</td><td>DR2026-09-121</td><td>B2-0906</td><td><span class="badge orange">JY-03</span></td><td>套内面积</td><td>82.40</td><td>套内面积 82.40 ㎡ 大于建筑面积 78.60 ㎡，违反面积逻辑校验，<b>整批拦截</b></td><td>核对不动产登记面积，两列数值疑似填反，更正后整批重传</td><td><span class="badge green">已修正重传</span></td></tr>
+          <tr class="row-bad"><td class="num">512</td><td>DR2026-09-121</td><td>B3-1204</td><td><span class="badge blue">JY-02</span></td><td>建筑面积</td><td>96.5</td><td>建筑面积未保留两位小数，格式不符合 ^\d+\.\d{2}$ 要求，<b>整批拦截</b></td><td>改为 96.50 后整批重传，注意其余 25 行同类问题一并修正</td><td><span class="badge green">已修正重传</span></td></tr>
+          <tr><td class="num">88</td><td>DR2026-09-124</td><td>C1-0602</td><td><span class="badge orange">JY-05</span></td><td>租金标准</td><td>32.00</td><td>租金标准 32.00 元/㎡·月 超出 8.00—30.00 元/㎡·月核定区间</td><td>按市住建局核定标准填报（云龙人才公寓为 12.00 元/㎡·月）</td><td><span class="badge green">已修正重传</span></td></tr>
+          <tr><td class="num">402</td><td>DR2026-09-124</td><td>C2-1506</td><td><span class="badge cyan">JY-10</span></td><td>来源渠道</td><td>保租房一间房</td><td>来源渠道「保租房一间房」不在四类口径内（市本级存量 / 收购商品房转化 / 收购保租房转化 / 园区公租房纳管）</td><td>该项目属园区公租房纳管渠道，按 QD-04 取值后重传</td><td><span class="badge green">已修正重传</span></td></tr>
+          <tr><td class="num">342</td><td>DR2026-09-126</td><td>D4-1102</td><td><span class="badge cyan">JY-04</span></td><td>装修标准</td><td>全装修</td><td>装修标准「全装修」不在字典范围内，可选值：精装 · 拎包入住 / 简装 / 毛坯</td><td>已通过拎包入住验收的填「精装 · 拎包入住」，其余 35 行同类问题一并修正</td><td><span class="badge blue">处理中</span></td></tr>
+          <tr><td class="num">76</td><td>DR2026-09-129</td><td>E2-0804</td><td><span class="badge blue">JY-08</span></td><td>家电家具配置清单</td><td><span class="muted">（空）</span></td><td>家电家具配置清单为空，未达不少于 8 项要求；该规则为仅提示级别，本行未入库</td><td>按验收记录逐项列举，项间用顿号分隔，不少于 8 项</td><td><span class="badge blue">处理中</span></td></tr>
+          <tr class="row-warn"><td class="num">158</td><td>DR2026-09-131</td><td>F1-1802</td><td><span class="badge orange">JY-06</span></td><td>所在楼层</td><td>18</td><td>所在楼层 18 大于总层数 16，违反楼层逻辑校验（F1 栋总层数填报为 16，实际为 18 层）</td><td>更正 F1 栋总层数为 18，本批次 16 行同类问题一并修正后重传</td><td><span class="badge orange">待处理</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+    </div>
+  </div>
+
+  <div class="sp-block" style="margin-top:8px">
+    <div class="sp-h"><i class="fa-solid fa-list"></i> 重传边界<span class="sub">CZ-1 至 CZ-5 · 只影响本批次，按房号幂等</span></div>
+    <div class="sp-b">
+      <div class="sp-tw">
+        <table class="data-table compact">
+          <thead><tr><th>边界号</th><th>边界项</th><th class="cell-lg">说明</th></tr></thead>
+          <tbody>
+          <tr><td><b>CZ-1</b></td><td>只影响本批次</td><td>重传<b>仅作用于所选批次</b>，其他批次不受影响</td></tr>
+          <tr><td><b>CZ-2</b></td><td>成功行不重复入库</td><td><b>已入库成功行不重复入库</b>，按房号比对后跳过</td></tr>
+          <tr><td><b>CZ-3</b></td><td>按房号幂等</td><td>以<b>一房一码</b>为幂等键，重复上传结果一致</td></tr>
+          <tr><td><b>CZ-4</b></td><td>两种重传方式</td><td><b>仅重传失败行</b>／<b>整批重传</b>（成功行按 CZ-2 跳过）</td></tr>
+          <tr><td><b>CZ-5</b></td><td>重传留痕</td><td>不限次数，生成重传序号 DR2026-09-118-R1 并留痕</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="sp-src">
+    <span><b>依据</b> 2026 年 9 月 6 日向市住建局汇报讨论会议决议</span>
+    <span><b>失败口径</b> 失败明细连同错误原因导出，逐行含行号、房号、命中规则编码、字段名、原始值与修正建议</span>
+    <span><b>重传口径</b> 修正后就该批次重新上传，不影响其他批次；已入库成功行不重复入库，按房号幂等</span>
+    <span><b>规则对应</b> 命中规则编码与<span class="link" onclick="location.href='import-rule.html'">导入校验规则配置</span>中的 JY-01 至 JY-12 一一对应</span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="retryDrawer">
+  <div class="drawer-head">
+    <h3>批次重传</h3>
+    <span class="badge orange">待处理</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+    <div class="alert alert-warning">
+      <i class="fa-solid fa-triangle-exclamation"></i>
+      <div>重传<b>只影响本批次</b>，其他批次数据不受影响。<b>已入库成功行不重复入库</b>，按<b>房号幂等</b>比对后自动跳过。<b>整批拦截</b>的批次（如 DR2026-09-121）因全批未入库，须选择「整批重传」。</div>
+    </div>
+
+    <div class="form-grid form-align">
+      <div class="form-item">
+        <label>批次号 <span class="req">*</span></label>
+        <input type="text" value="DR2026-09-121" readonly>
+        <div class="hint">重传后生成重传序号 DR2026-09-121-R1</div>
+      </div>
+      <div class="form-item">
+        <label>导入项目 <span class="req">*</span></label>
+        <input type="text" value="清水塘·未来社区（一期）" readonly>
+      </div>
+      <div class="form-item">
+        <label>报送单位 <span class="req">*</span></label>
+        <input type="text" value="清水塘投资集团　经办人：王建军" readonly>
+      </div>
+      <div class="form-item">
+        <label>原批次结果 <span class="req">*</span></label>
+        <input type="text" value="总 1,800 行　成功 0 行　失败 88 行（整批拦截）" readonly>
+      </div>
+      <div class="form-item col-full">
+        <label>修正后文件 <span class="req">*</span></label>
+        <input type="text" data-upload="1" value="清水塘未来社区一期楼盘表_修正版_20260906.xlsx">
+        <div class="hint">须使用同一导入模板 V2.1，行号与原文件保持一致以便比对</div>
+      </div>
+      <div class="form-item">
+        <label>重传方式 <span class="req">*</span></label>
+        <select><option>整批重传（重新上传完整文件）</option><option>仅重传失败行（只上传修正后的 88 行）</option></select>
+      </div>
+      <div class="form-item">
+        <label>失败处理方式 <span class="req">*</span></label>
+        <select><option>整批拦截（任一行失败全批不入库）</option><option>跳过失败行（通过行正常入库）</option></select>
+      </div>
+      <div class="form-item col-full">
+        <label>修正情况核对 <span class="req">*</span></label>
+        <textarea rows="5" readonly>JY-03 面积逻辑错误 62 行：套内面积与建筑面积两列填反，已按不动产登记面积互换更正
+JY-02 建筑面积格式错误 26 行：已统一补齐为两位小数（如 96.5 改为 96.50）
+预检结果：1,800 行全部通过 JY-01 至 JY-12 校验，无新增失败行
+幂等比对：本批次原成功入库 0 行，本次重传预计入库 1,800 行，无需跳过
+影响范围：仅本批次 DR2026-09-121，其他 5 个批次数据不受影响</textarea>
+      </div>
+      <div class="form-item col-full">
+        <label>备注 <span class="req">*</span></label>
+        <textarea rows="3">清水塘投资集团已按导出的失败清单逐行修正：62 行套内面积与建筑面积填反的已互换更正，26 行建筑面积已补齐两位小数。本次采用整批重传，因原批次整批拦截、无已入库数据，不涉及成功行跳过。重传只影响本批次，其余批次不受影响。</textarea>
+      </div>
+    </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn" onclick="PMS.toast('已完成重传预检，1,800 行全部通过校验','success')">仅预检</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认整批重传批次 DR2026-09-121？',detail:'重传只影响本批次，其他 5 个批次数据不受影响。已入库成功行按房号幂等自动跳过（本批次原入库 0 行）。预计入库 1,800 行，生成重传序号 DR2026-09-121-R1 并留痕。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已发起整批重传 DR2026-09-121-R1，预计入库 1,800 行','success');}})"><i class="fa-solid fa-check"></i> 提交重传</button>
+  </div>
+</div>
+
+<script>
+(function () {
+  var ts = document.querySelectorAll('main.app-main .table-wrap > table.data-table');
+  if (ts[0]) { ts[0]._total = 6; }
+  if (ts[1]) { ts[1]._total = 268; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

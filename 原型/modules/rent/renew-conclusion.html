@@ -25,29 +25,29 @@
 
   <div class="alert alert-warning">
     <i class="fa-solid fa-triangle-exclamation"></i>
-    <div>输出<b>继续享受人才住房政策、转按市场租金续租、启动退出清退</b>三类结论，并<b>自动联动租赁合同变更与租金计费标准调整</b>。</div>
+    <div><b>保障期满 2 年前自动发起复核</b>后输出结论并<b>自动联动租赁合同变更与租金计费标准调整</b>：仍符合人才条件的<b>继续享受租金减免</b>；不再符合人才条件但<b>符合公租房条件的可续租、按实际市场租金标准计费、不再享受财政补助</b>；均不符合的<b>启动退出腾退</b>；<b>保障期内经核查已购房的一并纳入退出处理</b>。<span class="link" onclick="location.href='renew-check.html'">续租资格复核</span></div>
   </div>
 
   <div class="stat-grid">
     <div class="stat-card">
       <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
-      <div><div class="s-label">结论一 · 继续享受</div><div class="s-value">46</div>
-        <div class="s-trend text-2">占 53.5%</div></div>
+      <div><div class="s-label">结论一 · 继续享受租金减免</div><div class="s-value">46</div>
+        <div class="s-trend text-2">占 53.5% · 仍符合人才条件</div></div>
     </div>
     <div class="stat-card">
       <div class="s-icon orange"><i class="fa-solid fa-money-bill-transfer"></i></div>
-      <div><div class="s-label">结论二 · 市场租金续租</div><div class="s-value">32</div>
-        <div class="s-trend text-2">占 37.2%</div></div>
+      <div><div class="s-label">结论二 · 公租房条件续租</div><div class="s-value">32</div>
+        <div class="s-trend text-2">占 37.2% · 按实际市场租金计费、不再享受财政补助</div></div>
     </div>
     <div class="stat-card dc-alarm">
       <div class="s-icon red"><i class="fa-solid fa-door-open"></i></div>
-      <div><div class="s-label">结论三 · 启动退出</div><div class="s-value">8</div>
-        <div class="s-trend ">占 9.3%</div></div>
+      <div><div class="s-label">结论三 · 启动退出腾退</div><div class="s-value">8</div>
+        <div class="s-trend ">占 9.3% · 均不符合</div></div>
     </div>
-    <div class="stat-card">
-      <div class="s-icon cyan"><i class="fa-solid fa-file-pen"></i></div>
-      <div><div class="s-label">已联动合同变更</div><div class="s-value">78</div>
-        <div class="s-trend text-2">自动生成变更协议</div></div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon purple"><i class="fa-solid fa-house-circle-xmark"></i></div>
+      <div><div class="s-label">情形四 · 已购房纳入退出</div><div class="s-value">4</div>
+        <div class="s-trend ">保障期内经核查已购房</div></div>
     </div>
   </div>
 
@@ -55,7 +55,8 @@
     <div class="filter-bar">
       <div class="filter-item"><label>承租人</label><input type="text" placeholder="姓名"></div>
       <div class="filter-item"><label>合同编号</label><input type="text" placeholder="合同编号"></div>
-      <div class="filter-item"><label>复核结论</label><select data-dict="renewConclusion" data-ph="全部"></select></div>
+      <div class="filter-item"><label>复核结论</label><select><option value="">全部</option><option>继续享受租金减免</option><option>符合公租房条件续租</option><option>启动退出腾退</option><option>已购房纳入退出处理</option></select></div>
+      <div class="filter-item"><label>财政补助</label><select><option value="">全部</option><option>继续享受</option><option>不再享受</option><option>终止</option></select></div>
       <div class="filter-item"><label>联动状态</label><select><option value="">全部</option><option>待联动</option><option>已生成变更协议</option><option>已签署</option><option>已生成腾退任务</option></select></div>
       <div class="filter-actions">
         <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
@@ -66,40 +67,46 @@
     <div class="table-wrap">
       <table class="data-table">
         <thead>
-          <tr><th>结论编号</th><th>承租人</th><th class="cell-lg">房源</th><th>复核结论</th><th class="cell-lg">结论依据</th><th>原个人自付</th><th>调整后自付</th><th>合同联动</th><th>状态</th><th>操作</th></tr>
+          <tr><th>结论编号</th><th>承租人</th><th class="cell-lg">房源</th><th>复核结论</th><th class="cell-lg">结论依据</th><th class="num">原个人自付（元/月）</th><th class="num">调整后应缴（元/月）</th><th>财政补助</th><th>合同联动</th><th>状态</th><th>操作</th></tr>
         </thead>
         <tbody>
-          <tr class="row-warn"><td>JL2026-12-0186</td><td>谭建国</td><td>栗雨佳苑 3-0608</td><td><span class="badge orange">转按市场租金续租</span></td><td>2024-03-12 毕业已超 2 年且非免年限人才，不再符合人才条件；但仍满足普通公租房条件，可续租</td><td class="num">248.40</td><td class="num">828.00</td><td><span class="badge cyan">已生成变更协议</span></td><td><span class="badge orange">待签署</span></td><td><span class="link" onclick="location.href='../alloc/contract-change.html'">合同变更</span></td></tr>
-          <tr><td>JL2026-12-0214</td><td>李子康</td><td>湘江1958 A3-1108 主卧</td><td><span class="badge green">继续享受人才住房政策</span></td><td>2026-03 毕业，仍在毕业 2 年内；市城区无自有住房；在职社保正常；无欠费，四项均符合</td><td class="num">233.28</td><td class="num">233.28</td><td><span class="badge cyan">已生成变更协议</span></td><td><span class="badge green">已签署</span></td><td><span class="link" onclick="PMS.toast('合同续期至 2030-03-07，减免比例 70% 不变，进入下一年审周期')">联动记录</span></td></tr>
-          <tr class="row-bad"><td>JL2026-12-0202</td><td>周宇轩</td><td>栗雨佳苑 3-0904</td><td><span class="badge red">启动退出清退</span></td><td>已离职离株、社保停缴、无个税记录、欠费 1 期，且不再满足公租房条件，完全不符合</td><td class="num">260.28</td><td><span class="muted">—</span></td><td><span class="badge red">已生成腾退任务</span></td><td><span class="badge red">腾退中</span></td><td><span class="link" onclick="location.href='quit-manage.html'">腾退管理</span></td></tr>
-          <tr class="row-bad"><td>JL2026-12-0228</td><td>曾××</td><td>湘江1958 A3-0906</td><td><span class="badge red">启动退出清退</span></td><td>2026-06 在天元区购买住房，不再符合无自有住房条件；且欠费 3 期未结清</td><td class="num">284.04</td><td><span class="muted">—</span></td><td><span class="badge red">已生成腾退任务</span></td><td><span class="badge red">腾退中</span></td><td><span class="link" onclick="location.href='quit-manage.html'">腾退管理</span></td></tr>
+          <tr class="row-warn"><td>JL2026-12-0186</td><td>谭建国</td><td>栗雨佳苑 3-0608</td><td><span class="badge orange">符合公租房条件续租</span></td><td>2024-03-12 毕业已超 2 年且非免年限人才，<b>不再符合人才条件</b>；但仍<b>符合公租房条件，可续租</b>，<b>按实际市场租金标准计费（18.00 元/㎡·月）、不再享受财政补助</b></td><td class="num">248.40</td><td class="num">828.00</td><td><span class="badge red">不再享受</span><br><span class="muted">原财政补助 7.00 元/㎡·月，自下一账期起停止</span></td><td><span class="badge cyan">已生成变更协议</span></td><td><span class="badge orange">待签署</span></td><td><span class="link" onclick="location.href='../alloc/contract-change.html'">合同变更</span></td></tr>
+          <tr><td>JL2026-12-0214</td><td>李子康</td><td>湘江1958 A3-1108 主卧</td><td><span class="badge green">继续享受租金减免</span></td><td>2026-03 毕业，仍在毕业 2 年内；市城区无自有住房；在职社保正常；无欠费，四项均符合，<b>仍符合人才条件，继续享受租金减免</b></td><td class="num">233.28</td><td class="num">233.28</td><td><span class="badge green">继续享受</span><br><span class="muted">减免比例 70% 不变，财政补助 7.00 元/㎡·月</span></td><td><span class="badge cyan">已生成变更协议</span></td><td><span class="badge green">已签署</span></td><td><span class="link" onclick="PMS.toast('合同续期至 2030-03-07，减免比例 70% 与财政补助标准不变，进入下一年审周期')">联动记录</span></td></tr>
+          <tr class="row-bad"><td>JL2026-12-0202</td><td>周宇轩</td><td>栗雨佳苑 3-0904</td><td><span class="badge red">启动退出腾退</span></td><td>已离职离株、社保停缴、无个税记录、欠费 1 期，<b>人才条件与公租房条件均不符合</b>，启动退出腾退</td><td class="num">260.28</td><td><span class="muted">—</span></td><td><span class="badge gray">终止</span><br><span class="muted">自腾退通知送达之日起终止</span></td><td><span class="badge red">已生成腾退任务</span></td><td><span class="badge red">腾退中</span></td><td><span class="link" onclick="location.href='quit-manage.html'">腾退管理</span></td></tr>
+          <tr class="row-bad"><td>JL2026-12-0228</td><td>曾××</td><td>湘江1958 A3-0906</td><td><span class="badge red">已购房纳入退出处理</span></td><td><b>保障期内经不动产核查已购房</b>（2026-06 在天元区购买住房），不再符合无自有住房条件，<b>一并纳入退出处理</b>；且欠费 3 期未结清，须限期结清</td><td class="num">284.04</td><td><span class="muted">—</span></td><td><span class="badge gray">终止</span><br><span class="muted">已购房自购房登记之月起追溯停止</span></td><td><span class="badge red">已生成腾退任务</span></td><td><span class="badge red">腾退中</span></td><td><span class="link" onclick="location.href='quit-manage.html'">腾退管理</span></td></tr>
+          <tr class="row-bad"><td>JL2026-12-0246</td><td>郑××</td><td>茨菇塘公寓 5-1204</td><td><span class="badge red">已购房纳入退出处理</span></td><td><b>保障期内（距届满 21 个月）经不动产核查已购房</b>：2026-09 在天元区购买商品房。<b>虽仍符合人才条件、无欠费，仍一并纳入退出处理</b>，不待保障期满 2 年即启动腾退</td><td class="num">248.40</td><td><span class="muted">—</span></td><td><span class="badge gray">终止</span><br><span class="muted">自 2026-09 购房登记之月起停止</span></td><td><span class="badge red">已生成腾退任务</span></td><td><span class="badge red">腾退中</span></td><td><span class="link" onclick="location.href='quit-manage.html'">腾退管理</span></td></tr>
         </tbody>
       </table>
     </div>
   </div>
         <div class="sp-block" style="margin-top:12px">
-          <div class="sp-h"><i class="fa-solid fa-list"></i> 三类结论口径<span class="sub">P10-02</span></div>
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 结论判定口径<span class="sub">P10-02 · R-R1 至 R-R4 · 按序判定，命中即出结论</span></div>
           <div class="sp-b">
         <div class="sp-check">
+          <div class="ck block"><i class="fa-solid fa-house-circle-xmark"></i>
+            <div class="cb"><div class="ct">R-R1 · 已购房一并纳入退出处理<span class="muted">　优先于其余规则判定</span></div>
+              <div class="cd"><b>保障期内经核查已购房的一并纳入退出处理</b>（以不动产登记数据核查为准）：<b>无论人才条件是否仍符合、是否满足公租房条件，一律按退出腾退办理</b>，<b>不待保障期满 2 年</b>；财政补助自购房登记之月起停止、已多享受的按规定追回。</div></div>
+            <div class="co"><span class="badge red">4 件</span></div></div>
           <div class="ck pass"><i class="fa-solid fa-circle-check"></i>
-            <div class="cb"><div class="ct">结论一 · 继续享受人才住房政策</div>
-              <div class="cd">仍符合人才条件的（在毕业 2 年内，或属免毕业年限特殊人才），可继续承租并<b>继续享受租金减免</b>，租金标准不变，进入下一年审周期。</div></div>
+            <div class="cb"><div class="ct">R-R2 · 继续享受租金减免</div>
+              <div class="cd"><b>仍符合人才条件</b>的（毕业 2 年内或属免毕业年限特殊人才）可继续承租并<b>继续享受租金减免</b>，租金标准与减免比例不变、财政补助按原标准继续拨付，进入下一年审周期。</div></div>
             <div class="co"><span class="badge green">46 件</span></div></div>
-          <div class="ck wait"><i class="fa-solid fa-lock"></i>
-            <div class="cb"><div class="ct">结论二 · 转按市场租金续租</div>
-              <div class="cd">不再符合人才条件<b>但仍满足普通公租房条件</b>的，可以续租，但需<b>按市场租金标准缴纳租金</b>，不再享受减免。系统同步向承租人展示调整后的租金标准。</div></div>
+          <div class="ck wait"><i class="fa-solid fa-money-bill-transfer"></i>
+            <div class="cb"><div class="ct">R-R3 · 符合公租房条件续租</div>
+              <div class="cd"><b>不再符合人才条件但符合公租房条件</b>的<b>可以续租</b>，但须<b>按实际市场租金标准计费</b>、<b>不再享受财政补助</b> —— 原财政分担部分（示例 7.00 元/㎡·月）自下一账期起停止拨付，全额由承租人承担，同步生成合同变更协议并展示调整后租金。</div></div>
             <div class="co"><span class="badge orange">32 件</span></div></div>
           <div class="ck block"><i class="fa-solid fa-circle-xmark"></i>
-            <div class="cb"><div class="ct">结论三 · 启动退出清退</div>
-              <div class="cd"><b>完全不符合条件</b>的（购房、离株、不再满足公租房条件等），生成腾退通知与腾退期限，进入费用结算、房屋验收、押金退还流程；逾期未腾退自动升级处置。</div></div>
+            <div class="cb"><div class="ct">R-R4 · 启动退出腾退</div>
+              <div class="cd"><b>人才条件与公租房条件均不符合</b>的（离株、社保停缴且无个税记录等）<b>启动退出腾退</b>：减免与财政补助自腾退通知送达之日起终止，生成腾退通知与期限，进入费用结算、房屋验收、押金退还；逾期未腾退自动升级处置。</div></div>
             <div class="co"><span class="badge red">8 件</span></div></div>
         </div>
           </div>
         </div>
   <div class="sp-src">
-    <span><b>政策依据</b> 管理办法第十二条：承租满 2 年后仍符合我市保障性住房申请条件的可继续承租该房源，但需按实际租金标准缴纳租金</span>
-    <span><b>自动联动</b> 结论自动联动租赁合同变更与租金计费标准调整</span>
-    <span><b>移动端落点</b> <span class="link" onclick="location.href='../../mobile/public/renew-result.html'">续租资格复核结果</span></span>
+    <span><b>触发时点</b> <b>保障期满 2 年前自动发起复核</b>；<b>保障期内经核查已购房的即时触发</b>，不待满 2 年</span>
+    <span><b>核心口径</b> 符合公租房条件的可续租，<b>按实际市场租金标准计费、不再享受财政补助</b>；<b>保障期内经核查已购房的一并纳入退出处理</b></span>
+    <span><b>自动联动</b> 结论自动联动租赁合同变更与租金计费标准调整，并同步调整政府购买服务补助核定</span>
+    <span><b>政策依据</b> 管理办法第十二条　·　<span class="link" onclick="location.href='../../mobile/public/renew-result.html'">移动端：续租资格复核结果</span></span>
   </div>
 </main>
 

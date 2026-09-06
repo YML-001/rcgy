@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>评价问卷配置 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="manager" data-active="ops-11">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 运营考核与工单服务
+      <span class="sep">/</span> 服务评价管理
+      <span class="sep">/</span> <span class="cur">评价问卷配置</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.openDrawer('efDrawer')"><i class="fa-solid fa-plus"></i> 新增指标</button>
+      <button class="btn" onclick="PMS.confirm({title:'发布新版本',message:'确认发布评价问卷 V2026-10 并自 2026-10-01 起生效？',detail:'发布前系统校验两套问卷权重合计是否均等于 100%；不等于 100% 的不允许发布。当前周期（2026 年 9 月）已开启，本次变更只对 2026-10-01 之后的评价周期生效，历史评价仍按 V2026-09 版本口径解释。',type:'warning',okText:'确认发布',onOk:function(){PMS.toast('已发布 V2026-10，自 2026-10-01 起生效','success');}})"><i class="fa-solid fa-code-branch"></i> 发布新版本</button>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>服务评价<b>分为物业服务、运营单位服务两类</b>，分别配置评价问卷与<b>指标权重</b>。承租人按<b>月或按季</b>在线打分并填写意见；<b>单套问卷权重合计须等于 100%</b>，否则不允许发布。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-clipboard-list"></i></div>
+      <div><div class="s-label">问卷模板</div><div class="s-value">2</div>
+        <div class="s-trend text-2">套 · 物业服务 / 运营单位服务</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-list-check"></i></div>
+      <div><div class="s-label">评价指标</div><div class="s-value">10</div>
+        <div class="s-trend text-2">项 · 两类各 5 项，权重各合计 100%</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
+      <div><div class="s-label">当前生效版本</div><div class="s-value">V2026-09</div>
+        <div class="s-trend text-2">2026-09-01 起生效 · 按月采集</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-hourglass-half"></i></div>
+      <div><div class="s-label">下期生效</div><div class="s-value">V2026-10</div>
+        <div class="s-trend ">2026-10-01 起 · 待发布</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>问卷类型</label><select data-dict="evalObject" data-ph="全部"></select></div>
+      <div class="filter-item"><label>指标编码</label><input type="text" value="PJ-" placeholder="指标编码"></div>
+      <div class="filter-item"><label>指标名称</label><input type="text" value="" placeholder="指标名称关键词"></div>
+      <div class="filter-item"><label>数据来源</label><select><option value="">全部</option><option>承租人打分</option><option>系统自动取数</option></select></div>
+      <div class="filter-item"><label>状态</label><select><option value="">全部</option><option>在用</option><option>待发布</option><option>已停用</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>问卷类型</th><th>指标编码</th><th>指标名称</th><th class="cell-lg">指标说明</th><th class="num">权重%</th><th>评分方式</th><th>是否必答</th><th>数据来源</th><th>状态</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="badge blue">物业服务</span></td><td>PJ-W01</td><td>环境卫生</td><td class="cell-lg">楼栋公共区域、电梯轿厢、楼道与垃圾清运的日常保洁质量与频次</td><td class="num">20</td><td>5 星折算百分制</td><td><span class="badge green">是</span></td><td><span class="badge cyan">承租人打分</span></td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('efDrawer')">编辑</span></td></tr>
+          <tr><td><span class="badge blue">物业服务</span></td><td>PJ-W02</td><td>安保与门禁</td><td class="cell-lg">门岗值守、人脸门禁可用率、夜间巡查与外来人员登记管理情况</td><td class="num">20</td><td>5 星折算百分制</td><td><span class="badge green">是</span></td><td><span class="badge cyan">承租人打分</span></td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('efDrawer')">编辑</span></td></tr>
+          <tr><td><span class="badge blue">物业服务</span></td><td>PJ-W03</td><td>公共设施维护</td><td class="cell-lg">电梯、消防设施、公共照明、给排水与充电桩的完好情况与维护及时性</td><td class="num">20</td><td>5 星折算百分制</td><td><span class="badge green">是</span></td><td><span class="badge cyan">承租人打分</span></td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('efDrawer')">编辑</span></td></tr>
+          <tr><td><span class="badge blue">物业服务</span></td><td>PJ-W04</td><td>报修及时率</td><td class="cell-lg">报修工单在承诺时限内上门处理的比例（紧急 4 小时 / 较急 24 小时 / 一般 3 个工作日），取自报修工单流转记录</td><td class="num">25</td><td>工单数据折算百分制</td><td><span class="badge gray">否</span></td><td><span class="badge orange">系统自动取数</span></td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('efDrawer')">编辑</span></td></tr>
+          <tr><td><span class="badge blue">物业服务</span></td><td>PJ-W05</td><td>投诉处理</td><td class="cell-lg">投诉件 5 个工作日内办结率，以及承租人对投诉办理结果的认可程度</td><td class="num">15</td><td>5 星折算百分制</td><td><span class="badge green">是</span></td><td><span class="badge cyan">承租人打分</span></td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('efDrawer')">编辑</span></td></tr>
+          <tr><td><span class="badge cyan">运营单位服务</span></td><td>PJ-Y01</td><td>入住办理效率</td><td class="cell-lg">配租确认后签约、验房、钥匙交付与水电过户的办理时长与一次办结率</td><td class="num">20</td><td>5 星折算百分制</td><td><span class="badge green">是</span></td><td><span class="badge cyan">承租人打分</span></td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('efDrawer')">编辑</span></td></tr>
+          <tr><td><span class="badge cyan">运营单位服务</span></td><td>PJ-Y02</td><td>合同与账单服务</td><td class="cell-lg">合同条款告知、账单生成准确性、缴费提醒与电子票据开具的规范性</td><td class="num">20</td><td>5 星折算百分制</td><td><span class="badge green">是</span></td><td><span class="badge cyan">承租人打分</span></td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('efDrawer')">编辑</span></td></tr>
+          <tr><td><span class="badge cyan">运营单位服务</span></td><td>PJ-Y03</td><td>房屋交付质量</td><td class="cell-lg">交付时房屋清洁程度、家具家电配置与完好情况，以及交付验收单据完整性</td><td class="num">25</td><td>5 星折算百分制</td><td><span class="badge green">是</span></td><td><span class="badge cyan">承租人打分</span></td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('efDrawer')">编辑</span></td></tr>
+          <tr><td><span class="badge cyan">运营单位服务</span></td><td>PJ-Y04</td><td>沟通响应</td><td class="cell-lg">服务专员电话、住户微信群与线上留言的响应时长和问题解决率</td><td class="num">20</td><td>5 星折算百分制</td><td><span class="badge green">是</span></td><td><span class="badge cyan">承租人打分</span></td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('efDrawer')">编辑</span></td></tr>
+          <tr><td><span class="badge cyan">运营单位服务</span></td><td>PJ-Y05</td><td>政策告知</td><td class="cell-lg">租金减免、补助分担、续租年审与腾退政策的主动告知与解释到位程度</td><td class="num">15</td><td>5 星折算百分制</td><td><span class="badge green">是</span></td><td><span class="badge cyan">承租人打分</span></td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('efDrawer')">编辑</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sp-block" style="margin-top:12px">
+    <div class="sp-h"><i class="fa-solid fa-list"></i> 问卷生效与版本<span class="sub">N5-01 · 当前 V2026-09</span></div>
+    <div class="sp-b">
+      <div class="sp-tw">
+        <table class="data-table compact">
+          <thead><tr><th>规则编码</th><th>规则名称</th><th class="cell-lg">规则内容</th><th>校验时点</th></tr></thead>
+          <tbody>
+            <tr><td><b>PB-01</b></td><td>同一周期内不得修改权重</td><td class="cell-lg">评价周期一经开启（本期 2026 年 9 月），该周期的问卷结构与指标权重即锁定，任何调整只能通过新建版本实现，不得直接改动在用版本</td><td>周期开启时</td></tr>
+            <tr><td><b>PB-02</b></td><td>变更须新建版本并指定生效期间</td><td class="cell-lg">指标增减、权重调整、评分方式变更均须新建版本并填写生效起止期间；生效日之前的评价周期仍按原版本采集</td><td>版本保存时</td></tr>
+            <tr><td><b>PB-03</b></td><td>历史评价按当期版本口径解释</td><td class="cell-lg">每份评价记录固化所属版本号，回溯查询与复议时按记录所属版本的指标与权重还原得分，不受后续版本影响</td><td>结果回溯时</td></tr>
+            <tr><td><b>PB-04</b></td><td>权重合计须等于 100%</td><td class="cell-lg">物业服务、运营单位服务两套问卷的指标权重<b>分别</b>合计须等于 100%；不等于 100% 的系统在发布前阻断并提示差额</td><td>发布前校验</td></tr>
+            <tr><td><b>PB-05</b></td><td>发布留痕与审批</td><td class="cell-lg">版本发布须经业务管理员确认，记录操作人、发布时间与变更明细（原权重 → 新权重），可被审计追溯</td><td>发布时</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="hint" style="margin-top:8px">
+        <i class="fa-solid fa-circle-info"></i>
+        当前 V2026-09 权重校验结果：物业服务 20 + 20 + 20 + 25 + 15 = <b>100%</b>；运营单位服务 20 + 20 + 25 + 20 + 15 = <b>100%</b>，均通过校验。
+      </p>
+    </div>
+  </div>
+
+  <div class="sp-src">
+    <span><b>依据</b> 2026 年 9 月 6 日向市住建局汇报讨论会议决议</span>
+    <span><b>口径</b> 服务评价分物业服务、运营单位服务两类，承租人按月或按季在线打分并填写意见</span>
+    <span><b>下游环节</b> <span class="link" onclick="location.href='eval-collect.html'">评价采集与回收</span></span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="efDrawer">
+  <div class="drawer-head">
+    <h3>问卷与指标编辑</h3>
+    <span class="badge blue">V2026-10（待发布）</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+    <div class="alert alert-warning">
+      <i class="fa-solid fa-triangle-exclamation"></i>
+      <div>同一评价周期内<b>不得修改指标权重</b>。本次编辑将写入<b>新版本 V2026-10</b> 并指定生效期间，单套问卷权重<b>合计须等于 100%</b>，否则不允许发布。</div>
+    </div>
+
+    <div class="form-grid form-align">
+      <div class="form-item">
+        <label>问卷类型 <span class="req">*</span></label>
+        <select data-dict="evalObject"></select>
+        <div class="hint">物业服务与运营单位服务分别成套，权重各自合计 100%</div>
+      </div>
+      <div class="form-item">
+        <label>评价周期 <span class="req">*</span></label>
+        <select data-dict="evalCycle"></select>
+        <div class="hint">承租人按月或按季在线打分</div>
+      </div>
+      <div class="form-item">
+        <label>指标编码 <span class="req">*</span></label>
+        <input type="text" value="PJ-W01" readonly>
+        <div class="hint">系统按问卷类型自动编号（物业 PJ-W / 运营 PJ-Y）</div>
+      </div>
+      <div class="form-item">
+        <label>指标名称 <span class="req">*</span></label>
+        <input type="text" value="环境卫生">
+      </div>
+      <div class="form-item col-full">
+        <label>指标说明 <span class="req">*</span></label>
+        <textarea rows="3">楼栋公共区域、电梯轿厢、楼道与垃圾清运的日常保洁质量与频次。承租人按 5 星打分，星级说明在移动端问卷内逐项展示，避免理解偏差。</textarea>
+      </div>
+      <div class="form-item">
+        <label>权重（%） <span class="req">*</span></label>
+        <input type="text" value="20">
+        <div class="hint">本套问卷 5 项合计须为 100%</div>
+      </div>
+      <div class="form-item">
+        <label>评分方式 <span class="req">*</span></label>
+        <select><option>5 星折算百分制</option><option>工单数据折算百分制</option></select>
+        <div class="hint">5 星折百分制：每星 20 分，1 星 = 20 分，5 星 = 100 分</div>
+      </div>
+      <div class="form-item">
+        <label>是否必答 <span class="req">*</span></label>
+        <select data-dict="yesNo"></select>
+      </div>
+      <div class="form-item">
+        <label>数据来源 <span class="req">*</span></label>
+        <select><option>承租人打分</option><option>系统自动取数</option></select>
+      </div>
+      <div class="form-item">
+        <label>生效期间（起） <span class="req">*</span></label>
+        <input type="date" value="2026-10-01">
+      </div>
+      <div class="form-item">
+        <label>生效期间（止） <span class="req">*</span></label>
+        <input type="date" value="2027-09-30">
+      </div>
+      <div class="form-item col-full">
+        <label>版本说明 <span class="req">*</span></label>
+        <textarea rows="3">V2026-10 版本说明：按 2026 年 9 月 6 日向市住建局汇报讨论会议决议，保持物业服务、运营单位服务两套问卷各 5 项指标不变；结合首期采集情况细化环境卫生、报修及时率两项的指标说明文案，权重不作调整（两套仍各合计 100%），自 2026-10-01 起生效，2026 年 9 月周期仍按 V2026-09 口径解释。</textarea>
+      </div>
+    </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn" onclick="PMS.toast('已保存为草稿，未发布前不影响在用版本')">保存草稿</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认将本次修改写入新版本 V2026-10？',detail:'系统将校验物业服务、运营单位服务两套问卷的权重合计是否均等于 100%，校验通过后转业务管理员确认发布，自指定生效期间起采用。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已提交，权重校验通过，待业务管理员确认发布','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+  </div>
+</div>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 10; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

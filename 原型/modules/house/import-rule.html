@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>导入校验规则配置 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="housing" data-active="house-32">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 房源筹集与楼盘表
+      <span class="sep">/</span> 房源导入与来源台账
+      <span class="sep">/</span> <span class="cur">导入校验规则配置</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.openDrawer('ruleDrawer')"><i class="fa-solid fa-plus"></i> 新增校验规则</button>
+      <a class="btn" href="import-load.html"><i class="fa-solid fa-file-import"></i> 分批导入</a>
+      <a class="btn" href="import-fail.html"><i class="fa-solid fa-triangle-exclamation"></i> 失败明细与重传</a>
+      <a class="btn" href="../rule/rule-test.html"><i class="fa-solid fa-vial"></i> 规则试算</a>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出规则清单</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>配置<b>必填项、数据格式、字典取值、房号唯一性</b>等校验规则。<b>校验不通过的整批拦截，并回显错误行号与具体原因</b>；规则调整<b>不需修改代码</b>，保存即时生效并留痕可回溯。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-shield-halved"></i></div>
+      <div><div class="s-label">校验规则</div><div class="s-value">12</div>
+        <div class="s-trend text-2">条 · 整批拦截 9 / 仅提示 3</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-toggle-on"></i></div>
+      <div><div class="s-label">启用中</div><div class="s-value">11</div>
+        <div class="s-trend text-2">条 · 停用 1 条（JY-11）</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-hand"></i></div>
+      <div><div class="s-label">本月拦截批次</div><div class="s-value">5</div>
+        <div class="s-trend ">批 · 已全部回显错误行号</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon red"><i class="fa-solid fa-list-ol"></i></div>
+      <div><div class="s-label">拦截行数</div><div class="s-value">268</div>
+        <div class="s-trend ">行 · 涉及 6 个导入批次</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>规则编码</label><input type="text" value="JY-01" placeholder="规则编码或名称"></div>
+      <div class="filter-item"><label>校验类型</label><select><option value="">全部</option><option>必填</option><option>格式</option><option>字典</option><option>唯一性</option><option>逻辑</option><option>范围</option></select></div>
+      <div class="filter-item"><label>作用字段</label><input type="text" value="房号" placeholder="字段名"></div>
+      <div class="filter-item"><label>拦截级别</label><select><option value="">全部</option><option>整批拦截</option><option>仅提示</option></select></div>
+      <div class="filter-item"><label>启用状态</label><select><option value="">全部</option><option>启用</option><option>停用</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>规则编码</th><th class="cell-lg">规则名称</th><th>校验类型</th><th>作用字段</th><th class="cell-lg">校验表达式 / 说明</th><th class="cell-lg">失败提示语</th><th>拦截级别</th><th>启用开关</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>JY-01</td><td>房号唯一性校验</td><td><span class="badge purple">唯一性</span></td><td>房号</td><td>UNIQUE(项目编码 + 楼栋 + 单元 + 房号)，同时与已入库房源全量比对</td><td>房号在批次 ${batchNo} 中已存在，请核实后删除重复行</td><td><span class="badge red">整批拦截</span></td><td><span class="badge green">启用</span> <span class="link" onclick="PMS.confirm({title:'停用确认',message:'确认停用规则 JY-01 房号唯一性校验？',detail:'停用后同一房号可重复导入，将产生重复房源并影响一房一码统计，强烈建议保持启用。',type:'warning',okText:'确认停用',onOk:function(){PMS.toast('规则 JY-01 已停用，变更已留痕','success');}})">停用</span></td><td><span class="link" onclick="PMS.openDrawer('ruleDrawer')">编辑</span></td></tr>
+          <tr><td>JY-02</td><td>建筑面积必填且两位小数</td><td><span class="badge blue">必填</span></td><td>建筑面积</td><td>NOT NULL AND REGEXP '^\d+\.\d{2}$' AND 值 &gt; 0 AND 值 &lt; 300.00</td><td>建筑面积为空或格式不符，须填写两位小数且在 0—300.00 ㎡ 之间</td><td><span class="badge red">整批拦截</span></td><td><span class="badge green">启用</span> <span class="link" onclick="PMS.confirm({title:'停用确认',message:'确认停用规则 JY-02 建筑面积必填且两位小数？',detail:'停用后建筑面积可为空或格式不规范，将影响租金计算与发布达标判定。',type:'warning',okText:'确认停用',onOk:function(){PMS.toast('规则 JY-02 已停用，变更已留痕','success');}})">停用</span></td><td><span class="link" onclick="PMS.openDrawer('ruleDrawer')">编辑</span></td></tr>
+          <tr><td>JY-03</td><td>套内面积不得大于建筑面积</td><td><span class="badge orange">逻辑</span></td><td>套内面积 / 建筑面积</td><td>套内面积 &lt;= 建筑面积 AND (建筑面积 − 套内面积) 与分摊面积误差 &lt;= 0.10 ㎡</td><td>套内面积 ${inner} 大于建筑面积 ${build}，请核对不动产登记面积后更正</td><td><span class="badge red">整批拦截</span></td><td><span class="badge green">启用</span> <span class="link" onclick="PMS.confirm({title:'停用确认',message:'确认停用规则 JY-03 套内面积不得大于建筑面积？',detail:'停用后面积逻辑错误的数据可直接入库，将影响房源档案准确性。',type:'warning',okText:'确认停用',onOk:function(){PMS.toast('规则 JY-03 已停用，变更已留痕','success');}})">停用</span></td><td><span class="link" onclick="PMS.openDrawer('ruleDrawer')">编辑</span></td></tr>
+          <tr><td>JY-04</td><td>装修标准须为字典值</td><td><span class="badge cyan">字典</span></td><td>装修标准</td><td>值 IN ('精装 · 拎包入住', '简装', '毛坯')，不接受自定义文本</td><td>装修标准「${value}」不在字典范围内，可选值：精装 · 拎包入住 / 简装 / 毛坯</td><td><span class="badge red">整批拦截</span></td><td><span class="badge green">启用</span> <span class="link" onclick="PMS.confirm({title:'停用确认',message:'确认停用规则 JY-04 装修标准须为字典值？',detail:'停用后装修标准可填写任意文本，将影响拎包入住达标判定与对外展示一致性。',type:'warning',okText:'确认停用',onOk:function(){PMS.toast('规则 JY-04 已停用，变更已留痕','success');}})">停用</span></td><td><span class="link" onclick="PMS.openDrawer('ruleDrawer')">编辑</span></td></tr>
+          <tr><td>JY-05</td><td>租金标准区间校验</td><td><span class="badge orange">范围</span></td><td>租金标准</td><td>值 &gt;= 8.00 AND 值 &lt;= 30.00（单位 元/㎡·月），保留两位小数</td><td>租金标准 ${value} 元/㎡·月 超出 8.00—30.00 区间，须报市住建局核定</td><td><span class="badge red">整批拦截</span></td><td><span class="badge green">启用</span> <span class="link" onclick="PMS.confirm({title:'停用确认',message:'确认停用规则 JY-05 租金标准区间校验？',detail:'停用后租金标准可超出核定区间，将直接影响账单计费与财政补助核定。',type:'warning',okText:'确认停用',onOk:function(){PMS.toast('规则 JY-05 已停用，变更已留痕','success');}})">停用</span></td><td><span class="link" onclick="PMS.openDrawer('ruleDrawer')">编辑</span></td></tr>
+          <tr><td>JY-06</td><td>楼层不得大于总层数</td><td><span class="badge orange">逻辑</span></td><td>所在楼层 / 总层数</td><td>所在楼层 &gt;= 1 AND 所在楼层 &lt;= 总层数 AND 总层数 &lt;= 99</td><td>所在楼层 ${floor} 大于总层数 ${total}，请核对楼栋信息</td><td><span class="badge red">整批拦截</span></td><td><span class="badge green">启用</span> <span class="link" onclick="PMS.confirm({title:'停用确认',message:'确认停用规则 JY-06 楼层不得大于总层数？',detail:'停用后楼层逻辑错误的数据可直接入库，将影响楼盘表展示与选房。',type:'warning',okText:'确认停用',onOk:function(){PMS.toast('规则 JY-06 已停用，变更已留痕','success');}})">停用</span></td><td><span class="link" onclick="PMS.openDrawer('ruleDrawer')">编辑</span></td></tr>
+          <tr><td>JY-07</td><td>朝向字典校验</td><td><span class="badge cyan">字典</span></td><td>朝向</td><td>值 IN ('东','南','西','北','东南','西南','东北','西北')</td><td>朝向「${value}」不在八向字典范围内，请从字典取值</td><td><span class="badge orange">仅提示</span></td><td><span class="badge green">启用</span> <span class="link" onclick="PMS.confirm({title:'停用确认',message:'确认停用规则 JY-07 朝向字典校验？',detail:'该规则为仅提示级别，停用后朝向取值不再校验，仅影响对外展示筛选。',type:'warning',okText:'确认停用',onOk:function(){PMS.toast('规则 JY-07 已停用，变更已留痕','success');}})">停用</span></td><td><span class="link" onclick="PMS.openDrawer('ruleDrawer')">编辑</span></td></tr>
+          <tr><td>JY-08</td><td>家电家具配置非空</td><td><span class="badge blue">必填</span></td><td>家电家具配置清单</td><td>NOT NULL AND 顿号分隔项数 &gt;= 8 AND 字符长度 &lt;= 300</td><td>家电家具配置清单为空或少于 8 项，须逐项列举后重新报送</td><td><span class="badge orange">仅提示</span></td><td><span class="badge green">启用</span> <span class="link" onclick="PMS.confirm({title:'停用确认',message:'确认停用规则 JY-08 家电家具配置非空？',detail:'该规则为仅提示级别，停用后家电家具清单可为空，将影响拎包入住标准核验。',type:'warning',okText:'确认停用',onOk:function(){PMS.toast('规则 JY-08 已停用，变更已留痕','success');}})">停用</span></td><td><span class="link" onclick="PMS.openDrawer('ruleDrawer')">编辑</span></td></tr>
+          <tr><td>JY-09</td><td>项目编码须已建档</td><td><span class="badge purple">唯一性</span></td><td>项目编码</td><td>EXISTS(SELECT 1 FROM 项目台账 WHERE 项目编码 = ${value} AND 状态 = '在册')</td><td>项目编码 ${value} 未在项目台账建档，请先登记项目后再导入房源</td><td><span class="badge red">整批拦截</span></td><td><span class="badge green">启用</span> <span class="link" onclick="PMS.confirm({title:'停用确认',message:'确认停用规则 JY-09 项目编码须已建档？',detail:'停用后可导入未建档项目的房源，将产生无归属房源并影响筹集进度统计。',type:'warning',okText:'确认停用',onOk:function(){PMS.toast('规则 JY-09 已停用，变更已留痕','success');}})">停用</span></td><td><span class="link" onclick="PMS.openDrawer('ruleDrawer')">编辑</span></td></tr>
+          <tr><td>JY-10</td><td>来源渠道须为四类之一</td><td><span class="badge cyan">字典</span></td><td>来源渠道</td><td>值 IN ('市本级存量','收购商品房转化','收购保租房转化','园区公租房纳管')</td><td>来源渠道「${value}」不在四类口径内，请按 QD-01 至 QD-04 取值</td><td><span class="badge red">整批拦截</span></td><td><span class="badge green">启用</span> <span class="link" onclick="PMS.confirm({title:'停用确认',message:'确认停用规则 JY-10 来源渠道须为四类之一？',detail:'停用后来源渠道可填写四类以外取值，将破坏分渠道筹集台账统计口径。',type:'warning',okText:'确认停用',onOk:function(){PMS.toast('规则 JY-10 已停用，变更已留痕','success');}})">停用</span></td><td><span class="link" onclick="PMS.openDrawer('ruleDrawer')">编辑</span></td></tr>
+          <tr class="row-warn"><td>JY-11</td><td>实景照片数量校验</td><td><span class="badge orange">范围</span></td><td>实景照片</td><td>照片张数 &gt;= 6 AND 首图标注 = '客厅'</td><td>实景照片不足 6 张或首图非客厅，请补充后重新报送</td><td><span class="badge orange">仅提示</span></td><td><span class="badge gray">停用</span> <span class="link" onclick="PMS.confirm({title:'启用确认',message:'确认启用规则 JY-11 实景照片数量校验？',detail:'启用后导入环节即校验照片数量与首图，当前存量数据中约 486 套将命中提示，建议与报送单位沟通后再启用。',type:'warning',okText:'确认启用',onOk:function(){PMS.toast('规则 JY-11 已启用并即时生效，变更已留痕','success');}})">启用</span></td><td><span class="link" onclick="PMS.openDrawer('ruleDrawer')">编辑</span></td></tr>
+          <tr><td>JY-12</td><td>报送单位与项目授权一致</td><td><span class="badge orange">逻辑</span></td><td>报送单位 / 项目编码</td><td>项目编码 IN (当前账号已授权项目集合)，越权项目直接拒绝写入</td><td>项目 ${value} 不属于本单位授权范围，请联系市住建局调整授权</td><td><span class="badge red">整批拦截</span></td><td><span class="badge green">启用</span> <span class="link" onclick="PMS.confirm({title:'停用确认',message:'确认停用规则 JY-12 报送单位与项目授权一致？',detail:'停用后报送单位可导入他单位项目房源，将破坏越权数据不可见、不可改的控制要求，不建议停用。',type:'warning',okText:'确认停用',onOk:function(){PMS.toast('规则 JY-12 已停用，变更已留痕','success');}})">停用</span></td><td><span class="link" onclick="PMS.openDrawer('ruleDrawer')">编辑</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sp-block" style="margin-top:12px">
+    <div class="sp-h"><i class="fa-solid fa-list"></i> 规则热配置<span class="sub">RQ-1 至 RQ-5 · 规则变更不需修改代码、不需发版</span></div>
+    <div class="sp-b">
+      <div class="sp-tw">
+        <table class="data-table compact">
+          <thead><tr><th>机制号</th><th>机制项</th><th class="cell-lg">说明</th></tr></thead>
+          <tbody>
+          <tr><td><b>RQ-1</b></td><td>规则即时生效</td><td>规则新增、修改、启停<b>保存后即时生效</b>，下一个导入批次立即按新规则校验，<b>不需修改代码、不需发版重启</b></td></tr>
+          <tr><td><b>RQ-2</b></td><td>表达式化配置</td><td>校验条件以<b>表达式</b>形式存储于规则表，支持必填、格式（正则）、字典、唯一性、逻辑比较、数值范围六类，字典取值联动<span class="link" onclick="location.href='../system/dict.html'">数据字典管理</span></td></tr>
+          <tr><td><b>RQ-3</b></td><td>整批拦截与行号回显</td><td>拦截级别为<b>整批拦截</b>的规则任一行不通过即全批不入库，<b>回显错误行号、字段名、原始值与失败提示语</b>，可导出失败清单</td></tr>
+          <tr><td><b>RQ-4</b></td><td>变更留痕可回溯</td><td>每次规则变更记录<b>变更人、变更时间、变更前后表达式与生效时间</b>，日志长期留存，可回溯到任一历史版本</td></tr>
+          <tr><td><b>RQ-5</b></td><td>试算与灰度</td><td>规则可先在<span class="link" onclick="location.href='../rule/rule-test.html'">规则试算</span>中用历史批次数据验证命中情况，确认无误后再正式启用，避免误拦截</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="sp-src">
+    <span><b>依据</b> 2026 年 9 月 6 日向市住建局汇报讨论会议决议</span>
+    <span><b>拦截口径</b> 校验不通过的整批拦截，并回显错误行号与具体原因，修正后就该批次重新上传</span>
+    <span><b>热配置</b> 规则调整不需修改代码，保存即时生效，变更留痕可回溯</span>
+    <span><b>规则编码</b> JY + 两位序号，一条规则对应一个校验点，作用字段与失败提示语一并配置</span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="ruleDrawer">
+  <div class="drawer-head">
+    <h3>校验规则配置</h3>
+    <span class="badge red">整批拦截</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+    <div class="alert alert-warning">
+      <i class="fa-solid fa-triangle-exclamation"></i>
+      <div>规则保存后<b>即时生效</b>，下一个导入批次立即按新规则校验，<b>不需修改代码、不需发版</b>。建议先在<span class="link" onclick="location.href='../rule/rule-test.html'">规则试算</span>中用历史批次验证命中情况，避免误拦截。变更前后表达式与变更人全程留痕。</div>
+    </div>
+
+    <div class="form-grid form-align">
+      <div class="form-item">
+        <label>规则编码 <span class="req">*</span></label>
+        <input type="text" value="JY-01" readonly>
+        <div class="hint">系统自动生成，不可修改</div>
+      </div>
+      <div class="form-item">
+        <label>规则名称 <span class="req">*</span></label>
+        <input type="text" value="房号唯一性校验">
+      </div>
+      <div class="form-item">
+        <label>校验类型 <span class="req">*</span></label>
+        <select><option>唯一性</option><option>必填</option><option>格式</option><option>字典</option><option>逻辑</option><option>范围</option></select>
+      </div>
+      <div class="form-item">
+        <label>作用字段 <span class="req">*</span></label>
+        <input type="text" value="房号（联合项目编码、楼栋、单元）">
+      </div>
+      <div class="form-item col-full">
+        <label>校验表达式 <span class="req">*</span></label>
+        <textarea rows="3">UNIQUE(项目编码 + 楼栋 + 单元 + 房号)
+AND NOT EXISTS(SELECT 1 FROM 房源档案 WHERE 一房一码 = MD5(项目编码 + 楼栋 + 单元 + 房号))</textarea>
+        <div class="hint">支持必填、正则、字典、唯一性、逻辑比较与数值范围表达式，字典取值联动数据字典管理</div>
+      </div>
+      <div class="form-item col-full">
+        <label>失败提示语 <span class="req">*</span></label>
+        <input type="text" value="房号在批次 ${batchNo} 中已存在，请核实后删除重复行">
+        <div class="hint">支持 ${字段名} 占位符，校验失败时按实际值回显</div>
+      </div>
+      <div class="form-item">
+        <label>拦截级别 <span class="req">*</span></label>
+        <select><option>整批拦截</option><option>仅提示</option></select>
+      </div>
+      <div class="form-item">
+        <label>生效时间 <span class="req">*</span></label>
+        <input type="date" value="2026-09-06">
+      </div>
+      <div class="form-item">
+        <label>启用状态 <span class="req">*</span></label>
+        <select><option>启用</option><option>停用</option></select>
+      </div>
+      <div class="form-item">
+        <label>适用规则集 <span class="req">*</span></label>
+        <select><option>房源导入标准规则集</option><option>房源导入基础规则集</option><option>接口同步规则集</option><option>全部规则集</option></select>
+      </div>
+      <div class="form-item col-full">
+        <label>试算结果 <span class="req">*</span></label>
+        <textarea rows="4" readonly>试算样本：DR2026-09-115 至 DR2026-09-131 共 6 个历史批次、8,000 行
+命中行数：54 行（房号重复）
+涉及批次：DR2026-09-118（54 行，与 DR2026-09-115 存在跨批次重复）
+结论：命中率 0.68%，规则表达式无误，可正式启用</textarea>
+      </div>
+      <div class="form-item col-full">
+        <label>变更说明 <span class="req">*</span></label>
+        <textarea rows="3">按 2026 年 9 月 6 日会议要求，房号唯一性校验由「单批次内去重」扩展为「与已入库房源全量比对」，防止跨批次重复导入产生重复房源。经 6 个历史批次试算命中 54 行，均为 DR2026-09-118 与 DR2026-09-115 的跨批次重复，规则表达式无误，即时生效。</textarea>
+      </div>
+    </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn" onclick="PMS.toast('已按历史 6 个批次试算，命中 54 行','success')">重新试算</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认保存并启用规则 JY-01 房号唯一性校验？',detail:'保存后即时生效，不需修改代码、不需发版，下一个导入批次立即按新表达式校验。拦截级别为整批拦截，任一行房号重复即全批不入库并回显错误行号。变更前后表达式已留痕，可回溯。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('规则已保存并即时生效，变更已留痕','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+  </div>
+</div>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 12; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

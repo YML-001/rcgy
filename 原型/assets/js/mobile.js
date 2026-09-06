@@ -55,6 +55,37 @@
     }
   };
 
+  /* 移动端页面只引 mobile.js，取不到 app.js 的 APP_CONFIG.dict，
+     故在此内置移动端表单实际用到的字典，取值须与 app.js 的 dict 保持一致。 */
+  var DICT = {
+    yesNo: [['1', '是'], ['0', '否']],
+    district: [
+      ['01', '天元区'], ['02', '荷塘区'], ['03', '芦淞区'], ['04', '石峰区'],
+      ['05', '经开区'], ['06', '渌口区']
+    ],
+    applyType: [['1', '创业青年人才'], ['2', '就业青年人才'], ['3', '特殊人才（免毕业年限）']],
+    education: [
+      ['1', '全日制大专'], ['2', '全日制本科'], ['3', '硕士研究生'], ['4', '博士研究生'],
+      ['5', '国（境）外学历']
+    ],
+    marriage: [['1', '未婚'], ['2', '已婚'], ['3', '离异'], ['4', '丧偶']],
+    roomType: [['1', '单间配套'], ['2', '一室一厅'], ['3', '二室一厅'], ['4', '三室一厅']],
+    woType: [
+      ['1', '水暖管道'], ['2', '电路照明'], ['3', '家电维修'], ['4', '门窗锁具'],
+      ['5', '墙面地面'], ['6', '其他']
+    ],
+    quitReason: [
+      ['1', '保障期届满'], ['2', '购买住房'], ['3', '离职离株'], ['4', '主动退租'],
+      ['5', '违规清退'], ['6', '其他']
+    ],
+    evalObject: [['1', '物业服务'], ['2', '运营单位服务']],
+    evalCycle: [['1', '按月'], ['2', '按季']],
+    bookStatus: [
+      ['1', '预约中'], ['2', '已确认'], ['3', '已改约'], ['4', '已取消'],
+      ['5', '已转申请'], ['6', '已配租']
+    ]
+  };
+
   /* ==========================================================================
      二、运行时
      ========================================================================== */
@@ -146,6 +177,27 @@
 
   /* 说明：演示需要「像一个系统」，已移除页面右侧的原型口径 / 跳转 / 导航面板。
      手机外框由 .m-stage 居中展示；页面内的业务跳转仍由页面自身链接与底部页签承载。 */
+
+  /* ------- 字典下拉自动填充：<select data-dict="xxx">，data-ph 指定占位项 ------- */
+  function populateDicts() {
+    var list = document.querySelectorAll('select[data-dict]');
+    for (var i = 0; i < list.length; i++) {
+      var sel = list[i];
+      if (sel.getAttribute('data-dict-done') === '1') continue;
+      var rows = DICT[sel.getAttribute('data-dict')];
+      if (!rows) continue;
+      var sub = sel.getAttribute('data-selected');
+      /* 未指定选中项时默认落在第一项，保证 MB.validate 不会把演示数据判成空值 */
+      var ph = sel.hasAttribute('data-ph') ? sel.getAttribute('data-ph') : '';
+      var html = ph ? '<option value="">' + esc(ph) + '</option>' : '';
+      for (var j = 0; j < rows.length; j++) {
+        var on = sub ? (rows[j][0] === sub) : (!ph && j === 0);
+        html += '<option value="' + esc(rows[j][0]) + '"' + (on ? ' selected' : '') + '>' + esc(rows[j][1]) + '</option>';
+      }
+      sel.innerHTML = html;
+      sel.setAttribute('data-dict-done', '1');
+    }
+  }
 
   /* ------- 交互增强 ------- */
   function enhance() {
@@ -306,6 +358,7 @@
   document.addEventListener('DOMContentLoaded', function () {
     if (!document.body.classList.contains('m-body')) return;
     injectChrome();
+    populateDicts();
     enhance();
   });
 })();

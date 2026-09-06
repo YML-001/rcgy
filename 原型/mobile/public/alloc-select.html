@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="../../assets/css/ext.css">
 </head>
 <body class="m-body" data-mtitle="线上选房" data-mmod="M7 配租与线上选房" data-mcode="M7-04"
-      data-mdesc="按配租顺序在指定时段内选房并锁定房源，锁房设置倒计时，超时未确认自动释放给下一顺序人。" data-mback="alloc-order.html" data-mtabset="public" data-mtab="apply">
+      data-mdesc="按配租顺序在指定时段内选房锁定，收到通知后限 1 个工作日内确认；逾期未确认自动顺延至下一顺序人，本人轮候资格不取消、自动排入下一轮；按房源大小提示可配租人数。" data-mback="alloc-order.html" data-mtabset="public" data-mtab="apply">
 <div class="m-stage">
   <div class="m-phone">
     <div class="m-screen">
@@ -19,19 +19,22 @@
           <div class="m-card-h"><i class="fa-solid fa-stopwatch"></i>我的选房时段</div>
           <div class="m-card-b">
             <div class="m-count">
-              <i class="fa-solid fa-stopwatch"></i> 本时段剩余
-              <span class="m-cn">26:18</span>
+              <i class="fa-solid fa-stopwatch"></i> 确认时限剩余（限 1 个工作日）
+              <span class="m-cn">5 小时</span>
             </div>
           <div class="m-kv">
-            <div><span>我的顺序号</span><span>天元区第 12 位</span></div>
+            <div><span>我的顺序号</span><span>天元区第 12 位（普通轮候）</span></div>
             <div><span>选房时段</span><span>2026-09-15 10:00—10:30</span></div>
+            <div><span>短信通知时间</span><span>2026-09-15 10:00（13802456207）</span></div>
+            <div><span>确认时限</span><span><b>限 1 个工作日</b>，截止 2026-09-16 18:00</span></div>
+            <div><span>逾期处理</span><span>自动顺延至下一顺序人，<b>本人轮候资格不取消、自动排入下一轮</b></span></div>
             <div><span>可选房型</span><span>单间配套 / 一室一厅（配租 1 人）</span></div>
             <div><span>当前可选</span><span><b style="color:var(--success)">43 套</b></span></div>
           </div>
           </div>
         </div>
         <div class="m-note danger"><i class="fa-solid fa-circle-exclamation"></i>
-          <div>请在时段内完成选房并确认。<b>锁房后仍有 30 分钟确认时限，超时未确认将自动释放给下一顺序人</b>。</div>
+          <div>请在时段内选定房源。选房通知已由<b>短信</b>发出，<b>限 1 个工作日内上线确认</b>（截止 2026-09-16 18:00）；<b>逾期未确认自动顺延至下一顺序人，本人轮候资格不取消、自动排入下一轮</b>。</div>
         </div>
         <div class="m-pills">
           <button class="on">全部 43</button><button>天元区 28</button><button>荷塘区 9</button>
@@ -50,9 +53,9 @@
                 <div class="co"><button class="m-btn sm primary" type="button" onclick="lock('栗雨佳苑 3-1104')">选定</button></div></div>
               <div class="ok"><i class="fa-solid fa-door-open"></i><div class="m-chl"><b>茨菇塘公寓　5 栋 0602　一室一厅</b><span>46.00 ㎡　·	6/12 层　·	家电齐全　·	自付 <b style="color:var(--danger)">248.40 元/月</b></span></div>
                 <div class="co"><button class="m-btn sm primary" type="button" onclick="lock('茨菇塘公寓 5-0602')">选定</button></div></div>
-              <div class="na"><i class="fa-solid fa-lock"></i><div class="m-chl"><b>湘江1958　A6 栋 1802　二室一厅</b><span>78.60 ㎡　·	<b>需 2 人配租，您不可选</b></span></div>
+              <div class="na"><i class="fa-solid fa-lock"></i><div class="m-chl"><b>湘江1958　A6 栋 1802　二室一厅</b><span>78.60 ㎡　·	<b>按房源大小需 2 人配租，您不可选</b></span></div>
                 <div class="co"><span class="m-tag dark">不可选</span></div></div>
-              <div class="na"><i class="fa-solid fa-lock"></i><div class="m-chl"><b>栗雨佳苑　3 栋 0904　一室一厅</b><span>48.20 ㎡　·	<b>已被第 8 位申请人锁定</b></span></div>
+              <div class="na"><i class="fa-solid fa-lock"></i><div class="m-chl"><b>栗雨佳苑　3 栋 0904　一室一厅</b><span>48.20 ㎡　·	<b>已被第 8 位申请人锁定，待其在 1 个工作日内确认</b></span></div>
                 <div class="co"><span class="m-tag orange">已锁定</span></div></div>
             </div>
           </div>
@@ -60,9 +63,22 @@
         <div class="m-note warn"><i class="fa-solid fa-triangle-exclamation"></i>
           <div>房源剩余套数<b>实时同步</b>，已锁定或已签约房源即时扣减。若刷新后房源消失，说明已被前序申请人锁定。</div>
         </div>
+        <div class="m-sect">确认时限规则<span class="m-sect-x">限 1 个工作日</span></div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-stopwatch"></i>通知与确认</div>
+          <div class="m-card-b">
+            <div class="m-check">
+              <div class="ok"><i class="fa-solid fa-comment-sms"></i><div class="m-chl"><b>短信通知当事人</b><span>按配租顺序分时放号，轮到本人时以<b>短信</b>通知选房，同步推送湘易办站内消息</span></div></div>
+              <div class="ok"><i class="fa-solid fa-clock"></i><div class="m-chl"><b>限 1 个工作日内上线确认</b><span>自收到通知起计算，法定节假日与休息日不计入；本例截止 2026-09-16 18:00</span></div></div>
+              <div class="ok"><i class="fa-solid fa-forward"></i><div class="m-chl"><b>逾期未确认自动顺延</b><span>系统自动将该房源顺延至<b>下一顺序人</b>，无需人工干预</span></div></div>
+              <div class="ok"><i class="fa-solid fa-shield-halved"></i><div class="m-chl"><b>轮候资格不取消</b><span>逾期未确认<b>不取消本人轮候资格</b>，系统<b>自动排入下一轮</b>，原受理时间与预约优先标记保留</span></div></div>
+            </div>
+          </div>
+        </div>
         <div class="m-cells">
           <a class="m-cell" href="house-vr.html"><span class="m-ci cyan"><i class="fa-solid fa-vr-cardboard"></i></span><span class="m-cl"><b>VR 全景看房</b><span class="m-cs">选定前可先在线环视户型</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
-          <a class="m-cell" href="alloc-giveup.html"><span class="m-ci red"><i class="fa-solid fa-ban"></i></span><span class="m-cl"><b>我要放弃本批次配租</b><span class="m-cs">放弃后不得再次申请，请慎重</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="alloc-rule.html"><span class="m-ci"><i class="fa-solid fa-scale-balanced"></i></span><span class="m-cl"><b>配租规则说明</b><span class="m-cs">不摇号 · 预约优先 · 房型与可配租人数</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="alloc-giveup.html"><span class="m-ci red"><i class="fa-solid fa-ban"></i></span><span class="m-cl"><b>我要放弃本批次配租</b><span class="m-cs">主动放弃后不得再次申请，与逾期顺延不同，请慎重</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
         </div>
       </div>
       <div class="m-actbar">
@@ -76,9 +92,9 @@
 <script src="../../assets/js/mobile.js"></script>
 <script>
 function lock(h) {
-  MB.confirm('确认选定 <b>' + h + '</b>？<br>锁定后其他申请人不可选该房源，您需在 <b>30 分钟内确认</b>，超时将自动释放给下一顺序人。',
+  MB.confirm('确认选定 <b>' + h + '</b>？<br>锁定后其他申请人不可选该房源，您需在 <b>1 个工作日内上线确认</b>（截止 2026-09-16 18:00）。<br>逾期未确认将<b>自动顺延至下一顺序人</b>，<b>本人轮候资格不取消、自动排入下一轮</b>。',
     '确认锁定', function () {
-      MB.toast('已锁定 ' + h + '，请在 30 分钟内确认');
+      MB.toast('已锁定 ' + h + '，请在 1 个工作日内确认');
       setTimeout(function () { location.href = 'alloc-select-confirm.html'; }, 1200);
     });
 }

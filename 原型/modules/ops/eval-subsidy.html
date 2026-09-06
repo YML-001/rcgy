@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>评价与补助挂钩 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="manager" data-active="ops-14">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 运营考核与工单服务
+      <span class="sep">/</span> 服务评价管理
+      <span class="sep">/</span> <span class="cur">评价与补助挂钩</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.openDrawer('kjDrawer')"><i class="fa-solid fa-stamp"></i> 扣减确认与复议</button>
+      <button class="btn" onclick="location.href='../rent/subsidy-amount.html'"><i class="fa-solid fa-right-left"></i> 同步至补助核定</button>
+      <button class="btn" onclick="location.href='eval-stat.html'"><i class="fa-solid fa-chart-simple"></i> 评价结果统计</button>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出核定表</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div><b>评价结果作为政府购买服务补助资金核定的依据</b>，低于约定标准的按规则扣减补助。<b>本页输出的扣减比例直接进入补助金额核定环节</b>，确认后即同步至补助核定并报财政复核拨付，每笔扣减金额均可追溯至具体评价记录。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+      <div><div class="s-label">本期应补金额</div><div class="s-value">342,076.00</div>
+        <div class="s-trend text-2">元 · 2026 年 9 月 · 计租面积 48,868.00 ㎡</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-scissors"></i></div>
+      <div><div class="s-label">评价扣减金额</div><div class="s-value">20,205.08</div>
+        <div class="s-trend ">元 · 占应补金额 5.9%</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+      <div><div class="s-label">核定金额</div><div class="s-value">321,870.92</div>
+        <div class="s-trend text-2">元 · 应补 342,076.00 − 扣减 20,205.08</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon red"><i class="fa-solid fa-triangle-exclamation"></i></div>
+      <div><div class="s-label">触发扣减的机构</div><div class="s-value">3</div>
+        <div class="s-trend text-2">家 · 共 3 家 · 4 个楼盘触发 · 5 档规则</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card" data-tabs-scope>
+    <div class="tabs" style="margin-bottom:0;padding:8px 12px 0">
+      <div class="tab active" data-tab="rule">扣减规则 <span class="badge blue">5</span></div>
+      <div class="tab" data-tab="calc">本期挂钩计算 <span class="badge cyan">5</span></div>
+      <div class="tab" data-tab="chain">挂钩机制</div>
+    </div>
+
+    <div class="tab-panel active" data-panel="rule">
+      <div class="card-body" style="padding:0">
+        <div class="filter-bar">
+      <div class="filter-item"><label>规则编码</label><input type="text" value="KJ-" placeholder="规则编码"></div>
+      <div class="filter-item"><label>评价等级</label><select><option value="">全部</option><option>优秀</option><option>良好</option><option>合格</option><option>待改进</option><option>不合格</option></select></div>
+      <div class="filter-item"><label>附加处置</label><select><option value="">全部</option><option>无</option><option>书面提醒</option><option>约谈整改</option><option>暂缓拨付</option></select></div>
+      <div class="filter-item"><label>状态</label><select><option value="">全部</option><option>在用</option><option>待生效</option><option>已停用</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>规则编码</th><th>评价得分区间</th><th>评价等级</th><th>扣减比例</th><th>附加处置</th><th class="cell-lg">规则依据</th><th>状态</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><b>KJ-01</b></td><td>≥ 90 分</td><td><span class="badge green">优秀</span></td><td><span class="badge green">不扣减</span></td><td><span class="muted">无</span></td><td class="cell-lg">达到约定服务标准，按政府购买服务合同约定全额核定补助金额，不作扣减</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.toast('规则 KJ-01 自 2026-09-01 起在用，调整须经业务管理员审批并按周期生效')">编辑</span></td></tr>
+          <tr><td><b>KJ-02</b></td><td>85 — 89.9 分</td><td><span class="badge green">良好</span></td><td><span class="badge orange">扣减 2%</span></td><td><span class="badge blue">书面提醒</span></td><td class="cell-lg">低于约定标准（90 分），按会议决议扣减当期应补金额的 2%，并向运营单位书面提醒限期改进短板指标</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.toast('规则 KJ-02 自 2026-09-01 起在用，调整须经业务管理员审批并按周期生效')">编辑</span></td></tr>
+          <tr><td><b>KJ-03</b></td><td>80 — 84.9 分</td><td><span class="badge orange">合格</span></td><td><span class="badge orange">扣减 5%</span></td><td><span class="badge blue">书面提醒</span></td><td class="cell-lg">低于约定标准，按会议决议扣减当期应补金额的 5%，书面提醒并要求 30 日内报送整改方案</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.toast('规则 KJ-03 自 2026-09-01 起在用，调整须经业务管理员审批并按周期生效')">编辑</span></td></tr>
+          <tr class="row-warn"><td><b>KJ-04</b></td><td>70 — 79.9 分</td><td><span class="badge orange">待改进</span></td><td><span class="badge red">扣减 10%</span></td><td><span class="badge orange">约谈整改</span></td><td class="cell-lg">明显低于约定标准，扣减当期应补金额的 10%，由市保障性住房服务中心约谈整改；连续两期待改进的纳入考核结果应用</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.toast('规则 KJ-04 自 2026-09-01 起在用，调整须经业务管理员审批并按周期生效')">编辑</span></td></tr>
+          <tr class="row-bad"><td><b>KJ-05</b></td><td>&lt; 70 分</td><td><span class="badge red">不合格</span></td><td><span class="badge red">扣减 20%</span></td><td><span class="badge red">约谈整改 + 暂缓拨付</span></td><td class="cell-lg">严重低于约定标准，扣减当期应补金额的 20% 并约谈整改；整改验收合格前暂缓剩余补助拨付</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.toast('规则 KJ-05 自 2026-09-01 起在用，调整须经业务管理员审批并按周期生效')">编辑</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+      </div>
+    </div>
+
+    <div class="tab-panel" data-panel="calc">
+      <div class="card-body">
+        <div class="sp-scroll">
+  <div class="sp-block" style="margin-bottom:0">
+    <div class="sp-h"><i class="fa-solid fa-calculator"></i> 本期挂钩计算<span class="sub">N5-04 · 2026 年 9 月 · 补助单价 7.00 元/㎡·月 · 应补 − 扣减 = 核定</span></div>
+    <div class="sp-b">
+      <div class="sp-tw">
+        <table class="data-table compact">
+          <thead><tr><th class="cell-lg">运营机构</th><th class="cell-lg">楼盘</th><th class="num">在租套数</th><th class="num">计租面积（㎡）</th><th class="num">补助单价</th><th class="num">服务月数</th><th class="num">应补金额（元）</th><th class="num">评价得分</th><th>评价等级</th><th>扣减比例</th><th class="num">扣减金额（元）</th><th class="num">核定金额（元）</th><th>状态</th><th>操作</th></tr></thead>
+          <tbody>
+            <tr><td>株洲市人才安居服务有限公司</td><td>云龙人才公寓</td><td class="num">268</td><td class="num">12,060.00</td><td class="num">7.00</td><td class="num">1</td><td class="num">84,420.00</td><td class="num">93.7</td><td><span class="badge green">优秀</span></td><td><span class="badge green">0%</span></td><td class="num">0.00</td><td class="num"><b>84,420.00</b></td><td><span class="badge green">已确认</span></td><td><span class="link" onclick="PMS.toast('云龙人才公寓评价 93.7 分（优秀），按 KJ-01 不扣减，已于 2026-10-08 确认')">确认记录</span></td></tr>
+            <tr><td>株洲市人才安居服务有限公司</td><td>湘江1958 人才公寓</td><td class="num">386</td><td class="num">16,212.00</td><td class="num">7.00</td><td class="num">1</td><td class="num">113,484.00</td><td class="num">89.6</td><td><span class="badge green">良好</span></td><td><span class="badge orange">2%</span></td><td class="num">2,269.68</td><td class="num"><b>111,214.32</b></td><td><span class="badge orange">待确认</span></td><td><span class="link" onclick="PMS.openDrawer('kjDrawer')">确认</span> <span class="link" onclick="PMS.openDrawer('kjDrawer')">复议</span></td></tr>
+            <tr><td>株洲城发物业服务有限公司</td><td>董家塅人才公寓</td><td class="num">186</td><td class="num">7,068.00</td><td class="num">7.00</td><td class="num">1</td><td class="num">49,476.00</td><td class="num">83.3</td><td><span class="badge orange">合格</span></td><td><span class="badge orange">5%</span></td><td class="num">2,473.80</td><td class="num"><b>47,002.20</b></td><td><span class="badge orange">待确认</span></td><td><span class="link" onclick="PMS.openDrawer('kjDrawer')">确认</span> <span class="link" onclick="PMS.openDrawer('kjDrawer')">复议</span></td></tr>
+            <tr class="row-warn"><td>株洲城发物业服务有限公司</td><td>田心人才公寓</td><td class="num">138</td><td class="num">4,968.00</td><td class="num">7.00</td><td class="num">1</td><td class="num">34,776.00</td><td class="num">77.4</td><td><span class="badge orange">待改进</span></td><td><span class="badge red">10%</span></td><td class="num">3,477.60</td><td class="num"><b>31,298.40</b></td><td><span class="badge orange">复议中</span></td><td><span class="link" onclick="PMS.openDrawer('kjDrawer')">复议</span> <span class="link" onclick="PMS.toast('运营单位已于 2026-10-09 提出复议：环境卫生扣分含 6 户重复投诉，申请核减，待运营监管岗核实')">复议进度</span></td></tr>
+            <tr class="row-bad"><td>清水塘社区服务有限公司</td><td>清水塘·未来社区</td><td class="num">214</td><td class="num">8,560.00</td><td class="num">7.00</td><td class="num">1</td><td class="num">59,920.00</td><td class="num">68.6</td><td><span class="badge red">不合格</span></td><td><span class="badge red">20%</span></td><td class="num">11,984.00</td><td class="num"><b>47,936.00</b></td><td><span class="badge orange">待确认</span></td><td><span class="link" onclick="PMS.openDrawer('kjDrawer')">确认</span> <span class="link" onclick="PMS.openDrawer('kjDrawer')">复议</span></td></tr>
+            <tr><td><span class="badge green">合计</span> <b>3 家运营机构</b></td><td><b>5 个楼盘</b></td><td class="num"><b>1,192</b></td><td class="num"><b>48,868.00</b></td><td class="num">7.00</td><td class="num">1</td><td class="num"><b>342,076.00</b></td><td class="num"><b>84.4</b></td><td><span class="badge orange">合格</span></td><td><span class="badge orange">5.9%</span></td><td class="num"><b>20,205.08</b></td><td class="num"><b>321,870.92</b></td><td><span class="muted">—</span></td><td><span class="muted">—</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="hint" style="margin-top:8px">
+        <i class="fa-solid fa-circle-info"></i>
+        应补金额 = 计租面积 × 补助单价 7.00 元/㎡·月 × 服务月数；扣减金额 = 应补金额 × 扣减比例；<b>核定金额 = 应补金额 − 扣减金额</b>。合计口径：342,076.00 − 20,205.08 = 321,870.92 元，扣减比例合计 5.9% 为加权比例。租金 13 元/㎡ 中个人承担 6 元、财政补助 7 元。
+      </p>
+    </div>
+  </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-panel" data-panel="chain">
+      <div class="card-body">
+        <div class="sp-scroll">
+  <div class="sp-block" style="margin-bottom:0">
+    <div class="sp-h"><i class="fa-solid fa-diagram-project"></i> 挂钩机制<span class="sub">服务评价 → 扣减比例 → 补助核定 → 财政复核拨付</span></div>
+    <div class="sp-b">
+      <div class="sp-tw">
+        <table class="data-table compact">
+          <thead><tr><th>环节</th><th class="cell-lg">数据流向</th><th class="cell-lg">责任主体</th><th class="cell-lg">留痕</th></tr></thead>
+          <tbody>
+            <tr><td><b>① 服务评价采集</b></td><td class="cell-lg">承租人按月或按季在移动端对<b>物业服务、运营单位服务</b>分别打分并填写意见 → 生成评价记录</td><td>承租人填报；运营单位组织发放与催办</td><td class="cell-lg">问卷编号、提交时间、逐指标评分、文字意见与问卷版本号留痕</td></tr>
+            <tr><td><b>② 评价统计与定级</b></td><td class="cell-lg">剔除无效问卷 → 按楼盘、机构、月份统计得分 → 按 5 档划分评价等级</td><td>市保障性住房服务中心（运营监管岗）</td><td>统计版本号、口径参数与无效问卷剔除清单留痕</td></tr>
+            <tr><td><b>③ 扣减比例生成</b></td><td class="cell-lg">按 <b>KJ-01 至 KJ-05</b> 匹配<b>楼盘</b>评价得分 → 输出扣减比例与附加处置</td><td>市保障性住房服务中心（运营监管岗）</td><td>命中规则编码、得分区间与扣减比例留痕</td></tr>
+            <tr><td><b>④ 补助金额核定</b></td><td class="cell-lg"><b>应补金额 − 扣减金额 = 核定金额</b> → 同步至补助金额核定环节</td><td>市住建部门（住房保障科）核定</td><td>经办人、确认时间、复议说明与前后金额变化留痕</td></tr>
+            <tr><td><b>⑤ 财政复核拨付</b></td><td class="cell-lg">核定金额报财政复核后<b>拨付至运营单位账户</b>；不合格机构整改验收合格前暂缓拨付</td><td>市财政局复核；运营单位收款</td><td>复核意见、拨付凭证与银行回单留痕</td></tr>
+            <tr><td><b>⑥ 逐笔追溯</b></td><td class="cell-lg"><b>扣减金额可追溯至具体评价记录</b>：核定金额 → 扣减明细 → 命中规则 → 楼盘得分 → 有效问卷编号 → 逐指标评分</td><td>全环节可被审计追溯</td><td>各环节操作人、时间、IP 与前后值写入办件流水</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="hint" style="margin-top:8px">
+        <i class="fa-solid fa-circle-info"></i>
+        租房补助按<b>政府购买服务</b>方式办理：运营单位按月或按季发起申请 → 住建部门核定（本页扣减比例进入该环节）→ 财政复核拨付至运营单位。
+      </p>
+    </div>
+  </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sp-src">
+    <span><b>依据</b> 2026 年 9 月 6 日向市住建局汇报讨论会议决议</span>
+    <span><b>扣减分档</b> ≥ 90 不扣减 / 85—89.9 扣 2% / 80—84.9 扣 5% / 70—79.9 扣 10% / &lt; 70 扣 20% 并约谈整改</span>
+    <span><b>计算口径</b> 应补 − 扣减 = 核定，金额保留两位小数</span>
+    <span><b>下游环节</b> <span class="link" onclick="location.href='../rent/subsidy-amount.html'">补助金额核定</span></span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="kjDrawer">
+  <div class="drawer-head">
+    <h3>扣减确认与复议</h3>
+    <span class="badge orange">待确认</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+    <div class="alert alert-warning">
+      <i class="fa-solid fa-triangle-exclamation"></i>
+      <div>确认后<b>扣减比例与核定金额同步至补助金额核定环节</b>，并作为财政复核拨付的依据。运营单位对扣减有异议的可在<b>5 个工作日内提出复议</b>，复议期间该笔核定暂不提交财政复核。</div>
+    </div>
+
+    <div class="form-grid form-align">
+      <div class="form-item">
+        <label>运营机构 <span class="req">*</span></label>
+        <input type="text" value="株洲市人才安居服务有限公司" readonly>
+      </div>
+      <div class="form-item">
+        <label>楼盘 <span class="req">*</span></label>
+        <input type="text" value="湘江1958 人才公寓" readonly>
+      </div>
+      <div class="form-item">
+        <label>评价周期 <span class="req">*</span></label>
+        <input type="text" value="2026 年 9 月（按月）" readonly>
+      </div>
+      <div class="form-item">
+        <label>评价得分 <span class="req">*</span></label>
+        <input type="text" value="89.6（良好）" readonly>
+        <div class="hint">物业服务 88.9 / 运营单位服务 90.3，综合 89.6</div>
+      </div>
+      <div class="form-item">
+        <label>命中规则 <span class="req">*</span></label>
+        <input type="text" value="KJ-02　85 — 89.9 分" readonly>
+      </div>
+      <div class="form-item">
+        <label>扣减比例 <span class="req">*</span></label>
+        <input type="text" value="2%" readonly>
+      </div>
+      <div class="form-item">
+        <label>应补金额（元） <span class="req">*</span></label>
+        <input type="text" value="113,484.00" readonly>
+        <div class="hint">计租面积 16,212.00 ㎡ × 7.00 元/㎡·月 × 1 个月</div>
+      </div>
+      <div class="form-item">
+        <label>扣减金额（元） <span class="req">*</span></label>
+        <input type="text" value="2,269.68">
+        <div class="hint">113,484.00 × 2% = 2,269.68</div>
+      </div>
+      <div class="form-item">
+        <label>核定金额（元） <span class="req">*</span></label>
+        <input type="text" value="111,214.32">
+        <div class="hint">应补 113,484.00 − 扣减 2,269.68 = 111,214.32</div>
+      </div>
+      <div class="form-item">
+        <label>处置措施 <span class="req">*</span></label>
+        <select><option>书面提醒</option><option>约谈整改</option><option>暂缓拨付</option><option>无</option></select>
+      </div>
+      <div class="form-item">
+        <label>经办人 <span class="req">*</span></label>
+        <input type="text" value="李慧敏">
+      </div>
+      <div class="form-item">
+        <label>确认日期 <span class="req">*</span></label>
+        <input type="date" value="2026-10-09">
+      </div>
+      <div class="form-item col-full">
+        <label>复议说明 <span class="req">*</span></label>
+        <textarea rows="4">经核，湘江1958 人才公寓 2026 年 9 月综合评价得分 89.6 分（良好），低于约定标准 90 分，命中规则 KJ-02，按 2% 扣减当期应补金额 113,484.00 元，扣减 2,269.68 元，核定 111,214.32 元。主要短板为报修及时率 78.2 分（权重 25%），集中反映周末与夜间无值班维修。已核对 342 份有效问卷，未发现重复提交或恶意评分，扣减金额可逐笔追溯至具体评价记录。运营单位如有异议，可自收到本结论之日起 5 个工作日内提出复议并附证明材料。</textarea>
+      </div>
+      <div class="form-item col-full">
+        <label>附件 <span class="req">*</span></label>
+        <input type="text" data-upload="1">
+        <div class="hint">评价结果明细表（逐问卷）、扣减计算表、书面提醒函</div>
+      </div>
+    </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn" onclick="PMS.confirm({title:'提出复议',message:'确认为湘江1958 人才公寓提出扣减复议？',detail:'复议期间该笔核定暂不提交财政复核，由运营监管岗在 5 个工作日内核实并答复。',type:'warning',okText:'确认提出复议',onOk:function(){PMS.closeDrawer();PMS.toast('已提出复议，该笔核定暂缓提交财政复核','success');}})">提出复议</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'扣减确认',message:'确认湘江1958 人才公寓本期扣减 2,269.68 元、核定 111,214.32 元？',detail:'确认后同步至补助金额核定环节，作为财政复核拨付依据；扣减金额可追溯至具体评价记录。经办人李慧敏，确认动作全过程留痕，更正须走复议流程。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已确认扣减并同步至补助核定','success');}})"><i class="fa-solid fa-check"></i> 确认并同步</button>
+  </div>
+</div>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 5; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

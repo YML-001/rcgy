@@ -19,14 +19,14 @@
       <span class="sep">/</span> <span class="cur">选房时段编排</span>
     </div>
     <div class="page-actions">
-      <button class="btn btn-primary" onclick="PMS.confirm({title:'编排确认',message:'确认按当前顺序名单重新编排选房时段？',detail:'重新编排将覆盖未开始的时段安排，已开始与已结束的时段不受影响。编排结果将推送至各申请人。',type:'warning',okText:'确认编排',onOk:function(){PMS.toast('已重新编排，通知已推送至各申请人','success');}})"><i class="fa-solid fa-calendar-days"></i> 重新编排时段</button>
+      <button class="btn btn-primary" onclick="PMS.confirm({title:'编排确认',message:'确认按当前顺序名单重新编排选房时段？',detail:'重新编排将覆盖未开始的时段安排，已开始与已结束的时段不受影响。编排结果将分时放号并短信通知当事人，确认时限为 1 个工作日。',type:'warning',okText:'确认编排',onOk:function(){PMS.toast('已重新编排，短信通知已发送至各申请人，确认时限 1 个工作日','success');}})"><i class="fa-solid fa-calendar-days"></i> 重新编排时段</button>
       <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
     </div>
   </div>
 
   <div class="alert alert-warning">
     <i class="fa-solid fa-triangle-exclamation"></i>
-    <div>按配租顺序<b>编排选房时段并分时放号</b>，控制并发锁房与超时释放，<b>防止房源被重复选中</b>。锁房设 30 分钟确认倒计时，超时未确认自动释放给下一顺序人。</div>
+    <div>按配租顺序<b>分时放号并短信通知当事人，限 1 个工作日内上线确认选房</b>；<b>逾期未确认的自动顺延至下一顺序人，本人轮候资格不取消、自动排入下一轮</b>；控制并发锁房与超时释放，<b>防止房源被重复选中</b>。</div>
   </div>
 
   <div class="stat-grid">
@@ -36,19 +36,19 @@
         <div class="s-trend text-2">5 天 × 每天 12—13 段</div></div>
     </div>
     <div class="stat-card">
-      <div class="s-icon green"><i class="fa-solid fa-users"></i></div>
-      <div><div class="s-label">每段放号</div><div class="s-value">5 人</div>
-        <div class="s-trend text-2">控制并发锁房</div></div>
+      <div class="s-icon green"><i class="fa-solid fa-comment-sms"></i></div>
+      <div><div class="s-label">每段放号 / 通知</div><div class="s-value">5 人</div>
+        <div class="s-trend text-2">短信通知当事人 · 控制并发锁房</div></div>
     </div>
     <div class="stat-card dc-alarm">
       <div class="s-icon orange"><i class="fa-solid fa-lock"></i></div>
       <div><div class="s-label">当前锁定</div><div class="s-value">68</div>
-        <div class="s-trend ">含 5 套即将超时</div></div>
+        <div class="s-trend ">含 5 套临近 1 个工作日确认时限</div></div>
     </div>
     <div class="stat-card">
-      <div class="s-icon cyan"><i class="fa-solid fa-rotate"></i></div>
-      <div><div class="s-label">超时释放</div><div class="s-value">12</div>
-        <div class="s-trend text-2">已释放给下一顺序人</div></div>
+      <div class="s-icon cyan"><i class="fa-solid fa-forward"></i></div>
+      <div><div class="s-label">逾期顺延</div><div class="s-value">12</div>
+        <div class="s-trend text-2">已顺延至下一顺序人 · 轮候资格均未取消</div></div>
     </div>
   </div>
 
@@ -67,37 +67,59 @@
     <div class="table-wrap">
       <table class="data-table">
         <thead>
-          <tr><th>时段编号</th><th>日期</th><th>时段</th><th>顺序号区间</th><th class="num">放号人数</th><th class="num">已选房</th><th class="num">锁定中</th><th class="num">超时释放</th><th>时段状态</th><th>操作</th></tr>
+          <tr><th>时段编号</th><th>日期</th><th>时段</th><th>顺序号区间</th><th class="num">放号人数</th><th>短信通知</th><th>确认截止</th><th class="num">已选房</th><th class="num">锁定中</th><th class="num">逾期顺延</th><th>时段状态</th><th>操作</th></tr>
         </thead>
         <tbody>
-          <tr><td>SF2026-03-001</td><td>2026-09-15</td><td>09:00—09:30</td><td>1—5</td><td class="num">5</td><td class="num">5</td><td class="num">0</td><td class="num">0</td><td><span class="badge green">已结束</span></td><td><span class="link" onclick="PMS.toast('5 人全部完成选房并确认，无超时释放')">时段明细</span></td></tr>
-          <tr><td>SF2026-03-002</td><td>2026-09-15</td><td>09:30—10:00</td><td>6—10</td><td class="num">5</td><td class="num">4</td><td class="num">1</td><td class="num">0</td><td><span class="badge green">已结束</span></td><td><span class="link" onclick="PMS.toast('4 人完成确认，1 人锁定中（顺序号 8 谭××）')">时段明细</span></td></tr>
-          <tr class="row-warn"><td>SF2026-03-003</td><td>2026-09-15</td><td>10:00—10:30</td><td>11—15</td><td class="num">5</td><td class="num">2</td><td class="num">2</td><td class="num">1</td><td><span class="badge orange">进行中</span></td><td><span class="link" onclick="PMS.openDrawer('slDrawer')">时段管理</span></td></tr>
-          <tr><td>SF2026-03-004</td><td>2026-09-15</td><td>10:30—11:00</td><td>16—20</td><td class="num">5</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td><span class="badge gray">未开始</span></td><td><span class="link" onclick="PMS.openDrawer('slDrawer')">时段管理</span></td></tr>
-          <tr><td>SF2026-03-064</td><td>2026-09-19</td><td>16:30—17:00</td><td>316—320</td><td class="num">5</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td><span class="badge gray">未开始</span></td><td><span class="link" onclick="PMS.openDrawer('slDrawer')">时段管理</span></td></tr>
+          <tr><td>SF2026-03-001</td><td>2026-09-15</td><td>09:00—09:30</td><td>1—5</td><td class="num">5</td><td><span class="badge green">已发送 5 条</span></td><td>2026-09-16 18:00</td><td class="num">5</td><td class="num">0</td><td class="num">0</td><td><span class="badge green">已结束</span></td><td><span class="link" onclick="PMS.toast('5 人全部在 1 个工作日内完成选房并确认，无逾期顺延')">时段明细</span></td></tr>
+          <tr><td>SF2026-03-002</td><td>2026-09-15</td><td>09:30—10:00</td><td>6—10</td><td class="num">5</td><td><span class="badge green">已发送 5 条</span></td><td>2026-09-16 18:00</td><td class="num">4</td><td class="num">1</td><td class="num">0</td><td><span class="badge green">已结束</span></td><td><span class="link" onclick="PMS.toast('4 人完成确认，1 人锁定中（顺序号 8 谭××），确认时限至 2026-09-16 18:00')">时段明细</span></td></tr>
+          <tr class="row-warn"><td>SF2026-03-003</td><td>2026-09-15</td><td>10:00—10:30</td><td>11—15</td><td class="num">5</td><td><span class="badge green">已发送 5 条</span></td><td>2026-09-16 18:00</td><td class="num">2</td><td class="num">2</td><td class="num">1</td><td><span class="badge orange">进行中</span></td><td><span class="link" onclick="PMS.openDrawer('slDrawer')">时段管理</span></td></tr>
+          <tr><td>SF2026-03-004</td><td>2026-09-15</td><td>10:30—11:00</td><td>16—20</td><td class="num">5</td><td><span class="badge gray">待发送</span></td><td>2026-09-16 18:00</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td><span class="badge gray">未开始</span></td><td><span class="link" onclick="PMS.openDrawer('slDrawer')">时段管理</span></td></tr>
+          <tr><td>SF2026-03-064</td><td>2026-09-19</td><td>16:30—17:00</td><td>316—320</td><td class="num">5</td><td><span class="badge gray">待发送</span></td><td>2026-09-22 18:00</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td><span class="badge gray">未开始</span></td><td><span class="link" onclick="PMS.toast('2026-09-19 为周六，确认时限顺延至下一工作日 2026-09-22 18:00')">时段管理</span></td></tr>
         </tbody>
       </table>
     </div>
   </div>
-        <div class="sp-block" style="margin-top:12px">
-          <div class="sp-h"><i class="fa-solid fa-list"></i> 当前锁定房源监控<span class="sub">即将超时 5 套</span></div>
+  <div class="grid-2" style="margin-top:12px">
+        <div class="sp-block">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 当前锁定房源监控<span class="sub">临近确认时限 5 套 · 确认时限 1 个工作日</span></div>
           <div class="sp-b">
   <div class="sp-tw">
     <table class="data-table compact">
-      <thead><tr><th>房源</th><th class="num">顺序号</th><th>申请人</th><th>锁定时间</th><th>剩余确认时限</th><th>处置</th></tr></thead>
+      <thead><tr><th>房源</th><th class="num">顺序号</th><th>申请人</th><th>短信通知时间</th><th>确认截止（1 个工作日）</th><th>剩余确认时限</th><th>处置</th></tr></thead>
       <tbody>
-      <tr class="row-warn"><td>湘江1958 A6-1502</td><td class="num">12</td><td>王梓涵</td><td>2026-09-15 10:04</td><td><div class="sp-days d60"><span class="dv">26 分</span><span class="db"><span style="width:86%"></span></span></div></td><td><span class="link" onclick="PMS.toast('已向申请人推送确认提醒（湘易办 + 短信）')">催办</span></td></tr>
-      <tr class="row-warn"><td>栗雨佳苑 3-1104</td><td class="num">13</td><td>邓××</td><td>2026-09-15 10:06</td><td><div class="sp-days d60"><span class="dv">28 分</span><span class="db"><span style="width:93%"></span></span></div></td><td><span class="link" onclick="PMS.toast('已向申请人推送确认提醒')">催办</span></td></tr>
-      <tr class="row-bad"><td>茨菇塘公寓 5-0602</td><td class="num">11</td><td>周××</td><td>2026-09-15 09:58</td><td><div class="sp-days dx"><span class="dv">超时</span><span class="db"><span style="width:100%"></span></span></div></td><td><span class="link" onclick="PMS.toast('已自动释放该房源给下一顺序人，并推送告知')">释放</span></td></tr>
+      <tr class="row-warn"><td>湘江1958 A6-1502</td><td class="num">12</td><td>王梓涵</td><td>2026-09-15 10:04</td><td>2026-09-16 18:00</td><td><div class="sp-days d60"><span class="dv">5 小时</span><span class="db"><span style="width:78%"></span></span></div></td><td><span class="link" onclick="PMS.toast('已向申请人推送确认提醒（短信 + 湘易办）')">催办</span></td></tr>
+      <tr class="row-warn"><td>栗雨佳苑 3-1104</td><td class="num">13</td><td>邓××</td><td>2026-09-15 10:06</td><td>2026-09-16 18:00</td><td><div class="sp-days d30"><span class="dv">2 小时</span><span class="db"><span style="width:92%"></span></span></div></td><td><span class="link" onclick="PMS.toast('已向申请人推送确认提醒（短信 + 湘易办）')">催办</span></td></tr>
+      <tr class="row-bad"><td>茨菇塘公寓 5-0602</td><td class="num">11</td><td>周××</td><td>2026-09-14 09:58</td><td>2026-09-15 18:00</td><td><div class="sp-days dx"><span class="dv">已逾期</span><span class="db"><span style="width:100%"></span></span></div></td><td><span class="link" onclick="PMS.toast('已自动顺延该房源至下一顺序人；周×× 轮候资格不取消，已自动排入下一轮并短信告知')">顺延</span></td></tr>
       </tbody>
     </table>
   </div>
           </div>
         </div>
+        <div class="sp-block">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 通知与确认时限规则<span class="sub">R-S1 至 R-S6 · 短信通知 + 1 个工作日</span></div>
+          <div class="sp-b">
+  <div class="sp-tw">
+    <table class="data-table compact">
+      <thead><tr><th>规则</th><th class="cell-lg">环节</th><th class="cell-lg">口径</th></tr></thead>
+      <tbody>
+      <tr><td><b>R-S1</b></td><td>分时放号</td><td>按<b>配租顺序</b>编排时段并分时放号，每时段放号 5 人，<b>控制并发锁房</b>，防止房源被重复选中；放号顺序即配租顺序，<b>不摇号</b></td></tr>
+      <tr><td><b>R-S2</b></td><td><b>短信通知当事人</b></td><td>时段开始时系统<b>自动向当事人发送短信</b>（含选房时段、确认截止时间、选房入口），同步推送湘易办站内消息与微信模板消息；短信发送结果<b>逐条留痕</b>，发送失败自动重试并转人工外呼</td></tr>
+      <tr><td><b>R-S3</b></td><td><b>限 1 个工作日内确认</b></td><td>当事人须<b>自收到通知起 1 个工作日内</b>上线确认选房；<b>法定节假日与休息日不计入</b>，遇休息日自动顺延至下一工作日 18:00 截止。截止前 4 小时自动推送催办提醒</td></tr>
+      <tr><td><b>R-S4</b></td><td><b>逾期未确认自动顺延</b></td><td>逾期未确认的，系统<b>自动将该房源顺延至下一顺序人</b>并向其发送短信通知，无需人工干预；顺延记录写入时段台账</td></tr>
+      <tr><td><b>R-S5</b></td><td><b>轮候资格不取消</b></td><td>逾期未确认<b>不取消本人轮候资格</b>，系统<b>自动排入下一轮</b>，原受理时间、R-A0 预约优先标记与轮候序号<b>全部保留</b>；与<b>主动放弃承租资格</b>（不得再次申请）性质不同，须分别留痕</td></tr>
+      <tr><td><b>R-S6</b></td><td>并发锁房与释放</td><td>同一房源同一时刻<b>只允许一人锁定</b>，锁定期间对其他申请人不可见可选；顺延或主动放弃后房源<b>即时释放回可选池</b>并实时同步至移动端</td></tr>
+      </tbody>
+    </table>
+  </div>
+          </div>
+        </div>
+  </div>
   <div class="sp-src">
-    <span><b>并发控制</b> 每时段放号 5 人，防止房源被重复选中</span>
-    <span><b>超时规则</b> 锁房 30 分钟未确认自动释放给下一顺序人</span>
-    <span><b>移动端落点</b> <span class="link" onclick="location.href='../../mobile/public/alloc-select.html'">分时段线上选房</span></span>
+    <span><b>通知方式</b> 分时放号后<b>短信通知当事人</b>，同步推送湘易办站内消息与微信模板消息，发送结果逐条留痕</span>
+    <span><b>确认时限</b> <b>限 1 个工作日内上线确认选房</b>，法定节假日与休息日不计入，遇休息日顺延至下一工作日 18:00</span>
+    <span><b>逾期规则</b> <b>逾期未确认自动顺延至下一顺序人</b>；<b>本人轮候资格不取消、自动排入下一轮</b>，原受理时间与预约优先标记保留</span>
+    <span><b>并发控制</b> 每时段放号 5 人，同一房源同一时刻只允许一人锁定，防止房源被重复选中</span>
+    <span><b>移动端落点</b> <span class="link" onclick="location.href='../../mobile/public/alloc-select.html'">分时段线上选房</span>　<span class="link" onclick="location.href='queue-list.html'">轮候库与预申请转正</span></span>
   </div>
 </main>
 
@@ -111,7 +133,7 @@
   <div class="drawer-body">
   <div class="alert alert-warning">
     <i class="fa-solid fa-triangle-exclamation"></i>
-    <div>调整时段将<b>推送通知</b>至该时段全部申请人。已开始的时段不建议调整，以免影响选房秩序。</div>
+    <div>调整时段将<b>短信通知</b>该时段全部申请人，并同步刷新其<b>1 个工作日确认截止时间</b>。已开始的时段不建议调整，以免影响选房秩序。</div>
   </div>
 
       <div class="form-grid form-align">
@@ -141,13 +163,28 @@
           <div class="hint">控制并发锁房数量</div>
         </div>
         <div class="form-item">
-          <label>锁房确认时限（分钟） <span class="req">*</span></label>
-          <input type="text" value="30">
-          <div class="hint">超时未确认自动释放</div>
+          <label>确认时限（工作日） <span class="req">*</span></label>
+          <input type="text" value="1" readonly>
+          <div class="hint">限 1 个工作日内上线确认，法定节假日与休息日不计入</div>
+        </div>
+        <div class="form-item">
+          <label>确认截止时间 <span class="req">*</span></label>
+          <input type="text" value="2026-09-16 18:00" readonly>
+          <div class="hint">按短信通知时间 + 1 个工作日自动计算</div>
+        </div>
+        <div class="form-item">
+          <label>通知方式 <span class="req">*</span></label>
+          <select><option>短信通知当事人 + 湘易办站内消息</option><option>短信通知当事人 + 湘易办 + 微信模板消息</option><option>仅短信通知当事人</option></select>
+          <div class="hint">发送结果逐条留痕，失败自动重试并转人工外呼</div>
+        </div>
+        <div class="form-item">
+          <label>逾期处理 <span class="req">*</span></label>
+          <input type="text" value="自动顺延至下一顺序人，本人轮候资格不取消、自动排入下一轮" readonly>
+          <div class="hint">与主动放弃承租资格性质不同，分别留痕</div>
         </div>
         <div class="form-item col-full">
           <label>调整说明 <span class="req">*</span></label>
-          <textarea rows="3" placeholder="必填，说明调整原因。调整通知将推送至该时段全部申请人">因该时段有申请人临时提出无障碍选房协助需求，将结束时间延后 15 分钟至 10:45，放号人数与锁房确认时限不变，调整通知已推送至该时段全部申请人。</textarea>
+          <textarea rows="3" placeholder="必填，说明调整原因。调整通知将短信通知该时段全部申请人">因该时段有申请人临时提出无障碍选房协助需求，将结束时间延后 15 分钟至 10:45，放号人数与 1 个工作日确认时限不变，确认截止时间仍为 2026-09-16 18:00，调整通知已短信通知该时段全部申请人。</textarea>
         </div>
       </div>
   </div>

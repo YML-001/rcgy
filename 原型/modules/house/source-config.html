@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>房源来源分类配置 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="housing" data-active="house-28">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 房源筹集与楼盘表
+      <span class="sep">/</span> 房源导入与来源台账
+      <span class="sep">/</span> <span class="cur">房源来源分类配置</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.openDrawer('chanDrawer')"><i class="fa-solid fa-pen-to-square"></i> 编辑渠道</button>
+      <a class="btn" href="source-ledger.html"><i class="fa-solid fa-book"></i> 分渠道筹集台账</a>
+      <a class="btn" href="../system/dict.html"><i class="fa-solid fa-book-atlas"></i> 数据字典管理</a>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出渠道配置</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>房源来源统一按<b>市本级存量、收购商品房转化、收购保租房转化、园区公租房纳管</b>四类维护，逐类登记<b>责任单位、计划套数与到位时间</b>，作为<b>筹集进度考核与统计口径的基准</b>。四类计划套数合计须等于<b>一万套建设目标</b>，渠道口径调整须同步更新统计报表。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-sitemap"></i></div>
+      <div><div class="s-label">来源渠道</div><div class="s-value">4 类</div>
+        <div class="s-trend text-2">口径固定不新增，台账含合计行共 5 行</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-bullseye"></i></div>
+      <div><div class="s-label">计划套数</div><div class="s-value">10,000</div>
+        <div class="s-trend text-2">套 · 四类合计等于建设目标</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-building-columns"></i></div>
+      <div><div class="s-label">已登记责任单位</div><div class="s-value">5</div>
+        <div class="s-trend text-2">家 · 园区公租房纳管由 2 家分担</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-calendar-day"></i></div>
+      <div><div class="s-label">计划到位节点</div><div class="s-value">12-31</div>
+        <div class="s-trend ">2026 年底四类须全部到位</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="card-head">
+      <h3><i class="fa-solid fa-sitemap"></i> 四类来源渠道配置</h3>
+      <span class="sub">渠道编码 QD-01 至 QD-04 · 计划套数合计 10,000 套</span>
+    </div>
+    <div class="filter-bar">
+      <div class="filter-item"><label>渠道名称</label><select data-dict="srcChannel" data-ph="全部"></select></div>
+      <div class="filter-item"><label>责任单位</label><select data-dict="reportOrg" data-ph="全部"></select></div>
+      <div class="filter-item"><label>状态</label><select><option value="">全部</option><option>启用</option><option>停用</option></select></div>
+      <div class="filter-item"><label>计划到位年度</label><select><option>2026 年</option><option>2027 年</option><option value="">全部</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>渠道编码</th><th>渠道名称</th><th class="cell-lg">责任单位</th><th class="num">计划套数</th><th class="num">已到位套数</th><th>计划到位时间</th><th class="cell-lg">统计口径说明</th><th>状态</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>QD-01</td><td><span class="badge blue">市本级存量</span></td><td>市保障性住房服务中心</td><td class="num">2,600</td><td class="num">2,480</td><td>2026-10-31</td><td>市本级已建成并纳入政府产权的存量住房，含原公租房、原直管公房中转为人才公寓使用的房源</td><td><span class="badge green">启用</span></td><td><span class="link" onclick="PMS.openDrawer('chanDrawer')">编辑</span> <span class="link" onclick="location.href='source-ledger.html'">台账</span></td></tr>
+          <tr><td>QD-02</td><td><span class="badge green">收购商品房转化</span></td><td>株洲城发高科集团</td><td class="num">3,800</td><td class="num">3,560</td><td>2026-11-30</td><td>以政府或平台公司名义收购市面存量商品房并转化为人才公寓，按不动产过户完成之日计入</td><td><span class="badge green">启用</span></td><td><span class="link" onclick="PMS.openDrawer('chanDrawer')">编辑</span> <span class="link" onclick="location.href='source-ledger.html'">台账</span></td></tr>
+          <tr><td>QD-03</td><td><span class="badge cyan">收购保租房转化</span></td><td>清水塘投资集团</td><td class="num">2,000</td><td class="num">1,860</td><td>2026-12-15</td><td>收购已纳入省保障性租赁住房备案的项目房源并转为人才公寓使用，须完成用途变更备案</td><td><span class="badge green">启用</span></td><td><span class="link" onclick="PMS.openDrawer('chanDrawer')">编辑</span> <span class="link" onclick="location.href='source-ledger.html'">台账</span></td></tr>
+          <tr class="row-warn"><td>QD-04</td><td><span class="badge purple">园区公租房纳管</span></td><td>株洲高新区管委会、株洲经开区管委会</td><td class="num">1,600</td><td class="num">1,358</td><td>2026-12-31</td><td>两个园区自建自管公租房中调剂用于人才安居的房源，纳管后房源统一由本平台建账管理</td><td><span class="badge green">启用</span></td><td><span class="link" onclick="PMS.openDrawer('chanDrawer')">编辑</span> <span class="link" onclick="location.href='source-ledger.html'">台账</span></td></tr>
+          <tr><td><span class="badge orange">合计</span></td><td><span class="muted">四类渠道</span></td><td>5 家责任单位</td><td class="num">10,000</td><td class="num">9,258</td><td>2026-12-31</td><td>四类计划套数合计等于一万套建设目标，完成率 92.6%；一房一码去重后计数，不重复归集</td><td><span class="badge green">—</span></td><td><span class="link" onclick="location.href='../stat/house-plan.html'">进度统计</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sp-block" style="margin-top:12px">
+    <div class="sp-h"><i class="fa-solid fa-list"></i> 统计口径基准<span class="sub">QD-01 至 QD-04 · 计入与不计入范围</span></div>
+    <div class="sp-b">
+      <div class="sp-tw">
+        <table class="data-table compact">
+          <thead><tr><th>渠道</th><th class="cell-lg">计入范围</th><th class="cell-lg">不计入范围</th><th>计入时点</th></tr></thead>
+          <tbody>
+          <tr><td><b>QD-01</b> 市本级存量</td><td>市本级政府产权的存量住房，经批准调整为人才公寓使用并完成装修与家电家具配置的房源</td><td>仍在公租房轮候配租中的房源；未完成拎包入住改造的房源；已列入棚改征收范围的房源</td><td>验收合格并建账之日</td></tr>
+          <tr><td><b>QD-02</b> 收购商品房转化</td><td>已签订收购合同并完成不动产过户的商品房；含整栋收购与零星散购</td><td>仅签订意向书未过户的房源；已收购但转作公共服务配套使用的房屋；开发商代建未移交的房源</td><td>不动产过户完成之日</td></tr>
+          <tr><td><b>QD-03</b> 收购保租房转化</td><td>已纳入省保障性租赁住房备案、经收购并完成用途变更备案后转为人才公寓的房源</td><td>省保租房系统内仍按保租房口径配租的房源（避免与省厅口径重复统计）；未完成用途变更备案的房源</td><td>用途变更备案完成之日</td></tr>
+          <tr><td><b>QD-04</b> 园区公租房纳管</td><td>株洲高新区、株洲经开区自建自管公租房中调剂用于人才安居并纳入本平台建账的房源</td><td>园区自行分配、未纳入本平台建账的房源；园区职工宿舍与人才驿站短期周转房</td><td>纳管协议签订并完成建账之日</td></tr>
+          <tr><td><b>通用规则</b></td><td>四类渠道按<b>一房一码</b>唯一标识去重后计数；用途转换的房源按<b>转换后渠道</b>归集，不在原渠道重复计数</td><td>同一房源不得同时计入两类渠道；已退出人才公寓用途的房源从计划完成数中扣减</td><td>以建账时间为准</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="sp-src">
+    <span><b>依据</b> 2026 年 9 月 6 日向市住建局汇报讨论会议决议</span>
+    <span><b>渠道口径</b> 市本级存量 / 收购商品房转化 / 收购保租房转化 / 园区公租房纳管，四类固定，不新增</span>
+    <span><b>与入库类型的关系</b> 来源渠道与<span class="link" onclick="location.href='intake-type.html'">入库类型</span>（批量导入 / 接口对接）<b>分别标注、互不替代</b></span>
+    <span><b>考核基准</b> 本页配置的计划套数与到位时间即筹集进度考核基准，调整须留痕</span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="chanDrawer">
+  <div class="drawer-head">
+    <h3>来源渠道配置</h3>
+    <span class="badge green">启用中</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+    <div class="alert alert-warning">
+      <i class="fa-solid fa-triangle-exclamation"></i>
+      <div>渠道<b>计划套数调整后，四类合计仍须等于 10,000 套</b>，否则不允许保存。计划套数与到位时间是<b>筹集进度考核基准</b>，调整须填写变更依据并留痕，同步刷新<span class="link" onclick="location.href='../stat/house-plan.html'">筹集计划完成率统计</span>。</div>
+    </div>
+
+    <div class="form-grid form-align">
+      <div class="form-item">
+        <label>渠道编码 <span class="req">*</span></label>
+        <input type="text" value="QD-02" readonly>
+        <div class="hint">四类渠道编码固定，不可新增或删除</div>
+      </div>
+      <div class="form-item">
+        <label>渠道名称 <span class="req">*</span></label>
+        <select data-dict="srcChannel" data-selected="2" data-ph=""></select>
+      </div>
+      <div class="form-item">
+        <label>责任单位 <span class="req">*</span></label>
+        <select data-dict="reportOrg" data-selected="1" data-ph=""></select>
+      </div>
+      <div class="form-item">
+        <label>责任人 / 联系电话 <span class="req">*</span></label>
+        <input type="text" value="谢志强　138****4126">
+      </div>
+      <div class="form-item">
+        <label>计划套数 <span class="req">*</span></label>
+        <input type="text" value="3800">
+        <div class="hint">四类合计须等于 10,000 套，当前其余三类合计 6,200 套</div>
+      </div>
+      <div class="form-item">
+        <label>已到位套数 <span class="req">*</span></label>
+        <input type="text" value="3560" readonly>
+        <div class="hint">按建账记录自动统计，不可手工修改</div>
+      </div>
+      <div class="form-item">
+        <label>计划到位时间 <span class="req">*</span></label>
+        <input type="date" value="2026-11-30">
+      </div>
+      <div class="form-item">
+        <label>状态 <span class="req">*</span></label>
+        <select><option>启用</option><option>停用</option></select>
+      </div>
+      <div class="form-item col-full">
+        <label>统计口径说明 <span class="req">*</span></label>
+        <textarea rows="3">以政府或平台公司名义收购市面存量商品房并转化为人才公寓使用，含整栋收购与零星散购，按不动产过户完成之日计入已到位套数。仅签订收购意向书未完成过户的、已收购但转作公共服务配套使用的，均不计入。</textarea>
+      </div>
+      <div class="form-item col-full">
+        <label>不计入范围 <span class="req">*</span></label>
+        <textarea rows="3">①仅签订意向书未过户的房源；②已收购但转作社区服务中心、物业办公等公共服务配套使用的房屋；③开发商代建但尚未移交的房源；④已同时计入其他渠道的房源（按一房一码去重）。</textarea>
+      </div>
+      <div class="form-item col-full">
+        <label>分年度到位计划 <span class="req">*</span></label>
+        <textarea rows="2">2026 年第三季度 1,800 套；2026 年第四季度 2,000 套；累计 3,800 套，2026-11-30 前全部完成不动产过户。</textarea>
+      </div>
+      <div class="form-item col-full">
+        <label>变更依据附件</label>
+        <input type="text" data-upload="1" value="人才公寓房源筹集计划分解表_20260906.xlsx">
+      </div>
+      <div class="form-item col-full">
+        <label>变更说明 <span class="req">*</span></label>
+        <textarea rows="3">按 2026 年 9 月 6 日会议明确的四类来源口径，将收购商品房转化渠道计划套数确定为 3,800 套，责任单位为株洲城发高科集团，计划到位时间 2026-11-30。本次调整后四类合计 10,000 套，与一万套建设目标一致。</textarea>
+      </div>
+    </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn" onclick="PMS.toast('已保存为草稿，未更新考核基准','success')">存草稿</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认保存渠道 QD-02「收购商品房转化」配置？',detail:'保存后四类渠道计划套数合计 10,000 套，与一万套建设目标一致。计划套数与到位时间将作为新的筹集进度考核基准，分渠道筹集台账与统计报表同步刷新，本次变更全程留痕。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('渠道配置已保存，考核基准与统计报表已刷新','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+  </div>
+</div>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 5; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

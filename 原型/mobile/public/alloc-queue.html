@@ -10,13 +10,16 @@
 <link rel="stylesheet" href="../../assets/css/ext.css">
 </head>
 <body class="m-body" data-mtitle="轮候排位" data-mmod="M7 配租与线上选房" data-mcode="M7-06"
-      data-mdesc="房源不足时查看本人轮候序号、前方人数与预计等待周期。" data-mback="alloc-order.html" data-mtabset="public" data-mtab="apply">
+      data-mdesc="查看本人轮候序号、前方人数与预计等待周期；按轮候排名组织选房、不摇号，轮候锁定名额含应届生预申请与房源预约两类。" data-mback="alloc-order.html" data-mtabset="public" data-mtab="apply">
 <div class="m-stage">
   <div class="m-phone">
     <div class="m-screen">
       <div class="m-view">
         <div class="m-note"><i class="fa-solid fa-circle-info"></i>
-          <div>本批次房源不足或您未在时段内选房时，将<b>按配租顺序进入轮候库</b>等待。新房源到位后系统按序自动通知。</div>
+          <div>本批次房源不足或您未在时段内选房时，将<b>按配租顺序进入轮候库</b>等待。新房源到位后<b>按轮候排名组织选房、不摇号</b>，系统按序自动通知。</div>
+        </div>
+        <div class="m-note success"><i class="fa-solid fa-shield-halved"></i>
+          <div>选房逾期未确认<b>不取消轮候资格</b>：房源自动顺延至下一顺序人，您<b>自动排入下一轮</b>，原受理时间与<span class="m-tag orange">预约优先</span>标记均保留。</div>
         </div>
         <div class="m-card">
           <div class="m-card-h"><i class="fa-solid fa-hourglass-half"></i>我的轮候排位</div>
@@ -36,12 +39,25 @@
           <div class="m-kv">
             <div><span>轮候编号</span><span>LH2026-TY-00028</span></div>
             <div><span>进入轮候时间</span><span>2026-09-19 18:00</span></div>
-            <div><span>排序依据</span><span>申请受理时间 2026-09-03 10:26</span></div>
+            <div><span>排序依据</span><span>申请受理时间 2026-09-03 10:26（<b>不摇号</b>）</span></div>
+            <div><span>锁定名额类型</span><span><span class="m-tag dark">无锁定名额</span>　普通轮候</span></div>
             <div><span>意向片区</span><span>天元区</span></div>
             <div><span>意向房型</span><span>一室一厅（配租 1 人）</span></div>
             <div><span>轮候有效期</span><span>2027-09-18</span></div>
             <div><span>轮候状态</span><span><span class="m-tag blue">正常轮候</span></span></div>
           </div>
+          </div>
+        </div>
+        <div class="m-sect">轮候锁定名额<span class="m-sect-x">两类</span></div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-lock"></i>锁定名额类型</div>
+          <div class="m-card-b">
+            <div class="m-check">
+              <div class="ok"><i class="fa-solid fa-graduation-cap"></i><div class="m-chl"><b>应届生预申请　<span class="m-tag cyan">锁定名额</span></b><span>在校应届毕业生先行预申请锁定意向名额，<b>补齐材料转正式申请</b>后进入正式轮候，排序仍按预申请提交时间</span></div></div>
+              <div class="ok"><i class="fa-solid fa-calendar-check"></i><div class="m-chl"><b>房源预约　<span class="m-tag orange">预约优先</span></b><span>预约意向房源后锁定名额，<b>配租时位次优先于普通轮候</b>；多人预约同一房源按预约时间先后确定序位</span></div></div>
+              <div class="ok"><i class="fa-solid fa-ban"></i><div class="m-chl"><b>组织选房方式：不摇号</b><span>新房源到位后<b>按轮候排名组织选房</b>，<b>不采用摇号方式</b>，名单可导出公示</span></div></div>
+              <div class="bad"><i class="fa-solid fa-hourglass-end"></i><div class="m-chl"><b>到期未补齐自动作废</b><span>两类锁定名额到期未补齐材料或未转正式申请的，<b>自动作废并释放名额</b>，顺延给后位轮候人</span></div></div>
+            </div>
           </div>
         </div>
         <div class="m-sect">各片区轮候情况<span class="m-sect-x">可改选片区缩短等待</span></div>
@@ -56,10 +72,10 @@
           <div class="m-card-h"><i class="fa-solid fa-bell"></i>到位通知规则</div>
           <div class="m-card-b">
           <div class="m-kv">
-            <div><span>通知方式</span><span>湘易办站内消息 + 微信模板消息 + 短信</span></div>
-            <div><span>触发条件</span><span>意向片区新房源到位且轮候序号轮到本人</span></div>
-            <div><span>响应时限</span><span>收到通知后须在<b>限期内确认</b>是否参与配租</span></div>
-            <div><span>逾期未响应</span><span>视为本轮不参与，<b>不影响后续轮候</b>，序号保留</span></div>
+            <div><span>通知方式</span><span><b>短信</b>通知当事人 + 湘易办站内消息 + 微信模板消息</span></div>
+            <div><span>触发条件</span><span>意向片区新房源到位且<b>轮候排名</b>轮到本人（不摇号）</span></div>
+            <div><span>响应时限</span><span>收到通知后<b>限 1 个工作日内</b>上线确认选房</span></div>
+            <div><span>逾期未确认</span><span><b>自动顺延至下一顺序人</b>；<b>本人轮候资格不取消、自动排入下一轮</b>，轮候序号与排序依据保留</span></div>
           </div>
           </div>
         </div>
@@ -68,7 +84,9 @@
         </div>
         <div class="m-cells">
           <a class="m-cell" href="house-favorite.html"><span class="m-ci orange"><i class="fa-solid fa-star"></i></span><span class="m-cl"><b>设置房源到位提醒</b><span class="m-cs">收藏楼盘出现可租房源时推送</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
-          <a class="m-cell" href="pre-queue.html"><span class="m-ci green"><i class="fa-solid fa-graduation-cap"></i></span><span class="m-cl"><b>意向轮候库（预申请）</b><span class="m-cs">应届生预申请锁定的预定名额</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="book-list.html"><span class="m-ci"><i class="fa-solid fa-calendar-check"></i></span><span class="m-cl"><b>我的房源预约</b><span class="m-cs">房源预约锁定名额 · 配租时预约优先</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="pre-queue.html"><span class="m-ci green"><i class="fa-solid fa-graduation-cap"></i></span><span class="m-cl"><b>意向轮候库（预申请）</b><span class="m-cs">应届生预申请锁定名额</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="alloc-rule.html"><span class="m-ci cyan"><i class="fa-solid fa-scale-balanced"></i></span><span class="m-cl"><b>配租规则说明</b><span class="m-cs">不摇号 · 预约优先 · 1 个工作日确认</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
         </div>
       </div>
     </div>

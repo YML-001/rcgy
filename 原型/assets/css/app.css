@@ -641,7 +641,10 @@ body.embedded { margin: 0; }
 .app-main.list-layout {
   display: flex; flex-direction: column;
   box-sizing: border-box;
-  overflow: hidden !important;
+  /* 常态不出滚动条；仅当页尾口径块把主列表压到高度下限之下时，由主区兜底滚动，
+     避免表格被挤到只剩一两行。 */
+  overflow-x: hidden !important;
+  overflow-y: auto;
   /* 覆盖全局 min-height:100vh，避免把外层撑出滚动条 */
   min-height: 0 !important;
   /* 独立打开：按可视视口高度计算（dvh 优先） */
@@ -675,10 +678,17 @@ body.embedded { margin: 0; }
 .app-main.list-layout > .wizard,
 .app-main.list-layout > .section-title { flex-shrink: 0; margin-bottom: 6px; }
 
-/* 主列表卡片（直接挂在 main 下）撑满剩余高度，把分页顶到卡片底 */
+/* 主列表卡片（直接挂在 main 下）撑满剩余高度，把分页顶到卡片底。
+   min-height 是表格区的高度下限：页尾追加口径块时不得把列表压得看不见行，
+   超出部分交由 .list-layout 主区滚动。 */
 .app-main.list-layout > .card.list-card {
-  flex: 1 1 auto; min-height: 0; margin-top: 0;
+  flex: 1 1 auto; min-height: 424px; margin-top: 0;
 }
+/* 卡内带页签的列表，页签条本身占一行，高度下限相应抬高 */
+.app-main.list-layout > .card.list-card:has(> .tabs) { min-height: 484px; }
+/* 页尾口径块不参与高度争夺 */
+.app-main.list-layout > .sp-block,
+.app-main.list-layout > .sp-src { flex: 0 0 auto; }
 .app-main.list-layout > .stat-grid + .card.list-card,
 .app-main.list-layout > .alert + .card.list-card,
 .app-main.list-layout > .page-head + .card.list-card { margin-top: 0; }

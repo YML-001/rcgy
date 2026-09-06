@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>我的预约 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/mobile.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body class="m-body" data-mtitle="我的预约" data-mmod="N1 房源预约与预定" data-mcode="N1-02"
+      data-mdesc="查询预约状态与前方预约人数，支持改约与取消预约；取消后意向名额立即释放。" data-mback="me.html" data-mtabset="public" data-mtab="me">
+<div class="m-stage">
+  <div class="m-phone">
+    <div class="m-screen">
+      <div class="m-view">
+        <div class="m-seg">
+          <button class="on">全部 3</button><button>预约中 1</button><button>已转申请 1</button><button>已取消 1</button>
+        </div>
+        <div class="m-note"><i class="fa-solid fa-circle-info"></i>
+          <div>预约记录在配租时<b>优先于普通轮候排序</b>。同一批次<b>限约 1 套、限改约 1 次</b>，取消预约后意向名额立即释放，优先权同时失效。</div>
+        </div>
+        <div class="m-sect">预约中</div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-calendar-check"></i>湘江1958 人才公寓 A6-1502<span class="m-tag orange" style="margin-left:auto">预约中</span></div>
+          <div class="m-card-b">
+          <div class="m-kv">
+            <div><span>预约号</span><span>YY2026-0906-0428</span></div>
+            <div><span>户型与面积</span><span>二室一厅　78.60 ㎡</span></div>
+            <div><span>前方预约人数</span><span><b style="color:var(--primary)">2 人</b>（当前序位第 3 位）</span></div>
+            <div><span>意向入住时间</span><span>2026-10-08</span></div>
+            <div><span>名额锁定至</span><span><b style="color:var(--danger)">2026-09-20 23:59</b>（剩余 14 天）</span></div>
+            <div><span>预约时间</span><span>2026-09-06 21:14</span></div>
+          </div>
+            <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+              <a class="m-btn sm ghost" href="book-change.html">改约</a>
+              <button class="m-btn sm" type="button" onclick="MB.confirm('确认取消该预约？取消后意向名额立即释放并顺延给下一位预约人，配租优先权同时失效。','确认取消',function(){MB.toast('已取消预约，意向名额已释放')})">取消预约</button>
+              <a class="m-btn sm" href="book-to-apply.html">转申请</a>
+            </div>
+          </div>
+        </div>
+        <div class="m-sect">已转申请</div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-file-circle-check"></i>云龙人才苑 B3-0806<span class="m-tag green" style="margin-left:auto">已转申请</span></div>
+          <div class="m-card-b">
+          <div class="m-kv">
+            <div><span>预约号</span><span>YY2026-0821-0316</span></div>
+            <div><span>户型与面积</span><span>一室一厅　52.00 ㎡</span></div>
+            <div><span>前方预约人数</span><span>0 人（已进入配租轮候）</span></div>
+            <div><span>意向入住时间</span><span>2026-09-15</span></div>
+            <div><span>转申请时间</span><span>2026-08-28 10:36</span></div>
+            <div><span>关联申请编号</span><span>RC2026-0828-0147　<span class="m-tag blue">预约优先</span></span></div>
+          </div>
+            <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+              <a class="m-btn sm ghost" href="me-apply-list.html">查看申请</a>
+              <a class="m-btn sm" href="alloc-queue.html">配租排序</a>
+            </div>
+          </div>
+        </div>
+        <div class="m-sect">已取消</div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-circle-xmark"></i>董家塅安居苑 C1-0402<span class="m-tag dark" style="margin-left:auto">已取消</span></div>
+          <div class="m-card-b">
+          <div class="m-kv">
+            <div><span>预约号</span><span>YY2026-0715-0208</span></div>
+            <div><span>户型与面积</span><span>单间配套　40.00 ㎡</span></div>
+            <div><span>前方预约人数</span><span>—</span></div>
+            <div><span>意向入住时间</span><span>2026-08-01</span></div>
+            <div><span>取消时间</span><span>2026-07-22 16:09</span></div>
+            <div><span>取消原因</span><span>通勤距离较远，改约至天元区房源</span></div>
+          </div>
+            <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+              <a class="m-btn sm ghost" href="house-book.html">重新预约</a>
+              <a class="m-btn sm" href="house-list.html">看其他房源</a>
+            </div>
+          </div>
+        </div>
+        <div class="m-sect">相关设置</div>
+        <div class="m-cells">
+          <a class="m-cell" href="book-remind.html"><span class="m-ci orange"><i class="fa-solid fa-bell"></i></span><span class="m-cl"><b>到位提醒设置</b><span class="m-cs">预约房源可配租、意向楼盘新增房源时主动推送</span></span><span class="m-cv"><span class="m-tag green">已开启</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="house-favorite.html"><span class="m-ci"><i class="fa-solid fa-star"></i></span><span class="m-cl"><b>我的收藏楼盘</b><span class="m-cs">收藏楼盘出现可租房源时同步提醒</span></span><span class="m-cv">3 个</span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="alloc-rule.html"><span class="m-ci cyan"><i class="fa-solid fa-scale-balanced"></i></span><span class="m-cl"><b>配租排序规则</b><span class="m-cs">不摇号，按受理时间排定，预约记录优先</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+        </div>
+        <div class="m-note warn"><i class="fa-solid fa-triangle-exclamation"></i>
+          <div>预约<b>逾期未转申请</b>的，系统在锁定期届满后自动取消并释放名额，本人<b>轮候资格不受影响</b>，可重新预约其他房源。</div>
+        </div>
+      </div>
+      <div class="m-actbar">
+        <a class="m-btn primary block" href="house-list.html"><i class="fa-solid fa-plus"></i> 预约新房源</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../../assets/js/mobile.js"></script>
+</body>
+</html>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>财政复核与拨付 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="keeper" data-active="rent-19">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 租金收缴与年审退出
+      <span class="sep">/</span> 租房补贴核发
+      <span class="sep">/</span> <span class="cur">财政复核与拨付</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.openDrawer('fhDrawer')"><i class="fa-solid fa-user-check"></i> 财政复核</button>
+      <a class="btn" href="subsidy-amount.html"><i class="fa-solid fa-arrow-left"></i> 返回核定</a>
+      <a class="btn" href="subsidy-ledger.html"><i class="fa-solid fa-book"></i> 补助台账</a>
+      <button class="btn" onclick="PMS.toast('已向财政支付系统重新拉取支付结果，回传成功 5 笔','success')"><i class="fa-solid fa-rotate"></i> 同步支付结果</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>核定完成后<b>生成支付申请报财政复核</b>，资金<b>拨付至运营单位</b>账户并由财政系统<b>回传支付结果</b>，形成<b>资金封闭链路</b>。<b>支付结果未回传成功的不销账</b>。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-hourglass-half"></i></div>
+      <div><div class="s-label">待财政复核</div><div class="s-value">124,754.00</div>
+        <div class="s-trend ">元 · 1 笔 · 云龙人才公寓</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-money-bill-transfer"></i></div>
+      <div><div class="s-label">本月已拨付</div><div class="s-value">842,760.00</div>
+        <div class="s-trend text-2">元 · 1 笔 · 2026-09-04 到账</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-truck-fast"></i></div>
+      <div><div class="s-label">在途支付</div><div class="s-value">78,022.00</div>
+        <div class="s-trend text-2">元 · 1 笔 · 银行处理中</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-circle-check"></i></div>
+      <div><div class="s-label">支付成功率</div><div class="s-value">80.0%</div>
+        <div class="s-trend text-2">本年办结 5 笔 · 通过 4 笔 · 退回 1 笔待重提</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card" data-tabs-scope>
+    <div class="tabs">
+      <div class="tab active" data-tab="zflb"><i class="fa-solid fa-file-invoice-dollar"></i> 支付申请列表 <span class="badge blue">6</span></div>
+      <div class="tab" data-tab="zjlj"><i class="fa-solid fa-timeline"></i> 资金封闭链路</div>
+      <div class="tab" data-tab="ljkj"><i class="fa-solid fa-list"></i> 链路口径</div>
+    </div>
+    <div class="tab-panel active" data-panel="zflb">
+    <div class="card-body tight">
+    <div class="filter-bar">
+      <div class="filter-item"><label>支付申请号</label><input type="text" placeholder="如 ZF2026-09-01"></div>
+      <div class="filter-item"><label>核定期间</label><input type="month" value="2026-09"></div>
+      <div class="filter-item"><label>收款方</label><select><option value="">全部</option><option>株洲市人才安居服务有限公司</option><option>株洲城发物业服务有限公司</option><option>清水塘社区服务有限公司</option></select></div>
+      <div class="filter-item"><label>复核状态</label><select><option value="">全部</option><option>待复核</option><option>复核通过</option><option>退回补充材料</option></select></div>
+      <div class="filter-item"><label>支付状态</label><select><option value="">全部</option><option>待支付</option><option>在途</option><option>已到账</option><option>已退回</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>支付申请号</th><th>核定期间</th><th class="cell-lg">收款方</th><th>收款账户</th><th class="num">核定金额</th><th>复核状态</th><th>财政复核人</th><th>复核时间</th><th>支付状态</th><th>到账时间</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>ZF2026-09-01</td><td>2026-09</td><td>株洲市人才安居服务有限公司（云龙人才公寓）</td><td><span class="sp-mask">4301****8826<span class="mk" onclick="SP.mask(this.parentElement,'43010188002026098826')">查看明文</span></span></td><td class="num">124,754.00</td><td><span class="badge orange">待复核</span></td><td><span class="muted">—</span></td><td><span class="muted">—</span></td><td><span class="badge gray">待支付</span></td><td><span class="muted">—</span></td><td><span class="link" onclick="PMS.openDrawer('fhDrawer')">复核</span></td></tr>
+          <tr class="row-warn"><td>ZF2026-09-02</td><td>2026-09</td><td>株洲市人才安居服务有限公司（田心人才公寓）</td><td><span class="sp-mask">4301****8826<span class="mk" onclick="SP.mask(this.parentElement,'43010188002026098826')">查看明文</span></span></td><td class="num">67,776.80</td><td><span class="badge red">退回补充材料</span></td><td>曾国华</td><td>2026-09-05 15:06</td><td><span class="badge red">已退回</span></td><td><span class="muted">—</span></td><td><span class="link" onclick="PMS.confirm({title:'重新提交确认',message:'确认补充材料后重新提交 ZF2026-09-02 支付申请？',detail:'退回理由：田心人才公寓 2026 年 9 月服务评价结果确认单未随附，无法核对扣减比例 2% 的计算依据。补充后重新报市财政局复核。',type:'warning',okText:'确认重新提交',onOk:function(){PMS.toast('已重新提交，待财政复核','success');}})">重新提交</span> <span class="link" onclick="PMS.toast('退回理由：服务评价结果确认单未随附，无法核对扣减比例 2% 的计算依据（曾国华 2026-09-05 15:06）')">退回理由</span></td></tr>
+          <tr><td>ZF2026-09-03</td><td>2026-09</td><td>清水塘社区服务有限公司（清水塘·未来社区）</td><td><span class="sp-mask">4302****1075<span class="mk" onclick="SP.mask(this.parentElement,'43020166002026091075')">查看明文</span></span></td><td class="num">78,022.00</td><td><span class="badge green">复核通过</span></td><td>曾国华</td><td>2026-09-05 16:28</td><td><span class="badge cyan">在途</span></td><td><span class="muted">—</span></td><td><span class="link" onclick="PMS.toast('2026-09-06 09:12 已提交银行，支付结果待财政系统接口回传，未回传成功前不销账')">查看凭证</span></td></tr>
+          <tr><td>ZF2026-08-01</td><td>2026-08</td><td>株洲市人才安居服务有限公司（全部在管楼盘 · 原租金减免口径结转）</td><td><span class="sp-mask">4301****8826<span class="mk" onclick="SP.mask(this.parentElement,'43010188002026098826')">查看明文</span></span></td><td class="num">842,760.00</td><td><span class="badge green">复核通过</span></td><td>曾国华</td><td>2026-09-02 10:18</td><td><span class="badge green">已到账</span></td><td>2026-09-04 14:05</td><td><span class="link" onclick="PMS.toast('支付凭证号 ZFPZ2026090400218，2026-09-04 14:05 到账 842,760.00 元，支付结果已回传并完成台账销账')">查看凭证</span></td></tr>
+          <tr><td>ZF2026-07-01</td><td>2026-07</td><td>株洲市人才安居服务有限公司（全部在管楼盘 · 原租金减免口径结转）</td><td><span class="sp-mask">4301****8826<span class="mk" onclick="SP.mask(this.parentElement,'43010188002026098826')">查看明文</span></span></td><td class="num">814,062.00</td><td><span class="badge green">复核通过</span></td><td>曾国华</td><td>2026-08-10 09:22</td><td><span class="badge green">已到账</span></td><td>2026-08-12 14:05</td><td><span class="link" onclick="PMS.toast('支付凭证号 ZFPZ2026081200164，2026-08-12 14:05 到账 814,062.00 元，支付结果已回传并完成台账销账')">查看凭证</span></td></tr>
+          <tr><td>ZF2026-06-01</td><td>2026-06</td><td>株洲市人才安居服务有限公司（全部在管楼盘 · 原租金减免口径结转）</td><td><span class="sp-mask">4301****8826<span class="mk" onclick="SP.mask(this.parentElement,'43010188002026098826')">查看明文</span></span></td><td class="num">796,428.00</td><td><span class="badge green">复核通过</span></td><td>曾国华</td><td>2026-07-09 11:04</td><td><span class="badge green">已到账</span></td><td>2026-07-11 15:22</td><td><span class="link" onclick="PMS.toast('支付凭证号 ZFPZ2026071100132，2026-07-11 15:22 到账 796,428.00 元，支付结果已回传并完成台账销账')">查看凭证</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+    </div>
+
+    <div class="tab-panel" data-panel="zjlj">
+    <div class="card-body tight">
+    <div class="sp-scroll">
+      <div class="sp-block">
+        <div class="sp-h"><i class="fa-solid fa-timeline"></i> 资金封闭链路<span class="sub">ZF2026-09-01 · 云龙人才公寓 · 124,754.00 元</span></div>
+        <div class="sp-b">
+        <div class="timeline">
+          <div class="tl-item done"><div class="tl-dot"></div>
+            <div class="tl-title">运营单位发起申请</div>
+            <div class="tl-meta">株洲市人才安居服务有限公司 彭建华 · 2026-09-03 09:26</div>
+            <div class="tl-desc">按月就 2026 年 9 月已提供服务的在租房源批量发起，房源套数与计租面积由系统自动带出。</div></div>
+          <div class="tl-item done"><div class="tl-dot"></div>
+            <div class="tl-title">住建核验</div>
+            <div class="tl-meta">市住建局住房保障科 李慧敏 · 2026-09-04 15:12</div>
+            <div class="tl-desc">核验资格状态、在租状态与服务评价结果，云龙人才公寓 268 套全部通过。</div></div>
+          <div class="tl-item done"><div class="tl-dot"></div>
+            <div class="tl-title">住建核定</div>
+            <div class="tl-meta">市住建局 罗湘 · 2026-09-06 10:24</div>
+            <div class="tl-desc">17,822.00 ㎡ × 7.00 元/㎡·月 × 1 个月 = 124,754.00 元，评价 91.6 分不扣减。</div></div>
+          <div class="tl-item done"><div class="tl-dot"></div>
+            <div class="tl-title">生成支付申请</div>
+            <div class="tl-meta">系统 · 2026-09-06 10:25</div>
+            <div class="tl-desc">生成 ZF2026-09-01，收款方与收款账户取运营单位备案信息，账户脱敏展示。</div></div>
+          <div class="tl-item"><div class="tl-dot"></div>
+            <div class="tl-title">财政复核</div>
+            <div class="tl-meta">市财政局行政政法科 曾国华 · 待办理</div>
+            <div class="tl-desc">复核预算科目、资金来源与核定依据，通过后进入银行拨付。</div></div>
+          <div class="tl-item pending"><div class="tl-dot"></div>
+            <div class="tl-title">银行拨付</div>
+            <div class="tl-meta">待办理</div></div>
+          <div class="tl-item pending"><div class="tl-dot"></div>
+            <div class="tl-title">支付结果回传</div>
+            <div class="tl-meta">待办理</div></div>
+          <div class="tl-item pending"><div class="tl-dot"></div>
+            <div class="tl-title">台账入账</div>
+            <div class="tl-meta">待办理</div></div>
+        </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="tab-panel" data-panel="ljkj">
+    <div class="card-body tight">
+    <div class="sp-scroll">
+    <div class="sp-block">
+      <div class="sp-h"><i class="fa-solid fa-list"></i> 资金封闭链路口径<span class="sub">N4-05 · 支付结果未回传成功的不销账</span></div>
+      <div class="sp-b">
+        <div class="sp-tw">
+          <table class="data-table compact">
+            <thead><tr><th>环节</th><th>责任主体</th><th class="cell-lg">系统动作</th><th class="cell-lg">留痕内容</th></tr></thead>
+            <tbody>
+              <tr><td>发起申请</td><td>运营单位</td><td>按月或按季批量发起，自动带出房源套数、计租面积与服务期间</td><td>申报单号、申报范围、提交人与提交时间</td></tr>
+              <tr><td>住建核验</td><td>市住建局</td><td>核验资格状态、在租状态与服务评价结果，异常单独列出</td><td>核验流水、异常处置结论、核减套数与金额</td></tr>
+              <tr><td>住建核定</td><td>市住建局</td><td>按补助单价 × 计租面积 × 服务月数核算，扣减评价后形成核定金额</td><td>核算明细、评价得分、扣减比例、核定人与核定时间</td></tr>
+              <tr><td>生成支付申请</td><td>系统</td><td>按运营单位生成支付申请，带出收款方与备案收款账户</td><td>支付申请号、收款账户（脱敏）、金额与生成时间</td></tr>
+              <tr><td>财政复核</td><td>市财政局</td><td>复核预算科目、资金来源与核定依据，出具复核结论</td><td>复核人、复核时间、复核结论、退回理由</td></tr>
+              <tr><td>银行拨付</td><td>市财政局 / 代理银行</td><td>按计划拨付日期发起支付，资金拨付至运营单位账户</td><td>支付凭证号、拨付日期、支付通道</td></tr>
+              <tr><td>支付结果回传</td><td>财政支付系统接口</td><td><b>支付结果由财政系统接口回传</b>，回传成功后更新支付状态与到账时间</td><td>回传报文、到账时间、失败原因</td></tr>
+              <tr><td>台账入账</td><td>系统</td><td><b>未回传成功的不销账</b>，回传成功后写入补助台账并可逐笔追溯至房源与承租人</td><td>台账编号、销账时间、追溯链路</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+    </div>
+  </div>
+
+  <div class="sp-src">
+    <span><b>依据</b> 2026 年 9 月 6 日向市住建局汇报讨论会议决议：财政复核拨付至运营单位并回传支付结果，形成资金封闭链路</span>
+    <span><b>岗位控制</b> 核定（市住建局）、复核（市财政局）、拨付（代理银行）三岗分设，同一人不得跨岗</span>
+    <span><b>销账口径</b> 支付结果未回传成功的不销账</span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="fhDrawer">
+  <div class="drawer-head">
+    <h3>财政复核</h3>
+    <span class="badge orange">待复核</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+    <div class="alert alert-warning">
+      <i class="fa-solid fa-triangle-exclamation"></i>
+      <div>复核须核对<b>核定依据、预算科目与资金来源</b>三项。复核通过后按计划拨付日期发起支付，<b>支付结果由财政系统接口回传</b>；退回的须写明具体理由，由住建部门补充材料后重新提交。</div>
+    </div>
+
+    <div class="form-grid form-align">
+      <div class="form-item">
+        <label>支付申请号 <span class="req">*</span></label>
+        <input type="text" value="ZF2026-09-01" readonly>
+      </div>
+      <div class="form-item">
+        <label>核定期间 <span class="req">*</span></label>
+        <input type="text" value="2026-09" readonly>
+      </div>
+      <div class="form-item col-full">
+        <label>收款方 <span class="req">*</span></label>
+        <input type="text" value="株洲市人才安居服务有限公司（云龙人才公寓）" readonly>
+      </div>
+      <div class="form-item">
+        <label>收款账户 <span class="req">*</span></label>
+        <input type="text" value="4301****8826" readonly>
+        <div class="hint">取运营单位备案账户，脱敏展示，明文查看留痕</div>
+      </div>
+      <div class="form-item">
+        <label>核定金额（元） <span class="req">*</span></label>
+        <input type="text" value="124,754.00" readonly>
+        <div class="hint">17,822.00 ㎡ × 7.00 元/㎡·月 × 1 个月，评价 91.6 分不扣减</div>
+      </div>
+      <div class="form-item">
+        <label>预算科目 <span class="req">*</span></label>
+        <select>
+          <option selected>2210201 住房保障支出 · 保障性安居工程支出</option>
+          <option>2210203 住房保障支出 · 住房租赁补贴</option>
+          <option>2210299 住房保障支出 · 其他住房保障支出</option>
+        </select>
+      </div>
+      <div class="form-item">
+        <label>资金来源 <span class="req">*</span></label>
+        <select>
+          <option selected>市本级财政专项</option>
+          <option>上级补助资金</option>
+        </select>
+      </div>
+      <div class="form-item">
+        <label>复核结论 <span class="req">*</span></label>
+        <select>
+          <option selected>复核通过</option>
+          <option>退回补充材料</option>
+        </select>
+      </div>
+      <div class="form-item">
+        <label>计划拨付日期 <span class="req">*</span></label>
+        <input type="date" value="2026-09-10">
+      </div>
+      <div class="form-item col-full">
+        <label>退回理由</label>
+        <textarea rows="3">（复核通过时无须填写）如需退回，请写明缺失材料与具体理由，例如：服务评价结果确认单未随附，无法核对扣减比例的计算依据，请补充后重新提交。</textarea>
+        <div class="hint">选择「退回补充材料」时必填，理由随退回通知一并推送运营单位与住建经办人</div>
+      </div>
+      <div class="form-item col-full">
+        <label>复核意见 <span class="req">*</span></label>
+        <textarea rows="3">经复核，ZF2026-09-01 支付申请核定依据齐全：核定期间 2026-09，在租 268 套、计租面积 17,822.00 ㎡，按补助单价 7.00 元/㎡·月、服务月数 1 个月核算，服务评价 91.6 分不扣减，核定金额 124,754.00 元与核算明细一致。预算科目与资金来源符合规定，年度预算余额充足，同意拨付至运营单位备案账户，计划拨付日期 2026-09-10。</textarea>
+      </div>
+    </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'复核确认',message:'确认对 ZF2026-09-01 出具「复核通过」结论并拨付 124,754.00 元？',detail:'资金拨付至株洲市人才安居服务有限公司备案账户 4301****8826，计划拨付日期 2026-09-10。支付结果由财政系统接口回传，未回传成功的不销账。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已复核通过，待银行拨付并回传支付结果','success');}})"><i class="fa-solid fa-check"></i> 提交复核</button>
+  </div>
+</div>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 6; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>资格与服务核验 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="keeper" data-active="rent-17">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 租金收缴与年审退出
+      <span class="sep">/</span> 租房补贴核发
+      <span class="sep">/</span> <span class="cur">资格与服务核验</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.confirm({title:'核验完成确认',message:'确认 2026-09 期间核验完成并转入补助核定？',detail:'本期申报 1,192 套，核验通过 1,148 套，资格异常 26 套、评价不达标 18 套已单独列出，不进入自动核定。转入后按补助标准 × 计租面积 × 服务月数自动核算应补金额。',type:'warning',okText:'确认转入',onOk:function(){PMS.toast('已转入补助核定环节','success');location.href='subsidy-amount.html';}})"><i class="fa-solid fa-arrow-right-arrow-left"></i> 转入补助核定</button>
+      <a class="btn" href="subsidy-rule.html"><i class="fa-solid fa-sliders"></i> 补贴标准</a>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>住建部门核验承租人<b>资格状态、在租状态与服务评价结果</b>。<b>资格异常或评价不达标的单独列出处理，不进入自动核定</b>，须逐条出具处置结论后方可关闭本期核验。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-list-check"></i></div>
+      <div><div class="s-label">本期申报套数</div><div class="s-value">1,192</div>
+        <div class="s-trend text-2">2026-09 · 计租面积 78,420.00 ㎡</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
+      <div><div class="s-label">核验通过</div><div class="s-value">1,148</div>
+        <div class="s-trend text-2">通过率 96.3%</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon red"><i class="fa-solid fa-user-slash"></i></div>
+      <div><div class="s-label">资格异常</div><div class="s-value">26</div>
+        <div class="s-trend ">资格失效 14 · 腾退未销账 9 · 合同解除 3</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-star-half-stroke"></i></div>
+      <div><div class="s-label">评价不达标</div><div class="s-value">18</div>
+        <div class="s-trend text-2">分户回访低于约定标准 70 分</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card" data-tabs-scope>
+    <div class="tabs">
+      <div class="tab active" data-tab="ycmx"><i class="fa-solid fa-triangle-exclamation"></i> 异常明细 <span class="badge red">44</span></div>
+      <div class="tab" data-tab="hyhz"><i class="fa-solid fa-shield-halved"></i> 核验汇总 <span class="badge blue">5</span></div>
+      <div class="tab" data-tab="hygz"><i class="fa-solid fa-list"></i> 核验规则</div>
+    </div>
+    <div class="tab-panel" data-panel="hyhz">
+    <div class="card-body tight">
+    <div class="sp-scroll">
+  <div class="sp-block">
+    <div class="sp-h"><i class="fa-solid fa-shield-halved"></i> 核验汇总
+      <span class="sub">2026-09 · 5 项核验 · 全量比对 1,192 套 · <span class="link" onclick="PMS.toast('已重新发起 5 项核验，预计 2 分钟完成','success')">重新核验</span></span>
+    </div>
+    <div class="sp-b">
+      <div class="sp-tw">
+        <table class="data-table compact">
+          <thead><tr><th>核验项</th><th>核验方式</th><th class="num">核验套数</th><th class="num">通过</th><th class="num">异常</th><th class="cell-lg">异常处置口径</th></tr></thead>
+          <tbody>
+            <tr><td>承租人资格状态</td><td><span class="badge blue">自动</span> 与人才档案库比对</td><td class="num">1,192</td><td class="num">1,178</td><td class="num text-danger">14</td><td>资格已失效的<b>本期剔除、不计补助</b>，同步转年度资格审查与退出腾退流程</td></tr>
+            <tr><td>在租状态</td><td><span class="badge blue">自动</span> 与合同及房态台账比对</td><td class="num">1,192</td><td class="num">1,183</td><td class="num text-danger">9</td><td>已腾退未销账的<b>据实核减</b>至腾退当月，不满整月按日折算</td></tr>
+            <tr><td>合同有效性</td><td><span class="badge blue">自动</span> 与电子合同台账比对</td><td class="num">1,192</td><td class="num">1,189</td><td class="num text-danger">3</td><td>合同已解除的<b>本期剔除</b>，房源转入回收并停止计补</td></tr>
+            <tr><td>账单缴纳情况</td><td><span class="badge blue">自动</span> 与账单台账比对</td><td class="num">1,192</td><td class="num">1,158</td><td class="num">34</td><td><b>仅作催缴提示，不影响计补</b>：个人欠租部分不冲抵财政补助，纳入年度资格审查</td></tr>
+            <tr><td>服务评价得分</td><td><span class="badge cyan">自动 + 人工复核</span> 与服务评价台账比对</td><td class="num">1,192</td><td class="num">1,174</td><td class="num text-danger">18</td><td>评价不达标的<b>单独列出转人工</b>，按分档规则在核定环节扣减补助</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+    </div>
+    </div>
+    </div>
+    <div class="tab-panel active" data-panel="ycmx">
+    <div class="card-body tight">
+    <div class="filter-bar">
+      <div class="filter-item"><label>房源编码</label><input type="text" placeholder="如 FY-TY-XJ-A3-0906"></div>
+      <div class="filter-item"><label>楼盘</label><select><option value="">全部</option><option>湘江1958 人才公寓</option><option>云龙人才公寓</option><option>清水塘·未来社区</option><option>董家塅人才公寓</option><option>田心人才公寓</option></select></div>
+      <div class="filter-item"><label>异常类型</label><select><option value="">全部</option><option>资格已失效</option><option>已腾退未销账</option><option>合同已解除</option><option>评价不达标</option></select></div>
+      <div class="filter-item"><label>本期是否计补</label><select data-dict="yesNo" data-ph="全部"></select></div>
+      <div class="filter-item"><label>核验期间</label><input type="month" value="2026-09"></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>房源编码</th><th class="cell-lg">楼盘户型</th><th>承租人</th><th>异常类型</th><th class="cell-lg">异常说明</th><th>本期是否计补</th><th class="num">扣减套数</th><th>处置方式</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr class="row-bad"><td>FY-TY-XJ-A3-0906</td><td>湘江1958 人才公寓 / A3 栋 0906 · 一室一厅 52.60 ㎡</td><td>谭××</td><td><span class="badge red">资格已失效</span></td><td>2026-08-20 年度资格审查认定其在市城区购买商品住房，人才住房保障资格已失效</td><td><span class="badge red">否</span></td><td class="num">1</td><td>本期剔除</td><td><span class="link" onclick="PMS.openDrawer('ycDrawer')">处置</span> <span class="link" onclick="location.href='../apply/talent-detail.html'">查看</span></td></tr>
+          <tr class="row-warn"><td>FY-TY-XJ-B3-0904</td><td>湘江1958 人才公寓 / B3 栋 0904 · 二室一厅 78.40 ㎡</td><td>周××</td><td><span class="badge orange">已腾退未销账</span></td><td>2026-09-09 已办理退房交钥匙，房态台账未同步销账，本期实际服务 8 天</td><td><span class="badge orange">部分计补</span></td><td class="num">0</td><td>据实核减（按日折算）</td><td><span class="link" onclick="PMS.openDrawer('ycDrawer')">处置</span> <span class="link" onclick="location.href='quit-manage.html'">退出办理</span></td></tr>
+          <tr class="row-bad"><td>FY-JK-YL-02-1106</td><td>云龙人才公寓 / 2 栋 1106 · 单间配套 42.80 ㎡</td><td>龙××</td><td><span class="badge red">合同已解除</span></td><td>2026-08-28 因擅自转租违约解除租赁合同，房源已收回并转入回收流程</td><td><span class="badge red">否</span></td><td class="num">1</td><td>本期剔除</td><td><span class="link" onclick="PMS.openDrawer('ycDrawer')">处置</span> <span class="link" onclick="location.href='violation.html'">违规记录</span></td></tr>
+          <tr class="row-warn"><td>FY-SF-QST-C1-0702</td><td>清水塘·未来社区 / C1 栋 0702 · 一室一厅 63.80 ㎡</td><td>肖××</td><td><span class="badge orange">评价不达标</span></td><td>2026 年 9 月分户回访服务评价 62.5 分，低于约定标准 70 分，报修响应超时 2 次</td><td><span class="badge orange">是（按分档扣减 20%）</span></td><td class="num">0</td><td>转人工复核</td><td><span class="link" onclick="PMS.openDrawer('ycDrawer')">处置</span> <span class="link" onclick="location.href='../ops/eval-stat.html'">评价记录</span></td></tr>
+          <tr class="row-warn"><td>FY-LS-DJD-05-1203</td><td>董家塅人才公寓 / 5 栋 1203 · 二室一厅 78.20 ㎡</td><td>邹××</td><td><span class="badge orange">评价不达标</span></td><td>报修响应超时 3 次、公共区域保洁投诉 1 起，分户回访服务评价 66.0 分</td><td><span class="badge orange">是（按分档扣减 20%）</span></td><td class="num">0</td><td>转人工复核</td><td><span class="link" onclick="PMS.openDrawer('ycDrawer')">处置</span> <span class="link" onclick="location.href='../ops/complaint.html'">投诉记录</span></td></tr>
+          <tr class="row-bad"><td>FY-SF-TX-03-0806</td><td>田心人才公寓 / 3 栋 0806 · 一室一厅 55.40 ㎡</td><td>罗××</td><td><span class="badge red">资格已失效</span></td><td>劳动合同已解除且养老保险停缴 3 个月，不再符合就业青年人才申请条件</td><td><span class="badge red">否</span></td><td class="num">1</td><td>本期剔除</td><td><span class="link" onclick="PMS.openDrawer('ycDrawer')">处置</span> <span class="link" onclick="location.href='annual-list.html'">年审台账</span></td></tr>
+          <tr class="row-bad"><td>FY-TY-XJ-A2-2101</td><td>湘江1958 人才公寓 / A2 栋 2101 · 二室一厅 78.60 ㎡</td><td>唐××</td><td><span class="badge orange">已腾退未销账</span></td><td>2026-09-01 腾退并完成押金结算，房态台账待销账，本期不属于在租房源</td><td><span class="badge red">否</span></td><td class="num">1</td><td>本期剔除</td><td><span class="link" onclick="PMS.openDrawer('ycDrawer')">处置</span> <span class="link" onclick="location.href='recycle.html'">房源回收</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+    </div>
+    <div class="tab-panel" data-panel="hygz">
+    <div class="card-body tight">
+    <div class="sp-scroll">
+  <div class="sp-block">
+    <div class="sp-h"><i class="fa-solid fa-list"></i> 核验规则<span class="sub">N4-03 · 资格异常或评价不达标的单独列出，不进入自动核定</span></div>
+    <div class="sp-b">
+      <div class="sp-tw">
+        <table class="data-table compact">
+          <thead><tr><th>规则编号</th><th>核验对象</th><th class="cell-lg">判定与处置规则</th></tr></thead>
+          <tbody>
+            <tr><td><b>HY-1</b></td><td>承租人资格状态</td><td>与人才档案库实时比对，出现<b>已在市城区购房、已享受其他政策性住房、资格被撤销或列入失信名单</b>的判定为资格已失效，<b>本期剔除、不计补助</b></td></tr>
+            <tr><td><b>HY-2</b></td><td>在租状态</td><td>以房态台账「在租」为唯一口径。<b>空置、已腾退、维修中、待验收房源不计补助</b>；期中腾退的按实际服务天数据实核减</td></tr>
+            <tr><td><b>HY-3</b></td><td>合同有效性</td><td>合同已到期未续签、已解除、已终止的，<b>自失效之日起停止计补</b>，剩余天数不予折算</td></tr>
+            <tr><td><b>HY-4</b></td><td>账单缴纳情况</td><td>个人欠租<b>仅作催缴提示，不影响财政补助计算</b>；欠租情况关联年度资格审查与续租审核，不冲抵财政补助</td></tr>
+            <tr><td><b>HY-5</b></td><td>服务评价结果</td><td>评价得分低于约定标准的判定为不达标，<b>单独列出转人工复核</b>，由核定环节按分档规则扣减补助，不进入自动核定</td></tr>
+            <tr><td><b>HY-6</b></td><td>异常闭环</td><td>全部异常须<b>逐条出具处置结论</b>（本期剔除 / 暂缓计补 / 据实核减 / 转人工复核）并留痕，未处置完毕不允许关闭本期核验</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+    </div>
+    </div>
+    </div>
+  </div>
+
+  <div class="sp-src">
+    <span><b>依据</b> 2026 年 9 月 6 日向市住建局汇报讨论会议决议：住建部门核验资格状态、在租状态与服务评价结果</span>
+    <span><b>硬约束</b> 资格异常或评价不达标的单独列出处理，不进入自动核定</span>
+    <span><b>下一环节</b> <span class="link" onclick="location.href='subsidy-amount.html'">补助金额核定</span></span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="ycDrawer">
+  <div class="drawer-head">
+    <h3>核验异常处置</h3>
+    <span class="badge red">资格已失效</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+    <div class="alert alert-warning">
+      <i class="fa-solid fa-triangle-exclamation"></i>
+      <div>异常房源<b>不进入自动核定</b>，须由住建部门逐条出具处置结论。处置结论与核减金额将<b>直接影响本期补助核定结果</b>，全过程留痕可追溯。</div>
+    </div>
+
+    <div class="form-grid form-align">
+      <div class="form-item">
+        <label>房源编码 <span class="req">*</span></label>
+        <input type="text" value="FY-TY-XJ-A3-0906" readonly>
+      </div>
+      <div class="form-item">
+        <label>异常类型 <span class="req">*</span></label>
+        <input type="text" value="资格已失效" readonly>
+      </div>
+      <div class="form-item">
+        <label>楼盘户型</label>
+        <input type="text" value="湘江1958 人才公寓 / A3 栋 0906 · 一室一厅 52.60 ㎡" readonly>
+      </div>
+      <div class="form-item">
+        <label>承租人</label>
+        <input type="text" value="谭××" readonly>
+      </div>
+      <div class="form-item">
+        <label>处置结论 <span class="req">*</span></label>
+        <select>
+          <option selected>本期剔除</option>
+          <option>暂缓计补</option>
+          <option>据实核减</option>
+          <option>转人工复核</option>
+        </select>
+      </div>
+      <div class="form-item">
+        <label>核减套数（套） <span class="req">*</span></label>
+        <input type="text" value="1">
+      </div>
+      <div class="form-item">
+        <label>核减金额（元） <span class="req">*</span></label>
+        <input type="text" value="368.20">
+        <div class="hint">52.60 ㎡ × 7.00 元/㎡·月 × 1 个月 = 368.20 元</div>
+      </div>
+      <div class="form-item">
+        <label>处置人 <span class="req">*</span></label>
+        <input type="text" value="罗湘">
+      </div>
+      <div class="form-item col-full">
+        <label>处置说明 <span class="req">*</span></label>
+        <textarea rows="4">经核验，该承租人已于 2026-08-20 年度资格审查中被认定在市城区购买商品住房，人才住房保障资格已失效，不再符合租房补助享受条件。按 HY-1 规则本期剔除、不计补助，核减 1 套、核减金额 368.20 元，同步转退出腾退流程办理。处置意见已告知运营单位，异议可在 3 个工作日内提出复核申请。</textarea>
+      </div>
+      <div class="form-item col-full">
+        <label>佐证材料 <span class="req">*</span></label>
+        <input type="text" data-upload="1">
+        <div class="hint">不动产登记核验回执、年度资格审查结论书</div>
+      </div>
+    </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'处置确认',message:'确认对 FY-TY-XJ-A3-0906 出具「本期剔除」处置结论？',detail:'核减 1 套、核减金额 368.20 元，处置结果直接进入 2026-09 补助核定。结论提交后写入核验流水，更正须重新发起核验。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已出具处置结论，核减结果已进入本期核定','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+  </div>
+</div>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 44; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

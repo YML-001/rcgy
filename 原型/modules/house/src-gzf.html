@@ -19,37 +19,39 @@
       <span class="sep">/</span> <span class="cur">公租房房源调用</span>
     </div>
     <div class="page-actions">
-      <button class="btn btn-primary" onclick="PMS.toast('已发起同步，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-arrows-rotate"></i> 立即同步</button>
+      <a class="btn btn-primary" href="org-report.html"><i class="fa-solid fa-file-import"></i> 房源单位报送与审核</a>
+      <a class="btn" href="intake-type.html"><i class="fa-solid fa-tags"></i> 入库类型与切换</a>
+      <button class="btn" onclick="PMS.toast('公租房管理系统接口前期暂不对接，接口开通并在系统中打开启用开关后方可同步')"><i class="fa-solid fa-arrows-rotate"></i> 立即同步（待启用）</button>
       <a class="btn" href="revitalize-list.html"><i class="fa-solid fa-file-signature"></i> 盘活审批</a>
       <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
     </div>
   </div>
 
-  <div class="alert alert-info">
-    <i class="fa-solid fa-circle-info"></i>
-    <div>对接<b>公租房管理系统</b>，调用闲置可盘活房源清单与房源状态，作为人才公寓房源的补充来源。同一接口还用于：<b>核查申请人是否已承租公租房或正在领取公租房租赁补贴</b>（防止重复享受），以及支撑<b>不再符合人才条件但仍满足公租房条件</b>的续租判定。</div>
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>公租房管理系统房源数据接口<b>前期暂不对接</b>：房源先由各房源提供单位<b>按统一模板报送</b>、经<b>住建部门审核后导入建账</b>，<b>保证平台按期上线可用</b>；<b>接口开通后再切换为实时同步，接口启用开关在系统中单独配置</b>。同一接口还用于<b>核查申请人是否已承租公租房或正在领取公租房租赁补贴</b>（防止重复享受）与支撑<b>符合公租房条件</b>的续租判定，这两项<b>按现行方式办理，不受房源接口启用开关影响</b>。<span class="link" onclick="location.href='org-report.html'">房源单位报送与审核</span>　<span class="link" onclick="location.href='building-import.html'">房源批量导入</span></div>
   </div>
 
   <div class="stat-grid">
     <div class="stat-card">
       <div class="s-icon blue"><i class="fa-solid fa-house-user"></i></div>
-      <div><div class="s-label">公租房房源</div><div class="s-value">12,486</div>
-        <div class="s-trend text-2">全部在册</div></div>
+      <div><div class="s-label">公租房在册房源</div><div class="s-value">12,486</div>
+        <div class="s-trend text-2">全部在册 · 接口待启用</div></div>
     </div>
     <div class="stat-card">
       <div class="s-icon orange"><i class="fa-solid fa-house-circle-exclamation"></i></div>
       <div><div class="s-label">闲置可盘活</div><div class="s-value">1,572</div>
-        <div class="s-trend text-2">闲置 12 个月以上</div></div>
+        <div class="s-trend text-2">闲置 12 个月以上 · 报送核实</div></div>
     </div>
     <div class="stat-card">
-      <div class="s-icon green"><i class="fa-solid fa-recycle"></i></div>
-      <div><div class="s-label">已盘活为人才住房</div><div class="s-value">836</div>
-        <div class="s-trend text-2">占房源总量 33.6%</div></div>
+      <div class="s-icon green"><i class="fa-solid fa-file-import"></i></div>
+      <div><div class="s-label">已报送导入建账</div><div class="s-value">836</div>
+        <div class="s-trend text-2">占房源总量 33.6% · 批量导入</div></div>
     </div>
-    <div class="stat-card">
-      <div class="s-icon cyan"><i class="fa-solid fa-file-signature"></i></div>
-      <div><div class="s-label">盘活审批中</div><div class="s-value">412</div>
-        <div class="s-trend text-2">清水塘新苑</div></div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon cyan"><i class="fa-solid fa-plug-circle-xmark"></i></div>
+      <div><div class="s-label">接口同步状态</div><div class="s-value">待启用</div>
+        <div class="s-trend ">前期暂不对接</div></div>
     </div>
   </div>
 
@@ -60,6 +62,7 @@
       <div class="filter-item"><label>所在区</label><select data-dict="district" data-ph="全部"></select></div>
       <div class="filter-item"><label>公租房状态</label><select><option value="">全部</option><option>在租</option><option>闲置</option><option>已转出</option><option>维修中</option></select></div>
       <div class="filter-item"><label>盘活状态</label><select><option value="">全部</option><option>已盘活</option><option>审批中</option><option>待核实</option><option>不盘活</option></select></div>
+      <div class="filter-item"><label>入库 / 接口状态</label><select><option value="">全部</option><option>批量导入（已建账）</option><option>报送待审核</option><option>不纳管</option><option>接口待启用</option><option>接口未对接</option></select></div>
       <div class="filter-actions">
         <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
         <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
@@ -69,23 +72,40 @@
     <div class="table-wrap">
       <table class="data-table">
         <thead>
-          <tr><th>公租房编码</th><th class="cell-lg">项目 / 房号</th><th>所在区</th><th>户型</th><th class="num">面积</th><th class="num">闲置月数</th><th>公租房状态</th><th>盘活状态</th><th>同步时间</th><th>操作</th></tr>
+          <tr><th>公租房编码</th><th class="cell-lg">项目 / 房号</th><th>所在区</th><th>户型</th><th class="num">面积</th><th class="num">闲置月数</th><th>公租房状态</th><th>盘活状态</th><th class="cell-lg">本系统入库</th><th>接口同步状态</th><th>操作</th></tr>
         </thead>
         <tbody>
-          <tr><td>ZZ-GZF-0042186</td><td>栗雨佳苑 / 3 栋 0904</td><td>天元区</td><td>一室一厅</td><td class="num">48.20</td><td class="num">—</td><td><span class="badge gray">已转出</span></td><td><span class="badge green">已盘活</span></td><td>2026-09-05 02:00</td><td><span class="link" onclick="location.href='house-convert.html'">转换台账</span></td></tr>
-          <tr><td>ZZ-GZF-0056402</td><td>茨菇塘公寓 / 5 栋 0602</td><td>荷塘区</td><td>一室一厅</td><td class="num">46.00</td><td class="num">—</td><td><span class="badge gray">已转出</span></td><td><span class="badge green">已盘活</span></td><td>2026-09-05 02:00</td><td><span class="link" onclick="location.href='house-convert.html'">转换台账</span></td></tr>
-          <tr class="row-warn"><td>ZZ-GZF-0071208</td><td>清水塘新苑 / 1 栋 0708</td><td>石峰区</td><td>一室一厅</td><td class="num">50.00</td><td class="num">18</td><td><span class="badge orange">闲置</span></td><td><span class="badge orange">审批中</span></td><td>2026-09-05 02:00</td><td><span class="link" onclick="location.href='revitalize-list.html'">盘活审批</span></td></tr>
-          <tr class="row-warn"><td>ZZ-GZF-0071214</td><td>清水塘新苑 / 1 栋 0710</td><td>石峰区</td><td>一室一厅</td><td class="num">50.00</td><td class="num">22</td><td><span class="badge orange">闲置</span></td><td><span class="badge orange">审批中</span></td><td>2026-09-05 02:00</td><td><span class="link" onclick="location.href='revitalize-list.html'">盘活审批</span></td></tr>
-          <tr><td>ZZ-GZF-0086104</td><td>田心安居苑 / 2 栋 0904</td><td>石峰区</td><td>二室一厅</td><td class="num">64.00</td><td class="num">14</td><td><span class="badge orange">闲置</span></td><td><span class="badge gray">待核实</span></td><td>2026-09-05 02:00</td><td><span class="link" onclick="PMS.toast('已向市住保中心公租房管理科发起闲置情况核实')">核实闲置</span></td></tr>
-          <tr><td>ZZ-GZF-0091802</td><td>金山公租房 / 4 栋 1204</td><td>天元区</td><td>一室一厅</td><td class="num">44.00</td><td class="num">2</td><td><span class="badge blue">在租</span></td><td><span class="badge gray">不盘活</span></td><td>2026-09-05 02:00</td><td><span class="link" onclick="PMS.toast('该房源公租房在租中，不属闲置可盘活范围')">说明</span></td></tr>
+          <tr><td>ZZ-GZF-0042186</td><td>栗雨佳苑 / 3 栋 0904</td><td>天元区</td><td>一室一厅</td><td class="num">48.20</td><td class="num">—</td><td><span class="badge gray">已转出</span></td><td><span class="badge green">已盘活</span></td><td><span class="badge blue">批量导入</span> DR2025-12-003　<span class="muted">市保障性住房服务中心报送</span></td><td><span class="badge gray">待启用</span></td><td><span class="link" onclick="location.href='house-convert.html'">转换台账</span></td></tr>
+          <tr><td>ZZ-GZF-0056402</td><td>茨菇塘公寓 / 5 栋 0602</td><td>荷塘区</td><td>一室一厅</td><td class="num">46.00</td><td class="num">—</td><td><span class="badge gray">已转出</span></td><td><span class="badge green">已盘活</span></td><td><span class="badge blue">批量导入</span> DR2026-03-004　<span class="muted">市保障性住房服务中心报送</span></td><td><span class="badge gray">待启用</span></td><td><span class="link" onclick="location.href='house-convert.html'">转换台账</span></td></tr>
+          <tr class="row-warn"><td>ZZ-GZF-0071208</td><td>清水塘新苑 / 1 栋 0708</td><td>石峰区</td><td>一室一厅</td><td class="num">50.00</td><td class="num">18</td><td><span class="badge orange">闲置</span></td><td><span class="badge orange">审批中</span></td><td><span class="badge blue">批量导入</span> DR2026-09-006　<span class="muted">清水塘投资集团报送</span></td><td><span class="badge gray">待启用</span></td><td><span class="link" onclick="location.href='revitalize-list.html'">盘活审批</span></td></tr>
+          <tr class="row-warn"><td>ZZ-GZF-0071214</td><td>清水塘新苑 / 1 栋 0710</td><td>石峰区</td><td>一室一厅</td><td class="num">50.00</td><td class="num">22</td><td><span class="badge orange">闲置</span></td><td><span class="badge orange">审批中</span></td><td><span class="badge orange">报送待审核</span>　<span class="muted">住建部门审核后方可导入建账</span></td><td><span class="badge gray">待启用</span></td><td><span class="link" onclick="location.href='org-report.html'">报送审核</span> <span class="link" onclick="location.href='revitalize-list.html'">盘活审批</span></td></tr>
+          <tr><td>ZZ-GZF-0086104</td><td>田心安居苑 / 2 栋 0904</td><td>石峰区</td><td>二室一厅</td><td class="num">64.00</td><td class="num">14</td><td><span class="badge orange">闲置</span></td><td><span class="badge gray">待核实</span></td><td><span class="badge orange">报送待审核</span>　<span class="muted">闲置情况核实后报送</span></td><td><span class="badge gray">待启用</span></td><td><span class="link" onclick="PMS.toast('已向市住保中心公租房管理科发起闲置情况核实，核实后由报送单位按统一模板报送、审核后导入建账')">核实闲置</span></td></tr>
+          <tr><td>ZZ-GZF-0091802</td><td>金山公租房 / 4 栋 1204</td><td>天元区</td><td>一室一厅</td><td class="num">44.00</td><td class="num">2</td><td><span class="badge blue">在租</span></td><td><span class="badge gray">不盘活</span></td><td><span class="badge gray">不纳管</span></td><td><span class="badge gray">未对接</span></td><td><span class="link" onclick="PMS.toast('该房源公租房在租中，不属闲置可盘活范围，接口开通后也不同步')">说明</span></td></tr>
         </tbody>
       </table>
     </div>
   </div>
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-toggle-off"></i> 接口启用开关<span class="sub">公租房管理系统 · 房源类接口当前为「关闭」</span></div>
+          <div class="sp-b">
+  <div class="sp-tw">
+    <table class="data-table compact">
+      <thead><tr><th>项</th><th class="cell-lg">说明</th><th>当前状态</th></tr></thead>
+      <tbody>
+      <tr><td><b>配置位置</b></td><td>系统管理 → 接口与集成配置 → <b>公租房管理系统房源接口</b>，开关<b>单独配置</b>、单独授权，仅系统管理员可修改，修改留痕</td><td><span class="badge gray">开关：关闭</span></td></tr>
+      <tr><td><b>关闭期间（本期）</b></td><td>不调用房源接口、不做实时同步；闲置可盘活房源由市保障性住房服务中心等单位<b>按统一模板报送</b>、住建部门<b>审核后批量导入建账</b>，入库类型标注为<b>批量导入</b>，保证平台按期上线可用</td><td><span class="badge blue">报送导入建账</span></td></tr>
+      <tr><td><b>启用后行为</b></td><td>按<b>每日 02:00 定时 + 手动触发</b>同步闲置可盘活房源清单与房源状态；同步结果先进入<b>导入与接口比对合并</b>，按三重规则输出新增 / 变更 / 疑似重复三类差异，由经办人<b>逐条确认后合并</b>，<b>不自动覆盖</b>已导入房源。<b>按项目分批切换</b>入库类型，不整体一次性切换</td><td><span class="badge gray">待启用</span></td></tr>
+      <tr><td><b>已导入房源处理</b></td><td><b>已导入房源保留原入库标记</b>（批量导入 + 原导入批次号 + 报送单位），与接口来源<b>双轨记录、不互相覆盖</b>；不因接口启用而重新建账。<b>核查重复享受</b>与<b>公租房条件续租判定</b>两项用途<b>不受本开关影响</b></td><td><span class="badge blue">原标记保留</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+          </div>
+        </div>
   <div class="sp-src">
-    <span><b>数据来源</b> 公租房管理系统</span>
-    <span><b>三项用途</b> ①调用闲置房源作为人才公寓来源　②核查重复享受　③支撑公租房条件续租判定</span>
-    <span><b>配合单位</b> 市保障性住房服务中心</span>
+    <span><b>本期口径</b> 房源接口<b>前期暂不对接</b>：先由各提供单位按统一模板报送、住建部门审核后<b>导入建账</b>，保证平台按期上线可用；<b>待接口开通后启用</b>实时同步</span>
+    <span><b>启用开关</b> 在系统中<b>单独配置</b>（系统管理 → 接口与集成配置），启用后按日定时同步并走比对合并；<b>已导入房源保留原入库标记</b></span>
+    <span><b>三项用途</b> ①调用闲置房源（待接口开通后启用）　②核查重复享受　③支撑公租房条件续租判定（后两项不受开关影响）</span>
+    <span><b>关联页面</b> <span class="link" onclick="location.href='org-report.html'">房源单位报送与审核</span>　<span class="link" onclick="location.href='intake-type.html'">入库类型与切换</span>　<span class="link" onclick="location.href='import-merge.html'">导入与接口比对合并</span></span>
   </div>
 </main>
 

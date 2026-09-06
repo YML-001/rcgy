@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>报送账号与范围 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="housing" data-active="house-30">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 房源筹集与楼盘表
+      <span class="sep">/</span> 房源导入与来源台账
+      <span class="sep">/</span> <span class="cur">报送账号与范围</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.openDrawer('scopeDrawer')"><i class="fa-solid fa-user-shield"></i> 授权范围配置</button>
+      <a class="btn" href="org-report.html"><i class="fa-solid fa-paper-plane"></i> 报送与审核</a>
+      <a class="btn" href="../system/sys-datascope.html"><i class="fa-solid fa-shield-halved"></i> 数据权限范围</a>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出账号台账</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>为<b>株洲城发高科集团、清水塘投资集团、株洲高新区管委会、株洲经开区管委会</b>等房源提供单位开通报送账号，按单位<b>限定可报送、可维护的项目与房源范围</b>。<b>越权数据不可见、不可改</b>：列表查询自动附加本单位过滤条件，越权访问返回无权限并留痕。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-building-columns"></i></div>
+      <div><div class="s-label">报送单位</div><div class="s-value">5</div>
+        <div class="s-trend text-2">家 · 覆盖四类来源渠道</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-id-card"></i></div>
+      <div><div class="s-label">报送账号</div><div class="s-value">18</div>
+        <div class="s-trend text-2">个 · 启用 16 / 停用 2</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-folder-open"></i></div>
+      <div><div class="s-label">已授权项目</div><div class="s-value">26</div>
+        <div class="s-trend text-2">个 · 项目级授权，跨单位不可见</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon red"><i class="fa-solid fa-ban"></i></div>
+      <div><div class="s-label">本月越权拦截</div><div class="s-value">6</div>
+        <div class="s-trend ">次 · 已全部留痕并通知单位</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>账号</label><input type="text" value="bs_chengfa_01" placeholder="账号或姓名"></div>
+      <div class="filter-item"><label>报送单位</label><select data-dict="reportOrg" data-ph="全部"></select></div>
+      <div class="filter-item"><label>数据权限</label><select><option value="">全部</option><option>本单位</option><option>本项目</option><option>本批次</option></select></div>
+      <div class="filter-item"><label>启用状态</label><select><option value="">全部</option><option>启用</option><option>停用</option></select></div>
+      <div class="filter-item"><label>最近登录</label><input type="date" value="2026-09-05"></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>账号</th><th>姓名</th><th class="cell-lg">所属报送单位</th><th>联系电话</th><th class="num">可报送项目数</th><th class="cell-lg">可维护房源范围</th><th>数据权限</th><th>启用状态</th><th>最近登录</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>bs_chengfa_01</td><td>谢志强</td><td>株洲城发高科集团</td><td>138****4126</td><td class="num">8</td><td>本单位收购商品房转化渠道全部房源（3,800 套）</td><td><span class="badge blue">本单位</span></td><td><span class="badge green">启用</span></td><td>2026-09-06 08:42</td><td><span class="link" onclick="PMS.openDrawer('scopeDrawer')">编辑</span> <span class="link" onclick="PMS.openDrawer('scopeDrawer')">授权范围</span> <span class="link" onclick="PMS.confirm({title:'停用确认',message:'确认停用账号 bs_chengfa_01？',detail:'停用后该账号立即无法登录报送端，已提交的报送批次不受影响，草稿批次保留 30 日。',type:'warning',okText:'确认停用',onOk:function(){PMS.toast('账号已停用，已通知株洲城发高科集团','success');}})">停用</span></td></tr>
+          <tr><td>bs_chengfa_02</td><td>邓丽华</td><td>株洲城发高科集团</td><td>139****2087</td><td class="num">2</td><td>湘江1958 人才公寓（一、二期）2,000 套</td><td><span class="badge cyan">本项目</span></td><td><span class="badge green">启用</span></td><td>2026-09-05 16:20</td><td><span class="link" onclick="PMS.openDrawer('scopeDrawer')">编辑</span> <span class="link" onclick="PMS.openDrawer('scopeDrawer')">授权范围</span> <span class="link" onclick="PMS.confirm({title:'停用确认',message:'确认停用账号 bs_chengfa_02？',detail:'停用后该账号立即无法登录报送端，草稿批次保留 30 日。',type:'warning',okText:'确认停用',onOk:function(){PMS.toast('账号已停用，已通知株洲城发高科集团','success');}})">停用</span></td></tr>
+          <tr><td>bs_qsthz_01</td><td>王建军</td><td>清水塘投资集团</td><td>137****5318</td><td class="num">6</td><td>本单位收购保租房转化渠道全部房源（2,000 套）</td><td><span class="badge blue">本单位</span></td><td><span class="badge green">启用</span></td><td>2026-09-06 09:16</td><td><span class="link" onclick="PMS.openDrawer('scopeDrawer')">编辑</span> <span class="link" onclick="PMS.openDrawer('scopeDrawer')">授权范围</span> <span class="link" onclick="PMS.confirm({title:'停用确认',message:'确认停用账号 bs_qsthz_01？',detail:'停用后该账号立即无法登录报送端，草稿批次保留 30 日。',type:'warning',okText:'确认停用',onOk:function(){PMS.toast('账号已停用，已通知清水塘投资集团','success');}})">停用</span></td></tr>
+          <tr><td>bs_gxq_01</td><td>刘伟军</td><td>株洲高新区管委会</td><td>135****7642</td><td class="num">4</td><td>云龙人才公寓、栗雨佳苑人才公寓共 1,000 套</td><td><span class="badge blue">本单位</span></td><td><span class="badge green">启用</span></td><td>2026-09-06 10:08</td><td><span class="link" onclick="PMS.openDrawer('scopeDrawer')">编辑</span> <span class="link" onclick="PMS.openDrawer('scopeDrawer')">授权范围</span> <span class="link" onclick="PMS.confirm({title:'停用确认',message:'确认停用账号 bs_gxq_01？',detail:'停用后该账号立即无法登录报送端，草稿批次保留 30 日。',type:'warning',okText:'确认停用',onOk:function(){PMS.toast('账号已停用，已通知株洲高新区管委会','success');}})">停用</span></td></tr>
+          <tr><td>bs_jkq_01</td><td>周敏</td><td>株洲经开区管委会</td><td>136****9024</td><td class="num">3</td><td>田心人才公寓 600 套</td><td><span class="badge blue">本单位</span></td><td><span class="badge green">启用</span></td><td>2026-09-05 14:36</td><td><span class="link" onclick="PMS.openDrawer('scopeDrawer')">编辑</span> <span class="link" onclick="PMS.openDrawer('scopeDrawer')">授权范围</span> <span class="link" onclick="PMS.confirm({title:'停用确认',message:'确认停用账号 bs_jkq_01？',detail:'停用后该账号立即无法登录报送端，草稿批次保留 30 日。',type:'warning',okText:'确认停用',onOk:function(){PMS.toast('账号已停用，已通知株洲经开区管委会','success');}})">停用</span></td></tr>
+          <tr class="row-warn"><td>bs_zbzx_01</td><td>彭雪梅</td><td>市保障性住房服务中心</td><td>139****3165</td><td class="num">3</td><td>市本级存量渠道全部房源（2,600 套）</td><td><span class="badge blue">本单位</span></td><td><span class="badge green">启用</span></td><td>2026-09-06 11:02</td><td><span class="link" onclick="PMS.openDrawer('scopeDrawer')">编辑</span> <span class="link" onclick="PMS.openDrawer('scopeDrawer')">授权范围</span> <span class="link" onclick="PMS.confirm({title:'停用确认',message:'确认停用账号 bs_zbzx_01？',detail:'该账号本月发生 4 次越权访问拦截，停用后立即无法登录报送端。',type:'warning',okText:'确认停用',onOk:function(){PMS.toast('账号已停用，已通知市保障性住房服务中心','success');}})">停用</span></td></tr>
+          <tr class="row-bad"><td>bs_qsthz_02</td><td>唐立新</td><td>清水塘投资集团</td><td>131****8470</td><td class="num">1</td><td>清水塘·未来社区（一期）报送批次 BS2026-09-02 单批范围</td><td><span class="badge purple">本批次</span></td><td><span class="badge red">停用</span></td><td>2026-08-28 15:48</td><td><span class="link" onclick="PMS.openDrawer('scopeDrawer')">编辑</span> <span class="link" onclick="PMS.openDrawer('scopeDrawer')">授权范围</span> <span class="link" onclick="PMS.confirm({title:'启用确认',message:'确认重新启用账号 bs_qsthz_02？',detail:'该账号因 2 次尝试修改他单位房源被停用，启用后授权范围仍限定为 BS2026-09-02 单批范围。',type:'warning',okText:'确认启用',onOk:function(){PMS.toast('账号已启用，授权范围保持本批次','success');}})">启用</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sp-block" style="margin-top:12px">
+    <div class="sp-h"><i class="fa-solid fa-list"></i> 越权控制规则<span class="sub">YQ-1 至 YQ-6 · 越权数据不可见、不可改</span></div>
+    <div class="sp-b">
+      <div class="sp-tw">
+        <table class="data-table compact">
+          <thead><tr><th>规则号</th><th>控制环节</th><th class="cell-lg">控制方式</th><th class="num">本月拦截</th><th class="cell-lg">拦截后处置</th></tr></thead>
+          <tbody>
+          <tr><td><b>YQ-1</b></td><td>列表查询</td><td><b>自动附加本单位过滤条件</b>，SQL 层强制拼接单位与项目范围，前端无法绕过；越权数据在列表中<b>完全不可见</b></td><td class="num">0</td><td>无感知拦截，不提示错误，仅返回授权范围内数据</td></tr>
+          <tr><td><b>YQ-2</b></td><td>详情直接访问</td><td>通过 URL 直接传入越权房源 ID 或批次号访问详情，<b>后端二次校验数据归属，返回无权限</b></td><td class="num">3</td><td>返回「无权限访问该数据」，记录访问者、目标 ID 与时间</td></tr>
+          <tr><td><b>YQ-3</b></td><td>数据导出</td><td><b>导出仅限授权范围</b>，导出前重新校验范围，导出文件按单位加水印标识</td><td class="num">1</td><td>越权导出请求直接终止，不生成文件，记录导出意图</td></tr>
+          <tr><td><b>YQ-4</b></td><td>修改与删除</td><td><b>修改他单位房源被拦截并留痕</b>，提交时按房源归属单位比对，不一致即拒绝写入</td><td class="num">2</td><td>拦截并提示「该房源不属于本单位授权范围」，连续 3 次自动停用账号</td></tr>
+          <tr><td><b>YQ-5</b></td><td>字段级维护</td><td>可维护字段按单位授权，报送单位<b>不得修改租金标准、来源渠道、入库类型</b>等由住建部门核定的字段</td><td class="num">0</td><td>受限字段在报送端置灰只读，提交时忽略越权字段值</td></tr>
+          <tr><td><b>YQ-6</b></td><td>操作留痕</td><td>全部越权尝试记入<span class="link" onclick="location.href='../system/sys-perm-log.html'">权限操作日志</span>，<b>日志不可篡改、长期留存</b></td><td class="num">6</td><td>按月汇总通报至报送单位，累计超 5 次约谈单位负责人</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="sp-src">
+    <span><b>依据</b> 2026 年 9 月 6 日向市住建局汇报讨论会议决议</span>
+    <span><b>授权口径</b> 按报送单位限定可报送、可维护的项目与房源范围，越权数据不可见、不可改</span>
+    <span><b>权限层级</b> 本单位（渠道全量）＞ 本项目（单个或多个项目）＞ 本批次（单个报送批次）</span>
+    <span><b>留痕要求</b> 授权变更、越权拦截与账号启停全程留痕，日志长期留存可回溯</span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="scopeDrawer">
+  <div class="drawer-head">
+    <h3>授权范围配置</h3>
+    <span class="badge blue">本单位</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+    <div class="alert alert-warning">
+      <i class="fa-solid fa-triangle-exclamation"></i>
+      <div>授权范围<b>保存后即时生效</b>，缩小范围时该账号已进入草稿的越权批次自动作废。<b>越权数据不可见、不可改</b>：列表自动过滤、详情直接访问返回无权限、导出仅限授权范围、修改他单位房源被拦截并留痕。</div>
+    </div>
+
+    <div class="form-grid form-align">
+      <div class="form-item">
+        <label>账号 <span class="req">*</span></label>
+        <input type="text" value="bs_chengfa_01" readonly>
+        <div class="hint">账号名不可修改，如需变更请停用后重新开通</div>
+      </div>
+      <div class="form-item">
+        <label>账号姓名 <span class="req">*</span></label>
+        <input type="text" value="谢志强">
+      </div>
+      <div class="form-item">
+        <label>报送单位 <span class="req">*</span></label>
+        <select data-dict="reportOrg" data-selected="1" data-ph=""></select>
+      </div>
+      <div class="form-item">
+        <label>联系电话 <span class="req">*</span></label>
+        <input type="text" value="13874124126">
+        <div class="hint">列表与导出中按 138****4126 脱敏展示</div>
+      </div>
+      <div class="form-item">
+        <label>数据权限范围 <span class="req">*</span></label>
+        <select><option>本单位（本单位所属渠道全部房源）</option><option>本项目（指定一个或多个项目）</option><option>本批次（指定单个报送批次）</option></select>
+      </div>
+      <div class="form-item">
+        <label>有效期 <span class="req">*</span></label>
+        <input type="date" value="2027-09-06">
+        <div class="hint">到期自动停用，须重新授权</div>
+      </div>
+      <div class="form-item col-full">
+        <label>可报送项目（多选） <span class="req">*</span></label>
+        <textarea rows="9">☑ XM2025-001 湘江1958 人才公寓（一、二期）　2,000 套　收购商品房转化
+☑ XM2025-004 栗雨佳苑人才公寓　486 套　收购商品房转化
+☑ XM2026-013 湘江1958 人才公寓（三期）　620 套　收购商品房转化
+☑ XM2026-014 天元云谷人才公寓　412 套　收购商品房转化
+☑ XM2026-015 建宁人才公寓　328 套　收购商品房转化
+☐ XM2026-008 清水塘·未来社区（一期）　1,800 套　清水塘投资集团（他单位，不可授权）
+☐ XM2026-011 云龙人才公寓　1,400 套　株洲高新区管委会（他单位，不可授权）
+☐ XM2026-016 田心人才公寓　1,000 套　株洲经开区管委会（他单位，不可授权）</textarea>
+        <div class="hint">☑ 为已授权项目，☐ 为他单位项目（列表中对本账号完全不可见，此处仅供配置时核对）</div>
+      </div>
+      <div class="form-item col-full">
+        <label>可维护字段范围说明 <span class="req">*</span></label>
+        <textarea rows="4">可维护：楼栋、单元、楼层、房号、户型、建筑面积、套内面积、朝向、装修标准、家电家具配置清单、实景照片、VR 全景链接、户型图、配套交通、周边生活配套。
+只读不可改：租金标准（由市住建局核定）、来源渠道（由市住建局按四类口径标注）、入库类型（由系统按批量导入 / 接口对接自动标记）、房态、一房一码编号、项目编码。</textarea>
+      </div>
+      <div class="form-item col-full">
+        <label>越权控制说明 <span class="req">*</span></label>
+        <textarea rows="4" readonly>YQ-1 列表查询：自动附加「报送单位 = 株洲城发高科集团」过滤条件，他单位房源完全不可见。
+YQ-2 详情访问：直接传入他单位房源 ID 返回「无权限访问该数据」并记录访问日志。
+YQ-3 数据导出：导出前重新校验范围，仅可导出已授权 5 个项目共 3,846 套房源。
+YQ-4 修改拦截：提交时比对房源归属单位，修改他单位房源即拒绝写入并留痕，连续 3 次自动停用账号。</textarea>
+      </div>
+      <div class="form-item col-full">
+        <label>授权依据附件</label>
+        <input type="text" data-upload="1" value="株洲城发高科集团报送账号授权申请表_20260906.pdf">
+      </div>
+      <div class="form-item col-full">
+        <label>授权说明 <span class="req">*</span></label>
+        <textarea rows="3">按 2026 年 9 月 6 日会议要求为株洲城发高科集团开通报送账号，数据权限范围为本单位，授权 5 个收购商品房转化渠道项目共 3,846 套房源的报送与维护权限，租金标准、来源渠道、入库类型等由住建部门核定的字段置灰只读。有效期至 2027-09-06。</textarea>
+      </div>
+    </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn" onclick="PMS.toast('已保存为草稿，授权范围未变更','success')">存草稿</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认保存账号 bs_chengfa_01 的授权范围？',detail:'保存后即时生效：可报送项目 5 个共 3,846 套房源，数据权限为本单位。越权数据对该账号不可见、不可改，越权尝试将被拦截并留痕。有效期至 2027-09-06，到期自动停用。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('授权范围已保存并即时生效，已通知株洲城发高科集团','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+  </div>
+</div>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 18; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

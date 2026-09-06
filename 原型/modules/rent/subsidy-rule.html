@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>补贴标准与计费配置 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="keeper" data-active="rent-16">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 租金收缴与年审退出
+      <span class="sep">/</span> 租房补贴核发
+      <span class="sep">/</span> <span class="cur">补贴标准与计费配置</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.openDrawer('bzDrawer')"><i class="fa-solid fa-plus"></i> 新增标准</button>
+      <a class="btn" href="subsidy-verify.html"><i class="fa-solid fa-shield-halved"></i> 资格与服务核验</a>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>租房补助改按<b>政府购买服务</b>方式办理，本页配置<b>政府补助与个人自付的分担标准</b>：租金 <b>13.00 元/㎡·月</b>中<b>个人承担 6.00 元、财政补助 7.00 元</b>，并<b>支持按房源批次差异化配置</b>。标准生效后作为补助核定的唯一计费依据。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-sliders"></i></div>
+      <div><div class="s-label">在用标准</div><div class="s-value">4</div>
+        <div class="s-trend text-2">另有 1 项待生效、1 项已停用</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+      <div><div class="s-label">平均补助单价</div><div class="s-value">7.00</div>
+        <div class="s-trend text-2">元/㎡·月 · 全市默认标准财政承担部分</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-building"></i></div>
+      <div><div class="s-label">覆盖房源</div><div class="s-value">1,192</div>
+        <div class="s-trend text-2">套 · 计租面积 78,420.00 ㎡</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-sack-dollar"></i></div>
+      <div><div class="s-label">本年补助预算</div><div class="s-value">6,600,000.00</div>
+        <div class="s-trend text-2">元 · 本期应补 548,940.00 元</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card" data-tabs-scope>
+    <div class="tabs">
+      <div class="tab active" data-tab="bzpz"><i class="fa-solid fa-sliders"></i> 标准配置 <span class="badge blue">6</span></div>
+      <div class="tab" data-tab="jfkj"><i class="fa-solid fa-list"></i> 计费口径</div>
+    </div>
+    <div class="tab-panel active" data-panel="bzpz">
+    <div class="card-body tight">
+    <div class="filter-bar">
+      <div class="filter-item"><label>标准编码</label><input type="text" placeholder="如 BZ-01"></div>
+      <div class="filter-item"><label>适用范围</label><select><option value="">全部</option><option>全市默认</option><option>按项目</option><option>按批次</option></select></div>
+      <div class="filter-item"><label>来源渠道</label><select data-dict="srcChannel" data-ph="全部"></select></div>
+      <div class="filter-item"><label>计租面积口径</label><select><option value="">全部</option><option>建筑面积</option><option>套内面积</option></select></div>
+      <div class="filter-item"><label>状态</label><select><option value="">全部</option><option>在用</option><option>待生效</option><option>已停用</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>标准编码</th><th>适用范围</th><th class="cell-lg">适用项目或批次</th><th class="num">租金标准</th><th class="num">个人承担</th><th class="num">财政补助</th><th class="num">补助比例</th><th>计租面积口径</th><th>生效期间</th><th>状态</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>BZ-01</td><td><span class="badge blue">全市默认</span></td><td>全市人才公寓（湘江1958 / 云龙 / 清水塘·未来社区 / 董家塅 / 田心）</td><td class="num">13.00</td><td class="num">6.00</td><td class="num">7.00</td><td class="num">53.85%</td><td>建筑面积</td><td>2026-01-01 至 2028-12-31</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('bzDrawer')">编辑</span> <span class="link" onclick="PMS.toast('BZ-01 覆盖 1,192 套在租房源，计租面积 78,420.00 ㎡，本期应补 548,940.00 元')">覆盖房源</span></td></tr>
+          <tr><td>BZ-02</td><td><span class="badge cyan">按批次</span></td><td>收购保租房转化批次（2025 年第 2 批 · 栗雨佳苑人才公寓）</td><td class="num">11.00</td><td class="num">5.00</td><td class="num">6.00</td><td class="num">54.55%</td><td>建筑面积</td><td>2026-01-01 至 2028-12-31</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('bzDrawer')">编辑</span> <span class="link" onclick="PMS.toast('批次差异化标准：收购价与运营成本低于新建项目，租金标准同步下调至 11.00 元/㎡·月')">差异说明</span></td></tr>
+          <tr><td>BZ-03</td><td><span class="badge cyan">按批次</span></td><td>收购商品房转化批次（2026 年第 1 批 · 茨菇塘公寓）</td><td class="num">14.00</td><td class="num">6.50</td><td class="num">7.50</td><td class="num">53.57%</td><td>建筑面积</td><td>2026-04-01 至 2029-03-31</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('bzDrawer')">编辑</span> <span class="link" onclick="PMS.toast('批次差异化标准：房源为中心城区收购商品房，参照周边市场租金上浮定标')">差异说明</span></td></tr>
+          <tr><td>BZ-04</td><td><span class="badge purple">按项目</span></td><td>园区公租房纳管（株洲高新区栗雨科技园人才宿舍）</td><td class="num">10.00</td><td class="num">4.50</td><td class="num">5.50</td><td class="num">55.00%</td><td>套内面积</td><td>2026-04-01 至 2029-03-31</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('bzDrawer')">编辑</span> <span class="link" onclick="PMS.toast('该项目为宿舍型房源，无公摊计费，计租面积口径取套内面积')">差异说明</span></td></tr>
+          <tr class="row-warn"><td>BZ-05</td><td><span class="badge cyan">按批次</span></td><td>市本级存量转化批次（2026 年第 2 批 · 董家塅安居苑）</td><td class="num">12.00</td><td class="num">5.50</td><td class="num">6.50</td><td class="num">54.17%</td><td>建筑面积</td><td>2026-10-01 至 2029-09-30</td><td><span class="badge orange">待生效</span></td><td><span class="link" onclick="PMS.openDrawer('bzDrawer')">编辑</span> <span class="link" onclick="PMS.confirm({title:'提前生效确认',message:'确认将 BZ-05 生效日期提前至 2026-09-01？',detail:'提前生效将影响 2026 年 9 月已发起的补助申请核定结果，须经市住建局分管领导审批并留痕。',type:'warning',okText:'确认提交',onOk:function(){PMS.toast('已提交提前生效申请，待分管领导审批','success');}})">提前生效</span></td></tr>
+          <tr class="row-off"><td>BZ-06</td><td><span class="badge purple">按项目</span></td><td>清水塘新苑（2025 年过渡标准）</td><td class="num">12.00</td><td class="num">6.00</td><td class="num">6.00</td><td class="num">50.00%</td><td>建筑面积</td><td>2025-01-01 至 2025-12-31</td><td><span class="badge gray">已停用</span></td><td><span class="link" onclick="PMS.toast('BZ-06 已于 2025-12-31 到期停用，2026-01-01 起并入 BZ-01 全市默认标准')">停用说明</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+    </div>
+    <div class="tab-panel" data-panel="jfkj">
+    <div class="card-body tight">
+    <div class="sp-scroll">
+  <div class="sp-block">
+    <div class="sp-h"><i class="fa-solid fa-list"></i> 计费口径<span class="sub">N4-01 · 政府购买服务补助计算规则</span></div>
+    <div class="sp-b">
+      <div class="sp-tw">
+        <table class="data-table compact">
+          <thead><tr><th>口径项</th><th class="cell-lg">口径说明</th></tr></thead>
+          <tbody>
+            <tr><td><b>JF-1 应补算式</b></td><td><b>应补金额 = 财政补助单价 × 计租面积 × 服务月数</b>。补助单价取生效标准中的「财政补助」列，计租面积取标准指定口径（建筑面积或套内面积）</td></tr>
+            <tr><td><b>JF-2 不满整月</b></td><td>服务期间<b>不满整月的按日折算</b>：当月应补 = 补助单价 × 计租面积 × 当月实际服务天数 ÷ 当月日历天数，结果四舍五入保留两位小数</td></tr>
+            <tr><td><b>JF-3 空置房源</b></td><td><b>空置房源不计补助</b>。以房态台账「在租」状态为准，可配租、已锁定、维修中、待验收等状态一律不计入计补范围</td></tr>
+            <tr><td><b>JF-4 欠租处理</b></td><td><b>已欠租房源的个人承担部分不冲抵财政补助</b>。个人欠缴由运营单位按合同催缴并纳入年度资格审查，财政补助按在租事实照常核定</td></tr>
+            <tr><td><b>JF-5 评价扣减</b></td><td>服务评价扣减<b>不在本环节处理</b>，统一在<span class="link" onclick="location.href='subsidy-amount.html'">补助金额核定</span>环节按分档规则从应补金额中扣减后形成核定金额</td></tr>
+            <tr><td><b>JF-6 分担校验</b></td><td>同一标准内<b>租金标准 = 个人承担 + 财政补助</b>必须恒等，保存时自动校验；不满足的不允许保存生效</td></tr>
+            <tr><td><b>JF-7 批次差异</b></td><td>同一房源同时命中多条标准时，按<b>按批次 &gt; 按项目 &gt; 全市默认</b>的优先级取值，取值结果随核定记录一并留痕</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+    </div>
+    </div>
+    </div>
+  </div>
+
+  <div class="sp-src">
+    <span><b>依据</b> 2026 年 9 月 6 日向市住建局汇报讨论会议决议：租房补助改按政府购买服务方式办理</span>
+    <span><b>分担示例</b> 租金 13.00 元/㎡·月 = 个人 6.00 元 + 财政 7.00 元</span>
+    <span><b>差异化</b> 支持按房源批次配置不同分担标准，优先级高于全市默认</span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="bzDrawer">
+  <div class="drawer-head">
+    <h3>补贴标准编辑</h3>
+    <span class="badge blue">BZ-01 · 全市默认</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+    <div class="alert alert-warning">
+      <i class="fa-solid fa-triangle-exclamation"></i>
+      <div><b>租金标准 = 个人承担 + 财政补助</b>三者须自动校验相加关系，不相等不允许保存生效。标准调整<b>按生效日期对新账期生效</b>，已核定账期不追溯重算。</div>
+    </div>
+
+    <div class="form-grid form-align">
+      <div class="form-item">
+        <label>标准编码 <span class="req">*</span></label>
+        <input type="text" value="BZ-01" readonly>
+      </div>
+      <div class="form-item">
+        <label>适用范围 <span class="req">*</span></label>
+        <select id="bzScope">
+          <option selected>全市默认</option>
+          <option>按项目</option>
+          <option>按批次</option>
+        </select>
+        <div class="hint">取值优先级：按批次 &gt; 按项目 &gt; 全市默认</div>
+      </div>
+      <div class="form-item col-full">
+        <label>适用项目或批次 <span class="req">*</span></label>
+        <select id="bzTarget">
+          <option selected>全市人才公寓（默认，覆盖湘江1958 / 云龙 / 清水塘·未来社区 / 董家塅 / 田心）</option>
+          <option>湘江1958 人才公寓</option>
+          <option>云龙人才公寓</option>
+          <option>清水塘·未来社区</option>
+          <option>董家塅人才公寓</option>
+          <option>田心人才公寓</option>
+          <option>收购保租房转化批次（2025 年第 2 批）</option>
+          <option>收购商品房转化批次（2026 年第 1 批）</option>
+          <option>市本级存量转化批次（2026 年第 2 批）</option>
+          <option>园区公租房纳管批次</option>
+        </select>
+      </div>
+      <div class="form-item">
+        <label>租金标准（元/㎡·月） <span class="req">*</span></label>
+        <input type="text" id="bzRent" value="13.00">
+        <div class="hint">一事一议议定的整体租金标准</div>
+      </div>
+      <div class="form-item">
+        <label>个人承担（元/㎡·月） <span class="req">*</span></label>
+        <input type="text" id="bzSelf" value="6.00">
+        <div class="hint">由承租人按月缴纳，计入个人账单</div>
+      </div>
+      <div class="form-item">
+        <label>财政补助（元/㎡·月） <span class="req">*</span></label>
+        <input type="text" id="bzGov" value="7.00">
+        <div class="hint" id="bzCheck">校验通过：6.00 + 7.00 = 13.00，补助比例 53.85%</div>
+      </div>
+      <div class="form-item">
+        <label>计租面积口径 <span class="req">*</span></label>
+        <select>
+          <option selected>建筑面积</option>
+          <option>套内面积</option>
+        </select>
+        <div class="hint">大户型按分摊面积计入建筑面积口径</div>
+      </div>
+      <div class="form-item">
+        <label>结算周期 <span class="req">*</span></label>
+        <select data-dict="evalCycle" data-ph="" data-selected="1"></select>
+        <div class="hint">运营单位可按月或按季发起补助申请</div>
+      </div>
+      <div class="form-item">
+        <label>生效起始日期 <span class="req">*</span></label>
+        <input type="date" value="2026-01-01">
+      </div>
+      <div class="form-item">
+        <label>生效截止日期 <span class="req">*</span></label>
+        <input type="date" value="2028-12-31">
+      </div>
+      <div class="form-item col-full">
+        <label>配置说明 <span class="req">*</span></label>
+        <textarea rows="4">经市委人才办、市财政局、市住建局会同运营单位一事一议议定：全市人才公寓租金标准 13.00 元/㎡·月，其中承租人个人承担 6.00 元/㎡·月，财政按政府购买服务方式补助 7.00 元/㎡·月，补助比例 53.85%。计租面积取房源档案建筑面积，结算周期按月，空置与已腾退房源不计补助。本标准自 2026-01-01 起对新账期生效，已核定账期不追溯重算。</textarea>
+      </div>
+      <div class="form-item col-full">
+        <label>审定文件 <span class="req">*</span></label>
+        <input type="text" data-upload="1">
+        <div class="hint">必填，未附审定文件不允许保存生效</div>
+      </div>
+    </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认保存 BZ-01 补贴标准并对新账期生效？',detail:'保存前系统自动校验「租金标准 = 个人承担 + 财政补助」，当前 13.00 = 6.00 + 7.00 校验通过。标准生效后作为补助核定的唯一计费依据，变更全过程留痕。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已保存，计费规则已落库并对新账期生效','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+  </div>
+</div>
+
+<script>
+(function () {
+  var rent = document.getElementById('bzRent');
+  var self = document.getElementById('bzSelf');
+  var gov = document.getElementById('bzGov');
+  var tip = document.getElementById('bzCheck');
+  function num(el) { var v = parseFloat((el.value || '').replace(/[^0-9.\-]/g, '')); return isNaN(v) ? 0 : v; }
+  function check() {
+    var r = num(rent), s = num(self), g = num(gov);
+    if (Math.abs(r - s - g) < 0.005 && r > 0) {
+      tip.innerHTML = '<b class="text-success">校验通过</b>：' + s.toFixed(2) + ' + ' + g.toFixed(2) + ' = ' + r.toFixed(2) + '，补助比例 ' + (g / r * 100).toFixed(2) + '%';
+    } else {
+      tip.innerHTML = '<b class="text-danger">校验不通过</b>：个人承担 + 财政补助（' + (s + g).toFixed(2) + '）应等于租金标准（' + r.toFixed(2) + '），不相等不允许保存';
+    }
+  }
+  [rent, self, gov].forEach(function (el) { el.addEventListener('input', check); });
+  check();
+})();
+</script>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 6; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

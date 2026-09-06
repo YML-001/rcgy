@@ -949,6 +949,8 @@ a.m-cell:active { background: var(--bg-soft); }
 /* 开关 */
 .m-sw {
   flex: 0 0 auto;
+  display: inline-block;
+  vertical-align: middle;
   width: 42px;
   height: 24px;
   border-radius: 14px;

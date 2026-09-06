@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>评价采集与回收 · 株洲市人才公寓管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="manager" data-active="ops-12">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <span class="sep">/</span> 运营考核与工单服务
+      <span class="sep">/</span> 服务评价管理
+      <span class="sep">/</span> <span class="cur">评价采集与回收</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.confirm({title:'批量催办确认',message:'确认向本期未评价的 168 户在租承租人推送催办提醒？',detail:'催办通过湘易办消息与短信双通道推送，同一承租人同一周期最多催办 2 次。已办结腾退的承租人不在催办范围内。',type:'warning',okText:'确认催办',onOk:function(){PMS.toast('已向 168 户未评价承租人推送催办提醒','success');}})"><i class="fa-solid fa-bell"></i> 批量催办</button>
+      <button class="btn" onclick="location.href='eval-stat.html'"><i class="fa-solid fa-chart-simple"></i> 查看统计结果</button>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出评价记录</button>
+    </div>
+  </div>
+
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>承租人按<b>月或按季</b>在移动端<span class="link" onclick="location.href='../../mobile/public/eval-service.html'">服务评价</span>页对<b>物业服务</b>与<b>运营单位服务</b>分别在线打分并填写意见；管理端在本页只做<b>发放、回收与有效性</b>跟踪，不代填、不修改承租人评分。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-users"></i></div>
+      <div><div class="s-label">本期应评</div><div class="s-value">1,192</div>
+        <div class="s-trend text-2">户 · 2026 年 9 月在租承租人</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-inbox"></i></div>
+      <div><div class="s-label">已回收</div><div class="s-value">1,024</div>
+        <div class="s-trend text-2">份 · 有效 1,008 份</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-percent"></i></div>
+      <div><div class="s-label">回收率</div><div class="s-value">85.9%</div>
+        <div class="s-trend text-success">↑ 较上期 3.2 个百分点</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-circle-exclamation"></i></div>
+      <div><div class="s-label">无效问卷</div><div class="s-value">16</div>
+        <div class="s-trend ">份 · 重复提交 11 / 恶意评分 5</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card" data-tabs-scope>
+    <div class="tabs" style="margin-bottom:0;padding:8px 12px 0">
+      <div class="tab active" data-tab="estate">按楼盘回收情况 <span class="badge cyan">5</span></div>
+      <div class="tab" data-tab="detail">评价记录明细 <span class="badge blue">1,024</span></div>
+      <div class="tab" data-tab="rule">有效性判定规则</div>
+    </div>
+
+    <div class="tab-panel" data-panel="detail">
+      <div class="card-body" style="padding:0">
+        <div class="filter-bar">
+          <div class="filter-item"><label>问卷编号</label><input type="text" value="PJ2026-09-" placeholder="问卷编号"></div>
+          <div class="filter-item"><label>评价周期</label><select data-dict="evalCycle" data-ph="全部"></select></div>
+          <div class="filter-item"><label>评价对象</label><select data-dict="evalObject" data-ph="全部"></select></div>
+          <div class="filter-item"><label>楼盘</label><select><option value="">全部</option><option>湘江1958 人才公寓</option><option>云龙人才公寓</option><option>清水塘·未来社区</option><option>董家塅人才公寓</option><option>田心人才公寓</option></select></div>
+          <div class="filter-item"><label>有效性</label><select><option value="">全部</option><option>有效</option><option>无效-重复提交</option><option>无效-恶意评分</option><option>待核</option></select></div>
+          <div class="filter-item"><label>提交日期</label><input type="date" value="2026-09-05"></div>
+          <div class="filter-actions">
+            <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+            <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th>问卷编号</th><th>评价周期</th><th>承租人</th><th>房源编码</th><th>评价对象</th><th class="num">总得分</th><th>提交时间</th><th>有效性</th><th class="cell-lg">意见摘要</th><th>操作</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>PJ2026-09-01042</td><td>2026 年 9 月（按月）</td><td>王××</td><td>XJ1958-A-1806</td><td><span class="badge blue">物业服务</span></td><td class="num">88.4</td><td>2026-09-03 20:12</td><td><span class="badge green">有效</span></td><td class="cell-lg">电梯运行平稳，公共区域保洁到位；报修响应偶有延迟，希望周末也能安排值班维修</td><td><span class="link" onclick="PMS.openDrawer('pjDrawer')">查看</span> <span class="link" onclick="markInvalid('PJ2026-09-01042')">标记无效</span></td></tr>
+              <tr><td>PJ2026-09-01043</td><td>2026 年 9 月（按月）</td><td>王××</td><td>XJ1958-A-1806</td><td><span class="badge cyan">运营单位服务</span></td><td class="num">95.0</td><td>2026-09-03 20:18</td><td><span class="badge green">有效</span></td><td>入住手续一次办结，账单明细清楚，服务专员回复及时</td><td><span class="link" onclick="PMS.openDrawer('pjDrawer')">查看</span> <span class="link" onclick="markInvalid('PJ2026-09-01043')">标记无效</span></td></tr>
+              <tr><td>PJ2026-09-01088</td><td>2026 年 9 月（按月）</td><td>谭××</td><td>YL-C-0912</td><td><span class="badge blue">物业服务</span></td><td class="num">98.1</td><td>2026-09-04 09:26</td><td><span class="badge green">有效</span></td><td class="cell-lg">门岗值守规范，人脸门禁识别快，垃圾清运每日两次很及时</td><td><span class="link" onclick="PMS.openDrawer('pjDrawer')">查看</span> <span class="link" onclick="markInvalid('PJ2026-09-01088')">标记无效</span></td></tr>
+              <tr class="row-warn"><td>PJ2026-09-01126</td><td>2026 年 9 月（按月）</td><td>周××</td><td>QST-B-0508</td><td><span class="badge blue">物业服务</span></td><td class="num">65.4</td><td>2026-09-04 21:40</td><td><span class="badge gray">无效-重复提交</span></td><td class="cell-lg">首次提交后本人修改评分并再次提交，按规则同一周期同一对象只取最后一次</td><td><span class="link" onclick="PMS.openDrawer('pjDrawer')">查看</span> <span class="link is-off" onclick="PMS.toast('本条已标记为无效-重复提交，无需重复标记')">标记无效</span></td></tr>
+              <tr><td>PJ2026-09-01127</td><td>2026 年 9 月（按月）</td><td>周××</td><td>QST-B-0508</td><td><span class="badge blue">物业服务</span></td><td class="num">69.4</td><td>2026-09-04 21:44</td><td><span class="badge green">有效</span></td><td class="cell-lg">周末报修无人上门，楼道垃圾清运不及时，希望增加保洁频次并公布值班电话</td><td><span class="link" onclick="PMS.openDrawer('pjDrawer')">查看</span> <span class="link" onclick="markInvalid('PJ2026-09-01127')">标记无效</span></td></tr>
+              <tr class="row-bad"><td>PJ2026-09-01186</td><td>2026 年 9 月（按月）</td><td>李××</td><td>DJT-2-1104</td><td><span class="badge cyan">运营单位服务</span></td><td class="num">20.0</td><td>2026-09-05 23:52</td><td><span class="badge red">无效-恶意评分</span></td><td class="cell-lg">全项最低分且无文字意见，经电话核实系误操作，承租人已确认不代表真实评价</td><td><span class="link" onclick="PMS.openDrawer('pjDrawer')">查看</span> <span class="link is-off" onclick="PMS.toast('本条已标记为无效-恶意评分，无需重复标记')">标记无效</span></td></tr>
+              <tr><td>PJ2026-09-01204</td><td>2026 年 9 月（按月）</td><td>罗××</td><td>TX-1-0602</td><td><span class="badge blue">物业服务</span></td><td class="num">80.4</td><td>2026-09-05 10:18</td><td><span class="badge green">有效</span></td><td class="cell-lg">环境卫生一般，楼道堆放杂物需清理，消防通道有电动车占用情况</td><td><span class="link" onclick="PMS.openDrawer('pjDrawer')">查看</span> <span class="link" onclick="markInvalid('PJ2026-09-01204')">标记无效</span></td></tr>
+              <tr><td>PJ2026-09-01238</td><td>2026 年 9 月（按季）</td><td>谢××</td><td>QST-B-1216</td><td><span class="badge cyan">运营单位服务</span></td><td class="num">72.0</td><td>2026-09-05 16:42</td><td><span class="badge green">有效</span></td><td class="cell-lg">交付时热水器有故障，报修后 3 天才处理；政策告知不够主动，续租条件是自己打电话问的</td><td><span class="link" onclick="PMS.openDrawer('pjDrawer')">查看</span> <span class="link" onclick="markInvalid('PJ2026-09-01238')">标记无效</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-panel active" data-panel="estate">
+      <div class="card-body">
+        <div class="sp-scroll">
+          <div class="sp-block" style="margin-bottom:0">
+            <div class="sp-h"><i class="fa-solid fa-building"></i> 按楼盘回收情况<span class="sub">N5-02 · 评价周期 2026 年 9 月（按月）</span></div>
+            <div class="sp-b">
+              <div class="sp-tw">
+                <table class="data-table compact">
+                  <thead><tr><th class="cell-lg">楼盘</th><th class="cell-lg">运营机构</th><th class="num">应评户数</th><th class="num">已回收</th><th>回收率</th><th class="num">物业均分</th><th class="num">运营均分</th><th class="num">待催办</th><th>操作</th></tr></thead>
+                  <tbody>
+                    <tr><td>湘江1958 人才公寓</td><td>株洲市人才安居服务有限公司</td><td class="num">386</td><td class="num">342</td><td><span class="badge green">88.6%</span></td><td class="num">88.9</td><td class="num">90.3</td><td class="num">44</td><td><span class="link" onclick="PMS.confirm({title:'催办确认',message:'确认向湘江1958 人才公寓 44 户未评价承租人推送催办提醒？',type:'warning',okText:'确认催办',onOk:function(){PMS.toast('已向 44 户推送催办提醒','success');}})">催办</span> <span class="link" onclick="PMS.toast('已按湘江1958 人才公寓筛选评价记录明细','success')">查看明细</span></td></tr>
+                    <tr><td>云龙人才公寓</td><td>株洲市人才安居服务有限公司</td><td class="num">268</td><td class="num">236</td><td><span class="badge green">88.1%</span></td><td class="num">93.2</td><td class="num">94.2</td><td class="num">32</td><td><span class="link" onclick="PMS.confirm({title:'催办确认',message:'确认向云龙人才公寓 32 户未评价承租人推送催办提醒？',type:'warning',okText:'确认催办',onOk:function(){PMS.toast('已向 32 户推送催办提醒','success');}})">催办</span> <span class="link" onclick="PMS.toast('已按云龙人才公寓筛选评价记录明细','success')">查看明细</span></td></tr>
+                    <tr class="row-warn"><td>清水塘·未来社区</td><td>清水塘社区服务有限公司</td><td class="num">214</td><td class="num">152</td><td><span class="badge orange">71.0%</span></td><td class="num">67.8</td><td class="num">69.4</td><td class="num">62</td><td><span class="link" onclick="PMS.confirm({title:'催办确认',message:'确认向清水塘·未来社区 62 户未评价承租人推送催办提醒？',detail:'该楼盘回收率 71.0%，低于全市平均 14.9 个百分点，建议由运营单位配合上门提醒。',type:'warning',okText:'确认催办',onOk:function(){PMS.toast('已向 62 户推送催办提醒','success');}})">催办</span> <span class="link" onclick="PMS.toast('已按清水塘·未来社区筛选评价记录明细','success')">查看明细</span></td></tr>
+                    <tr><td>董家塅人才公寓</td><td>株洲城发物业服务有限公司</td><td class="num">186</td><td class="num">168</td><td><span class="badge green">90.3%</span></td><td class="num">82.6</td><td class="num">84.0</td><td class="num">18</td><td><span class="link" onclick="PMS.confirm({title:'催办确认',message:'确认向董家塅人才公寓 18 户未评价承租人推送催办提醒？',type:'warning',okText:'确认催办',onOk:function(){PMS.toast('已向 18 户推送催办提醒','success');}})">催办</span> <span class="link" onclick="PMS.toast('已按董家塅人才公寓筛选评价记录明细','success')">查看明细</span></td></tr>
+                    <tr><td>田心人才公寓</td><td>株洲城发物业服务有限公司</td><td class="num">138</td><td class="num">126</td><td><span class="badge green">91.3%</span></td><td class="num">76.4</td><td class="num">78.4</td><td class="num">12</td><td><span class="link" onclick="PMS.confirm({title:'催办确认',message:'确认向田心人才公寓 12 户未评价承租人推送催办提醒？',type:'warning',okText:'确认催办',onOk:function(){PMS.toast('已向 12 户推送催办提醒','success');}})">催办</span> <span class="link" onclick="PMS.toast('已按田心人才公寓筛选评价记录明细','success')">查看明细</span></td></tr>
+                    <tr><td><span class="badge green">合计</span> <b>全市 5 个楼盘</b></td><td><b>3 家运营机构</b></td><td class="num"><b>1,192</b></td><td class="num"><b>1,024</b></td><td><span class="badge green">85.9%</span></td><td class="num"><b>83.6</b></td><td class="num"><b>85.1</b></td><td class="num"><b>168</b></td><td><span class="muted">—</span></td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="hint" style="margin-top:8px">
+                <i class="fa-solid fa-circle-info"></i>
+                应评户数合计 1,192 户与在租承租人数一致；待催办 = 应评户数 − 已回收，合计 168 户。楼盘均分为剔除无效问卷后的有效问卷算术平均，全市均分按在租套数加权。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-panel" data-panel="rule">
+      <div class="card-body">
+        <div class="sp-scroll">
+          <div class="sp-block" style="margin-bottom:0">
+            <div class="sp-h"><i class="fa-solid fa-list"></i> 有效性判定规则<span class="sub">N5-02 · 剔除无效问卷后方可用于统计与扣减</span></div>
+            <div class="sp-b">
+              <div class="sp-tw">
+                <table class="data-table compact">
+                  <thead><tr><th>规则编码</th><th>规则名称</th><th class="cell-lg">判定口径</th><th>处理方式</th></tr></thead>
+                  <tbody>
+                    <tr><td><b>YX-01</b></td><td>重复提交去重</td><td class="cell-lg"><b>同一承租人、同一评价周期、同一评价对象只取最后一次提交</b>，先前记录一律标记「无效-重复提交」并保留原始留痕</td><td>系统自动</td></tr>
+                    <tr><td><b>YX-02</b></td><td>异常评分待核</td><td class="cell-lg"><b>全项满分或全项最低且无文字意见</b>的问卷标记「待核」，由运营监管岗电话核实后确认有效性；核实为误操作或恶意评分的标记「无效-恶意评分」</td><td>人工判定</td></tr>
+                    <tr><td><b>YX-03</b></td><td>已腾退承租人不纳入</td><td class="cell-lg">评价周期开始日前<b>已办结腾退</b>的承租人不计入应评户数，其在本周期内的提交记录不参与统计，也不影响回收率</td><td>系统自动</td></tr>
+                    <tr><td><b>YX-04</b></td><td>低回收率周期仅作参考</td><td class="cell-lg"><b>回收率低于 60% 的周期，评价结果不作为补助扣减依据</b>，仅作为运营改进参考并在统计页标注「仅作参考」</td><td>系统自动</td></tr>
+                    <tr><td><b>YX-05</b></td><td>无效问卷剔除后重算</td><td class="cell-lg">无效问卷不参与楼盘均分、机构均分与排名计算；剔除后系统重新计算各楼盘与机构得分，并同步刷新扣减比例</td><td>系统自动</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="hint" style="margin-top:8px">
+                <i class="fa-solid fa-circle-info"></i>
+                本期各楼盘回收率均高于 60%（最低为清水塘·未来社区 71.0%），评价结果可作为补助扣减依据。本期共剔除无效问卷 16 份（重复提交 11 份 / 恶意评分 5 份），按有效 1,008 份统计。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sp-src">
+    <span><b>依据</b> 2026 年 9 月 6 日向市住建局汇报讨论会议决议</span>
+    <span><b>采集渠道</b> 承租人在移动端按月或按季在线打分并填写意见，管理端不代填</span>
+    <span><b>下游环节</b> <span class="link" onclick="location.href='eval-stat.html'">评价结果统计与公开</span></span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="pjDrawer">
+  <div class="drawer-head">
+    <h3>评价详情</h3>
+    <span class="badge green">有效</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+    <div class="alert alert-info">
+      <i class="fa-solid fa-circle-info"></i>
+      <div>本条为承租人在移动端自主提交的评价，管理端<b>只读，不得修改评分与意见正文</b>。经核实不真实的可<b>标记无效</b>并注明理由，标记动作全过程留痕。</div>
+    </div>
+
+    <dl class="desc-list">
+      <div class="desc-item"><dt>问卷编号</dt><dd>PJ2026-09-01042</dd></div>
+      <div class="desc-item"><dt>承租人</dt><dd>王××　<span class="muted">姓名脱敏展示</span></dd></div>
+      <div class="desc-item"><dt>房源</dt><dd>湘江1958 人才公寓　XJ1958-A-1806</dd></div>
+      <div class="desc-item"><dt>评价周期</dt><dd>2026 年 9 月（按月）</dd></div>
+      <div class="desc-item"><dt>评价对象</dt><dd><span class="badge blue">物业服务</span>　株洲市人才安居服务有限公司</dd></div>
+      <div class="desc-item"><dt>总得分</dt><dd><b>88.4</b> 分　<span class="badge green">良好</span></dd></div>
+      <div class="desc-item"><dt>提交时间</dt><dd>2026-09-03 20:12　<span class="muted">湘易办小程序</span></dd></div>
+      <div class="desc-item"><dt>问卷版本</dt><dd>V2026-09　<span class="muted">按该版本口径解释得分</span></dd></div>
+    </dl>
+
+    <div class="sp-block" style="margin-top:12px">
+      <div class="sp-h"><i class="fa-solid fa-star-half-stroke"></i> 逐项评分与权重<span class="sub">得分 = Σ 折算百分制得分 × 权重</span></div>
+      <div class="sp-b">
+        <div class="sp-tw">
+          <table class="data-table compact">
+            <thead><tr><th>指标编码</th><th>指标名称</th><th class="num">权重</th><th>承租人评分</th><th class="num">折算百分制</th><th class="num">加权得分</th></tr></thead>
+            <tbody>
+              <tr><td>PJ-W01</td><td>环境卫生</td><td class="num">20%</td><td>5 星</td><td class="num">100.0</td><td class="num">20.00</td></tr>
+              <tr><td>PJ-W02</td><td>安保与门禁</td><td class="num">20%</td><td>5 星</td><td class="num">100.0</td><td class="num">20.00</td></tr>
+              <tr><td>PJ-W03</td><td>公共设施维护</td><td class="num">20%</td><td>4 星</td><td class="num">80.0</td><td class="num">16.00</td></tr>
+              <tr><td>PJ-W04</td><td>报修及时率</td><td class="num">25%</td><td><span class="badge orange">系统自动取数</span></td><td class="num">81.6</td><td class="num">20.40</td></tr>
+              <tr><td>PJ-W05</td><td>投诉处理</td><td class="num">15%</td><td>4 星</td><td class="num">80.0</td><td class="num">12.00</td></tr>
+              <tr><td><span class="badge green">合计</span></td><td><b>5 项指标</b></td><td class="num"><b>100%</b></td><td><span class="muted">—</span></td><td><span class="muted">—</span></td><td class="num"><b>88.40</b></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-grid form-align">
+      <div class="form-item col-full">
+        <label>承租人意见正文</label>
+        <textarea rows="4" readonly>电梯运行平稳，楼道和电梯轿厢每天都有保洁，公共区域整体干净。门禁刷脸很快，晚上有门岗值守，安全感不错。主要问题是报修响应偶有延迟：8 月 26 日报修卫生间下水返味，工程师第三天才上门；周末基本联系不到维修人员，希望周末也能安排值班维修并公布值班电话。</textarea>
+        <div class="hint">意见正文由承租人填写，管理端只读；用于指标短板分析与整改要求下达</div>
+      </div>
+      <div class="form-item col-full">
+        <label>标记无效理由</label>
+        <textarea rows="3">如需标记无效须填写具体理由，例如：经与承租人电话核实，本条为重复提交（同一周期同一对象已另有提交记录），按 YX-01 规则只取最后一次，本条标记为无效-重复提交。</textarea>
+        <div class="hint">标记后本条不参与均分与排名计算，系统自动重算所属楼盘与机构得分</div>
+      </div>
+    </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn" onclick="PMS.toast('已按湘江1958 人才公寓 XJ1958-A-1806 检索该承租人历史评价记录','success')">查看历史评价</button>
+    <button class="btn btn-primary" onclick="markInvalid('PJ2026-09-01042')"><i class="fa-solid fa-ban"></i> 标记无效</button>
+  </div>
+</div>
+
+<script>
+function markInvalid(code) {
+  PMS.confirm({
+    title: '标记无效确认',
+    message: '确认将问卷 ' + code + ' 标记为无效？',
+    detail: '标记须选择无效类型（无效-重复提交 / 无效-恶意评分）并填写理由。标记后本条不参与均分与排名计算，系统自动重算所属楼盘与机构得分，并同步刷新扣减比例；标记人、标记时间与理由全过程留痕。',
+    type: 'warning',
+    okText: '确认标记无效',
+    onOk: function () {
+      PMS.closeDrawer();
+      PMS.toast('已标记 ' + code + ' 为无效问卷，楼盘与机构得分已重算', 'success');
+    }
+  });
+}
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 1024; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

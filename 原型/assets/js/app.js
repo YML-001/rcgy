@@ -92,7 +92,7 @@
         ],
       /* R4 企业机构管理角色：运营机构与用人单位两类外部主体、考核与评价 */
       orgadmin: ['home', 'wb-01', 'wb-04',
-        'ops-01', 'agency-03', 'agency-04',
+        'ops-01', 'agency-03', 'agency-04', 'agency-09',
         'ops-02', 'ops-03', 'ops-04', 'ops-06',
         'ops-07', 'ops-08', 'ops-09',
         'ops-11', 'ops-12', 'ops-13', 'ops-14'
@@ -120,7 +120,7 @@
         ],
       /* R9 用人单位角色：本单位职工申报件，不涉及房源与合同 */
       employer: ['home', 'wb-01', 'wb-04',
-        'employer-01', 'employer-02', 'employer-03', 'employer-04'
+        'employer-01', 'employer-05', 'employer-02', 'employer-03', 'employer-04'
         ],
       /* R10 窗口受理角色：兜底代办与现场答复，政策与房源均为只读 */
       window: ['home', 'wb-01', 'wb-04',
@@ -134,7 +134,7 @@
       /* R12 业务管理员角色：政策规则的配置与生效期 */
       manager: ['home', 'wb-01', 'wb-03', 'wb-04',
         'rule-06', 'rule-07', 'rule-09', 'rule-10', 'rule-11', 'rule-12',
-        'rule-08', 'rule-13', 'rule-14'
+        'rule-08', 'rule-13', 'rule-14', 'system-26'
         ],
       /* R13 领导查看角色：驾驶舱与统计，不参与业务办理 */
       leader: ['home', 'wb-02', 'wb-03', 'wb-04',
@@ -411,8 +411,9 @@
           {
             label: '企业机构管理', icon: 'fa-building-shield',
             children: [
-              { key: 'agency-03', label: '用人单位审核', href: 'modules/agency/employer-audit.html' },
-              { key: 'agency-04', label: '用人单位管理', href: 'modules/agency/employer-manage.html' }
+              { key: 'agency-03', label: '用人单位注册审核', href: 'modules/agency/employer-audit.html' },
+              { key: 'agency-04', label: '用人单位管理', href: 'modules/agency/employer-manage.html' },
+              { key: 'agency-09', label: '经办人管理', href: 'modules/agency/employer-user.html' }
             ]
           }
         ]
@@ -423,7 +424,8 @@
           {
             label: '单位与申报', icon: 'fa-clipboard-list',
             children: [
-              { key: 'employer-01', label: '单位注册与认证', href: 'modules/employer/org-register.html' },
+              { key: 'employer-01', label: '单位注册与账号申请', href: 'modules/employer/emp-register.html' },
+              { key: 'employer-05', label: '注册进度查询', href: 'modules/employer/emp-reg-status.html' },
               { key: 'employer-02', label: '员工批量代申报', href: 'modules/employer/batch-apply.html' },
               { key: 'employer-03', label: '在职状态变更上报', href: 'modules/employer/staff-change.html' },
               { key: 'employer-04', label: '申报进度与数据', href: 'modules/employer/apply-progress.html' }
@@ -532,7 +534,8 @@
               { key: 'system-17', label: '岗位管理', href: 'modules/system/sys-post-manage.html' },
               { key: 'system-02', label: '用户账号管理', href: 'modules/system/sys-user.html' },
               { key: 'system-22', label: '用户角色分配', href: 'modules/system/sys-user-role.html' },
-              { key: 'system-25', label: '小程序菜单绑定', href: 'modules/system/sys-mp-menu.html' }
+              { key: 'system-25', label: '小程序菜单绑定', href: 'modules/system/sys-mp-menu.html' },
+              { key: 'system-26', label: '核验模式配置', href: 'modules/system/sys-verify-mode.html' }
             ]
           },
           {
@@ -677,6 +680,23 @@
       verifyItem: [
         ['1', '婚姻登记'], ['2', '不动产登记'], ['3', '学历学位'], ['4', '工商登记'],
         ['5', '个人所得税'], ['6', '企业纳税'], ['7', '养老保险'], ['8', '人口与人脸']
+      ],
+      /* 核验双模式：接口未开通时以材料佐证为默认，逐项可切换 */
+      verifyMode: [['1', '接口直连'], ['2', '材料佐证']],
+      verifyDecision: [['1', '符合'], ['2', '不符合'], ['3', '需补正']],
+      /* 八类核验项对应的联审部门与材料佐证清单 */
+      verifyItemFull: [
+        ['1', '身份与人口', '市公安局', '身份证'],
+        ['2', '婚姻登记', '市民政局', '结婚证 / 离婚证'],
+        ['3', '不动产登记', '市不动产登记中心', '无房证明 / 不动产查询记录'],
+        ['4', '学历学位', '学信网 / 留服中心', '毕业证 / 学历认证书'],
+        ['5', '养老保险', '市社保中心', '社保参保缴费证明'],
+        ['6', '个人所得税', '市税务局', '个税完税证明 / 纳税记录'],
+        ['7', '市场监管', '市市场监管局', '营业执照 / 纳税申报表'],
+        ['8', '户籍', '市公安局', '户口簿']
+      ],
+      empRegStatus: [
+        ['1', '待审核'], ['2', '已开通'], ['3', '已退回'], ['4', '已停用']
       ],
       woType: [
         ['1', '水暖管道'], ['2', '电路照明'], ['3', '家电维修'], ['4', '门窗锁具'],
@@ -931,7 +951,7 @@
           { c: 'blue', i: 'fa-file-import', l: '员工批量代申报', h: 'modules/employer/batch-apply.html' },
           { c: 'green', i: 'fa-chart-line', l: '申报进度与数据', h: 'modules/employer/apply-progress.html' },
           { c: 'orange', i: 'fa-user-pen', l: '在职状态变更上报', h: 'modules/employer/staff-change.html' },
-          { c: 'cyan', i: 'fa-building-user', l: '单位注册与认证', h: 'modules/employer/org-register.html' },
+          { c: 'cyan', i: 'fa-building-user', l: '单位注册与账号申请', h: 'modules/employer/emp-register.html' },
           { c: 'purple', i: 'fa-list-check', l: '待办任务中心', h: 'modules/workbench/todo-center.html' },
           { c: 'red', i: 'fa-bullhorn', l: '通知公告', h: 'modules/workbench/notice.html' }
         ]

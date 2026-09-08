@@ -1,0 +1,301 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - text: 
+      - generic [ref=e5]: 
+      - generic [ref=e6]: 株洲市人才住房保障管理平台
+    - generic [ref=e7]:
+      - generic "当前业务子系统" [ref=e8]:
+        - generic [ref=e9]: 权限与系统管理
+      - button " 切换系统" [ref=e10] [cursor=pointer]:
+        - generic [ref=e11]: 
+        - text: 切换系统
+    - generic [ref=e12]:
+      - button " 权限配置管理员 " [ref=e14] [cursor=pointer]:
+        - generic [ref=e15]: 
+        - generic [ref=e16]: 权限配置管理员
+        - generic [ref=e17]: 
+      - generic "消息" [ref=e18] [cursor=pointer]:
+        - generic [ref=e19]: 
+        - generic [ref=e20]: "5"
+      - generic "帮助" [ref=e21] [cursor=pointer]:
+        - generic [ref=e22]: 
+      - generic [ref=e23] [cursor=pointer]:
+        - generic [ref=e24]: 龙
+        - generic [ref=e25]:
+          - generic [ref=e26]: 龙志宏
+          - generic [ref=e27]: 市保障性住房服务中心信息科 · 权限配置管理员
+      - link "" [ref=e28] [cursor=pointer]:
+        - /url: ../../index.html
+        - generic [ref=e29]: 
+  - complementary [ref=e30]:
+    - generic [ref=e31]:
+      - textbox "菜单搜索" [ref=e32]
+      - generic [ref=e33]: 
+      - text: 
+    - generic [ref=e34]:
+      - link " 我的工作台" [ref=e35] [cursor=pointer]:
+        - /url: ../../modules/workbench/workbench.html?role=admin
+        - generic [ref=e36]: 
+        - generic [ref=e37]: 我的工作台
+      - generic [ref=e39] [cursor=pointer]:
+        - generic [ref=e40]: 
+        - generic [ref=e41]: 待办与协同
+        - generic [ref=e42]: 
+      - generic [ref=e43]:
+        - generic [ref=e44] [cursor=pointer]:
+          - generic [ref=e45]: 
+          - generic [ref=e46]: 用户与权限
+          - generic [ref=e47]: 
+        - generic [ref=e48]:
+          - link "组织机构管理" [ref=e49] [cursor=pointer]:
+            - /url: ../../modules/system/sys-org.html?role=admin
+          - link "岗位管理" [ref=e50] [cursor=pointer]:
+            - /url: ../../modules/system/sys-post-manage.html?role=admin
+          - link "用户账号管理" [ref=e51] [cursor=pointer]:
+            - /url: ../../modules/system/sys-user.html?role=admin
+          - link "用户角色分配" [ref=e52] [cursor=pointer]:
+            - /url: ../../modules/system/sys-user-role.html?role=admin
+          - link "小程序菜单绑定" [ref=e53] [cursor=pointer]:
+            - /url: ../../modules/system/sys-mp-menu.html?role=admin
+          - link "核验模式配置" [ref=e54] [cursor=pointer]:
+            - /url: ../../modules/system/sys-verify-mode.html?role=admin
+      - generic [ref=e56] [cursor=pointer]:
+        - generic [ref=e57]: 
+        - generic [ref=e58]: 角色与权限项
+        - generic [ref=e59]: 
+      - generic [ref=e61] [cursor=pointer]:
+        - generic [ref=e62]: 
+        - generic [ref=e63]: 授权审批与安全
+        - generic [ref=e64]: 
+      - generic [ref=e66] [cursor=pointer]:
+        - generic [ref=e67]: 
+        - generic [ref=e68]: 基础配置与运维
+        - generic [ref=e69]: 
+  - main [ref=e70]:
+    - generic [ref=e72]:
+      - generic [ref=e73]: 
+      - text: 株洲市人才住房保障管理平台
+      - generic [ref=e74]: /
+      - text: 权限与系统管理
+      - generic [ref=e75]: /
+      - text: 用户与权限
+      - generic [ref=e76]: /
+      - generic [ref=e77]: 核验模式配置
+    - generic [ref=e78]:
+      - generic [ref=e79]: 
+      - generic [ref=e80]: 八类核验项每项可设「接口直连」或「材料佐证」：接口直连＝部门接口自动取数、免上传；材料佐证＝申请人上传材料 + 受理初审人工认定。接口未开通是本期上线的既定前提，上线以「材料佐证」为默认，接口逐项开通后切为「接口直连」，切换后前端申请表与审核台同步生效、不需改程序，每次切换均记录操作人、时间与生效范围。本页顶部可一键切换两种形态供演示。
+    - generic [ref=e81]:
+      - generic [ref=e82]:
+        - generic [ref=e84]: 
+        - generic [ref=e85]:
+          - generic [ref=e86]: 核验项
+          - generic [ref=e87]: "8"
+          - generic [ref=e88]: 身份 / 婚姻 / 不动产 / 学历 / 社保 / 个税 / 市场监管 / 户籍
+      - generic [ref=e89]:
+        - generic [ref=e91]: 
+        - generic [ref=e92]:
+          - generic [ref=e93]: 接口直连
+          - generic [ref=e94]: "1"
+          - generic [ref=e95]: 身份项接口已开通并示例通过
+      - generic [ref=e96]:
+        - generic [ref=e98]: 
+        - generic [ref=e99]:
+          - generic [ref=e100]: 材料佐证
+          - generic [ref=e101]: "7"
+          - generic [ref=e102]: 本期默认 · 接口开通后逐项切换
+      - generic [ref=e103]:
+        - generic [ref=e105]: 
+        - generic [ref=e106]:
+          - generic [ref=e107]: 最近切换时间
+          - generic [ref=e108]: 09-08 09:20
+          - generic [ref=e109]: 操作人 龙志宏 · 本月切换 4 次
+    - generic [ref=e110]:
+      - generic [ref=e111]:
+        - generic [ref=e112] [cursor=pointer]:
+          - text: 核验项配置
+          - generic [ref=e113]: "8"
+        - generic [ref=e114] [cursor=pointer]: 双模式规则
+      - generic [ref=e116]:
+        - generic [ref=e117]:
+          - generic [ref=e118]:
+            - generic [ref=e119]: 核验项
+            - combobox [ref=e120]:
+              - option "全部" [selected]
+              - option "婚姻登记"
+              - option "不动产登记"
+              - option "学历学位"
+              - option "工商登记"
+              - option "个人所得税"
+              - option "企业纳税"
+              - option "养老保险"
+              - option "人口与人脸"
+          - generic [ref=e121]:
+            - generic [ref=e122]: 核验模式
+            - combobox [ref=e123]:
+              - option "全部" [selected]
+              - option "接口直连"
+              - option "材料佐证"
+          - generic [ref=e124]:
+            - generic [ref=e125]: 联审部门
+            - textbox "部门名称" [ref=e126]
+          - generic [ref=e127]:
+            - generic [ref=e128]: 接口状态
+            - combobox [ref=e129]:
+              - option "全部" [selected]
+              - option "已开通"
+              - option "未开通"
+          - generic [ref=e130]:
+            - button " 查询" [ref=e131] [cursor=pointer]:
+              - generic [ref=e132]: 
+              - text: 查询
+            - button "重置" [ref=e133] [cursor=pointer]
+            - generic "演示用：一键切换整表两种核验形态" [ref=e134]:
+              - button "恢复默认" [ref=e135] [cursor=pointer]
+              - button "全部接口直连" [ref=e136] [cursor=pointer]
+              - button "全部材料佐证" [ref=e137] [cursor=pointer]
+            - button " 导出配置" [ref=e138] [cursor=pointer]:
+              - generic [ref=e139]: 
+              - text: 导出配置
+        - table [ref=e141]:
+          - rowgroup [ref=e142]:
+            - row "序号 核验项编码 核验项名称 联审部门 当前核验模式 材料佐证清单（材料名称 · 份数） 接口状态 最近切换 操作" [ref=e143]:
+              - columnheader "序号" [ref=e144]
+              - columnheader "核验项编码" [ref=e145]
+              - columnheader "核验项名称" [ref=e146]
+              - columnheader "联审部门" [ref=e147]
+              - columnheader "当前核验模式" [ref=e148]
+              - columnheader "材料佐证清单（材料名称 · 份数）" [ref=e149]
+              - columnheader "接口状态" [ref=e150]
+              - columnheader "最近切换" [ref=e151]
+              - columnheader "操作" [ref=e152]
+          - rowgroup [ref=e153]:
+            - row "01 HY-01 身份与人口 市公安局 接口直连 — 接口自动取数，免上传 已开通 2026-07-01 切换模式" [ref=e154]:
+              - cell "01" [ref=e155]
+              - cell "HY-01" [ref=e156]
+              - cell "身份与人口" [ref=e157]
+              - cell "市公安局" [ref=e158]
+              - cell "接口直连" [ref=e159]:
+                - generic [ref=e160]: 接口直连
+              - cell "— 接口自动取数，免上传" [ref=e161]
+              - cell "已开通" [ref=e162]:
+                - generic [ref=e163]: 已开通
+              - cell "2026-07-01" [ref=e164]
+              - cell "切换模式" [ref=e165]
+            - row "02 HY-02 婚姻登记 市民政局 材料佐证 结婚证 / 离婚证 · 1 份 未开通 2026-07-01 切换模式 配置材料" [ref=e166]:
+              - cell "02" [ref=e167]
+              - cell "HY-02" [ref=e168]
+              - cell "婚姻登记" [ref=e169]
+              - cell "市民政局" [ref=e170]
+              - cell "材料佐证" [ref=e171]:
+                - generic [ref=e172]: 材料佐证
+              - cell "结婚证 / 离婚证 · 1 份" [ref=e173]
+              - cell "未开通" [ref=e174]:
+                - generic [ref=e175]: 未开通
+              - cell "2026-07-01" [ref=e176]
+              - cell "切换模式 配置材料" [ref=e177]
+            - row "03 HY-03 不动产登记 市不动产登记中心 材料佐证 无房证明 / 不动产查询记录 · 1 份 未开通 2026-07-01 切换模式 配置材料" [ref=e178]:
+              - cell "03" [ref=e179]
+              - cell "HY-03" [ref=e180]
+              - cell "不动产登记" [ref=e181]
+              - cell "市不动产登记中心" [ref=e182]
+              - cell "材料佐证" [ref=e183]:
+                - generic [ref=e184]: 材料佐证
+              - cell "无房证明 / 不动产查询记录 · 1 份" [ref=e185]
+              - cell "未开通" [ref=e186]:
+                - generic [ref=e187]: 未开通
+              - cell "2026-07-01" [ref=e188]
+              - cell "切换模式 配置材料" [ref=e189]
+            - row "04 HY-04 学历学位 学信网 / 留服中心 材料佐证 毕业证书 + 学历学位认证书 · 2 份 未开通 2026-07-01 切换模式 配置材料" [ref=e190]:
+              - cell "04" [ref=e191]
+              - cell "HY-04" [ref=e192]
+              - cell "学历学位" [ref=e193]
+              - cell "学信网 / 留服中心" [ref=e194]
+              - cell "材料佐证" [ref=e195]:
+                - generic [ref=e196]: 材料佐证
+              - cell "毕业证书 + 学历学位认证书 · 2 份" [ref=e197]
+              - cell "未开通" [ref=e198]:
+                - generic [ref=e199]: 未开通
+              - cell "2026-07-01" [ref=e200]
+              - cell "切换模式 配置材料" [ref=e201]
+            - row "05 HY-05 养老保险 市社保中心 材料佐证 社保参保缴费证明 · 1 份 未开通 2026-07-01 切换模式 配置材料" [ref=e202]:
+              - cell "05" [ref=e203]
+              - cell "HY-05" [ref=e204]
+              - cell "养老保险" [ref=e205]
+              - cell "市社保中心" [ref=e206]
+              - cell "材料佐证" [ref=e207]:
+                - generic [ref=e208]: 材料佐证
+              - cell "社保参保缴费证明 · 1 份" [ref=e209]
+              - cell "未开通" [ref=e210]:
+                - generic [ref=e211]: 未开通
+              - cell "2026-07-01" [ref=e212]
+              - cell "切换模式 配置材料" [ref=e213]
+            - row "06 HY-06 个人所得税 市税务局 材料佐证 个税完税证明 / 纳税记录 · 1 份 未开通 2026-07-01 切换模式 配置材料" [ref=e214]:
+              - cell "06" [ref=e215]
+              - cell "HY-06" [ref=e216]
+              - cell "个人所得税" [ref=e217]
+              - cell "市税务局" [ref=e218]
+              - cell "材料佐证" [ref=e219]:
+                - generic [ref=e220]: 材料佐证
+              - cell "个税完税证明 / 纳税记录 · 1 份" [ref=e221]
+              - cell "未开通" [ref=e222]:
+                - generic [ref=e223]: 未开通
+              - cell "2026-07-01" [ref=e224]
+              - cell "切换模式 配置材料" [ref=e225]
+            - row "07 HY-07 市场监管 市市场监管局 材料佐证 营业执照 + 纳税申报表 · 2 份 仅创业类适用 未开通 2026-07-01 切换模式 配置材料" [ref=e226]:
+              - cell "07" [ref=e227]
+              - cell "HY-07" [ref=e228]
+              - cell "市场监管" [ref=e229]
+              - cell "市市场监管局" [ref=e230]
+              - cell "材料佐证" [ref=e231]:
+                - generic [ref=e232]: 材料佐证
+              - cell "营业执照 + 纳税申报表 · 2 份 仅创业类适用" [ref=e233]
+              - cell "未开通" [ref=e234]:
+                - generic [ref=e235]: 未开通
+              - cell "2026-07-01" [ref=e236]
+              - cell "切换模式 配置材料" [ref=e237]
+            - row "08 HY-08 户籍 市公安局 材料佐证 户口簿 · 1 份 未开通 2026-07-01 切换模式 配置材料" [ref=e238]:
+              - cell "08" [ref=e239]
+              - cell "HY-08" [ref=e240]
+              - cell "户籍" [ref=e241]
+              - cell "市公安局" [ref=e242]
+              - cell "材料佐证" [ref=e243]:
+                - generic [ref=e244]: 材料佐证
+              - cell "户口簿 · 1 份" [ref=e245]
+              - cell "未开通" [ref=e246]:
+                - generic [ref=e247]: 未开通
+              - cell "2026-07-01" [ref=e248]
+              - cell "切换模式 配置材料" [ref=e249]
+        - generic [ref=e250]:
+          - generic [ref=e251]: 共 8 条，显示 1–8 条
+          - generic [ref=e252]:
+            - generic [ref=e253]:
+              - text: 每页
+              - combobox "每页 条" [ref=e254] [cursor=pointer]:
+                - option "10"
+                - option "20" [selected]
+                - option "50"
+                - option "100"
+              - text: 条
+            - generic [ref=e255]:
+              - button "" [disabled] [ref=e256]:
+                - generic [ref=e257]: 
+              - button "" [disabled] [ref=e258]:
+                - generic [ref=e259]: 
+              - button "1" [ref=e260] [cursor=pointer]
+              - button "" [disabled] [ref=e261]:
+                - generic [ref=e262]: 
+              - button "" [disabled] [ref=e263]:
+                - generic [ref=e264]: 
+            - generic [ref=e265]:
+              - text: 前往
+              - spinbutton "前往 页" [ref=e266]: "1"
+              - text: 页
+            - generic [ref=e267]: 共 1 页
+      - text: 
+    - generic [ref=e268]:
+      - generic [ref=e269]: 背景 接口未开通是本期上线既定前提，上线以材料佐证为默认，接口逐项开通后切为接口直连
+      - generic [ref=e270]: 生效口径 切换后申请表与受理初审、复审核验清单同步生效，不需改程序，留痕操作人 / 时间 / 生效范围
+      - generic [ref=e271]: 关联页面 受理初审办理 复审办理与审核结论 核验项开关配置
+  - option "接口直连" [selected]
+  - option "材料佐证"

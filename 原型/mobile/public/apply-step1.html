@@ -23,7 +23,7 @@
           <div class="m-sp"><div class="n">5</div><div class="t">提交</div></div>
         </div>
         <div class="m-note"><i class="fa-solid fa-circle-info"></i>
-          <div>已选房源信息<b>自动带入、只读展示</b>；带<i class="fa-solid fa-database"></i>标记的字段由<b>部门共享数据自动回填</b>，您只需补充少量内容。</div>
+          <div>已选房源信息<b>自动带入、只读展示</b>。<b>数据自动回填仅对接口已开通的核验项生效</b>：本期<b>仅身份信息（公安）已接口直连</b>并自动回填（带<i class="fa-solid fa-database"></i>标记、只读）；学历、婚姻、不动产、社保等<b>接口未开通</b>的项请<b>据实填写</b>，并在下一步「材料」<b>上传证明材料佐证</b>；<b>接口开通后同一字段将自动转为回填</b>。</div>
         </div>
         <div class="m-sect">已选房源<span class="m-sect-x">由房源详情页选定带入</span></div>
         <div class="m-card">
@@ -39,15 +39,15 @@
           </div>
           </div>
         </div>
-        <div class="m-sect">申请人信息<span class="m-sect-x">实名与学历自动带入</span></div>
+        <div class="m-sect">申请人信息<span class="m-sect-x">身份接口直连 · 学历据实填写</span></div>
         <div class="m-form">
           <div class="m-fi">
             <label>申请人 <span class="req">*</span></label>
-            <div class="m-fc"><input type="text" value="王梓涵" readonly><div class="m-fh"><i class="fa-solid fa-database"></i> 湘易办实名信息</div></div>
+            <div class="m-fc"><input type="text" value="王梓涵" readonly><div class="m-fh"><i class="fa-solid fa-database"></i> 湘易办实名信息 · <b>身份接口直连已开通</b>，自动回填</div></div>
           </div>
           <div class="m-fi">
             <label>身份证号码 <span class="req">*</span></label>
-            <div class="m-fc"><input type="text" value="430211********2418" readonly><div class="m-fh"><i class="fa-solid fa-database"></i> 脱敏展示</div></div>
+            <div class="m-fc"><input type="text" value="430211********2418" readonly><div class="m-fh"><i class="fa-solid fa-database"></i> 公安核验 · <b>接口直连已开通</b>（脱敏展示）</div></div>
           </div>
           <div class="m-fi">
             <label>性别 <span class="req">*</span></label>
@@ -55,11 +55,11 @@
           </div>
           <div class="m-fi">
             <label>最高学历 <span class="req">*</span></label>
-            <div class="m-fc"><input type="text" value="全日制本科" readonly><div class="m-fh"><i class="fa-solid fa-database"></i> 学信网核验</div></div>
+            <div class="m-fc"><input type="text" value="全日制本科"><div class="m-fh"><i class="fa-solid fa-pen"></i> 学信网接口未开通，请据实填写，下一步上传<b>毕业证 / 学历认证书</b>佐证；接口开通后自动回填</div></div>
           </div>
           <div class="m-fi">
             <label>最高学历毕业时间 <span class="req">*</span></label>
-            <div class="m-fc"><input type="text" value="2025-07-01" readonly><div class="m-fh"><i class="fa-solid fa-database"></i> 毕业 2 年内为 2025-07-01 至 2027-06-30</div></div>
+            <div class="m-fc"><input type="text" value="2025-07-01"><div class="m-fh"><i class="fa-solid fa-pen"></i> 接口未开通，请据实填写（毕业 2 年内：2025-07-01 至 2027-06-30）</div></div>
           </div>
           <div class="m-fi">
             <label>联系电话 <span class="req">*</span></label>
@@ -94,22 +94,22 @@
           </div>
           <div class="m-fi">
             <label>养老保险缴纳月数 <span class="req">*</span></label>
-            <div class="m-fc"><input type="text" value="13" readonly><div class="m-fh"><i class="fa-solid fa-database"></i> 人社系统</div></div>
+            <div class="m-fc"><input type="text" value="13"><div class="m-fh"><i class="fa-solid fa-pen"></i> 人社接口未开通，请据实填写，下一步上传<b>社保参保证明</b>佐证；接口开通后自动回填</div></div>
           </div>
         </div>
         <div class="m-sect">婚姻与住房情况<span class="m-sect-x">已婚自动切换为家庭申请</span></div>
         <div class="m-form">
           <div class="m-fi">
             <label>婚姻状况 <span class="req">*</span></label>
-            <div class="m-fc"><select id="mrgSel" data-dict="marriage" data-selected="1"></select><div class="m-fh"><i class="fa-solid fa-database"></i> 民政系统核验结果，选「已婚」将自动切换为家庭申请</div></div>
+            <div class="m-fc"><select id="mrgSel" data-dict="marriage" data-selected="1"></select><div class="m-fh"><i class="fa-solid fa-pen"></i> 民政接口未开通，请据实选择并上传<b>结婚证</b>等佐证；选「已婚」将自动切换为家庭申请</div></div>
           </div>
           <div class="m-fi">
             <label>市城区自有住房 <span class="req">*</span></label>
-            <div class="m-fc"><input type="text" value="无" readonly><div class="m-fh"><i class="fa-solid fa-database"></i> 不动产登记系统核查结果</div></div>
+            <div class="m-fc"><input type="text" value="无"><div class="m-fh"><i class="fa-solid fa-pen"></i> 不动产接口未开通，请据实填写并上传<b>无房证明</b>佐证；接口开通后自动核查回填</div></div>
           </div>
           <div class="m-fi">
             <label>政策性住房承租 <span class="req">*</span></label>
-            <div class="m-fc"><input type="text" value="无" readonly><div class="m-fh"><i class="fa-solid fa-database"></i> 公租房系统核查结果</div></div>
+            <div class="m-fc"><input type="text" value="无"><div class="m-fh"><i class="fa-solid fa-pen"></i> 接口未开通，请据实填写并上传佐证；接口开通后自动核查回填</div></div>
           </div>
         </div>
         <div id="famBox" style="display:none">

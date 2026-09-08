@@ -28,7 +28,7 @@
 
   <div class="alert alert-warning">
     <i class="fa-solid fa-triangle-exclamation"></i>
-    <div>本页为<b>受理初审（第一级）一屏办理</b>：① 申请信息 ② 联审联查结论 ③ 附件材料 ④ 初审意见填写 ⑤ 资格审核表打印。初审只出具<b>初审通过报复审 / 退回补正</b>两种意见，<b>最终审核结论由复审环节出具</b>。本件<b>社保查无缴纳记录</b>，已凭单位承诺书<b>容缺受理</b>，待补核期限 2026-11-04。</div>
+    <div>本页为<b>受理初审（第一级）一屏办理</b>：① 申请信息 ② 核验清单（接口直连 / 材料佐证） ③ 附件材料 ④ 初审意见填写 ⑤ 资格审核表打印。<b>接口未开通是本期既定前提</b>：本件<b>身份项已接口直连核验</b>，其余七项以<b>材料佐证</b>方式由受理初审<b>逐项人工认定</b>（符合 / 不符合 / 需补正），<b>全部认定完成后方可提交初审意见</b>。初审只出具<b>初审通过报复审 / 退回补正</b>两种意见，<b>最终审核结论由复审环节出具</b>。本件<b>社保查无缴纳记录</b>，已凭单位承诺书<b>容缺受理</b>，待补核期限 2026-11-04。</div>
   </div>
 
   <div class="sp-dual">
@@ -50,7 +50,7 @@
           <div class="desc-item full"><dt>身份证号</dt><dd><span class="sp-mask">430211********2418<span class="mk" onclick="SP.mask(this.parentElement,'430211200103122418')">查看明文</span></span></dd></div>
           <div class="desc-item full"><dt>申请类型</dt><dd>就业青年人才</dd></div>
           <div class="desc-item full"><dt>申请渠道</dt><dd><span class="badge blue">个人申请</span><span class="muted" style="white-space:nowrap">建宁安居小程序</span></dd></div>
-          <div class="desc-item full"><dt>婚姻状况</dt><dd><span>未婚<span class="muted"> 民政核验一致</span></span></dd></div>
+          <div class="desc-item full"><dt>婚姻状况</dt><dd><span>未婚<span class="muted"> 材料佐证核验</span></span></dd></div>
           <div class="desc-item full"><dt>学历与毕业时间</dt><dd><span>全日制本科（湖南工业大学 · 机械设计制造及其自动化）　毕业时间 <b>2025-07-01</b>　<span class="badge green">毕业 2 年内</span></span></dd></div>
           <div class="desc-item full"><dt>创业企业或就业单位</dt><dd><span>中车株洲电力机车研究所　<span class="muted">劳动合同起止 2025-07-01 至 2028-06-30</span></span></dd></div>
           <div class="desc-item full"><dt>联系电话</dt><dd><span class="sp-mask">138****6207<span class="mk" onclick="SP.mask(this.parentElement,'13802456207')">查看明文</span></span></dd></div>
@@ -63,28 +63,157 @@
 
     <div class="card">
       <div class="card-head">
-        <h3><i class="fa-solid fa-shield-halved"></i> ② 联审联查结论</h3>
-        <span class="sub">8 类核验 · 一致 6 / 不一致 1 / 数据缺失 1</span>
+        <h3><i class="fa-solid fa-shield-halved"></i> ② 核验清单（接口直连 / 材料佐证）</h3>
+        <span class="sub">8 类核验 · 接口直连 1 / 材料佐证 7</span>
       </div>
       <div class="card-body">
-        <div class="sp-tw">
-          <table class="data-table compact">
-            <thead><tr><th>核验事项</th><th>数据来源</th><th>核验结果</th><th class="cell-lg">不一致项提示与处置</th></tr></thead>
-            <tbody>
-              <tr><td>身份核验</td><td>市公安局人口库</td><td><span class="badge green">一致</span></td><td class="cell-lg">姓名、身份证号、人像比对与填报一致</td></tr>
-              <tr><td>婚姻核验</td><td>市民政局</td><td><span class="badge green">一致</span></td><td class="cell-lg">返回未婚，与填报一致，不涉及配偶住房核查</td></tr>
-              <tr><td>不动产核验</td><td>市自然资源和规划局</td><td><span class="badge green">一致</span></td><td class="cell-lg">市城区范围内无自有住房，无近 3 年房屋交易记录</td></tr>
-              <tr><td>学历核验</td><td>学信网</td><td><span class="badge green">一致</span></td><td class="cell-lg">湖南工业大学全日制本科，毕业 2025-07-01，在毕业 2 年内</td></tr>
-              <tr class="row-warn"><td><b>社保核验</b></td><td>市人社局</td><td><span class="badge orange">数据缺失</span></td><td class="cell-lg"><b>查无养老保险缴纳记录</b>：单位已签劳动合同但尚未办理参保。已收取<b>单位承诺书</b>（中车株洲电力机车研究所，2026-09-03 盖章），按<b>容缺受理</b>通过本项，<b>待补核期限 2026-11-04</b>（60 个自然日），到期系统自动复核，仍不符合的转人工并可撤销资格</td></tr>
-              <tr class="row-bad"><td><b>个税核验</b></td><td>市税务局</td><td><span class="badge red">不一致</span></td><td class="cell-lg">2026 年度<b>仅 3 个月</b>个税记录，与劳动合同起始月份不匹配。经电话核实系入职当年未达起征点，非挂靠情形，已附单位工资发放流水，<b>本项转人工核实后按一致处理，不直接否决</b></td></tr>
-              <tr><td>市场监管核验</td><td>市市场监督管理局</td><td><span class="badge gray">不适用</span></td><td class="cell-lg">申请类型为就业青年人才，工商登记项不参与判定</td></tr>
-              <tr><td>户籍核验</td><td>市公安局</td><td><span class="badge green">一致</span></td><td class="cell-lg">户籍地湖南省常德市，非株洲市城区户籍，符合引进人才情形</td></tr>
-            </tbody>
-          </table>
+        <p class="hint" style="margin-top:0">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+          接口未开通，以下带 <span class="badge orange">材料佐证</span> 标记的核验项须<b>逐项人工认定</b>，全部认定完成后方可提交初审意见；带 <span class="badge blue">接口直连</span> 的项由部门接口自动取数，结论只读。
+        </p>
+        <div class="vf-list" style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
+
+          <div class="vf-item" style="border:1px solid var(--border);border-radius:var(--radius);padding:10px 12px">
+            <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+              <b>身份与人口核验</b><span class="muted">市公安局</span>
+              <span class="badge blue" style="margin-left:auto">接口直连</span>
+            </div>
+            <div style="display:flex;gap:8px;align-items:center;margin-top:8px;flex-wrap:wrap">
+              <div class="hint" style="margin:0;flex:1 1 240px;min-width:0">部门返回：姓名 <b>王梓涵</b> · 身份证号 430211********2418 · 人像比对一致　<span class="muted">取数时间 2026-09-03 10:27</span></div>
+              <span class="badge green">一致</span><span class="muted" style="white-space:nowrap">系统自动核验，无需人工认定</span>
+            </div>
+          </div>
+
+          <div class="vf-item" style="border:1px solid var(--border);border-radius:var(--radius);padding:10px 12px">
+            <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+              <b>婚姻核验</b><span class="muted">市民政局</span>
+              <span class="badge orange" style="margin-left:auto">材料佐证</span>
+            </div>
+            <div style="display:flex;gap:10px;align-items:flex-start;margin-top:8px">
+              <span onclick="PMS.toast('已打开材料影像预览：婚姻状况书面声明.jpg')" title="查看材料影像" style="display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;width:52px;height:52px;flex:0 0 auto;border:1px dashed var(--line-gray);border-radius:var(--radius);background:var(--fill-gray);color:var(--text-3);font-size:11px;cursor:pointer"><i class="fa-regular fa-image" style="font-size:16px"></i>影像</span>
+              <div style="flex:1;min-width:0">
+                <div class="hint" style="margin:0">材料：结婚证 / 离婚证（未婚提供书面声明）　识别要素：<b>未婚</b>，无婚姻登记记录</div>
+                <div style="display:flex;gap:8px;align-items:center;margin-top:8px;flex-wrap:wrap">
+                  <span class="muted" style="white-space:nowrap">人工认定</span>
+                  <select class="js-decision" data-item="婚姻核验" data-dict="verifyDecision" data-selected="符合" data-ph="" style="flex:0 0 auto;width:104px"></select>
+                  <input class="js-note" type="text" style="flex:1 1 200px;min-width:160px" value="书面声明影像清晰，与本人填报一致，认定符合">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="vf-item" style="border:1px solid var(--border);border-radius:var(--radius);padding:10px 12px">
+            <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+              <b>不动产核验</b><span class="muted">市不动产登记中心</span>
+              <span class="badge orange" style="margin-left:auto">材料佐证</span>
+            </div>
+            <div style="display:flex;gap:10px;align-items:flex-start;margin-top:8px">
+              <span onclick="PMS.toast('已打开材料影像预览：无房证明.pdf')" title="查看材料影像" style="display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;width:52px;height:52px;flex:0 0 auto;border:1px dashed var(--line-gray);border-radius:var(--radius);background:var(--fill-gray);color:var(--text-3);font-size:11px;cursor:pointer"><i class="fa-regular fa-image" style="font-size:16px"></i>影像</span>
+              <div style="flex:1;min-width:0">
+                <div class="hint" style="margin:0">材料：无房证明 / 不动产查询记录　识别要素：市城区范围内<b>无自有住房</b>，无近 3 年交易记录（出具 2026-09-01）</div>
+                <div style="display:flex;gap:8px;align-items:center;margin-top:8px;flex-wrap:wrap">
+                  <span class="muted" style="white-space:nowrap">人工认定</span>
+                  <select class="js-decision" data-item="不动产核验" data-dict="verifyDecision" data-selected="符合" data-ph="" style="flex:0 0 auto;width:104px"></select>
+                  <input class="js-note" type="text" style="flex:1 1 200px;min-width:160px" value="无房证明与本人无房承诺书相互印证，认定符合">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="vf-item" style="border:1px solid var(--border);border-radius:var(--radius);padding:10px 12px">
+            <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+              <b>学历学位核验</b><span class="muted">学信网 / 留服中心</span>
+              <span class="badge orange" style="margin-left:auto">材料佐证</span>
+            </div>
+            <div style="display:flex;gap:10px;align-items:flex-start;margin-top:8px">
+              <span onclick="PMS.toast('已打开材料影像预览：毕业证书与学位证书.pdf')" title="查看材料影像" style="display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;width:52px;height:52px;flex:0 0 auto;border:1px dashed var(--line-gray);border-radius:var(--radius);background:var(--fill-gray);color:var(--text-3);font-size:11px;cursor:pointer"><i class="fa-regular fa-image" style="font-size:16px"></i>影像</span>
+              <div style="flex:1;min-width:0">
+                <div class="hint" style="margin:0">材料：毕业证书 + 学历学位认证书　识别要素：<b>全日制本科</b> · 湖南工业大学 机械设计制造及其自动化 · 毕业 <b>2025-07-01</b>（毕业 2 年内）</div>
+                <div style="display:flex;gap:8px;align-items:center;margin-top:8px;flex-wrap:wrap">
+                  <span class="muted" style="white-space:nowrap">人工认定</span>
+                  <select class="js-decision" data-item="学历学位核验" data-dict="verifyDecision" data-selected="符合" data-ph="" style="flex:0 0 auto;width:104px"></select>
+                  <input class="js-note" type="text" style="flex:1 1 200px;min-width:160px" value="毕业证书、学位证书影像清晰，识别要素与填报一致，认定符合">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="vf-item" style="border:1px solid var(--border);border-radius:var(--radius);padding:10px 12px">
+            <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+              <b>社保核验</b><span class="muted">市社保中心</span>
+              <span class="badge orange" style="margin-left:auto">材料佐证</span>
+            </div>
+            <div style="display:flex;gap:10px;align-items:flex-start;margin-top:8px">
+              <span onclick="PMS.toast('已打开材料影像预览：单位社保参保承诺书.pdf')" title="查看材料影像" style="display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;width:52px;height:52px;flex:0 0 auto;border:1px dashed var(--line-gray);border-radius:var(--radius);background:var(--fill-gray);color:var(--text-3);font-size:11px;cursor:pointer"><i class="fa-regular fa-image" style="font-size:16px"></i>影像</span>
+              <div style="flex:1;min-width:0">
+                <div class="hint" style="margin:0">材料：社保参保缴费证明 / 单位承诺书　识别要素：<b>查无缴纳记录</b>，已收单位盖章参保承诺书（中车株洲电力机车研究所）</div>
+                <div style="display:flex;gap:8px;align-items:center;margin-top:8px;flex-wrap:wrap">
+                  <span class="muted" style="white-space:nowrap">人工认定</span>
+                  <select class="js-decision" data-item="社保核验" data-dict="verifyDecision" data-selected="符合" data-ph="" style="flex:0 0 auto;width:104px"></select>
+                  <input class="js-note" type="text" style="flex:1 1 200px;min-width:160px" value="凭单位承诺书容缺受理认定符合，待补核期限 2026-11-04，到期自动复核">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="vf-item" style="border:1px solid var(--border);border-radius:var(--radius);padding:10px 12px">
+            <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+              <b>个人所得税核验</b><span class="muted">市税务局</span>
+              <span class="badge orange" style="margin-left:auto">材料佐证</span>
+            </div>
+            <div style="display:flex;gap:10px;align-items:flex-start;margin-top:8px">
+              <span onclick="PMS.toast('已打开材料影像预览：近6个月工资发放流水.pdf')" title="查看材料影像" style="display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;width:52px;height:52px;flex:0 0 auto;border:1px dashed var(--line-gray);border-radius:var(--radius);background:var(--fill-gray);color:var(--text-3);font-size:11px;cursor:pointer"><i class="fa-regular fa-image" style="font-size:16px"></i>影像</span>
+              <div style="flex:1;min-width:0">
+                <div class="hint" style="margin:0">材料：个税完税证明 / 纳税记录 + 工资流水　识别要素：2026 年度仅 <b>3 个月</b>个税记录，经核实系入职当年未达起征点</div>
+                <div style="display:flex;gap:8px;align-items:center;margin-top:8px;flex-wrap:wrap">
+                  <span class="muted" style="white-space:nowrap">人工认定</span>
+                  <select class="js-decision" data-item="个人所得税核验" data-dict="verifyDecision" data-selected="符合" data-ph="" style="flex:0 0 auto;width:104px"></select>
+                  <input class="js-note" type="text" style="flex:1 1 200px;min-width:160px" value="期数不足系未达起征点，已附工资流水佐证实际从业，认定符合">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="vf-item" style="border:1px solid var(--border);border-radius:var(--radius);padding:10px 12px">
+            <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+              <b>市场监管核验</b><span class="muted">市市场监管局</span>
+              <span class="badge orange" style="margin-left:auto">材料佐证</span>
+            </div>
+            <div style="display:flex;gap:10px;align-items:flex-start;margin-top:8px">
+              <span onclick="PMS.toast('已打开材料影像预览：申请类型说明.pdf')" title="查看材料影像" style="display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;width:52px;height:52px;flex:0 0 auto;border:1px dashed var(--line-gray);border-radius:var(--radius);background:var(--fill-gray);color:var(--text-3);font-size:11px;cursor:pointer"><i class="fa-regular fa-image" style="font-size:16px"></i>影像</span>
+              <div style="flex:1;min-width:0">
+                <div class="hint" style="margin:0">材料：营业执照 / 纳税申报表（仅创业类需交）　识别要素：申请类型为<b>就业青年人才</b>，工商登记项不参与判定</div>
+                <div style="display:flex;gap:8px;align-items:center;margin-top:8px;flex-wrap:wrap">
+                  <span class="muted" style="white-space:nowrap">人工认定</span>
+                  <select class="js-decision" data-item="市场监管核验" data-dict="verifyDecision" data-selected="符合" data-ph="" style="flex:0 0 auto;width:104px"></select>
+                  <input class="js-note" type="text" style="flex:1 1 200px;min-width:160px" value="就业类不涉及工商登记，本项不参与判定，认定符合">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="vf-item" style="border:1px solid var(--border);border-radius:var(--radius);padding:10px 12px">
+            <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+              <b>户籍核验</b><span class="muted">市公安局</span>
+              <span class="badge orange" style="margin-left:auto">材料佐证</span>
+            </div>
+            <div style="display:flex;gap:10px;align-items:flex-start;margin-top:8px">
+              <span onclick="PMS.toast('已打开材料影像预览：户口簿.jpg')" title="查看材料影像" style="display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;width:52px;height:52px;flex:0 0 auto;border:1px dashed var(--line-gray);border-radius:var(--radius);background:var(--fill-gray);color:var(--text-3);font-size:11px;cursor:pointer"><i class="fa-regular fa-image" style="font-size:16px"></i>影像</span>
+              <div style="flex:1;min-width:0">
+                <div class="hint" style="margin:0">材料：户口簿　识别要素：户籍地 <b>湖南省常德市</b>，非株洲市城区户籍，符合引进人才情形</div>
+                <div style="display:flex;gap:8px;align-items:center;margin-top:8px;flex-wrap:wrap">
+                  <span class="muted" style="white-space:nowrap">人工认定</span>
+                  <select class="js-decision" data-item="户籍核验" data-dict="verifyDecision" data-selected="符合" data-ph="" style="flex:0 0 auto;width:104px"></select>
+                  <input class="js-note" type="text" style="flex:1 1 200px;min-width:160px" value="户口簿影像清晰，户籍地与填报一致，认定符合">
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
         <p class="hint" style="margin-top:8px">
           <i class="fa-solid fa-circle-info"></i>
-          核验结果由多部门数据共享接口返回，时间戳 2026-09-03 10:27。<b>数据缺失不等于不符合</b>：社保类缺失可凭单位承诺书容缺受理，登记待补核期限后进入<span class="link" onclick="location.href='pending-check.html'">容缺受理台账</span>跟踪。
+          身份项接口取数时间戳 2026-09-03 10:27。材料佐证项由申请人上传材料、受理初审逐项人工认定；<b>接口开通后可在</b><span class="link" onclick="location.href='../system/sys-verify-mode.html'">核验模式配置</span><b>逐项切换为接口直连</b>，届时对应材料不再要求提交。
         </p>
       </div>
     </div>
@@ -94,19 +223,23 @@
     <div class="card">
       <div class="card-head">
         <h3><i class="fa-solid fa-folder-open"></i> ③ 附件材料</h3>
-        <span class="sub">7 份 · 核验通过 6 / 需说明 1</span>
+        <span class="sub">7 份 · 由核验模式自动生成应交清单</span>
       </div>
       <div class="card-body">
+        <p class="hint" style="margin-top:0">
+          <i class="fa-solid fa-circle-info"></i>
+          <b>应交材料清单由各核验项的核验模式自动生成</b>：带「材料佐证」的核验项要求上传对应材料，<b>接口开通并切换为「接口直连」后相应材料不再要求提交</b>；身份项已接口直连，故不在应交清单内。
+        </p>
         <div class="sp-tw">
           <table class="data-table compact">
             <thead><tr><th class="cell-lg">材料名称</th><th>上传时间</th><th class="num">张数</th><th>核验结果</th><th class="cell-lg">核验说明</th></tr></thead>
             <tbody>
               <tr><td class="cell-lg">身份证正反面.jpg</td><td>2026-09-03 10:18</td><td class="num">2</td><td><span class="badge green">通过</span></td><td class="cell-lg">影像清晰，OCR 识别结果与填报一致</td></tr>
-              <tr><td class="cell-lg">毕业证书与学位证书.pdf</td><td>2026-09-03 10:19</td><td class="num">2</td><td><span class="badge green">通过</span></td><td class="cell-lg">与学信网返回的学历信息一致</td></tr>
+              <tr><td class="cell-lg">毕业证书与学位证书.pdf</td><td>2026-09-03 10:19</td><td class="num">2</td><td><span class="badge green">通过</span></td><td class="cell-lg">与学历学位（材料佐证）识别要素一致</td></tr>
               <tr><td class="cell-lg">劳动合同.pdf</td><td>2026-09-03 10:20</td><td class="num">6</td><td><span class="badge green">通过</span></td><td class="cell-lg">签订单位、期限、签章齐全，起止 2025-07-01 至 2028-06-30</td></tr>
               <tr class="row-warn"><td class="cell-lg">单位社保参保承诺书.pdf</td><td>2026-09-03 10:22</td><td class="num">1</td><td><span class="badge orange">容缺受理</span></td><td class="cell-lg">用于替代社保缴纳证明，承诺 2026-11-04 前完成参保并缴纳，加盖单位公章</td></tr>
               <tr><td class="cell-lg">近 6 个月工资发放流水.pdf</td><td>2026-09-03 10:23</td><td class="num">3</td><td><span class="badge green">通过</span></td><td class="cell-lg">银行流水与劳动合同薪酬一致，可佐证实际在本地从业</td></tr>
-              <tr><td class="cell-lg">市城区无房承诺书.pdf</td><td>2026-09-03 10:24</td><td class="num">1</td><td><span class="badge green">通过</span></td><td class="cell-lg">本人签字，与不动产核验结果相互印证</td></tr>
+              <tr><td class="cell-lg">市城区无房承诺书.pdf</td><td>2026-09-03 10:24</td><td class="num">1</td><td><span class="badge green">通过</span></td><td class="cell-lg">本人签字，与不动产核验（材料佐证）结果相互印证</td></tr>
               <tr><td class="cell-lg">材料真实性承诺书.pdf</td><td>2026-09-03 10:25</td><td class="num">1</td><td><span class="badge green">通过</span></td><td class="cell-lg">本人电子签名，签署时间与提交时间一致</td></tr>
             </tbody>
           </table>
@@ -168,7 +301,7 @@
           </div>
           <div class="form-item col-full">
             <label>初审意见 <span class="req">*</span></label>
-            <textarea id="firstOpinion" rows="5">经受理初审：申请材料 7 份齐全，身份证、毕业证书、劳动合同影像清晰，与填报内容及联审联查返回数据一致；申请人在市城区范围内无自有住房，未承租政策性住房，符合就业青年人才申请条件。社保核验查无缴纳记录，已收取用人单位盖章的参保承诺书，按容缺受理通过，待补核期限 2026-11-04；个税记录期数不足经电话核实系入职当年未达起征点，已附工资发放流水佐证。已选房源湘江1958 人才公寓 A6-1502A，计租面积 27.80 ㎡，人才租金 6.00 元/㎡·月，符合按间配租规则。初审通过，提请复审出具结论。</textarea>
+            <textarea id="firstOpinion" rows="5">经受理初审：申请材料 7 份齐全，身份证、毕业证书、劳动合同影像清晰，与填报内容及核验清单认定结果一致；身份项接口直连核验一致，其余七项材料佐证均已逐项人工认定为符合。申请人在市城区范围内无自有住房，未承租政策性住房，符合就业青年人才申请条件。社保核验查无缴纳记录，已收取用人单位盖章的参保承诺书，按容缺受理认定符合，待补核期限 2026-11-04；个税记录期数不足经核实系入职当年未达起征点，已附工资发放流水佐证。已选房源湘江1958 人才公寓 A6-1502A，计租面积 27.80 ㎡，人才租金 6.00 元/㎡·月，符合按间配租规则。初审通过，提请复审出具结论。</textarea>
             <div class="hint">初审意见与复审意见分别留痕，互不覆盖</div>
           </div>
         </div>
@@ -179,7 +312,7 @@
         </div>
         <p class="hint" style="margin-top:10px">
           <i class="fa-solid fa-triangle-exclamation"></i>
-          <b>退回补正须注明缺项与理由</b>，一次性告知全部缺项；<b>补正期间不计入审核时限</b>，补正后自动回到本环节由原初审人继续办理，<b>受理时间不变</b>。
+          <b>材料佐证项须逐项人工认定完成</b>后方可提交初审通过意见；<b>退回补正须注明缺项与理由</b>，一次性告知全部缺项；<b>补正期间不计入审核时限</b>，补正后自动回到本环节由原初审人继续办理，<b>受理时间不变</b>。
         </p>
       </div>
     </div>
@@ -212,13 +345,18 @@
 
   <div class="sp-src">
     <span><b>办理层级</b> 第一级 · 受理初审（市保障性住房服务中心资格审核科）</span>
-    <span><b>办理时限</b> 自收到申请资料之日起 3 个工作日，补正期间中止不计入</span>
+    <span><b>核验双模式</b> 身份接口直连、其余七项材料佐证人工认定；接口开通后逐项切换，见<span class="link" onclick="location.href='../system/sys-verify-mode.html'">核验模式配置</span></span>
     <span><b>容缺受理</b> 社保查无记录凭单位承诺书容缺受理，待补核 60 个自然日，到期自动复核</span>
     <span><b>下一环节</b> <span class="link" onclick="location.href='conclusion.html'">复审办理与出具结论</span></span>
   </div>
 </main>
 
 <script>
+function collectDecisions() {
+  return Array.prototype.map.call(document.querySelectorAll('.js-decision'), function (s) {
+    return s.options[s.selectedIndex] ? s.options[s.selectedIndex].text : '';
+  });
+}
 function submitFirst(kind) {
   var sel = document.getElementById('firstResult');
   var txt = document.getElementById('firstOpinion');
@@ -244,11 +382,20 @@ function submitFirst(kind) {
     });
     return;
   }
+  var decs = collectDecisions();
+  if (decs.filter(function (t) { return !t; }).length) {
+    PMS.toast('尚有材料佐证核验项未完成人工认定，全部认定完成后方可提交', 'error'); return;
+  }
+  if (decs.filter(function (t) { return t === '不符合'; }).length) {
+    PMS.toast('存在「不符合」的材料佐证核验项，不能出具初审通过意见，请退回补正或重新认定', 'error'); return;
+  }
+  var okCount = decs.filter(function (t) { return t === '符合'; }).length;
+  var fixCount = decs.filter(function (t) { return t === '需补正'; }).length;
   sel.value = '初审通过报复审';
   PMS.confirm({
     title: '初审意见提交确认',
     message: '确认对 RC2026-0903-0162 出具「初审通过报复审」意见？',
-    detail: '初审只出具意见不出具最终结论，提交后本件流转至复审环节由周慧出具审核结论。初审意见单独留痕，不与复审意见混写。本件含社保容缺受理事项，已同步登记至容缺受理台账，待补核期限 2026-11-04。',
+    detail: '身份项接口直连核验一致；材料佐证核验 ' + decs.length + ' 项已逐项人工认定（符合 ' + okCount + (fixCount ? ' / 需补正 ' + fixCount : '') + '）。初审只出具意见不出具最终结论，提交后本件流转至复审环节由周慧出具审核结论。初审意见单独留痕，不与复审意见混写。本件含社保容缺受理事项，已同步登记至容缺受理台账，待补核期限 2026-11-04。',
     type: 'info',
     okText: '确认提交',
     onOk: function () { PMS.toast('初审意见已提交，本件已流转至复审环节', 'success'); }
@@ -256,6 +403,12 @@ function submitFirst(kind) {
 }
 document.getElementById('firstResult').addEventListener('change', function () {
   PMS.toast(this.value === '退回补正' ? '已切换为退回补正，请勾选缺项并填写退回理由' : '已切换为初审通过报复审');
+});
+document.addEventListener('change', function (e) {
+  if (e.target && e.target.classList && e.target.classList.contains('js-decision')) {
+    var name = e.target.getAttribute('data-item') || '核验项';
+    PMS.toast('已将「' + name + '」人工认定为「' + e.target.options[e.target.selectedIndex].text + '」');
+  }
 });
 (function () {
   var t = document.querySelector('main.app-main .table-wrap > table.data-table');

@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="../../assets/css/ext.css">
 </head>
 <body class="m-body" data-mtitle="材料（3/5）" data-mmod="M5 人才公寓资格申请" data-mcode="M5-03"
-      data-mdesc="上传劳动合同等无法通过接口核验的材料，系统自动识别关键字段并与填报内容做一致性校验；凡可通过部门接口核验的材料无需上传。真实性承诺书在下一步签署。" data-mback="apply-step2.html" data-mtabset="public" data-mtab="me" data-mchan="湘易办">
+      data-mdesc="材料上传项按后台核验模式动态呈现：接口已开通的项系统自动核验、无需上传并回填数据；接口未开通的项显示上传位（材料名称、份数、式样要求）并提示由人工核验。本期以材料佐证为默认，顶部可一键切换两种形态演示。真实性承诺书在下一步签署。" data-mback="apply-step2.html" data-mtabset="public" data-mtab="me" data-mchan="湘易办">
 <div class="m-stage">
   <div class="m-phone">
     <div class="m-screen">
@@ -23,75 +23,167 @@
           <div class="m-sp"><div class="n">5</div><div class="t">提交</div></div>
         </div>
         <div class="m-note"><i class="fa-solid fa-circle-info"></i>
-          <div>已选房间 <b>湘江1958 A6-1502A 间</b>（计租 27.80 ㎡ · 人才租金 166.80 元/月）已带入。系统已打通各部门数据接口，<b>可通过接口核验的材料无需上传</b>；拍照上传后自动识别关键字段并回填表单，不一致时高亮提示。<b>真实性承诺书在下一步签署。</b></div>
+          <div>材料上传项<b>按后台核验模式动态呈现</b>：<b>接口已开通</b>的项系统自动核验、<b>无需上传</b>并回填数据；<b>接口未开通</b>的项显示上传位，需上传<b>证明材料</b>由人工核验。<b>本期以「材料佐证」为默认</b>，接口逐项开通后同一字段自动转为免上传。真实性承诺书在下一步签署。</div>
         </div>
-        <div class="m-sect">免上传材料<span class="m-sect-x">接口核验 · 6 项</span></div>
-        <div class="m-card">
-          <div class="m-card-h"><i class="fa-solid fa-shield-halved"></i>部门数据已核验，无需上传</div>
-          <div class="m-card-b">
-            <div class="m-check">
-              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>身份证明</b><span>湘易办实名信息 + 公安人口信息核验已通过</span></div></div>
-              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>婚姻状况证明</b><span>民政婚姻登记：未婚</span></div></div>
-              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>不动产权信息查询证明</b><span>市城区范围内无自有住房</span></div></div>
-              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>毕业证书</b><span>学信网：湖南工业大学 全日制本科 2025-07-01</span></div></div>
-              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>养老保险缴纳证明</b><span>人社系统：连续缴纳 13 个月</span></div></div>
-              <div class="na"><i class="fa-solid fa-minus"></i><div class="m-chl"><b>职称技能等级证书</b><span>本次申请类型不涉及，无需提供</span></div></div>
-            </div>
-          </div>
+
+        <div class="m-sect">核验模式（演示切换）<span class="m-sect-x">上线以材料佐证为默认</span></div>
+        <div class="m-seg" id="modeSeg">
+          <button class="on" type="button" data-mode="material">材料佐证为主</button>
+          <button type="button" data-mode="api">全部接口开通</button>
         </div>
-        <div class="m-sect">需上传材料<span class="m-sect-x">就业青年人才 · 1 项</span></div>
-        <div class="m-card">
-          <div class="m-card-h"><i class="fa-solid fa-cloud-arrow-up"></i>上传并智能识别</div>
-          <div class="m-card-b">
-            <div class="m-fi col">
-              <label>劳动合同 <span class="req">*</span></label>
-              <div class="m-fc">
-                <div class="m-up">
-            <div class="m-uc ok"><img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&q=80" alt="劳动合同-第1页.jpg"><span class="m-uc-x"><i class="fa-solid fa-xmark"></i></span><span class="m-uc-n">劳动合同-第1页.jpg</span></div>
-            <div class="m-uc ok"><img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80" alt="劳动合同-第2页.jpg"><span class="m-uc-x"><i class="fa-solid fa-xmark"></i></span><span class="m-uc-n">劳动合同-第2页.jpg</span></div>
-                  <div class="m-uadd" data-toast="原型演示：调起相机或从相册选择"><i class="fa-solid fa-camera"></i><span>拍照上传</span></div>
-                </div>
-                <div class="m-fh ok"><i class="fa-solid fa-circle-check"></i> 已识别 2 页，关键字段提取完成</div>
-              </div>
-            </div>
-            <div class="m-fi col">
-              <label>其他补充材料</label>
-              <div class="m-fc">
-                <div class="m-up">
-                  <div class="m-uadd" data-toast="原型演示：调起相机或从相册选择"><i class="fa-solid fa-camera"></i><span>拍照上传</span></div>
-                </div>
-                <div class="m-fh">选填。如社保查不到记录，可在第 5 步「提交」页上传<b>单位承诺书</b>按容缺受理提交</div>
+
+        <!-- 形态一：材料佐证为主（本期默认） -->
+        <div id="modeMaterial">
+          <div class="m-sect">接口直连 · 免上传<span class="m-sect-x">已开通 1 项</span></div>
+          <div class="m-card">
+            <div class="m-card-h"><i class="fa-solid fa-shield-halved"></i>系统自动核验，无需上传</div>
+            <div class="m-card-b">
+              <div class="m-check">
+                <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>身份核验 · 已回填</b><span>公安人口库 ＋ 湘易办实名：<b>王梓涵</b> / <b>430211********2418</b>。接口直连已开通，无需上传身份证</span></div></div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="m-sect">智能识别结果<span class="m-sect-x">M3-04 电信 AI 能力</span></div>
-        <div class="m-card">
-          <div class="m-card-h"><i class="fa-solid fa-wand-magic-sparkles"></i>关键字段自动提取</div>
-          <div class="m-card-b">
-          <div class="m-kv">
-            <div><span>用工单位</span><span>中车株洲电力机车研究所有限公司 <span class="m-tag green">与填报一致</span></span></div>
-            <div><span>合同签订日期</span><span>2025-07-15 <span class="m-tag green">一致</span></span></div>
-            <div><span>合同期限</span><span>2025-07-15 至 2028-07-14</span></div>
-            <div><span>工作地点</span><span>株洲市天元区时代路 <span class="m-tag green">市城区</span></span></div>
-            <div><span>岗位</span><span>电气工程师</span></div>
-            <div><span>社保缴纳单位</span><span>中车株洲电力机车研究所有限公司 <span class="m-tag green">与合同一致</span></span></div>
+
+          <div class="m-sect">材料佐证 · 需上传<span class="m-sect-x">人工核验 7 项</span></div>
+          <div class="m-note warn"><i class="fa-solid fa-triangle-exclamation"></i>
+            <div>以下 7 项<b>接口暂未开通</b>，<b>该项暂由人工核验，请上传证明材料</b>；请按<b>材料名称、份数、式样要求</b>拍照上传。接口开通后同一字段将<b>自动转为回填、免上传</b>。</div>
           </div>
-            <div class="m-note warn" style="margin-top:10px"><i class="fa-solid fa-triangle-exclamation"></i>
-              <div>识别到合同<b>月工资 8,500 元</b>，与您填报的 8,000 元不一致。请核对后修改，或说明差异原因。</div>
+          <div class="m-card">
+            <div class="m-card-b">
+              <div class="m-fi col">
+                <label>学历核验：毕业证 / 学历认证书 <span class="req">*</span></label>
+                <div class="m-fc">
+                  <div class="m-up">
+                    <div class="m-uc ok"><img src="https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?w=600&q=80" alt="毕业证.jpg"><span class="m-uc-x"><i class="fa-solid fa-xmark"></i></span><span class="m-uc-n">毕业证.jpg</span></div>
+                    <div class="m-uadd" data-toast="原型演示：调起相机或从相册选择"><i class="fa-solid fa-camera"></i><span>拍照上传</span></div>
+                  </div>
+                  <div class="m-fh">份数：1 份　·　式样：毕业证原件照片 ＋ 学信网《学历证书电子注册备案表》PDF；境外学历附教育部留学服务中心认证书</div>
+                </div>
+              </div>
+              <div class="m-fi col">
+                <label>社保核验：社保参保证明 <span class="req">*</span></label>
+                <div class="m-fc">
+                  <div class="m-up">
+                    <div class="m-uc ok"><img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&q=80" alt="社保参保证明.jpg"><span class="m-uc-x"><i class="fa-solid fa-xmark"></i></span><span class="m-uc-n">社保参保证明.jpg</span></div>
+                    <div class="m-uadd" data-toast="原型演示：调起相机或从相册选择"><i class="fa-solid fa-camera"></i><span>拍照上传</span></div>
+                  </div>
+                  <div class="m-fh">份数：1 份　·　式样：近 12 个月《职工基本养老保险参保缴费证明》，加盖社保经办机构或单位公章</div>
+                </div>
+              </div>
+              <div class="m-fi col">
+                <label>婚姻核验：结婚证 / 婚姻状况证明 <span class="req">*</span></label>
+                <div class="m-fc">
+                  <div class="m-up">
+                    <div class="m-uadd" data-toast="原型演示：调起相机或从相册选择"><i class="fa-solid fa-camera"></i><span>拍照上传</span></div>
+                  </div>
+                  <div class="m-fh">份数：1 份　·　式样：已婚提交结婚证内页照片；未婚提交个人书面声明；离异附离婚证。本人当前为未婚，可提交声明</div>
+                </div>
+              </div>
+              <div class="m-fi col">
+                <label>不动产核验：无房证明 <span class="req">*</span></label>
+                <div class="m-fc">
+                  <div class="m-up">
+                    <div class="m-uadd" data-toast="原型演示：调起相机或从相册选择"><i class="fa-solid fa-camera"></i><span>拍照上传</span></div>
+                  </div>
+                  <div class="m-fh">份数：1 份　·　式样：市不动产登记中心《不动产（无房）信息查询证明》，出具 30 日内有效；家庭申请含配偶</div>
+                </div>
+              </div>
+              <div class="m-fi col">
+                <label>个税核验：个税完税证明 <span class="req">*</span></label>
+                <div class="m-fc">
+                  <div class="m-up">
+                    <div class="m-uadd" data-toast="原型演示：调起相机或从相册选择"><i class="fa-solid fa-camera"></i><span>拍照上传</span></div>
+                  </div>
+                  <div class="m-fh">份数：1 份　·　式样：个人所得税《纳税记录》（近 6 个月），可从个人所得税 APP 导出 PDF</div>
+                </div>
+              </div>
+              <div class="m-fi col">
+                <label>市场监管核验：营业执照 / 纳税申报表</label>
+                <div class="m-fc">
+                  <div class="m-up">
+                    <div class="m-uadd" data-toast="原型演示：调起相机或从相册选择"><i class="fa-solid fa-camera"></i><span>拍照上传</span></div>
+                  </div>
+                  <div class="m-fh">份数：各 1 份　·　式样：创业青年人才提供营业执照副本 ＋ 近 1 期纳税申报表（加盖公章）。<b>就业青年人才本项不适用，可不上传</b></div>
+                </div>
+              </div>
+              <div class="m-fi col">
+                <label>户籍核验：户口簿 <span class="req">*</span></label>
+                <div class="m-fc">
+                  <div class="m-up">
+                    <div class="m-uadd" data-toast="原型演示：调起相机或从相册选择"><i class="fa-solid fa-camera"></i><span>拍照上传</span></div>
+                  </div>
+                  <div class="m-fh">份数：1 份　·　式样：户口簿首页 ＋ 本人页照片；集体户提供集体户口证明或加盖单位人事章的户口卡</div>
+                </div>
+              </div>
             </div>
-            <div style="margin-top:10px;display:flex;gap:8px">
-              <button class="m-btn sm ghost" type="button" onclick="MB.toast('已按识别结果回填为 8,500 元')">按识别结果回填</button>
-              <button class="m-btn sm" type="button" onclick="MB.go('apply-step1.html')">返回修改填报</button>
+          </div>
+
+          <div class="m-sect">就业关系证明 · 智能识别<span class="m-sect-x">劳动合同</span></div>
+          <div class="m-card">
+            <div class="m-card-h"><i class="fa-solid fa-cloud-arrow-up"></i>劳动合同上传并识别</div>
+            <div class="m-card-b">
+              <div class="m-fi col">
+                <label>劳动合同 <span class="req">*</span></label>
+                <div class="m-fc">
+                  <div class="m-up">
+                    <div class="m-uc ok"><img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&q=80" alt="劳动合同-第1页.jpg"><span class="m-uc-x"><i class="fa-solid fa-xmark"></i></span><span class="m-uc-n">劳动合同-第1页.jpg</span></div>
+                    <div class="m-uc ok"><img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80" alt="劳动合同-第2页.jpg"><span class="m-uc-x"><i class="fa-solid fa-xmark"></i></span><span class="m-uc-n">劳动合同-第2页.jpg</span></div>
+                    <div class="m-uadd" data-toast="原型演示：调起相机或从相册选择"><i class="fa-solid fa-camera"></i><span>拍照上传</span></div>
+                  </div>
+                  <div class="m-fh ok"><i class="fa-solid fa-circle-check"></i> 已识别 2 页，关键字段提取完成</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="m-card">
+            <div class="m-card-h"><i class="fa-solid fa-wand-magic-sparkles"></i>关键字段自动提取</div>
+            <div class="m-card-b">
+              <div class="m-kv">
+                <div><span>用工单位</span><span>中车株洲电力机车研究所有限公司 <span class="m-tag green">与填报一致</span></span></div>
+                <div><span>合同签订日期</span><span>2025-07-15 <span class="m-tag green">一致</span></span></div>
+                <div><span>合同期限</span><span>2025-07-15 至 2028-07-14</span></div>
+                <div><span>工作地点</span><span>株洲市天元区时代路 <span class="m-tag green">市城区</span></span></div>
+              </div>
+              <div class="m-note warn" style="margin-top:10px"><i class="fa-solid fa-triangle-exclamation"></i>
+                <div>识别到合同<b>月工资 8,500 元</b>，与您填报的 8,000 元不一致。请核对后修改，或说明差异原因。</div>
+              </div>
+              <div style="margin-top:10px;display:flex;gap:8px">
+                <button class="m-btn sm ghost" type="button" onclick="MB.toast('已按识别结果回填为 8,500 元')">按识别结果回填</button>
+                <button class="m-btn sm" type="button" onclick="MB.go('apply-step1.html')">返回修改填报</button>
+              </div>
             </div>
           </div>
         </div>
+
+        <!-- 形态二：全部接口开通（演示） -->
+        <div id="modeApi" style="display:none">
+          <div class="m-sect">接口直连 · 免上传<span class="m-sect-x">已开通 8 项</span></div>
+          <div class="m-card">
+            <div class="m-card-h"><i class="fa-solid fa-shield-halved"></i>八类核验全部接口直连，系统自动核验并回填</div>
+            <div class="m-card-b">
+              <div class="m-check">
+                <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>身份核验 · 已回填</b><span>公安人口库 ＋ 湘易办实名：王梓涵 / 430211********2418</span></div></div>
+                <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>婚姻核验 · 已回填</b><span>民政婚姻登记：未婚（选「已婚」自动切换为家庭申请）</span></div></div>
+                <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>不动产核验 · 已回填</b><span>不动产登记系统：市城区范围内无自有住房</span></div></div>
+                <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>学历核验 · 已回填</b><span>学信网：湖南工业大学 全日制本科 2025-07-01 毕业</span></div></div>
+                <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>社保核验 · 已回填</b><span>人社系统：连续缴纳 13 个月，单位与劳动合同一致</span></div></div>
+                <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>个税核验 · 已回填</b><span>税务系统：近 6 个月有申报记录，佐证在株实际从业</span></div></div>
+                <div class="na"><i class="fa-solid fa-minus"></i><div class="m-chl"><b>市场监管核验 · 不适用</b><span>就业青年人才不涉及营业执照核验（创业人才才判定）</span></div></div>
+                <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>户籍核验 · 已回填</b><span>公安户籍系统：株洲市天元区。取数时间 2026-09-08 09:41</span></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="m-note success"><i class="fa-solid fa-circle-check"></i>
+            <div>八类核验项<b>接口已全部开通</b>：系统实时核验并回填，<b>全部无需上传材料</b>。此形态用于演示接口开通后的效果，<b>上线仍以材料佐证为默认</b>。</div>
+          </div>
+        </div>
+
         <div class="m-sect">我的材料库<span class="m-sect-x">M2-08 复用已核验材料</span></div>
         <div class="m-cells">
           <a class="m-cell" href="me-materials.html"><span class="m-ci"><i class="fa-solid fa-folder-open"></i></span><span class="m-cl"><b>从材料库选择</b><span class="m-cs">已沉淀 4 份通过核验的材料，可直接引用免重复上传</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
         </div>
         <div class="m-note success"><i class="fa-solid fa-circle-check"></i>
-          <div>本次申请<b>免上传 6 项</b>材料，仅需上传 1 项。全部提交、修改、驳回、补材料记录将生成电子档案，可在<b>办理进度</b>中回溯查阅。</div>
+          <div><b>本期以材料佐证为默认</b>：身份信息接口直连自动核验，其余七项需上传证明材料由人工核验。全部提交、修改、驳回、补材料记录将生成电子档案，可在<b>办理进度</b>中回溯查阅。</div>
         </div>
       </div>
       <div class="m-actbar">
@@ -105,10 +197,33 @@
 
 <script src="../../assets/js/mobile.js"></script>
 <script>
+/* 双模式演示：顶部分段切换「材料佐证为主 / 全部接口开通」，就地显隐两种形态的材料项 */
 function nextStep() {
-  MB.confirm('检测到<b>月工资</b>识别结果（8,500 元）与填报内容（8,000 元）不一致。是否仍继续进入<b>承诺书签署</b>？',
+  var on = document.querySelector('#modeSeg button.on');
+  var mode = on ? on.getAttribute('data-mode') : 'material';
+  if (mode === 'api') {
+    MB.confirm('当前为<b>全部接口开通</b>演示形态：八类核验均由接口直连自动完成、无需上传材料。是否进入<b>承诺书签署</b>？',
+      '继续下一步', function () { location.href = 'apply-step4.html'; });
+    return;
+  }
+  MB.confirm('检测到<b>月工资</b>识别结果（8,500 元）与填报内容（8,000 元）不一致；材料佐证项将由受理初审人工核验。是否仍继续进入<b>承诺书签署</b>？',
     '继续下一步', function () { location.href = 'apply-step4.html'; });
 }
+(function () {
+  document.addEventListener('DOMContentLoaded', function () {
+    var seg = document.getElementById('modeSeg');
+    var mat = document.getElementById('modeMaterial');
+    var api = document.getElementById('modeApi');
+    if (!seg || !mat || !api) return;
+    seg.addEventListener('click', function (e) {
+      var b = e.target.closest ? e.target.closest('button[data-mode]') : null;
+      if (!b) return;
+      var isApi = b.getAttribute('data-mode') === 'api';
+      mat.style.display = isApi ? 'none' : '';
+      api.style.display = isApi ? '' : 'none';
+    });
+  });
+})();
 </script>
 </body>
 </html>

@@ -28,7 +28,7 @@
 
   <div class="alert alert-warning">
     <i class="fa-solid fa-triangle-exclamation"></i>
-    <div>本页为<b>复审（第二级）办理</b>，由<b>市保障性住房服务中心资格审核科审核员出具最终审核结论</b>。复审时可<b>查看受理初审意见与资格审核表</b>；<b>审核意见与受理意见分栏填写、分别签署留痕</b>，形成完整的两级审核记录。审核通过的<b>自动生成一年后的年审待办记录</b>。</div>
+    <div>本页为<b>复审（第二级）办理</b>，由<b>市保障性住房服务中心资格审核科审核员出具最终审核结论</b>。复审时可<b>查看受理初审意见与资格审核表</b>，并按项查看<b>核验方式（接口直连 / 材料佐证）</b>与受理初审人工认定意见；对认定有异议的可<b>单项退回受理初审重新认定，不必整件退回</b>。<b>审核意见与受理意见分栏填写、分别签署留痕</b>，形成完整的两级审核记录。审核通过的<b>自动生成一年后的年审待办记录</b>。</div>
   </div>
 
   <div class="stat-grid">
@@ -54,7 +54,14 @@
     </div>
   </div>
 
-  <div class="card list-card">
+  <div class="card list-card" data-tabs-scope>
+    <div class="tabs" style="margin-bottom:0;padding:8px 12px 0">
+      <div class="tab active" data-tab="ledger">复审台账</div>
+      <div class="tab" data-tab="link">结论后系统联动</div>
+    </div>
+
+    <div class="tab-panel active" data-panel="ledger">
+      <div class="card-body" style="padding:0">
     <div class="filter-bar">
       <div class="filter-item"><label>申请编号</label><input type="text" value="RC2026-" placeholder="申请编号"></div>
       <div class="filter-item"><label>申请人</label><input type="text" value="" placeholder="姓名"></div>
@@ -84,9 +91,13 @@
         </tbody>
       </table>
     </div>
-  </div>
+      </div>
+    </div>
 
-  <div class="sp-block" style="margin-top:12px">
+    <div class="tab-panel" data-panel="link">
+      <div class="card-body">
+        <div class="sp-scroll">
+  <div class="sp-block" style="margin-bottom:0">
     <div class="sp-h"><i class="fa-solid fa-diagram-project"></i> 出具结论后的系统联动<span class="sub">结论一经出具即写入办件流水，联动动作自动执行</span></div>
     <div class="sp-b">
       <div class="sp-tw">
@@ -99,6 +110,10 @@
             <tr><td><span class="badge orange">退回申请人补正</span></td><td class="cell-lg"><b>一次性告知全部缺项</b>，不得反复退回；<b>补正期间审核时限中止</b>，补正后自动回到复审环节由原复审人继续办理，受理时间不变</td><td>站内 + 微信 + 短信</td><td class="cell-lg">回复审环节，<span class="link" onclick="location.href='reject-list.html'">补正跟踪</span></td></tr>
           </tbody>
         </table>
+      </div>
+    </div>
+  </div>
+        </div>
       </div>
     </div>
   </div>
@@ -145,6 +160,83 @@
           <button class="btn" onclick="location.href='audit-desk.html'"><i class="fa-solid fa-folder-open"></i> 查看申请信息与附件</button>
           <button class="btn" onclick="location.href='verify-report.html'"><i class="fa-solid fa-shield-halved"></i> 查看联审联查结论</button>
         </div>
+      </div>
+    </div>
+
+    <div class="sp-block" style="margin-top:12px">
+      <div class="sp-h"><i class="fa-solid fa-list-check"></i> 复审核验清单 · 按项标注核验方式<span class="sub">材料佐证项显示受理初审人工认定意见与署名（只读），可单项退回重新认定</span></div>
+      <div class="sp-b">
+        <div class="alert alert-warning" style="margin-bottom:10px">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+          <div>接口未开通，除身份项外均以<b>材料佐证</b>核验。复审对<b>受理初审人工认定</b>有异议的，可对该项<b>单项退回受理初审重新认定</b>（不必整件退回）；<b>接口直连</b>项由系统自动核验，无此操作。</div>
+        </div>
+        <div class="sp-tw">
+          <table class="data-table compact">
+            <thead><tr><th>核验事项</th><th>核验方式</th><th class="cell-lg">核验内容 / 材料佐证</th><th class="cell-lg">受理初审认定（只读）</th><th>复审操作</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>身份与人口核验<span class="muted"> 市公安局</span></td>
+                <td><span class="badge blue">接口直连</span></td>
+                <td class="cell-lg">部门返回：姓名 王梓涵 · 身份证号 430211********2418 · 人像比对一致<span class="muted"> 取数 2026-09-03 10:27</span></td>
+                <td class="cell-lg"><span class="badge green">一致</span><span class="muted"> 系统自动核验，无需人工认定</span></td>
+                <td><span class="muted">—</span></td>
+              </tr>
+              <tr>
+                <td>婚姻核验<span class="muted"> 市民政局</span></td>
+                <td><span class="badge orange">材料佐证</span></td>
+                <td class="cell-lg"><span onclick="PMS.toast('已打开材料影像预览：婚姻状况书面声明.jpg')" title="查看材料影像" style="display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;vertical-align:middle;margin-right:6px;border:1px dashed var(--line-gray);border-radius:var(--radius);background:var(--fill-gray);color:var(--text-3);cursor:pointer"><i class="fa-regular fa-image"></i></span>识别：<b>未婚</b>，无婚姻登记记录（本人书面声明）</td>
+                <td class="cell-lg"><span class="badge green">符合</span>　书面声明与填报一致<span class="muted"> 认定人 刘志刚 · 2026-09-05</span></td>
+                <td><span class="link" onclick="backItem('婚姻核验')">退回重审</span></td>
+              </tr>
+              <tr>
+                <td>不动产核验<span class="muted"> 市不动产登记中心</span></td>
+                <td><span class="badge orange">材料佐证</span></td>
+                <td class="cell-lg"><span onclick="PMS.toast('已打开材料影像预览：无房证明.pdf')" title="查看材料影像" style="display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;vertical-align:middle;margin-right:6px;border:1px dashed var(--line-gray);border-radius:var(--radius);background:var(--fill-gray);color:var(--text-3);cursor:pointer"><i class="fa-regular fa-image"></i></span>识别：市城区范围内<b>无自有住房</b>，无近 3 年交易记录</td>
+                <td class="cell-lg"><span class="badge green">符合</span>　无房证明与无房承诺书相互印证<span class="muted"> 认定人 刘志刚 · 2026-09-05</span></td>
+                <td><span class="link" onclick="backItem('不动产核验')">退回重审</span></td>
+              </tr>
+              <tr>
+                <td>学历学位核验<span class="muted"> 学信网 / 留服中心</span></td>
+                <td><span class="badge orange">材料佐证</span></td>
+                <td class="cell-lg"><span onclick="PMS.toast('已打开材料影像预览：毕业证书与学位证书.pdf')" title="查看材料影像" style="display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;vertical-align:middle;margin-right:6px;border:1px dashed var(--line-gray);border-radius:var(--radius);background:var(--fill-gray);color:var(--text-3);cursor:pointer"><i class="fa-regular fa-image"></i></span>识别：<b>全日制本科</b> · 湖南工业大学 · 毕业 2025-07-01（毕业 2 年内）</td>
+                <td class="cell-lg"><span class="badge green">符合</span>　毕业证书、学位证书识别要素与填报一致<span class="muted"> 认定人 刘志刚 · 2026-09-05</span></td>
+                <td><span class="link" onclick="backItem('学历学位核验')">退回重审</span></td>
+              </tr>
+              <tr class="row-warn">
+                <td>社保核验<span class="muted"> 市社保中心</span></td>
+                <td><span class="badge orange">材料佐证</span></td>
+                <td class="cell-lg"><span onclick="PMS.toast('已打开材料影像预览：单位社保参保承诺书.pdf')" title="查看材料影像" style="display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;vertical-align:middle;margin-right:6px;border:1px dashed var(--line-gray);border-radius:var(--radius);background:var(--fill-gray);color:var(--text-3);cursor:pointer"><i class="fa-regular fa-image"></i></span>识别：<b>查无缴纳记录</b>，已收单位盖章参保承诺书</td>
+                <td class="cell-lg"><span class="badge green">符合</span>　凭单位承诺书容缺受理，待补核 2026-11-04<span class="muted"> 认定人 刘志刚 · 2026-09-05</span></td>
+                <td><span class="link" onclick="backItem('社保核验')">退回重审</span></td>
+              </tr>
+              <tr>
+                <td>个人所得税核验<span class="muted"> 市税务局</span></td>
+                <td><span class="badge orange">材料佐证</span></td>
+                <td class="cell-lg"><span onclick="PMS.toast('已打开材料影像预览：近6个月工资发放流水.pdf')" title="查看材料影像" style="display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;vertical-align:middle;margin-right:6px;border:1px dashed var(--line-gray);border-radius:var(--radius);background:var(--fill-gray);color:var(--text-3);cursor:pointer"><i class="fa-regular fa-image"></i></span>识别：2026 年度仅 <b>3 个月</b>个税记录，系入职当年未达起征点</td>
+                <td class="cell-lg"><span class="badge green">符合</span>　已附工资流水佐证实际从业<span class="muted"> 认定人 刘志刚 · 2026-09-05</span></td>
+                <td><span class="link" onclick="backItem('个人所得税核验')">退回重审</span></td>
+              </tr>
+              <tr>
+                <td>市场监管核验<span class="muted"> 市市场监管局</span></td>
+                <td><span class="badge orange">材料佐证</span></td>
+                <td class="cell-lg"><span onclick="PMS.toast('已打开材料影像预览：申请类型说明.pdf')" title="查看材料影像" style="display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;vertical-align:middle;margin-right:6px;border:1px dashed var(--line-gray);border-radius:var(--radius);background:var(--fill-gray);color:var(--text-3);cursor:pointer"><i class="fa-regular fa-image"></i></span>识别：申请类型为<b>就业青年人才</b>，工商登记项不参与判定</td>
+                <td class="cell-lg"><span class="badge green">符合</span>　就业类不涉及工商登记，本项不参与判定<span class="muted"> 认定人 刘志刚 · 2026-09-05</span></td>
+                <td><span class="link" onclick="backItem('市场监管核验')">退回重审</span></td>
+              </tr>
+              <tr>
+                <td>户籍核验<span class="muted"> 市公安局</span></td>
+                <td><span class="badge orange">材料佐证</span></td>
+                <td class="cell-lg"><span onclick="PMS.toast('已打开材料影像预览：户口簿.jpg')" title="查看材料影像" style="display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;vertical-align:middle;margin-right:6px;border:1px dashed var(--line-gray);border-radius:var(--radius);background:var(--fill-gray);color:var(--text-3);cursor:pointer"><i class="fa-regular fa-image"></i></span>识别：户籍地 <b>湖南省常德市</b>，非株洲市城区户籍，符合引进人才情形</td>
+                <td class="cell-lg"><span class="badge green">符合</span>　户口簿影像清晰，户籍地与填报一致<span class="muted"> 认定人 刘志刚 · 2026-09-05</span></td>
+                <td><span class="link" onclick="backItem('户籍核验')">退回重审</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="hint" style="margin-top:8px">
+          <i class="fa-solid fa-circle-info"></i>
+          单项退回仅将该核验项退回受理初审重新认定，其余核验项与本件复审流程不受影响；<b>接口开通后可在</b><span class="link" onclick="location.href='../system/sys-verify-mode.html'">核验模式配置</span><b>逐项切换为接口直连</b>，历史结论保留原核验方式标识。
+        </p>
       </div>
     </div>
 
@@ -233,6 +325,16 @@
 </div>
 
 <script>
+function backItem(name) {
+  PMS.confirm({
+    title: '单项退回重新认定',
+    message: '确认将「' + name + '」核验项退回受理初审重新认定？',
+    detail: '仅退回该核验项至受理初审重新人工认定，不必整件退回；其余核验项与本件复审流程不受影响，受理时间不变，退回操作单独留痕并通知受理初审人刘志刚。',
+    type: 'warning',
+    okText: '确认退回该项',
+    onOk: function () { PMS.toast('已将「' + name + '」退回受理初审重新认定，已通知初审人刘志刚', 'success'); }
+  });
+}
 function submitReview() {
   var kind = document.getElementById('reResult').value;
   var op = document.getElementById('reOpinion');

@@ -1,0 +1,567 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - text: 
+      - generic [ref=e5]: 
+      - generic [ref=e6]: 株洲市人才住房保障管理平台
+    - generic [ref=e7]:
+      - generic "当前业务子系统" [ref=e8]:
+        - generic [ref=e9]: 人才档案与资格联审
+      - button " 切换系统" [ref=e10] [cursor=pointer]:
+        - generic [ref=e11]: 
+        - text: 切换系统
+    - generic [ref=e12]:
+      - button " 权限配置管理员 " [ref=e14] [cursor=pointer]:
+        - generic [ref=e15]: 
+        - generic [ref=e16]: 权限配置管理员
+        - generic [ref=e17]: 
+      - generic "消息" [ref=e18] [cursor=pointer]:
+        - generic [ref=e19]: 
+        - generic [ref=e20]: "5"
+      - generic "帮助" [ref=e21] [cursor=pointer]:
+        - generic [ref=e22]: 
+      - generic [ref=e23] [cursor=pointer]:
+        - generic [ref=e24]: 龙
+        - generic [ref=e25]:
+          - generic [ref=e26]: 龙志宏
+          - generic [ref=e27]: 市保障性住房服务中心信息科 · 权限配置管理员
+      - link "" [ref=e28] [cursor=pointer]:
+        - /url: ../../index.html
+        - generic [ref=e29]: 
+  - complementary [ref=e30]:
+    - generic [ref=e31]:
+      - textbox "菜单搜索" [ref=e32]
+      - generic [ref=e33]: 
+      - text: 
+    - generic [ref=e34]:
+      - link " 我的工作台" [ref=e35] [cursor=pointer]:
+        - /url: ../../modules/workbench/workbench.html?role=admin
+        - generic [ref=e36]: 
+        - generic [ref=e37]: 我的工作台
+      - generic [ref=e39] [cursor=pointer]:
+        - generic [ref=e40]: 
+        - generic [ref=e41]: 待办与协同
+        - generic [ref=e42]: 
+      - generic [ref=e44] [cursor=pointer]:
+        - generic [ref=e45]: 
+        - generic [ref=e46]: 人才档案
+        - generic [ref=e47]: 
+      - generic [ref=e49] [cursor=pointer]:
+        - generic [ref=e50]: 
+        - generic [ref=e51]: 资格受理与初审
+        - generic [ref=e52]: 
+      - generic [ref=e53]:
+        - generic [ref=e54] [cursor=pointer]:
+          - generic [ref=e55]: 
+          - generic [ref=e56]: 复核与结论
+          - generic [ref=e57]: 
+        - generic [ref=e58]:
+          - link "人工复核工作台" [ref=e59] [cursor=pointer]:
+            - /url: ../../modules/apply/audit-desk.html?role=admin
+          - link "审核时限管理" [ref=e60] [cursor=pointer]:
+            - /url: ../../modules/apply/timelimit-manage.html?role=admin
+          - link "驳回与重新提交" [ref=e61] [cursor=pointer]:
+            - /url: ../../modules/apply/reject-list.html?role=admin
+          - link "审核结论与送达" [ref=e62] [cursor=pointer]:
+            - /url: ../../modules/apply/conclusion.html?role=admin
+          - link "全过程电子档案" [ref=e63] [cursor=pointer]:
+            - /url: ../../modules/apply/archive-list.html?role=admin
+      - generic [ref=e65] [cursor=pointer]:
+        - generic [ref=e66]: 
+        - generic [ref=e67]: 窗口兜底代办
+        - generic [ref=e68]: 
+      - generic [ref=e70] [cursor=pointer]:
+        - generic [ref=e71]: 
+        - generic [ref=e72]: 多部门数据核验
+        - generic [ref=e73]: 
+  - main [ref=e74]:
+    - generic [ref=e76]:
+      - generic [ref=e77]: 
+      - text: 株洲市人才住房保障管理平台
+      - generic [ref=e78]: /
+      - text: 人才档案与资格联审
+      - generic [ref=e79]: /
+      - text: 复核与结论
+      - generic [ref=e80]: /
+      - generic [ref=e81]: 复审办理与审核结论
+    - generic [ref=e82]:
+      - generic [ref=e83]: 
+      - generic [ref=e84]: 本页为复审（第二级）办理，由市保障性住房服务中心资格审核科审核员出具最终审核结论。复审时可查看受理初审意见与资格审核表，并按项查看核验方式（接口直连 / 材料佐证）与受理初审人工认定意见；对认定有异议的可单项退回受理初审重新认定，不必整件退回。审核意见与受理意见分栏填写、分别签署留痕，形成完整的两级审核记录。审核通过的自动生成一年后的年审待办记录。
+    - generic [ref=e85]:
+      - generic [ref=e86]:
+        - generic [ref=e88]: 
+        - generic [ref=e89]:
+          - generic [ref=e90]: 待复审
+          - generic [ref=e91]: "9"
+          - generic [ref=e92]: 件 · 临期 2 / 超期 1
+      - generic [ref=e93]:
+        - generic [ref=e95]: 
+        - generic [ref=e96]:
+          - generic [ref=e97]: 本月出具结论
+          - generic [ref=e98]: "286"
+          - generic [ref=e99]: 件 · 平均 1.6 个工作日
+      - generic [ref=e100]:
+        - generic [ref=e102]: 
+        - generic [ref=e103]:
+          - generic [ref=e104]: 审核通过
+          - generic [ref=e105]: "249"
+          - generic [ref=e106]: 通过率 87.1%
+      - generic [ref=e107]:
+        - generic [ref=e109]: 
+        - generic [ref=e110]:
+          - generic [ref=e111]: 退回受理环节
+          - generic [ref=e112]: "4"
+          - generic [ref=e113]: 件 · 初审意见要素不全
+    - generic [ref=e114]:
+      - generic [ref=e115]:
+        - generic [ref=e116] [cursor=pointer]: 复审台账
+        - generic [ref=e117] [cursor=pointer]: 结论后系统联动
+      - generic [ref=e119]:
+        - generic [ref=e120]:
+          - generic [ref=e121]:
+            - generic [ref=e122]: 申请编号
+            - textbox "申请编号" [ref=e123]: RC2026-
+          - generic [ref=e124]:
+            - generic [ref=e125]: 申请人
+            - textbox "姓名" [ref=e126]
+          - generic [ref=e127]:
+            - generic [ref=e128]: 申请渠道
+            - combobox [ref=e129]:
+              - option "全部" [selected]
+              - option "个人申请"
+              - option "用人单位（移动端申请）"
+              - option "运营机构（PC 申请）"
+              - option "政务窗口（PC 申请）"
+          - generic [ref=e130]:
+            - generic [ref=e131]: 复审结论
+            - combobox [ref=e132]:
+              - option "全部" [selected]
+              - option "待复审"
+              - option "审核通过"
+              - option "不予通过"
+              - option "退回受理环节"
+              - option "退回申请人补正"
+          - generic [ref=e133]:
+            - generic [ref=e134]: 结论日期
+            - textbox [ref=e135]: 2026-09-05
+          - generic [ref=e136]:
+            - button " 查询" [ref=e137] [cursor=pointer]:
+              - generic [ref=e138]: 
+              - text: 查询
+            - button "重置" [ref=e139] [cursor=pointer]
+            - button " 复审办理" [ref=e140] [cursor=pointer]:
+              - generic [ref=e141]: 
+              - text: 复审办理
+            - button " 查看资格审核表" [ref=e142] [cursor=pointer]:
+              - generic [ref=e143]: 
+              - text: 查看资格审核表
+            - button " 返回件池" [ref=e144] [cursor=pointer]:
+              - generic [ref=e145]: 
+              - text: 返回件池
+            - button " 导出" [ref=e146] [cursor=pointer]:
+              - generic [ref=e147]: 
+              - text: 导出
+        - table [ref=e149]:
+          - rowgroup [ref=e150]:
+            - row "序号 申请编号 申请人 申请渠道 初审人 初审时间 初审结论 复审结论 复审人 复审时间 当前环节 操作" [ref=e151]:
+              - columnheader "序号" [ref=e152]
+              - columnheader "申请编号" [ref=e153]
+              - columnheader "申请人" [ref=e154]
+              - columnheader "申请渠道" [ref=e155]
+              - columnheader "初审人" [ref=e156]
+              - columnheader "初审时间" [ref=e157]
+              - columnheader "初审结论" [ref=e158]
+              - columnheader "复审结论" [ref=e159]
+              - columnheader "复审人" [ref=e160]
+              - columnheader "复审时间" [ref=e161]
+              - columnheader "当前环节" [ref=e162]
+              - columnheader "操作" [ref=e163]
+          - rowgroup [ref=e164]:
+            - row "01 RC2026-0831-0098 刘×× 政务窗口（PC 申请） 刘志刚 2026-09-01 09:08 初审通过报复审 待复审 — — 复审已超期 2 天 复审办理" [ref=e165]:
+              - cell "01" [ref=e166]
+              - cell "RC2026-0831-0098" [ref=e167]
+              - cell "刘××" [ref=e168]
+              - cell "政务窗口（PC 申请）" [ref=e169]:
+                - generic [ref=e170]: 政务窗口（PC 申请）
+              - cell "刘志刚" [ref=e171]
+              - cell "2026-09-01 09:08" [ref=e172]
+              - cell "初审通过报复审" [ref=e173]:
+                - generic [ref=e174]: 初审通过报复审
+              - cell "待复审" [ref=e175]:
+                - generic [ref=e176]: 待复审
+              - cell "—" [ref=e177]
+              - cell "—" [ref=e178]
+              - cell "复审已超期 2 天" [ref=e179]:
+                - generic [ref=e180]: 复审已超期 2 天
+              - cell "复审办理" [ref=e181]
+            - row "02 RC2026-0903-0162 王×× 个人申请 刘志刚 2026-09-05 10:26 初审通过报复审 待复审 — — 剩 1 个工作日 复审办理 资格审核表" [ref=e182]:
+              - cell "02" [ref=e183]
+              - cell "RC2026-0903-0162" [ref=e184]
+              - cell "王××" [ref=e185]
+              - cell "个人申请" [ref=e186]:
+                - generic [ref=e187]: 个人申请
+              - cell "刘志刚" [ref=e188]
+              - cell "2026-09-05 10:26" [ref=e189]
+              - cell "初审通过报复审" [ref=e190]:
+                - generic [ref=e191]: 初审通过报复审
+              - cell "待复审" [ref=e192]:
+                - generic [ref=e193]: 待复审
+              - cell "—" [ref=e194]
+              - cell "—" [ref=e195]
+              - cell "剩 1 个工作日" [ref=e196]:
+                - generic [ref=e197]: 剩 1 个工作日
+              - cell "复审办理 资格审核表" [ref=e198]
+            - row "03 RC2026-0904-0171 谭×× 用人单位（移动端申请） 刘志刚 2026-09-05 14:12 初审通过报复审 待复审 — — 剩 1 个工作日 复审办理" [ref=e199]:
+              - cell "03" [ref=e200]
+              - cell "RC2026-0904-0171" [ref=e201]
+              - cell "谭××" [ref=e202]
+              - cell "用人单位（移动端申请）" [ref=e203]:
+                - generic [ref=e204]: 用人单位（移动端申请）
+              - cell "刘志刚" [ref=e205]
+              - cell "2026-09-05 14:12" [ref=e206]
+              - cell "初审通过报复审" [ref=e207]:
+                - generic [ref=e208]: 初审通过报复审
+              - cell "待复审" [ref=e209]:
+                - generic [ref=e210]: 待复审
+              - cell "—" [ref=e211]
+              - cell "—" [ref=e212]
+              - cell "剩 1 个工作日" [ref=e213]:
+                - generic [ref=e214]: 剩 1 个工作日
+              - cell "复审办理" [ref=e215]
+            - row "04 RC2026-0901-0126 邓×× 个人申请 刘志刚 2026-09-02 09:26 初审通过报复审 审核通过 周慧 2026-09-03 15:12 已出具并送达 两级意见 联动记录" [ref=e216]:
+              - cell "04" [ref=e217]
+              - cell "RC2026-0901-0126" [ref=e218]
+              - cell "邓××" [ref=e219]
+              - cell "个人申请" [ref=e220]:
+                - generic [ref=e221]: 个人申请
+              - cell "刘志刚" [ref=e222]
+              - cell "2026-09-02 09:26" [ref=e223]
+              - cell "初审通过报复审" [ref=e224]:
+                - generic [ref=e225]: 初审通过报复审
+              - cell "审核通过" [ref=e226]:
+                - generic [ref=e227]: 审核通过
+              - cell "周慧" [ref=e228]
+              - cell "2026-09-03 15:12" [ref=e229]
+              - cell "已出具并送达" [ref=e230]:
+                - generic [ref=e231]: 已出具并送达
+              - cell "两级意见 联动记录" [ref=e232]
+            - row "05 RC2026-0902-0138 周×× 用人单位（移动端申请） 刘志刚 2026-09-03 10:18 初审通过报复审 审核通过 周慧 2026-09-04 09:36 已出具并送达 两级意见 联动记录" [ref=e233]:
+              - cell "05" [ref=e234]
+              - cell "RC2026-0902-0138" [ref=e235]
+              - cell "周××" [ref=e236]
+              - cell "用人单位（移动端申请）" [ref=e237]:
+                - generic [ref=e238]: 用人单位（移动端申请）
+              - cell "刘志刚" [ref=e239]
+              - cell "2026-09-03 10:18" [ref=e240]
+              - cell "初审通过报复审" [ref=e241]:
+                - generic [ref=e242]: 初审通过报复审
+              - cell "审核通过" [ref=e243]:
+                - generic [ref=e244]: 审核通过
+              - cell "周慧" [ref=e245]
+              - cell "2026-09-04 09:36" [ref=e246]
+              - cell "已出具并送达" [ref=e247]:
+                - generic [ref=e248]: 已出具并送达
+              - cell "两级意见 联动记录" [ref=e249]
+            - row "06 RC2026-0902-0148 谢×× 运营机构（PC 申请） 刘志刚 2026-09-03 11:04 初审通过报复审 不予通过 周慧 2026-09-04 16:42 已出具并送达 两级意见 联动记录" [ref=e250]:
+              - cell "06" [ref=e251]
+              - cell "RC2026-0902-0148" [ref=e252]
+              - cell "谢××" [ref=e253]
+              - cell "运营机构（PC 申请）" [ref=e254]:
+                - generic [ref=e255]: 运营机构（PC 申请）
+              - cell "刘志刚" [ref=e256]
+              - cell "2026-09-03 11:04" [ref=e257]
+              - cell "初审通过报复审" [ref=e258]:
+                - generic [ref=e259]: 初审通过报复审
+              - cell "不予通过" [ref=e260]:
+                - generic [ref=e261]: 不予通过
+              - cell "周慧" [ref=e262]
+              - cell "2026-09-04 16:42" [ref=e263]
+              - cell "已出具并送达" [ref=e264]:
+                - generic [ref=e265]: 已出具并送达
+              - cell "两级意见 联动记录" [ref=e266]
+            - row "07 RC2026-0903-0154 龙×× 政务窗口（PC 申请） 刘志刚 2026-09-04 09:12 初审通过报复审 退回受理环节 周慧 2026-09-05 10:26 回受理初审 两级意见 受理初审办理" [ref=e267]:
+              - cell "07" [ref=e268]
+              - cell "RC2026-0903-0154" [ref=e269]
+              - cell "龙××" [ref=e270]
+              - cell "政务窗口（PC 申请）" [ref=e271]:
+                - generic [ref=e272]: 政务窗口（PC 申请）
+              - cell "刘志刚" [ref=e273]
+              - cell "2026-09-04 09:12" [ref=e274]
+              - cell "初审通过报复审" [ref=e275]:
+                - generic [ref=e276]: 初审通过报复审
+              - cell "退回受理环节" [ref=e277]:
+                - generic [ref=e278]: 退回受理环节
+              - cell "周慧" [ref=e279]
+              - cell "2026-09-05 10:26" [ref=e280]
+              - cell "回受理初审" [ref=e281]:
+                - generic [ref=e282]: 回受理初审
+              - cell "两级意见 受理初审办理" [ref=e283]
+            - row "08 RC2026-0903-0158 彭×× 个人申请 刘志刚 2026-09-04 15:38 初审通过报复审 退回申请人补正 周慧 2026-09-05 11:08 补正中 · 时限已中止 两级意见 补正跟踪" [ref=e284]:
+              - cell "08" [ref=e285]
+              - cell "RC2026-0903-0158" [ref=e286]
+              - cell "彭××" [ref=e287]
+              - cell "个人申请" [ref=e288]:
+                - generic [ref=e289]: 个人申请
+              - cell "刘志刚" [ref=e290]
+              - cell "2026-09-04 15:38" [ref=e291]
+              - cell "初审通过报复审" [ref=e292]:
+                - generic [ref=e293]: 初审通过报复审
+              - cell "退回申请人补正" [ref=e294]:
+                - generic [ref=e295]: 退回申请人补正
+              - cell "周慧" [ref=e296]
+              - cell "2026-09-05 11:08" [ref=e297]
+              - cell "补正中 · 时限已中止" [ref=e298]:
+                - generic [ref=e299]: 补正中 · 时限已中止
+              - cell "两级意见 补正跟踪" [ref=e300]
+            - row "09 RC2026-0831-0098 刘×× 政务窗口（PC 申请） 刘志刚 2026-09-01 09:08 初审通过报复审 待复审 — — 复审已超期 2 天 复审办理" [ref=e301]:
+              - cell "09" [ref=e302]
+              - cell "RC2026-0831-0098" [ref=e303]
+              - cell "刘××" [ref=e304]
+              - cell "政务窗口（PC 申请）" [ref=e305]:
+                - generic [ref=e306]: 政务窗口（PC 申请）
+              - cell "刘志刚" [ref=e307]
+              - cell "2026-09-01 09:08" [ref=e308]
+              - cell "初审通过报复审" [ref=e309]:
+                - generic [ref=e310]: 初审通过报复审
+              - cell "待复审" [ref=e311]:
+                - generic [ref=e312]: 待复审
+              - cell "—" [ref=e313]
+              - cell "—" [ref=e314]
+              - cell "复审已超期 2 天" [ref=e315]:
+                - generic [ref=e316]: 复审已超期 2 天
+              - cell "复审办理" [ref=e317]
+            - row "10 RC2026-0903-0162 王×× 个人申请 刘志刚 2026-09-05 10:26 初审通过报复审 待复审 — — 剩 1 个工作日 复审办理 资格审核表" [ref=e318]:
+              - cell "10" [ref=e319]
+              - cell "RC2026-0903-0162" [ref=e320]
+              - cell "王××" [ref=e321]
+              - cell "个人申请" [ref=e322]:
+                - generic [ref=e323]: 个人申请
+              - cell "刘志刚" [ref=e324]
+              - cell "2026-09-05 10:26" [ref=e325]
+              - cell "初审通过报复审" [ref=e326]:
+                - generic [ref=e327]: 初审通过报复审
+              - cell "待复审" [ref=e328]:
+                - generic [ref=e329]: 待复审
+              - cell "—" [ref=e330]
+              - cell "—" [ref=e331]
+              - cell "剩 1 个工作日" [ref=e332]:
+                - generic [ref=e333]: 剩 1 个工作日
+              - cell "复审办理 资格审核表" [ref=e334]
+            - row "11 RC2026-0904-0171 谭×× 用人单位（移动端申请） 刘志刚 2026-09-05 14:12 初审通过报复审 待复审 — — 剩 1 个工作日 复审办理" [ref=e335]:
+              - cell "11" [ref=e336]
+              - cell "RC2026-0904-0171" [ref=e337]
+              - cell "谭××" [ref=e338]
+              - cell "用人单位（移动端申请）" [ref=e339]:
+                - generic [ref=e340]: 用人单位（移动端申请）
+              - cell "刘志刚" [ref=e341]
+              - cell "2026-09-05 14:12" [ref=e342]
+              - cell "初审通过报复审" [ref=e343]:
+                - generic [ref=e344]: 初审通过报复审
+              - cell "待复审" [ref=e345]:
+                - generic [ref=e346]: 待复审
+              - cell "—" [ref=e347]
+              - cell "—" [ref=e348]
+              - cell "剩 1 个工作日" [ref=e349]:
+                - generic [ref=e350]: 剩 1 个工作日
+              - cell "复审办理" [ref=e351]
+            - row "12 RC2026-0901-0126 邓×× 个人申请 刘志刚 2026-09-02 09:26 初审通过报复审 审核通过 周慧 2026-09-03 15:12 已出具并送达 两级意见 联动记录" [ref=e352]:
+              - cell "12" [ref=e353]
+              - cell "RC2026-0901-0126" [ref=e354]
+              - cell "邓××" [ref=e355]
+              - cell "个人申请" [ref=e356]:
+                - generic [ref=e357]: 个人申请
+              - cell "刘志刚" [ref=e358]
+              - cell "2026-09-02 09:26" [ref=e359]
+              - cell "初审通过报复审" [ref=e360]:
+                - generic [ref=e361]: 初审通过报复审
+              - cell "审核通过" [ref=e362]:
+                - generic [ref=e363]: 审核通过
+              - cell "周慧" [ref=e364]
+              - cell "2026-09-03 15:12" [ref=e365]
+              - cell "已出具并送达" [ref=e366]:
+                - generic [ref=e367]: 已出具并送达
+              - cell "两级意见 联动记录" [ref=e368]
+            - row "13 RC2026-0902-0138 周×× 用人单位（移动端申请） 刘志刚 2026-09-03 10:18 初审通过报复审 审核通过 周慧 2026-09-04 09:36 已出具并送达 两级意见 联动记录" [ref=e369]:
+              - cell "13" [ref=e370]
+              - cell "RC2026-0902-0138" [ref=e371]
+              - cell "周××" [ref=e372]
+              - cell "用人单位（移动端申请）" [ref=e373]:
+                - generic [ref=e374]: 用人单位（移动端申请）
+              - cell "刘志刚" [ref=e375]
+              - cell "2026-09-03 10:18" [ref=e376]
+              - cell "初审通过报复审" [ref=e377]:
+                - generic [ref=e378]: 初审通过报复审
+              - cell "审核通过" [ref=e379]:
+                - generic [ref=e380]: 审核通过
+              - cell "周慧" [ref=e381]
+              - cell "2026-09-04 09:36" [ref=e382]
+              - cell "已出具并送达" [ref=e383]:
+                - generic [ref=e384]: 已出具并送达
+              - cell "两级意见 联动记录" [ref=e385]
+            - row "14 RC2026-0902-0148 谢×× 运营机构（PC 申请） 刘志刚 2026-09-03 11:04 初审通过报复审 不予通过 周慧 2026-09-04 16:42 已出具并送达 两级意见 联动记录" [ref=e386]:
+              - cell "14" [ref=e387]
+              - cell "RC2026-0902-0148" [ref=e388]
+              - cell "谢××" [ref=e389]
+              - cell "运营机构（PC 申请）" [ref=e390]:
+                - generic [ref=e391]: 运营机构（PC 申请）
+              - cell "刘志刚" [ref=e392]
+              - cell "2026-09-03 11:04" [ref=e393]
+              - cell "初审通过报复审" [ref=e394]:
+                - generic [ref=e395]: 初审通过报复审
+              - cell "不予通过" [ref=e396]:
+                - generic [ref=e397]: 不予通过
+              - cell "周慧" [ref=e398]
+              - cell "2026-09-04 16:42" [ref=e399]
+              - cell "已出具并送达" [ref=e400]:
+                - generic [ref=e401]: 已出具并送达
+              - cell "两级意见 联动记录" [ref=e402]
+            - row "15 RC2026-0903-0154 龙×× 政务窗口（PC 申请） 刘志刚 2026-09-04 09:12 初审通过报复审 退回受理环节 周慧 2026-09-05 10:26 回受理初审 两级意见 受理初审办理" [ref=e403]:
+              - cell "15" [ref=e404]
+              - cell "RC2026-0903-0154" [ref=e405]
+              - cell "龙××" [ref=e406]
+              - cell "政务窗口（PC 申请）" [ref=e407]:
+                - generic [ref=e408]: 政务窗口（PC 申请）
+              - cell "刘志刚" [ref=e409]
+              - cell "2026-09-04 09:12" [ref=e410]
+              - cell "初审通过报复审" [ref=e411]:
+                - generic [ref=e412]: 初审通过报复审
+              - cell "退回受理环节" [ref=e413]:
+                - generic [ref=e414]: 退回受理环节
+              - cell "周慧" [ref=e415]
+              - cell "2026-09-05 10:26" [ref=e416]
+              - cell "回受理初审" [ref=e417]:
+                - generic [ref=e418]: 回受理初审
+              - cell "两级意见 受理初审办理" [ref=e419]
+            - row "16 RC2026-0903-0158 彭×× 个人申请 刘志刚 2026-09-04 15:38 初审通过报复审 退回申请人补正 周慧 2026-09-05 11:08 补正中 · 时限已中止 两级意见 补正跟踪" [ref=e420]:
+              - cell "16" [ref=e421]
+              - cell "RC2026-0903-0158" [ref=e422]
+              - cell "彭××" [ref=e423]
+              - cell "个人申请" [ref=e424]:
+                - generic [ref=e425]: 个人申请
+              - cell "刘志刚" [ref=e426]
+              - cell "2026-09-04 15:38" [ref=e427]
+              - cell "初审通过报复审" [ref=e428]:
+                - generic [ref=e429]: 初审通过报复审
+              - cell "退回申请人补正" [ref=e430]:
+                - generic [ref=e431]: 退回申请人补正
+              - cell "周慧" [ref=e432]
+              - cell "2026-09-05 11:08" [ref=e433]
+              - cell "补正中 · 时限已中止" [ref=e434]:
+                - generic [ref=e435]: 补正中 · 时限已中止
+              - cell "两级意见 补正跟踪" [ref=e436]
+            - row "17 RC2026-0831-0098 刘×× 政务窗口（PC 申请） 刘志刚 2026-09-01 09:08 初审通过报复审 待复审 — — 复审已超期 2 天 复审办理" [ref=e437]:
+              - cell "17" [ref=e438]
+              - cell "RC2026-0831-0098" [ref=e439]
+              - cell "刘××" [ref=e440]
+              - cell "政务窗口（PC 申请）" [ref=e441]:
+                - generic [ref=e442]: 政务窗口（PC 申请）
+              - cell "刘志刚" [ref=e443]
+              - cell "2026-09-01 09:08" [ref=e444]
+              - cell "初审通过报复审" [ref=e445]:
+                - generic [ref=e446]: 初审通过报复审
+              - cell "待复审" [ref=e447]:
+                - generic [ref=e448]: 待复审
+              - cell "—" [ref=e449]
+              - cell "—" [ref=e450]
+              - cell "复审已超期 2 天" [ref=e451]:
+                - generic [ref=e452]: 复审已超期 2 天
+              - cell "复审办理" [ref=e453]
+            - row "18 RC2026-0903-0162 王×× 个人申请 刘志刚 2026-09-05 10:26 初审通过报复审 待复审 — — 剩 1 个工作日 复审办理 资格审核表" [ref=e454]:
+              - cell "18" [ref=e455]
+              - cell "RC2026-0903-0162" [ref=e456]
+              - cell "王××" [ref=e457]
+              - cell "个人申请" [ref=e458]:
+                - generic [ref=e459]: 个人申请
+              - cell "刘志刚" [ref=e460]
+              - cell "2026-09-05 10:26" [ref=e461]
+              - cell "初审通过报复审" [ref=e462]:
+                - generic [ref=e463]: 初审通过报复审
+              - cell "待复审" [ref=e464]:
+                - generic [ref=e465]: 待复审
+              - cell "—" [ref=e466]
+              - cell "—" [ref=e467]
+              - cell "剩 1 个工作日" [ref=e468]:
+                - generic [ref=e469]: 剩 1 个工作日
+              - cell "复审办理 资格审核表" [ref=e470]
+            - row "19 RC2026-0904-0171 谭×× 用人单位（移动端申请） 刘志刚 2026-09-05 14:12 初审通过报复审 待复审 — — 剩 1 个工作日 复审办理" [ref=e471]:
+              - cell "19" [ref=e472]
+              - cell "RC2026-0904-0171" [ref=e473]
+              - cell "谭××" [ref=e474]
+              - cell "用人单位（移动端申请）" [ref=e475]:
+                - generic [ref=e476]: 用人单位（移动端申请）
+              - cell "刘志刚" [ref=e477]
+              - cell "2026-09-05 14:12" [ref=e478]
+              - cell "初审通过报复审" [ref=e479]:
+                - generic [ref=e480]: 初审通过报复审
+              - cell "待复审" [ref=e481]:
+                - generic [ref=e482]: 待复审
+              - cell "—" [ref=e483]
+              - cell "—" [ref=e484]
+              - cell "剩 1 个工作日" [ref=e485]:
+                - generic [ref=e486]: 剩 1 个工作日
+              - cell "复审办理" [ref=e487]
+            - row "20 RC2026-0901-0126 邓×× 个人申请 刘志刚 2026-09-02 09:26 初审通过报复审 审核通过 周慧 2026-09-03 15:12 已出具并送达 两级意见 联动记录" [ref=e488]:
+              - cell "20" [ref=e489]
+              - cell "RC2026-0901-0126" [ref=e490]
+              - cell "邓××" [ref=e491]
+              - cell "个人申请" [ref=e492]:
+                - generic [ref=e493]: 个人申请
+              - cell "刘志刚" [ref=e494]
+              - cell "2026-09-02 09:26" [ref=e495]
+              - cell "初审通过报复审" [ref=e496]:
+                - generic [ref=e497]: 初审通过报复审
+              - cell "审核通过" [ref=e498]:
+                - generic [ref=e499]: 审核通过
+              - cell "周慧" [ref=e500]
+              - cell "2026-09-03 15:12" [ref=e501]
+              - cell "已出具并送达" [ref=e502]:
+                - generic [ref=e503]: 已出具并送达
+              - cell "两级意见 联动记录" [ref=e504]
+        - generic [ref=e505]:
+          - generic [ref=e506]: 共 286 条，显示 1–20 条
+          - generic [ref=e507]:
+            - generic [ref=e508]:
+              - text: 每页
+              - combobox "每页 条" [ref=e509] [cursor=pointer]:
+                - option "10"
+                - option "20" [selected]
+                - option "50"
+                - option "100"
+              - text: 条
+            - generic [ref=e510]:
+              - button "" [disabled] [ref=e511]:
+                - generic [ref=e512]: 
+              - button "" [disabled] [ref=e513]:
+                - generic [ref=e514]: 
+              - button "1" [ref=e515] [cursor=pointer]
+              - button "2" [ref=e516] [cursor=pointer]
+              - button "3" [ref=e517] [cursor=pointer]
+              - button "4" [ref=e518] [cursor=pointer]
+              - generic [ref=e519]: …
+              - button "15" [ref=e520] [cursor=pointer]
+              - button "" [ref=e521] [cursor=pointer]:
+                - generic [ref=e522]: 
+              - button "" [ref=e523] [cursor=pointer]:
+                - generic [ref=e524]: 
+            - generic [ref=e525]:
+              - text: 前往
+              - spinbutton "前往 页" [ref=e526]: "1"
+              - text: 页
+            - generic [ref=e527]: 共 15 页
+      - text: 
+    - generic [ref=e528]:
+      - generic [ref=e529]: 办理层级 第二级 · 复审（市保障性住房服务中心资格审核科 · 周慧）
+      - generic [ref=e530]: 留痕口径 受理意见与审核意见分栏填写、分别签署，两级意见互不覆盖
+      - generic [ref=e531]: 年审联动 审核通过之日起满一年自动生成年审待办记录并推送提醒
+  - option "审核通过" [selected]
+  - option "不予通过"
+  - option "退回受理环节"
+  - option "不适用（本件不退回）" [selected]
+  - option "退回至受理初审环节"
+  - option "退回至申请人补正"
+  - option "CA 数字证书签署 + 电子印章" [selected]
+  - option "CA 数字证书签署"
+  - option "手写签批扫描件"
+  - option "电子送达（建宁安居 + 微信 + 短信）" [selected]
+  - option "电子送达 + 纸质邮寄"
+  - option "窗口领取"

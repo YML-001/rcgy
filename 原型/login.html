@@ -11,7 +11,7 @@
 <style>
 /* 登录页专属：仅本页使用 */
 .lg-wrap { min-height: 100vh; display: flex; align-items: center; justify-content: center;
-  background: linear-gradient(130deg, #17386f 0%, var(--primary) 52%, #1a4a8f 100%); padding: 24px; }
+  background: linear-gradient(130deg, var(--primary-dark) 0%, var(--primary) 52%, var(--primary-dark) 100%); padding: 24px; }
 .lg-box { width: 100%; max-width: 940px; display: flex; background: var(--bg-card);
   border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); overflow: hidden; }
 .lg-l { flex: 1 1 460px; padding: 40px 36px; color: #fff;
@@ -39,6 +39,7 @@
   display: flex; align-items: center; justify-content: center; font-size: 17px; font-weight: 700;
   letter-spacing: 4px; cursor: pointer; }
 .lg-tip { margin-top: 16px; font-size: 11.5px; color: var(--text-3); line-height: 1.8; }
+.lg-reg { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--border); font-size: 13px; color: var(--text-2); text-align: center; }
 @media (max-width: 900px) { .lg-box { flex-direction: column; } .lg-r { flex: 1 1 auto; } }
 </style>
 </head>
@@ -53,6 +54,7 @@
         <div class="pt"><i class="fa-solid fa-user-lock"></i><div>账号由管理员按组织机构<b>分级创建</b>，首次登录<b>强制修改初始密码</b></div></div>
         <div class="pt"><i class="fa-solid fa-sitemap"></i><div>按角色配置功能菜单权限，按<b>区县与机构</b>配置行级数据权限</div></div>
         <div class="pt"><i class="fa-solid fa-user-shield"></i><div>经办、复核、审批实行<b>岗位分设与不相容岗位控制</b>，全部操作留痕可审计</div></div>
+        <div class="pt"><i class="fa-solid fa-mobile-screen-button"></i><div><b>用人单位与运营机构经办人</b>以<b>手机号 + 短信验证码</b>登录，与工作人员账号<b>分列管理</b>、各自独立</div></div>
       </div>
       <div class="ft">
         人才侧办事入口固定为<b>湘易办小程序与 APP</b>，人才无需注册即可办理。<br>
@@ -62,11 +64,12 @@
     <div class="lg-r">
       <h2 id="lgH2">工作人员登录</h2>
       <div class="h2s" id="lgH2s">请使用政务网统一身份认证或本系统账号登录</div>
-      <div class="dc-seg lg-seg">
-        <button class="on" onclick="PMS.toast('已切换为账号密码登录')">账号密码</button>
-        <button onclick="PMS.toast('原型演示：跳转政务网统一身份认证')">政务网认证</button>
+      <div class="dc-seg lg-seg" id="lgSeg">
+        <button class="on" data-lg="pwd" onclick="lgTab('pwd')">账号密码</button>
+        <button data-lg="zw" onclick="lgTab('zw')">政务网认证</button>
+        <button data-lg="ext" onclick="lgTab('ext')">外部单位登录</button>
       </div>
-      <div class="lg-f">
+      <div class="lg-f" id="lgFormStaff">
         <div>
           <label>登录账号</label>
           <input type="text" id="lgUser" value="liuzg" placeholder="请输入登录账号">
@@ -78,7 +81,7 @@
         <div>
           <label>图形验证码</label>
           <div class="lg-cap">
-            <input type="text" id="lgCap" placeholder="请输入验证码">
+            <input type="text" id="lgCap" value="7K2M" placeholder="请输入验证码">
             <span class="img" onclick="PMS.toast('验证码已刷新')">7K2M</span>
           </div>
         </div>
@@ -86,6 +89,23 @@
           <i class="fa-solid fa-right-to-bracket"></i> 登录
         </button>
       </div>
+      <div class="lg-f" id="lgFormExt" style="display:none">
+        <div>
+          <label>手机号</label>
+          <input type="tel" id="lgPhone" value="13802456207" placeholder="请输入经办人手机号">
+        </div>
+        <div>
+          <label>短信验证码</label>
+          <div class="lg-cap">
+            <input type="text" id="lgSms" value="386204" placeholder="请输入 6 位短信验证码">
+            <span class="img" style="letter-spacing:0;font-size:13px;font-weight:600" onclick="PMS.toast('验证码已发送至 138****6207')">获取验证码</span>
+          </div>
+        </div>
+        <button class="btn btn-primary btn-lg" style="width:100%" onclick="doExtLogin()">
+          <i class="fa-solid fa-right-to-bracket"></i> 登录
+        </button>
+      </div>
+      <div class="lg-reg">还没有单位账号？<span class="link" onclick="location.href='modules/employer/emp-register.html'">用人单位注册</span></div>
       <div class="lg-tip">
         <i class="fa-solid fa-circle-info"></i>
         连续输错达阈值将<b>锁定账号</b>，需管理员或短信方式解锁。<br>
@@ -130,6 +150,41 @@ function doLogin() {
   if (!(c.value || '').trim()) { PMS.toast('图形验证码为必填项', 'error'); c.focus(); return; }
   PMS.toast('登录成功，正在进入系统…', 'success');
   setTimeout(function () { location.href = loginTarget(); }, 1000);
+}
+/* 登录方式切换：工作人员（账号密码 / 政务网）与外部单位（手机号 + 短信验证码）分列显隐 */
+function lgTab(which) {
+  var seg = document.getElementById('lgSeg');
+  if (seg) {
+    Array.prototype.forEach.call(seg.querySelectorAll('button'), function (b) {
+      b.classList.toggle('on', b.getAttribute('data-lg') === which);
+    });
+  }
+  var staff = document.getElementById('lgFormStaff');
+  var ext = document.getElementById('lgFormExt');
+  var h2 = document.getElementById('lgH2');
+  var h2s = document.getElementById('lgH2s');
+  var isStat = ((location.search.match(/[?&]to=([^&]+)/) || [])[1] || '') === 'stat';
+  if (which === 'ext') {
+    if (staff) staff.style.display = 'none';
+    if (ext) ext.style.display = '';
+    if (h2) h2.textContent = '外部单位登录';
+    if (h2s) h2s.textContent = '用人单位、运营机构经办人使用手机号 + 短信验证码登录';
+  } else {
+    if (staff) staff.style.display = '';
+    if (ext) ext.style.display = 'none';
+    if (h2) h2.textContent = isStat ? '统计分析登录' : '工作人员登录';
+    if (h2s) h2s.textContent = isStat ? '面向市领导、局领导与市委人才办的驾驶舱与决策支持' : '请使用政务网统一身份认证或本系统账号登录';
+    if (which === 'zw') { PMS.toast('原型演示：跳转政务网统一身份认证'); }
+  }
+}
+/* 外部单位（用人单位 / 运营机构经办人）手机号 + 短信验证码登录 */
+function doExtLogin() {
+  var p = document.getElementById('lgPhone');
+  var s = document.getElementById('lgSms');
+  if (!(p.value || '').trim()) { PMS.toast('手机号为必填项', 'error'); p.focus(); return; }
+  if (!(s.value || '').trim()) { PMS.toast('短信验证码为必填项', 'error'); s.focus(); return; }
+  PMS.toast('登录成功，正在进入系统…', 'success');
+  setTimeout(function () { location.href = 'shell.html?role=employer&page=modules/workbench/workbench.html'; }, 1000);
 }
 </script>
 </body>

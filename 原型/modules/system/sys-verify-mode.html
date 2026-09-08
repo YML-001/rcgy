@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>核验模式配置 · 株洲市人才住房保障管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="admin" data-active="system-26">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才住房保障管理平台
+      <span class="sep">/</span> 权限与系统管理
+      <span class="sep">/</span> 用户与权限
+      <span class="sep">/</span> <span class="cur">核验模式配置</span>
+    </div>
+    <div class="page-actions">
+      <div class="dc-seg" id="modeSeg" title="演示用：一键切换整表两种核验形态">
+        <button class="on" onclick="quickSwitch(this,'default')">恢复默认</button>
+        <button onclick="quickSwitch(this,'api')">全部接口直连</button>
+        <button onclick="quickSwitch(this,'doc')">全部材料佐证</button>
+      </div>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出配置</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>八类核验项每项可设<b>「接口直连」</b>或<b>「材料佐证」</b>：接口直连＝部门接口自动取数、免上传；材料佐证＝申请人上传材料 + 受理初审人工认定。<b>接口未开通是本期上线的既定前提，上线以「材料佐证」为默认</b>，接口逐项开通后切为「接口直连」，<b>切换后前端申请表与审核台同步生效、不需改程序</b>，每次切换均记录操作人、时间与生效范围。<b>本页顶部可一键切换两种形态供演示。</b></div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-shield-halved"></i></div>
+      <div><div class="s-label">核验项</div><div class="s-value">8</div>
+        <div class="s-trend text-2">身份 / 婚姻 / 不动产 / 学历 / 社保 / 个税 / 市场监管 / 户籍</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-plug-circle-check"></i></div>
+      <div><div class="s-label">接口直连</div><div class="s-value" id="kpiApi">1</div>
+        <div class="s-trend text-2">身份项接口已开通并示例通过</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-file-lines"></i></div>
+      <div><div class="s-label">材料佐证</div><div class="s-value" id="kpiDoc">7</div>
+        <div class="s-trend ">本期默认 · 接口开通后逐项切换</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-clock-rotate-left"></i></div>
+      <div><div class="s-label">最近切换时间</div><div class="s-value" id="kpiTime">09-08 09:20</div>
+        <div class="s-trend text-2" id="kpiTimeSub">操作人 龙志宏 · 本月切换 4 次</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card" data-tabs-scope>
+    <div class="tabs" style="margin-bottom:0;padding:8px 12px 0">
+      <div class="tab active" data-tab="cfg">核验项配置 <span class="badge blue">8</span></div>
+      <div class="tab" data-tab="rule">双模式规则</div>
+    </div>
+
+    <div class="tab-panel active" data-panel="cfg">
+      <div class="card-body" style="padding:0">
+    <div class="filter-bar">
+      <div class="filter-item"><label>核验项</label><select data-dict="verifyItem" data-ph="全部"></select></div>
+      <div class="filter-item"><label>核验模式</label><select data-dict="verifyMode" data-ph="全部"></select></div>
+      <div class="filter-item"><label>联审部门</label><input type="text" value="" placeholder="部门名称"></div>
+      <div class="filter-item"><label>接口状态</label><select><option value="">全部</option><option>已开通</option><option>未开通</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>核验项编码</th><th>核验项名称</th><th class="cell-lg">联审部门</th><th>当前核验模式</th><th class="cell-lg">材料佐证清单（材料名称 · 份数）</th><th>接口状态</th><th>最近切换</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr class="vm-row" data-doc="身份证 · 1 份">
+            <td><b>HY-01</b></td><td>身份与人口</td><td class="cell-lg">市公安局</td>
+            <td class="js-mode"><span class="badge blue">接口直连</span></td>
+            <td class="cell-lg js-doc"><span class="muted">— 接口自动取数，免上传</span></td>
+            <td class="js-api"><span class="badge green">已开通</span></td>
+            <td>2026-07-01</td>
+            <td><span class="link" onclick="openCfg('HY-01','身份与人口','市公安局','接口直连','身份证','1')">切换模式</span></td>
+          </tr>
+          <tr class="vm-row" data-doc="结婚证 / 离婚证 · 1 份">
+            <td><b>HY-02</b></td><td>婚姻登记</td><td class="cell-lg">市民政局</td>
+            <td class="js-mode"><span class="badge orange">材料佐证</span></td>
+            <td class="cell-lg js-doc">结婚证 / 离婚证 · 1 份</td>
+            <td class="js-api"><span class="badge gray">未开通</span></td>
+            <td>2026-07-01</td>
+            <td><span class="link" onclick="openCfg('HY-02','婚姻登记','市民政局','材料佐证','结婚证 / 离婚证','1')">切换模式</span> <span class="link" onclick="openCfg('HY-02','婚姻登记','市民政局','材料佐证','结婚证 / 离婚证','1')">配置材料</span></td>
+          </tr>
+          <tr class="vm-row" data-doc="无房证明 / 不动产查询记录 · 1 份">
+            <td><b>HY-03</b></td><td>不动产登记</td><td class="cell-lg">市不动产登记中心</td>
+            <td class="js-mode"><span class="badge orange">材料佐证</span></td>
+            <td class="cell-lg js-doc">无房证明 / 不动产查询记录 · 1 份</td>
+            <td class="js-api"><span class="badge gray">未开通</span></td>
+            <td>2026-07-01</td>
+            <td><span class="link" onclick="openCfg('HY-03','不动产登记','市不动产登记中心','材料佐证','无房证明 / 不动产查询记录','1')">切换模式</span> <span class="link" onclick="openCfg('HY-03','不动产登记','市不动产登记中心','材料佐证','无房证明 / 不动产查询记录','1')">配置材料</span></td>
+          </tr>
+          <tr class="vm-row" data-doc="毕业证书 + 学历学位认证书 · 2 份">
+            <td><b>HY-04</b></td><td>学历学位</td><td class="cell-lg">学信网 / 留服中心</td>
+            <td class="js-mode"><span class="badge orange">材料佐证</span></td>
+            <td class="cell-lg js-doc">毕业证书 + 学历学位认证书 · 2 份</td>
+            <td class="js-api"><span class="badge gray">未开通</span></td>
+            <td>2026-07-01</td>
+            <td><span class="link" onclick="openCfg('HY-04','学历学位','学信网 / 留服中心','材料佐证','毕业证书 + 学历学位认证书','2')">切换模式</span> <span class="link" onclick="openCfg('HY-04','学历学位','学信网 / 留服中心','材料佐证','毕业证书 + 学历学位认证书','2')">配置材料</span></td>
+          </tr>
+          <tr class="vm-row" data-doc="社保参保缴费证明 · 1 份">
+            <td><b>HY-05</b></td><td>养老保险</td><td class="cell-lg">市社保中心</td>
+            <td class="js-mode"><span class="badge orange">材料佐证</span></td>
+            <td class="cell-lg js-doc">社保参保缴费证明 · 1 份</td>
+            <td class="js-api"><span class="badge gray">未开通</span></td>
+            <td>2026-07-01</td>
+            <td><span class="link" onclick="openCfg('HY-05','养老保险','市社保中心','材料佐证','社保参保缴费证明','1')">切换模式</span> <span class="link" onclick="openCfg('HY-05','养老保险','市社保中心','材料佐证','社保参保缴费证明','1')">配置材料</span></td>
+          </tr>
+          <tr class="vm-row" data-doc="个税完税证明 / 纳税记录 · 1 份">
+            <td><b>HY-06</b></td><td>个人所得税</td><td class="cell-lg">市税务局</td>
+            <td class="js-mode"><span class="badge orange">材料佐证</span></td>
+            <td class="cell-lg js-doc">个税完税证明 / 纳税记录 · 1 份</td>
+            <td class="js-api"><span class="badge gray">未开通</span></td>
+            <td>2026-07-01</td>
+            <td><span class="link" onclick="openCfg('HY-06','个人所得税','市税务局','材料佐证','个税完税证明 / 纳税记录','1')">切换模式</span> <span class="link" onclick="openCfg('HY-06','个人所得税','市税务局','材料佐证','个税完税证明 / 纳税记录','1')">配置材料</span></td>
+          </tr>
+          <tr class="vm-row" data-doc="营业执照 + 纳税申报表 · 2 份">
+            <td><b>HY-07</b></td><td>市场监管</td><td class="cell-lg">市市场监管局</td>
+            <td class="js-mode"><span class="badge orange">材料佐证</span></td>
+            <td class="cell-lg js-doc">营业执照 + 纳税申报表 · 2 份<span class="muted"> 仅创业类适用</span></td>
+            <td class="js-api"><span class="badge gray">未开通</span></td>
+            <td>2026-07-01</td>
+            <td><span class="link" onclick="openCfg('HY-07','市场监管','市市场监管局','材料佐证','营业执照 + 纳税申报表','2')">切换模式</span> <span class="link" onclick="openCfg('HY-07','市场监管','市市场监管局','材料佐证','营业执照 + 纳税申报表','2')">配置材料</span></td>
+          </tr>
+          <tr class="vm-row" data-doc="户口簿 · 1 份">
+            <td><b>HY-08</b></td><td>户籍</td><td class="cell-lg">市公安局</td>
+            <td class="js-mode"><span class="badge orange">材料佐证</span></td>
+            <td class="cell-lg js-doc">户口簿 · 1 份</td>
+            <td class="js-api"><span class="badge gray">未开通</span></td>
+            <td>2026-07-01</td>
+            <td><span class="link" onclick="openCfg('HY-08','户籍','市公安局','材料佐证','户口簿','1')">切换模式</span> <span class="link" onclick="openCfg('HY-08','户籍','市公安局','材料佐证','户口簿','1')">配置材料</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+      </div>
+    </div>
+
+    <div class="tab-panel" data-panel="rule">
+      <div class="card-body">
+        <div class="sp-scroll">
+  <div class="sp-block" style="margin-bottom:0">
+    <div class="sp-h"><i class="fa-solid fa-layer-group"></i> 双模式规则<span class="sub">HY-R　接口直连 / 材料佐证的取数、认定与切换口径</span></div>
+    <div class="sp-b">
+      <div class="sp-tw">
+        <table class="data-table compact">
+          <thead><tr><th>规则号</th><th>核验模式</th><th class="cell-lg">取数与认定方式</th><th class="cell-lg">切换与留痕口径</th></tr></thead>
+          <tbody>
+            <tr><td><b>HY-R1</b></td><td><span class="badge blue">接口直连</span></td><td class="cell-lg">由联审部门接口<b>自动取数、免上传材料</b>；结论由系统返回（<span class="badge green">一致</span> / <span class="badge red">不一致</span> / <span class="badge orange">数据缺失</span>），一致的免人工认定，不一致或缺失的转人工核实</td><td class="cell-lg">接口开通后由「材料佐证」切换而来，切换后申请表对应上传项自动隐藏、审核台改为只读展示返回数据</td></tr>
+            <tr><td><b>HY-R2</b></td><td><span class="badge orange">材料佐证</span></td><td class="cell-lg"><b>申请人上传证明材料</b>（按材料名称与份数）+ <b>受理初审人工认定</b>（符合 / 不符合 / 需补正）并署名；复审对认定有异议的可<b>单项退回受理初审重新认定</b></td><td class="cell-lg">本期上线默认形态；申请表出现对应上传位与式样要求，审核台出现材料影像与人工认定控件</td></tr>
+            <tr><td><b>HY-R3</b></td><td><span class="badge gray">逐项切换</span></td><td class="cell-lg">接口开通后可<b>逐项</b>由材料佐证切换为接口直连，<b>前端申请表与受理初审、复审核验清单同步生效，无需改程序</b></td><td class="cell-lg">切换即时生效，记录<b>操作人、时间与生效范围</b>；仅对切换后新提交及在办件生效</td></tr>
+            <tr><td><b>HY-R4</b></td><td><span class="badge gray">历史结论</span></td><td class="cell-lg">已办结案件<b>保留原核验方式标识</b>，不因模式切换而追溯变更或重新核验</td><td class="cell-lg">档案与办件流水按办理时的核验方式归档，可回溯</td></tr>
+            <tr><td><b>HY-R5</b></td><td><span class="badge gray">兜底标识</span></td><td class="cell-lg"><b>临时兜底</b>（接口已开通但异常临时转人工）与<b>本期材料佐证</b>（接口未开通）<b>分别标识</b>，便于接口恢复后回溯复核</td><td class="cell-lg">临时兜底须登记预计切回日期；本期材料佐证随接口开通逐项转直连</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sp-src">
+    <span><b>背景</b> 接口未开通是本期上线既定前提，上线以材料佐证为默认，接口逐项开通后切为接口直连</span>
+    <span><b>生效口径</b> 切换后申请表与受理初审、复审核验清单同步生效，不需改程序，留痕操作人 / 时间 / 生效范围</span>
+    <span><b>关联页面</b> <span class="link" onclick="location.href='../apply/audit-desk.html'">受理初审办理</span>　<span class="link" onclick="location.href='../apply/conclusion.html'">复审办理与审核结论</span>　<span class="link" onclick="location.href='../rule/verify-switch.html'">核验项开关配置</span></span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="vmDrawer">
+  <div class="drawer-head">
+    <h3>核验模式单项配置</h3>
+    <span class="badge orange" id="cfgBadge">材料佐证</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+    <div class="alert alert-warning">
+      <i class="fa-solid fa-triangle-exclamation"></i>
+      <div>切换该核验项模式后，<b>前端申请表与受理初审、复审核验清单同步生效、不需改程序</b>：切为「接口直连」则免上传、自动取数；切为「材料佐证」则出现上传位并由受理初审人工认定。提交即<b>留痕操作人、时间与生效范围</b>。</div>
+    </div>
+    <div class="form-grid form-align">
+      <div class="form-item">
+        <label>核验项 <span class="req">*</span></label>
+        <input type="text" id="cfgItem" value="婚姻登记（HY-02）" readonly>
+      </div>
+      <div class="form-item">
+        <label>联审部门 <span class="req">*</span></label>
+        <input type="text" id="cfgDept" value="市民政局" readonly>
+      </div>
+      <div class="form-item">
+        <label>核验模式 <span class="req">*</span></label>
+        <select id="cfgMode" data-dict="verifyMode" data-ph=""></select>
+        <div class="hint">接口未开通期间建议保留「材料佐证」；接口开通并联调通过后切「接口直连」</div>
+      </div>
+      <div class="form-item">
+        <label>接口状态 <span class="req">*</span></label>
+        <input type="text" id="cfgApi" value="未开通（接口尚未联调）" readonly>
+      </div>
+      <div class="form-item">
+        <label>所需佐证名称 <span class="req">*</span></label>
+        <input type="text" id="cfgDoc" value="结婚证 / 离婚证">
+        <div class="hint">仅「材料佐证」模式生效，作为申请表上传位与应交清单来源</div>
+      </div>
+      <div class="form-item">
+        <label>份数 <span class="req">*</span></label>
+        <input type="text" id="cfgCopies" value="1">
+        <div class="hint">上传张数 / 份数要求，接口直连时自动置为「免上传」</div>
+      </div>
+      <div class="form-item col-full">
+        <label>生效范围说明 <span class="req">*</span></label>
+        <input type="text" value="对切换后新提交及全部在办申请件的申请表与受理初审、复审核验清单同步生效；已办结件保留原核验方式标识">
+      </div>
+      <div class="form-item col-full">
+        <label>切换说明 <span class="req">*</span></label>
+        <textarea rows="3">婚姻登记接口本期未开通，暂以材料佐证方式核验：申请人上传结婚证 / 离婚证（未婚者提供本人书面声明），由受理初审人工认定「符合 / 不符合 / 需补正」。市民政局接口联调通过后再切换为接口直连，届时申请表免上传、系统自动取数。</textarea>
+        <div class="hint">切换原因与生效说明将随本次操作一并写入变更留痕</div>
+      </div>
+    </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="submitCfg()"><i class="fa-solid fa-check"></i> 保存并生效</button>
+  </div>
+</div>
+
+<script>
+function badgeHtml(mode){
+  return mode === '接口直连'
+    ? '<span class="badge blue">接口直连</span>'
+    : '<span class="badge orange">材料佐证</span>';
+}
+/* 一键切换整表两种形态（演示用） */
+function quickSwitch(btn, kind){
+  Array.prototype.forEach.call(btn.parentNode.children, function(b){ b.classList.remove('on'); });
+  btn.classList.add('on');
+  var rows = document.querySelectorAll('.vm-row');
+  var api = 0, doc = 0;
+  Array.prototype.forEach.call(rows, function(row, i){
+    var mode;
+    if (kind === 'api') mode = '接口直连';
+    else if (kind === 'doc') mode = '材料佐证';
+    else mode = (i === 0) ? '接口直连' : '材料佐证';
+    row.querySelector('.js-mode').innerHTML = badgeHtml(mode);
+    var docCell = row.querySelector('.js-doc');
+    if (mode === '接口直连') { docCell.innerHTML = '<span class="muted">— 接口自动取数，免上传</span>'; api++; }
+    else { docCell.textContent = row.getAttribute('data-doc'); doc++; }
+  });
+  document.getElementById('kpiApi').textContent = api;
+  document.getElementById('kpiDoc').textContent = doc;
+  document.getElementById('kpiTime').textContent = '刚刚';
+  var label = kind === 'api' ? '全部接口直连' : (kind === 'doc' ? '全部材料佐证' : '默认（身份直连 · 其余佐证）');
+  document.getElementById('kpiTimeSub').textContent = '操作人 龙志宏 · ' + label;
+  PMS.toast('已一键切换为「' + label + '」，申请表与审核台核验清单同步生效', 'success');
+}
+/* 打开单项配置抽屉并回填 */
+function openCfg(code, name, dept, mode, doc, copies){
+  document.getElementById('cfgItem').value = name + '（' + code + '）';
+  document.getElementById('cfgDept').value = dept;
+  document.getElementById('cfgDoc').value = doc;
+  document.getElementById('cfgCopies').value = copies;
+  var sel = document.getElementById('cfgMode');
+  sel.selectedIndex = (mode === '接口直连') ? 0 : 1;
+  document.getElementById('cfgApi').value = (name === '身份与人口') ? '已开通（接口已联调并示例通过）' : '未开通（接口尚未联调）';
+  var badge = document.getElementById('cfgBadge');
+  badge.className = 'badge ' + (mode === '接口直连' ? 'blue' : 'orange');
+  badge.textContent = mode;
+  PMS.openDrawer('vmDrawer');
+}
+document.addEventListener('change', function(e){
+  if (e.target && e.target.id === 'cfgMode'){
+    var mode = e.target.options[e.target.selectedIndex].text;
+    var badge = document.getElementById('cfgBadge');
+    badge.className = 'badge ' + (mode === '接口直连' ? 'blue' : 'orange');
+    badge.textContent = mode;
+    PMS.toast(mode === '接口直连' ? '切为接口直连后申请表免上传、系统自动取数' : '切为材料佐证后申请表出现上传位、由受理初审人工认定');
+  }
+});
+function submitCfg(){
+  var item = document.getElementById('cfgItem').value;
+  var mode = document.getElementById('cfgMode').options[document.getElementById('cfgMode').selectedIndex].text;
+  PMS.confirm({
+    title: '保存核验模式配置',
+    message: '确认将「' + item + '」核验模式保存为「' + mode + '」？',
+    detail: '保存后前端申请表与受理初审、复审核验清单同步生效、不需改程序；切换即时生效并记录操作人（龙志宏）、时间与生效范围。已办结件保留原核验方式标识，不追溯变更。',
+    type: 'warning',
+    okText: '保存并生效',
+    onOk: function(){ PMS.closeDrawer(); PMS.toast('已保存并生效，变更已留痕', 'success'); }
+  });
+}
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 8; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

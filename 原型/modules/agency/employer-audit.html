@@ -28,7 +28,7 @@
 
   <div class="alert alert-warning">
     <i class="fa-solid fa-triangle-exclamation"></i>
-    <div>审核用人单位提交的注册申请，逐项查看<b>申请信息、企业信息、负责人与联系电话及佐证材料</b>。<b>审核通过后即开通账号</b>，单位方可为职工批量代申报；材料不齐或与登记信息不一致的<b>退回补正并注明具体理由</b>。</div>
+    <div>审核用人单位提交的注册申请，逐项查看<b>申请信息、企业信息、负责人、经办人及佐证材料</b>。<b>PC 端与移动端提交的注册申请汇入同一队列，不分渠道</b>；<b>审核通过后自动以经办人手机号为账号开通登录并发送开通短信</b>，单位方可为职工批量代申报；材料不齐或与登记信息不一致的<b>退回补正并注明具体理由</b>。</div>
   </div>
 
   <div class="stat-grid">
@@ -60,6 +60,7 @@
       <div class="filter-item"><label>单位名称</label><input type="text" value="株洲时代新材料科技股份有限公司" placeholder="单位名称"></div>
       <div class="filter-item"><label>统一社会信用代码</label><input type="text" value="91430200MA4L18**7H" placeholder="信用代码"></div>
       <div class="filter-item"><label>单位类型</label><select><option value="">全部</option><option>上市公司（国有控股）</option><option>国有企业</option><option>民营企业</option><option>外商投资企业</option><option>事业单位</option><option>社会组织</option></select></div>
+      <div class="filter-item"><label>提交渠道</label><select><option value="">全部</option><option>PC 申请</option><option>移动端申请</option></select></div>
       <div class="filter-item"><label>材料完整度</label><select><option value="">全部</option><option>完整（5/5）</option><option>不全（4/5 及以下）</option></select></div>
       <div class="filter-item"><label>审核状态</label><select><option value="">全部</option><option>待审核</option><option>审核通过</option><option>已退回</option></select></div>
       <div class="filter-actions">
@@ -71,15 +72,15 @@
     <div class="table-wrap">
       <table class="data-table">
         <thead>
-          <tr><th>申请单号</th><th class="cell-lg">单位名称</th><th>统一社会信用代码</th><th>单位类型</th><th>法定代表人</th><th>联系电话</th><th class="num">在职职工数</th><th>提交时间</th><th>材料完整度</th><th>审核状态</th><th>操作</th></tr>
+          <tr><th>申请单号</th><th class="cell-lg">单位名称</th><th>统一社会信用代码</th><th>单位类型</th><th>法定代表人</th><th>联系电话</th><th class="num">在职职工数</th><th>提交渠道</th><th>提交时间</th><th>材料完整度</th><th>审核状态</th><th>操作</th></tr>
         </thead>
         <tbody>
-          <tr class="row-warn"><td>YQ2026-0186</td><td>株洲时代新材料科技股份有限公司</td><td>91430200MA4L18**7H</td><td><span class="badge blue">上市公司（国有控股）</span></td><td>王振华</td><td>0731-2833****</td><td class="num">3,842</td><td>2026-09-04 09:16</td><td><span class="badge green">完整 5/5</span></td><td><span class="badge orange">待审核 · 超 2 日</span></td><td><span class="link" onclick="PMS.openDrawer('shDrawer')">办理审核</span></td></tr>
-          <tr><td>YQ2026-0188</td><td>株洲中车时代电气股份有限公司</td><td>91430200MA4L26**2K</td><td><span class="badge blue">上市公司（国有控股）</span></td><td>陈国安</td><td>0731-2848****</td><td class="num">5,264</td><td>2026-09-06 10:22</td><td><span class="badge green">完整 5/5</span></td><td><span class="badge cyan">待审核</span></td><td><span class="link" onclick="PMS.openDrawer('shDrawer')">办理审核</span></td></tr>
-          <tr><td>YQ2026-0189</td><td>株洲硬质合金集团有限公司</td><td>91430200MA4L32**4X</td><td><span class="badge cyan">国有企业</span></td><td>刘志强</td><td>0731-2826****</td><td class="num">2,486</td><td>2026-09-06 14:38</td><td><span class="badge green">完整 5/5</span></td><td><span class="badge cyan">待审核</span></td><td><span class="link" onclick="PMS.openDrawer('shDrawer')">办理审核</span></td></tr>
-          <tr><td>YQ2026-0191</td><td>株洲千金药业股份有限公司</td><td>91430200MA4L45**6D</td><td><span class="badge blue">上市公司（国有控股）</span></td><td>唐建国</td><td>0731-2851****</td><td class="num">1,286</td><td>2026-09-07 09:04</td><td><span class="badge orange">不全 4/5</span></td><td><span class="badge cyan">待审核</span></td><td><span class="link" onclick="PMS.openDrawer('shDrawer')">办理审核</span> <span class="link" onclick="PMS.confirm({title:'退回确认',message:'确认退回 株洲千金药业股份有限公司 的注册申请？',detail:'退回理由：缺经办人授权书。退回后单位可在移动端与 PC 端收到补正通知，补齐材料后重新提交，重新提交后审核时限重新计算。',type:'warning',okText:'确认退回',onOk:function(){PMS.toast('已退回补正，补正要求已通知该单位','success');}})">退回补正</span></td></tr>
-          <tr><td>YQ2026-0192</td><td>株洲欧科亿数控精密刀具股份有限公司</td><td>91430200MA4L58**9M</td><td><span class="badge gray">民营企业</span></td><td>彭立新</td><td>0731-2860****</td><td class="num">862</td><td>2026-09-07 15:26</td><td><span class="badge green">完整 5/5</span></td><td><span class="badge cyan">待审核</span></td><td><span class="link" onclick="PMS.openDrawer('shDrawer')">办理审核</span></td></tr>
-          <tr><td>YQ2026-0193</td><td>株洲联诚集团控股股份有限公司</td><td>91430200MA4L64**3P</td><td><span class="badge gray">民营企业</span></td><td>曾德文</td><td>0731-2872****</td><td class="num">1,046</td><td>2026-09-08 08:42</td><td><span class="badge green">完整 5/5</span></td><td><span class="badge cyan">待审核</span></td><td><span class="link" onclick="PMS.openDrawer('shDrawer')">办理审核</span></td></tr>
+          <tr class="row-warn"><td>YQ2026-0186</td><td>株洲时代新材料科技股份有限公司</td><td>91430200MA4L18**7H</td><td><span class="badge blue">上市公司（国有控股）</span></td><td>王振华</td><td>0731-2833****</td><td class="num">3,842</td><td><span class="badge cyan">移动端申请</span></td><td>2026-09-04 09:16</td><td><span class="badge green">完整 5/5</span></td><td><span class="badge orange">待审核 · 超 2 日</span></td><td><span class="link" onclick="PMS.openDrawer('shDrawer')">办理审核</span></td></tr>
+          <tr><td>YQ2026-0188</td><td>株洲中车时代电气股份有限公司</td><td>91430200MA4L26**2K</td><td><span class="badge blue">上市公司（国有控股）</span></td><td>陈国安</td><td>0731-2848****</td><td class="num">5,264</td><td><span class="badge blue">PC 申请</span></td><td>2026-09-06 10:22</td><td><span class="badge green">完整 5/5</span></td><td><span class="badge cyan">待审核</span></td><td><span class="link" onclick="PMS.openDrawer('shDrawer')">办理审核</span></td></tr>
+          <tr><td>YQ2026-0189</td><td>株洲硬质合金集团有限公司</td><td>91430200MA4L32**4X</td><td><span class="badge cyan">国有企业</span></td><td>刘志强</td><td>0731-2826****</td><td class="num">2,486</td><td><span class="badge cyan">移动端申请</span></td><td>2026-09-06 14:38</td><td><span class="badge green">完整 5/5</span></td><td><span class="badge cyan">待审核</span></td><td><span class="link" onclick="PMS.openDrawer('shDrawer')">办理审核</span></td></tr>
+          <tr><td>YQ2026-0191</td><td>株洲千金药业股份有限公司</td><td>91430200MA4L45**6D</td><td><span class="badge blue">上市公司（国有控股）</span></td><td>唐建国</td><td>0731-2851****</td><td class="num">1,286</td><td><span class="badge blue">PC 申请</span></td><td>2026-09-07 09:04</td><td><span class="badge orange">不全 4/5</span></td><td><span class="badge cyan">待审核</span></td><td><span class="link" onclick="PMS.openDrawer('shDrawer')">办理审核</span> <span class="link" onclick="PMS.confirm({title:'退回确认',message:'确认退回 株洲千金药业股份有限公司 的注册申请？',detail:'退回理由：缺经办人授权书。退回后单位可在移动端与 PC 端收到补正通知，补齐材料后重新提交，重新提交后审核时限重新计算。',type:'warning',okText:'确认退回',onOk:function(){PMS.toast('已退回补正，补正要求已通知该单位','success');}})">退回补正</span></td></tr>
+          <tr><td>YQ2026-0192</td><td>株洲欧科亿数控精密刀具股份有限公司</td><td>91430200MA4L58**9M</td><td><span class="badge gray">民营企业</span></td><td>彭立新</td><td>0731-2860****</td><td class="num">862</td><td><span class="badge cyan">移动端申请</span></td><td>2026-09-07 15:26</td><td><span class="badge green">完整 5/5</span></td><td><span class="badge cyan">待审核</span></td><td><span class="link" onclick="PMS.openDrawer('shDrawer')">办理审核</span></td></tr>
+          <tr><td>YQ2026-0193</td><td>株洲联诚集团控股股份有限公司</td><td>91430200MA4L64**3P</td><td><span class="badge gray">民营企业</span></td><td>曾德文</td><td>0731-2872****</td><td class="num">1,046</td><td><span class="badge blue">PC 申请</span></td><td>2026-09-08 08:42</td><td><span class="badge green">完整 5/5</span></td><td><span class="badge cyan">待审核</span></td><td><span class="link" onclick="PMS.openDrawer('shDrawer')">办理审核</span></td></tr>
         </tbody>
       </table>
     </div>
@@ -122,7 +123,7 @@
   <div class="drawer-body">
     <div class="alert alert-warning">
       <i class="fa-solid fa-triangle-exclamation"></i>
-      <div>本件已<b>超 2 个工作日</b>未办理，请尽快出具意见。<b>审核通过后即开通经办人账号，单位方可代申报</b>；退回补正须<b>注明具体理由与补正要求</b>，重新提交后审核时限重新计算。</div>
+      <div>本件已<b>超 2 个工作日</b>未办理，请尽快出具意见。<b>审核通过后自动以经办人手机号为账号开通登录并发送开通短信</b>，单位方可代申报；退回补正须<b>注明具体理由与补正要求</b>，重新提交后审核时限重新计算。</div>
     </div>
 
     <div class="sp-block">
@@ -131,7 +132,8 @@
         <dl class="desc-list">
           <div class="desc-item"><dt>申请单号</dt><dd>YQ2026-0186</dd></div>
           <div class="desc-item"><dt>提交时间</dt><dd>2026-09-04 09:16</dd></div>
-          <div class="desc-item"><dt>申请事项</dt><dd>用人单位注册与认证（首次）</dd></div>
+          <div class="desc-item"><dt>申请事项</dt><dd>用人单位注册与账号申请（首次）</dd></div>
+          <div class="desc-item"><dt>提交渠道</dt><dd><span class="badge cyan">移动端申请</span><span class="muted">（与 PC 申请汇入同一队列，不分渠道）</span></dd></div>
           <div class="desc-item full"><dt>单位名称</dt><dd>株洲时代新材料科技股份有限公司<span class="muted">（与营业执照一致）</span></dd></div>
           <div class="desc-item"><dt>统一社会信用代码</dt><dd><b>91430200MA4L18**7H</b><span class="muted">（唯一性校验通过）</span></dd></div>
           <div class="desc-item"><dt>单位类型</dt><dd>上市公司（国有控股）</dd></div>
@@ -143,8 +145,36 @@
           <div class="desc-item"><dt>在职职工数</dt><dd class="num">3,842 人</dd></div>
           <div class="desc-item"><dt>社保参保人数</dt><dd class="num">3,826 人<span class="muted">（差 16 人为当月新入职在办）</span></dd></div>
           <div class="desc-item"><dt>申请经办人账号数</dt><dd class="num">2 个</dd></div>
-          <div class="desc-item full"><dt>拟指定经办人</dt><dd>周慧芳（人力资源部 · 138****2260 · 全部权限）、彭超（人力资源部 · 139****4418 · 代申报 + 进度查看）</dd></div>
+          <div class="desc-item full"><dt>拟指定经办人</dt><dd>周慧芳（人力资源部 · 138****6207 · 全部权限）、彭超（人力资源部 · 139****4418 · 代申报 + 进度查看）</dd></div>
         </dl>
+      </div>
+    </div>
+
+    <div class="sp-block">
+      <div class="sp-h"><i class="fa-solid fa-user-gear"></i> 经办人信息<span class="sub">通过后以此手机号为账号开通登录</span></div>
+      <div class="sp-b">
+        <dl class="desc-list">
+          <div class="desc-item"><dt>经办人姓名</dt><dd>周慧芳<span class="muted">（人力资源部）</span></dd></div>
+          <div class="desc-item"><dt>身份证号</dt><dd>4302 11 ******** 2260<span class="muted">（脱敏 · 与实名一致）</span></dd></div>
+          <div class="desc-item"><dt>手机号（即账号）</dt><dd><b>138****6207</b></dd></div>
+        </dl>
+        <div class="hint" style="margin-top:6px">审核通过后<b>自动以该手机号为账号开通登录权限并发送开通短信</b>，经办人凭手机号 + 短信验证码登录 PC 端与移动端，无需单独申请账号。</div>
+      </div>
+    </div>
+
+    <div class="sp-block">
+      <div class="sp-h"><i class="fa-solid fa-images"></i> 佐证材料影像<span class="sub">点击查看大图，核验影像清晰度与签章</span></div>
+      <div class="sp-b">
+        <div style="display:flex;gap:16px;flex-wrap:wrap">
+          <div style="width:148px">
+            <div style="width:148px;height:100px;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg-soft);display:flex;align-items:center;justify-content:center;color:var(--primary);cursor:pointer" onclick="PMS.toast('原型演示：查看《营业执照（副本）》影像大图')"><i class="fa-regular fa-image" style="font-size:34px"></i></div>
+            <div style="margin-top:6px;font-size:12.5px;text-align:center">营业执照（副本）<br><span class="link" onclick="PMS.toast('原型演示：查看《营业执照（副本）》影像大图')">查看大图</span></div>
+          </div>
+          <div style="width:148px">
+            <div style="width:148px;height:100px;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg-soft);display:flex;align-items:center;justify-content:center;color:var(--primary);cursor:pointer" onclick="PMS.toast('原型演示：查看《法人授权委托书》影像大图')"><i class="fa-regular fa-file-pdf" style="font-size:34px"></i></div>
+            <div style="margin-top:6px;font-size:12.5px;text-align:center">法人授权委托书<br><span class="link" onclick="PMS.toast('原型演示：查看《法人授权委托书》影像大图')">查看大图</span></div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -202,7 +232,7 @@
   <div class="drawer-foot">
     <button class="btn" data-close-drawer>取消</button>
     <button class="btn" onclick="PMS.toast('已保存审核意见草稿，可稍后继续办理')">保存草稿</button>
-    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认审核通过并为 株洲时代新材料科技股份有限公司 开通 2 个经办人账号？',detail:'通过后即开通账号，该单位方可为职工批量代申报、上报在职状态变更并查看申报进度。账号有效期至 2028-09-09，不超过法人授权有效期；经办人变更须重新出具法人授权。审核人、审核时间、审核结论与材料核验结果全程留痕。',type:'warning',okText:'确认通过并开通',onOk:function(){PMS.closeDrawer();PMS.toast('已审核通过，2 个经办人账号已开通','success');}})"><i class="fa-solid fa-check"></i> 提交审核</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认审核通过并为 株洲时代新材料科技股份有限公司 开通登录？',detail:'通过后自动开通以经办人手机号（138****6207）为账号的登录权限并发送开通短信，该单位方可为职工批量代申报、上报在职状态变更并查看申报进度。账号有效期至 2028-09-09，不超过法人授权有效期；经办人变更后原手机号账号即时失效并须重新出具法人授权。PC 端与移动端提交的申请汇入同一队列、不分渠道。审核人、审核时间、审核结论与材料核验结果全程留痕。',type:'warning',okText:'确认通过并开通',onOk:function(){PMS.closeDrawer();PMS.toast('已审核通过，已开通以 138****6207 为账号的登录并发送开通短信','success');}})"><i class="fa-solid fa-check"></i> 提交审核</button>
   </div>
 </div>
 

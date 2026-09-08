@@ -1,0 +1,561 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - text: 
+      - generic [ref=e5]: 
+      - generic [ref=e6]: 株洲市人才住房保障管理平台
+    - generic [ref=e7]:
+      - generic "当前业务子系统" [ref=e8]:
+        - generic [ref=e9]: 房源筹集与楼盘表
+      - button " 切换系统" [ref=e10] [cursor=pointer]:
+        - generic [ref=e11]: 
+        - text: 切换系统
+    - generic [ref=e12]:
+      - button " 单位房源管理员 " [ref=e14] [cursor=pointer]:
+        - generic [ref=e15]: 
+        - generic [ref=e16]: 单位房源管理员
+        - generic [ref=e17]: 
+      - generic "消息" [ref=e18] [cursor=pointer]:
+        - generic [ref=e19]: 
+        - generic [ref=e20]: "5"
+      - generic "帮助" [ref=e21] [cursor=pointer]:
+        - generic [ref=e22]: 
+      - generic [ref=e23] [cursor=pointer]:
+        - generic [ref=e24]: 唐
+        - generic [ref=e25]:
+          - generic [ref=e26]: 唐凯
+          - generic [ref=e27]: 市保障性住房服务中心房源管理科 · 单位房源管理员
+      - link "" [ref=e28] [cursor=pointer]:
+        - /url: ../../index.html
+        - generic [ref=e29]: 
+  - complementary [ref=e30]:
+    - generic [ref=e31]:
+      - textbox "菜单搜索" [ref=e32]
+      - generic [ref=e33]: 
+      - text: 
+    - generic [ref=e34]:
+      - link " 我的工作台" [ref=e35] [cursor=pointer]:
+        - /url: ../../modules/workbench/workbench.html?role=housing
+        - generic [ref=e36]: 
+        - generic [ref=e37]: 我的工作台
+      - generic [ref=e39] [cursor=pointer]:
+        - generic [ref=e40]: 
+        - generic [ref=e41]: 待办与协同
+        - generic [ref=e42]: 
+      - generic [ref=e44] [cursor=pointer]:
+        - generic [ref=e45]: 
+        - generic [ref=e46]: 房源筹集与项目
+        - generic [ref=e47]: 
+      - generic [ref=e49] [cursor=pointer]:
+        - generic [ref=e50]: 
+        - generic [ref=e51]: 楼盘表与多源归集
+        - generic [ref=e52]: 
+      - generic [ref=e54] [cursor=pointer]:
+        - generic [ref=e55]: 
+        - generic [ref=e56]: 房源档案与房态
+        - generic [ref=e57]: 
+      - generic [ref=e59] [cursor=pointer]:
+        - generic [ref=e60]: 
+        - generic [ref=e61]: 房源发布与预约
+        - generic [ref=e62]: 
+      - generic [ref=e64] [cursor=pointer]:
+        - generic [ref=e65]: 
+        - generic [ref=e66]: 房源导入与来源台账
+        - generic [ref=e67]: 
+  - main [ref=e68]:
+    - generic [ref=e70]:
+      - generic [ref=e71]: 
+      - text: 株洲市人才住房保障管理平台
+      - generic [ref=e72]: /
+      - text: 配租选房与合同
+      - generic [ref=e73]: /
+      - text: 配租管理
+      - generic [ref=e74]: /
+      - generic [ref=e75]: 顺序配租名单
+    - generic [ref=e76]:
+      - generic [ref=e77]: 
+      - generic [ref=e78]: 按申请受理时间自动生成配租顺序名单，不采用摇号方式确定顺序；已预约该批次房源的申请人优先于普通轮候排序（规则 R-A0），多人预约同一房源的按预约时间先后确定序位；同一受理时间的按规则细分排序（R-A1 至 R-A5），名单可导出公示。排序规则与名单生成时间公开可回溯，不支持手工调序。
+    - generic [ref=e79]:
+      - generic [ref=e80]:
+        - generic [ref=e82]: 
+        - generic [ref=e83]:
+          - generic [ref=e84]: 本批次报名
+          - generic [ref=e85]: "486"
+          - generic [ref=e86]: PZ2026-03 · 含预约优先 42 人
+      - generic [ref=e87]:
+        - generic [ref=e89]: 
+        - generic [ref=e90]:
+          - generic [ref=e91]: 投放套数
+          - generic [ref=e92]: "320"
+          - generic [ref=e93]: 顺序号 1—320 可选房
+      - generic [ref=e94]:
+        - generic [ref=e96]: 
+        - generic [ref=e97]:
+          - generic [ref=e98]: 预计进轮候
+          - generic [ref=e99]: "166"
+          - generic [ref=e100]: 顺序号 321 起
+      - generic [ref=e101]:
+        - generic [ref=e103]: 
+        - generic [ref=e104]:
+          - generic [ref=e105]: 名单生成时间
+          - generic [ref=e106]: 09-13 09:00
+          - generic [ref=e107]: 公开可回溯
+    - generic [ref=e108]:
+      - generic [ref=e109]:
+        - generic [ref=e110]:
+          - generic [ref=e111]: 顺序号
+          - textbox "顺序号" [ref=e112]
+        - generic [ref=e113]:
+          - generic [ref=e114]: 申请人
+          - textbox "姓名" [ref=e115]
+        - generic [ref=e116]:
+          - generic [ref=e117]: 申请编号
+          - textbox "申请编号" [ref=e118]
+        - generic [ref=e119]:
+          - generic [ref=e120]: 意向片区
+          - combobox [ref=e121]:
+            - option "全部" [selected]
+            - option "天元区"
+            - option "荷塘区"
+            - option "芦淞区"
+            - option "石峰区"
+            - option "经开区"
+            - option "渌口区"
+        - generic [ref=e122]:
+          - generic [ref=e123]: 本批次预约
+          - combobox [ref=e124]:
+            - option "全部" [selected]
+            - option "已预约（预约优先）"
+            - option "未预约（普通轮候）"
+        - generic [ref=e125]:
+          - generic [ref=e126]: 配租状态
+          - combobox [ref=e127]:
+            - option "全部" [selected]
+            - option "可选房"
+            - option "已锁定"
+            - option "已签约"
+            - option "进入轮候"
+            - option "已放弃"
+        - generic [ref=e128]:
+          - button " 查询" [ref=e129] [cursor=pointer]:
+            - generic [ref=e130]: 
+            - text: 查询
+          - button "重置" [ref=e131] [cursor=pointer]
+          - button " 导出公示名单" [ref=e132] [cursor=pointer]:
+            - generic [ref=e133]: 
+            - text: 导出公示名单
+          - link " 预约名单管理" [ref=e134] [cursor=pointer]:
+            - /url: ../house/book-manage.html
+            - generic [ref=e135]: 
+            - text: 预约名单管理
+          - link " 配租结果公开" [ref=e136] [cursor=pointer]:
+            - /url: ../rule/result-open.html
+            - generic [ref=e137]: 
+            - text: 配租结果公开
+      - table [ref=e139]:
+        - rowgroup [ref=e140]:
+          - row "序号 顺序号 申请编号 申请人 申请类型 受理时间 本批次预约 细分排序依据 意向片区 选房时段 配租状态 操作" [ref=e141]:
+            - columnheader "序号" [ref=e142]
+            - columnheader "顺序号" [ref=e143]
+            - columnheader "申请编号" [ref=e144]
+            - columnheader "申请人" [ref=e145]
+            - columnheader "申请类型" [ref=e146]
+            - columnheader "受理时间" [ref=e147]
+            - columnheader "本批次预约" [ref=e148]
+            - columnheader "细分排序依据" [ref=e149]
+            - columnheader "意向片区" [ref=e150]
+            - columnheader "选房时段" [ref=e151]
+            - columnheader "配租状态" [ref=e152]
+            - columnheader "操作" [ref=e153]
+        - rowgroup [ref=e154]:
+          - row "01 1 RC2026-0901-0102 李×× 特殊 2026-09-01 09:02 预约优先 R-A0 预约优先：已预约湘江1958 A6-1502，预约时间 2026-09-08 09:12（最早） 天元区 09-15 09:00—09:30 已签约 合同" [ref=e155]:
+            - cell "01" [ref=e156]
+            - cell "1" [ref=e157]
+            - cell "RC2026-0901-0102" [ref=e158]
+            - cell "李××" [ref=e159]
+            - cell "特殊" [ref=e160]:
+              - generic [ref=e161]: 特殊
+            - cell "2026-09-01 09:02" [ref=e162]
+            - cell "预约优先" [ref=e163]:
+              - generic [ref=e164]: 预约优先
+            - cell "R-A0 预约优先：已预约湘江1958 A6-1502，预约时间 2026-09-08 09:12（最早）" [ref=e165]
+            - cell "天元区" [ref=e166]
+            - cell "09-15 09:00—09:30" [ref=e167]
+            - cell "已签约" [ref=e168]:
+              - generic [ref=e169]: 已签约
+            - cell "合同" [ref=e170]
+          - row "02 4 RC2026-0902-0118 刘×× 就业 2026-09-02 11:06 预约优先 R-A0 预约优先：已预约栗雨佳苑 3-1104，预约时间 2026-09-10 16:38（预约优先段末位） 天元区 09-15 09:00—09:30 已锁定 选房编排" [ref=e171]:
+            - cell "02" [ref=e172]
+            - cell "4" [ref=e173]
+            - cell "RC2026-0902-0118" [ref=e174]
+            - cell "刘××" [ref=e175]
+            - cell "就业" [ref=e176]:
+              - generic [ref=e177]: 就业
+            - cell "2026-09-02 11:06" [ref=e178]
+            - cell "预约优先" [ref=e179]:
+              - generic [ref=e180]: 预约优先
+            - cell "R-A0 预约优先：已预约栗雨佳苑 3-1104，预约时间 2026-09-10 16:38（预约优先段末位）" [ref=e181]
+            - cell "天元区" [ref=e182]
+            - cell "09-15 09:00—09:30" [ref=e183]
+            - cell "已锁定" [ref=e184]:
+              - generic [ref=e185]: 已锁定
+            - cell "选房编排" [ref=e186]
+          - row "03 8 RC2026-0901-0126 谭×× 就业 2026-09-02 16:38 未预约 R-A1 受理时间排序；受理时间相同 → R-A3 家庭申请优先 天元区 09-15 09:30—10:00 已锁定 选房编排" [ref=e187]:
+            - cell "03" [ref=e188]
+            - cell "8" [ref=e189]
+            - cell "RC2026-0901-0126" [ref=e190]
+            - cell "谭××" [ref=e191]
+            - cell "就业" [ref=e192]:
+              - generic [ref=e193]: 就业
+            - cell "2026-09-02 16:38" [ref=e194]
+            - cell "未预约" [ref=e195]:
+              - generic [ref=e196]: 未预约
+            - cell "R-A1 受理时间排序；受理时间相同 → R-A3 家庭申请优先" [ref=e197]
+            - cell "天元区" [ref=e198]
+            - cell "09-15 09:30—10:00" [ref=e199]
+            - cell "已锁定" [ref=e200]:
+              - generic [ref=e201]: 已锁定
+            - cell "选房编排" [ref=e202]
+          - row "04 12 RC2026-0903-0162 王梓涵 就业 2026-09-03 10:26 未预约 R-A1 受理时间排序（普通轮候段） 天元区 09-15 10:00—10:30 可选房 选房编排" [ref=e203]:
+            - cell "04" [ref=e204]
+            - cell "12" [ref=e205]
+            - cell "RC2026-0903-0162" [ref=e206]
+            - cell "王梓涵" [ref=e207]
+            - cell "就业" [ref=e208]:
+              - generic [ref=e209]: 就业
+            - cell "2026-09-03 10:26" [ref=e210]
+            - cell "未预约" [ref=e211]:
+              - generic [ref=e212]: 未预约
+            - cell "R-A1 受理时间排序（普通轮候段）" [ref=e213]
+            - cell "天元区" [ref=e214]
+            - cell "09-15 10:00—10:30" [ref=e215]
+            - cell "可选房" [ref=e216]:
+              - generic [ref=e217]: 可选房
+            - cell "选房编排" [ref=e218]
+          - row "05 320 RC2026-0910-0466 肖×× 创业 2026-09-10 15:22 未预约 R-A1 受理时间排序（末位可选房） 荷塘区 09-19 16:30—17:00 可选房 选房编排" [ref=e219]:
+            - cell "05" [ref=e220]
+            - cell "320" [ref=e221]
+            - cell "RC2026-0910-0466" [ref=e222]
+            - cell "肖××" [ref=e223]
+            - cell "创业" [ref=e224]:
+              - generic [ref=e225]: 创业
+            - cell "2026-09-10 15:22" [ref=e226]
+            - cell "未预约" [ref=e227]:
+              - generic [ref=e228]: 未预约
+            - cell "R-A1 受理时间排序（末位可选房）" [ref=e229]
+            - cell "荷塘区" [ref=e230]
+            - cell "09-19 16:30—17:00" [ref=e231]
+            - cell "可选房" [ref=e232]:
+              - generic [ref=e233]: 可选房
+            - cell "选房编排" [ref=e234]
+          - row "06 321 RC2026-0910-0468 龙×× 就业 2026-09-10 15:26 未预约 R-A1 受理时间排序（超出投放套数） 天元区 — 进入轮候 轮候库" [ref=e235]:
+            - cell "06" [ref=e236]
+            - cell "321" [ref=e237]
+            - cell "RC2026-0910-0468" [ref=e238]
+            - cell "龙××" [ref=e239]
+            - cell "就业" [ref=e240]:
+              - generic [ref=e241]: 就业
+            - cell "2026-09-10 15:26" [ref=e242]
+            - cell "未预约" [ref=e243]:
+              - generic [ref=e244]: 未预约
+            - cell "R-A1 受理时间排序（超出投放套数）" [ref=e245]
+            - cell "天元区" [ref=e246]
+            - cell "—" [ref=e247]
+            - cell "进入轮候" [ref=e248]:
+              - generic [ref=e249]: 进入轮候
+            - cell "轮候库" [ref=e250]
+          - row "07 1 RC2026-0901-0102 李×× 特殊 2026-09-01 09:02 预约优先 R-A0 预约优先：已预约湘江1958 A6-1502，预约时间 2026-09-08 09:12（最早） 天元区 09-15 09:00—09:30 已签约 合同" [ref=e251]:
+            - cell "07" [ref=e252]
+            - cell "1" [ref=e253]
+            - cell "RC2026-0901-0102" [ref=e254]
+            - cell "李××" [ref=e255]
+            - cell "特殊" [ref=e256]:
+              - generic [ref=e257]: 特殊
+            - cell "2026-09-01 09:02" [ref=e258]
+            - cell "预约优先" [ref=e259]:
+              - generic [ref=e260]: 预约优先
+            - cell "R-A0 预约优先：已预约湘江1958 A6-1502，预约时间 2026-09-08 09:12（最早）" [ref=e261]
+            - cell "天元区" [ref=e262]
+            - cell "09-15 09:00—09:30" [ref=e263]
+            - cell "已签约" [ref=e264]:
+              - generic [ref=e265]: 已签约
+            - cell "合同" [ref=e266]
+          - row "08 4 RC2026-0902-0118 刘×× 就业 2026-09-02 11:06 预约优先 R-A0 预约优先：已预约栗雨佳苑 3-1104，预约时间 2026-09-10 16:38（预约优先段末位） 天元区 09-15 09:00—09:30 已锁定 选房编排" [ref=e267]:
+            - cell "08" [ref=e268]
+            - cell "4" [ref=e269]
+            - cell "RC2026-0902-0118" [ref=e270]
+            - cell "刘××" [ref=e271]
+            - cell "就业" [ref=e272]:
+              - generic [ref=e273]: 就业
+            - cell "2026-09-02 11:06" [ref=e274]
+            - cell "预约优先" [ref=e275]:
+              - generic [ref=e276]: 预约优先
+            - cell "R-A0 预约优先：已预约栗雨佳苑 3-1104，预约时间 2026-09-10 16:38（预约优先段末位）" [ref=e277]
+            - cell "天元区" [ref=e278]
+            - cell "09-15 09:00—09:30" [ref=e279]
+            - cell "已锁定" [ref=e280]:
+              - generic [ref=e281]: 已锁定
+            - cell "选房编排" [ref=e282]
+          - row "09 8 RC2026-0901-0126 谭×× 就业 2026-09-02 16:38 未预约 R-A1 受理时间排序；受理时间相同 → R-A3 家庭申请优先 天元区 09-15 09:30—10:00 已锁定 选房编排" [ref=e283]:
+            - cell "09" [ref=e284]
+            - cell "8" [ref=e285]
+            - cell "RC2026-0901-0126" [ref=e286]
+            - cell "谭××" [ref=e287]
+            - cell "就业" [ref=e288]:
+              - generic [ref=e289]: 就业
+            - cell "2026-09-02 16:38" [ref=e290]
+            - cell "未预约" [ref=e291]:
+              - generic [ref=e292]: 未预约
+            - cell "R-A1 受理时间排序；受理时间相同 → R-A3 家庭申请优先" [ref=e293]
+            - cell "天元区" [ref=e294]
+            - cell "09-15 09:30—10:00" [ref=e295]
+            - cell "已锁定" [ref=e296]:
+              - generic [ref=e297]: 已锁定
+            - cell "选房编排" [ref=e298]
+          - row "10 12 RC2026-0903-0162 王梓涵 就业 2026-09-03 10:26 未预约 R-A1 受理时间排序（普通轮候段） 天元区 09-15 10:00—10:30 可选房 选房编排" [ref=e299]:
+            - cell "10" [ref=e300]
+            - cell "12" [ref=e301]
+            - cell "RC2026-0903-0162" [ref=e302]
+            - cell "王梓涵" [ref=e303]
+            - cell "就业" [ref=e304]:
+              - generic [ref=e305]: 就业
+            - cell "2026-09-03 10:26" [ref=e306]
+            - cell "未预约" [ref=e307]:
+              - generic [ref=e308]: 未预约
+            - cell "R-A1 受理时间排序（普通轮候段）" [ref=e309]
+            - cell "天元区" [ref=e310]
+            - cell "09-15 10:00—10:30" [ref=e311]
+            - cell "可选房" [ref=e312]:
+              - generic [ref=e313]: 可选房
+            - cell "选房编排" [ref=e314]
+          - row "11 320 RC2026-0910-0466 肖×× 创业 2026-09-10 15:22 未预约 R-A1 受理时间排序（末位可选房） 荷塘区 09-19 16:30—17:00 可选房 选房编排" [ref=e315]:
+            - cell "11" [ref=e316]
+            - cell "320" [ref=e317]
+            - cell "RC2026-0910-0466" [ref=e318]
+            - cell "肖××" [ref=e319]
+            - cell "创业" [ref=e320]:
+              - generic [ref=e321]: 创业
+            - cell "2026-09-10 15:22" [ref=e322]
+            - cell "未预约" [ref=e323]:
+              - generic [ref=e324]: 未预约
+            - cell "R-A1 受理时间排序（末位可选房）" [ref=e325]
+            - cell "荷塘区" [ref=e326]
+            - cell "09-19 16:30—17:00" [ref=e327]
+            - cell "可选房" [ref=e328]:
+              - generic [ref=e329]: 可选房
+            - cell "选房编排" [ref=e330]
+          - row "12 321 RC2026-0910-0468 龙×× 就业 2026-09-10 15:26 未预约 R-A1 受理时间排序（超出投放套数） 天元区 — 进入轮候 轮候库" [ref=e331]:
+            - cell "12" [ref=e332]
+            - cell "321" [ref=e333]
+            - cell "RC2026-0910-0468" [ref=e334]
+            - cell "龙××" [ref=e335]
+            - cell "就业" [ref=e336]:
+              - generic [ref=e337]: 就业
+            - cell "2026-09-10 15:26" [ref=e338]
+            - cell "未预约" [ref=e339]:
+              - generic [ref=e340]: 未预约
+            - cell "R-A1 受理时间排序（超出投放套数）" [ref=e341]
+            - cell "天元区" [ref=e342]
+            - cell "—" [ref=e343]
+            - cell "进入轮候" [ref=e344]:
+              - generic [ref=e345]: 进入轮候
+            - cell "轮候库" [ref=e346]
+          - row "13 1 RC2026-0901-0102 李×× 特殊 2026-09-01 09:02 预约优先 R-A0 预约优先：已预约湘江1958 A6-1502，预约时间 2026-09-08 09:12（最早） 天元区 09-15 09:00—09:30 已签约 合同" [ref=e347]:
+            - cell "13" [ref=e348]
+            - cell "1" [ref=e349]
+            - cell "RC2026-0901-0102" [ref=e350]
+            - cell "李××" [ref=e351]
+            - cell "特殊" [ref=e352]:
+              - generic [ref=e353]: 特殊
+            - cell "2026-09-01 09:02" [ref=e354]
+            - cell "预约优先" [ref=e355]:
+              - generic [ref=e356]: 预约优先
+            - cell "R-A0 预约优先：已预约湘江1958 A6-1502，预约时间 2026-09-08 09:12（最早）" [ref=e357]
+            - cell "天元区" [ref=e358]
+            - cell "09-15 09:00—09:30" [ref=e359]
+            - cell "已签约" [ref=e360]:
+              - generic [ref=e361]: 已签约
+            - cell "合同" [ref=e362]
+          - row "14 4 RC2026-0902-0118 刘×× 就业 2026-09-02 11:06 预约优先 R-A0 预约优先：已预约栗雨佳苑 3-1104，预约时间 2026-09-10 16:38（预约优先段末位） 天元区 09-15 09:00—09:30 已锁定 选房编排" [ref=e363]:
+            - cell "14" [ref=e364]
+            - cell "4" [ref=e365]
+            - cell "RC2026-0902-0118" [ref=e366]
+            - cell "刘××" [ref=e367]
+            - cell "就业" [ref=e368]:
+              - generic [ref=e369]: 就业
+            - cell "2026-09-02 11:06" [ref=e370]
+            - cell "预约优先" [ref=e371]:
+              - generic [ref=e372]: 预约优先
+            - cell "R-A0 预约优先：已预约栗雨佳苑 3-1104，预约时间 2026-09-10 16:38（预约优先段末位）" [ref=e373]
+            - cell "天元区" [ref=e374]
+            - cell "09-15 09:00—09:30" [ref=e375]
+            - cell "已锁定" [ref=e376]:
+              - generic [ref=e377]: 已锁定
+            - cell "选房编排" [ref=e378]
+          - row "15 8 RC2026-0901-0126 谭×× 就业 2026-09-02 16:38 未预约 R-A1 受理时间排序；受理时间相同 → R-A3 家庭申请优先 天元区 09-15 09:30—10:00 已锁定 选房编排" [ref=e379]:
+            - cell "15" [ref=e380]
+            - cell "8" [ref=e381]
+            - cell "RC2026-0901-0126" [ref=e382]
+            - cell "谭××" [ref=e383]
+            - cell "就业" [ref=e384]:
+              - generic [ref=e385]: 就业
+            - cell "2026-09-02 16:38" [ref=e386]
+            - cell "未预约" [ref=e387]:
+              - generic [ref=e388]: 未预约
+            - cell "R-A1 受理时间排序；受理时间相同 → R-A3 家庭申请优先" [ref=e389]
+            - cell "天元区" [ref=e390]
+            - cell "09-15 09:30—10:00" [ref=e391]
+            - cell "已锁定" [ref=e392]:
+              - generic [ref=e393]: 已锁定
+            - cell "选房编排" [ref=e394]
+          - row "16 12 RC2026-0903-0162 王梓涵 就业 2026-09-03 10:26 未预约 R-A1 受理时间排序（普通轮候段） 天元区 09-15 10:00—10:30 可选房 选房编排" [ref=e395]:
+            - cell "16" [ref=e396]
+            - cell "12" [ref=e397]
+            - cell "RC2026-0903-0162" [ref=e398]
+            - cell "王梓涵" [ref=e399]
+            - cell "就业" [ref=e400]:
+              - generic [ref=e401]: 就业
+            - cell "2026-09-03 10:26" [ref=e402]
+            - cell "未预约" [ref=e403]:
+              - generic [ref=e404]: 未预约
+            - cell "R-A1 受理时间排序（普通轮候段）" [ref=e405]
+            - cell "天元区" [ref=e406]
+            - cell "09-15 10:00—10:30" [ref=e407]
+            - cell "可选房" [ref=e408]:
+              - generic [ref=e409]: 可选房
+            - cell "选房编排" [ref=e410]
+          - row "17 320 RC2026-0910-0466 肖×× 创业 2026-09-10 15:22 未预约 R-A1 受理时间排序（末位可选房） 荷塘区 09-19 16:30—17:00 可选房 选房编排" [ref=e411]:
+            - cell "17" [ref=e412]
+            - cell "320" [ref=e413]
+            - cell "RC2026-0910-0466" [ref=e414]
+            - cell "肖××" [ref=e415]
+            - cell "创业" [ref=e416]:
+              - generic [ref=e417]: 创业
+            - cell "2026-09-10 15:22" [ref=e418]
+            - cell "未预约" [ref=e419]:
+              - generic [ref=e420]: 未预约
+            - cell "R-A1 受理时间排序（末位可选房）" [ref=e421]
+            - cell "荷塘区" [ref=e422]
+            - cell "09-19 16:30—17:00" [ref=e423]
+            - cell "可选房" [ref=e424]:
+              - generic [ref=e425]: 可选房
+            - cell "选房编排" [ref=e426]
+          - row "18 321 RC2026-0910-0468 龙×× 就业 2026-09-10 15:26 未预约 R-A1 受理时间排序（超出投放套数） 天元区 — 进入轮候 轮候库" [ref=e427]:
+            - cell "18" [ref=e428]
+            - cell "321" [ref=e429]
+            - cell "RC2026-0910-0468" [ref=e430]
+            - cell "龙××" [ref=e431]
+            - cell "就业" [ref=e432]:
+              - generic [ref=e433]: 就业
+            - cell "2026-09-10 15:26" [ref=e434]
+            - cell "未预约" [ref=e435]:
+              - generic [ref=e436]: 未预约
+            - cell "R-A1 受理时间排序（超出投放套数）" [ref=e437]
+            - cell "天元区" [ref=e438]
+            - cell "—" [ref=e439]
+            - cell "进入轮候" [ref=e440]:
+              - generic [ref=e441]: 进入轮候
+            - cell "轮候库" [ref=e442]
+          - row "19 1 RC2026-0901-0102 李×× 特殊 2026-09-01 09:02 预约优先 R-A0 预约优先：已预约湘江1958 A6-1502，预约时间 2026-09-08 09:12（最早） 天元区 09-15 09:00—09:30 已签约 合同" [ref=e443]:
+            - cell "19" [ref=e444]
+            - cell "1" [ref=e445]
+            - cell "RC2026-0901-0102" [ref=e446]
+            - cell "李××" [ref=e447]
+            - cell "特殊" [ref=e448]:
+              - generic [ref=e449]: 特殊
+            - cell "2026-09-01 09:02" [ref=e450]
+            - cell "预约优先" [ref=e451]:
+              - generic [ref=e452]: 预约优先
+            - cell "R-A0 预约优先：已预约湘江1958 A6-1502，预约时间 2026-09-08 09:12（最早）" [ref=e453]
+            - cell "天元区" [ref=e454]
+            - cell "09-15 09:00—09:30" [ref=e455]
+            - cell "已签约" [ref=e456]:
+              - generic [ref=e457]: 已签约
+            - cell "合同" [ref=e458]
+          - row "20 4 RC2026-0902-0118 刘×× 就业 2026-09-02 11:06 预约优先 R-A0 预约优先：已预约栗雨佳苑 3-1104，预约时间 2026-09-10 16:38（预约优先段末位） 天元区 09-15 09:00—09:30 已锁定 选房编排" [ref=e459]:
+            - cell "20" [ref=e460]
+            - cell "4" [ref=e461]
+            - cell "RC2026-0902-0118" [ref=e462]
+            - cell "刘××" [ref=e463]
+            - cell "就业" [ref=e464]:
+              - generic [ref=e465]: 就业
+            - cell "2026-09-02 11:06" [ref=e466]
+            - cell "预约优先" [ref=e467]:
+              - generic [ref=e468]: 预约优先
+            - cell "R-A0 预约优先：已预约栗雨佳苑 3-1104，预约时间 2026-09-10 16:38（预约优先段末位）" [ref=e469]
+            - cell "天元区" [ref=e470]
+            - cell "09-15 09:00—09:30" [ref=e471]
+            - cell "已锁定" [ref=e472]:
+              - generic [ref=e473]: 已锁定
+            - cell "选房编排" [ref=e474]
+      - generic [ref=e475]:
+        - generic [ref=e476]: 共 486 条，显示 1–20 条
+        - generic [ref=e477]:
+          - generic [ref=e478]:
+            - text: 每页
+            - combobox "每页 条" [ref=e479] [cursor=pointer]:
+              - option "10"
+              - option "20" [selected]
+              - option "50"
+              - option "100"
+            - text: 条
+          - generic [ref=e480]:
+            - button "" [disabled] [ref=e481]:
+              - generic [ref=e482]: 
+            - button "" [disabled] [ref=e483]:
+              - generic [ref=e484]: 
+            - button "1" [ref=e485] [cursor=pointer]
+            - button "2" [ref=e486] [cursor=pointer]
+            - button "3" [ref=e487] [cursor=pointer]
+            - button "4" [ref=e488] [cursor=pointer]
+            - generic [ref=e489]: …
+            - button "25" [ref=e490] [cursor=pointer]
+            - button "" [ref=e491] [cursor=pointer]:
+              - generic [ref=e492]: 
+            - button "" [ref=e493] [cursor=pointer]:
+              - generic [ref=e494]: 
+          - generic [ref=e495]:
+            - text: 前往
+            - spinbutton "前往 页" [ref=e496]: "1"
+            - text: 页
+          - generic [ref=e497]: 共 25 页
+    - generic [ref=e498]:
+      - generic [ref=e499]:
+        - generic [ref=e500]: 
+        - text: 配租排序规则
+        - generic [ref=e501]: R-A0 至 R-A5 · 顺序固定 · 不摇号
+      - table [ref=e504]:
+        - rowgroup [ref=e505]:
+          - row "优先级 比较项 判定说明" [ref=e506]:
+            - columnheader "优先级" [ref=e507]
+            - columnheader "比较项" [ref=e508]
+            - columnheader "判定说明" [ref=e509]
+        - rowgroup [ref=e510]:
+          - row "R-A0 房源预约优先 已预约本批次房源的优先于普通轮候：预约人整体排在普通轮候段之前，同为预约的按预约时间先后确定序位；预约后未在期限内转为正式申请或已取消预约的，不再享受预约优先，回落至普通轮候段按 R-A1 排序。预约名单管理" [ref=e511]:
+            - cell "R-A0" [ref=e512]
+            - cell "房源预约优先" [ref=e513]
+            - cell "已预约本批次房源的优先于普通轮候：预约人整体排在普通轮候段之前，同为预约的按预约时间先后确定序位；预约后未在期限内转为正式申请或已取消预约的，不再享受预约优先，回落至普通轮候段按 R-A1 排序。预约名单管理" [ref=e514]
+          - row "R-A1 申请受理时间 普通轮候段以件池记录的受理时间戳先后排序，精确到分秒；补正后重新提交的不改变原受理时间。全程按申请顺序排定，不采用摇号方式" [ref=e515]:
+            - cell "R-A1" [ref=e516]
+            - cell "申请受理时间" [ref=e517]
+            - cell "普通轮候段以件池记录的受理时间戳先后排序，精确到分秒；补正后重新提交的不改变原受理时间。全程按申请顺序排定，不采用摇号方式" [ref=e518]
+          - row "R-A2 特殊人才优先 受理时间相同时，属于免毕业年限特殊人才（中层以上管理 / 中级以上职称 / 高级技师且 35 周岁以下）的优先" [ref=e519]:
+            - cell "R-A2" [ref=e520]
+            - cell "特殊人才优先" [ref=e521]
+            - cell "受理时间相同时，属于免毕业年限特殊人才（中层以上管理 / 中级以上职称 / 高级技师且 35 周岁以下）的优先" [ref=e522]
+          - row "R-A3 家庭申请优先 再相同时，已婚且夫妻双方均符合条件的家庭申请优先（只占用一套房源指标）" [ref=e523]:
+            - cell "R-A3" [ref=e524]
+            - cell "家庭申请优先" [ref=e525]
+            - cell "再相同时，已婚且夫妻双方均符合条件的家庭申请优先（只占用一套房源指标）" [ref=e526]
+          - row "R-A4 学历层次 再相同时，按博士、硕士、本科、大专顺序排列" [ref=e527]:
+            - cell "R-A4" [ref=e528]
+            - cell "学历层次" [ref=e529]
+            - cell "再相同时，按博士、硕士、本科、大专顺序排列" [ref=e530]
+          - row "R-A5 申请编号 全部相同时按申请编号升序，保证排序结果唯一且可复现" [ref=e531]:
+            - cell "R-A5" [ref=e532]
+            - cell "申请编号" [ref=e533]
+            - cell "全部相同时按申请编号升序，保证排序结果唯一且可复现" [ref=e534]
+    - generic [ref=e535]:
+      - generic [ref=e536]: 排序规则 R-A0 房源预约优先 → R-A1 受理时间 → R-A2 特殊人才 → R-A3 家庭申请 → R-A4 学历层次 → R-A5 申请编号，不采用摇号方式确定顺序
+      - generic [ref=e537]: 预约优先 已预约该批次房源的申请人优先于普通轮候排序，同为预约的按预约时间先后；预约名单管理
+      - generic [ref=e538]: 公开脱敏 对外公示时姓名按姓 + ×× 脱敏，不公开联系方式与身份证号；系统自动生成、不支持人工调序，排序结果唯一可复现

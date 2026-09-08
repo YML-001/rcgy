@@ -3,28 +3,50 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>申请类型选择 · 株洲市人才公寓管理平台</title>
+<title>选房与申请类型 · 株洲市人才住房保障管理平台</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="../../assets/css/app.css">
 <link rel="stylesheet" href="../../assets/css/mobile.css">
 <link rel="stylesheet" href="../../assets/css/ext.css">
 </head>
-<body class="m-body" data-mtitle="选择申请类型" data-mmod="M5 人才公寓资格申请" data-mcode="M5-01"
-      data-mdesc="区分创业青年人才、就业青年人才以及不受毕业年限限制的特殊人才，按类型动态加载申请条件与材料清单。" data-mback="home.html" data-mtabset="public" data-mtab="apply" data-mchan="湘易办">
+<body class="m-body" data-mtitle="选房与类型（1/5）" data-mmod="M5 人才公寓资格申请" data-mcode="M5-01"
+      data-mdesc="资格申请改为先选房后填表：本页确认由房源详情页选定带入的房间，并区分创业青年人才、就业青年人才与不受毕业年限限制的特殊人才，按类型动态加载申请条件与材料清单。" data-mback="house-detail.html" data-mtabset="public" data-mtab="me" data-mchan="湘易办">
 <div class="m-stage">
   <div class="m-phone">
     <div class="m-screen">
       <div class="m-view">
-        <div class="m-note"><i class="fa-solid fa-circle-info"></i>
-          <div>请选择您的申请类型。<b>不同类型的申请条件与材料清单不同</b>，选择后系统将动态加载对应表单。</div>
+        <div class="m-steps">
+          <div class="m-sp on"><div class="n">1</div><div class="t">选房</div></div>
+          <div class="m-sp"><div class="n">2</div><div class="t">填表</div></div>
+          <div class="m-sp"><div class="n">3</div><div class="t">材料</div></div>
+          <div class="m-sp"><div class="n">4</div><div class="t">承诺书</div></div>
+          <div class="m-sp"><div class="n">5</div><div class="t">提交</div></div>
         </div>
+        <div class="m-note"><i class="fa-solid fa-circle-info"></i>
+          <div>本次申请<b>先选房、后填表</b>：请先确认已选定的房间，再选择申请类型。<b>不同类型的申请条件与材料清单不同</b>，选择后系统将动态加载对应表单。</div>
+        </div>
+        <div class="m-sect">已选房源<span class="m-sect-x">由房源详情页选定带入</span></div>
         <div class="m-card">
-          <div class="m-card-h"><i class="fa-solid fa-users"></i>保障对象类型<a class="m-more" href="policy-detail.html">政策依据 <i class="fa-solid fa-angle-right"></i></a></div>
+          <div class="m-card-h"><i class="fa-solid fa-door-open"></i>1502A 间<a class="m-more" href="house-detail.html">改选房源 <i class="fa-solid fa-angle-right"></i></a></div>
+          <div class="m-card-b">
+          <div class="m-kv">
+            <div><span>楼盘小区</span><span>湘江1958 人才公寓（天元区泰山路 1958 号）</span></div>
+            <div><span>房源（套）</span><span>A6 栋 1502 室　三室两厅，拆 A/B/C 三间</span></div>
+            <div><span>房间</span><span><b>1502A 间</b>　朝南主卧　<span class="m-tag green">可选</span></span></div>
+            <div><span>计租面积</span><span><b>27.80 ㎡</b>（套内 22.40 ＋ 公摊 5.40，公摊计入租金）</span></div>
+            <div><span>人才租金</span><span><b style="color:var(--danger)">166.80 元/月</b>（6.00 元/㎡·月）　原市场租金 500.40 元/月</span></div>
+            <div><span>信息来源</span><span><i class="fa-solid fa-database"></i> 由<b>房源详情页选定带入</b>，只读展示</span></div>
+          </div>
+          </div>
+        </div>
+        <div class="m-sect">保障对象类型<span class="m-sect-x">点击选择</span></div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-users"></i>选择您的申请类型<a class="m-more" href="policy-detail.html">政策依据 <i class="fa-solid fa-angle-right"></i></a></div>
           <div class="m-card-b">
           <div class="m-opts">
-            <div class="m-opt on"><span class="m-ok"><i class="fa-solid fa-check"></i></span><span class="m-ol"><b>就业青年人才</b><span>全日制大专及以上、<b>毕业 2 年内</b>，与市城区用人单位签订劳动合同并正常缴纳养老保险<br><span style="color:var(--primary)">需核验：学历、社保、个人所得税、婚姻、不动产</span></span></span></div>
-            <div class="m-opt"><span class="m-ok"><i class="fa-solid fa-check"></i></span><span class="m-ol"><b>创业青年人才</b><span>全日制大专及以上、<b>毕业 2 年内</b>，作为法定代表人或经营者在市城区<b>首次登记注册</b>创业企业或个体工商户<br><span style="color:var(--primary)">需核验：学历、工商登记、企业纳税、婚姻、不动产</span></span></span></div>
-            <div class="m-opt"><span class="m-ok"><i class="fa-solid fa-check"></i></span><span class="m-ol"><b>特殊人才（免毕业年限）</b><span>高企或大中型企业<b>中层以上管理</b>、<b>中级以上职称</b>、<b>高级技师</b>，且 <b>35 周岁（含）以下</b>，不受毕业年限限制<br><span style="color:var(--primary)">需核验：学历、职称技能证书、社保、婚姻、不动产</span></span></span></div>
+            <div class="m-opt on"><span class="m-ok"><i class="fa-solid fa-check"></i></span><span class="m-ol"><b>就业青年人才</b><span>全日制大专及以上、<b>毕业 2 年内</b>，与市城区用人单位签订劳动合同并正常缴纳养老保险<br>需核验：学历、社保、个人所得税、婚姻、不动产</span></span></div>
+            <div class="m-opt"><span class="m-ok"><i class="fa-solid fa-check"></i></span><span class="m-ol"><b>创业青年人才</b><span>全日制大专及以上、<b>毕业 2 年内</b>，作为法定代表人或经营者在市城区<b>首次登记注册</b>创业企业或个体工商户<br>需核验：学历、工商登记、企业纳税、婚姻、不动产</span></span></div>
+            <div class="m-opt"><span class="m-ok"><i class="fa-solid fa-check"></i></span><span class="m-ol"><b>特殊人才（免毕业年限）</b><span>高企或大中型企业<b>中层以上管理</b>、<b>中级以上职称</b>、<b>高级技师</b>，且 <b>35 周岁（含）以下</b>，不受毕业年限限制<br>需核验：学历、职称技能证书、社保、婚姻、不动产</span></span></div>
           </div>
           </div>
         </div>
@@ -35,7 +57,7 @@
           <div class="m-kv">
             <div><span>最高学历</span><span>全日制本科 <span class="m-tag green">符合</span></span></div>
             <div><span>毕业时间</span><span>2025-07-01（毕业 2 年内，剩余 10 个月）<span class="m-tag green">符合</span></span></div>
-            <div><span>就业单位</span><span>中车株洲电力机车研究所有限公司（天元区）</span></div>
+            <div><span>就业单位</span><span>中车株洲电力机车研究所（天元区）</span></div>
             <div><span>养老保险</span><span>连续缴纳 13 个月 <span class="m-tag green">正常</span></span></div>
             <div><span>建议类型</span><span><b style="color:var(--primary)">就业青年人才</b></span></div>
           </div>
@@ -43,17 +65,18 @@
         </div>
         <div class="m-sect">其他办理入口</div>
         <div class="m-cells">
-          <a class="m-cell" href="pre-apply.html"><span class="m-ci green"><i class="fa-solid fa-graduation-cap"></i></span><span class="m-cl"><b>我还没拿到毕业证</b><span class="m-cs">提交应届生预申请，锁定预定名额</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
-          <a class="m-cell" href="apply-by-org.html"><span class="m-ci cyan"><i class="fa-solid fa-users-gear"></i></span><span class="m-cl"><b>单位已代我申报</b><span class="m-cs">查看本人被用人单位代报的申请及进度</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
-          <a class="m-cell" href="apply-guide.html"><span class="m-ci orange"><i class="fa-solid fa-list-check"></i></span><span class="m-cl"><b>先看办事指南</b><span class="m-cs">条件、材料清单、办理流程与时限</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
-          <a class="m-cell" href="selftest-form.html"><span class="m-ci"><i class="fa-solid fa-clipboard-question"></i></span><span class="m-cl"><b>先做资格自测</b><span class="m-cs">即时判定是否符合条件</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="house-book.html"><span class="m-ci green"><i class="fa-solid fa-calendar-check"></i></span><span class="m-cl"><b>我还没拿到毕业证</b><span class="m-cs">未毕业的应届毕业生先用房源预约登记意向，取得毕业证后再提交正式申请</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="emp-confirm.html"><span class="m-ci orange"><i class="fa-solid fa-user-shield"></i></span><span class="m-cl"><b>单位已代我申报</b><span class="m-cs">去确认授权并补填联系方式、婚姻状况与意向片区</span></span><span class="m-cv"><span class="m-tag red">待确认</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="apply-by-org.html"><span class="m-ci cyan"><i class="fa-solid fa-users-gear"></i></span><span class="m-cl"><b>查看单位代报的申请</b><span class="m-cs">本人被用人单位代报的申请及办理进度</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="apply-guide.html"><span class="m-ci"><i class="fa-solid fa-list-check"></i></span><span class="m-cl"><b>先看办事指南</b><span class="m-cs">条件、材料清单、办理流程与时限</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
         </div>
         <div class="m-note warn"><i class="fa-solid fa-triangle-exclamation"></i>
-          <div>每名创业就业青年人才<b>仅限申请 1 间（套）</b>人才住房。已婚且夫妻双方均符合条件的可以家庭为单位提交申请，<b>只占用一套房源指标</b>。</div>
+          <div>每名创业就业青年人才<b>仅限申请 1 间（套）</b>人才住房。<b>已婚的将按民政数据自动切换为家庭申请</b>，夫妻双方合并为一份、<b>只占用一套房源指标</b>。</div>
         </div>
       </div>
       <div class="m-actbar">
-        <a class="m-btn primary block" href="apply-step1.html"><i class="fa-solid fa-angle-right"></i> 下一步：填报资格审核表</a>
+        <a class="m-btn w-auto" href="house-detail.html">改选房源</a>
+        <a class="m-btn primary" href="apply-step1.html"><i class="fa-solid fa-angle-right"></i> 下一步：填表</a>
       </div>
     </div>
   </div>

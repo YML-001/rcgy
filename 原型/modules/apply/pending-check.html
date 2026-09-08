@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>容缺受理台账 · 株洲市人才住房保障管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="reviewer" data-active="apply-26">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才住房保障管理平台
+      <span class="sep">/</span> 人才档案与资格联审
+      <span class="sep">/</span> 资格受理与初审
+      <span class="sep">/</span> <span class="cur">容缺受理台账与到期预警</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.openDrawer('pcDrawer')"><i class="fa-solid fa-clipboard-check"></i> 到期复核处置</button>
+      <button class="btn" onclick="PMS.confirm({title:'立即复核确认',message:'确认对 12 件本月到期的容缺受理件立即发起自动复核？',detail:'系统将向市人社局重新调取养老保险缴纳记录，复核结果自动回填台账；仍不符合的自动置为预警并转人工处理。',type:'warning',okText:'确认发起',onOk:function(){PMS.toast('已发起自动复核，12 件复核完成：通过 9 件、不通过 3 件已转人工','success');}})"><i class="fa-solid fa-rotate"></i> 立即自动复核</button>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>登记按<b>容缺受理</b>通过的申请件与<b>待补核期限</b>（自容缺受理之日起 <b>60 个自然日</b>）。<b>期限到期系统自动复核社保缴纳情况</b>：已正常参保缴纳的自动置为「已补核通过」；<b>仍不符合的在台账中预警并转人工处理</b>，经核实确不符合条件的可撤销已取得的保障资格。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-clipboard-list"></i></div>
+      <div><div class="s-label">容缺受理在册</div><div class="s-value">46</div>
+        <div class="s-trend text-2">件 · 待补核 15 / 已办结 31</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-hourglass-half"></i></div>
+      <div><div class="s-label">本月到期</div><div class="s-value">12</div>
+        <div class="s-trend text-2">件 · 到期自动复核</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
+      <div><div class="s-label">已补核通过</div><div class="s-value">28</div>
+        <div class="s-trend text-2">件 · 通过率 90.3%</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon red"><i class="fa-solid fa-user-gear"></i></div>
+      <div><div class="s-label">预警转人工</div><div class="s-value">3</div>
+        <div class="s-trend ">件 · 补核不通过</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>申请编号</label><input type="text" value="RC2026-" placeholder="申请编号"></div>
+      <div class="filter-item"><label>申请人</label><input type="text" value="" placeholder="姓名"></div>
+      <div class="filter-item"><label>容缺事项</label><select><option value="">全部</option><option>社保未查到记录</option><option>劳动合同已签未参保</option></select></div>
+      <div class="filter-item"><label>台账状态</label><select data-dict="pendingStatus" data-ph="全部"></select></div>
+      <div class="filter-item"><label>待补核期限</label><input type="date" value="2026-09-30"></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>申请编号</th><th>申请人</th><th class="cell-lg">容缺事项</th><th>单位承诺书</th><th>容缺受理时间</th><th>待补核期限</th><th>剩余天数</th><th class="cell-lg">自动复核结果</th><th>台账状态</th><th class="cell-lg">处置方式</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr class="row-bad"><td>RC2026-0705-0086</td><td>唐××</td><td><span class="badge orange">社保未查到记录</span></td><td><span class="badge green">已收取</span></td><td>2026-07-05</td><td>2026-09-03</td><td class="num text-danger">逾期 5 天</td><td class="cell-lg">2026-09-03 自动复核：市人社局仍无养老保险缴纳记录，单位未按承诺办理参保</td><td><span class="badge red">已转人工</span></td><td class="cell-lg">已转人工核查，拟撤销资格并收回房源</td><td><span class="link" onclick="PMS.openDrawer('pcDrawer')">复核处置</span></td></tr>
+          <tr class="row-bad"><td>RC2026-0708-0092</td><td>罗××</td><td><span class="badge orange">劳动合同已签未参保</span></td><td><span class="badge green">已收取</span></td><td>2026-07-08</td><td>2026-09-06</td><td class="num text-danger">逾期 2 天</td><td class="cell-lg">2026-09-06 自动复核：已办理参保登记但缴费月数为 0，未实际缴纳</td><td><span class="badge red">补核不通过</span></td><td class="cell-lg">预警提示，待人工核实单位缴费计划后处置</td><td><span class="link" onclick="PMS.openDrawer('pcDrawer')">复核处置</span></td></tr>
+          <tr class="row-warn"><td>RC2026-0712-0104</td><td>王××</td><td><span class="badge orange">社保未查到记录</span></td><td><span class="badge green">已收取</span></td><td>2026-07-12</td><td>2026-09-10</td><td class="num">剩 2 天</td><td class="cell-lg">未到期，最近一次探查（2026-09-06）已查到 1 个月缴纳记录</td><td><span class="badge orange">待补核</span></td><td class="cell-lg">到期自动复核，临期已短信提醒申请人与用人单位</td><td><span class="link" onclick="PMS.openDrawer('pcDrawer')">复核处置</span></td></tr>
+          <tr class="row-warn"><td>RC2026-0715-0118</td><td>谭××</td><td><span class="badge orange">劳动合同已签未参保</span></td><td><span class="badge green">已收取</span></td><td>2026-07-15</td><td>2026-09-13</td><td class="num">剩 5 天</td><td class="cell-lg">未到期，最近一次探查（2026-09-06）已办理参保登记，缴费月数 1</td><td><span class="badge orange">待补核</span></td><td class="cell-lg">到期自动复核，临期已短信提醒申请人与用人单位</td><td><span class="link" onclick="PMS.openDrawer('pcDrawer')">复核处置</span></td></tr>
+          <tr><td>RC2026-0801-0132</td><td>邓××</td><td><span class="badge orange">社保未查到记录</span></td><td><span class="badge green">已收取</span></td><td>2026-08-01</td><td>2026-09-30</td><td class="num">剩 22 天</td><td class="cell-lg">未到期，待期限届满后自动复核</td><td><span class="badge orange">待补核</span></td><td class="cell-lg">到期自动复核，提前 7 天推送到期提醒</td><td><span class="link" onclick="PMS.openDrawer('pcDrawer')">复核处置</span></td></tr>
+          <tr><td>RC2026-0812-0146</td><td>周××</td><td><span class="badge orange">社保未查到记录</span></td><td><span class="badge green">已收取</span></td><td>2026-08-12</td><td>2026-10-11</td><td class="num">剩 33 天</td><td class="cell-lg">未到期，待期限届满后自动复核</td><td><span class="badge orange">待补核</span></td><td class="cell-lg">到期自动复核，提前 7 天推送到期提醒</td><td><span class="link" onclick="PMS.openDrawer('pcDrawer')">复核处置</span></td></tr>
+          <tr><td>RC2026-0620-0058</td><td>龙××</td><td><span class="badge orange">社保未查到记录</span></td><td><span class="badge green">已收取</span></td><td>2026-06-20</td><td>2026-08-19</td><td class="num muted">已办结</td><td class="cell-lg">2026-08-19 自动复核：养老保险已连续缴纳 3 个月，缴纳单位与劳动合同一致</td><td><span class="badge green">已补核通过</span></td><td class="cell-lg">资格保留，台账办结并归入电子档案</td><td><span class="link" onclick="PMS.toast('补核通过：养老保险已连续缴纳 3 个月，资格保留，台账已办结')">查看</span></td></tr>
+          <tr><td>RC2026-0628-0071</td><td>彭××</td><td><span class="badge orange">劳动合同已签未参保</span></td><td><span class="badge green">已收取</span></td><td>2026-06-28</td><td>2026-08-27</td><td class="num muted">已办结</td><td class="cell-lg">2026-08-27 自动复核：已参保并缴纳 2 个月，符合在本地实际从业情形</td><td><span class="badge green">已补核通过</span></td><td class="cell-lg">资格保留，台账办结并归入电子档案</td><td><span class="link" onclick="PMS.toast('补核通过：已参保并缴纳 2 个月，资格保留，台账已办结')">查看</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sp-block" style="margin-top:12px">
+    <div class="sp-h"><i class="fa-solid fa-list"></i> 容缺受理规则<span class="sub">凭单位承诺书容缺受理 · 60 个自然日待补核 · 到期自动复核</span></div>
+    <div class="sp-b">
+      <div class="sp-tw">
+        <table class="data-table compact">
+          <thead><tr><th>规则项</th><th class="cell-lg">规则内容</th><th class="cell-lg">系统处置</th></tr></thead>
+          <tbody>
+            <tr><td><b>适用情形</b></td><td class="cell-lg">①社保核验<b>查不到缴纳记录</b>；②<b>劳动合同已签订但单位尚未办理参保</b>。其余核验项不一致的不适用容缺受理</td><td class="cell-lg">受理初审环节由经办人勾选容缺事项，系统自动登记入本台账</td></tr>
+            <tr><td><b>承诺书要求</b></td><td class="cell-lg">须提交<b>用人单位盖章的参保承诺书</b>，载明参保办理时间承诺、单位联系人与联系方式，并由申请人本人签署材料真实性承诺书</td><td class="cell-lg">承诺书为容缺受理的<b>必备件</b>，未收取的不允许提交容缺受理</td></tr>
+            <tr><td><b>补核期限</b></td><td class="cell-lg">自<b>容缺受理之日起 60 个自然日</b>；确有正当理由的可申请<b>延长一次，最长 30 个自然日</b></td><td class="cell-lg">台账登记待补核期限；到期前 7 天推送提醒，临期 3 天标黄预警</td></tr>
+            <tr><td><b>到期自动复核</b></td><td class="cell-lg">期限届满当日系统<b>自动向市人社局重新调取养老保险缴纳情况</b>，比对参保状态与缴费月数</td><td class="cell-lg">已参保缴纳的自动置为<span class="badge green">已补核通过</span>并办结；未参保或缴费月数为 0 的置为<span class="badge red">补核不通过</span></td></tr>
+            <tr><td><b>仍不符合的处置</b></td><td class="cell-lg">补核不通过的在台账中<b>预警并转人工处理</b>；人工核实后确不符合条件的，<b>可撤销已取得的保障资格</b>，已配租的按退出流程收回房源，并可标记失信</td><td class="cell-lg">置为<span class="badge red">已转人工</span>，生成人工核查任务并推送至受理初审经办人待办</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="sp-src">
+    <span><b>依据</b> 2026 年 9 月 7 日汇报讨论会决议：社保查不到记录或已签合同未参保的，凭单位承诺书容缺受理</span>
+    <span><b>补核期限</b> 60 个自然日，可延长一次最长 30 个自然日</span>
+    <span><b>关联页面</b> <span class="link" onclick="location.href='audit-desk.html'">受理初审办理</span>　<span class="link" onclick="location.href='verify-social.html'">社保核验</span></span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="pcDrawer">
+  <div class="drawer-head">
+    <h3>到期复核处置</h3>
+    <span class="badge red">RC2026-0705-0086 · 补核不通过</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+    <div class="alert alert-warning">
+      <i class="fa-solid fa-triangle-exclamation"></i>
+      <div>本件待补核期限已于 <b>2026-09-03</b> 届满，系统自动复核后<b>仍无养老保险缴纳记录</b>，已在台账中预警并<b>转人工处理</b>。处置结论将写入办件流水，处置为「补核不通过转人工」的可进入资格撤销与房源收回流程。</div>
+    </div>
+
+    <div class="form-grid form-align">
+      <div class="form-item">
+        <label>申请编号 <span class="req">*</span></label>
+        <input type="text" value="RC2026-0705-0086" readonly>
+      </div>
+      <div class="form-item">
+        <label>申请人 <span class="req">*</span></label>
+        <input type="text" value="唐雅琴" readonly>
+      </div>
+      <div class="form-item">
+        <label>容缺事项 <span class="req">*</span></label>
+        <input type="text" value="社保未查到记录" readonly>
+      </div>
+      <div class="form-item">
+        <label>用人单位 <span class="req">*</span></label>
+        <input type="text" value="株洲时代新材料科技股份有限公司" readonly>
+      </div>
+      <div class="form-item">
+        <label>容缺受理时间 <span class="req">*</span></label>
+        <input type="text" value="2026-07-05" readonly>
+      </div>
+      <div class="form-item">
+        <label>待补核期限 <span class="req">*</span></label>
+        <input type="text" value="2026-09-03（60 个自然日）" readonly>
+      </div>
+      <div class="form-item col-full">
+        <label>自动复核结果 <span class="req">*</span></label>
+        <input type="text" value="2026-09-03 自动复核：市人社局返回仍无养老保险缴纳记录，参保登记未办理" readonly>
+        <div class="hint">由系统在期限届满当日自动调取，人工不可修改</div>
+      </div>
+      <div class="form-item">
+        <label>社保实际缴纳月数 <span class="req">*</span></label>
+        <input type="text" value="0">
+        <div class="hint">人工核实后填写，与自动复核结果不一致的以人工核实为准</div>
+      </div>
+      <div class="form-item">
+        <label>处置结论 <span class="req">*</span></label>
+        <select id="pcResult">
+          <option>补核不通过转人工</option>
+          <option>补核通过</option>
+          <option>延长补核期限</option>
+        </select>
+      </div>
+      <div class="form-item">
+        <label>延长天数（自然日）</label>
+        <input type="text" value="30">
+        <div class="hint">仅在处置结论为「延长补核期限」时生效，最长 30 个自然日且只能延长一次</div>
+      </div>
+      <div class="form-item">
+        <label>处置人 <span class="req">*</span></label>
+        <input type="text" value="刘志刚" readonly>
+      </div>
+      <div class="form-item col-full">
+        <label>处置说明 <span class="req">*</span></label>
+        <textarea rows="4">经人工核实：申请人唐雅琴与株洲时代新材料科技股份有限公司签订的劳动合同真实有效，但单位自 2026 年 7 月起未按承诺书约定为其办理参保登记，截至补核期限届满养老保险缴纳月数为 0，不符合《株洲市城区创业就业青年人才住房保障管理办法》关于在本地实际从业的认定要求。已电话联系单位人事部门核实，单位反馈该员工已于 2026 年 8 月离职。据此处置为补核不通过转人工，提请撤销其人才住房保障资格，已配租房源按退出流程收回，并将情况书面告知申请人本人。</textarea>
+      </div>
+    </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn" onclick="PMS.toast('已提醒株洲时代新材料科技股份有限公司人事部门于 3 个工作日内反馈参保情况')">提醒用人单位</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'处置提交确认',message:'确认对 RC2026-0705-0086 出具「补核不通过转人工」处置结论？',detail:'处置结论写入办件流水后不可直接修改。补核不通过转人工的将生成资格撤销核查任务，已配租房源按退出流程收回，处置情况书面告知申请人与用人单位。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已提交处置结论，资格撤销核查任务已生成','success');}})"><i class="fa-solid fa-check"></i> 提交处置</button>
+  </div>
+</div>
+
+<script>
+document.getElementById('pcResult').addEventListener('change', function () {
+  var map = {
+    '补核通过': '已切换为补核通过，台账将办结并保留保障资格',
+    '补核不通过转人工': '已切换为补核不通过转人工，将生成资格撤销核查任务',
+    '延长补核期限': '已切换为延长补核期限，请填写延长天数（最长 30 个自然日）'
+  };
+  PMS.toast(map[this.value] || '已切换处置结论');
+});
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 46; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

@@ -3,34 +3,36 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>工单进度反馈与督办 · 株洲市人才公寓管理平台</title>
+<title>工单进度反馈与督办 · 株洲市人才住房保障管理平台</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="../../assets/css/app.css">
 <link rel="stylesheet" href="../../assets/css/mobile.css">
 <link rel="stylesheet" href="../../assets/css/ext.css">
 </head>
 <body class="m-body" data-mtitle="进度反馈" data-mmod="G3 工单处理" data-mcode="G3-02"
-      data-mdesc="反馈处理进度与结果，超时未处理的工单接收督办提醒并自动升级至运营机构负责人。" data-mback="wo-list.html" data-mtabset="gov" data-mtab="wo">
+      data-mdesc="运营机构现场人员反馈处理进度与结果，超时未处理的工单接收督办提醒并自动升级至本机构负责人；工单范围为本机构受托房源。" data-mback="wo-list.html" data-mtabset="agency" data-mtab="wo">
 <div class="m-stage">
   <div class="m-phone">
     <div class="m-screen">
       <div class="m-view">
         <div class="m-note danger"><i class="fa-solid fa-circle-exclamation"></i>
-          <div>本工单已<b>超时 12 小时</b>，已自动升级至运营机构负责人督办。请立即反馈进度并说明原因。</div>
+          <div>本工单已<b>超时 12 小时</b>，已自动升级至本机构负责人督办。请立即反馈进度并说明原因。<b>工单范围为本机构受托房源。</b></div>
         </div>
         <div class="m-card">
           <div class="m-card-h"><i class="fa-solid fa-circle-exclamation"></i>超时工单</div>
           <div class="m-card-b">
           <div class="m-kv">
             <div><span>工单编号</span><span>GD2026-09-00402</span></div>
-            <div><span>房源</span><span>湘江1958 人才公寓 A3 栋 1108</span></div>
+            <div><span>房源</span><span>湘江1958 人才公寓 A3 栋 1108B</span></div>
+            <div><span>受托机构</span><span>株洲城发高科人才安居服务有限公司（本机构）</span></div>
             <div><span>报修类别</span><span>水暖管道 · 卫生间漏水</span></div>
             <div><span>紧急程度</span><span><span class="m-tag orange">较急（24 小时内）</span></span></div>
             <div><span>派单时间</span><span>2026-09-03 20:12</span></div>
             <div><span>应上门时限</span><span>2026-09-04 20:12</span></div>
             <div><span>超时时长</span><span><b style="color:var(--danger)">12 小时</b></span></div>
             <div><span>督办状态</span><span><span class="m-tag red">已升级督办</span></span></div>
-            <div><span>督办对象</span><span>彭雪梅（运营机构负责人）</span></div>
+            <div><span>督办对象</span><span>彭建华（本机构负责人）</span></div>
+            <div><span>责任维修员</span><span>黄卫兵（现场维修员）</span></div>
           </div>
           </div>
         </div>
@@ -40,8 +42,8 @@
           <div class="m-card-b">
           <div class="m-tl">
             <div class="m-ti done"><div class="m-tt">住户报修</div><div class="m-td">李××　2026-09-03 19:48　·	卫生间漏水，地面积水较多</div></div>
-            <div class="m-ti done"><div class="m-tt">受理</div><div class="m-td">运营机构客服　2026-09-03 20:02　·	已受理，标记为较急</div></div>
-            <div class="m-ti done"><div class="m-tt">派单</div><div class="m-td">彭雪梅　2026-09-03 20:12　·	派单至维修人员黄卫兵</div></div>
+            <div class="m-ti done"><div class="m-tt">受理</div><div class="m-td">本机构客服　2026-09-03 20:02　·	已受理，标记为较急</div></div>
+            <div class="m-ti done"><div class="m-tt">派单</div><div class="m-td">彭建华　2026-09-03 20:12　·	派单至维修人员黄卫兵</div></div>
             <div class="m-ti bad"><div class="m-tt">超时未上门</div><div class="m-td">系统　2026-09-04 20:12　·	超 24 小时未上门，自动升级督办</div></div>
             <div class="m-ti on"><div class="m-tt">待反馈原因</div><div class="m-td">请说明未按期上门的原因并重新预约</div></div>
           </div>
@@ -54,11 +56,11 @@
         <div class="m-form">
           <div class="m-fi">
             <label>当前状态 <span class="req">*</span></label>
-            <div class="m-fc"><select><option value="">请选择</option><option>已联系住户，重新预约上门</option><option>住户不在家，无法入户</option><option>需专业设备或配件待到货</option><option>需协调物业停水施工</option><option>已上门，正在维修</option></select></div>
+            <div class="m-fc"><select><option selected>已联系住户，重新预约上门</option><option>住户不在家，无法入户</option><option>需专业设备或配件待到货</option><option>需协调物业停水施工</option><option>已上门，正在维修</option></select></div>
           </div>
           <div class="m-fi">
             <label>超时原因 <span class="req">*</span></label>
-            <div class="m-fc"><textarea rows="3" placeholder="请说明未按期上门的具体原因，不少于 10 字。原因将纳入考核归因分析">维修人员当日在处理另一处紧急漏水工单，未能按期上门；现已电话联系住户致歉并重新预约，将优先安排上门维修。</textarea></div>
+            <div class="m-fc"><textarea rows="3">维修人员当日在处理另一处紧急漏水工单，未能按期上门；现已电话联系住户致歉并重新预约，将优先安排上门维修。</textarea><div class="m-fh">不少于 10 字，原因将纳入本机构考核归因分析</div></div>
           </div>
           <div class="m-fi">
             <label>重新预约上门时间 <span class="req">*</span></label>
@@ -81,9 +83,9 @@
           <div class="m-card-b">
             <div class="m-check">
               <div class="wait"><i class="fa-solid fa-1"></i><div class="m-chl"><b>临期提醒</b><span>剩余时限 20% 时向维修人员推送提醒</span></div></div>
-              <div class="bad"><i class="fa-solid fa-2"></i><div class="m-chl"><b>超时升级</b><span>超过时限自动升级至<b>运营机构负责人</b>并推送督办提醒</span></div></div>
+              <div class="bad"><i class="fa-solid fa-2"></i><div class="m-chl"><b>超时升级</b><span>超过时限自动升级至<b>本机构负责人</b>并推送督办提醒</span></div></div>
               <div class="bad"><i class="fa-solid fa-3"></i><div class="m-chl"><b>持续超时通报</b><span>超时 48 小时以上的工单纳入<b>市住保中心督办清单</b>，向责任机构通报</span></div></div>
-              <div class="bad"><i class="fa-solid fa-4"></i><div class="m-chl"><b>考核扣分</b><span>超时工单影响<b>报修及时率</b>指标，与运营机构续约资格挂钩</span></div></div>
+              <div class="bad"><i class="fa-solid fa-4"></i><div class="m-chl"><b>考核扣分</b><span>超时工单影响<b>报修及时率</b>指标，考核低于约定标准的<b>按规则扣减政府购买服务补助</b>并影响续约资格</span></div></div>
             </div>
           </div>
         </div>
@@ -93,12 +95,19 @@
       </div>
       <div class="m-actbar">
         <a class="m-btn w-auto" href="wo-handle.html">去处理工单</a>
-        <button class="m-btn primary" type="button" onclick="MB.submit('.m-view','确认提交进度反馈？超时原因将纳入考核归因分析并向督办人同步。','确认提交','wo-list.html')"><i class="fa-solid fa-paper-plane"></i> 提交反馈</button>
+        <button class="m-btn primary" type="button" onclick="MB.submit('.m-view','确认提交进度反馈？超时原因将纳入本机构考核归因分析并向督办人同步。','确认提交','wo-list.html')"><i class="fa-solid fa-paper-plane"></i> 提交反馈</button>
       </div>
     </div>
   </div>
 </div>
 
 <script src="../../assets/js/mobile.js"></script>
+<script>
+/* 运营机构的「我的」独立于主管单位，底部页签指向 me-agency.html */
+document.addEventListener('DOMContentLoaded', function () {
+  var a = document.querySelector('.m-tabbar a[href="me.html"]');
+  if (a) a.setAttribute('href', 'me-agency.html');
+});
+</script>
 </body>
 </html>

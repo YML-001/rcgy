@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>资格审核表打印 · 株洲市人才住房保障管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+<style>
+/* 资格审核表打印页：A4 纵向纸张容器，颜色一律取自设计令牌 */
+.rf-wrap { display: flex; justify-content: center; padding: 4px 0 12px; }
+.rf-page {
+  width: 794px; box-sizing: border-box;
+  background: var(--bg-card); border: 1px solid var(--border);
+  box-shadow: var(--shadow); border-radius: var(--radius);
+  padding: 46px 54px 40px;
+}
+.rf-head { text-align: center; }
+.rf-title { font-size: 25px; font-weight: 700; letter-spacing: 3px; color: var(--text-1); line-height: 1.5; }
+.rf-sub { font-size: 13px; color: var(--text-3); margin-top: 6px; letter-spacing: 1px; }
+.rf-meta { display: flex; justify-content: flex-end; gap: 26px; font-size: 13px; color: var(--text-2); margin: 16px 0 8px; }
+.rf-meta b { font-weight: 600; color: var(--text-1); }
+.rf-tb { width: 100%; border-collapse: collapse; font-size: 13.5px; color: var(--text-1); table-layout: fixed; }
+.rf-tb th, .rf-tb td { border: 1px solid var(--text-1); padding: 9px 10px; line-height: 1.9; word-break: break-all; }
+.rf-tb th { background: var(--fill-gray); font-weight: 600; text-align: center; }
+.rf-tb td.c { text-align: center; }
+.rf-tb td.op { height: 128px; vertical-align: top; }
+.rf-tb td.op2 { height: 148px; vertical-align: top; }
+.rf-tb .rf-sign { display: block; text-align: right; margin-top: 14px; color: var(--text-1); }
+.rf-tb .rf-blank { color: var(--text-3); }
+.rf-list { margin: 0; padding-left: 2px; list-style: none; line-height: 2; }
+.rf-list li { display: inline-block; width: 48%; }
+.rf-list i { color: var(--success); margin-right: 5px; }
+.rf-foot { display: flex; justify-content: space-between; margin-top: 30px; font-size: 13.5px; color: var(--text-1); }
+.rf-foot .stamp {
+  width: 176px; height: 88px; border: 1px dashed var(--border-strong); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; color: var(--text-3); font-size: 12.5px;
+}
+.rf-note { font-size: 12.5px; color: var(--text-3); line-height: 1.9; margin-top: 22px; }
+@media print {
+  .app-topbar, .app-sidebar, .page-head, .alert, .sp-src, .rf-noprint { display: none !important; }
+  .app-main { margin: 0 !important; padding: 0 !important; }
+  .rf-wrap { padding: 0; }
+  .rf-page { width: auto; border: 0; box-shadow: none; border-radius: 0; padding: 0; }
+  @page { size: A4 portrait; margin: 16mm; }
+}
+</style>
+</head>
+<body data-role="reviewer" data-active="apply-27">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才住房保障管理平台
+      <span class="sep">/</span> 人才档案与资格联审
+      <span class="sep">/</span> 资格受理与初审
+      <span class="sep">/</span> <span class="cur">资格审核表打印</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.toast('已调起打印，A4 纵向单页','success')"><i class="fa-solid fa-print"></i> 打印</button>
+      <button class="btn" onclick="PMS.toast('已导出《株洲市创业就业青年人才住房资格审核表》PDF，A4 纵向单页','success')"><i class="fa-solid fa-file-pdf"></i> 导出 PDF</button>
+      <button class="btn" onclick="location.href='audit-desk.html'"><i class="fa-solid fa-arrow-left"></i> 返回办理页</button>
+    </div>
+  </div>
+
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>按《株洲市创业就业青年人才住房资格审核表》<b>原表格式</b>生成，A4 纵向单页。<b>受理意见栏由受理初审环节（第一级）填写并签署</b>；<b>审核意见栏本次打印留空</b>，注明「留待复审填写」，由复审环节（第二级）出具结论后补签，两级意见分栏留痕。</div>
+  </div>
+
+  <div class="rf-wrap">
+    <div class="rf-page">
+      <div class="rf-head">
+        <div class="rf-title">株洲市创业就业青年人才住房资格审核表</div>
+        <div class="rf-sub">株洲市保障性住房服务中心　制</div>
+      </div>
+      <div class="rf-meta">
+        <span>编&nbsp;号：<b>ZZRC-2026-0162</b></span>
+        <span>填表日期：<b>2026 年 9 月 5 日</b></span>
+      </div>
+
+      <table class="rf-tb">
+        <colgroup>
+          <col style="width:15%"><col style="width:18%"><col style="width:15%"><col style="width:18%"><col style="width:15%"><col style="width:19%">
+        </colgroup>
+        <tbody>
+          <tr>
+            <th>申&nbsp;请&nbsp;人</th><td class="c">王梓涵</td>
+            <th>性&nbsp;&nbsp;&nbsp;&nbsp;别</th><td class="c">男</td>
+            <th>申请类型</th><td class="c">就业青年人才</td>
+          </tr>
+          <tr>
+            <th>身份证号码</th><td class="c" colspan="3">430211 2001 0312 2418</td>
+            <th>婚姻状况</th><td class="c">未婚</td>
+          </tr>
+          <tr>
+            <th>最高学历</th><td class="c">全日制本科</td>
+            <th>最高学历<br>毕业时间</th><td class="c">2025 年 7 月 1 日</td>
+            <th>联系电话</th><td class="c">138 0245 6207</td>
+          </tr>
+          <tr>
+            <th>创业企业或<br>就业单位</th><td colspan="5">中车株洲电力机车研究所　<span class="rf-blank">（统一社会信用代码 91430200183826403K）</span></td>
+          </tr>
+          <tr>
+            <th rowspan="4">家庭成员<br>及其身份<br>证号码</th>
+            <th class="c">姓&nbsp;&nbsp;名</th><th class="c">与申请人关系</th><th class="c" colspan="3">身份证号码</th>
+          </tr>
+          <tr>
+            <td class="c rf-blank">—</td><td class="c rf-blank">—</td><td class="c rf-blank" colspan="3">本人未婚，无共同申请家庭成员</td>
+          </tr>
+          <tr>
+            <td class="c rf-blank">&nbsp;</td><td class="c rf-blank">&nbsp;</td><td class="c rf-blank" colspan="3">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="c rf-blank">&nbsp;</td><td class="c rf-blank">&nbsp;</td><td class="c rf-blank" colspan="3">&nbsp;</td>
+          </tr>
+          <tr>
+            <th>申请资料<br>清&nbsp;&nbsp;&nbsp;&nbsp;单</th>
+            <td colspan="5">
+              <ul class="rf-list">
+                <li><i class="fa-regular fa-square-check"></i>身份证复印件（正反面）　2 张</li>
+                <li><i class="fa-regular fa-square-check"></i>毕业证书与学位证书复印件　2 张</li>
+                <li><i class="fa-regular fa-square-check"></i>劳动合同复印件　6 张</li>
+                <li><i class="fa-regular fa-square-check"></i>单位社保参保承诺书　1 张</li>
+                <li><i class="fa-regular fa-square-check"></i>近 6 个月工资发放流水　3 张</li>
+                <li><i class="fa-regular fa-square-check"></i>市城区无自有住房承诺书　1 张</li>
+                <li><i class="fa-regular fa-square-check"></i>材料真实性承诺书　1 张</li>
+                <li><i class="fa-regular fa-square"></i>社会保险缴纳证明　<span class="rf-blank">容缺，2026-11-04 前补交</span></li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <th>受理意见</th>
+            <td class="op" colspan="5">
+              经受理初审：申请人王梓涵申请材料齐全，身份证、毕业证书、劳动合同影像与填报内容一致；经联审联查，身份、婚姻、不动产、学历、户籍五项核验一致，申请人在市城区范围内无自有住房、未承租政策性住房。社会保险核验查无缴纳记录，已收取用人单位盖章的参保承诺书，按<b>容缺受理</b>予以通过，待补核期限 2026 年 11 月 4 日；个人所得税记录期数不足经核实系入职当年未达起征点，已附工资发放流水佐证。申请人符合《株洲市城区创业就业青年人才住房保障管理办法》规定的就业青年人才申请条件，<b>材料齐全，予以受理，初审通过，提请复审</b>。
+              <span class="rf-sign">经办人（签字）：刘志刚　　　2026 年 9 月 5 日</span>
+            </td>
+          </tr>
+          <tr>
+            <th>审核意见</th>
+            <td class="op2" colspan="5">
+              <span class="rf-blank">（本栏<b>留待复审填写</b>：由市保障性住房服务中心资格审核科复审人出具审核通过 / 不予通过 / 退回受理环节结论，并签字署期。）</span>
+              <span class="rf-sign rf-blank">复审人（签字）：　　　　　　　　　年　　月　　日</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="rf-foot">
+        <div>
+          备注：本表一式两份，一份归入电子档案，一份留存申请人。<br>
+          咨询电话：0731-2833 8866
+        </div>
+        <div style="text-align:center">
+          <div class="stamp">单位盖章处</div>
+          <div style="margin-top:10px">2026 年 9 月 5 日</div>
+        </div>
+      </div>
+
+      <div class="rf-note">
+        填表说明：①「申请类型」填写创业青年人才或就业青年人才；②「最高学历毕业时间」以学信网核验结果为准；③家庭成员一栏填写共同申请的配偶及未成年子女，未婚且无共同申请人的填「—」；④受理意见由受理初审环节填写，审核意见由复审环节填写，两栏不得由同一人签署。
+      </div>
+    </div>
+  </div>
+
+  <div class="sp-src rf-noprint">
+    <span><b>表单依据</b> 《株洲市城区创业就业青年人才住房保障管理办法》附件·资格审核表</span>
+    <span><b>意见分栏</b> 受理意见由第一级受理初审填写；审核意见留待第二级复审填写</span>
+    <span><b>打印规格</b> A4 纵向单页，页边距 16mm，打印时隐藏页面动作与系统外壳</span>
+  </div>
+</main>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 1; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

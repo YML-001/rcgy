@@ -3,113 +3,183 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>公众端首页 · 株洲市人才公寓管理平台</title>
+<title>建宁安居 · 株洲市人才公寓系统</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="../../assets/css/app.css">
 <link rel="stylesheet" href="../../assets/css/mobile.css">
 <link rel="stylesheet" href="../../assets/css/ext.css">
 </head>
-<body class="m-body" data-mtitle="株洲人才安居" data-mmod="M2 个人中心" data-mcode="M2 / M4 / M12"
-      data-mdesc="公众端首页把房源推荐、我的办理进度、政策入口与办理提醒集中呈现，是人才登录后的落地页。" data-mtabset="public" data-mtab="home" data-mtint="1" data-mnav="0" data-mchan="湘易办">
+<body class="m-body" data-mtitle="建宁安居" data-mmod="M1 个人用户" data-mcode="M1-02 / M1-03 / M1-05 / M1-06"
+      data-mdesc="顶部 banner 展示建宁安居主题图与 LOGO 并保留 AI 检索框；中部为人才租房申请、人才购房补贴两个业务入口；底部依次为政策资讯（购房／租房／办事指南三类可切换）与房源信息展示。"
+      data-mtabset="public" data-mtab="home" data-mnav="0" data-mtint="1" data-mrole="0">
 <div class="m-stage">
   <div class="m-phone">
     <div class="m-screen">
-      <div class="m-view">
-        <!-- ① 顶部：数据统计 -->
-        <div class="m-hero">
-          <div class="m-hero-t">上午好，王梓涵</div>
-          <div class="m-hero-s">就业青年人才　·　中车株洲电力机车研究所</div>
-          <div class="m-hero-row">
-            <div class="m-hs"><div class="v">在租</div><div class="l">当前状态</div></div>
-            <div class="m-hs"><div class="v">21</div><div class="l">保障剩余(月)</div></div>
-            <div class="m-hs"><div class="v">424.44</div><div class="l">本期自付(元)</div></div>
+      <div class="m-view pad0 jn-home">
+
+        <!-- ① 顶部 banner：主题图 + LOGO + AI 检索（M1-02） -->
+        <div class="jn-banner">
+          <!-- 主题图：株洲城市天际线剪影（广电塔 · 斜拉桥 · 高铁 · 楼群），随渐变一同呈现 -->
+          <svg class="jn-bg" viewBox="0 0 300 130" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <g fill="#ffffff" opacity=".26">
+              <rect x="8" y="66" width="20" height="64" rx="2"/>
+              <rect x="32" y="54" width="15" height="76" rx="2"/>
+              <rect x="51" y="76" width="22" height="54" rx="2"/>
+              <rect x="238" y="60" width="18" height="70" rx="2"/>
+              <rect x="260" y="72" width="24" height="58" rx="2"/>
+              <rect x="286" y="84" width="14" height="46" rx="2"/>
+            </g>
+            <g fill="#ffffff" opacity=".42">
+              <path d="M150 8l3.4 26h-6.8L150 8z"/>
+              <circle cx="150" cy="40" r="8"/>
+              <rect x="147.6" y="46" width="4.8" height="84"/>
+              <path d="M141 62h18l-2.4 68h-13.2L141 62z"/>
+            </g>
+            <g stroke="#ffffff" stroke-width="1.1" opacity=".34">
+              <path d="M186 130V44"/>
+              <path d="M186 50L160 96M186 58l-20 38M186 66l-14 30M186 50l26 46M186 58l20 38M186 66l14 30"/>
+              <path d="M150 100h108"/>
+            </g>
+            <g fill="#ffffff" opacity=".34">
+              <rect x="196" y="104" width="82" height="13" rx="6.5"/>
+              <path d="M278 104c9 0 16 3 20 6.5-4 3.5-11 6.5-20 6.5v-13z"/>
+            </g>
+            <g fill="#ffffff" opacity=".2">
+              <path d="M0 130c34-16 62-16 92 0H0zM206 130c26-13 52-13 94 0H206z"/>
+            </g>
+          </svg>
+          <div class="jn-wave"></div>
+
+          <div class="jn-loc">
+            <i class="fa-regular fa-compass"></i> 株洲市
+            <span class="jn-acts">
+              <a href="me-feedback.html" title="在线客服"><i class="fa-regular fa-comment-dots"></i></a>
+              <a href="msg-center.html" title="消息"><i class="fa-regular fa-bell"></i><span class="dot"></span></a>
+            </span>
           </div>
-        </div>
 
-        <!-- 搜索 -->
-        <a class="m-hsearch" href="ai-search.html"><i class="fa-solid fa-magnifying-glass"></i>搜索房源、政策或办事指南<span class="k">AI 检索</span></a>
+          <div class="jn-brand">
+            <div class="t1">建宁安居</div>
+            <div class="t2">才聚株洲　安居建宁</div>
+            <div class="line"></div>
+            <div class="t3">株洲市人才公寓系统</div>
+          </div>
 
-        <!-- ② 办事入口：两张主打服务卡 + 办事宫格 -->
-        <div class="m-svc">
-          <a class="blue" href="apply-type.html">
-            <span class="st">人才公寓申请</span>
-            <span class="ss">创业 / 就业青年人才<br>毕业 2 年内可申请</span>
-            <span class="sb">去申请</span>
-            <i class="fa-solid fa-file-pen sic"></i>
+          <a class="jn-search" href="ai-search.html">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <span class="ph">搜索房源、政策或办事指南</span>
+            <span class="ai"><b>Ai</b> 搜索</span>
           </a>
-          <a class="teal" href="house-list.html">
-            <span class="st">看房 · 配租</span>
-            <span class="ss">412 套可租<br>第 3 批配租进行中</span>
-            <span class="sb">去看房</span>
-            <i class="fa-solid fa-building sic"></i>
+        </div>
+
+        <!-- ② 两个业务入口（M1-03） -->
+        <div class="jn-entry">
+          <a class="rent" href="rent-apply.html">
+            <span class="et">人才租房申请</span>
+            <span class="es">人才租房优惠<br>筑就暖心居所</span>
+            <span class="eb">去申请 <i class="fa-solid fa-circle-arrow-right"></i></span>
+            <i class="fa-solid fa-building-circle-check eic"></i>
+          </a>
+          <a class="buy" href="buy-subsidy.html">
+            <span class="et">人才购房补贴</span>
+            <span class="es">购房享补贴<br>人才安心筑家</span>
+            <span class="eb">去看房 <i class="fa-solid fa-circle-arrow-right"></i></span>
+            <i class="fa-solid fa-house-circle-check eic"></i>
           </a>
         </div>
-        <div class="m-card">
-          <div class="m-card-b">
-            <div class="m-grid">
-              <a href="selftest-form.html"><span class="m-gi"><i class="fa-solid fa-clipboard-question"></i></span>资格自测</a>
-              <a href="pre-apply.html"><span class="m-gi green"><i class="fa-solid fa-graduation-cap"></i></span>预申请</a>
-              <a href="house-book.html"><span class="m-gi orange"><i class="fa-solid fa-calendar-check"></i></span><span class="m-gd">新</span>房源预约</a>
-              <a href="bill-list.html"><span class="m-gi"><i class="fa-solid fa-money-bill-wave"></i></span>租金账单</a>
-              <a href="me-house-contract.html"><span class="m-gi cyan"><i class="fa-solid fa-file-contract"></i></span>我的合同</a>
-              <a href="renew-apply.html"><span class="m-gi green"><i class="fa-solid fa-rotate"></i></span>续租年审</a>
-              <a href="repair-new.html"><span class="m-gi purple"><i class="fa-solid fa-screwdriver-wrench"></i></span>报修服务</a>
-              <a href="buy-subsidy.html"><span class="m-gi cyan"><i class="fa-solid fa-house-circle-check"></i></span>购房补贴</a>
+
+        <!-- ③ 政策资讯：购房 / 租房 / 办事指南三类可切换（M1-05） -->
+        <div class="jn-sect">政策资讯<a class="more" href="policy-list.html">更多资讯 <i class="fa-solid fa-angle-right"></i></a></div>
+        <div class="jn-pills">
+          <button type="button" class="on">全部</button>
+          <button type="button">购房</button>
+          <button type="button">租房</button>
+          <button type="button">办事指南</button>
+        </div>
+        <div class="jn-news">
+          <a href="policy-detail.html">
+            <span class="ni b"><i class="fa-solid fa-file-lines"></i></span>
+            <span class="nb">
+              <span class="nt">优化住房交易服务十条措施</span>
+              <span class="nd"><i class="fa-regular fa-clock"></i>2026-07-28</span>
+            </span>
+            <span class="ng buy">购房</span>
+          </a>
+          <a href="policy-detail.html">
+            <span class="ni o"><i class="fa-solid fa-house-chimney"></i></span>
+            <span class="nb">
+              <span class="nt">租房十大法则请注意</span>
+              <span class="nd"><i class="fa-regular fa-clock"></i>2026-07-28</span>
+            </span>
+            <span class="ng rent">租房</span>
+          </a>
+          <a href="apply-guide.html">
+            <span class="ni r"><i class="fa-solid fa-clipboard-list"></i></span>
+            <span class="nb">
+              <span class="nt">人才公寓申请办事指南</span>
+              <span class="nd"><i class="fa-regular fa-clock"></i>2026-07-28</span>
+            </span>
+            <span class="ng guide">办事指南</span>
+          </a>
+        </div>
+
+        <!-- ④ 房源信息展示（M1-06） -->
+        <div class="jn-sect">好房推荐<a class="more" href="house-list.html">更多房源 <i class="fa-solid fa-angle-right"></i></a></div>
+        <div class="jn-house">
+          <a class="m-hcard" href="house-detail.html">
+            <div class="m-hc-img"><img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80" alt="湘江1958 人才公寓">
+              <div class="m-hc-badge"><span class="m-tag dark">收购商品房</span><span class="m-tag green">拎包入住</span></div>
             </div>
+            <div class="m-hc-b">
+              <div class="m-hc-t">湘江1958 人才公寓</div>
+              <div class="m-hc-m">天元区 · 泰山路 <span class="dot">|</span> 二室一厅 78.60 ㎡ <span class="dot">|</span> 精装</div>
+              <div class="m-hc-tags"><span class="m-tag dark">家电齐全</span><span class="m-tag dark">近 3 号线</span><span class="m-tag dark">配套成熟</span></div>
+              <div class="m-hc-f">
+                <div class="m-hc-p"><div class="p1">424.44 <small>元/月起</small></div><div class="p2">市场租金 1,414.80 元/月</div></div>
+                <span class="m-hc-left">剩 26 间</span>
+              </div>
+            </div>
+          </a>
+          <div class="jn-quick">
+            <a href="house-list.html">
+              <span class="qi o"><i class="fa-solid fa-city"></i></span>
+              <span class="qb"><span class="qt">查看全部房源</span><span class="qs">6 个楼盘 · 412 间可租</span></span>
+              <span class="qv">全部 <i class="fa-solid fa-circle-arrow-right"></i></span>
+            </a>
+            <a href="alloc-notice.html">
+              <span class="qi b"><i class="fa-solid fa-bullhorn"></i></span>
+              <span class="qb"><span class="qt">2026 年第 3 批配租公告</span><span class="qs">投放 320 间 · 报名至 09-12</span></span>
+              <span class="qv"><span class="m-tag orange">进行中</span><i class="fa-solid fa-circle-arrow-right"></i></span>
+            </a>
           </div>
         </div>
 
-        <!-- ③ 其他信息 -->
-        <div class="m-note warn"><i class="fa-solid fa-triangle-exclamation"></i>
-          <div><b>9 月账单已生成</b>，个人应缴 424.44 元，请于 9 月 15 日前缴纳。逾期将影响年审与续租。<a class="m-more" href="bill-pay.html" style="margin-left:6px">去缴费 <i class="fa-solid fa-angle-right"></i></a></div>
-        </div>
-        <div class="m-sect">我的办理<span class="m-sect-x">M2-03</span></div>
-        <div class="m-card">
-          <div class="m-card-h"><i class="fa-solid fa-list-check"></i>办理进度<a class="m-more" href="me-apply-list.html">查看全部 <i class="fa-solid fa-angle-right"></i></a></div>
-          <div class="m-card-b">
-          <div class="m-tl">
-            <div class="m-ti done"><div class="m-tt">资格审核通过</div><div class="m-td">2026-09-05 09:14　市保障性住房服务中心</div></div>
-            <div class="m-ti done"><div class="m-tt">配租选房完成</div><div class="m-td">湘江1958 人才公寓 A6-1502　二室一厅</div></div>
-            <div class="m-ti done"><div class="m-tt">电子合同已签署</div><div class="m-td">合同号 RZ2026-00862　保障期 2 年</div></div>
-            <div class="m-ti on"><div class="m-tt">在租 · 保障期内</div><div class="m-td">入住 2026-01-06　保障至 2028-01-05</div></div>
-            <div class="m-ti"><div class="m-tt">年度资格审查</div><div class="m-td">预计 2027-01 发起</div></div>
-          </div>
-          </div>
-        </div>
-        <div class="m-sect">最新房源<span class="m-sect-x">M4-03 剩余套数实时同步</span></div>
-        <a class="m-hcard" href="house-detail.html">
-          <div class="m-hc-img"><img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80" alt="湘江1958 人才公寓">
-            <div class="m-hc-badge"><span class="m-tag blue">收购商品房</span><span class="m-tag green">拎包入住</span></div>
-            <div class="m-hc-vr"><i class="fa-solid fa-vr-cardboard"></i> VR 看房</div>
-          </div>
-          <div class="m-hc-b">
-            <div class="m-hc-t">湘江1958 人才公寓</div>
-            <div class="m-hc-m">天元区 · 泰山路 <span class="dot">|</span> 二室一厅 78.60 ㎡ <span class="dot">|</span> 精装</div>
-            <div class="m-hc-tags"><span class="m-tag dark">家电齐全</span><span class="m-tag dark">近 3 号线</span><span class="m-tag dark">配套成熟</span></div>
-            <div class="m-hc-f">
-              <div class="m-hc-p"><div class="p1">424.44 <small>元/月起</small></div><div class="p2">市场租金 1,414.80 元/月</div></div>
-              <span class="m-hc-left">剩 26 套</span>
-            </div>
-          </div>
-        </a>
-        <div class="m-cells">
-          <a class="m-cell" href="house-list.html"><span class="m-ci cyan"><i class="fa-solid fa-building"></i></span><span class="m-cl"><b>查看全部房源</b><span class="m-cs">6 个楼盘 · 412 套可租</span></span><span class="m-cv">全部 ›</span><i class="m-ca fa-solid fa-angle-right"></i></a>
-          <a class="m-cell" href="alloc-notice.html"><span class="m-ci orange"><i class="fa-solid fa-bullhorn"></i></span><span class="m-cl"><b>2026 年第 3 批配租公告</b><span class="m-cs">投放 320 套 · 报名至 09-12</span></span><span class="m-cv"><span class="m-tag orange">进行中</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
-        </div>
-        <div class="m-sect">政策资讯<span class="m-sect-x"><a class="m-more" href="policy-list.html">更多 <i class="fa-solid fa-angle-right"></i></a></span></div>
-        <div class="m-cells">
-          <a class="m-cell" href="policy-infographic.html"><span class="m-ci"><i class="fa-solid fa-image"></i></span><span class="m-cl"><b>政策一图读懂</b><span class="m-cs">保障对象、条件、租金减免与办理流程</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
-          <a class="m-cell" href="policy-detail.html"><span class="m-ci green"><i class="fa-solid fa-file-lines"></i></span><span class="m-cl"><b>青年人才住房保障管理办法</b><span class="m-cs">政策原文 · 2026-06 修订</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
-          <a class="m-cell" href="policy-subscribe.html"><span class="m-ci cyan"><i class="fa-solid fa-bell"></i></span><span class="m-cl"><b>政策变更订阅</b><span class="m-cs">政策调整、新批次、公示提醒</span></span><span class="m-cv"><span class="m-tag green">已订阅</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
-        </div>
-        <div class="m-note"><i class="fa-solid fa-circle-info"></i>
-          <div>政策宣传与配租公告同步发布在<b>「株洲人才」微信公众号</b>，可关注后接收提醒。</div>
-        </div>
       </div>
     </div>
   </div>
 </div>
 
 <script src="../../assets/js/mobile.js"></script>
+<script>
+/* 政策资讯三类切换：仅演示分类过滤，数据为静态示例 */
+(function () {
+  var NEWS = {
+    '全部': [0, 1, 2], '购房': [0], '租房': [1], '办事指南': [2]
+  };
+  document.querySelector('.jn-pills').addEventListener('click', function (e) {
+    var b = e.target.closest('button');
+    if (!b) return;
+    var box = b.parentElement.querySelectorAll('button');
+    for (var i = 0; i < box.length; i++) { box[i].classList.remove('on'); }
+    b.classList.add('on');
+    var keep = NEWS[b.textContent.trim()] || [0, 1, 2];
+    var rows = document.querySelectorAll('.jn-news > a');
+    for (var j = 0; j < rows.length; j++) {
+      rows[j].style.display = keep.indexOf(j) >= 0 ? '' : 'none';
+    }
+    MB.toast('已切换为「' + b.textContent.trim() + '」政策');
+  });
+})();
+</script>
 </body>
 </html>

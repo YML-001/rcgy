@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>待办任务中心 · 株洲市人才公寓管理平台</title>
+<title>待办任务中心 · 株洲市人才住房保障管理平台</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="../../assets/css/app.css">
 <link rel="stylesheet" href="../../assets/css/spec.css">
@@ -13,54 +13,54 @@
 <main class="app-main">
   <div class="page-head">
     <div class="breadcrumb">
-      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才住房保障管理平台
       <span class="sep">/</span> 待办与协同
       <span class="sep">/</span> <span class="cur">待办任务中心</span>
     </div>
     <div class="page-actions">
-      <button class="btn btn-primary" onclick="PMS.confirm({title:'批量操作确认',message:'确认批量处理选中的正常件？',detail:'批量操作将逐件写入办件流水。异常件与超期件不在批量范围内，须逐件处理。',type:'warning',okText:'确认批量处理',onOk:function(){PMS.toast('已批量处理，结论已电子送达','success');}})"><i class="fa-solid fa-check"></i> 批量处理</button>
-      <button class="btn" onclick="PMS.toast('已转办给市住保中心资格审核科其他经办人')"><i class="fa-solid fa-share"></i> 转办</button>
+      <button class="btn" onclick="location.href='../apply/audit-desk.html'"><i class="fa-solid fa-inbox"></i> 去受理初审</button>
+      <button class="btn" onclick="location.href='../apply/conclusion.html'"><i class="fa-solid fa-stamp"></i> 去复审</button>
       <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
     </div>
   </div>
 
-  <div class="alert alert-danger">
-    <i class="fa-solid fa-circle-exclamation"></i>
-    <div>按角色聚合<b>待受理、待审核、待复核、待公示、待拨付、待年审、待腾退</b>等任务，支持<b>批量处理与转办</b>。任务与移动端政务端<b>共用同一件池</b>，处理结果实时同步。</div>
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>本期待办任务中心<b>只纳入资格申请的受理初审与审核两类事项</b>，按<b>剩余办理时限从紧到松排序</b>，<b>点击直接进入办理</b>，<b>不做复杂分类与聚合</b>。受理件进入受理初审办理页，复审件进入复审办理页。</div>
   </div>
 
   <div class="stat-grid">
     <div class="stat-card">
-      <div class="s-icon blue"><i class="fa-solid fa-list-check"></i></div>
-      <div><div class="s-label">我的待办</div><div class="s-value">23</div>
-        <div class="s-trend text-2">跨 6 类任务</div></div>
+      <div class="s-icon blue"><i class="fa-solid fa-inbox"></i></div>
+      <div><div class="s-label">待受理初审</div><div class="s-value">6</div>
+        <div class="s-trend text-2">件 · R1 受理初审 刘志刚</div></div>
     </div>
     <div class="stat-card">
-      <div class="s-icon orange"><i class="fa-solid fa-clock"></i></div>
-      <div><div class="s-label">临期</div><div class="s-value">3</div>
-        <div class="s-trend text-2">剩 1 个工作日</div></div>
-    </div>
-    <div class="stat-card dc-alarm">
-      <div class="s-icon red"><i class="fa-solid fa-circle-exclamation"></i></div>
-      <div><div class="s-label">超期</div><div class="s-value">1</div>
-        <div class="s-trend ">已向负责人预警</div></div>
+      <div class="s-icon orange"><i class="fa-solid fa-stamp"></i></div>
+      <div><div class="s-label">待复审</div><div class="s-value">3</div>
+        <div class="s-trend text-2">件 · R2 审核 周慧</div></div>
     </div>
     <div class="stat-card">
       <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
-      <div><div class="s-label">今日办结</div><div class="s-value">14</div>
-        <div class="s-trend text-2">平均用时 1.4 天</div></div>
+      <div><div class="s-label">今日办结</div><div class="s-value">12</div>
+        <div class="s-trend text-2">件 · 平均用时 1.4 个工作日</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon red"><i class="fa-solid fa-circle-exclamation"></i></div>
+      <div><div class="s-label">超期件</div><div class="s-value">2</div>
+        <div class="s-trend ">已向科室负责人预警</div></div>
     </div>
   </div>
 
   <div class="card list-card">
     <div class="filter-bar">
-      <div class="filter-item"><label>任务类型</label><select><option value="">全部</option><option>待受理</option><option>待审核</option><option>待复核</option><option>待公示</option><option>待拨付</option><option>待年审</option><option>待腾退</option></select></div>
-      <div class="filter-item"><label>办件编号</label><input type="text" placeholder="办件编号"></div>
-      <div class="filter-item"><label>涉及对象</label><input type="text" placeholder="姓名或机构"></div>
+      <div class="filter-item"><label>事项类型</label><select><option value="">全部</option><option>资格申请受理件</option><option>资格申请复审件</option></select></div>
+      <div class="filter-item"><label>申请编号</label><input type="text" value="RC2026-" placeholder="申请编号"></div>
+      <div class="filter-item"><label>申请人</label><input type="text" value="" placeholder="姓名"></div>
+      <div class="filter-item"><label>申请渠道</label><select data-dict="applyChannel" data-ph="全部"></select></div>
       <div class="filter-item"><label>时限档位</label><select><option value="">全部</option><option>正常</option><option>临期</option><option>超期</option></select></div>
-      <div class="filter-item"><label>到达时间</label><input type="date"></div>
       <div class="filter-actions">
-        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索，结果仍按剩余办理时限从紧到松排序','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
         <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
       </div>
     </div>
@@ -68,29 +68,53 @@
     <div class="table-wrap">
       <table class="data-table">
         <thead>
-          <tr><th>任务类型</th><th>办件编号</th><th>涉及对象</th><th class="cell-lg">任务摘要</th><th>到达时间</th><th>办理时限</th><th>剩余</th><th>来源</th><th>操作</th></tr>
+          <tr><th>事项类型</th><th>申请编号</th><th>申请人</th><th class="cell-lg">申请渠道</th><th>分派时间</th><th>剩余办理时限</th><th class="cell-lg">承办角色</th><th>操作</th></tr>
         </thead>
         <tbody>
-          <tr class="row-bad"><td><span class="badge orange">待复核</span></td><td>RC2026-0902-0148</td><td>王志远</td><td>不动产核验不一致：配偶名下有房，须核实产权取得时间与共有情况</td><td>2026-09-03 10:22</td><td>3 个工作日</td><td><div class="sp-days dx"><span class="dv">超期 1 天</span><span class="db"><span style="width:100%"></span></span></div></td><td><span class="badge blue">天元区初审转入</span></td><td><span class="link" onclick="location.href='../apply/audit-desk.html'">去复核</span></td></tr>
-          <tr class="row-warn"><td><span class="badge orange">待复核</span></td><td>RC2026-0903-0162</td><td>王梓涵</td><td>个人所得税期数与社保不匹配，须核实实际从业情况</td><td>2026-09-04 09:12</td><td>3 个工作日</td><td><div class="sp-days d60"><span class="dv">剩 1 天</span><span class="db"><span style="width:66%"></span></span></div></td><td><span class="badge blue">天元区初审转入</span></td><td><span class="link" onclick="location.href='../apply/audit-desk.html'">去复核</span></td></tr>
-          <tr class="row-warn"><td><span class="badge cyan">待年审</span></td><td>NS2027-01</td><td>486 户</td><td>2027 年度第 1 批资格年审，62 件异常件待人工核查</td><td>2027-01-06 09:00</td><td>2027-01-20</td><td><div class="sp-days d60"><span class="dv">12 天</span><span class="db"><span style="width:20%"></span></span></div></td><td><span class="badge green">系统自动发起</span></td><td><span class="link" onclick="location.href='../rent/annual-list.html'">待审名单</span></td></tr>
-          <tr><td><span class="badge blue">待公示</span></td><td>PZ2026-03</td><td>486 人</td><td>2026 年第 3 批配租顺序名单待导出公示（公示期 09-13 至 09-14）</td><td>2026-09-13 09:00</td><td>2026-09-14</td><td><div class="sp-days"><span class="dv">2 天</span><span class="db"><span style="width:33%"></span></span></div></td><td><span class="badge cyan">配租经办转入</span></td><td><span class="link" onclick="location.href='../alloc/order-list.html'">顺序名单</span></td></tr>
-          <tr><td><span class="badge red">待腾退</span></td><td>TT2027-01-0186</td><td>周宇轩</td><td>续租复核结论为启动退出，腾退期限 2027-02-09，待预约现场验收</td><td>2027-01-10 14:26</td><td>2027-02-09</td><td><div class="sp-days"><span class="dv">26 天</span><span class="db"><span style="width:13%"></span></span></div></td><td><span class="badge orange">年审结论转入</span></td><td><span class="link" onclick="location.href='../rent/quit-manage.html'">腾退管理</span></td></tr>
+          <tr class="row-bad"><td><span class="badge purple">资格申请复审件</span></td><td>RC2026-0831-0098</td><td>刘××</td><td><span class="badge orange">政务窗口（PC 申请）</span></td><td>2026-09-01 09:08</td><td><div class="sp-days dx"><span class="dv">超期 2 天</span><span class="db"><span style="width:100%"></span></span></div></td><td>R2 审核 · 周慧</td><td><span class="link" onclick="location.href='../apply/conclusion.html'">审批</span></td></tr>
+          <tr class="row-bad"><td><span class="badge blue">资格申请受理件</span></td><td>RC2026-0902-0126</td><td>谢××</td><td><span class="badge purple">运营机构（PC 申请）</span></td><td>2026-09-02 08:52</td><td><div class="sp-days dx"><span class="dv">超期 1 天</span><span class="db"><span style="width:100%"></span></span></div></td><td>R1 受理初审 · 刘志刚</td><td><span class="link" onclick="location.href='../apply/audit-desk.html'">办理</span></td></tr>
+          <tr class="row-warn"><td><span class="badge blue">资格申请受理件</span></td><td>RC2026-0903-0148</td><td>王××</td><td><span class="badge blue">个人申请</span></td><td>2026-09-03 10:26</td><td><div class="sp-days d60"><span class="dv">剩 0.5 天</span><span class="db"><span style="width:85%"></span></span></div></td><td>R1 受理初审 · 刘志刚</td><td><span class="link" onclick="location.href='../apply/audit-desk.html'">办理</span></td></tr>
+          <tr class="row-warn"><td><span class="badge purple">资格申请复审件</span></td><td>RC2026-0903-0162</td><td>谭××</td><td><span class="badge green">用人单位（移动端申请）</span></td><td>2026-09-04 09:12</td><td><div class="sp-days d60"><span class="dv">剩 1 天</span><span class="db"><span style="width:66%"></span></span></div></td><td>R2 审核 · 周慧</td><td><span class="link" onclick="location.href='../apply/conclusion.html'">审批</span></td></tr>
+          <tr class="row-warn"><td><span class="badge blue">资格申请受理件</span></td><td>RC2026-0904-0171</td><td>周××</td><td><span class="badge blue">个人申请</span></td><td>2026-09-04 11:04</td><td><div class="sp-days d60"><span class="dv">剩 1 天</span><span class="db"><span style="width:66%"></span></span></div></td><td>R1 受理初审 · 刘志刚</td><td><span class="link" onclick="location.href='../apply/audit-desk.html'">办理</span></td></tr>
+          <tr><td><span class="badge blue">资格申请受理件</span></td><td>RC2026-0904-0186</td><td>邓××</td><td><span class="badge green">用人单位（移动端申请）</span></td><td>2026-09-04 14:38</td><td><div class="sp-days d30"><span class="dv">剩 1.5 天</span><span class="db"><span style="width:50%"></span></span></div></td><td>R1 受理初审 · 刘志刚</td><td><span class="link" onclick="location.href='../apply/audit-desk.html'">办理</span></td></tr>
+          <tr><td><span class="badge purple">资格申请复审件</span></td><td>RC2026-0905-0192</td><td>龙××</td><td><span class="badge purple">运营机构（PC 申请）</span></td><td>2026-09-05 09:12</td><td><div class="sp-days"><span class="dv">剩 2 天</span><span class="db"><span style="width:33%"></span></span></div></td><td>R2 审核 · 周慧</td><td><span class="link" onclick="location.href='../apply/conclusion.html'">审批</span></td></tr>
+          <tr><td><span class="badge blue">资格申请受理件</span></td><td>RC2026-0905-0204</td><td>彭××</td><td><span class="badge orange">政务窗口（PC 申请）</span></td><td>2026-09-05 10:26</td><td><div class="sp-days"><span class="dv">剩 2.5 天</span><span class="db"><span style="width:20%"></span></span></div></td><td>R1 受理初审 · 刘志刚</td><td><span class="link" onclick="location.href='../apply/audit-desk.html'">办理</span></td></tr>
+          <tr><td><span class="badge blue">资格申请受理件</span></td><td>RC2026-0905-0216</td><td>罗××</td><td><span class="badge blue">个人申请</span></td><td>2026-09-05 15:42</td><td><div class="sp-days"><span class="dv">剩 3 天</span><span class="db"><span style="width:10%"></span></span></div></td><td>R1 受理初审 · 刘志刚</td><td><span class="link" onclick="location.href='../apply/audit-desk.html'">办理</span></td></tr>
         </tbody>
       </table>
     </div>
   </div>
+
+  <div class="sp-block" style="margin-top:12px">
+    <div class="sp-h"><i class="fa-solid fa-list"></i> 本期待办范围<span class="sub">只保留受理初审与审核两类事项，按剩余时限排序、点击直接办理</span></div>
+    <div class="sp-b">
+      <div class="sp-tw">
+        <table class="data-table compact">
+          <thead><tr><th>承办角色</th><th class="cell-lg">待办事项</th><th class="cell-lg">可执行操作</th><th>办理时限</th><th>进入页面</th></tr></thead>
+          <tbody>
+            <tr><td><b>R1 受理初审</b><span class="muted"> · 刘志刚</span></td><td class="cell-lg"><span class="badge blue">资格申请受理件</span> 核对申请材料完整性、真实性与联审联查结论，填写初审意见</td><td class="cell-lg">初审通过报复审 / 退回补正（须注明缺项与理由）</td><td>3 个工作日</td><td><span class="link" onclick="location.href='../apply/audit-desk.html'">受理初审办理页</span></td></tr>
+            <tr><td><b>R2 审核</b><span class="muted"> · 周慧</span></td><td class="cell-lg"><span class="badge purple">资格申请复审件</span> 查看受理初审意见与资格审核表，分栏填写并签署审核意见</td><td class="cell-lg">审核通过 / 不予通过 / 退回受理环节</td><td>3 个工作日</td><td><span class="link" onclick="location.href='../apply/conclusion.html'">复审办理页</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="hint" style="margin-top:8px">
+        <i class="fa-solid fa-circle-info"></i>
+        后续是否将配租选房、年审、腾退、补助拨付等事项一并纳入待办中心，以及是否需要按角色做分类聚合与批量处理，<b>由业务部门在试运行后确定</b>，本期先保证两类核心事项办得简单清晰。
+      </p>
+    </div>
+  </div>
+
   <div class="sp-src">
-    <span><b>件池共用</b> 与移动端政务端共用同一件池，处理结果实时同步</span>
-    <span><b>时限管控</b> 资格审核 3 个工作日；临期标黄、超期标红并向负责人预警</span>
-    <span><b>批量与转办</b> 正常件支持批量处理；可转办给同岗位其他经办人</span>
+    <span><b>依据</b> 2026 年 9 月 7 日汇报讨论会决议：待办任务中心本期只保留资格申请受理件、资格申请复审件两类</span>
+    <span><b>排序口径</b> 按剩余办理时限升序，超期件置顶标红、临期件标黄</span>
+    <span><b>办理入口</b> 受理件跳受理初审办理页；复审件跳复审办理页，不设中间跳转</span>
   </div>
 </main>
 
 <script>
 (function () {
   var t = document.querySelector('main.app-main .table-wrap > table.data-table');
-  if (t) { t._total = 23; }
+  if (t) { t._total = 9; }
 })();
 </script>
 

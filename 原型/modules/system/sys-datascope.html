@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>数据权限配置 · 株洲市人才公寓管理平台</title>
+<title>数据权限配置 · 株洲市人才住房保障管理平台</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="../../assets/css/app.css">
 <link rel="stylesheet" href="../../assets/css/spec.css">
@@ -13,7 +13,7 @@
 <main class="app-main">
   <div class="page-head">
     <div class="breadcrumb">
-      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才住房保障管理平台
       <span class="sep">/</span> 权限与系统管理
       <span class="sep">/</span> 用户与权限
       <span class="sep">/</span> <span class="cur">数据权限配置</span>
@@ -71,7 +71,7 @@
         <tbody>
           <tr><td>市住保中心资格审核科 / 资格审核员</td><td><span class="badge blue">全市统一</span></td><td>市城区全部区县</td><td>全部申请件、核验报告、人才档案、年审与退出记录</td><td>身份证号、银行账户界面脱敏；查看明文需授权留痕</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('dsDrawer')">配置</span></td></tr>
           <tr><td>天元区住房保障服务中心 / 城区经办员</td><td><span class="badge orange">市县分级</span></td><td>天元区</td><td>本区受理的申请件、本区房源与承租户、本区年审名单</td><td>跨区数据不返回；本区汇总指标可见，明细仅限本区</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('dsDrawer')">配置</span></td></tr>
-          <tr><td>株洲市人才安居服务有限公司 / 运营机构经办</td><td><span class="badge green">本单位</span></td><td>本机构受托楼盘</td><td>受托房源房态、已配租承租人<b>必要信息</b>、应收账单、工单与巡检记录</td><td><b>不可见</b>申请审核过程、核验报告、其他机构房源与人才档案</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('dsDrawer')">配置</span></td></tr>
+          <tr><td>株洲城发高科人才安居服务有限公司 / 运营机构经办</td><td><span class="badge green">本单位</span></td><td>本机构受托楼盘</td><td>受托房源房态、已配租承租人<b>必要信息</b>、应收账单、工单与巡检记录</td><td><b>不可见</b>申请审核过程、核验报告、其他机构房源与人才档案</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('dsDrawer')">配置</span></td></tr>
           <tr><td>中车株洲电力机车研究所 / 单位经办人</td><td><span class="badge green">本单位</span></td><td>本单位（统一社会信用代码）</td><td>本单位职工申报件进度与结果、本单位安居汇总数据</td><td>仅见本单位职工；<b>不可见</b>职工房产、婚姻、纳税等核验明细</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('dsDrawer')">配置</span></td></tr>
           <tr><td>市住建局 / 分管领导</td><td><span class="badge blue">全市统一</span></td><td>市城区全部区县</td><td>全部统计指标与可下钻明细清单</td><td><b>只读</b>，不可办理业务；下钻至含敏感字段的明细时同样脱敏</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('dsDrawer')">配置</span></td></tr>
         </tbody>
@@ -101,7 +101,7 @@
       <div class="form-grid form-align">
         <div class="form-item col-full">
           <label>机构 <span class="req">*</span></label>
-          <input type="text" value="株洲市人才安居服务有限公司" readonly>
+          <input type="text" value="株洲城发高科人才安居服务有限公司" readonly>
         </div>
         <div class="form-item">
           <label>角色 <span class="req">*</span></label>

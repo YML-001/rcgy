@@ -1,0 +1,675 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - text: 
+      - generic [ref=e5]: 
+      - generic [ref=e6]: 株洲市人才住房保障管理平台
+    - generic [ref=e7]:
+      - generic "当前业务子系统" [ref=e8]:
+        - generic [ref=e9]: 房源筹集与楼盘表
+      - button " 切换系统" [ref=e10] [cursor=pointer]:
+        - generic [ref=e11]: 
+        - text: 切换系统
+    - generic [ref=e12]:
+      - button " 单位房源管理员 " [ref=e14] [cursor=pointer]:
+        - generic [ref=e15]: 
+        - generic [ref=e16]: 单位房源管理员
+        - generic [ref=e17]: 
+      - generic "消息" [ref=e18] [cursor=pointer]:
+        - generic [ref=e19]: 
+        - generic [ref=e20]: "5"
+      - generic "帮助" [ref=e21] [cursor=pointer]:
+        - generic [ref=e22]: 
+      - generic [ref=e23] [cursor=pointer]:
+        - generic [ref=e24]: 唐
+        - generic [ref=e25]:
+          - generic [ref=e26]: 唐凯
+          - generic [ref=e27]: 市保障性住房服务中心房源管理科 · 单位房源管理员
+      - link "" [ref=e28] [cursor=pointer]:
+        - /url: ../../index.html
+        - generic [ref=e29]: 
+  - complementary [ref=e30]:
+    - generic [ref=e31]:
+      - textbox "菜单搜索" [ref=e32]
+      - generic [ref=e33]: 
+      - text: 
+    - generic [ref=e34]:
+      - link " 我的工作台" [ref=e35] [cursor=pointer]:
+        - /url: ../../modules/workbench/workbench.html?role=housing
+        - generic [ref=e36]: 
+        - generic [ref=e37]: 我的工作台
+      - generic [ref=e39] [cursor=pointer]:
+        - generic [ref=e40]: 
+        - generic [ref=e41]: 待办与协同
+        - generic [ref=e42]: 
+      - generic [ref=e44] [cursor=pointer]:
+        - generic [ref=e45]: 
+        - generic [ref=e46]: 房源筹集与项目
+        - generic [ref=e47]: 
+      - generic [ref=e48]:
+        - generic [ref=e49] [cursor=pointer]:
+          - generic [ref=e50]: 
+          - generic [ref=e51]: 楼盘表与多源归集
+          - generic [ref=e52]: 
+        - generic [ref=e53]:
+          - link "统一楼盘表" [ref=e54] [cursor=pointer]:
+            - /url: ../../modules/house/building-table.html?role=housing
+          - link "房源批量导入" [ref=e55] [cursor=pointer]:
+            - /url: ../../modules/house/building-import.html?role=housing
+          - link "导入与接口比对合并" [ref=e56] [cursor=pointer]:
+            - /url: ../../modules/house/import-merge.html?role=housing
+          - link "导入模板与批次台账" [ref=e57] [cursor=pointer]:
+            - /url: ../../modules/house/import-batch.html?role=housing
+          - link "保租房房源调用" [ref=e58] [cursor=pointer]:
+            - /url: ../../modules/house/src-bzf.html?role=housing
+          - link "公租房房源调用" [ref=e59] [cursor=pointer]:
+            - /url: ../../modules/house/src-gzf.html?role=housing
+          - link "来源与属性打标" [ref=e60] [cursor=pointer]:
+            - /url: ../../modules/house/src-tag.html?role=housing
+          - link "重复登记校验" [ref=e61] [cursor=pointer]:
+            - /url: ../../modules/house/src-dup.html?role=housing
+          - link "房源同步与对账" [ref=e62] [cursor=pointer]:
+            - /url: ../../modules/house/src-sync.html?role=housing
+      - generic [ref=e64] [cursor=pointer]:
+        - generic [ref=e65]: 
+        - generic [ref=e66]: 房源档案与房态
+        - generic [ref=e67]: 
+      - generic [ref=e69] [cursor=pointer]:
+        - generic [ref=e70]: 
+        - generic [ref=e71]: 房源发布与预约
+        - generic [ref=e72]: 
+      - generic [ref=e74] [cursor=pointer]:
+        - generic [ref=e75]: 
+        - generic [ref=e76]: 房源导入与来源台账
+        - generic [ref=e77]: 
+  - main [ref=e78]:
+    - generic [ref=e80]:
+      - generic [ref=e81]: 
+      - text: 株洲市人才住房保障管理平台
+      - generic [ref=e82]: /
+      - text: 房源筹集与楼盘表
+      - generic [ref=e83]: /
+      - text: 楼盘表与多源归集
+      - generic [ref=e84]: /
+      - generic [ref=e85]: 统一楼盘表
+    - generic [ref=e86]:
+      - generic [ref=e87]: 
+      - generic [ref=e88]: 楼盘表按项目—楼栋—单元—楼层—房号—间号六级建账，房源颗粒度到「间」：三室两厅拆 A、B、C 三间，房号格式 1502A，每间单独计租；公摊比例按套内间数均分（拆三间每间 1/3），计租面积 ＝ 本间套内面积 ＋ 本间公摊面积、公摊计入租金；房屋总面积、总公摊与水电气物业费标准记录到套级，VR 全景按套、同套各间共用一份。房源数据由各运营机构自行导入与维护，主管单位只做查看、监管与审核发布，不介入日常维护。入库类型与切换
+    - generic [ref=e89]:
+      - generic [ref=e90]:
+        - generic [ref=e92]: 
+        - generic [ref=e93]:
+          - generic [ref=e94]: 在库房源
+          - generic [ref=e95]: 4,286
+          - generic [ref=e96]: 间 · 对应 2,486 套，一间一码
+      - generic [ref=e97]:
+        - generic [ref=e99]: 
+        - generic [ref=e100]:
+          - generic [ref=e101]: 可配租
+          - generic [ref=e102]: "712"
+          - generic [ref=e103]: 间 · 实时同步至移动端
+      - generic [ref=e104]:
+        - generic [ref=e106]: 
+        - generic [ref=e107]:
+          - generic [ref=e108]: 在租
+          - generic [ref=e109]: 2,286
+          - generic [ref=e110]: 间 · 出租率 53.3%
+      - generic [ref=e111]:
+        - generic [ref=e113]: 
+        - generic [ref=e114]:
+          - generic [ref=e115]: 冻结 / 维修
+          - generic [ref=e116]: "148"
+          - generic [ref=e117]: 间 · 不参与配租
+    - generic [ref=e118]:
+      - generic [ref=e119]:
+        - generic [ref=e120]:
+          - generic [ref=e121]: 房号 + 间号
+          - textbox "如 1502A" [ref=e122]: 1502A
+        - generic [ref=e123]:
+          - generic [ref=e124]: 项目 / 所属套
+          - textbox "项目名称或所属套房号" [ref=e125]: 湘江1958 人才公寓
+        - generic [ref=e126]:
+          - generic [ref=e127]: 室厅结构
+          - combobox [ref=e128]:
+            - option "全部" [selected]
+            - option "单间配套"
+            - option "一室一厅"
+            - option "二室一厅"
+            - option "三室一厅"
+            - option "三室两厅"
+        - generic [ref=e129]:
+          - generic [ref=e130]: 房间配套
+          - combobox [ref=e131]:
+            - option "全部" [selected]
+            - option "独立卫生间"
+            - option "空调"
+            - option "阳台"
+            - option "衣柜"
+            - option "书桌"
+            - option "飘窗"
+        - generic [ref=e132]:
+          - generic [ref=e133]: 所属运营机构
+          - combobox [ref=e134]:
+            - option "全部" [selected]
+            - option "株洲城发高科人才安居服务有限公司"
+            - option "清水塘投资运营服务有限公司"
+            - option "株洲高新人才公寓运营有限公司"
+        - generic [ref=e135]:
+          - generic [ref=e136]: 入库类型
+          - combobox [ref=e137]:
+            - option "全部" [selected]
+            - option "批量导入"
+            - option "接口对接"
+        - generic [ref=e138]:
+          - generic [ref=e139]: 房态
+          - combobox [ref=e140]:
+            - option "全部" [selected]
+            - option "可配租"
+            - option "已锁定"
+            - option "已签约"
+            - option "在租"
+            - option "待腾退"
+            - option "维修中"
+            - option "已冻结"
+        - generic [ref=e141]:
+          - button " 查询" [ref=e142] [cursor=pointer]:
+            - generic [ref=e143]: 
+            - text: 查询
+          - button "重置" [ref=e144] [cursor=pointer]
+          - link " 房源批量导入" [ref=e145] [cursor=pointer]:
+            - /url: building-import.html
+            - generic [ref=e146]: 
+            - text: 房源批量导入
+          - link " 房源查询与审核发布" [ref=e147] [cursor=pointer]:
+            - /url: house-archive.html
+            - generic [ref=e148]: 
+            - text: 房源查询与审核发布
+          - button "+ 新增房间" [ref=e149] [cursor=pointer]:
+            - generic [ref=e150]: +
+            - text: 新增房间
+          - button " 导出" [ref=e151] [cursor=pointer]:
+            - generic [ref=e152]: 
+            - text: 导出
+      - generic [ref=e153]:
+        - generic [ref=e154] [cursor=pointer]:
+          - text: 按间明细
+          - generic [ref=e155]: 4,286
+        - generic [ref=e156] [cursor=pointer]:
+          - text: 套级信息
+          - generic [ref=e157]: 2,486
+      - generic [ref=e159]:
+        - paragraph [ref=e160]: 计租面积 ＝ 本间套内面积 ＋ 本间公摊面积，公摊计入租金 · 公摊比例按套内间数均分，各间公摊面积合计等于套级总公摊面积 · 人才租金标准为减免后标准，原租金标准为同地段市场租金
+        - table [ref=e162]:
+          - rowgroup [ref=e163]:
+            - row "序号 房号 + 间号 所属套 室厅结构 房间配套 套内面积 公摊比例 公摊面积 计租面积 人才租金标准 原租金标准 房态 入库类型 操作" [ref=e164]:
+              - columnheader "序号" [ref=e165]
+              - columnheader "房号 + 间号" [ref=e166]
+              - columnheader "所属套" [ref=e167]
+              - columnheader "室厅结构" [ref=e168]
+              - columnheader "房间配套" [ref=e169]
+              - columnheader "套内面积" [ref=e170]
+              - columnheader "公摊比例" [ref=e171]
+              - columnheader "公摊面积" [ref=e172]
+              - columnheader "计租面积" [ref=e173]
+              - columnheader "人才租金标准" [ref=e174]
+              - columnheader "原租金标准" [ref=e175]
+              - columnheader "房态" [ref=e176]
+              - columnheader "入库类型" [ref=e177]
+              - columnheader "操作" [ref=e178]
+          - rowgroup [ref=e179]:
+            - row "01 1502A 湘江1958 A6 栋 1 单元 15 层 / 1502 拆 3 间 三室两厅 · 主卧 独立卫生间、空调、阳台、衣柜 22.40 1/3 5.40 27.80 6.00 18.00 在租 批量导入 档案 编辑" [ref=e180]:
+              - cell "01" [ref=e181]
+              - cell "1502A" [ref=e182]
+              - cell "湘江1958 A6 栋 1 单元 15 层 / 1502 拆 3 间" [ref=e183]
+              - cell "三室两厅 · 主卧" [ref=e184]
+              - cell "独立卫生间、空调、阳台、衣柜" [ref=e185]
+              - cell "22.40" [ref=e186]
+              - cell "1/3" [ref=e187]
+              - cell "5.40" [ref=e188]
+              - cell "27.80" [ref=e189]
+              - cell "6.00" [ref=e190]
+              - cell "18.00" [ref=e191]
+              - cell "在租" [ref=e192]:
+                - generic [ref=e193]: 在租
+              - cell "批量导入" [ref=e194]:
+                - generic [ref=e195]: 批量导入
+              - cell "档案 编辑" [ref=e196]
+            - row "02 1502B 湘江1958 A6 栋 1 单元 15 层 / 1502 拆 3 间 三室两厅 · 次卧 空调、衣柜、书桌 16.80 1/3 5.40 22.20 6.00 18.00 在租 批量导入 档案 编辑" [ref=e197]:
+              - cell "02" [ref=e198]
+              - cell "1502B" [ref=e199]
+              - cell "湘江1958 A6 栋 1 单元 15 层 / 1502 拆 3 间" [ref=e200]
+              - cell "三室两厅 · 次卧" [ref=e201]
+              - cell "空调、衣柜、书桌" [ref=e202]
+              - cell "16.80" [ref=e203]
+              - cell "1/3" [ref=e204]
+              - cell "5.40" [ref=e205]
+              - cell "22.20" [ref=e206]
+              - cell "6.00" [ref=e207]
+              - cell "18.00" [ref=e208]
+              - cell "在租" [ref=e209]:
+                - generic [ref=e210]: 在租
+              - cell "批量导入" [ref=e211]:
+                - generic [ref=e212]: 批量导入
+              - cell "档案 编辑" [ref=e213]
+            - row "03 1502C 湘江1958 A6 栋 1 单元 15 层 / 1502 拆 3 间 三室两厅 · 次卧 空调、衣柜 14.20 1/3 5.40 19.60 6.00 18.00 可配租 批量导入 档案 房态图" [ref=e214]:
+              - cell "03" [ref=e215]
+              - cell "1502C" [ref=e216]
+              - cell "湘江1958 A6 栋 1 单元 15 层 / 1502 拆 3 间" [ref=e217]
+              - cell "三室两厅 · 次卧" [ref=e218]
+              - cell "空调、衣柜" [ref=e219]
+              - cell "14.20" [ref=e220]
+              - cell "1/3" [ref=e221]
+              - cell "5.40" [ref=e222]
+              - cell "19.60" [ref=e223]
+              - cell "6.00" [ref=e224]
+              - cell "18.00" [ref=e225]
+              - cell "可配租" [ref=e226]:
+                - generic [ref=e227]: 可配租
+              - cell "批量导入" [ref=e228]:
+                - generic [ref=e229]: 批量导入
+              - cell "档案 房态图" [ref=e230]
+            - row "04 1802A 湘江1958 A6 栋 1 单元 18 层 / 1802 拆 2 间 二室一厅 · 主卧 独立卫生间、空调、阳台、衣柜 20.60 1/2 8.10 28.70 6.00 18.00 可配租 批量导入 档案 编辑" [ref=e231]:
+              - cell "04" [ref=e232]
+              - cell "1802A" [ref=e233]
+              - cell "湘江1958 A6 栋 1 单元 18 层 / 1802 拆 2 间" [ref=e234]
+              - cell "二室一厅 · 主卧" [ref=e235]
+              - cell "独立卫生间、空调、阳台、衣柜" [ref=e236]
+              - cell "20.60" [ref=e237]
+              - cell "1/2" [ref=e238]
+              - cell "8.10" [ref=e239]
+              - cell "28.70" [ref=e240]
+              - cell "6.00" [ref=e241]
+              - cell "18.00" [ref=e242]
+              - cell "可配租" [ref=e243]:
+                - generic [ref=e244]: 可配租
+              - cell "批量导入" [ref=e245]:
+                - generic [ref=e246]: 批量导入
+              - cell "档案 编辑" [ref=e247]
+            - row "05 1802B 湘江1958 A6 栋 1 单元 18 层 / 1802 拆 2 间 二室一厅 · 次卧 空调、衣柜、书桌 15.40 1/2 8.10 23.50 6.00 18.00 已锁定 批量导入 档案 选房编排" [ref=e248]:
+              - cell "05" [ref=e249]
+              - cell "1802B" [ref=e250]
+              - cell "湘江1958 A6 栋 1 单元 18 层 / 1802 拆 2 间" [ref=e251]
+              - cell "二室一厅 · 次卧" [ref=e252]
+              - cell "空调、衣柜、书桌" [ref=e253]
+              - cell "15.40" [ref=e254]
+              - cell "1/2" [ref=e255]
+              - cell "8.10" [ref=e256]
+              - cell "23.50" [ref=e257]
+              - cell "6.00" [ref=e258]
+              - cell "18.00" [ref=e259]
+              - cell "已锁定" [ref=e260]:
+                - generic [ref=e261]: 已锁定
+              - cell "批量导入" [ref=e262]:
+                - generic [ref=e263]: 批量导入
+              - cell "档案 选房编排" [ref=e264]
+            - row "06 0708A 清水塘·未来社区 1 栋 1 单元 7 层 / 0708 拆 3 间 三室一厅 · 主卧 独立卫生间、空调、衣柜、飘窗 18.00 1/3 4.00 22.00 5.40 15.00 可配租 批量导入 档案 编辑" [ref=e265]:
+              - cell "06" [ref=e266]
+              - cell "0708A" [ref=e267]
+              - cell "清水塘·未来社区 1 栋 1 单元 7 层 / 0708 拆 3 间" [ref=e268]
+              - cell "三室一厅 · 主卧" [ref=e269]
+              - cell "独立卫生间、空调、衣柜、飘窗" [ref=e270]
+              - cell "18.00" [ref=e271]
+              - cell "1/3" [ref=e272]
+              - cell "4.00" [ref=e273]
+              - cell "22.00" [ref=e274]
+              - cell "5.40" [ref=e275]
+              - cell "15.00" [ref=e276]
+              - cell "可配租" [ref=e277]:
+                - generic [ref=e278]: 可配租
+              - cell "批量导入" [ref=e279]:
+                - generic [ref=e280]: 批量导入
+              - cell "档案 编辑" [ref=e281]
+            - row "07 0708B 清水塘·未来社区 1 栋 1 单元 7 层 / 0708 拆 3 间 三室一厅 · 次卧 空调、衣柜、书桌 13.60 1/3 4.00 17.60 5.40 15.00 可配租 批量导入 档案 编辑" [ref=e282]:
+              - cell "07" [ref=e283]
+              - cell "0708B" [ref=e284]
+              - cell "清水塘·未来社区 1 栋 1 单元 7 层 / 0708 拆 3 间" [ref=e285]
+              - cell "三室一厅 · 次卧" [ref=e286]
+              - cell "空调、衣柜、书桌" [ref=e287]
+              - cell "13.60" [ref=e288]
+              - cell "1/3" [ref=e289]
+              - cell "4.00" [ref=e290]
+              - cell "17.60" [ref=e291]
+              - cell "5.40" [ref=e292]
+              - cell "15.00" [ref=e293]
+              - cell "可配租" [ref=e294]:
+                - generic [ref=e295]: 可配租
+              - cell "批量导入" [ref=e296]:
+                - generic [ref=e297]: 批量导入
+              - cell "档案 编辑" [ref=e298]
+            - row "08 0708C 清水塘·未来社区 1 栋 1 单元 7 层 / 0708 拆 3 间 三室一厅 · 次卧 空调、衣柜 11.20 1/3 4.00 15.20 5.40 15.00 维修中 批量导入 档案 冻结记录" [ref=e299]:
+              - cell "08" [ref=e300]
+              - cell "0708C" [ref=e301]
+              - cell "清水塘·未来社区 1 栋 1 单元 7 层 / 0708 拆 3 间" [ref=e302]
+              - cell "三室一厅 · 次卧" [ref=e303]
+              - cell "空调、衣柜" [ref=e304]
+              - cell "11.20" [ref=e305]
+              - cell "1/3" [ref=e306]
+              - cell "4.00" [ref=e307]
+              - cell "15.20" [ref=e308]
+              - cell "5.40" [ref=e309]
+              - cell "15.00" [ref=e310]
+              - cell "维修中" [ref=e311]:
+                - generic [ref=e312]: 维修中
+              - cell "批量导入" [ref=e313]:
+                - generic [ref=e314]: 批量导入
+              - cell "档案 冻结记录" [ref=e315]
+            - row "09 1102A 董家塅人才公寓 3 栋 1 单元 11 层 / 1102 拆 2 间 二室一厅 · 主卧 独立卫生间、空调、阳台、衣柜 19.20 1/2 7.20 26.40 5.60 16.00 在租 批量导入 档案 编辑" [ref=e316]:
+              - cell "09" [ref=e317]
+              - cell "1102A" [ref=e318]
+              - cell "董家塅人才公寓 3 栋 1 单元 11 层 / 1102 拆 2 间" [ref=e319]
+              - cell "二室一厅 · 主卧" [ref=e320]
+              - cell "独立卫生间、空调、阳台、衣柜" [ref=e321]
+              - cell "19.20" [ref=e322]
+              - cell "1/2" [ref=e323]
+              - cell "7.20" [ref=e324]
+              - cell "26.40" [ref=e325]
+              - cell "5.60" [ref=e326]
+              - cell "16.00" [ref=e327]
+              - cell "在租" [ref=e328]:
+                - generic [ref=e329]: 在租
+              - cell "批量导入" [ref=e330]:
+                - generic [ref=e331]: 批量导入
+              - cell "档案 编辑" [ref=e332]
+            - row "10 1102B 董家塅人才公寓 3 栋 1 单元 11 层 / 1102 拆 2 间 二室一厅 · 次卧 空调、衣柜、书桌 14.40 1/2 7.20 21.60 5.60 16.00 可配租 批量导入 档案 编辑" [ref=e333]:
+              - cell "10" [ref=e334]
+              - cell "1102B" [ref=e335]
+              - cell "董家塅人才公寓 3 栋 1 单元 11 层 / 1102 拆 2 间" [ref=e336]
+              - cell "二室一厅 · 次卧" [ref=e337]
+              - cell "空调、衣柜、书桌" [ref=e338]
+              - cell "14.40" [ref=e339]
+              - cell "1/2" [ref=e340]
+              - cell "7.20" [ref=e341]
+              - cell "21.60" [ref=e342]
+              - cell "5.60" [ref=e343]
+              - cell "16.00" [ref=e344]
+              - cell "可配租" [ref=e345]:
+                - generic [ref=e346]: 可配租
+              - cell "批量导入" [ref=e347]:
+                - generic [ref=e348]: 批量导入
+              - cell "档案 编辑" [ref=e349]
+            - row "11 0904A 栗雨佳苑人才公寓 3 栋 1 单元 9 层 / 0904 未拆分 一室一厅 · 整间 独立卫生间、空调、阳台、衣柜 38.60 1/1 9.60 48.20 5.20 14.00 在租 批量导入 档案 按间管理" [ref=e350]:
+              - cell "11" [ref=e351]
+              - cell "0904A" [ref=e352]
+              - cell "栗雨佳苑人才公寓 3 栋 1 单元 9 层 / 0904 未拆分" [ref=e353]
+              - cell "一室一厅 · 整间" [ref=e354]
+              - cell "独立卫生间、空调、阳台、衣柜" [ref=e355]
+              - cell "38.60" [ref=e356]
+              - cell "1/1" [ref=e357]
+              - cell "9.60" [ref=e358]
+              - cell "48.20" [ref=e359]
+              - cell "5.20" [ref=e360]
+              - cell "14.00" [ref=e361]
+              - cell "在租" [ref=e362]:
+                - generic [ref=e363]: 在租
+              - cell "批量导入" [ref=e364]:
+                - generic [ref=e365]: 批量导入
+              - cell "档案 按间管理" [ref=e366]
+            - row "12 0706A 云龙人才公寓 2 栋 1 单元 7 层 / 0706 未拆分 单间配套 · 整间 独立卫生间、空调、阳台、衣柜、书桌 30.40 1/1 7.60 38.00 5.00 16.00 可配租 接口对接 待启用 档案 来源" [ref=e367]:
+              - cell "12" [ref=e368]
+              - cell "0706A" [ref=e369]
+              - cell "云龙人才公寓 2 栋 1 单元 7 层 / 0706 未拆分" [ref=e370]
+              - cell "单间配套 · 整间" [ref=e371]
+              - cell "独立卫生间、空调、阳台、衣柜、书桌" [ref=e372]
+              - cell "30.40" [ref=e373]
+              - cell "1/1" [ref=e374]
+              - cell "7.60" [ref=e375]
+              - cell "38.00" [ref=e376]
+              - cell "5.00" [ref=e377]
+              - cell "16.00" [ref=e378]
+              - cell "可配租" [ref=e379]:
+                - generic [ref=e380]: 可配租
+              - cell "接口对接 待启用" [ref=e381]:
+                - generic [ref=e382]: 接口对接
+                - generic [ref=e383]: 待启用
+              - cell "档案 来源" [ref=e384]
+            - row "13 1502A 湘江1958 A6 栋 1 单元 15 层 / 1502 拆 3 间 三室两厅 · 主卧 独立卫生间、空调、阳台、衣柜 22.40 1/3 5.40 27.80 6.00 18.00 在租 批量导入 档案 编辑" [ref=e385]:
+              - cell "13" [ref=e386]
+              - cell "1502A" [ref=e387]
+              - cell "湘江1958 A6 栋 1 单元 15 层 / 1502 拆 3 间" [ref=e388]
+              - cell "三室两厅 · 主卧" [ref=e389]
+              - cell "独立卫生间、空调、阳台、衣柜" [ref=e390]
+              - cell "22.40" [ref=e391]
+              - cell "1/3" [ref=e392]
+              - cell "5.40" [ref=e393]
+              - cell "27.80" [ref=e394]
+              - cell "6.00" [ref=e395]
+              - cell "18.00" [ref=e396]
+              - cell "在租" [ref=e397]:
+                - generic [ref=e398]: 在租
+              - cell "批量导入" [ref=e399]:
+                - generic [ref=e400]: 批量导入
+              - cell "档案 编辑" [ref=e401]
+            - row "14 1502B 湘江1958 A6 栋 1 单元 15 层 / 1502 拆 3 间 三室两厅 · 次卧 空调、衣柜、书桌 16.80 1/3 5.40 22.20 6.00 18.00 在租 批量导入 档案 编辑" [ref=e402]:
+              - cell "14" [ref=e403]
+              - cell "1502B" [ref=e404]
+              - cell "湘江1958 A6 栋 1 单元 15 层 / 1502 拆 3 间" [ref=e405]
+              - cell "三室两厅 · 次卧" [ref=e406]
+              - cell "空调、衣柜、书桌" [ref=e407]
+              - cell "16.80" [ref=e408]
+              - cell "1/3" [ref=e409]
+              - cell "5.40" [ref=e410]
+              - cell "22.20" [ref=e411]
+              - cell "6.00" [ref=e412]
+              - cell "18.00" [ref=e413]
+              - cell "在租" [ref=e414]:
+                - generic [ref=e415]: 在租
+              - cell "批量导入" [ref=e416]:
+                - generic [ref=e417]: 批量导入
+              - cell "档案 编辑" [ref=e418]
+            - row "15 1502C 湘江1958 A6 栋 1 单元 15 层 / 1502 拆 3 间 三室两厅 · 次卧 空调、衣柜 14.20 1/3 5.40 19.60 6.00 18.00 可配租 批量导入 档案 房态图" [ref=e419]:
+              - cell "15" [ref=e420]
+              - cell "1502C" [ref=e421]
+              - cell "湘江1958 A6 栋 1 单元 15 层 / 1502 拆 3 间" [ref=e422]
+              - cell "三室两厅 · 次卧" [ref=e423]
+              - cell "空调、衣柜" [ref=e424]
+              - cell "14.20" [ref=e425]
+              - cell "1/3" [ref=e426]
+              - cell "5.40" [ref=e427]
+              - cell "19.60" [ref=e428]
+              - cell "6.00" [ref=e429]
+              - cell "18.00" [ref=e430]
+              - cell "可配租" [ref=e431]:
+                - generic [ref=e432]: 可配租
+              - cell "批量导入" [ref=e433]:
+                - generic [ref=e434]: 批量导入
+              - cell "档案 房态图" [ref=e435]
+            - row "16 1802A 湘江1958 A6 栋 1 单元 18 层 / 1802 拆 2 间 二室一厅 · 主卧 独立卫生间、空调、阳台、衣柜 20.60 1/2 8.10 28.70 6.00 18.00 可配租 批量导入 档案 编辑" [ref=e436]:
+              - cell "16" [ref=e437]
+              - cell "1802A" [ref=e438]
+              - cell "湘江1958 A6 栋 1 单元 18 层 / 1802 拆 2 间" [ref=e439]
+              - cell "二室一厅 · 主卧" [ref=e440]
+              - cell "独立卫生间、空调、阳台、衣柜" [ref=e441]
+              - cell "20.60" [ref=e442]
+              - cell "1/2" [ref=e443]
+              - cell "8.10" [ref=e444]
+              - cell "28.70" [ref=e445]
+              - cell "6.00" [ref=e446]
+              - cell "18.00" [ref=e447]
+              - cell "可配租" [ref=e448]:
+                - generic [ref=e449]: 可配租
+              - cell "批量导入" [ref=e450]:
+                - generic [ref=e451]: 批量导入
+              - cell "档案 编辑" [ref=e452]
+            - row "17 1802B 湘江1958 A6 栋 1 单元 18 层 / 1802 拆 2 间 二室一厅 · 次卧 空调、衣柜、书桌 15.40 1/2 8.10 23.50 6.00 18.00 已锁定 批量导入 档案 选房编排" [ref=e453]:
+              - cell "17" [ref=e454]
+              - cell "1802B" [ref=e455]
+              - cell "湘江1958 A6 栋 1 单元 18 层 / 1802 拆 2 间" [ref=e456]
+              - cell "二室一厅 · 次卧" [ref=e457]
+              - cell "空调、衣柜、书桌" [ref=e458]
+              - cell "15.40" [ref=e459]
+              - cell "1/2" [ref=e460]
+              - cell "8.10" [ref=e461]
+              - cell "23.50" [ref=e462]
+              - cell "6.00" [ref=e463]
+              - cell "18.00" [ref=e464]
+              - cell "已锁定" [ref=e465]:
+                - generic [ref=e466]: 已锁定
+              - cell "批量导入" [ref=e467]:
+                - generic [ref=e468]: 批量导入
+              - cell "档案 选房编排" [ref=e469]
+            - row "18 0708A 清水塘·未来社区 1 栋 1 单元 7 层 / 0708 拆 3 间 三室一厅 · 主卧 独立卫生间、空调、衣柜、飘窗 18.00 1/3 4.00 22.00 5.40 15.00 可配租 批量导入 档案 编辑" [ref=e470]:
+              - cell "18" [ref=e471]
+              - cell "0708A" [ref=e472]
+              - cell "清水塘·未来社区 1 栋 1 单元 7 层 / 0708 拆 3 间" [ref=e473]
+              - cell "三室一厅 · 主卧" [ref=e474]
+              - cell "独立卫生间、空调、衣柜、飘窗" [ref=e475]
+              - cell "18.00" [ref=e476]
+              - cell "1/3" [ref=e477]
+              - cell "4.00" [ref=e478]
+              - cell "22.00" [ref=e479]
+              - cell "5.40" [ref=e480]
+              - cell "15.00" [ref=e481]
+              - cell "可配租" [ref=e482]:
+                - generic [ref=e483]: 可配租
+              - cell "批量导入" [ref=e484]:
+                - generic [ref=e485]: 批量导入
+              - cell "档案 编辑" [ref=e486]
+            - row "19 0708B 清水塘·未来社区 1 栋 1 单元 7 层 / 0708 拆 3 间 三室一厅 · 次卧 空调、衣柜、书桌 13.60 1/3 4.00 17.60 5.40 15.00 可配租 批量导入 档案 编辑" [ref=e487]:
+              - cell "19" [ref=e488]
+              - cell "0708B" [ref=e489]
+              - cell "清水塘·未来社区 1 栋 1 单元 7 层 / 0708 拆 3 间" [ref=e490]
+              - cell "三室一厅 · 次卧" [ref=e491]
+              - cell "空调、衣柜、书桌" [ref=e492]
+              - cell "13.60" [ref=e493]
+              - cell "1/3" [ref=e494]
+              - cell "4.00" [ref=e495]
+              - cell "17.60" [ref=e496]
+              - cell "5.40" [ref=e497]
+              - cell "15.00" [ref=e498]
+              - cell "可配租" [ref=e499]:
+                - generic [ref=e500]: 可配租
+              - cell "批量导入" [ref=e501]:
+                - generic [ref=e502]: 批量导入
+              - cell "档案 编辑" [ref=e503]
+            - row "20 0708C 清水塘·未来社区 1 栋 1 单元 7 层 / 0708 拆 3 间 三室一厅 · 次卧 空调、衣柜 11.20 1/3 4.00 15.20 5.40 15.00 维修中 批量导入 档案 冻结记录" [ref=e504]:
+              - cell "20" [ref=e505]
+              - cell "0708C" [ref=e506]
+              - cell "清水塘·未来社区 1 栋 1 单元 7 层 / 0708 拆 3 间" [ref=e507]
+              - cell "三室一厅 · 次卧" [ref=e508]
+              - cell "空调、衣柜" [ref=e509]
+              - cell "11.20" [ref=e510]
+              - cell "1/3" [ref=e511]
+              - cell "4.00" [ref=e512]
+              - cell "15.20" [ref=e513]
+              - cell "5.40" [ref=e514]
+              - cell "15.00" [ref=e515]
+              - cell "维修中" [ref=e516]:
+                - generic [ref=e517]: 维修中
+              - cell "批量导入" [ref=e518]:
+                - generic [ref=e519]: 批量导入
+              - cell "档案 冻结记录" [ref=e520]
+        - generic [ref=e521]:
+          - generic [ref=e522]: 共 4286 条，显示 1–20 条
+          - generic [ref=e523]:
+            - generic [ref=e524]:
+              - text: 每页
+              - combobox "每页 条" [ref=e525] [cursor=pointer]:
+                - option "10"
+                - option "20" [selected]
+                - option "50"
+                - option "100"
+              - text: 条
+            - generic [ref=e526]:
+              - button "" [disabled] [ref=e527]:
+                - generic [ref=e528]: 
+              - button "" [disabled] [ref=e529]:
+                - generic [ref=e530]: 
+              - button "1" [ref=e531] [cursor=pointer]
+              - button "2" [ref=e532] [cursor=pointer]
+              - button "3" [ref=e533] [cursor=pointer]
+              - button "4" [ref=e534] [cursor=pointer]
+              - generic [ref=e535]: …
+              - button "215" [ref=e536] [cursor=pointer]
+              - button "" [ref=e537] [cursor=pointer]:
+                - generic [ref=e538]: 
+              - button "" [ref=e539] [cursor=pointer]:
+                - generic [ref=e540]: 
+            - generic [ref=e541]:
+              - text: 前往
+              - spinbutton "前往 页" [ref=e542]: "1"
+              - text: 页
+            - generic [ref=e543]: 共 215 页
+      - text:    
+    - generic [ref=e544]:
+      - generic [ref=e545]:
+        - generic [ref=e546]: 
+        - text: 按间计租口径
+        - generic [ref=e547]: JZ-1 至 JZ-5 · 以湘江1958 A6 栋 1502 室（三室两厅拆三间）为算例
+      - table [ref=e550]:
+        - rowgroup [ref=e551]:
+          - row "规则号 规则 口径与算例" [ref=e552]:
+            - columnheader "规则号" [ref=e553]
+            - columnheader "规则" [ref=e554]
+            - columnheader "口径与算例" [ref=e555]
+        - rowgroup [ref=e556]:
+          - row "JZ-1 颗粒度到「间」 间级 按套内间数拆间，房号格式房号 + 间号（1502A），未拆分的按整间建账、间号为 A；间级维护室厅结构、房间配套、套内面积、公摊比例、公摊面积、人才租金标准、原（市场）租金标准七项，每间单独计租、单独配租、单独签约" [ref=e557]:
+            - cell "JZ-1" [ref=e558]
+            - cell "颗粒度到「间」 间级" [ref=e559]:
+              - text: 颗粒度到「间」
+              - generic [ref=e560]: 间级
+            - cell "按套内间数拆间，房号格式房号 + 间号（1502A），未拆分的按整间建账、间号为 A；间级维护室厅结构、房间配套、套内面积、公摊比例、公摊面积、人才租金标准、原（市场）租金标准七项，每间单独计租、单独配租、单独签约" [ref=e561]
+          - row "JZ-2 公摊比例按套内间数均分 比例 ＝ 1 ÷ 套内间数（拆三间 1/3、拆两间 1/2、未拆分 1/1），同套内合计须等于 1；公摊面积 ＝ 总公摊 × 本间比例。算例：16.20 ÷ 3 ＝ 每间 5.40 ㎡，三间合计 16.20 ㎡ ＝ 套级总公摊。系统自动均分，不需手工填写" [ref=e562]:
+            - cell "JZ-2" [ref=e563]
+            - cell "公摊比例按套内间数均分" [ref=e564]
+            - cell "比例 ＝ 1 ÷ 套内间数（拆三间 1/3、拆两间 1/2、未拆分 1/1），同套内合计须等于 1；公摊面积 ＝ 总公摊 × 本间比例。算例：16.20 ÷ 3 ＝ 每间 5.40 ㎡，三间合计 16.20 ㎡ ＝ 套级总公摊。系统自动均分，不需手工填写" [ref=e565]
+          - row "JZ-3 计租面积 ＝ 套内 ＋ 公摊 公摊计入租金。算例：1502A 22.40＋5.40＝27.80、1502B 16.80＋5.40＝22.20、1502C 14.20＋5.40＝19.60 ㎡；三间人才租金均 6.00、原租金均 18.00 元/㎡·月，1502A 月租金 ＝ 27.80 × 6.00 ＝ 166.80 元" [ref=e566]:
+            - cell "JZ-3" [ref=e567]
+            - cell "计租面积 ＝ 套内 ＋ 公摊" [ref=e568]
+            - cell "公摊计入租金。算例：1502A 22.40＋5.40＝27.80、1502B 16.80＋5.40＝22.20、1502C 14.20＋5.40＝19.60 ㎡；三间人才租金均 6.00、原租金均 18.00 元/㎡·月，1502A 月租金 ＝ 27.80 × 6.00 ＝ 166.80 元" [ref=e569]
+          - row "JZ-4 套级字段 套级 套级保留房屋总面积、总公摊面积与水费 3.58 元/吨、电费 0.68 元/度、天然气 2.98 元/立方米、物业费 1.20 元/㎡·月。算例：套内合计 78.60（三间卧室 53.40 ＋ 客厅厨卫等公共部分 25.20）＋ 总公摊 16.20 ＝ 房屋总面积 94.80 ㎡" [ref=e570]:
+            - cell "JZ-4" [ref=e571]
+            - cell "套级字段 套级" [ref=e572]:
+              - text: 套级字段
+              - generic [ref=e573]: 套级
+            - cell "套级保留房屋总面积、总公摊面积与水费 3.58 元/吨、电费 0.68 元/度、天然气 2.98 元/立方米、物业费 1.20 元/㎡·月。算例：套内合计 78.60（三间卧室 53.40 ＋ 客厅厨卫等公共部分 25.20）＋ 总公摊 16.20 ＝ 房屋总面积 94.80 ㎡" [ref=e574]
+          - row "JZ-5 VR 全景按套 按套上传与存储，同套各间共用一份，移动端进入任一房间均展示所在套房全景；实景照片仍可按间补充。房源展示配置" [ref=e575]:
+            - cell "JZ-5" [ref=e576]
+            - cell "VR 全景按套" [ref=e577]
+            - cell "按套上传与存储，同套各间共用一份，移动端进入任一房间均展示所在套房全景；实景照片仍可按间补充。房源展示配置" [ref=e578]
+    - generic [ref=e579]:
+      - generic [ref=e580]: 依据 2026 年 9 月 7 日汇报讨论会决议：房源颗粒度到「间」，每间单独计租
+      - generic [ref=e581]: 编号规则 区 + 项目 + 楼栋 + 房号 + 间号，一间一码
+      - generic [ref=e582]: 维护职责 房源数据由各运营机构自行导入与维护，模板由主管单位下发；主管单位只做查看、监管与审核发布
+      - generic [ref=e583]: 关联页面 房源批量导入 房源查询与审核发布
+  - option "株洲城发高科人才安居服务有限公司" [selected]
+  - option "清水塘投资运营服务有限公司"
+  - option "株洲高新人才公寓运营有限公司"
+  - option "A" [selected]
+  - option "B"
+  - option "C"
+  - option "D"
+  - option "单间配套"
+  - option "一室一厅"
+  - option "二室一厅"
+  - option "三室一厅"
+  - option "三室两厅" [selected]
+  - option "主卧" [selected]
+  - option "次卧"
+  - option "整间"
+  - option "南" [selected]
+  - option "北"
+  - option "东"
+  - option "西"
+  - option "南北通透"
+  - option "东南"
+  - option "西南"
+  - option "精装 · 拎包入住" [selected]
+  - option "简装"
+  - option "毛坯"
+  - option "可配租"
+  - option "已锁定"
+  - option "已签约"
+  - option "在租" [selected]
+  - option "待腾退"
+  - option "维修中"
+  - option "已冻结"
+  - option "批量导入" [selected]
+  - option "接口对接"
+  - option "单间配套"
+  - option "一室一厅"
+  - option "二室一厅"
+  - option "三室一厅"
+  - option "三室两厅" [selected]
+  - option "整套配租"
+  - option "按间配租" [selected]
+  - option "按床位配租"

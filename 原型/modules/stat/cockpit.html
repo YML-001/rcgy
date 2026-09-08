@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>领导驾驶舱 · 株洲市人才公寓管理平台</title>
+<title>领导驾驶舱 · 株洲市人才住房保障管理平台</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="../../assets/css/app.css">
 <link rel="stylesheet" href="../../assets/css/spec.css">
@@ -36,7 +36,7 @@
 <main class="app-main">
   <div class="page-head">
     <div class="breadcrumb">
-      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才住房保障管理平台
       <span class="sep">/</span> 统计分析
       <span class="sep">/</span> 领导驾驶舱
       <span class="sep">/</span> <span class="cur">保障全景总览</span>
@@ -51,7 +51,7 @@
   <div class="home-hero">
     <div class="hero-l">
       <div class="hero-greet">人才住房保障决策驾驶舱</div>
-      <div class="hero-sub">株洲市人才公寓管理平台　|　面向市领导、局领导与市委人才办的总览视图，支持大屏展示与汇报调阅</div>
+      <div class="hero-sub">株洲市人才住房保障管理平台　|　面向市领导、局领导与市委人才办的总览视图，支持大屏展示与汇报调阅</div>
       <div class="hero-date"><i class="fa-regular fa-calendar"></i> 数据更新至 2026 年 9 月 5 日 08:00 · 所有指标均可点击下钻至明细清单</div>
     </div>
     <div class="hero-r">
@@ -121,7 +121,7 @@
           <span class="an"><span class="dot"></span>芦淞区</span>
           <span class="av">412</span><span class="al">在租 214 · 可配租 68 · 轮候 132</span>
         </a>
-        <a class="ck-area gap" href="house-vacancy.html?area=04">
+        <a class="ck-area gap" href="../house/house-status-map.html?area=04">
           <span class="an"><span class="dot"></span>石峰区</span>
           <span class="av">328</span><span class="al">在租 146 · 空置超期 24 套需关注</span>
         </a>
@@ -249,7 +249,7 @@
       <tbody>
       <tr class="row-bad"><td><b>资格审核超期</b></td><td><span class="badge red">红 · 严重</span></td><td class="num">3</td><td class="cell-lg">超 3 个工作日法定时限未办结</td><td><a class="link" href="audit-perf.html">下钻</a></td></tr>
       <tr class="row-bad"><td><b>腾退逾期未执行</b></td><td><span class="badge red">红 · 严重</span></td><td class="num">6</td><td class="cell-lg">已下发腾退通知但逾期未腾退，须升级处置</td><td><a class="link" href="review-exit.html">下钻</a></td></tr>
-      <tr class="row-warn"><td><b>空置超 90 天</b></td><td><span class="badge orange">橙 · 预警</span></td><td class="num">36</td><td class="cell-lg">集中在石峰区清水塘片区，归因位置与配套</td><td><a class="link" href="house-vacancy.html">下钻</a></td></tr>
+      <tr class="row-warn"><td><b>空置超 90 天</b></td><td><span class="badge orange">橙 · 预警</span></td><td class="num">36</td><td class="cell-lg">集中在石峰区清水塘片区，归因位置与配套</td><td><a class="link" href="../house/house-status-map.html">下钻</a></td></tr>
       <tr class="row-warn"><td><b>租金欠缴</b></td><td><span class="badge orange">橙 · 预警</span></td><td class="num">62</td><td class="cell-lg">欠费 83,220.00 元，账龄 90 天以上 12 户</td><td><a class="link" href="../rent/arrears.html">下钻</a></td></tr>
       <tr><td><b>年审未完成</b></td><td><span class="badge yellow">黄 · 提示</span></td><td class="num">148</td><td class="cell-lg">2026 年度第 3 批年审在办，尚在批次期限内</td><td><a class="link" href="review-exit.html">下钻</a></td></tr>
       <tr><td><b>接口失败率偏高</b></td><td><span class="badge yellow">黄 · 提示</span></td><td class="num">2</td><td class="cell-lg">学信网 12.4%、税务企业纳税 8.6%，已转人工兜底</td><td><a class="link" href="api-health.html">下钻</a></td></tr>

@@ -1,0 +1,495 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - text: 
+      - generic [ref=e5]: 
+      - generic [ref=e6]: 株洲市人才住房保障管理平台
+    - generic [ref=e7]:
+      - generic "当前业务子系统" [ref=e8]:
+        - generic [ref=e9]: 房源筹集与楼盘表
+      - button " 切换系统" [ref=e10] [cursor=pointer]:
+        - generic [ref=e11]: 
+        - text: 切换系统
+    - generic [ref=e12]:
+      - button " 单位房源管理员 " [ref=e14] [cursor=pointer]:
+        - generic [ref=e15]: 
+        - generic [ref=e16]: 单位房源管理员
+        - generic [ref=e17]: 
+      - generic "消息" [ref=e18] [cursor=pointer]:
+        - generic [ref=e19]: 
+        - generic [ref=e20]: "5"
+      - generic "帮助" [ref=e21] [cursor=pointer]:
+        - generic [ref=e22]: 
+      - generic [ref=e23] [cursor=pointer]:
+        - generic [ref=e24]: 唐
+        - generic [ref=e25]:
+          - generic [ref=e26]: 唐凯
+          - generic [ref=e27]: 市保障性住房服务中心房源管理科 · 单位房源管理员
+      - link "" [ref=e28] [cursor=pointer]:
+        - /url: ../../index.html
+        - generic [ref=e29]: 
+  - complementary [ref=e30]:
+    - generic [ref=e31]:
+      - textbox "菜单搜索" [ref=e32]
+      - generic [ref=e33]: 
+      - text: 
+    - generic [ref=e34]:
+      - link " 我的工作台" [ref=e35] [cursor=pointer]:
+        - /url: ../../modules/workbench/workbench.html?role=housing
+        - generic [ref=e36]: 
+        - generic [ref=e37]: 我的工作台
+      - generic [ref=e39] [cursor=pointer]:
+        - generic [ref=e40]: 
+        - generic [ref=e41]: 待办与协同
+        - generic [ref=e42]: 
+      - generic [ref=e44] [cursor=pointer]:
+        - generic [ref=e45]: 
+        - generic [ref=e46]: 房源筹集与项目
+        - generic [ref=e47]: 
+      - generic [ref=e49] [cursor=pointer]:
+        - generic [ref=e50]: 
+        - generic [ref=e51]: 楼盘表与多源归集
+        - generic [ref=e52]: 
+      - generic [ref=e54] [cursor=pointer]:
+        - generic [ref=e55]: 
+        - generic [ref=e56]: 房源档案与房态
+        - generic [ref=e57]: 
+      - generic [ref=e58]:
+        - generic [ref=e59] [cursor=pointer]:
+          - generic [ref=e60]: 
+          - generic [ref=e61]: 房源发布与预约
+          - generic [ref=e62]: 
+        - generic [ref=e63]:
+          - link "批量上架与下架" [ref=e64] [cursor=pointer]:
+            - /url: ../../modules/house/shelf-batch.html?role=housing
+          - link "房源发布状态统计" [ref=e65] [cursor=pointer]:
+            - /url: ../../modules/house/publish-stat.html?role=housing
+          - link "房源查询（只读）" [ref=e66] [cursor=pointer]:
+            - /url: ../../modules/house/house-query.html?role=housing
+          - link "预约名单管理" [ref=e67] [cursor=pointer]:
+            - /url: ../../modules/house/book-manage.html?role=housing
+      - generic [ref=e69] [cursor=pointer]:
+        - generic [ref=e70]: 
+        - generic [ref=e71]: 房源导入与来源台账
+        - generic [ref=e72]: 
+  - main [ref=e73]:
+    - generic [ref=e75]:
+      - generic [ref=e76]: 
+      - text: 株洲市人才住房保障管理平台
+      - generic [ref=e77]: /
+      - text: 房源筹集与楼盘表
+      - generic [ref=e78]: /
+      - text: 房源发布与预约
+      - generic [ref=e79]: /
+      - generic [ref=e80]: 房源查询（只读）
+    - generic [ref=e81]:
+      - generic [ref=e82]: 
+      - generic [ref=e83]: 本页为只读查询，供窗口现场向申请人介绍房源与协助登记意向片区；窗口不在线选房、不锁定房源，意向片区仅作登记、不产生任何占位效力。查询范围为全部已审核发布的房源（未发布、待审核、已退回、已下架的房源本页与移动端均不可见），按「间」展示：计租面积 ＝ 本间套内面积 ＋ 本间公摊面积，公摊计入租金；VR 全景按套，同一套房各间共用一份。本页无任何编辑操作，房源由所属运营机构维护、主管单位审核发布。
+    - generic [ref=e84]:
+      - generic [ref=e85]:
+        - generic [ref=e87]: 
+        - generic [ref=e88]:
+          - generic [ref=e89]: 已发布房源
+          - generic [ref=e90]: 3,586
+          - generic [ref=e91]: 间 · 7 个楼盘，全部已审核发布
+      - generic [ref=e92]:
+        - generic [ref=e94]: 
+        - generic [ref=e95]:
+          - generic [ref=e96]: 已预约
+          - generic [ref=e97]: 1,520
+          - generic [ref=e98]: 间 · 占 42.4%，配租时优先排序
+      - generic [ref=e99]:
+        - generic [ref=e101]: 
+        - generic [ref=e102]:
+          - generic [ref=e103]: 已轮候
+          - generic [ref=e104]: 1,454
+          - generic [ref=e105]: 间 · 占 40.5%，按受理顺序排定
+      - generic [ref=e106]:
+        - generic [ref=e108]: 
+        - generic [ref=e109]:
+          - generic [ref=e110]: 剩余可选
+          - generic [ref=e111]: "612"
+          - generic [ref=e112]: 间 · 剩余率 17.1%，申请形势偏紧
+    - generic [ref=e113]:
+      - generic [ref=e114]:
+        - generic [ref=e115]:
+          - generic [ref=e116]: 区域
+          - combobox [ref=e117]:
+            - option "全部" [selected]
+            - option "天元区"
+            - option "荷塘区"
+            - option "芦淞区"
+            - option "石峰区"
+            - option "经开区"
+            - option "渌口区"
+        - generic [ref=e118]:
+          - generic [ref=e119]: 楼盘
+          - combobox [ref=e120]:
+            - option "全部" [selected]
+            - option "湘江1958 人才公寓"
+            - option "栗雨佳苑人才公寓"
+            - option "董家塅人才公寓"
+            - option "清水塘·未来社区"
+            - option "田心人才公寓"
+            - option "云龙人才公寓"
+            - option "时代新城人才公寓"
+        - generic [ref=e121]:
+          - generic [ref=e122]: 户型（室厅结构）
+          - combobox [ref=e123]:
+            - option "全部" [selected]
+            - option "单间配套"
+            - option "一室一厅"
+            - option "二室一厅"
+            - option "三室一厅"
+            - option "三室两厅"
+        - generic [ref=e124]:
+          - generic [ref=e125]: 计租面积
+          - combobox [ref=e126]:
+            - option "全部" [selected]
+            - option "15.00—20.00 ㎡"
+            - option "20.00—25.00 ㎡"
+            - option "25.00—30.00 ㎡"
+            - option "30.00 ㎡ 以上"
+        - generic [ref=e127]:
+          - generic [ref=e128]: 人才租金标准
+          - combobox [ref=e129]:
+            - option "全部" [selected]
+            - option "5.00 元/㎡·月及以下"
+            - option "5.00—6.00 元/㎡·月"
+            - option "6.00 元/㎡·月以上"
+        - generic [ref=e130]:
+          - generic [ref=e131]: 房间配套
+          - combobox [ref=e132]:
+            - option "全部" [selected]
+            - option "独立卫生间"
+            - option "空调"
+            - option "阳台"
+            - option "衣柜"
+            - option "书桌"
+            - option "飘窗"
+        - generic [ref=e133]:
+          - generic [ref=e134]: 房态
+          - combobox [ref=e135]:
+            - option "全部" [selected]
+            - option "可配租"
+            - option "已锁定"
+            - option "已签约"
+            - option "在租"
+            - option "待腾退"
+            - option "维修中"
+            - option "已冻结"
+        - generic [ref=e136]:
+          - button " 查询" [ref=e137] [cursor=pointer]:
+            - generic [ref=e138]: 
+            - text: 查询
+          - button "重置" [ref=e139] [cursor=pointer]
+          - button " 打印现场介绍单" [ref=e140] [cursor=pointer]:
+            - generic [ref=e141]: 
+            - text: 打印现场介绍单
+          - button " 导出房源一览表" [ref=e142] [cursor=pointer]:
+            - generic [ref=e143]: 
+            - text: 导出房源一览表
+          - button " 刷新余量" [ref=e144] [cursor=pointer]:
+            - generic [ref=e145]: 
+            - text: 刷新余量
+      - generic [ref=e146]:
+        - generic [ref=e147] [cursor=pointer]:
+          - text: 已发布房源（按间）
+          - generic [ref=e148]: 3,586
+        - generic [ref=e149] [cursor=pointer]:
+          - text: 楼盘余量
+          - generic [ref=e150]: "612"
+      - generic [ref=e152]:
+        - paragraph [ref=e153]: 只读查询：仅展示已审核发布的房源，操作限于查看详情与查看 VR，不提供任何编辑、选房与锁定操作 · 计租面积 ＝ 本间套内面积 ＋ 本间公摊面积，人才租金标准为减免后标准 · 月租金 ＝ 计租面积 × 人才租金标准
+        - table [ref=e155]:
+          - rowgroup [ref=e156]:
+            - row "序号 楼盘 所在区 房号 + 间号 室厅结构 计租面积 人才租金 房间配套 房态 操作" [ref=e157]:
+              - columnheader "序号" [ref=e158]
+              - columnheader "楼盘" [ref=e159]
+              - columnheader "所在区" [ref=e160]
+              - columnheader "房号 + 间号" [ref=e161]
+              - columnheader "室厅结构" [ref=e162]
+              - columnheader "计租面积" [ref=e163]
+              - columnheader "人才租金" [ref=e164]
+              - columnheader "房间配套" [ref=e165]
+              - columnheader "房态" [ref=e166]
+              - columnheader "操作" [ref=e167]
+          - rowgroup [ref=e168]:
+            - row "01 湘江1958 人才公寓 天元区 A6 栋 1502A 三室两厅 · 主卧 27.80 6.00 独立卫生间、空调、阳台、衣柜 在租 查看详情 查看 VR" [ref=e169]:
+              - cell "01" [ref=e170]
+              - cell "湘江1958 人才公寓" [ref=e171]
+              - cell "天元区" [ref=e172]
+              - cell "A6 栋 1502A" [ref=e173]
+              - cell "三室两厅 · 主卧" [ref=e174]
+              - cell "27.80" [ref=e175]
+              - cell "6.00" [ref=e176]
+              - cell "独立卫生间、空调、阳台、衣柜" [ref=e177]
+              - cell "在租" [ref=e178]:
+                - generic [ref=e179]: 在租
+              - cell "查看详情 查看 VR" [ref=e180]
+            - row "02 湘江1958 人才公寓 天元区 A6 栋 1502B 三室两厅 · 次卧 22.20 6.00 空调、衣柜、书桌 在租 查看详情 查看 VR" [ref=e181]:
+              - cell "02" [ref=e182]
+              - cell "湘江1958 人才公寓" [ref=e183]
+              - cell "天元区" [ref=e184]
+              - cell "A6 栋 1502B" [ref=e185]
+              - cell "三室两厅 · 次卧" [ref=e186]
+              - cell "22.20" [ref=e187]
+              - cell "6.00" [ref=e188]
+              - cell "空调、衣柜、书桌" [ref=e189]
+              - cell "在租" [ref=e190]:
+                - generic [ref=e191]: 在租
+              - cell "查看详情 查看 VR" [ref=e192]
+            - row "03 湘江1958 人才公寓 天元区 A6 栋 1502C 三室两厅 · 次卧 19.60 6.00 空调、衣柜 可配租 查看详情 查看 VR" [ref=e193]:
+              - cell "03" [ref=e194]
+              - cell "湘江1958 人才公寓" [ref=e195]
+              - cell "天元区" [ref=e196]
+              - cell "A6 栋 1502C" [ref=e197]
+              - cell "三室两厅 · 次卧" [ref=e198]
+              - cell "19.60" [ref=e199]
+              - cell "6.00" [ref=e200]
+              - cell "空调、衣柜" [ref=e201]
+              - cell "可配租" [ref=e202]:
+                - generic [ref=e203]: 可配租
+              - cell "查看详情 查看 VR" [ref=e204]
+            - row "04 清水塘·未来社区 石峰区 1 栋 0708A 三室一厅 · 主卧 22.00 5.40 独立卫生间、空调、衣柜、飘窗 可配租 查看详情 查看 VR" [ref=e205]:
+              - cell "04" [ref=e206]
+              - cell "清水塘·未来社区" [ref=e207]
+              - cell "石峰区" [ref=e208]
+              - cell "1 栋 0708A" [ref=e209]
+              - cell "三室一厅 · 主卧" [ref=e210]
+              - cell "22.00" [ref=e211]
+              - cell "5.40" [ref=e212]
+              - cell "独立卫生间、空调、衣柜、飘窗" [ref=e213]
+              - cell "可配租" [ref=e214]:
+                - generic [ref=e215]: 可配租
+              - cell "查看详情 查看 VR" [ref=e216]
+            - row "05 董家塅人才公寓 芦淞区 3 栋 1102A 二室一厅 · 主卧 26.40 5.60 独立卫生间、空调、阳台、衣柜 在租 查看详情 查看 VR" [ref=e217]:
+              - cell "05" [ref=e218]
+              - cell "董家塅人才公寓" [ref=e219]
+              - cell "芦淞区" [ref=e220]
+              - cell "3 栋 1102A" [ref=e221]
+              - cell "二室一厅 · 主卧" [ref=e222]
+              - cell "26.40" [ref=e223]
+              - cell "5.60" [ref=e224]
+              - cell "独立卫生间、空调、阳台、衣柜" [ref=e225]
+              - cell "在租" [ref=e226]:
+                - generic [ref=e227]: 在租
+              - cell "查看详情 查看 VR" [ref=e228]
+            - row "06 董家塅人才公寓 芦淞区 3 栋 1102B 二室一厅 · 次卧 21.60 5.60 空调、衣柜、书桌 可配租 查看详情 查看 VR" [ref=e229]:
+              - cell "06" [ref=e230]
+              - cell "董家塅人才公寓" [ref=e231]
+              - cell "芦淞区" [ref=e232]
+              - cell "3 栋 1102B" [ref=e233]
+              - cell "二室一厅 · 次卧" [ref=e234]
+              - cell "21.60" [ref=e235]
+              - cell "5.60" [ref=e236]
+              - cell "空调、衣柜、书桌" [ref=e237]
+              - cell "可配租" [ref=e238]:
+                - generic [ref=e239]: 可配租
+              - cell "查看详情 查看 VR" [ref=e240]
+            - row "07 田心人才公寓 石峰区 B3 栋 0906A 二室一厅 · 主卧 27.50 5.00 独立卫生间、空调、阳台、衣柜 可配租 查看详情 查看 VR" [ref=e241]:
+              - cell "07" [ref=e242]
+              - cell "田心人才公寓" [ref=e243]
+              - cell "石峰区" [ref=e244]
+              - cell "B3 栋 0906A" [ref=e245]
+              - cell "二室一厅 · 主卧" [ref=e246]
+              - cell "27.50" [ref=e247]
+              - cell "5.00" [ref=e248]
+              - cell "独立卫生间、空调、阳台、衣柜" [ref=e249]
+              - cell "可配租" [ref=e250]:
+                - generic [ref=e251]: 可配租
+              - cell "查看详情 查看 VR" [ref=e252]
+            - row "08 田心人才公寓 石峰区 B3 栋 0906B 二室一厅 · 次卧 22.50 5.00 空调、衣柜、书桌 可配租 查看详情 查看 VR" [ref=e253]:
+              - cell "08" [ref=e254]
+              - cell "田心人才公寓" [ref=e255]
+              - cell "石峰区" [ref=e256]
+              - cell "B3 栋 0906B" [ref=e257]
+              - cell "二室一厅 · 次卧" [ref=e258]
+              - cell "22.50" [ref=e259]
+              - cell "5.00" [ref=e260]
+              - cell "空调、衣柜、书桌" [ref=e261]
+              - cell "可配租" [ref=e262]:
+                - generic [ref=e263]: 可配租
+              - cell "查看详情 查看 VR" [ref=e264]
+            - row "09 栗雨佳苑人才公寓 天元区 3 栋 1108A 三室一厅 · 主卧 21.60 5.20 独立卫生间、空调、衣柜、飘窗 可配租 查看详情 查看 VR" [ref=e265]:
+              - cell "09" [ref=e266]
+              - cell "栗雨佳苑人才公寓" [ref=e267]
+              - cell "天元区" [ref=e268]
+              - cell "3 栋 1108A" [ref=e269]
+              - cell "三室一厅 · 主卧" [ref=e270]
+              - cell "21.60" [ref=e271]
+              - cell "5.20" [ref=e272]
+              - cell "独立卫生间、空调、衣柜、飘窗" [ref=e273]
+              - cell "可配租" [ref=e274]:
+                - generic [ref=e275]: 可配租
+              - cell "查看详情 查看 VR" [ref=e276]
+            - row "10 栗雨佳苑人才公寓 天元区 3 栋 1108B 三室一厅 · 次卧 17.40 5.20 空调、衣柜、书桌 已锁定 查看详情 查看 VR" [ref=e277]:
+              - cell "10" [ref=e278]
+              - cell "栗雨佳苑人才公寓" [ref=e279]
+              - cell "天元区" [ref=e280]
+              - cell "3 栋 1108B" [ref=e281]
+              - cell "三室一厅 · 次卧" [ref=e282]
+              - cell "17.40" [ref=e283]
+              - cell "5.20" [ref=e284]
+              - cell "空调、衣柜、书桌" [ref=e285]
+              - cell "已锁定" [ref=e286]:
+                - generic [ref=e287]: 已锁定
+              - cell "查看详情 查看 VR" [ref=e288]
+            - row "11 栗雨佳苑人才公寓 天元区 3 栋 1108C 三室一厅 · 次卧 15.60 5.20 空调、衣柜 可配租 查看详情 查看 VR" [ref=e289]:
+              - cell "11" [ref=e290]
+              - cell "栗雨佳苑人才公寓" [ref=e291]
+              - cell "天元区" [ref=e292]
+              - cell "3 栋 1108C" [ref=e293]
+              - cell "三室一厅 · 次卧" [ref=e294]
+              - cell "15.60" [ref=e295]
+              - cell "5.20" [ref=e296]
+              - cell "空调、衣柜" [ref=e297]
+              - cell "可配租" [ref=e298]:
+                - generic [ref=e299]: 可配租
+              - cell "查看详情 查看 VR" [ref=e300]
+            - row "12 湘江1958 人才公寓 天元区 A6 栋 1502A 三室两厅 · 主卧 27.80 6.00 独立卫生间、空调、阳台、衣柜 在租 查看详情 查看 VR" [ref=e301]:
+              - cell "12" [ref=e302]
+              - cell "湘江1958 人才公寓" [ref=e303]
+              - cell "天元区" [ref=e304]
+              - cell "A6 栋 1502A" [ref=e305]
+              - cell "三室两厅 · 主卧" [ref=e306]
+              - cell "27.80" [ref=e307]
+              - cell "6.00" [ref=e308]
+              - cell "独立卫生间、空调、阳台、衣柜" [ref=e309]
+              - cell "在租" [ref=e310]:
+                - generic [ref=e311]: 在租
+              - cell "查看详情 查看 VR" [ref=e312]
+            - row "13 湘江1958 人才公寓 天元区 A6 栋 1502B 三室两厅 · 次卧 22.20 6.00 空调、衣柜、书桌 在租 查看详情 查看 VR" [ref=e313]:
+              - cell "13" [ref=e314]
+              - cell "湘江1958 人才公寓" [ref=e315]
+              - cell "天元区" [ref=e316]
+              - cell "A6 栋 1502B" [ref=e317]
+              - cell "三室两厅 · 次卧" [ref=e318]
+              - cell "22.20" [ref=e319]
+              - cell "6.00" [ref=e320]
+              - cell "空调、衣柜、书桌" [ref=e321]
+              - cell "在租" [ref=e322]:
+                - generic [ref=e323]: 在租
+              - cell "查看详情 查看 VR" [ref=e324]
+            - row "14 湘江1958 人才公寓 天元区 A6 栋 1502C 三室两厅 · 次卧 19.60 6.00 空调、衣柜 可配租 查看详情 查看 VR" [ref=e325]:
+              - cell "14" [ref=e326]
+              - cell "湘江1958 人才公寓" [ref=e327]
+              - cell "天元区" [ref=e328]
+              - cell "A6 栋 1502C" [ref=e329]
+              - cell "三室两厅 · 次卧" [ref=e330]
+              - cell "19.60" [ref=e331]
+              - cell "6.00" [ref=e332]
+              - cell "空调、衣柜" [ref=e333]
+              - cell "可配租" [ref=e334]:
+                - generic [ref=e335]: 可配租
+              - cell "查看详情 查看 VR" [ref=e336]
+            - row "15 清水塘·未来社区 石峰区 1 栋 0708A 三室一厅 · 主卧 22.00 5.40 独立卫生间、空调、衣柜、飘窗 可配租 查看详情 查看 VR" [ref=e337]:
+              - cell "15" [ref=e338]
+              - cell "清水塘·未来社区" [ref=e339]
+              - cell "石峰区" [ref=e340]
+              - cell "1 栋 0708A" [ref=e341]
+              - cell "三室一厅 · 主卧" [ref=e342]
+              - cell "22.00" [ref=e343]
+              - cell "5.40" [ref=e344]
+              - cell "独立卫生间、空调、衣柜、飘窗" [ref=e345]
+              - cell "可配租" [ref=e346]:
+                - generic [ref=e347]: 可配租
+              - cell "查看详情 查看 VR" [ref=e348]
+            - row "16 董家塅人才公寓 芦淞区 3 栋 1102A 二室一厅 · 主卧 26.40 5.60 独立卫生间、空调、阳台、衣柜 在租 查看详情 查看 VR" [ref=e349]:
+              - cell "16" [ref=e350]
+              - cell "董家塅人才公寓" [ref=e351]
+              - cell "芦淞区" [ref=e352]
+              - cell "3 栋 1102A" [ref=e353]
+              - cell "二室一厅 · 主卧" [ref=e354]
+              - cell "26.40" [ref=e355]
+              - cell "5.60" [ref=e356]
+              - cell "独立卫生间、空调、阳台、衣柜" [ref=e357]
+              - cell "在租" [ref=e358]:
+                - generic [ref=e359]: 在租
+              - cell "查看详情 查看 VR" [ref=e360]
+            - row "17 董家塅人才公寓 芦淞区 3 栋 1102B 二室一厅 · 次卧 21.60 5.60 空调、衣柜、书桌 可配租 查看详情 查看 VR" [ref=e361]:
+              - cell "17" [ref=e362]
+              - cell "董家塅人才公寓" [ref=e363]
+              - cell "芦淞区" [ref=e364]
+              - cell "3 栋 1102B" [ref=e365]
+              - cell "二室一厅 · 次卧" [ref=e366]
+              - cell "21.60" [ref=e367]
+              - cell "5.60" [ref=e368]
+              - cell "空调、衣柜、书桌" [ref=e369]
+              - cell "可配租" [ref=e370]:
+                - generic [ref=e371]: 可配租
+              - cell "查看详情 查看 VR" [ref=e372]
+            - row "18 田心人才公寓 石峰区 B3 栋 0906A 二室一厅 · 主卧 27.50 5.00 独立卫生间、空调、阳台、衣柜 可配租 查看详情 查看 VR" [ref=e373]:
+              - cell "18" [ref=e374]
+              - cell "田心人才公寓" [ref=e375]
+              - cell "石峰区" [ref=e376]
+              - cell "B3 栋 0906A" [ref=e377]
+              - cell "二室一厅 · 主卧" [ref=e378]
+              - cell "27.50" [ref=e379]
+              - cell "5.00" [ref=e380]
+              - cell "独立卫生间、空调、阳台、衣柜" [ref=e381]
+              - cell "可配租" [ref=e382]:
+                - generic [ref=e383]: 可配租
+              - cell "查看详情 查看 VR" [ref=e384]
+            - row "19 田心人才公寓 石峰区 B3 栋 0906B 二室一厅 · 次卧 22.50 5.00 空调、衣柜、书桌 可配租 查看详情 查看 VR" [ref=e385]:
+              - cell "19" [ref=e386]
+              - cell "田心人才公寓" [ref=e387]
+              - cell "石峰区" [ref=e388]
+              - cell "B3 栋 0906B" [ref=e389]
+              - cell "二室一厅 · 次卧" [ref=e390]
+              - cell "22.50" [ref=e391]
+              - cell "5.00" [ref=e392]
+              - cell "空调、衣柜、书桌" [ref=e393]
+              - cell "可配租" [ref=e394]:
+                - generic [ref=e395]: 可配租
+              - cell "查看详情 查看 VR" [ref=e396]
+            - row "20 栗雨佳苑人才公寓 天元区 3 栋 1108A 三室一厅 · 主卧 21.60 5.20 独立卫生间、空调、衣柜、飘窗 可配租 查看详情 查看 VR" [ref=e397]:
+              - cell "20" [ref=e398]
+              - cell "栗雨佳苑人才公寓" [ref=e399]
+              - cell "天元区" [ref=e400]
+              - cell "3 栋 1108A" [ref=e401]
+              - cell "三室一厅 · 主卧" [ref=e402]
+              - cell "21.60" [ref=e403]
+              - cell "5.20" [ref=e404]
+              - cell "独立卫生间、空调、衣柜、飘窗" [ref=e405]
+              - cell "可配租" [ref=e406]:
+                - generic [ref=e407]: 可配租
+              - cell "查看详情 查看 VR" [ref=e408]
+        - generic [ref=e409]:
+          - generic [ref=e410]: 共 3586 条，显示 1–20 条
+          - generic [ref=e411]:
+            - generic [ref=e412]:
+              - text: 每页
+              - combobox "每页 条" [ref=e413] [cursor=pointer]:
+                - option "10"
+                - option "20" [selected]
+                - option "50"
+                - option "100"
+              - text: 条
+            - generic [ref=e414]:
+              - button "" [disabled] [ref=e415]:
+                - generic [ref=e416]: 
+              - button "" [disabled] [ref=e417]:
+                - generic [ref=e418]: 
+              - button "1" [ref=e419] [cursor=pointer]
+              - button "2" [ref=e420] [cursor=pointer]
+              - button "3" [ref=e421] [cursor=pointer]
+              - button "4" [ref=e422] [cursor=pointer]
+              - generic [ref=e423]: …
+              - button "180" [ref=e424] [cursor=pointer]
+              - button "" [ref=e425] [cursor=pointer]:
+                - generic [ref=e426]: 
+              - button "" [ref=e427] [cursor=pointer]:
+                - generic [ref=e428]: 
+            - generic [ref=e429]:
+              - text: 前往
+              - spinbutton "前往 页" [ref=e430]: "1"
+              - text: 页
+            - generic [ref=e431]: 共 180 页
+      - text:    
+    - generic [ref=e432]:
+      - generic [ref=e433]: 页面性质 只读查询，无新增、修改、删除、审核与选房操作；窗口受理角色对房源与政策均为只读
+      - generic [ref=e434]: 查询范围 全部已审核发布的房源，按间展示；未发布、待审核、已退回、已下架的房源本页与移动端均不可见
+      - generic [ref=e435]: 面积口径 计租面积 ＝ 本间套内面积 ＋ 本间公摊面积，公摊计入租金；公摊比例按套内间数均分
+      - generic [ref=e436]: VR 口径 VR 全景按套，同一套房各间共用一份；进入任一房间均展示其所在套房的全景
+      - generic [ref=e437]: 窗口口径 窗口不在线选房、不锁定房源；意向片区选填、仅作登记，与线上申请汇入同一件池、走同一流程、不因渠道优先

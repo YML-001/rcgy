@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>实时风险告警 · 株洲市人才公寓管理平台</title>
+<title>实时风险告警 · 株洲市人才住房保障管理平台</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="../../assets/css/app.css">
 <link rel="stylesheet" href="../../assets/css/spec.css">
@@ -13,7 +13,7 @@
 <main class="app-main">
   <div class="page-head">
     <div class="breadcrumb">
-      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才住房保障管理平台
       <span class="sep">/</span> 统计分析
       <span class="sep">/</span> 领导驾驶舱
       <span class="sep">/</span> <span class="cur">实时风险告警</span>
@@ -82,7 +82,7 @@
         <tbody>
           <tr class="row-bad"><td><b>资格审核超期</b></td><td><span class="badge red">红 · 严重</span></td><td class="num">3</td><td>3 件申请</td><td>超 3 个工作日法定时限未办结。归因：不动产与个税核验不一致件需人工核实，耗时超预期；已向经办人与负责人预警</td><td>市住保中心资格审核科</td><td><span class="link" onclick="location.href='../workbench/timelimit.html'">审核时限台账</span></td></tr>
           <tr class="row-bad"><td><b>腾退逾期未执行</b></td><td><span class="badge red">红 · 严重</span></td><td class="num">6</td><td>6 户</td><td>已下发腾退通知但逾期未腾退。归因：3 户离株联系困难、2 户拒不配合、1 户涉司法查封；已自动升级处置</td><td>市住建局 + 运营机构</td><td><span class="link" onclick="location.href='../rent/quit-manage.html'">腾退管理</span></td></tr>
-          <tr class="row-warn"><td>空置超 90 天</td><td><span class="badge orange">橙 · 预警</span></td><td class="num">36</td><td>36 套房源</td><td>集中在石峰区清水塘片区 24 套。归因：位置偏远、配套不足、VR 与户型图素材缺失影响认领</td><td>市住保中心房源管理科</td><td><span class="link" onclick="location.href='house-vacancy.html'">空置分析</span></td></tr>
+          <tr class="row-warn"><td>空置超 90 天</td><td><span class="badge orange">橙 · 预警</span></td><td class="num">36</td><td>36 套房源</td><td>集中在石峰区清水塘片区 24 套。归因：位置偏远、配套不足、VR 与户型图素材缺失影响认领</td><td>市住保中心房源管理科</td><td><span class="link" onclick="location.href='../house/house-status-map.html'">房态监控</span></td></tr>
           <tr class="row-warn"><td>租金欠缴</td><td><span class="badge orange">橙 · 预警</span></td><td class="num">62</td><td>83,220.00 元</td><td>账龄 90 天以上 12 户。归因：8 户离职收入中断、3 户拒缴、1 户联系不上；欠费将影响年审与续租</td><td>市住保中心财务科</td><td><span class="link" onclick="location.href='../rent/arrears.html'">欠租台账</span></td></tr>
           <tr><td>年审未完成</td><td><span class="badge yellow">黄 · 提示</span></td><td class="num">148</td><td>148 户</td><td>2026 年度第 3 批年审在办，<b>尚在批次期限内</b>（截止 2027-01-20），不构成实质风险</td><td>市住保中心资格审核科</td><td><span class="link" onclick="location.href='../rent/annual-list.html'">年审待审名单</span></td></tr>
           <tr><td>接口失败率偏高</td><td><span class="badge yellow">黄 · 提示</span></td><td class="num">2</td><td>2 个接口</td><td>学信网 12.4%、税务企业纳税 8.6%，超 5% 阈值。已切人工兜底通道，业务未中断</td><td>市住保中心信息科</td><td><span class="link" onclick="location.href='../system/api-monitor.html'">接口监控</span></td></tr>

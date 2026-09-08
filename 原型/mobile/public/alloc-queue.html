@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>轮候排位查询 · 株洲市人才公寓管理平台</title>
+<title>轮候排位查询 · 株洲市人才住房保障管理平台</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="../../assets/css/app.css">
 <link rel="stylesheet" href="../../assets/css/mobile.css">
 <link rel="stylesheet" href="../../assets/css/ext.css">
 </head>
 <body class="m-body" data-mtitle="轮候排位" data-mmod="M7 配租与线上选房" data-mcode="M7-06"
-      data-mdesc="查看本人轮候序号、前方人数与预计等待周期；按轮候排名组织选房、不摇号，轮候锁定名额含应届生预申请与房源预约两类。" data-mback="alloc-order.html" data-mtabset="public" data-mtab="apply">
+      data-mdesc="纯轮候序号与有效期管理：查看本人轮候序号、前方人数、预计等待周期与轮候有效期；按轮候排名组织选房、不摇号；锁定名额类型只保留「房源预约」一类。" data-mback="alloc-order.html" data-mtabset="public" data-mtab="house">
 <div class="m-stage">
   <div class="m-phone">
     <div class="m-screen">
@@ -26,10 +26,10 @@
           <div class="m-card-b">
             <div class="m-mini">
               <div><div class="mv">28</div><div class="ml">我的轮候序号</div></div>
-              <div><div class="mv">214</div><div class="ml">天元区轮候人数</div></div>
+              <div><div class="mv">99</div><div class="ml">天元区轮候人数</div></div>
               <div><div class="mv warn">47</div><div class="ml">平均等待(天)</div></div>
             </div>
-            <div class="m-bar" style="margin-top:12px"><span style="width:13%"></span></div>
+            <div class="m-bar" style="margin-top:12px"><span style="width:28%"></span></div>
             <div style="margin-top:6px;font-size:11.5px;color:var(--text-3);text-align:center">前方 27 人　·	预计 2026-11 前后可配租</div>
           </div>
         </div>
@@ -48,24 +48,41 @@
           </div>
           </div>
         </div>
-        <div class="m-sect">轮候锁定名额<span class="m-sect-x">两类</span></div>
+        <div class="m-sect">锁定名额类型<span class="m-sect-x">仅「房源预约」一类</span></div>
         <div class="m-card">
           <div class="m-card-h"><i class="fa-solid fa-lock"></i>锁定名额类型</div>
           <div class="m-card-b">
             <div class="m-check">
-              <div class="ok"><i class="fa-solid fa-graduation-cap"></i><div class="m-chl"><b>应届生预申请　<span class="m-tag cyan">锁定名额</span></b><span>在校应届毕业生先行预申请锁定意向名额，<b>补齐材料转正式申请</b>后进入正式轮候，排序仍按预申请提交时间</span></div></div>
-              <div class="ok"><i class="fa-solid fa-calendar-check"></i><div class="m-chl"><b>房源预约　<span class="m-tag orange">预约优先</span></b><span>预约意向房源后锁定名额，<b>配租时位次优先于普通轮候</b>；多人预约同一房源按预约时间先后确定序位</span></div></div>
+              <div class="ok"><i class="fa-solid fa-calendar-check"></i><div class="m-chl"><b>房源预约　<span class="m-tag orange">预约优先</span></b><span>锁定名额类型<b>只保留「房源预约」一类</b>。预约<b>为意向登记、不占用轮候名额</b>，但<b>配租时位次优先于普通轮候</b>；多人预约同一房间的按预约时间先后确定序位</span></div></div>
               <div class="ok"><i class="fa-solid fa-ban"></i><div class="m-chl"><b>组织选房方式：不摇号</b><span>新房源到位后<b>按轮候排名组织选房</b>，<b>不采用摇号方式</b>，名单可导出公示</span></div></div>
-              <div class="bad"><i class="fa-solid fa-hourglass-end"></i><div class="m-chl"><b>到期未补齐自动作废</b><span>两类锁定名额到期未补齐材料或未转正式申请的，<b>自动作废并释放名额</b>，顺延给后位轮候人</span></div></div>
+              <div class="ok"><i class="fa-solid fa-hourglass-half"></i><div class="m-chl"><b>轮候只管序号与有效期</b><span>轮候库<b>仅维护轮候序号与轮候有效期</b>，不再设置其他名额锁定或转正环节；序号按申请受理时间排定，不支持人工调序</span></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="m-sect">轮候有效期管理<span class="m-sect-x">序号 + 有效期</span></div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-calendar-day"></i>有效期规则</div>
+          <div class="m-card-b">
+          <div class="m-kv">
+            <div><span>有效期时长</span><span><b>12 个月</b>　·	自进入轮候库之日起算</span></div>
+            <div><span>本人有效期</span><span>2026-09-19 至 <b>2027-09-18</b>（剩余 375 天）</span></div>
+            <div><span>届满前提醒</span><span>期限届满前 <b>30 天 / 7 天</b>推送提醒，可在线申请<b>续期一次</b>（12 个月）</span></div>
+            <div><span>届满未配租</span><span>有效期届满仍未配租成功的，轮候记录自动失效，<b>需重新提交申请</b>；已受理时间不予保留</span></div>
+            <div><span>序号变动</span><span>仅在前位人员配租成功、放弃或轮候失效时<b>自动前移</b>，全过程留痕可查</span></div>
+            <div><span>选房逾期</span><span>不取消轮候资格，<b>自动排入下一轮</b>，原受理时间与预约优先标记保留</span></div>
+          </div>
+            <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+              <button class="m-btn sm ghost" type="button" onclick="MB.confirm('确认申请轮候有效期续期？续期后有效期延长至 <b>2028-09-18</b>，轮候序号与受理时间<b>保持不变</b>。','确认续期',function(){MB.toast('已提交续期申请，审核通过后有效期自动延长','success')})"><i class="fa-solid fa-rotate"></i> 申请续期</button>
+              <button class="m-btn sm" type="button" onclick="MB.toast('已开启有效期届满提醒，将在届满前 30 天、7 天推送')">开启届满提醒</button>
             </div>
           </div>
         </div>
         <div class="m-sect">各片区轮候情况<span class="m-sect-x">可改选片区缩短等待</span></div>
         <div class="m-cells">
-          <div class="m-cell"><span class="m-ci"><i class="fa-solid fa-location-dot"></i></span><span class="m-cl"><b>天元区</b><span class="m-cs">轮候 214 人 · 可租 43 套 · 平均等待 47 天</span></span><span class="m-cv"><b>我在第 28 位</b></span></div>
-          <div class="m-cell"><span class="m-ci green"><i class="fa-solid fa-location-dot"></i></span><span class="m-cl"><b>荷塘区</b><span class="m-cs">轮候 106 人 · 可租 32 套 · 平均等待 32 天</span></span><span class="m-cv">可改选</span></div>
-          <div class="m-cell"><span class="m-ci cyan"><i class="fa-solid fa-location-dot"></i></span><span class="m-cl"><b>经开区</b><span class="m-cs">轮候 160 人 · 可租 24 套 · 平均等待 58 天</span></span><span class="m-cv">可改选</span></div>
-          <div class="m-cell"><span class="m-ci orange"><i class="fa-solid fa-location-dot"></i></span><span class="m-cl"><b>石峰区</b><span class="m-cs">轮候 68 人 · 可租 42 套 · <b>平均等待 18 天</b></span></span><span class="m-cv">等待最短</span></div>
+          <div class="m-cell"><span class="m-ci"><i class="fa-solid fa-location-dot"></i></span><span class="m-cl"><b>天元区</b><span class="m-cs">轮候 99 人 · 剩余可选 71 间 · 平均等待 47 天</span></span><span class="m-cv"><b>我在第 28 位</b></span></div>
+          <div class="m-cell"><span class="m-ci green"><i class="fa-solid fa-location-dot"></i></span><span class="m-cl"><b>荷塘区</b><span class="m-cs">轮候 47 人 · 剩余可选 84 间 · 平均等待 32 天</span></span><span class="m-cv">可改选</span></div>
+          <div class="m-cell"><span class="m-ci cyan"><i class="fa-solid fa-location-dot"></i></span><span class="m-cl"><b>经开区</b><span class="m-cs">轮候 55 人 · 剩余可选 68 间 · 平均等待 58 天</span></span><span class="m-cv">可改选</span></div>
+          <div class="m-cell"><span class="m-ci orange"><i class="fa-solid fa-location-dot"></i></span><span class="m-cl"><b>石峰区</b><span class="m-cs">轮候 33 人 · 剩余可选 137 间 · 平均等待 18 天（最短）</span></span><span class="m-cv">等待最短</span></div>
         </div>
         <div class="m-sect">房源到位通知</div>
         <div class="m-card">
@@ -84,8 +101,8 @@
         </div>
         <div class="m-cells">
           <a class="m-cell" href="house-favorite.html"><span class="m-ci orange"><i class="fa-solid fa-star"></i></span><span class="m-cl"><b>设置房源到位提醒</b><span class="m-cs">收藏楼盘出现可租房源时推送</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
-          <a class="m-cell" href="book-list.html"><span class="m-ci"><i class="fa-solid fa-calendar-check"></i></span><span class="m-cl"><b>我的房源预约</b><span class="m-cs">房源预约锁定名额 · 配租时预约优先</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
-          <a class="m-cell" href="pre-queue.html"><span class="m-ci green"><i class="fa-solid fa-graduation-cap"></i></span><span class="m-cl"><b>意向轮候库（预申请）</b><span class="m-cs">应届生预申请锁定名额</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="book-list.html"><span class="m-ci"><i class="fa-solid fa-calendar-check"></i></span><span class="m-cl"><b>我的房源预约</b><span class="m-cs">意向登记不占名额 · 配租时预约优先</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="alloc-order.html"><span class="m-ci green"><i class="fa-solid fa-list-ol"></i></span><span class="m-cl"><b>配租顺序名单</b><span class="m-cs">按受理时间排定，公开可回溯</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
           <a class="m-cell" href="alloc-rule.html"><span class="m-ci cyan"><i class="fa-solid fa-scale-balanced"></i></span><span class="m-cl"><b>配租规则说明</b><span class="m-cs">不摇号 · 预约优先 · 1 个工作日确认</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
         </div>
       </div>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>保租房房源数据调用 · 株洲市人才公寓管理平台</title>
+<title>保租房房源数据调用 · 株洲市人才住房保障管理平台</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="../../assets/css/app.css">
 <link rel="stylesheet" href="../../assets/css/spec.css">
@@ -13,13 +13,13 @@
 <main class="app-main">
   <div class="page-head">
     <div class="breadcrumb">
-      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才住房保障管理平台
       <span class="sep">/</span> 房源筹集与楼盘表
       <span class="sep">/</span> 楼盘表与多源归集
       <span class="sep">/</span> <span class="cur">保租房房源调用</span>
     </div>
     <div class="page-actions">
-      <a class="btn btn-primary" href="org-report.html"><i class="fa-solid fa-file-import"></i> 房源单位报送与审核</a>
+      <a class="btn btn-primary" href="building-import.html"><i class="fa-solid fa-file-import"></i> 房源批量导入</a>
       <a class="btn" href="intake-type.html"><i class="fa-solid fa-tags"></i> 入库类型与切换</a>
       <button class="btn" onclick="PMS.toast('省保障性租赁住房系统接口前期暂不对接，接口开通并在系统中打开启用开关后方可同步')"><i class="fa-solid fa-arrows-rotate"></i> 立即同步（待启用）</button>
       <a class="btn" href="src-sync.html"><i class="fa-solid fa-code-compare"></i> 对账差异</a>
@@ -29,7 +29,7 @@
 
   <div class="alert alert-warning">
     <i class="fa-solid fa-triangle-exclamation"></i>
-    <div>省保障性租赁住房系统（含<b>「一间房」</b>）房源数据接口<b>前期暂不对接</b>：房源先由各房源提供单位<b>按统一模板报送</b>、经<b>住建部门审核后导入建账</b>，<b>保证平台按期上线可用</b>；<b>接口开通后再切换为实时同步，接口启用开关在系统中单独配置</b>。本页为<b>接口口径预置页</b>，当前列表数据为各单位报送并已导入建账的房源；<b>本系统只做归集展示与配租衔接，不重复建设省厅已有功能</b>。<span class="link" onclick="location.href='org-report.html'">房源单位报送与审核</span>　<span class="link" onclick="location.href='building-import.html'">房源批量导入</span></div>
+    <div>省保障性租赁住房系统（含<b>「一间房」</b>）房源数据接口<b>前期暂不对接</b>：房源先由<b>各运营机构按主管单位下发的统一模板自行批量导入建账</b>（导入环节不需报送审批），<b>保证平台按期上线可用</b>；<b>接口开通后再切换为实时同步，接口启用开关在系统中单独配置</b>。本页为<b>接口口径预置页</b>，当前列表数据为各运营机构已导入建账的房源；<b>本系统只做归集展示与配租衔接，不重复建设省厅已有功能</b>。<span class="link" onclick="location.href='house-archive.html'">房源查询与审核发布</span>　<span class="link" onclick="location.href='building-import.html'">房源批量导入</span></div>
   </div>
 
   <div class="stat-grid">
@@ -77,7 +77,7 @@
           <tr><td>HN430200-BZF-0086212</td><td>云龙人才苑 / 2 栋 0708</td><td>经开区</td><td>单间配套</td><td class="num">38.00</td><td><span class="badge cyan">一间房</span></td><td><span class="badge green">可租</span></td><td><span class="badge blue">批量导入</span> DR2026-09-118　<span class="muted">株洲经开区管委会报送</span></td><td><span class="badge gray">待启用</span></td><td><span class="link" onclick="location.href='building-table.html'">楼盘表</span> <span class="link" onclick="location.href='src-tag.html'">打标</span></td></tr>
           <tr><td>HN430200-BZF-0086218</td><td>云龙人才苑 / 2 栋 0710</td><td>经开区</td><td>单间配套</td><td class="num">38.00</td><td><span class="badge cyan">一间房</span></td><td><span class="badge green">可租</span></td><td><span class="badge blue">批量导入</span> DR2026-09-118　<span class="muted">株洲经开区管委会报送</span></td><td><span class="badge gray">待启用</span></td><td><span class="link" onclick="location.href='building-table.html'">楼盘表</span> <span class="link" onclick="location.href='src-tag.html'">打标</span></td></tr>
           <tr><td>HN430200-BZF-0086402</td><td>云龙人才苑 / 3 栋 1102</td><td>经开区</td><td>一室一厅</td><td class="num">52.00</td><td><span class="badge cyan">一间房</span></td><td><span class="badge blue">在租</span></td><td><span class="badge blue">批量导入</span> DR2026-09-118　<span class="muted">株洲经开区管委会报送</span></td><td><span class="badge gray">待启用</span></td><td><span class="link" onclick="location.href='building-table.html'">楼盘表</span></td></tr>
-          <tr class="row-warn"><td>HN430200-BZF-0086508</td><td>时代新城人才公寓 / 1 栋 0804</td><td>天元区</td><td>一室一厅</td><td class="num">56.00</td><td><span class="badge cyan">一间房</span></td><td><span class="badge green">可租</span></td><td><span class="badge orange">报送待审核</span>　<span class="muted">住建部门审核后方可导入建账</span></td><td><span class="badge gray">待启用</span></td><td><span class="link" onclick="location.href='org-report.html'">报送审核</span> <span class="link" onclick="location.href='src-sync.html'">对账</span></td></tr>
+          <tr class="row-warn"><td>HN430200-BZF-0086508</td><td>时代新城人才公寓 / 1 栋 0804</td><td>天元区</td><td>一室一厅</td><td class="num">56.00</td><td><span class="badge cyan">一间房</span></td><td><span class="badge green">可租</span></td><td><span class="badge orange">待审核发布</span>　<span class="muted">运营机构已导入并提交，待主管单位审核发布</span></td><td><span class="badge gray">待启用</span></td><td><span class="link" onclick="location.href='house-archive.html'">审核发布</span> <span class="link" onclick="location.href='src-sync.html'">对账</span></td></tr>
           <tr><td>HN430200-BZF-0086610</td><td>时代新城人才公寓 / 1 栋 1206</td><td>天元区</td><td>二室一厅</td><td class="num">74.00</td><td><span class="muted">—</span></td><td><span class="badge blue">在租</span></td><td><span class="badge gray">不纳管</span></td><td><span class="badge gray">未对接</span></td><td><span class="link" onclick="PMS.toast('该房源非面向人才引进的「一间房」房源，不纳入人才公寓归集范围，接口开通后也不同步')">说明</span></td></tr>
         </tbody>
       </table>
@@ -103,7 +103,7 @@
     <span><b>本期口径</b> 接口<b>前期暂不对接</b>：先由各提供单位按统一模板报送、住建部门审核后<b>导入建账</b>，保证平台按期上线可用；<b>待接口开通后启用</b>实时同步</span>
     <span><b>启用开关</b> 在系统中<b>单独配置</b>（系统管理 → 接口与集成配置），启用后按日定时同步并走比对合并；<b>已导入房源保留原入库标记</b></span>
     <span><b>功能边界</b> 数据来源为省保障性租赁住房系统（含「一间房」）；本系统只做归集展示与配租衔接，不重复建设省厅已有功能。配合单位：省住建厅、市住建局</span>
-    <span><b>关联页面</b> <span class="link" onclick="location.href='org-report.html'">房源单位报送与审核</span>　<span class="link" onclick="location.href='intake-type.html'">入库类型与切换</span>　<span class="link" onclick="location.href='import-merge.html'">导入与接口比对合并</span></span>
+    <span><b>关联页面</b> <span class="link" onclick="location.href='house-archive.html'">房源查询与审核发布</span>　<span class="link" onclick="location.href='intake-type.html'">入库类型与切换</span>　<span class="link" onclick="location.href='import-merge.html'">导入与接口比对合并</span></span>
   </div>
 </main>
 

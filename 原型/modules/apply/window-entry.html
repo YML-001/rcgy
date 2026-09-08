@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>窗口代办录入 · 株洲市人才住房保障管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="window" data-active="apply-23">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才住房保障管理平台
+      <span class="sep">/</span> 人才档案与资格联审
+      <span class="sep">/</span> 窗口兜底代办
+      <span class="sep">/</span> <span class="cur">窗口代办录入</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认提交本条窗口代办申请并汇入件池？',detail:'申请渠道自动标记为「政务窗口（PC 申请）」，受理时间以窗口录入时间 2026-09-08 09:42 为准。本件与线上申请汇入同一件池、走同一审核流程，不因渠道不同而优先。窗口不在线选房，意向片区仅作登记、不锁定房源。',type:'warning',okText:'确认提交并汇入件池',onOk:function(){PMS.toast('已提交，申请编号 RC2026-0908-0261 已汇入件池，等待受理初审','success');}})"><i class="fa-solid fa-paper-plane"></i> 提交并汇入件池</button>
+      <button class="btn" onclick="PMS.toast('已保存草稿，可在窗口办件台账中继续代录','success')"><i class="fa-solid fa-floppy-disk"></i> 保存草稿</button>
+      <button class="btn" onclick="location.href='material-print.html'"><i class="fa-solid fa-print"></i> 材料清单与表单打印</button>
+      <button class="btn" onclick="location.href='window-ledger.html'"><i class="fa-solid fa-clipboard-list"></i> 窗口办件台账</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>政务服务窗口为<b>不便线上办理的申请人提供兜底代办</b>：<b>只录身份与资格材料，不需在线选房</b>；<b>意向片区为选填项，仅作登记、不锁定房源</b>，资格审核通过后按批次统一组织选房。申请渠道<b>自动标记「政务窗口（PC 申请）」</b>，<b>受理时间以窗口录入时间为准</b>；本件与线上申请<b>汇入同一件池、走同一审核流程，不因渠道不同而优先</b>。窗口对<b>政策与房源均为只读</b>，不得承诺具体房源。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-person-booth"></i></div>
+      <div><div class="s-label">本月代办</div><div class="s-value">186</div>
+        <div class="s-trend text-2">件 · 渠道均标记为政务窗口（PC 申请）</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-keyboard"></i></div>
+      <div><div class="s-label">今日代录</div><div class="s-value">6</div>
+        <div class="s-trend text-2">件 · 经办人 谭建军</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-triangle-exclamation"></i></div>
+      <div><div class="s-label">待补材料</div><div class="s-value">2</div>
+        <div class="s-trend ">件 · 现场已告知补交清单</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-inbox"></i></div>
+      <div><div class="s-label">已汇入件池</div><div class="s-value">174</div>
+        <div class="s-trend text-2">件 · 与线上申请同池同流程</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <h3>一、申请人基本信息</h3>
+      <span class="sub">现场核对纸质材料后代为录入，身份与学历信息提交后转多部门数据核验</span>
+      <div class="head-actions">
+        <button class="btn" onclick="PMS.toast('已按身份证号调取部门共享数据并回填基本信息','success')"><i class="fa-solid fa-id-card"></i> 读身份证回填</button>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="form-grid form-align">
+        <div class="form-item">
+          <label>姓名 <span class="req">*</span></label>
+          <input type="text" value="谭泽宇">
+        </div>
+        <div class="form-item">
+          <label>身份证号 <span class="req">*</span></label>
+          <input type="text" value="430211199607142315">
+          <div class="hint">录入后自动调取部门共享数据核验</div>
+        </div>
+        <div class="form-item">
+          <label>性别 <span class="req">*</span></label>
+          <select><option selected>男</option><option>女</option></select>
+        </div>
+        <div class="form-item">
+          <label>出生日期 <span class="req">*</span></label>
+          <input type="date" value="1996-07-14">
+        </div>
+        <div class="form-item">
+          <label>联系电话 <span class="req">*</span></label>
+          <input type="tel" value="13907334268">
+          <div class="hint">办理进度与选房通知短信推送至该号码</div>
+        </div>
+        <div class="form-item">
+          <label>最高学历 <span class="req">*</span></label>
+          <select data-dict="education" data-selected="全日制本科" data-ph=""></select>
+        </div>
+        <div class="form-item">
+          <label>毕业时间 <span class="req">*</span></label>
+          <input type="date" value="2025-06-30">
+          <div class="hint">就业、创业青年人才须在毕业 2 年内；特殊人才免毕业年限</div>
+        </div>
+        <div class="form-item">
+          <label>毕业院校 <span class="req">*</span></label>
+          <input type="text" value="湖南工业大学">
+        </div>
+        <div class="form-item">
+          <label>婚姻状况 <span class="req">*</span></label>
+          <select data-dict="marriage" data-selected="已婚" data-ph=""></select>
+        </div>
+        <div class="form-item">
+          <label>申请类型 <span class="req">*</span></label>
+          <select data-dict="applyType" data-selected="就业青年人才" data-ph=""></select>
+        </div>
+        <div class="form-item col-full">
+          <label>就业单位或创业企业 <span class="req">*</span></label>
+          <input type="text" value="中车株洲电力机车研究所有限公司">
+          <div class="hint">就业青年人才填就业单位全称，创业青年人才填本人登记注册的企业或个体工商户全称</div>
+        </div>
+        <div class="form-item col-full">
+          <label>单位统一社会信用代码 <span class="req">*</span></label>
+          <input type="text" value="91430200183928476K">
+          <div class="hint">用于工商、纳税与社保数据核验，须与营业执照一致</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <h3>二、家庭成员</h3>
+      <span class="sub">已婚申请人须录入配偶信息；共同申请人一并纳入住房与婚姻数据核验</span>
+      <div class="head-actions">
+        <button class="btn" onclick="PMS.toast('已新增一行家庭成员，请录入姓名、关系与身份证号')"><i class="fa-solid fa-plus"></i> 添加成员</button>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="sp-tw">
+        <table class="data-table compact">
+          <thead>
+            <tr><th>姓名</th><th>与申请人关系</th><th class="cell-lg">身份证号</th><th>是否共同申请</th><th class="cell-lg">说明</th><th>操作</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>谭泽宇</td><td>本人</td><td>430211199607142315</td><td><span class="badge green">是</span></td><td>申请人本人，就业青年人才</td><td><span class="link" onclick="PMS.toast('本人信息随基本信息同步维护，不在此处修改')">同步维护</span></td></tr>
+            <tr><td>周芷若</td><td>配偶</td><td>430203199802186428</td><td><span class="badge green">是</span></td><td>共同申请，须一并核验本市住房与婚姻状况</td><td><span class="link" onclick="PMS.toast('已进入配偶信息编辑，请核对身份证号与共同申请意愿')">编辑</span> <span class="link danger" onclick="PMS.confirm({title:'移除确认',message:'确认移除共同申请人「周芷若」？',detail:'移除后本申请件按单人申请核验住房情况，已上传的婚姻状况证明仍须保留。',type:'warning',okText:'确认移除',onOk:function(){PMS.toast('已移除共同申请人，请重新核对婚姻状况证明','success');}})">移除</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="hint"><i class="fa-solid fa-circle-info"></i> 共同申请人须与申请人一并通过不动产、婚姻数据核验；配偶已在本市享受住房保障的，本申请件不予通过。</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <h3>三、意向片区（选填）</h3>
+      <span class="sub">仅作登记、不锁定房源，资格审核通过后按批次统一组织选房</span>
+    </div>
+    <div class="card-body">
+      <div class="form-grid form-align">
+        <div class="form-item">
+          <label>意向片区（选填）</label>
+          <select data-dict="district" data-selected="天元区" data-ph="不填写"></select>
+          <div class="hint"><b>仅作登记、不锁定房源</b>，资格审核通过后按批次统一组织选房</div>
+        </div>
+        <div class="form-item">
+          <label>第二意向片区（选填）</label>
+          <select data-dict="district" data-selected="石峰区" data-ph="不填写"></select>
+          <div class="hint">热门片区余量偏紧时可同步登记第二意向，同样不产生占位效力</div>
+        </div>
+        <div class="form-item">
+          <label>是否在线选房 <span class="req">*</span></label>
+          <input type="text" value="否（窗口不在线选房）" readonly>
+          <div class="hint">选房由申请人在建宁安居小程序按配租顺序自行办理</div>
+        </div>
+        <div class="form-item col-full">
+          <label>意向登记说明</label>
+          <textarea rows="3">申请人现场表示优先考虑天元区，通勤方便；已现场告知：意向片区仅作登记，不锁定房源、不产生任何占位效力，资格审核通过后按配租批次统一组织选房，实际可选房源以批次公告投放范围与配租顺序为准。窗口已用房源查询（只读）向申请人介绍各楼盘余量与申请形势，未承诺具体房源。</textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <h3>四、材料扫描件上传</h3>
+      <span class="sub">窗口收取纸质材料后扫描上传，经证照智能识别后回填字段</span>
+      <div class="head-actions">
+        <button class="btn" onclick="PMS.toast('已启动高拍仪扫描，扫描件将自动挂接到对应材料行','success')"><i class="fa-solid fa-camera"></i> 高拍仪扫描</button>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="sp-tw">
+        <table class="data-table compact">
+          <thead>
+            <tr><th class="cell-lg">材料名称</th><th>是否必交</th><th>上传状态</th><th class="num">扫描件张数</th><th class="cell-lg">要求说明</th><th>可否容缺</th><th>操作</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>身份证</td><td><span class="badge red">必交</span></td><td><span class="sp-st done">已上传</span></td><td class="num">2</td><td>正反面各 1 张，原件核对后扫描，须清晰可辨</td><td><span class="muted">不可容缺</span></td><td><span class="link" onclick="PMS.toast('已上传身份证正反面扫描件 2 张，OCR 识别姓名、身份证号已回填','success')">重新上传</span> <span class="link" onclick="PMS.toast('原型演示：预览身份证扫描件 2 张')">预览</span></td></tr>
+            <tr><td>学历证书</td><td><span class="badge red">必交</span></td><td><span class="sp-st done">已上传</span></td><td class="num">1</td><td>毕业证书扫描件 1 张，境外学历须附教育部留学服务中心认证书</td><td><span class="muted">不可容缺</span></td><td><span class="link" onclick="PMS.toast('已上传学历证书扫描件 1 张，将转学历数据核验','success')">重新上传</span> <span class="link" onclick="PMS.toast('原型演示：预览学历证书扫描件')">预览</span></td></tr>
+            <tr><td>劳动合同或营业执照</td><td><span class="badge red">必交</span></td><td><span class="sp-st done">已上传</span></td><td class="num">3</td><td>就业人才交劳动合同首页、期限页与签章页；创业人才交营业执照或个体工商户登记证</td><td><span class="muted">不可容缺</span></td><td><span class="link" onclick="PMS.toast('已上传劳动合同扫描件 3 张，将转工商与就业信息核验','success')">重新上传</span> <span class="link" onclick="PMS.toast('原型演示：预览劳动合同扫描件 3 张')">预览</span></td></tr>
+            <tr class="row-warn"><td>社保缴纳记录</td><td><span class="badge red">必交</span></td><td><span class="sp-st wait">待补交</span></td><td class="num">0</td><td>近 3 个月单位缴纳记录；已签合同未参保的，凭单位承诺书容缺受理</td><td><span class="badge orange">可容缺</span></td><td><span class="link" onclick="PMS.toast('已上传社保缴纳记录扫描件','success')">上传扫描件</span> <span class="link" onclick="PMS.confirm({title:'容缺受理确认',message:'确认对「社保缴纳记录」按容缺受理处理？',detail:'申请人劳动合同已签、单位尚未办理参保。凭单位承诺书容缺受理通过后，系统登记待补核期限 30 日，到期自动复核；仍不符合的在容缺受理台账预警并转人工处理。',type:'warning',okText:'确认容缺受理',onOk:function(){PMS.toast('已按容缺受理登记，待补核期限至 2026-10-08','success');}})">容缺受理</span></td></tr>
+            <tr><td>婚姻状况证明</td><td><span class="badge red">必交</span></td><td><span class="sp-st done">已上传</span></td><td class="num">1</td><td>已婚交结婚证扫描件；未婚由婚姻数据核验接口取数，无需提交</td><td><span class="muted">不可容缺</span></td><td><span class="link" onclick="PMS.toast('已上传结婚证扫描件 1 张，将转婚姻数据核验','success')">重新上传</span> <span class="link" onclick="PMS.toast('原型演示：预览结婚证扫描件')">预览</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="form-grid form-align" style="margin-top:12px">
+        <div class="form-item col-full">
+          <label>纸质材料扫描件（批量上传） <span class="req">*</span></label>
+          <input type="text" data-upload="1" value="谭泽宇_窗口代办材料扫描件_20260908.zip">
+          <div class="hint">共 7 张，合计 12.6 MB；扫描件经证照智能识别后自动回填姓名、身份证号、学历与单位信息</div>
+        </div>
+        <div class="form-item col-full">
+          <label>材料核对说明 <span class="req">*</span></label>
+          <textarea rows="3">申请人携带纸质材料到市政务服务中心人才住房窗口办理，窗口已与原件当面核对：身份证、学历证书、劳动合同、结婚证齐全无误，扫描件共 7 张已上传。社保缴纳记录因单位尚未办理参保暂缺，已收取用人单位社保容缺承诺书，按容缺受理登记待补核期限 30 日。</textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <h3>五、真实性承诺书</h3>
+      <span class="sub">承诺书由申请人现场手写签字，再由窗口扫描上传，不得代签</span>
+      <div class="head-actions">
+        <button class="btn" onclick="location.href='material-print.html'"><i class="fa-solid fa-print"></i> 打印空白承诺书</button>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="form-grid form-align">
+        <div class="form-item col-full">
+          <label>承诺书正文 <span class="req">*</span></label>
+          <textarea rows="9">申请材料真实性承诺书
+
+本人 谭泽宇（身份证号 430211199607142315）申请株洲市创业就业青年人才住房保障，现郑重承诺：
+
+一、本人提交的身份、学历、就业（创业）、社保、婚姻状况及家庭成员住房情况等全部申请材料真实、准确、完整，不存在隐瞒、虚构与伪造情形。
+二、本人及共同申请人在株洲市城区未享受过公租房、保障性租赁住房、人才公寓等住房保障政策，未购买过政策性住房。
+三、本人同意本平台通过部门数据共享核验上述信息，并同意在配租顺序名单与配租结果名单中以「姓 + ××」脱敏方式公开。
+四、本人知悉：窗口代办仅代为录入身份与资格材料，不办理在线选房；意向片区仅作登记、不锁定房源；本申请件与线上申请汇入同一件池、走同一审核流程，受理时间以窗口录入时间为准，不因渠道不同而优先。
+五、本人保证在住房情况、婚姻状况、就业（创业）状态发生变化后 30 日内主动申报；保障期内经核查已购房的，同意按规定纳入退出处理。
+六、如有弄虚作假，本人自愿接受取消申请资格、清退已配租住房、追缴租金差额并纳入失信名单等处理，由此产生的一切后果由本人承担。
+
+承诺人（签字）：　　　　　　　　　日期：2026 年 9 月 8 日</textarea>
+          <div class="hint">正文由业务管理员在表单与材料清单中统一维护，窗口不得改动；当前版本 V1.3（2026-06-01 起施行）</div>
+        </div>
+        <div class="form-item">
+          <label>签署方式 <span class="req">*</span></label>
+          <input type="text" value="申请人现场手写签字 + 窗口扫描上传" readonly>
+        </div>
+        <div class="form-item">
+          <label>签署日期 <span class="req">*</span></label>
+          <input type="date" value="2026-09-08">
+        </div>
+        <div class="form-item col-full">
+          <label>承诺书签字件扫描上传 <span class="req">*</span></label>
+          <input type="text" data-upload="1" value="谭泽宇_真实性承诺书_签字件_20260908.pdf">
+          <div class="hint">共 1 页；未上传签字件的不得提交，原件由窗口按件归档留存</div>
+        </div>
+        <div class="form-item col-full">
+          <label>代签说明 <span class="req">*</span></label>
+          <textarea rows="3">申请人本人不熟悉智能手机线上申请操作，到窗口请求兜底代办。承诺书由窗口打印空白件，申请人 2026-09-08 09:36 在窗口现场逐条阅看后手写签字并按压指印，窗口经办人谭建军当面核验身份证原件与签字人一致后扫描上传。承诺书一律由申请人本人签字，窗口只负责打印、核验与扫描，不代为签署；纸质原件随本件归档留存备查。</textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <h3>六、渠道与受理信息</h3>
+      <span class="sub">系统自动生成，窗口不可修改</span>
+    </div>
+    <div class="card-body">
+      <div class="form-grid form-align">
+        <div class="form-item">
+          <label>申请编号 <span class="req">*</span></label>
+          <input type="text" value="RC2026-0908-0261" readonly>
+          <div class="hint">RC + 年月日 + 4 位流水，各渠道统一编号规则</div>
+        </div>
+        <div class="form-item">
+          <label>申请渠道 <span class="req">*</span></label>
+          <input type="text" value="政务窗口（PC 申请）" readonly>
+          <div class="hint">窗口代录件<b>自动标记</b>本渠道，不可选择、不可修改</div>
+        </div>
+        <div class="form-item">
+          <label>受理时间 <span class="req">*</span></label>
+          <input type="text" value="2026-09-08 09:42" readonly>
+          <div class="hint"><b>以窗口录入时间为准</b>，即配租顺序排序依据</div>
+        </div>
+        <div class="form-item">
+          <label>窗口经办人 <span class="req">*</span></label>
+          <input type="text" value="谭建军" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>受理窗口 <span class="req">*</span></label>
+          <input type="text" value="市政务服务中心人才住房窗口" readonly>
+        </div>
+        <div class="form-item col-full">
+          <label>后续流程 <span class="req">*</span></label>
+          <input type="text" value="汇入同一件池 → 受理初审（市住保中心资格审核科）→ 复审出具结论 → 电子送达" readonly>
+          <div class="hint">与线上申请<b>走同一审核流程，不因渠道不同而优先</b>；审核时限自收到申请资料之日起 3 个工作日</div>
+        </div>
+        <div class="form-item col-full">
+          <label>窗口权限口径 <span class="req">*</span></label>
+          <textarea rows="3" readonly>窗口受理角色可代录申请、查询全部申请件办理进度用于现场答复、打印材料清单与空白表单、只读查看政策资讯与已审核发布房源。窗口不参与资格审核结论、不配置政策规则、不维护房源、不在线选房、不锁定房源，可维护的仅限本窗口代录的申请件。</textarea>
+        </div>
+      </div>
+      <div class="btn-row" style="margin-top:14px">
+        <button class="btn" onclick="PMS.toast('已保存草稿，可在窗口办件台账中继续代录','success')"><i class="fa-solid fa-floppy-disk"></i> 保存草稿</button>
+        <button class="btn" onclick="location.href='material-print.html'"><i class="fa-solid fa-print"></i> 打印材料清单</button>
+        <button class="btn" onclick="location.href='../house/house-query.html'"><i class="fa-solid fa-magnifying-glass"></i> 房源查询（只读）</button>
+        <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认提交本条窗口代办申请并汇入件池？',detail:'申请渠道自动标记为「政务窗口（PC 申请）」，受理时间以窗口录入时间 2026-09-08 09:42 为准。本件与线上申请汇入同一件池、走同一审核流程，不因渠道不同而优先。窗口不在线选房，意向片区仅作登记、不锁定房源；社保缴纳记录已按容缺受理登记待补核期限 30 日。',type:'warning',okText:'确认提交并汇入件池',onOk:function(){PMS.toast('已提交，申请编号 RC2026-0908-0261 已汇入件池，等待受理初审','success');}})"><i class="fa-solid fa-check"></i> 提交并汇入件池</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="sp-src">
+    <span><b>依据</b> 2026 年 9 月 7 日汇报讨论会决议：窗口代办只录身份与资格材料，不在线选房</span>
+    <span><b>渠道口径</b> 申请渠道自动标记「政务窗口（PC 申请）」，受理时间以窗口录入时间为准</span>
+    <span><b>同池同流程</b> 与线上申请汇入同一件池、走同一审核流程，<b>不因渠道不同而优先</b></span>
+    <span><b>意向片区</b> 选填项，仅作登记、<b>不锁定房源</b>，审核通过后按批次统一组织选房</span>
+    <span><b>关联页面</b> <span class="link" onclick="location.href='window-ledger.html'">窗口办件台账</span>　<span class="link" onclick="location.href='material-print.html'">材料清单与表单打印</span>　<span class="link" onclick="location.href='../rule/policy-view.html'">政策资讯查看（只读）</span></span>
+  </div>
+</main>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 186; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

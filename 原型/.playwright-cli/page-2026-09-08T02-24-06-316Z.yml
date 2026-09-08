@@ -1,0 +1,563 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - text: 
+      - generic [ref=e5]: 
+      - generic [ref=e6]: 株洲市人才住房保障管理平台
+    - generic [ref=e7]:
+      - generic "当前业务子系统" [ref=e8]:
+        - generic [ref=e9]: 房源筹集与楼盘表
+      - button " 切换系统" [ref=e10] [cursor=pointer]:
+        - generic [ref=e11]: 
+        - text: 切换系统
+    - generic [ref=e12]:
+      - button " 单位房源管理员 " [ref=e14] [cursor=pointer]:
+        - generic [ref=e15]: 
+        - generic [ref=e16]: 单位房源管理员
+        - generic [ref=e17]: 
+      - generic "消息" [ref=e18] [cursor=pointer]:
+        - generic [ref=e19]: 
+        - generic [ref=e20]: "5"
+      - generic "帮助" [ref=e21] [cursor=pointer]:
+        - generic [ref=e22]: 
+      - generic [ref=e23] [cursor=pointer]:
+        - generic [ref=e24]: 唐
+        - generic [ref=e25]:
+          - generic [ref=e26]: 唐凯
+          - generic [ref=e27]: 市保障性住房服务中心房源管理科 · 单位房源管理员
+      - link "" [ref=e28] [cursor=pointer]:
+        - /url: ../../index.html
+        - generic [ref=e29]: 
+  - complementary [ref=e30]:
+    - generic [ref=e31]:
+      - textbox "菜单搜索" [ref=e32]
+      - generic [ref=e33]: 
+      - text: 
+    - generic [ref=e34]:
+      - link " 我的工作台" [ref=e35] [cursor=pointer]:
+        - /url: ../../modules/workbench/workbench.html?role=housing
+        - generic [ref=e36]: 
+        - generic [ref=e37]: 我的工作台
+      - generic [ref=e39] [cursor=pointer]:
+        - generic [ref=e40]: 
+        - generic [ref=e41]: 待办与协同
+        - generic [ref=e42]: 
+      - generic [ref=e44] [cursor=pointer]:
+        - generic [ref=e45]: 
+        - generic [ref=e46]: 房源筹集与项目
+        - generic [ref=e47]: 
+      - generic [ref=e49] [cursor=pointer]:
+        - generic [ref=e50]: 
+        - generic [ref=e51]: 楼盘表与多源归集
+        - generic [ref=e52]: 
+      - generic [ref=e53]:
+        - generic [ref=e54] [cursor=pointer]:
+          - generic [ref=e55]: 
+          - generic [ref=e56]: 房源档案与房态
+          - generic [ref=e57]: 
+        - generic [ref=e58]:
+          - link "房源档案" [ref=e59] [cursor=pointer]:
+            - /url: ../../modules/house/house-archive.html?role=housing
+          - link "按套与按间管理" [ref=e60] [cursor=pointer]:
+            - /url: ../../modules/house/house-unit-mode.html?role=housing
+          - link "房态图管理" [ref=e61] [cursor=pointer]:
+            - /url: ../../modules/house/house-status-map.html?role=housing
+          - link "用途转换台账" [ref=e62] [cursor=pointer]:
+            - /url: ../../modules/house/house-convert.html?role=housing
+          - link "房源冻结与停租" [ref=e63] [cursor=pointer]:
+            - /url: ../../modules/house/house-freeze.html?role=housing
+          - link "房源展示配置" [ref=e64] [cursor=pointer]:
+            - /url: ../../modules/house/house-display.html?role=housing
+          - link "房源供需测算" [ref=e65] [cursor=pointer]:
+            - /url: ../../modules/house/house-forecast.html?role=housing
+      - generic [ref=e67] [cursor=pointer]:
+        - generic [ref=e68]: 
+        - generic [ref=e69]: 房源发布与预约
+        - generic [ref=e70]: 
+      - generic [ref=e72] [cursor=pointer]:
+        - generic [ref=e73]: 
+        - generic [ref=e74]: 房源导入与来源台账
+        - generic [ref=e75]: 
+  - main [ref=e76]:
+    - generic [ref=e78]:
+      - generic [ref=e79]: 
+      - text: 株洲市人才住房保障管理平台
+      - generic [ref=e80]: /
+      - text: 房源筹集与楼盘表
+      - generic [ref=e81]: /
+      - text: 房源档案与房态
+      - generic [ref=e82]: /
+      - generic [ref=e83]: 房源展示配置
+    - generic [ref=e84]:
+      - generic [ref=e85]: 
+      - generic [ref=e86]: VR 全景颗粒度为「套」不到「间」：上传与存储均按套（房屋）组织，同一套房各间共用同一份 VR；移动端用户进入任一房间详情，均展示其所在套房的全景。已取消原按间上传 VR 的设计，避免同一套房重复拍摄与重复存储。实景照片仍可按间补充（本间卧室、配套卫生间、阳台等），与套级 VR 互为补充。剩余可租间数与后台房态实时同步，避免申请人看到无效房源。
+    - generic [ref=e87]:
+      - generic [ref=e88]:
+        - generic [ref=e90]: 
+        - generic [ref=e91]:
+          - generic [ref=e92]: 在库套房
+          - generic [ref=e93]: 2,486
+          - generic [ref=e94]: 套 · 对应 4,286 间，VR 按套组织
+      - generic [ref=e95]:
+        - generic [ref=e97]: 
+        - generic [ref=e98]:
+          - generic [ref=e99]: VR 全景已上传
+          - generic [ref=e100]: 2,286
+          - generic [ref=e101]: 套 · 占 91.9%，各间共用
+      - generic [ref=e102]:
+        - generic [ref=e104]: 
+        - generic [ref=e105]:
+          - generic [ref=e106]: 实景照片已补充
+          - generic [ref=e107]: 3,864
+          - generic [ref=e108]: 间 · 占 90.2%，按间补充
+      - generic [ref=e109]:
+        - generic [ref=e111]: 
+        - generic [ref=e112]:
+          - generic [ref=e113]: VR 待补
+          - generic [ref=e114]: "200"
+          - generic [ref=e115]: 套 · 未上传不得审核发布
+    - generic [ref=e116]:
+      - generic [ref=e117]:
+        - generic [ref=e118]:
+          - generic [ref=e119]: 楼盘
+          - textbox "楼盘名称" [ref=e120]: 湘江1958 人才公寓
+        - generic [ref=e121]:
+          - generic [ref=e122]: 套房编号 / 房号 + 间号
+          - textbox "如 FY-TY-XJ-A6-1502 或 1502A" [ref=e123]: FY-TY-XJ-A6-1502
+        - generic [ref=e124]:
+          - generic [ref=e125]: 室厅结构
+          - combobox [ref=e126]:
+            - option "全部" [selected]
+            - option "单间配套"
+            - option "一室一厅"
+            - option "二室一厅"
+            - option "三室一厅"
+            - option "三室两厅"
+        - generic [ref=e127]:
+          - generic [ref=e128]: VR 素材
+          - combobox [ref=e129]:
+            - option "全部" [selected]
+            - option "已上传"
+            - option "未上传"
+        - generic [ref=e130]:
+          - generic [ref=e131]: 发布状态
+          - combobox [ref=e132]:
+            - option "全部" [selected]
+            - option "待提交"
+            - option "待审核"
+            - option "已发布"
+            - option "已退回"
+            - option "已下架"
+        - generic [ref=e133]:
+          - generic [ref=e134]: 拍摄时间
+          - textbox [ref=e135]: 2026-08-01
+        - generic [ref=e136]:
+          - button " 查询" [ref=e137] [cursor=pointer]:
+            - generic [ref=e138]: 
+            - text: 查询
+          - button "重置" [ref=e139] [cursor=pointer]
+          - button " 按套维护 VR 全景" [ref=e140] [cursor=pointer]:
+            - generic [ref=e141]: 
+            - text: 按套维护 VR 全景
+          - button " 按间补充实景照片" [ref=e142] [cursor=pointer]:
+            - generic [ref=e143]: 
+            - text: 按间补充实景照片
+          - button " 导出" [ref=e144] [cursor=pointer]:
+            - generic [ref=e145]: 
+            - text: 导出
+      - generic [ref=e146]:
+        - generic [ref=e147] [cursor=pointer]:
+          - text: VR 全景（按套）
+          - generic [ref=e148]: 2,486
+        - generic [ref=e149] [cursor=pointer]:
+          - text: 实景照片（按间）
+          - generic [ref=e150]: 4,286
+        - generic [ref=e151] [cursor=pointer]:
+          - text: 楼盘展示配置
+          - generic [ref=e152]: "6"
+      - generic [ref=e154]:
+        - paragraph [ref=e155]: 一套房一行：VR 全景按套上传与存储，覆盖房间数即本套共用该份 VR 的间数 · 移动端进入任一房间均展示其所在套房的全景 · VR 未上传的套不得审核发布，其下各间在移动端一律不可见
+        - table [ref=e157]:
+          - rowgroup [ref=e158]:
+            - row "序号 套房编号 楼盘 / 楼栋 / 房号 室厅结构 VR 素材 拍摄时间 覆盖房间数 共用本套 VR 的房间 状态 操作" [ref=e159]:
+              - columnheader "序号" [ref=e160]
+              - columnheader "套房编号" [ref=e161]
+              - columnheader "楼盘 / 楼栋 / 房号" [ref=e162]
+              - columnheader "室厅结构" [ref=e163]
+              - columnheader "VR 素材" [ref=e164]
+              - columnheader "拍摄时间" [ref=e165]
+              - columnheader "覆盖房间数" [ref=e166]
+              - columnheader "共用本套 VR 的房间" [ref=e167]
+              - columnheader "状态" [ref=e168]
+              - columnheader "操作" [ref=e169]
+          - rowgroup [ref=e170]:
+            - row "01 FY-TY-XJ-A6-1502 湘江1958 人才公寓 / A6 栋 / 1502 三室两厅 已上传 6 个场景 · 128 MB 2026-08-18 3 1502A、1502B、1502C 已发布 维护 预览 VR" [ref=e171]:
+              - cell "01" [ref=e172]
+              - cell "FY-TY-XJ-A6-1502" [ref=e173]
+              - cell "湘江1958 人才公寓 / A6 栋 / 1502" [ref=e174]
+              - cell "三室两厅" [ref=e175]
+              - cell "已上传 6 个场景 · 128 MB" [ref=e176]:
+                - generic [ref=e177]: 已上传
+                - text: 6 个场景 · 128 MB
+              - cell "2026-08-18" [ref=e178]
+              - cell "3" [ref=e179]
+              - cell "1502A、1502B、1502C" [ref=e180]
+              - cell "已发布" [ref=e181]:
+                - generic [ref=e182]: 已发布
+              - cell "维护 预览 VR" [ref=e183]
+            - row "02 FY-TY-XJ-A6-1802 湘江1958 人才公寓 / A6 栋 / 1802 二室一厅 已上传 5 个场景 · 106 MB 2026-08-18 2 1802A、1802B 待审核 维护 预览 VR" [ref=e184]:
+              - cell "02" [ref=e185]
+              - cell "FY-TY-XJ-A6-1802" [ref=e186]
+              - cell "湘江1958 人才公寓 / A6 栋 / 1802" [ref=e187]
+              - cell "二室一厅" [ref=e188]
+              - cell "已上传 5 个场景 · 106 MB" [ref=e189]:
+                - generic [ref=e190]: 已上传
+                - text: 5 个场景 · 106 MB
+              - cell "2026-08-18" [ref=e191]
+              - cell "2" [ref=e192]
+              - cell "1802A、1802B" [ref=e193]
+              - cell "待审核" [ref=e194]:
+                - generic [ref=e195]: 待审核
+              - cell "维护 预览 VR" [ref=e196]
+            - row "03 FY-SF-QST-01-0708 清水塘·未来社区 / 1 栋 / 0708 三室一厅 已上传 6 个场景 · 132 MB 2026-08-26 3 0708A、0708B、0708C 待审核 维护 预览 VR" [ref=e197]:
+              - cell "03" [ref=e198]
+              - cell "FY-SF-QST-01-0708" [ref=e199]
+              - cell "清水塘·未来社区 / 1 栋 / 0708" [ref=e200]
+              - cell "三室一厅" [ref=e201]
+              - cell "已上传 6 个场景 · 132 MB" [ref=e202]:
+                - generic [ref=e203]: 已上传
+                - text: 6 个场景 · 132 MB
+              - cell "2026-08-26" [ref=e204]
+              - cell "3" [ref=e205]
+              - cell "0708A、0708B、0708C" [ref=e206]
+              - cell "待审核" [ref=e207]:
+                - generic [ref=e208]: 待审核
+              - cell "维护 预览 VR" [ref=e209]
+            - row "04 FY-LS-DJD-03-1102 董家塅人才公寓 / 3 栋 / 1102 二室一厅 已上传 5 个场景 · 98 MB 2026-08-30 2 1102A、1102B 已发布 维护 预览 VR" [ref=e210]:
+              - cell "04" [ref=e211]
+              - cell "FY-LS-DJD-03-1102" [ref=e212]
+              - cell "董家塅人才公寓 / 3 栋 / 1102" [ref=e213]
+              - cell "二室一厅" [ref=e214]
+              - cell "已上传 5 个场景 · 98 MB" [ref=e215]:
+                - generic [ref=e216]: 已上传
+                - text: 5 个场景 · 98 MB
+              - cell "2026-08-30" [ref=e217]
+              - cell "2" [ref=e218]
+              - cell "1102A、1102B" [ref=e219]
+              - cell "已发布" [ref=e220]:
+                - generic [ref=e221]: 已发布
+              - cell "维护 预览 VR" [ref=e222]
+            - row "05 FY-JK-YL-02-0706 云龙人才公寓 / 2 栋 / 0706 单间配套 已上传 3 个场景 · 62 MB 2026-09-02 1 0706A 待提交 维护 预览 VR" [ref=e223]:
+              - cell "05" [ref=e224]
+              - cell "FY-JK-YL-02-0706" [ref=e225]
+              - cell "云龙人才公寓 / 2 栋 / 0706" [ref=e226]
+              - cell "单间配套" [ref=e227]
+              - cell "已上传 3 个场景 · 62 MB" [ref=e228]:
+                - generic [ref=e229]: 已上传
+                - text: 3 个场景 · 62 MB
+              - cell "2026-09-02" [ref=e230]
+              - cell "1" [ref=e231]
+              - cell "0706A" [ref=e232]
+              - cell "待提交" [ref=e233]:
+                - generic [ref=e234]: 待提交
+              - cell "维护 预览 VR" [ref=e235]
+            - row "06 FY-TY-LYJY-03-0904 栗雨佳苑人才公寓 / 3 栋 / 0904 一室一厅 未上传 — 1 0904A 已下架 维护 催办素材" [ref=e236]:
+              - cell "06" [ref=e237]
+              - cell "FY-TY-LYJY-03-0904" [ref=e238]
+              - cell "栗雨佳苑人才公寓 / 3 栋 / 0904" [ref=e239]
+              - cell "一室一厅" [ref=e240]
+              - cell "未上传" [ref=e241]:
+                - generic [ref=e242]: 未上传
+              - cell "—" [ref=e243]
+              - cell "1" [ref=e244]
+              - cell "0904A" [ref=e245]
+              - cell "已下架" [ref=e246]:
+                - generic [ref=e247]: 已下架
+              - cell "维护 催办素材" [ref=e248]
+            - row "07 FY-TY-XJ-A6-1502 湘江1958 人才公寓 / A6 栋 / 1502 三室两厅 已上传 6 个场景 · 128 MB 2026-08-18 3 1502A、1502B、1502C 已发布 维护 预览 VR" [ref=e249]:
+              - cell "07" [ref=e250]
+              - cell "FY-TY-XJ-A6-1502" [ref=e251]
+              - cell "湘江1958 人才公寓 / A6 栋 / 1502" [ref=e252]
+              - cell "三室两厅" [ref=e253]
+              - cell "已上传 6 个场景 · 128 MB" [ref=e254]:
+                - generic [ref=e255]: 已上传
+                - text: 6 个场景 · 128 MB
+              - cell "2026-08-18" [ref=e256]
+              - cell "3" [ref=e257]
+              - cell "1502A、1502B、1502C" [ref=e258]
+              - cell "已发布" [ref=e259]:
+                - generic [ref=e260]: 已发布
+              - cell "维护 预览 VR" [ref=e261]
+            - row "08 FY-TY-XJ-A6-1802 湘江1958 人才公寓 / A6 栋 / 1802 二室一厅 已上传 5 个场景 · 106 MB 2026-08-18 2 1802A、1802B 待审核 维护 预览 VR" [ref=e262]:
+              - cell "08" [ref=e263]
+              - cell "FY-TY-XJ-A6-1802" [ref=e264]
+              - cell "湘江1958 人才公寓 / A6 栋 / 1802" [ref=e265]
+              - cell "二室一厅" [ref=e266]
+              - cell "已上传 5 个场景 · 106 MB" [ref=e267]:
+                - generic [ref=e268]: 已上传
+                - text: 5 个场景 · 106 MB
+              - cell "2026-08-18" [ref=e269]
+              - cell "2" [ref=e270]
+              - cell "1802A、1802B" [ref=e271]
+              - cell "待审核" [ref=e272]:
+                - generic [ref=e273]: 待审核
+              - cell "维护 预览 VR" [ref=e274]
+            - row "09 FY-SF-QST-01-0708 清水塘·未来社区 / 1 栋 / 0708 三室一厅 已上传 6 个场景 · 132 MB 2026-08-26 3 0708A、0708B、0708C 待审核 维护 预览 VR" [ref=e275]:
+              - cell "09" [ref=e276]
+              - cell "FY-SF-QST-01-0708" [ref=e277]
+              - cell "清水塘·未来社区 / 1 栋 / 0708" [ref=e278]
+              - cell "三室一厅" [ref=e279]
+              - cell "已上传 6 个场景 · 132 MB" [ref=e280]:
+                - generic [ref=e281]: 已上传
+                - text: 6 个场景 · 132 MB
+              - cell "2026-08-26" [ref=e282]
+              - cell "3" [ref=e283]
+              - cell "0708A、0708B、0708C" [ref=e284]
+              - cell "待审核" [ref=e285]:
+                - generic [ref=e286]: 待审核
+              - cell "维护 预览 VR" [ref=e287]
+            - row "10 FY-LS-DJD-03-1102 董家塅人才公寓 / 3 栋 / 1102 二室一厅 已上传 5 个场景 · 98 MB 2026-08-30 2 1102A、1102B 已发布 维护 预览 VR" [ref=e288]:
+              - cell "10" [ref=e289]
+              - cell "FY-LS-DJD-03-1102" [ref=e290]
+              - cell "董家塅人才公寓 / 3 栋 / 1102" [ref=e291]
+              - cell "二室一厅" [ref=e292]
+              - cell "已上传 5 个场景 · 98 MB" [ref=e293]:
+                - generic [ref=e294]: 已上传
+                - text: 5 个场景 · 98 MB
+              - cell "2026-08-30" [ref=e295]
+              - cell "2" [ref=e296]
+              - cell "1102A、1102B" [ref=e297]
+              - cell "已发布" [ref=e298]:
+                - generic [ref=e299]: 已发布
+              - cell "维护 预览 VR" [ref=e300]
+            - row "11 FY-JK-YL-02-0706 云龙人才公寓 / 2 栋 / 0706 单间配套 已上传 3 个场景 · 62 MB 2026-09-02 1 0706A 待提交 维护 预览 VR" [ref=e301]:
+              - cell "11" [ref=e302]
+              - cell "FY-JK-YL-02-0706" [ref=e303]
+              - cell "云龙人才公寓 / 2 栋 / 0706" [ref=e304]
+              - cell "单间配套" [ref=e305]
+              - cell "已上传 3 个场景 · 62 MB" [ref=e306]:
+                - generic [ref=e307]: 已上传
+                - text: 3 个场景 · 62 MB
+              - cell "2026-09-02" [ref=e308]
+              - cell "1" [ref=e309]
+              - cell "0706A" [ref=e310]
+              - cell "待提交" [ref=e311]:
+                - generic [ref=e312]: 待提交
+              - cell "维护 预览 VR" [ref=e313]
+            - row "12 FY-TY-LYJY-03-0904 栗雨佳苑人才公寓 / 3 栋 / 0904 一室一厅 未上传 — 1 0904A 已下架 维护 催办素材" [ref=e314]:
+              - cell "12" [ref=e315]
+              - cell "FY-TY-LYJY-03-0904" [ref=e316]
+              - cell "栗雨佳苑人才公寓 / 3 栋 / 0904" [ref=e317]
+              - cell "一室一厅" [ref=e318]
+              - cell "未上传" [ref=e319]:
+                - generic [ref=e320]: 未上传
+              - cell "—" [ref=e321]
+              - cell "1" [ref=e322]
+              - cell "0904A" [ref=e323]
+              - cell "已下架" [ref=e324]:
+                - generic [ref=e325]: 已下架
+              - cell "维护 催办素材" [ref=e326]
+            - row "13 FY-TY-XJ-A6-1502 湘江1958 人才公寓 / A6 栋 / 1502 三室两厅 已上传 6 个场景 · 128 MB 2026-08-18 3 1502A、1502B、1502C 已发布 维护 预览 VR" [ref=e327]:
+              - cell "13" [ref=e328]
+              - cell "FY-TY-XJ-A6-1502" [ref=e329]
+              - cell "湘江1958 人才公寓 / A6 栋 / 1502" [ref=e330]
+              - cell "三室两厅" [ref=e331]
+              - cell "已上传 6 个场景 · 128 MB" [ref=e332]:
+                - generic [ref=e333]: 已上传
+                - text: 6 个场景 · 128 MB
+              - cell "2026-08-18" [ref=e334]
+              - cell "3" [ref=e335]
+              - cell "1502A、1502B、1502C" [ref=e336]
+              - cell "已发布" [ref=e337]:
+                - generic [ref=e338]: 已发布
+              - cell "维护 预览 VR" [ref=e339]
+            - row "14 FY-TY-XJ-A6-1802 湘江1958 人才公寓 / A6 栋 / 1802 二室一厅 已上传 5 个场景 · 106 MB 2026-08-18 2 1802A、1802B 待审核 维护 预览 VR" [ref=e340]:
+              - cell "14" [ref=e341]
+              - cell "FY-TY-XJ-A6-1802" [ref=e342]
+              - cell "湘江1958 人才公寓 / A6 栋 / 1802" [ref=e343]
+              - cell "二室一厅" [ref=e344]
+              - cell "已上传 5 个场景 · 106 MB" [ref=e345]:
+                - generic [ref=e346]: 已上传
+                - text: 5 个场景 · 106 MB
+              - cell "2026-08-18" [ref=e347]
+              - cell "2" [ref=e348]
+              - cell "1802A、1802B" [ref=e349]
+              - cell "待审核" [ref=e350]:
+                - generic [ref=e351]: 待审核
+              - cell "维护 预览 VR" [ref=e352]
+            - row "15 FY-SF-QST-01-0708 清水塘·未来社区 / 1 栋 / 0708 三室一厅 已上传 6 个场景 · 132 MB 2026-08-26 3 0708A、0708B、0708C 待审核 维护 预览 VR" [ref=e353]:
+              - cell "15" [ref=e354]
+              - cell "FY-SF-QST-01-0708" [ref=e355]
+              - cell "清水塘·未来社区 / 1 栋 / 0708" [ref=e356]
+              - cell "三室一厅" [ref=e357]
+              - cell "已上传 6 个场景 · 132 MB" [ref=e358]:
+                - generic [ref=e359]: 已上传
+                - text: 6 个场景 · 132 MB
+              - cell "2026-08-26" [ref=e360]
+              - cell "3" [ref=e361]
+              - cell "0708A、0708B、0708C" [ref=e362]
+              - cell "待审核" [ref=e363]:
+                - generic [ref=e364]: 待审核
+              - cell "维护 预览 VR" [ref=e365]
+            - row "16 FY-LS-DJD-03-1102 董家塅人才公寓 / 3 栋 / 1102 二室一厅 已上传 5 个场景 · 98 MB 2026-08-30 2 1102A、1102B 已发布 维护 预览 VR" [ref=e366]:
+              - cell "16" [ref=e367]
+              - cell "FY-LS-DJD-03-1102" [ref=e368]
+              - cell "董家塅人才公寓 / 3 栋 / 1102" [ref=e369]
+              - cell "二室一厅" [ref=e370]
+              - cell "已上传 5 个场景 · 98 MB" [ref=e371]:
+                - generic [ref=e372]: 已上传
+                - text: 5 个场景 · 98 MB
+              - cell "2026-08-30" [ref=e373]
+              - cell "2" [ref=e374]
+              - cell "1102A、1102B" [ref=e375]
+              - cell "已发布" [ref=e376]:
+                - generic [ref=e377]: 已发布
+              - cell "维护 预览 VR" [ref=e378]
+            - row "17 FY-JK-YL-02-0706 云龙人才公寓 / 2 栋 / 0706 单间配套 已上传 3 个场景 · 62 MB 2026-09-02 1 0706A 待提交 维护 预览 VR" [ref=e379]:
+              - cell "17" [ref=e380]
+              - cell "FY-JK-YL-02-0706" [ref=e381]
+              - cell "云龙人才公寓 / 2 栋 / 0706" [ref=e382]
+              - cell "单间配套" [ref=e383]
+              - cell "已上传 3 个场景 · 62 MB" [ref=e384]:
+                - generic [ref=e385]: 已上传
+                - text: 3 个场景 · 62 MB
+              - cell "2026-09-02" [ref=e386]
+              - cell "1" [ref=e387]
+              - cell "0706A" [ref=e388]
+              - cell "待提交" [ref=e389]:
+                - generic [ref=e390]: 待提交
+              - cell "维护 预览 VR" [ref=e391]
+            - row "18 FY-TY-LYJY-03-0904 栗雨佳苑人才公寓 / 3 栋 / 0904 一室一厅 未上传 — 1 0904A 已下架 维护 催办素材" [ref=e392]:
+              - cell "18" [ref=e393]
+              - cell "FY-TY-LYJY-03-0904" [ref=e394]
+              - cell "栗雨佳苑人才公寓 / 3 栋 / 0904" [ref=e395]
+              - cell "一室一厅" [ref=e396]
+              - cell "未上传" [ref=e397]:
+                - generic [ref=e398]: 未上传
+              - cell "—" [ref=e399]
+              - cell "1" [ref=e400]
+              - cell "0904A" [ref=e401]
+              - cell "已下架" [ref=e402]:
+                - generic [ref=e403]: 已下架
+              - cell "维护 催办素材" [ref=e404]
+            - row "19 FY-TY-XJ-A6-1502 湘江1958 人才公寓 / A6 栋 / 1502 三室两厅 已上传 6 个场景 · 128 MB 2026-08-18 3 1502A、1502B、1502C 已发布 维护 预览 VR" [ref=e405]:
+              - cell "19" [ref=e406]
+              - cell "FY-TY-XJ-A6-1502" [ref=e407]
+              - cell "湘江1958 人才公寓 / A6 栋 / 1502" [ref=e408]
+              - cell "三室两厅" [ref=e409]
+              - cell "已上传 6 个场景 · 128 MB" [ref=e410]:
+                - generic [ref=e411]: 已上传
+                - text: 6 个场景 · 128 MB
+              - cell "2026-08-18" [ref=e412]
+              - cell "3" [ref=e413]
+              - cell "1502A、1502B、1502C" [ref=e414]
+              - cell "已发布" [ref=e415]:
+                - generic [ref=e416]: 已发布
+              - cell "维护 预览 VR" [ref=e417]
+            - row "20 FY-TY-XJ-A6-1802 湘江1958 人才公寓 / A6 栋 / 1802 二室一厅 已上传 5 个场景 · 106 MB 2026-08-18 2 1802A、1802B 待审核 维护 预览 VR" [ref=e418]:
+              - cell "20" [ref=e419]
+              - cell "FY-TY-XJ-A6-1802" [ref=e420]
+              - cell "湘江1958 人才公寓 / A6 栋 / 1802" [ref=e421]
+              - cell "二室一厅" [ref=e422]
+              - cell "已上传 5 个场景 · 106 MB" [ref=e423]:
+                - generic [ref=e424]: 已上传
+                - text: 5 个场景 · 106 MB
+              - cell "2026-08-18" [ref=e425]
+              - cell "2" [ref=e426]
+              - cell "1802A、1802B" [ref=e427]
+              - cell "待审核" [ref=e428]:
+                - generic [ref=e429]: 待审核
+              - cell "维护 预览 VR" [ref=e430]
+        - generic [ref=e431]:
+          - generic [ref=e432]: 共 2486 条，显示 1–20 条
+          - generic [ref=e433]:
+            - generic [ref=e434]:
+              - text: 每页
+              - combobox "每页 条" [ref=e435] [cursor=pointer]:
+                - option "10"
+                - option "20" [selected]
+                - option "50"
+                - option "100"
+              - text: 条
+            - generic [ref=e436]:
+              - button "" [disabled] [ref=e437]:
+                - generic [ref=e438]: 
+              - button "" [disabled] [ref=e439]:
+                - generic [ref=e440]: 
+              - button "1" [ref=e441] [cursor=pointer]
+              - button "2" [ref=e442] [cursor=pointer]
+              - button "3" [ref=e443] [cursor=pointer]
+              - button "4" [ref=e444] [cursor=pointer]
+              - generic [ref=e445]: …
+              - button "125" [ref=e446] [cursor=pointer]
+              - button "" [ref=e447] [cursor=pointer]:
+                - generic [ref=e448]: 
+              - button "" [ref=e449] [cursor=pointer]:
+                - generic [ref=e450]: 
+            - generic [ref=e451]:
+              - text: 前往
+              - spinbutton "前往 页" [ref=e452]: "1"
+              - text: 页
+            - generic [ref=e453]: 共 125 页
+      - text:        
+    - generic [ref=e454]:
+      - generic [ref=e455]:
+        - generic [ref=e456]: 
+        - text: 展示素材颗粒度口径
+        - generic [ref=e457]: SC-1 至 SC-5 · VR 全景按套、实景照片按间
+      - table [ref=e460]:
+        - rowgroup [ref=e461]:
+          - row "规则号 素材类型 颗粒度 口径说明" [ref=e462]:
+            - columnheader "规则号" [ref=e463]
+            - columnheader "素材类型" [ref=e464]
+            - columnheader "颗粒度" [ref=e465]
+            - columnheader "口径说明" [ref=e466]
+        - rowgroup [ref=e467]:
+          - row "SC-1 VR 全景 按套 颗粒度为「套」不到「间」：上传与存储均按套（房屋）组织，一套房只存一份（含客厅、厨房、卫生间与各卧室场景）；已取消原按间上传 VR 的设计，避免同一套房重复拍摄、重复存储与版本不一致" [ref=e468]:
+            - cell "SC-1" [ref=e469]
+            - cell "VR 全景" [ref=e470]
+            - cell "按套" [ref=e471]:
+              - generic [ref=e472]: 按套
+            - cell "颗粒度为「套」不到「间」：上传与存储均按套（房屋）组织，一套房只存一份（含客厅、厨房、卫生间与各卧室场景）；已取消原按间上传 VR 的设计，避免同一套房重复拍摄、重复存储与版本不一致" [ref=e473]
+          - row "SC-2 VR 全景 按套 同一套房各间共用同一份 VR。算例：1502 室拆 1502A / 1502B / 1502C 三间，覆盖房间数 3；移动端进入 1502B 详情，展示的是 1502 室整套全景并标注本间位置" [ref=e474]:
+            - cell "SC-2" [ref=e475]
+            - cell "VR 全景" [ref=e476]
+            - cell "按套" [ref=e477]:
+              - generic [ref=e478]: 按套
+            - cell "同一套房各间共用同一份 VR。算例：1502 室拆 1502A / 1502B / 1502C 三间，覆盖房间数 3；移动端进入 1502B 详情，展示的是 1502 室整套全景并标注本间位置" [ref=e479]
+          - row "SC-3 实景照片 按间 实景照片仍可按间补充：本间卧室全景、床品、衣柜、书桌、配套卫生间、阳台等分项上传，每间不少于 4 张，不足的仅提示、不阻断发布" [ref=e480]:
+            - cell "SC-3" [ref=e481]
+            - cell "实景照片" [ref=e482]
+            - cell "按间" [ref=e483]:
+              - generic [ref=e484]: 按间
+            - cell "实景照片仍可按间补充：本间卧室全景、床品、衣柜、书桌、配套卫生间、阳台等分项上传，每间不少于 4 张，不足的仅提示、不阻断发布" [ref=e485]
+          - row "SC-4 户型图 按套 按套上传，图上标注各间间号与计租面积（1502A 27.80、1502B 22.20、1502C 19.60 ㎡），本套各间共用同一张" [ref=e486]:
+            - cell "SC-4" [ref=e487]
+            - cell "户型图" [ref=e488]
+            - cell "按套" [ref=e489]:
+              - generic [ref=e490]: 按套
+            - cell "按套上传，图上标注各间间号与计租面积（1502A 27.80、1502B 22.20、1502C 19.60 ㎡），本套各间共用同一张" [ref=e491]
+          - row "SC-5 发布与剩余量 按套 按间 套级 VR 未上传的，其下各间不得审核发布、移动端不可见，VR 变更后本套各间同时刷新；剩余可租间数按间统计、与房态实时同步，已预约、已锁定或已签约的间即时扣减，不允许手工填写。审核发布" [ref=e492]:
+            - cell "SC-5" [ref=e493]
+            - cell "发布与剩余量" [ref=e494]
+            - cell "按套 按间" [ref=e495]:
+              - generic [ref=e496]: 按套
+              - generic [ref=e497]: 按间
+            - cell "套级 VR 未上传的，其下各间不得审核发布、移动端不可见，VR 变更后本套各间同时刷新；剩余可租间数按间统计、与房态实时同步，已预约、已锁定或已签约的间即时扣减，不允许手工填写。审核发布" [ref=e498]
+    - generic [ref=e499]:
+      - generic [ref=e500]: 依据 2026 年 9 月 7 日汇报讨论会决议：VR 全景按套，同一套房各间共用一份，取消原按间上传设计
+      - generic [ref=e501]: 公开要求 房源信息全过程公开，接受社会监督；审核发布后移动端用户方可看到
+      - generic [ref=e502]: 素材职责 VR 全景、户型图与实景照片均由所属运营机构自行上传维护，主管单位只做查看、监管与审核发布
+      - generic [ref=e503]: 同步策略 剩余可租间数与后台房态实时同步，已预约、已锁定或已签约的间即时扣减
+      - generic [ref=e504]: 关联页面 房源信息公开配置 房源查询与审核发布
+  - option "单间配套"
+  - option "一室一厅"
+  - option "二室一厅"
+  - option "三室一厅"
+  - option "三室两厅" [selected]
+  - option "主卧" [selected]
+  - option "次卧"
+  - option "整间"
+  - option "株洲城发高科人才安居服务有限公司"
+  - option "清水塘投资运营服务有限公司"
+  - option "株洲高新人才公寓运营有限公司" [selected]

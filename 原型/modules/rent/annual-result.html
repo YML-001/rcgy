@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>年审结论处置 · 株洲市人才公寓管理平台</title>
+<title>年审结论处置 · 株洲市人才住房保障管理平台</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="../../assets/css/app.css">
 <link rel="stylesheet" href="../../assets/css/spec.css">
@@ -13,51 +13,53 @@
 <main class="app-main">
   <div class="page-head">
     <div class="breadcrumb">
-      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才住房保障管理平台
       <span class="sep">/</span> 租金收缴与年审退出
       <span class="sep">/</span> 年审续租与退出
       <span class="sep">/</span> <span class="cur">年审结论处置</span>
     </div>
     <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.openDrawer('arDrawer')"><i class="fa-solid fa-stamp"></i> 年审复审办理</button>
+      <button class="btn" onclick="location.href='annual-batch.html'"><i class="fa-solid fa-calendar-check"></i> 返回年审批次</button>
       <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
     </div>
   </div>
 
   <div class="alert alert-warning">
     <i class="fa-solid fa-triangle-exclamation"></i>
-    <div>对年审结论<b>逐件处置并电子送达</b>，<b>正常件支持批量通过</b>。结论为转市场租金或启动退出的自动联动合同变更与腾退任务。</div>
+    <div>年审结论由<b>两级办理出具</b>：年审初审核对在租状态、欠费与自动复核结果，<b>年审复审出具最终结论</b>并电子送达，两级意见分别留痕。<b>年审不通过的自动推送退出待办至运营机构端</b>，由承接楼盘的运营机构办理腾退、验房与结算；转按市场租金的自动生成合同变更协议。</div>
   </div>
 
   <div class="stat-grid">
     <div class="stat-card">
       <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
-      <div><div class="s-label">年审通过</div><div class="s-value">344</div>
-        <div class="s-trend text-2">占 89.1%</div></div>
+      <div><div class="s-label">年审通过</div><div class="s-value">112</div>
+        <div class="s-trend text-2">占 87.5%　资格延续</div></div>
     </div>
     <div class="stat-card">
       <div class="s-icon orange"><i class="fa-solid fa-money-bill-transfer"></i></div>
-      <div><div class="s-label">转市场租金</div><div class="s-value">34</div>
-        <div class="s-trend text-2">占 8.8%</div></div>
+      <div><div class="s-label">转按市场租金续租</div><div class="s-value">12</div>
+        <div class="s-trend text-2">占 9.4%　不再享受财政补助</div></div>
     </div>
     <div class="stat-card dc-alarm">
       <div class="s-icon red"><i class="fa-solid fa-door-open"></i></div>
-      <div><div class="s-label">启动退出</div><div class="s-value">8</div>
-        <div class="s-trend ">占 2.1%</div></div>
+      <div><div class="s-label">年审不通过启动退出</div><div class="s-value">4</div>
+        <div class="s-trend ">占 3.1%</div></div>
     </div>
     <div class="stat-card">
-      <div class="s-icon cyan"><i class="fa-solid fa-paper-plane"></i></div>
-      <div><div class="s-label">送达成功率</div><div class="s-value">99.7%</div>
-        <div class="s-trend text-2">三通道合计</div></div>
+      <div class="s-icon cyan"><i class="fa-solid fa-share-from-square"></i></div>
+      <div><div class="s-label">退出待办已推送</div><div class="s-value">4</div>
+        <div class="s-trend text-2">已推送至运营机构端　100%</div></div>
     </div>
   </div>
 
   <div class="card list-card">
     <div class="filter-bar">
-      <div class="filter-item"><label>承租人</label><input type="text" placeholder="姓名"></div>
-      <div class="filter-item"><label>批次编号</label><input type="text" placeholder="批次编号"></div>
-      <div class="filter-item"><label>年审结论</label><select><option value="">全部</option><option>年审通过</option><option>转按市场租金续租</option><option>启动退出清退</option></select></div>
-      <div class="filter-item"><label>送达状态</label><select><option value="">全部</option><option>已送达</option><option>送达失败</option><option>待送达</option></select></div>
-      <div class="filter-item"><label>结论日期</label><input type="date"></div>
+      <div class="filter-item"><label>承租人</label><input type="text" value="" placeholder="姓名"></div>
+      <div class="filter-item"><label>批次编号</label><input type="text" value="NS2026-09" placeholder="批次编号"></div>
+      <div class="filter-item"><label>年审结论</label><select><option value="">全部</option><option>年审通过</option><option>转按市场租金续租</option><option>年审不通过启动退出</option><option>待复审</option></select></div>
+      <div class="filter-item"><label>退出待办推送</label><select><option value="">全部</option><option>已推送运营机构</option><option>无需推送</option><option>推送失败</option></select></div>
+      <div class="filter-item"><label>结论日期</label><input type="date" value="2026-09-05"></div>
       <div class="filter-actions">
         <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
         <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
@@ -67,28 +69,164 @@
     <div class="table-wrap">
       <table class="data-table">
         <thead>
-          <tr><th>结论编号</th><th>承租人</th><th class="cell-lg">房源</th><th>年审结论</th><th class="cell-lg">结论依据</th><th>联动处置</th><th>审核人</th><th>结论时间</th><th>送达状态</th><th>操作</th></tr>
+          <tr><th>结论编号</th><th>承租人</th><th class="cell-lg">房源（按间）</th><th class="cell-lg">年审初审</th><th>年审结论</th><th class="cell-lg">结论依据</th><th class="cell-lg">联动处置</th><th class="cell-lg">退出待办推送</th><th>结论时间</th><th>操作</th></tr>
         </thead>
         <tbody>
-          <tr><td>NJ2027-01-0338</td><td>王梓涵</td><td>湘江1958 A6-1502</td><td><span class="badge green">年审通过</span></td><td>住房、就业、纳税、社保四项均符合；无欠费；2026-06 入户核查与 2026-11 扫码巡检均正常在住</td><td><span class="badge gray">无需处置</span></td><td>刘志刚</td><td>2027-01-08 09:26</td><td><span class="badge green">已送达</span></td><td><span class="link" onclick="PMS.toast('年审通过，保障资格延续，进入下一年审周期（2028-01 发起）')">处置记录</span></td></tr>
-          <tr class="row-warn"><td>NJ2026-01-0286</td><td>谭建国</td><td>栗雨佳苑 3-0608</td><td><span class="badge orange">转按市场租金续租</span></td><td>毕业已超 2 年且非免年限人才，不再符合人才条件；仍满足普通公租房条件</td><td><span class="badge cyan">已生成变更协议</span></td><td>刘志刚</td><td>2026-01-12 10:08</td><td><span class="badge green">已送达</span></td><td><span class="link" onclick="location.href='../alloc/contract-change.html'">合同变更</span></td></tr>
-          <tr class="row-bad"><td>NJ2027-01-0202</td><td>周宇轩</td><td>栗雨佳苑 3-0904</td><td><span class="badge red">启动退出清退</span></td><td>已离职离株、社保停缴、无个税记录、欠费 1 期，不再满足人才与公租房条件</td><td><span class="badge red">已生成腾退任务</span></td><td>刘志刚</td><td>2027-01-10 14:26</td><td><span class="badge green">已送达</span></td><td><span class="link" onclick="location.href='quit-manage.html'">腾退管理</span></td></tr>
-          <tr class="row-bad"><td>NJ2027-01-0214</td><td>唐雅琴</td><td>栗雨佳苑 3-1104</td><td><span class="badge red">启动退出清退</span></td><td>已离职且未主动申报条件变化，经用人单位上报后核实，拟一并标记失信</td><td><span class="badge orange">待审批清退</span></td><td>刘志刚</td><td>2027-01-10 15:12</td><td><span class="badge green">已送达</span></td><td><span class="link" onclick="location.href='violation.html'">违规清退</span></td></tr>
+          <tr><td>NJ2026-09-0112</td><td>王梓涵</td><td class="cell-lg">湘江1958 人才公寓 A6-1502A<span class="muted"> 计租 27.80 ㎡</span></td><td class="cell-lg"><span class="badge green">初审通过报复审</span><span class="muted"> 刘志刚 2026-09-04</span></td><td><span class="badge green">年审通过</span></td><td class="cell-lg">住房、就业、纳税、社保四项均符合；无欠费；扫码巡检正常在住</td><td><span class="badge gray">无需处置</span><span class="muted"> 已重置下一年审触发日期 2027-09-05</span></td><td class="cell-lg"><span class="muted">无需推送</span></td><td>2026-09-05 09:26</td><td><span class="link" onclick="PMS.openDrawer('arDrawer')">两级意见</span></td></tr>
+          <tr><td>NJ2026-09-0118</td><td>邓亦凡</td><td class="cell-lg">云龙人才公寓 B2-0806B<span class="muted"> 计租 26.40 ㎡</span></td><td class="cell-lg"><span class="badge green">初审通过报复审</span><span class="muted"> 刘志刚 2026-09-04</span></td><td><span class="badge green">年审通过</span></td><td class="cell-lg">四项均符合；无欠费；2026-06 入户核查正常</td><td><span class="badge gray">无需处置</span><span class="muted"> 已重置下一年审触发日期 2027-09-05</span></td><td class="cell-lg"><span class="muted">无需推送</span></td><td>2026-09-05 10:08</td><td><span class="link" onclick="PMS.openDrawer('arDrawer')">两级意见</span></td></tr>
+          <tr class="row-warn"><td>NJ2026-09-0121</td><td>谭建国</td><td class="cell-lg">栗雨佳苑 3-0608B<span class="muted"> 计租 24.60 ㎡</span></td><td class="cell-lg"><span class="badge green">初审通过报复审</span><span class="muted"> 刘志刚 2026-09-04</span></td><td><span class="badge orange">转按市场租金续租</span></td><td class="cell-lg">毕业已超 2 年且非免年限人才，不再符合人才条件；仍满足公租房条件</td><td><span class="badge cyan">已生成合同变更协议</span><span class="muted"> 按实际市场租金 18.00 元/㎡·月计费，不再享受财政补助</span></td><td class="cell-lg"><span class="muted">无需推送</span></td><td>2026-09-05 11:12</td><td><span class="link" onclick="location.href='../alloc/contract-change.html'">合同变更</span></td></tr>
+          <tr class="row-bad"><td>NJ2026-09-0124</td><td>周宇轩</td><td class="cell-lg">栗雨佳苑 3-0904A<span class="muted"> 计租 28.20 ㎡</span></td><td class="cell-lg"><span class="badge green">初审通过报复审</span><span class="muted"> 刘志刚 2026-09-04</span></td><td><span class="badge red">年审不通过启动退出</span></td><td class="cell-lg">已离职离株、社保停缴、无个税记录、欠费 1 期，人才与公租房条件均不符</td><td><span class="badge red">已生成腾退任务</span><span class="muted"> 腾退期限 2026-10-05</span></td><td class="cell-lg"><span class="badge green">已推送运营机构</span><span class="muted"> 株洲城发高科人才安居服务有限公司 · 彭建华 2026-09-05 14:30</span></td><td>2026-09-05 14:26</td><td><span class="link" onclick="location.href='quit-manage.html'">腾退管理</span></td></tr>
+          <tr class="row-bad"><td>NJ2026-09-0126</td><td>唐雅琴</td><td class="cell-lg">清水塘·未来社区 QST-B-0508C<span class="muted"> 计租 25.80 ㎡</span></td><td class="cell-lg"><span class="badge green">初审通过报复审</span><span class="muted"> 刘志刚 2026-09-04</span></td><td><span class="badge red">年审不通过启动退出</span></td><td class="cell-lg">已离职且未主动申报条件变化，经用人单位上报后核实，一并标记失信</td><td><span class="badge red">已生成腾退任务</span><span class="muted"> 同步移送违规清退</span></td><td class="cell-lg"><span class="badge green">已推送运营机构</span><span class="muted"> 清水塘投资运营服务有限公司 2026-09-05 15:20</span></td><td>2026-09-05 15:12</td><td><span class="link" onclick="location.href='violation.html'">违规清退</span></td></tr>
+          <tr class="row-warn"><td>NJ2026-09-0132</td><td>龙浩然</td><td class="cell-lg">田心人才公寓 5-1102A<span class="muted"> 计租 27.20 ㎡</span></td><td class="cell-lg"><span class="badge green">初审通过报复审</span><span class="muted"> 刘志刚 2026-09-05</span></td><td><span class="badge orange">待复审</span></td><td class="cell-lg">社保连续缴纳但缴纳单位与备案单位不一致，初审已附单位变更说明供复审判定</td><td><span class="badge gray">待出具结论</span></td><td class="cell-lg"><span class="muted">待结论后判定</span></td><td><span class="muted">—</span></td><td><span class="link" onclick="PMS.openDrawer('arDrawer')">年审复审办理</span></td></tr>
         </tbody>
       </table>
     </div>
   </div>
+
+  <div class="sp-block" style="margin-top:12px">
+    <div class="sp-h"><i class="fa-solid fa-diagram-project"></i> 年审触发与流转规则<span class="sub">审核通过满一年自动生成待办 · 两级办理出具结论 · 不通过推送退出待办</span></div>
+    <div class="sp-b">
+      <div class="sp-tw">
+        <table class="data-table compact">
+          <thead><tr><th>环节</th><th class="cell-lg">规则内容</th><th class="cell-lg">系统动作与流转去向</th><th>责任方</th></tr></thead>
+          <tbody>
+            <tr><td><b>待办生成</b></td><td class="cell-lg">以每户<b>资格审核通过之日</b>为起算点，满 1 年当日<b>自动生成年审待办记录并推送提醒</b>（站内 + 短信），当月触发的汇总为一个自动批次</td><td class="cell-lg">在<span class="link" onclick="location.href='annual-batch.html'">年度资格审查</span>按批次跟踪；到期前 7 天再次提醒</td><td>系统</td></tr>
+            <tr><td><b>第一级 · 年审初审</b></td><td class="cell-lg">核对<b>在租状态、欠费情况</b>与住房、就业、纳税、社保四项自动复核结果，提出初审意见（<b>初审通过报复审 / 退回补充材料</b>），<b>不出具最终年审结论</b></td><td class="cell-lg">初审意见单独留痕，异常件标红转人工核查</td><td>市住保中心 · 刘志刚</td></tr>
+            <tr><td><b>第二级 · 年审复审</b></td><td class="cell-lg"><b>出具最终年审结论</b>并电子送达：年审通过 / 转按市场租金续租 / 年审不通过启动退出。复审人与初审人不得为同一自然人</td><td class="cell-lg">结论写入办件流水，与初审意见<b>分栏留痕</b>，三通道电子送达承租人</td><td>市住保中心 · 周慧</td></tr>
+            <tr><td><b>年审通过</b></td><td class="cell-lg">仍符合人才条件的<b>资格延续</b>，继续享受人才租金减免</td><td class="cell-lg"><b>重置下一年审触发日期</b>（本次结论日期 + 1 年），到期再次自动生成待办</td><td>系统</td></tr>
+            <tr><td><b>转按市场租金续租</b></td><td class="cell-lg">不再符合人才条件但符合公租房条件的可续租，<b>按实际市场租金计费、不再享受财政补助</b></td><td class="cell-lg">自动生成<span class="link" onclick="location.href='../alloc/contract-change.html'">合同变更协议</span>，租金标准自次月账单起切换</td><td>市住保中心 + 运营机构</td></tr>
+            <tr><td><b>年审不通过</b></td><td class="cell-lg">人才与公租房条件<b>均不符</b>，或经核查<b>已购房</b>的，启动退出腾退；查实转租、虚假申报的一并标记失信</td><td class="cell-lg"><b>自动推送退出待办至运营机构端</b>（按房源归属分派），运营机构办理腾退通知、现场验房、押金与费用结算，办理结果回写<span class="link" onclick="location.href='quit-manage.html'">腾退全流程管理</span></td><td>运营机构承办 · 市住保中心监督</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
   <div class="sp-src">
+    <span><b>两级留痕</b> 年审初审意见与年审复审结论分栏填写、分别签署，互不覆盖</span>
     <span><b>送达要求</b> 结论多通道电子送达，失败自动重试并记录</span>
-    <span><b>自动联动</b> 转市场租金的生成合同变更协议；启动退出的生成腾退任务</span>
-    <span><b>批量处理</b> 正常件支持批量通过</span>
+    <span><b>退出流转</b> 年审不通过的推送退出待办至运营机构端，由运营机构办理腾退与结算</span>
   </div>
 </main>
 
+<div class="drawer-mask"></div>
+<div class="drawer" id="arDrawer">
+  <div class="drawer-head">
+    <h3>年审复审办理 · 两级意见留痕</h3>
+    <span class="badge orange">NJ2026-09-0132 · 待复审</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+    <div class="alert alert-info">
+      <i class="fa-solid fa-circle-info"></i>
+      <div>年审初审意见<b>只读不可修改</b>；本级出具最终年审结论。结论为<b>年审不通过</b>的，提交后<b>自动推送退出待办至运营机构端</b>并生成腾退任务。</div>
+    </div>
+
+    <div class="sp-block">
+      <div class="sp-h"><i class="fa-solid fa-eye"></i> 第一级 · 年审初审意见<span class="sub">只读</span></div>
+      <div class="sp-b">
+        <div class="sp-kv">
+          <div class="kv"><span class="k">承租人</span><span class="v">龙浩然</span><span class="muted">田心人才公寓 5-1102A · 计租 27.20 ㎡</span></div>
+          <div class="kv"><span class="k">年审触发</span><span class="v">2026-09-05</span><span class="muted">资格审核通过日 2025-09-05 满 1 年自动生成</span></div>
+          <div class="kv"><span class="k">初审人</span><span class="v">刘志刚</span><span class="muted">2026-09-05 16:20</span></div>
+          <div class="kv"><span class="k">初审结论</span><span class="v"><span class="badge green">初审通过报复审</span></span></div>
+          <div class="kv"><span class="k">在租状态</span><span class="v">正常在住</span><span class="muted">2026-08 扫码巡检通过</span></div>
+          <div class="kv"><span class="k">欠费情况</span><span class="v">无欠费</span><span class="muted">已缴至 2026-09 期</span></div>
+          <div class="kv"><span class="k">初审意见</span><span class="v">住房、纳税两项正常；社保连续缴纳 24 个月但缴纳单位由中车株洲电力机车研究所变更为株洲中车时代电气股份有限公司，已收取单位变更说明与新签劳动合同，均为株洲市城区企业，建议按符合就业条件认定，提请复审。</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sp-block" style="margin-top:12px">
+      <div class="sp-h"><i class="fa-solid fa-stamp"></i> 第二级 · 年审复审结论<span class="sub">出具最终结论并电子送达</span></div>
+      <div class="sp-b">
+        <div class="form-grid form-align">
+          <div class="form-item">
+            <label>年审结论 <span class="req">*</span></label>
+            <select id="arResult">
+              <option>年审通过</option>
+              <option>转按市场租金续租</option>
+              <option>年审不通过启动退出</option>
+            </select>
+          </div>
+          <div class="form-item">
+            <label>复审人 <span class="req">*</span></label>
+            <input type="text" value="周慧" readonly>
+            <div class="hint">与初审人不得为同一自然人</div>
+          </div>
+          <div class="form-item">
+            <label>结论日期 <span class="req">*</span></label>
+            <input type="date" value="2026-09-08">
+          </div>
+          <div class="form-item">
+            <label>下一年审触发日期</label>
+            <input type="date" value="2027-09-08">
+            <div class="hint">结论为「年审通过」时自动重置为本次结论日期 + 1 年</div>
+          </div>
+          <div class="form-item">
+            <label>退出待办承办机构</label>
+            <select data-dict="agencyOrg" data-ph="仅年审不通过时必填"></select>
+            <div class="hint">按房源归属自动带出，年审不通过时推送退出待办至该机构端</div>
+          </div>
+          <div class="form-item">
+            <label>送达方式 <span class="req">*</span></label>
+            <select><option>电子送达（建宁安居 + 微信 + 短信）</option><option>电子送达 + 纸质邮寄</option><option>窗口领取</option></select>
+          </div>
+          <div class="form-item col-full">
+            <label>复审意见 <span class="req">*</span></label>
+            <textarea id="arOpinion" rows="4">经年审复审：承租人龙浩然在租状态正常、无欠费；住房核验在市城区范围内无自有住房，纳税与社保连续正常，社保缴纳单位由中车株洲电力机车研究所变更为株洲中车时代电气股份有限公司，两家均为株洲市城区企业，已提供单位变更说明与新签劳动合同，仍符合就业青年人才在本地实际从业的认定要求。初审意见要素齐全，程序无异议。据此出具「年审通过」结论，保障资格延续，下一年审触发日期重置为 2027-09-08。</textarea>
+            <div class="hint">复审意见与初审意见分栏留痕，不覆盖初审意见</div>
+          </div>
+          <div class="form-item col-full">
+            <label>退出与腾退安排</label>
+            <textarea rows="3">本件结论为年审通过，不涉及退出。如结论为「年审不通过启动退出」，系统将自动推送退出待办至房源所属运营机构端，腾退期限为结论送达之日起 30 个自然日，由运营机构办理腾退通知、现场验房、押金与水电物业费结算，办理结果回写腾退全流程管理。</textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn" onclick="PMS.toast('已暂存年审复审意见草稿，未出具结论')">暂存</button>
+    <button class="btn btn-primary" onclick="submitAnnual()"><i class="fa-solid fa-check"></i> 出具年审结论</button>
+  </div>
+</div>
+
 <script>
+function submitAnnual() {
+  var kind = document.getElementById('arResult').value;
+  var op = document.getElementById('arOpinion');
+  if ((op.value || '').trim().length < 10) {
+    PMS.toast('复审意见为必填且不少于 10 字', 'error'); op.focus(); return;
+  }
+  var detail = '';
+  if (kind === '年审通过') {
+    detail = '保障资格延续，继续享受人才租金减免；下一年审触发日期重置为 2027-09-08，届时自动生成年审待办并推送提醒。';
+  } else if (kind === '转按市场租金续租') {
+    detail = '自动生成合同变更协议，按实际市场租金计费、不再享受财政补助，租金标准自次月账单起切换。';
+  } else {
+    detail = '自动生成腾退任务，并推送退出待办至房源所属运营机构端，由运营机构办理腾退通知、现场验房与费用结算，腾退期限为结论送达之日起 30 个自然日。';
+  }
+  PMS.confirm({
+    title: '年审结论出具确认',
+    message: '确认对 NJ2026-09-0132 出具「' + kind + '」年审结论？',
+    detail: detail + ' 两级意见分栏留痕，结论三通道电子送达承租人。',
+    type: kind === '年审通过' ? 'info' : 'warning',
+    okText: '确认出具',
+    onOk: function () {
+      PMS.closeDrawer();
+      PMS.toast('年审结论「' + kind + '」已出具并电子送达', 'success');
+    }
+  });
+}
+document.getElementById('arResult').addEventListener('change', function () {
+  PMS.toast(this.value === '年审不通过启动退出'
+    ? '已切换为年审不通过，提交后将推送退出待办至运营机构端'
+    : '已切换为「' + this.value + '」');
+});
 (function () {
   var t = document.querySelector('main.app-main .table-wrap > table.data-table');
-  if (t) { t._total = 386; }
+  if (t) { t._total = 128; }
 })();
 </script>
 

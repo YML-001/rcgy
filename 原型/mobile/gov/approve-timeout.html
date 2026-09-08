@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>审核时限提醒 · 株洲市人才公寓管理平台</title>
+<title>审核时限提醒 · 株洲市人才住房保障管理平台</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="../../assets/css/app.css">
 <link rel="stylesheet" href="../../assets/css/mobile.css">
 <link rel="stylesheet" href="../../assets/css/ext.css">
 </head>
 <body class="m-body" data-mtitle="审核时限提醒" data-mmod="G1 移动审批" data-mcode="G1-02"
-      data-mdesc="对 3 个工作日审核时限临期与超期的申请件推送提醒，按经办人、承办部门分别统计在办件与超期件数量。" data-mback="home.html" data-mtabset="gov" data-mtab="home">
+      data-mdesc="对 3 个工作日审核时限临期与超期的申请件推送提醒，按经办人、承办环节分别统计在办件与超期件数量；待办只含资格申请受理件、资格申请复审件两类。" data-mback="home.html" data-mtabset="gov" data-mtab="home">
 <div class="m-stage">
   <div class="m-phone">
     <div class="m-screen">
@@ -40,18 +40,23 @@
             </div>
           </div>
         </div>
-        <div class="m-sect">按经办人统计<span class="m-sect-x">资格审核科</span></div>
+        <div class="m-sect">按经办人统计<span class="m-sect-x">市住保中心资格审核科</span></div>
         <div class="m-cells">
-          <div class="m-cell"><span class="m-ci red"><i class="fa-solid fa-user"></i></span><span class="m-cl"><b>刘志刚（本人）</b><span class="m-cs">在办 9 件 · 临期 3 · 超期 1</span></span><span class="m-cv"><span class="m-tag red">超期 1</span></span></div>
-          <div class="m-cell"><span class="m-ci orange"><i class="fa-solid fa-user"></i></span><span class="m-cl"><b>周敏（天元区）</b><span class="m-cs">在办 11 件 · 临期 2 · 超期 0</span></span><span class="m-cv"><span class="m-tag orange">临期 2</span></span></div>
-          <div class="m-cell"><span class="m-ci green"><i class="fa-solid fa-user"></i></span><span class="m-cl"><b>谭建军（窗口）</b><span class="m-cs">在办 6 件 · 临期 0 · 超期 0</span></span><span class="m-cv"><span class="m-tag green">正常</span></span></div>
+          <div class="m-cell"><span class="m-ci red"><i class="fa-solid fa-user"></i></span><span class="m-cl"><b>刘志刚（本人）</b><span class="m-cs">在办 9 件 · 临期 3 · 超期 1　·	受理初审 6 + 复审 3</span></span><span class="m-cv"><span class="m-tag red">超期 1</span></span></div>
+          <div class="m-cell"><span class="m-ci orange"><i class="fa-solid fa-user"></i></span><span class="m-cl"><b>陈婕（受理初审岗）</b><span class="m-cs">在办 11 件 · 临期 2 · 超期 0</span></span><span class="m-cv"><span class="m-tag orange">临期 2</span></span></div>
+          <div class="m-cell"><span class="m-ci green"><i class="fa-solid fa-user"></i></span><span class="m-cl"><b>周慧（复审岗）</b><span class="m-cs">在办 8 件 · 临期 0 · 超期 0</span></span><span class="m-cv"><span class="m-tag green">正常</span></span></div>
         </div>
-        <div class="m-sect">按承办部门统计</div>
+        <div class="m-sect">按承办环节统计<span class="m-sect-x">本期两类待办</span></div>
         <div class="m-cells">
-          <div class="m-cell"><span class="m-ci red"><i class="fa-solid fa-building-columns"></i></span><span class="m-cl"><b>市住保中心资格审核科</b><span class="m-cs">在办 23 件 · 临期 3 · 超期 1 · 3 日办结率 96.4%</span></span><span class="m-cv"><span class="m-tag red">1</span></span></div>
-          <div class="m-cell"><span class="m-ci orange"><i class="fa-solid fa-building-columns"></i></span><span class="m-cl"><b>天元区住房保障服务中心</b><span class="m-cs">在办 11 件 · 临期 2 · 超期 0 · 3 日办结率 98.2%</span></span><span class="m-cv"><span class="m-tag orange">2</span></span></div>
-          <div class="m-cell"><span class="m-ci green"><i class="fa-solid fa-building-columns"></i></span><span class="m-cl"><b>荷塘区住房保障服务中心</b><span class="m-cs">在办 8 件 · 临期 0 · 超期 0 · 3 日办结率 100%</span></span><span class="m-cv"><span class="m-tag green">0</span></span></div>
-          <div class="m-cell"><span class="m-ci green"><i class="fa-solid fa-building-columns"></i></span><span class="m-cl"><b>市政务服务中心窗口</b><span class="m-cs">在办 6 件 · 临期 0 · 超期 0 · 3 日办结率 100%</span></span><span class="m-cv"><span class="m-tag green">0</span></span></div>
+          <div class="m-cell"><span class="m-ci red"><i class="fa-solid fa-file-circle-check"></i></span><span class="m-cl"><b>资格申请受理件（受理初审）</b><span class="m-cs">在办 17 件 · 临期 2 · 超期 1 · 3 日办结率 96.4%</span></span><span class="m-cv"><span class="m-tag red">1</span></span></div>
+          <div class="m-cell"><span class="m-ci orange"><i class="fa-solid fa-stamp"></i></span><span class="m-cl"><b>资格申请复审件（出具结论）</b><span class="m-cs">在办 11 件 · 临期 2 · 超期 0 · 3 日办结率 98.2%</span></span><span class="m-cv"><span class="m-tag orange">2</span></span></div>
+        </div>
+        <div class="m-sect">按申请渠道统计<span class="m-sect-x">四类渠道</span></div>
+        <div class="m-cells">
+          <div class="m-cell"><span class="m-ci"><i class="fa-solid fa-mobile-screen"></i></span><span class="m-cl"><b>个人申请</b><span class="m-cs">在办 16 件 · 临期 2 · 超期 1</span></span><span class="m-cv">16</span></div>
+          <div class="m-cell"><span class="m-ci"><i class="fa-solid fa-building-user"></i></span><span class="m-cl"><b>用人单位（移动端申请）</b><span class="m-cs">在办 7 件 · 临期 1 · 超期 0　·	按人拆分为独立申请件</span></span><span class="m-cv">7</span></div>
+          <div class="m-cell"><span class="m-ci"><i class="fa-solid fa-briefcase"></i></span><span class="m-cl"><b>运营机构（PC 申请）</b><span class="m-cs">在办 3 件 · 临期 1 · 超期 0</span></span><span class="m-cv">3</span></div>
+          <div class="m-cell"><span class="m-ci"><i class="fa-solid fa-building-columns"></i></span><span class="m-cl"><b>政务窗口（PC 申请）</b><span class="m-cs">在办 2 件 · 临期 0 · 超期 0　·	不在线选房、意向片区选填不锁房</span></span><span class="m-cv">2</span></div>
         </div>
         <div class="m-sect">超期件明细</div>
         <div class="m-cells">

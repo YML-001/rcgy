@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>筹集完成率分析 · 株洲市人才公寓管理平台</title>
+<title>筹集完成率分析 · 株洲市人才住房保障管理平台</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="../../assets/css/app.css">
 <link rel="stylesheet" href="../../assets/css/spec.css">
@@ -13,7 +13,7 @@
 <main class="app-main">
   <div class="page-head">
     <div class="breadcrumb">
-      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才住房保障管理平台
       <span class="sep">/</span> 统计分析
       <span class="sep">/</span> 房源分析
       <span class="sep">/</span> <span class="cur">筹集完成率分析</span>
@@ -25,92 +25,164 @@
 
   <div class="alert alert-warning">
     <i class="fa-solid fa-triangle-exclamation"></i>
-    <div>按<b>年度、区域、收购主体、房源性质</b>统计筹集计划完成率与到位进度。到位套数以<b>交付验收合格</b>之日归集，未达拎包入住标准的不计入。</div>
+    <div>房源颗粒度已细化到<b>「间」</b>：一套三室两厅拆为三间单独计租，公摊按套内间数均分。筹集计划与到位进度<b>按套与按间两个口径并存展示</b>——全市实际到位 <b>2,486 套 / 4,286 间</b>（平均每套约 1.72 间）；<b>上架率、空置率、配租率一律按间口径计算</b>，按套口径保留供对比。到位量以<b>交付验收合格</b>之日归集，未达拎包入住标准的不计入。</div>
   </div>
 
   <div class="stat-grid">
     <div class="stat-card">
       <div class="s-icon blue"><i class="fa-solid fa-bullseye"></i></div>
-      <div><div class="s-label">年度计划</div><div class="s-value">3,000</div>
-        <div class="s-trend text-2">套</div></div>
+      <div><div class="s-label">年度计划</div><div class="s-value">3,000 套</div>
+        <div class="s-trend text-2">折合 5,160 间</div></div>
     </div>
     <div class="stat-card">
-      <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
-      <div><div class="s-label">实际到位</div><div class="s-value">2,486</div>
+      <div class="s-icon green"><i class="fa-solid fa-building"></i></div>
+      <div><div class="s-label">实际到位（按套）</div><div class="s-value">2,486</div>
         <div class="s-trend text-2">完成率 82.9%</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-door-closed"></i></div>
+      <div><div class="s-label">实际到位（按间）</div><div class="s-value">4,286</div>
+        <div class="s-trend text-2">完成率 83.1%</div></div>
     </div>
     <div class="stat-card dc-alarm">
       <div class="s-icon orange"><i class="fa-solid fa-arrow-trend-down"></i></div>
-      <div><div class="s-label">计划差额</div><div class="s-value">-514</div>
-        <div class="s-trend ">需月均 172 套</div></div>
-    </div>
-    <div class="stat-card">
-      <div class="s-icon cyan"><i class="fa-solid fa-calendar-day"></i></div>
-      <div><div class="s-label">剩余月份</div><div class="s-value">3</div>
-        <div class="s-trend text-2">2026 年 10—12 月</div></div>
+      <div><div class="s-label">计划差额</div><div class="s-value">-514 套</div>
+        <div class="s-trend ">折合缺 874 间　需月均 291 间</div></div>
     </div>
   </div>
 
-  <div class="card">
-    <div class="card-head">
-      <h3><i class="fa-solid fa-chart-column"></i> 完成率与进度</h3>
-      <span class="sub">S2-01 · 2026 年度</span>
+  <div class="card list-card" data-tabs-scope>
+    <div class="tabs" style="margin-bottom:0;padding:8px 12px 0">
+      <div class="tab active" data-tab="area">按区域 <span class="badge blue">5</span></div>
+      <div class="tab" data-tab="src">按房源性质 <span class="badge blue">3</span></div>
+      <div class="tab" data-tab="chart">完成进度图</div>
     </div>
-    <div class="card-body">
-      <div class="section-title" data-icon="fa-chart-simple">各区筹集完成率</div>
-      <div class="dc-bars">
-        <div class="b-item"><span class="b-label">天元区　1,000 计划 / 986 到位</span><span class="b-track"><span class="b-fill" style="width:98.6%"></span></span><span class="b-val">98.6%</span></div>
-        <div class="b-item"><span class="b-label">荷塘区　500 计划 / 486 到位</span><span class="b-track"><span class="b-fill" style="width:97.2%"></span></span><span class="b-val">97.2%</span></div>
-        <div class="b-item"><span class="b-label">芦淞区　400 计划 / 412 到位</span><span class="b-track"><span class="b-fill" style="width:100%"></span></span><span class="b-val">103.0%</span></div>
-        <div class="b-item warn"><span class="b-label">石峰区　500 计划 / 328 到位</span><span class="b-track"><span class="b-fill" style="width:65.6%"></span></span><span class="b-val">65.6%</span></div>
-        <div class="b-item warn"><span class="b-label">经开区　600 计划 / 274 到位</span><span class="b-track"><span class="b-fill" style="width:45.7%"></span></span><span class="b-val">45.7%</span></div>
+
+    <div class="tab-panel active" data-panel="area">
+      <div class="card-body" style="padding:0">
+        <div class="filter-bar">
+          <div class="filter-item"><label>区域</label><select data-dict="district" data-ph="全部"></select></div>
+          <div class="filter-item"><label>统计口径</label><select><option>按间与按套并存</option><option>仅按间口径</option><option>仅按套口径</option></select></div>
+          <div class="filter-item"><label>计划年度</label><select><option>2026 年度</option><option>2025 年度</option></select></div>
+          <div class="filter-actions">
+            <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+            <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th>区域</th><th class="num">计划套数</th><th class="num">计划间数</th><th class="num">已到位套数</th><th class="num">已到位间数</th><th class="num">完成率（套）</th><th class="num">完成率（间）</th><th class="num">差额（套）</th><th class="num">差额（间）</th><th class="cell-lg">进度说明</th><th>下钻</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>天元区</td><td class="num">1,000</td><td class="num">1,720</td><td class="num">986</td><td class="num">1,712</td><td class="num">98.6%</td><td class="num">99.5%</td><td class="num">-14</td><td class="num">-8</td><td class="cell-lg">湘江1958、栗雨佳苑两个项目均已交付验收，按间拆分登记完成</td><td><span class="link" onclick="location.href='../house/proj-list.html'">项目台账</span></td></tr>
+              <tr><td>荷塘区</td><td class="num">500</td><td class="num">860</td><td class="num">486</td><td class="num">826</td><td class="num">97.2%</td><td class="num">96.0%</td><td class="num">-14</td><td class="num">-34</td><td class="cell-lg">按间完成率略低于按套，因交付房源中单间配套占比偏高</td><td><span class="link" onclick="location.href='../house/proj-list.html'">项目台账</span></td></tr>
+              <tr><td>芦淞区</td><td class="num">400</td><td class="num">688</td><td class="num">412</td><td class="num">702</td><td class="num">103.0%</td><td class="num">102.0%</td><td class="num">+12</td><td class="num">+14</td><td class="cell-lg">董家塅人才公寓超额到位，其中 42 间待整改验收后方可上架</td><td><span class="link" onclick="location.href='../house/acceptance-list.html'">验收台账</span></td></tr>
+              <tr class="row-warn"><td>石峰区</td><td class="num">500</td><td class="num">860</td><td class="num">328</td><td class="num">578</td><td class="num">65.6%</td><td class="num">67.2%</td><td class="num">-172</td><td class="num">-282</td><td class="cell-lg">清水塘·未来社区二期尚在装修，预计 11 月交付 120 套 / 208 间</td><td><span class="link" onclick="location.href='../house/src-gzf.html'">公租房调用</span></td></tr>
+              <tr class="row-bad"><td>经开区</td><td class="num">600</td><td class="num">1,032</td><td class="num">274</td><td class="num">468</td><td class="num">45.7%</td><td class="num">45.3%</td><td class="num">-326</td><td class="num">-564</td><td class="cell-lg"><b>缺口最大</b>：云龙片区新增筹集尚未落地，需按间口径补 564 间</td><td><span class="link" onclick="location.href='../house/src-bzf.html'">保租房调用</span></td></tr>
+              <tr><td><span class="badge green">合计</span> <b>全市城区</b></td><td class="num">3,000</td><td class="num">5,160</td><td class="num">2,486</td><td class="num">4,286</td><td class="num">82.9%</td><td class="num">83.1%</td><td class="num">-514</td><td class="num">-874</td><td class="cell-lg">全市平均每套 1.72 间；按间口径完成率略高于按套，说明到位房源中多居室占比高于计划</td><td><span class="link" onclick="location.href='../house/plan-progress.html'">筹集计划</span></td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-      <div class="section-title" data-icon="fa-chart-column">月度到位套数</div>
-      <div class="bar-chart">
-        <div class="bar-col"><span class="bar-val">186</span><div class="bar" style="height:38%"></div><span class="bar-label">1 月</span></div>
-        <div class="bar-col"><span class="bar-val">142</span><div class="bar" style="height:29%"></div><span class="bar-label">2 月</span></div>
-        <div class="bar-col"><span class="bar-val">268</span><div class="bar" style="height:55%"></div><span class="bar-label">3 月</span></div>
-        <div class="bar-col"><span class="bar-val">312</span><div class="bar" style="height:64%"></div><span class="bar-label">4 月</span></div>
-        <div class="bar-col"><span class="bar-val">286</span><div class="bar" style="height:58%"></div><span class="bar-label">5 月</span></div>
-        <div class="bar-col"><span class="bar-val">344</span><div class="bar" style="height:70%"></div><span class="bar-label">6 月</span></div>
-        <div class="bar-col"><span class="bar-val">402</span><div class="bar" style="height:82%"></div><span class="bar-label">7 月</span></div>
-        <div class="bar-col"><span class="bar-val">356</span><div class="bar" style="height:73%"></div><span class="bar-label">8 月</span></div>
-        <div class="bar-col"><span class="bar-val">190</span><div class="bar" style="height:39%"></div><span class="bar-label">9 月</span></div>
+    </div>
+
+    <div class="tab-panel" data-panel="src">
+      <div class="card-body" style="padding:0">
+        <div class="filter-bar">
+          <div class="filter-item"><label>房源性质</label><select><option value="">全部</option><option>收购存量商品房</option><option>公租房盘活</option><option>保租房“一间房”</option></select></div>
+          <div class="filter-item"><label>统计口径</label><select><option>按间与按套并存</option><option>仅按间口径</option><option>仅按套口径</option></select></div>
+          <div class="filter-item"><label>计划年度</label><select><option>2026 年度</option><option>2025 年度</option></select></div>
+          <div class="filter-actions">
+            <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+            <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th class="cell-lg">房源性质</th><th class="num">计划套数</th><th class="num">计划间数</th><th class="num">已到位套数</th><th class="num">已到位间数</th><th class="num">完成率（套）</th><th class="num">完成率（间）</th><th class="num">差额（套）</th><th class="num">差额（间）</th><th class="cell-lg">拆间说明</th><th>下钻</th></tr>
+            </thead>
+            <tbody>
+              <tr class="row-warn"><td class="cell-lg">收购存量商品房</td><td class="num">1,400</td><td class="num">2,408</td><td class="num">1,144</td><td class="num">1,972</td><td class="num">81.7%</td><td class="num">81.9%</td><td class="num">-256</td><td class="num">-436</td><td class="cell-lg">以二室一厅、三室一厅为主，平均每套拆 1.72 间，公摊按套内间数均分</td><td><span class="link" onclick="location.href='../house/src-tag.html'">来源打标</span></td></tr>
+              <tr><td class="cell-lg">公租房盘活</td><td class="num">1,000</td><td class="num">1,720</td><td class="num">836</td><td class="num">1,438</td><td class="num">83.6%</td><td class="num">83.6%</td><td class="num">-164</td><td class="num">-282</td><td class="cell-lg">原公租房户型偏小，单间配套与一室一厅占比高，平均每套 1.72 间</td><td><span class="link" onclick="location.href='../house/src-gzf.html'">公租房调用</span></td></tr>
+              <tr><td class="cell-lg">保租房“一间房”</td><td class="num">600</td><td class="num">1,032</td><td class="num">506</td><td class="num">876</td><td class="num">84.3%</td><td class="num">84.9%</td><td class="num">-94</td><td class="num">-156</td><td class="cell-lg">省厅系统已按间管理，本平台按间归集展示，不重复建设</td><td><span class="link" onclick="location.href='../house/src-bzf.html'">保租房调用</span></td></tr>
+              <tr><td class="cell-lg"><span class="badge green">合计</span> <b>三类来源</b></td><td class="num">3,000</td><td class="num">5,160</td><td class="num">2,486</td><td class="num">4,286</td><td class="num">82.9%</td><td class="num">83.1%</td><td class="num">-514</td><td class="num">-874</td><td class="cell-lg">三类来源在统一楼盘表中按来源打标归集，套级与间级台账双轨记录</td><td><span class="link" onclick="location.href='house-source.html'">来源构成</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-panel" data-panel="chart">
+      <div class="dc-scroll">
+        <div class="section-title" data-icon="fa-chart-simple">各区筹集完成率（按间口径）</div>
+        <div class="dc-bars wide">
+          <div class="b-item"><span class="b-label">天元区　1,720 计划 / 1,712 到位</span><span class="b-track"><span class="b-fill" style="width:99.5%"></span></span><span class="b-val">99.5%</span></div>
+          <div class="b-item"><span class="b-label">荷塘区　860 计划 / 826 到位</span><span class="b-track"><span class="b-fill" style="width:96.0%"></span></span><span class="b-val">96.0%</span></div>
+          <div class="b-item"><span class="b-label">芦淞区　688 计划 / 702 到位</span><span class="b-track"><span class="b-fill" style="width:100%"></span></span><span class="b-val">102.0%</span></div>
+          <div class="b-item"><span class="b-label">石峰区　860 计划 / 578 到位</span><span class="b-track"><span class="b-fill warn" style="width:67.2%"></span></span><span class="b-val">67.2%</span></div>
+          <div class="b-item"><span class="b-label">经开区　1,032 计划 / 468 到位</span><span class="b-track"><span class="b-fill bad" style="width:45.3%"></span></span><span class="b-val">45.3%</span></div>
+        </div>
+        <div class="section-title" data-icon="fa-chart-simple" style="margin-top:14px">各区筹集完成率（按套口径 · 对比）</div>
+        <div class="dc-bars wide">
+          <div class="b-item"><span class="b-label">天元区　1,000 计划 / 986 到位</span><span class="b-track"><span class="b-fill" style="width:98.6%"></span></span><span class="b-val">98.6%</span></div>
+          <div class="b-item"><span class="b-label">荷塘区　500 计划 / 486 到位</span><span class="b-track"><span class="b-fill" style="width:97.2%"></span></span><span class="b-val">97.2%</span></div>
+          <div class="b-item"><span class="b-label">芦淞区　400 计划 / 412 到位</span><span class="b-track"><span class="b-fill" style="width:100%"></span></span><span class="b-val">103.0%</span></div>
+          <div class="b-item"><span class="b-label">石峰区　500 计划 / 328 到位</span><span class="b-track"><span class="b-fill warn" style="width:65.6%"></span></span><span class="b-val">65.6%</span></div>
+          <div class="b-item"><span class="b-label">经开区　600 计划 / 274 到位</span><span class="b-track"><span class="b-fill bad" style="width:45.7%"></span></span><span class="b-val">45.7%</span></div>
+        </div>
+        <div class="section-title" data-icon="fa-chart-column" style="margin-top:14px">月度到位间数（合计 4,286 间）</div>
+        <div class="bar-chart">
+          <div class="bar-col"><span class="bar-val">320</span><div class="bar" style="height:46%"></div><span class="bar-label">1 月</span></div>
+          <div class="bar-col"><span class="bar-val">244</span><div class="bar" style="height:35%"></div><span class="bar-label">2 月</span></div>
+          <div class="bar-col"><span class="bar-val">462</span><div class="bar" style="height:67%"></div><span class="bar-label">3 月</span></div>
+          <div class="bar-col"><span class="bar-val">538</span><div class="bar" style="height:78%"></div><span class="bar-label">4 月</span></div>
+          <div class="bar-col"><span class="bar-val">492</span><div class="bar" style="height:71%"></div><span class="bar-label">5 月</span></div>
+          <div class="bar-col"><span class="bar-val">594</span><div class="bar" style="height:86%"></div><span class="bar-label">6 月</span></div>
+          <div class="bar-col"><span class="bar-val">692</span><div class="bar" style="height:100%"></div><span class="bar-label">7 月</span></div>
+          <div class="bar-col"><span class="bar-val">614</span><div class="bar" style="height:89%"></div><span class="bar-label">8 月</span></div>
+          <div class="bar-col"><span class="bar-val">330</span><div class="bar" style="height:48%"></div><span class="bar-label">9 月</span></div>
+        </div>
+        <p class="hint" style="margin-top:10px">
+          <i class="fa-solid fa-circle-info"></i>
+          按间口径与按套口径的完成率走势基本一致，差异来自各区到位房源的<b>户型结构不同</b>：多居室占比高的区域按间完成率高于按套，单间配套占比高的区域相反。
+        </p>
       </div>
     </div>
   </div>
-  <div class="card list-card">
-    <div class="card-head">
-      <h3><i class="fa-solid fa-table-list"></i> 明细下钻</h3>
-      <span class="sub">可逐级下钻至明细清单</span>
-    </div>
-    <div class="table-wrap">
-      <table class="data-table">
-        <thead>
-          <tr><th>分解维度</th><th class="cell-lg">名称</th><th>年度计划</th><th>实际到位</th><th>完成率</th><th>收购到位</th><th>盘活到位</th><th>保租房归集</th><th>差额</th><th>下钻</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><span class="badge blue">区域</span></td><td>天元区</td><td class="num">1,000</td><td class="num">986</td><td><span class="badge green">98.6%</span></td><td class="num">620</td><td class="num">366</td><td class="num">0</td><td class="num">-14</td><td><span class="link" onclick="location.href='../house/proj-list.html'">项目台账</span></td></tr>
-          <tr><td><span class="badge blue">区域</span></td><td>芦淞区</td><td class="num">400</td><td class="num">412</td><td><span class="badge green">103.0%</span></td><td class="num">286</td><td class="num">126</td><td class="num">0</td><td class="num">+12</td><td><span class="link" onclick="location.href='../house/proj-list.html'">项目台账</span></td></tr>
-          <tr class="row-warn"><td><span class="badge blue">区域</span></td><td>石峰区</td><td class="num">500</td><td class="num">328</td><td><span class="badge orange">65.6%</span></td><td class="num">0</td><td class="num">328</td><td class="num">0</td><td class="num">-172</td><td><span class="link" onclick="location.href='../house/revitalize-list.html'">盘活审批</span></td></tr>
-          <tr class="row-bad"><td><span class="badge blue">区域</span></td><td>经开区</td><td class="num">600</td><td class="num">274</td><td><span class="badge red">45.7%</span></td><td class="num">0</td><td class="num">0</td><td class="num">274</td><td class="num">-326</td><td><span class="link" onclick="location.href='../house/src-bzf.html'">保租房调用</span></td></tr>
-          <tr><td><span class="badge cyan">房源性质</span></td><td>收购存量商品房</td><td class="num">1,400</td><td class="num">1,144</td><td><span class="badge orange">81.7%</span></td><td class="num">1,144</td><td class="num">0</td><td class="num">0</td><td class="num">-256</td><td><span class="link" onclick="location.href='../house/purchase-list.html'">收购管理</span></td></tr>
-          <tr><td><span class="badge green">合计</span></td><td><b>全市城区合计</b></td><td class="num">3,000</td><td class="num">2,486</td><td><span class="badge orange">82.9%</span></td><td class="num">1,144</td><td class="num">836</td><td class="num">506</td><td class="num">-514</td><td><span class="link" onclick="location.href='../house/plan-progress.html'">筹集计划</span></td></tr>
-        </tbody>
-      </table>
+
+  <div class="sp-block" style="margin-top:12px">
+    <div class="sp-h"><i class="fa-solid fa-scale-balanced"></i> 按套与按间双口径对照<span class="sub">房源颗粒度细化到「间」后的指标口径调整</span></div>
+    <div class="sp-b">
+      <div class="sp-tw">
+        <table class="data-table compact">
+          <thead><tr><th>指标</th><th class="num">按套口径</th><th class="num">按间口径</th><th class="cell-lg">口径说明</th></tr></thead>
+          <tbody>
+            <tr><td><b>房源规模</b></td><td class="num">2,486 套</td><td class="num">4,286 间</td><td class="cell-lg">一套三室两厅拆为 A、B、C 三间单独计租；全市平均每套约 <b>1.72 间</b></td></tr>
+            <tr><td><b>已上架</b></td><td class="num">2,286 套</td><td class="num">3,942 间</td><td class="cell-lg"><b>上架率</b>：按套 91.9%、<b>按间 92.0%</b>。审核发布后移动端可见，未上架的多为待整改验收房源</td></tr>
+            <tr><td><b>已配租</b></td><td class="num">1,842 套</td><td class="num">2,986 间</td><td class="cell-lg"><b>配租率</b>：按套 80.6%（套内至少一间在租即计入）、<b>按间 75.7%</b>（在租间数 ÷ 已上架间数）</td></tr>
+            <tr><td><b>空&nbsp;&nbsp;&nbsp;&nbsp;置</b></td><td class="num">444 套</td><td class="num">956 间</td><td class="cell-lg"><b>空置率</b>：按套 19.4%（整套无人在租）、<b>按间 24.3%</b>。按间口径更能反映真实可配租余量</td></tr>
+            <tr><td><b>计租口径</b></td><td class="num">按套整租</td><td class="num">按间计租</td><td class="cell-lg"><b>计租面积 ＝ 本间套内面积 ＋ 本间公摊面积</b>；<b>公摊比例按套内间数均分</b>，拆三间即每间三分之一，公摊计入租金</td></tr>
+            <tr><td><b>并存展示</b></td><td class="num">保留供对比</td><td class="num">主口径</td><td class="cell-lg">上架率、空置率、配租率<b>均按间口径计算</b>；按套口径保留用于与历史数据、上级报表口径对比，两个口径同表并列展示</td></tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
+
   <div class="sp-src">
-    <span><b>统计口径</b> 按交付验收合格之日归集到位套数</span>
-    <span><b>未达标不计入</b> 未达拎包入住标准的房源不计入到位（当前 42 套待整改）</span>
+    <span><b>统计口径</b> 按交付验收合格之日归集到位量，套级与间级台账双轨记录</span>
+    <span><b>未达标不计入</b> 未达拎包入住标准的不计入到位（当前 42 间待整改）</span>
     <span><b>测算依据</b> <span class="link" onclick="location.href='../house/house-forecast.html'">房源供需测算</span></span>
   </div>
 </main>
 
 <script>
 (function () {
-  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
-  if (t) { t._total = 12; }
+  var totals = [6, 4];
+  var list = document.querySelectorAll('main.app-main .table-wrap > table.data-table');
+  for (var i = 0; i < list.length; i++) { list[i]._total = totals[i] || 6; }
 })();
 </script>
 

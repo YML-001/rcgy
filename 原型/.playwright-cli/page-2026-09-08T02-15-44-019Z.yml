@@ -1,0 +1,400 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - text: 
+      - generic [ref=e5]: 
+      - generic [ref=e6]: 株洲市人才住房保障管理平台
+    - generic [ref=e7]:
+      - generic "当前业务子系统" [ref=e8]:
+        - generic [ref=e9]: 房源筹集与楼盘表
+      - button " 切换系统" [ref=e10] [cursor=pointer]:
+        - generic [ref=e11]: 
+        - text: 切换系统
+    - generic [ref=e12]:
+      - button " 单位房源管理员 " [ref=e14] [cursor=pointer]:
+        - generic [ref=e15]: 
+        - generic [ref=e16]: 单位房源管理员
+        - generic [ref=e17]: 
+      - generic "消息" [ref=e18] [cursor=pointer]:
+        - generic [ref=e19]: 
+        - generic [ref=e20]: "5"
+      - generic "帮助" [ref=e21] [cursor=pointer]:
+        - generic [ref=e22]: 
+      - generic [ref=e23] [cursor=pointer]:
+        - generic [ref=e24]: 唐
+        - generic [ref=e25]:
+          - generic [ref=e26]: 唐凯
+          - generic [ref=e27]: 市保障性住房服务中心房源管理科 · 单位房源管理员
+      - link "" [ref=e28] [cursor=pointer]:
+        - /url: ../../index.html
+        - generic [ref=e29]: 
+  - complementary [ref=e30]:
+    - generic [ref=e31]:
+      - textbox "菜单搜索" [ref=e32]
+      - generic [ref=e33]: 
+      - text: 
+    - generic [ref=e34]:
+      - link " 我的工作台" [ref=e35] [cursor=pointer]:
+        - /url: ../../modules/workbench/workbench.html?role=housing
+        - generic [ref=e36]: 
+        - generic [ref=e37]: 我的工作台
+      - generic [ref=e39] [cursor=pointer]:
+        - generic [ref=e40]: 
+        - generic [ref=e41]: 待办与协同
+        - generic [ref=e42]: 
+      - generic [ref=e44] [cursor=pointer]:
+        - generic [ref=e45]: 
+        - generic [ref=e46]: 房源筹集与项目
+        - generic [ref=e47]: 
+      - generic [ref=e49] [cursor=pointer]:
+        - generic [ref=e50]: 
+        - generic [ref=e51]: 楼盘表与多源归集
+        - generic [ref=e52]: 
+      - generic [ref=e54] [cursor=pointer]:
+        - generic [ref=e55]: 
+        - generic [ref=e56]: 房源档案与房态
+        - generic [ref=e57]: 
+      - generic [ref=e58]:
+        - generic [ref=e59] [cursor=pointer]:
+          - generic [ref=e60]: 
+          - generic [ref=e61]: 房源发布与预约
+          - generic [ref=e62]: 
+        - generic [ref=e63]:
+          - link "批量上架与下架" [ref=e64] [cursor=pointer]:
+            - /url: ../../modules/house/shelf-batch.html?role=housing
+          - link "房源发布状态统计" [ref=e65] [cursor=pointer]:
+            - /url: ../../modules/house/publish-stat.html?role=housing
+          - link "房源查询（只读）" [ref=e66] [cursor=pointer]:
+            - /url: ../../modules/house/house-query.html?role=housing
+          - link "预约名单管理" [ref=e67] [cursor=pointer]:
+            - /url: ../../modules/house/book-manage.html?role=housing
+      - generic [ref=e69] [cursor=pointer]:
+        - generic [ref=e70]: 
+        - generic [ref=e71]: 房源导入与来源台账
+        - generic [ref=e72]: 
+  - main [ref=e73]:
+    - generic [ref=e75]:
+      - generic [ref=e76]: 
+      - text: 株洲市人才住房保障管理平台
+      - generic [ref=e77]: /
+      - text: 房源筹集与楼盘表
+      - generic [ref=e78]: /
+      - text: 房源发布与预约
+      - generic [ref=e79]: /
+      - generic [ref=e80]: 房源发布状态统计
+    - generic [ref=e81]:
+      - generic [ref=e82]: 
+      - generic [ref=e83]: 按运营机构统计已提交、待审核、已发布、已退回的房源间数，跟踪各机构上架进度。房源由运营机构自行导入维护并提交发布，主管单位在房源查询列表按统一发布标准审核发布，审核发布后移动端用户方可看到。已提交 ＝ 待审核 ＋ 已发布 ＋ 已退回，待提交 ＝ 房源间数 − 已提交，发布率 ＝ 已发布 ÷ 房源间数；发布率低于 60% 的楼盘标红预警，可一键催办。房源查询与审核发布
+    - generic [ref=e84]:
+      - generic [ref=e85]:
+        - generic [ref=e87]: 
+        - generic [ref=e88]:
+          - generic [ref=e89]: 在库房源间数
+          - generic [ref=e90]: 4,286
+          - generic [ref=e91]: 间 · 2,486 套 · 3 家运营机构 7 个楼盘
+      - generic [ref=e92]:
+        - generic [ref=e94]: 
+        - generic [ref=e95]:
+          - generic [ref=e96]: 已发布
+          - generic [ref=e97]: 3,586
+          - generic [ref=e98]: 间 · 发布率 83.7%，移动端可见
+      - generic [ref=e99]:
+        - generic [ref=e101]: 
+        - generic [ref=e102]:
+          - generic [ref=e103]: 待审核
+          - generic [ref=e104]: "486"
+          - generic [ref=e105]: 间 · 已提交待主管单位审核发布
+      - generic [ref=e106]:
+        - generic [ref=e108]: 
+        - generic [ref=e109]:
+          - generic [ref=e110]: 已退回
+          - generic [ref=e111]: "126"
+          - generic [ref=e112]: 间 · 其中超期未补正 18 间
+    - generic [ref=e113]:
+      - generic [ref=e114]:
+        - generic [ref=e115]:
+          - generic [ref=e116]: 运营机构
+          - combobox [ref=e117]:
+            - option "全部" [selected]
+            - option "株洲城发高科人才安居服务有限公司"
+            - option "清水塘投资运营服务有限公司"
+            - option "株洲高新人才公寓运营有限公司"
+        - generic [ref=e118]:
+          - generic [ref=e119]: 楼盘
+          - textbox "楼盘名称" [ref=e120]: 湘江1958 人才公寓
+        - generic [ref=e121]:
+          - generic [ref=e122]: 所在区
+          - combobox [ref=e123]:
+            - option "全部" [selected]
+            - option "天元区"
+            - option "荷塘区"
+            - option "芦淞区"
+            - option "石峰区"
+            - option "经开区"
+            - option "渌口区"
+        - generic [ref=e124]:
+          - generic [ref=e125]: 发布状态
+          - combobox [ref=e126]:
+            - option "全部" [selected]
+            - option "待提交"
+            - option "待审核"
+            - option "已发布"
+            - option "已退回"
+            - option "已下架"
+        - generic [ref=e127]:
+          - generic [ref=e128]: 发布率区间
+          - combobox [ref=e129]:
+            - option "全部" [selected]
+            - option "90% 及以上"
+            - option "80%—90%"
+            - option "60%—80%"
+            - option "低于 60%（预警）"
+        - generic [ref=e130]:
+          - generic [ref=e131]: 最近提交时间
+          - textbox [ref=e132]: 2026-09-01
+        - generic [ref=e133]:
+          - button " 查询" [ref=e134] [cursor=pointer]:
+            - generic [ref=e135]: 
+            - text: 查询
+          - button "重置" [ref=e136] [cursor=pointer]
+          - button " 导出上架进度报表" [ref=e137] [cursor=pointer]:
+            - generic [ref=e138]: 
+            - text: 导出上架进度报表
+          - link " 去审核发布" [ref=e139] [cursor=pointer]:
+            - /url: house-archive.html
+            - generic [ref=e140]: 
+            - text: 去审核发布
+          - button " 催办上架进度" [ref=e141] [cursor=pointer]:
+            - generic [ref=e142]: 
+            - text: 催办上架进度
+          - button " 刷新统计" [ref=e143] [cursor=pointer]:
+            - generic [ref=e144]: 
+            - text: 刷新统计
+      - table [ref=e146]:
+        - rowgroup [ref=e147]:
+          - row "序号 运营机构 楼盘 房源间数 已提交 待审核 已发布 已退回 发布率 最近提交时间 操作" [ref=e148]:
+            - columnheader "序号" [ref=e149]
+            - columnheader "运营机构" [ref=e150]
+            - columnheader "楼盘" [ref=e151]
+            - columnheader "房源间数" [ref=e152]
+            - columnheader "已提交" [ref=e153]
+            - columnheader "待审核" [ref=e154]
+            - columnheader "已发布" [ref=e155]
+            - columnheader "已退回" [ref=e156]
+            - columnheader "发布率" [ref=e157]
+            - columnheader "最近提交时间" [ref=e158]
+            - columnheader "操作" [ref=e159]
+        - rowgroup [ref=e160]:
+          - row "01 株洲城发高科人才安居服务有限公司 湘江1958 人才公寓 1,086 1,078 46 1,020 12 93.9% 2026-09-07 16:28 查看明细 审核发布" [ref=e161]:
+            - cell "01" [ref=e162]
+            - cell "株洲城发高科人才安居服务有限公司" [ref=e163]
+            - cell "湘江1958 人才公寓" [ref=e164]
+            - cell "1,086" [ref=e165]
+            - cell "1,078" [ref=e166]
+            - cell "46" [ref=e167]
+            - cell "1,020" [ref=e168]
+            - cell "12" [ref=e169]
+            - cell "93.9%" [ref=e170]:
+              - generic [ref=e171]: 93.9%
+            - cell "2026-09-07 16:28" [ref=e172]
+            - cell "查看明细 审核发布" [ref=e173]
+          - row "02 株洲城发高科人才安居服务有限公司 栗雨佳苑人才公寓 626 626 20 600 6 95.8% 2026-09-06 11:02 查看明细 审核发布" [ref=e174]:
+            - cell "02" [ref=e175]
+            - cell "株洲城发高科人才安居服务有限公司" [ref=e176]
+            - cell "栗雨佳苑人才公寓" [ref=e177]
+            - cell "626" [ref=e178]
+            - cell "626" [ref=e179]
+            - cell "20" [ref=e180]
+            - cell "600" [ref=e181]
+            - cell "6" [ref=e182]
+            - cell "95.8%" [ref=e183]:
+              - generic [ref=e184]: 95.8%
+            - cell "2026-09-06 11:02" [ref=e185]
+            - cell "查看明细 审核发布" [ref=e186]
+          - row "03 株洲城发高科人才安居服务有限公司 董家塅人才公寓 568 562 62 486 14 85.6% 2026-09-07 09:46 查看明细 审核发布" [ref=e187]:
+            - cell "03" [ref=e188]
+            - cell "株洲城发高科人才安居服务有限公司" [ref=e189]
+            - cell "董家塅人才公寓" [ref=e190]
+            - cell "568" [ref=e191]
+            - cell "562" [ref=e192]
+            - cell "62" [ref=e193]
+            - cell "486" [ref=e194]
+            - cell "14" [ref=e195]
+            - cell "85.6%" [ref=e196]:
+              - generic [ref=e197]: 85.6%
+            - cell "2026-09-07 09:46" [ref=e198]
+            - cell "查看明细 审核发布" [ref=e199]
+          - row "04 清水塘投资运营服务有限公司 清水塘·未来社区 842 838 120 686 32 81.5% 2026-09-05 09:26 查看明细 审核发布" [ref=e200]:
+            - cell "04" [ref=e201]
+            - cell "清水塘投资运营服务有限公司" [ref=e202]
+            - cell "清水塘·未来社区" [ref=e203]
+            - cell "842" [ref=e204]
+            - cell "838" [ref=e205]
+            - cell "120" [ref=e206]
+            - cell "686" [ref=e207]
+            - cell "32" [ref=e208]
+            - cell "81.5%" [ref=e209]:
+              - generic [ref=e210]: 81.5%
+            - cell "2026-09-05 09:26" [ref=e211]
+            - cell "查看明细 审核发布" [ref=e212]
+          - row "05 清水塘投资运营服务有限公司 田心人才公寓 468 464 36 420 8 89.7% 2026-09-04 15:18 查看明细 审核发布" [ref=e213]:
+            - cell "05" [ref=e214]
+            - cell "清水塘投资运营服务有限公司" [ref=e215]
+            - cell "田心人才公寓" [ref=e216]
+            - cell "468" [ref=e217]
+            - cell "464" [ref=e218]
+            - cell "36" [ref=e219]
+            - cell "420" [ref=e220]
+            - cell "8" [ref=e221]
+            - cell "89.7%" [ref=e222]:
+              - generic [ref=e223]: 89.7%
+            - cell "2026-09-04 15:18" [ref=e224]
+            - cell "查看明细 审核发布" [ref=e225]
+          - row "06 株洲高新人才公寓运营有限公司 云龙人才公寓 486 478 152 286 40 58.8% 2026-09-07 14:32 查看明细 催办" [ref=e226]:
+            - cell "06" [ref=e227]
+            - cell "株洲高新人才公寓运营有限公司" [ref=e228]
+            - cell "云龙人才公寓" [ref=e229]
+            - cell "486" [ref=e230]
+            - cell "478" [ref=e231]
+            - cell "152" [ref=e232]
+            - cell "286" [ref=e233]
+            - cell "40" [ref=e234]
+            - cell "58.8%" [ref=e235]:
+              - generic [ref=e236]: 58.8%
+            - cell "2026-09-07 14:32" [ref=e237]
+            - cell "查看明细 催办" [ref=e238]
+          - row "07 株洲高新人才公寓运营有限公司 时代新城人才公寓 210 152 50 88 14 41.9% 2026-08-28 10:08 查看明细 催办" [ref=e239]:
+            - cell "07" [ref=e240]
+            - cell "株洲高新人才公寓运营有限公司" [ref=e241]
+            - cell "时代新城人才公寓" [ref=e242]
+            - cell "210" [ref=e243]
+            - cell "152" [ref=e244]
+            - cell "50" [ref=e245]
+            - cell "88" [ref=e246]
+            - cell "14" [ref=e247]
+            - cell "41.9%" [ref=e248]:
+              - generic [ref=e249]: 41.9%
+            - cell "2026-08-28 10:08" [ref=e250]
+            - cell "查看明细 催办" [ref=e251]
+          - row "08 合计 全市 3 家运营机构合计 4,286 4,198 486 3,586 126 83.7% 2026-09-07 16:28 批量审核发布" [ref=e252]:
+            - cell "08" [ref=e253]
+            - cell "合计" [ref=e254]:
+              - generic [ref=e255]: 合计
+            - cell "全市 3 家运营机构合计" [ref=e256]
+            - cell "4,286" [ref=e257]
+            - cell "4,198" [ref=e258]
+            - cell "486" [ref=e259]
+            - cell "3,586" [ref=e260]
+            - cell "126" [ref=e261]
+            - cell "83.7%" [ref=e262]:
+              - generic [ref=e263]: 83.7%
+            - cell "2026-09-07 16:28" [ref=e264]
+            - cell "批量审核发布" [ref=e265]
+      - generic [ref=e266]:
+        - generic [ref=e267]: 共 8 条，显示 1–8 条
+        - generic [ref=e268]:
+          - generic [ref=e269]:
+            - text: 每页
+            - combobox "每页 条" [ref=e270] [cursor=pointer]:
+              - option "10"
+              - option "20" [selected]
+              - option "50"
+              - option "100"
+            - text: 条
+          - generic [ref=e271]:
+            - button "" [disabled] [ref=e272]:
+              - generic [ref=e273]: 
+            - button "" [disabled] [ref=e274]:
+              - generic [ref=e275]: 
+            - button "1" [ref=e276] [cursor=pointer]
+            - button "" [disabled] [ref=e277]:
+              - generic [ref=e278]: 
+            - button "" [disabled] [ref=e279]:
+              - generic [ref=e280]: 
+          - generic [ref=e281]:
+            - text: 前往
+            - spinbutton "前往 页" [ref=e282]: "1"
+            - text: 页
+          - generic [ref=e283]: 共 1 页
+      - paragraph [ref=e284]: 已提交 ＝ 待审核 ＋ 已发布 ＋ 已退回（全市 486 ＋ 3,586 ＋ 126 ＝ 4,198 间）· 待提交 ＝ 房源间数 − 已提交（全市 4,286 − 4,198 ＝ 88 间）· 发布率 ＝ 已发布 ÷ 房源间数（全市 3,586 ÷ 4,286 ＝ 83.7%）· 统计截至 2026-09-08 09:00
+    - generic [ref=e285]:
+      - generic [ref=e286]:
+        - generic [ref=e287]: 
+        - text: 发布状态流转与各状态含义
+        - generic [ref=e288]: 待提交 → 待审核 → 已发布／已退回 → 可下架
+      - generic [ref=e289]:
+        - generic [ref=e290]:
+          - generic [ref=e291]: 待提交
+          - generic [ref=e292]: 
+          - generic [ref=e293]: 待审核
+          - generic [ref=e294]: 
+          - generic [ref=e295]: 已发布
+          - generic [ref=e296]: 
+          - generic [ref=e297]: 已下架
+          - generic [ref=e298]: ｜ 审核不通过：
+          - generic [ref=e299]: 待审核
+          - generic [ref=e300]: 
+          - generic [ref=e301]: 已退回
+          - generic [ref=e302]: 
+          - generic [ref=e303]: 待审核
+        - table [ref=e305]:
+          - rowgroup [ref=e306]:
+            - row "发布状态 含义 移动端可见 触发动作与责任主体 下一状态 全市间数" [ref=e307]:
+              - columnheader "发布状态" [ref=e308]
+              - columnheader "含义" [ref=e309]
+              - columnheader "移动端可见" [ref=e310]
+              - columnheader "触发动作与责任主体" [ref=e311]
+              - columnheader "下一状态" [ref=e312]
+              - columnheader "全市间数" [ref=e313]
+          - rowgroup [ref=e314]:
+            - row "待提交 运营机构已按统一模板自行导入建账，间级与套级字段已录入，但尚未提交发布；常见于素材（套级 VR 全景、按间实景照片）尚未补齐 不可见 运营机构补齐素材后提交发布 待审核 88" [ref=e315]:
+              - cell "待提交" [ref=e316]:
+                - generic [ref=e317]: 待提交
+              - cell "运营机构已按统一模板自行导入建账，间级与套级字段已录入，但尚未提交发布；常见于素材（套级 VR 全景、按间实景照片）尚未补齐" [ref=e318]
+              - cell "不可见" [ref=e319]:
+                - generic [ref=e320]: 不可见
+              - cell "运营机构补齐素材后提交发布" [ref=e321]
+              - cell "待审核" [ref=e322]
+              - cell "88" [ref=e323]
+            - row "待审核 运营机构已提交发布，等待主管单位按统一发布标准逐间核验：间级八项要素齐全、套级面积与四项费用标准齐全、公摊比例合计等于 1、各间公摊面积合计等于套级总公摊、计租面积等于套内 ＋ 公摊、套级 VR 已上传 不可见 主管单位在房源查询列表审核发布或退回，支持批量 已发布 / 已退回 486" [ref=e324]:
+              - cell "待审核" [ref=e325]:
+                - generic [ref=e326]: 待审核
+              - cell "运营机构已提交发布，等待主管单位按统一发布标准逐间核验：间级八项要素齐全、套级面积与四项费用标准齐全、公摊比例合计等于 1、各间公摊面积合计等于套级总公摊、计租面积等于套内 ＋ 公摊、套级 VR 已上传" [ref=e327]
+              - cell "不可见" [ref=e328]:
+                - generic [ref=e329]: 不可见
+              - cell "主管单位在房源查询列表审核发布或退回，支持批量" [ref=e330]
+              - cell "已发布 / 已退回" [ref=e331]
+              - cell "486" [ref=e332]
+            - row "已发布 审核通过并对外发布，移动端用户方可看到该房源，可预约、可进入配租投放清单；剩余可租间数与后台房态实时同步 可见 主管单位可下架（已预约、已锁定、已签约的须先解除业务关联） 已下架 3,586" [ref=e333]:
+              - cell "已发布" [ref=e334]:
+                - generic [ref=e335]: 已发布
+              - cell "审核通过并对外发布，移动端用户方可看到该房源，可预约、可进入配租投放清单；剩余可租间数与后台房态实时同步" [ref=e336]
+              - cell "可见" [ref=e337]:
+                - generic [ref=e338]: 可见
+              - cell "主管单位可下架（已预约、已锁定、已签约的须先解除业务关联）" [ref=e339]
+              - cell "已下架" [ref=e340]
+              - cell "3,586" [ref=e341]
+            - row "已退回 不符合统一发布标准，退回并注明原因与补正事项、补正期限；退回层级、原因与操作人全程留痕，移动端立即不可见。逾期未补正的计入超期退回（当前 18 间） 不可见 运营机构按退回原因补正后重新提交发布 待审核 126" [ref=e342]:
+              - cell "已退回" [ref=e343]:
+                - generic [ref=e344]: 已退回
+              - cell "不符合统一发布标准，退回并注明原因与补正事项、补正期限；退回层级、原因与操作人全程留痕，移动端立即不可见。逾期未补正的计入超期退回（当前 18 间）" [ref=e345]
+              - cell "不可见" [ref=e346]:
+                - generic [ref=e347]: 不可见
+              - cell "运营机构按退回原因补正后重新提交发布" [ref=e348]
+              - cell "待审核" [ref=e349]
+              - cell "126" [ref=e350]
+            - row "已下架 已发布后因维修、用途转换、整栋停租等原因下架，移动端不再展示；已生效合同与账单不受影响 不可见 主管单位核验后重新发布；批量上下架见批量上架与下架 已发布 86" [ref=e351]:
+              - cell "已下架" [ref=e352]:
+                - generic [ref=e353]: 已下架
+              - cell "已发布后因维修、用途转换、整栋停租等原因下架，移动端不再展示；已生效合同与账单不受影响" [ref=e354]
+              - cell "不可见" [ref=e355]:
+                - generic [ref=e356]: 不可见
+              - cell "主管单位核验后重新发布；批量上下架见批量上架与下架" [ref=e357]
+              - cell "已发布" [ref=e358]
+              - cell "86" [ref=e359]
+    - generic [ref=e360]:
+      - generic [ref=e361]: 依据 2026 年 9 月 7 日汇报讨论会决议：房源由运营机构自行导入维护并提交发布，主管单位在房源查询列表直接审核发布，取消原「报送—审核」独立流程
+      - generic [ref=e362]: 统计口径 一律按间统计；已提交 ＝ 待审核 ＋ 已发布 ＋ 已退回；待提交 ＝ 房源间数 − 已提交；发布率 ＝ 已发布 ÷ 房源间数
+      - generic [ref=e363]: 归属口径 按所属运营机构归集，房源归属决定业务数据归属；运营机构只看本机构房源，主管单位看全市
+      - generic [ref=e364]: 预警口径 发布率低于 60% 的楼盘标红预警；退回超过补正期限未重新提交的计入超期退回，纳入运营机构考核
+      - generic [ref=e365]: 关联页面 房源查询与审核发布 房源批量导入 批量上架与下架

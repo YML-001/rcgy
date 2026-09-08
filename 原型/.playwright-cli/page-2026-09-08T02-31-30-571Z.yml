@@ -1,0 +1,327 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - text: 
+      - generic [ref=e5]: 
+      - generic [ref=e6]: 株洲市人才住房保障管理平台
+    - generic [ref=e7]:
+      - generic "当前业务子系统" [ref=e8]:
+        - generic [ref=e9]: 房源筹集与楼盘表
+      - button " 切换系统" [ref=e10] [cursor=pointer]:
+        - generic [ref=e11]: 
+        - text: 切换系统
+    - generic [ref=e12]:
+      - button " 窗口受理员 " [ref=e14] [cursor=pointer]:
+        - generic [ref=e15]: 
+        - generic [ref=e16]: 窗口受理员
+        - generic [ref=e17]: 
+      - generic "消息" [ref=e18] [cursor=pointer]:
+        - generic [ref=e19]: 
+        - generic [ref=e20]: "5"
+      - generic "帮助" [ref=e21] [cursor=pointer]:
+        - generic [ref=e22]: 
+      - generic [ref=e23] [cursor=pointer]:
+        - generic [ref=e24]: 谭
+        - generic [ref=e25]:
+          - generic [ref=e26]: 谭建军
+          - generic [ref=e27]: 市政务服务中心人才住房窗口 · 窗口受理员
+      - link "" [ref=e28] [cursor=pointer]:
+        - /url: ../../index.html
+        - generic [ref=e29]: 
+  - complementary [ref=e30]:
+    - generic [ref=e31]:
+      - textbox "菜单搜索" [ref=e32]
+      - generic [ref=e33]: 
+      - text: 
+    - generic [ref=e34]:
+      - link " 我的工作台" [ref=e35] [cursor=pointer]:
+        - /url: ../../modules/workbench/workbench.html?role=window
+        - generic [ref=e36]: 
+        - generic [ref=e37]: 我的工作台
+      - generic [ref=e39] [cursor=pointer]:
+        - generic [ref=e40]: 
+        - generic [ref=e41]: 待办与协同
+        - generic [ref=e42]: 
+      - generic [ref=e43]:
+        - generic [ref=e44] [cursor=pointer]:
+          - generic [ref=e45]: 
+          - generic [ref=e46]: 房源发布与预约
+          - generic [ref=e47]: 
+        - generic [ref=e48]:
+          - link "房源查询（只读）" [ref=e49] [cursor=pointer]:
+            - /url: ../../modules/house/house-query.html?role=window
+          - link "预约名单管理" [ref=e50] [cursor=pointer]:
+            - /url: ../../modules/house/book-manage.html?role=window
+  - main [ref=e51]:
+    - generic [ref=e53]:
+      - generic [ref=e54]: 
+      - text: 株洲市人才住房保障管理平台
+      - generic [ref=e55]: /
+      - text: 房源筹集与楼盘表
+      - generic [ref=e56]: /
+      - text: 房源发布与预约
+      - generic [ref=e57]: /
+      - generic [ref=e58]: 房源查询（只读）
+    - generic [ref=e59]:
+      - generic [ref=e60]: 
+      - generic [ref=e61]: 本页为只读查询，供窗口现场向申请人介绍房源与协助登记意向片区；窗口不在线选房、不锁定房源，意向片区仅作登记、不产生任何占位效力。查询范围为全部已审核发布的房源（未发布、待审核、已退回、已下架的房源本页与移动端均不可见），按「间」展示：计租面积 ＝ 本间套内面积 ＋ 本间公摊面积，公摊计入租金；VR 全景按套，同一套房各间共用一份。本页无任何编辑操作，房源由所属运营机构维护、主管单位审核发布。
+    - generic [ref=e62]:
+      - generic [ref=e63]:
+        - generic [ref=e65]: 
+        - generic [ref=e66]:
+          - generic [ref=e67]: 已发布房源
+          - generic [ref=e68]: 3,586
+          - generic [ref=e69]: 间 · 7 个楼盘，全部已审核发布
+      - generic [ref=e70]:
+        - generic [ref=e72]: 
+        - generic [ref=e73]:
+          - generic [ref=e74]: 已预约
+          - generic [ref=e75]: 1,520
+          - generic [ref=e76]: 间 · 占 42.4%，配租时优先排序
+      - generic [ref=e77]:
+        - generic [ref=e79]: 
+        - generic [ref=e80]:
+          - generic [ref=e81]: 已轮候
+          - generic [ref=e82]: 1,454
+          - generic [ref=e83]: 间 · 占 40.5%，按受理顺序排定
+      - generic [ref=e84]:
+        - generic [ref=e86]: 
+        - generic [ref=e87]:
+          - generic [ref=e88]: 剩余可选
+          - generic [ref=e89]: "612"
+          - generic [ref=e90]: 间 · 剩余率 17.1%，申请形势偏紧
+    - generic [ref=e91]:
+      - generic [ref=e92]:
+        - generic [ref=e93]:
+          - generic [ref=e94]: 区域
+          - combobox [ref=e95]:
+            - option "全部" [selected]
+            - option "天元区"
+            - option "荷塘区"
+            - option "芦淞区"
+            - option "石峰区"
+            - option "经开区"
+            - option "渌口区"
+        - generic [ref=e96]:
+          - generic [ref=e97]: 楼盘
+          - combobox [ref=e98]:
+            - option "全部" [selected]
+            - option "湘江1958 人才公寓"
+            - option "栗雨佳苑人才公寓"
+            - option "董家塅人才公寓"
+            - option "清水塘·未来社区"
+            - option "田心人才公寓"
+            - option "云龙人才公寓"
+            - option "时代新城人才公寓"
+        - generic [ref=e99]:
+          - generic [ref=e100]: 户型（室厅结构）
+          - combobox [ref=e101]:
+            - option "全部" [selected]
+            - option "单间配套"
+            - option "一室一厅"
+            - option "二室一厅"
+            - option "三室一厅"
+            - option "三室两厅"
+        - generic [ref=e102]:
+          - generic [ref=e103]: 计租面积
+          - combobox [ref=e104]:
+            - option "全部" [selected]
+            - option "15.00—20.00 ㎡"
+            - option "20.00—25.00 ㎡"
+            - option "25.00—30.00 ㎡"
+            - option "30.00 ㎡ 以上"
+        - generic [ref=e105]:
+          - generic [ref=e106]: 人才租金标准
+          - combobox [ref=e107]:
+            - option "全部" [selected]
+            - option "5.00 元/㎡·月及以下"
+            - option "5.00—6.00 元/㎡·月"
+            - option "6.00 元/㎡·月以上"
+        - generic [ref=e108]:
+          - generic [ref=e109]: 房间配套
+          - combobox [ref=e110]:
+            - option "全部" [selected]
+            - option "独立卫生间"
+            - option "空调"
+            - option "阳台"
+            - option "衣柜"
+            - option "书桌"
+            - option "飘窗"
+        - generic [ref=e111]:
+          - generic [ref=e112]: 房态
+          - combobox [ref=e113]:
+            - option "全部" [selected]
+            - option "可配租"
+            - option "已锁定"
+            - option "已签约"
+            - option "在租"
+            - option "待腾退"
+            - option "维修中"
+            - option "已冻结"
+        - generic [ref=e114]:
+          - button " 查询" [ref=e115] [cursor=pointer]:
+            - generic [ref=e116]: 
+            - text: 查询
+          - button "重置" [ref=e117] [cursor=pointer]
+          - button " 打印现场介绍单" [ref=e118] [cursor=pointer]:
+            - generic [ref=e119]: 
+            - text: 打印现场介绍单
+          - button " 导出房源一览表" [ref=e120] [cursor=pointer]:
+            - generic [ref=e121]: 
+            - text: 导出房源一览表
+          - button " 刷新余量" [ref=e122] [cursor=pointer]:
+            - generic [ref=e123]: 
+            - text: 刷新余量
+      - generic [ref=e124]:
+        - generic [ref=e125] [cursor=pointer]:
+          - text: 已发布房源（按间）
+          - generic [ref=e126]: 3,586
+        - generic [ref=e127] [cursor=pointer]:
+          - text: 楼盘余量
+          - generic [ref=e128]: "612"
+      - text:    
+      - generic [ref=e417]:
+        - paragraph [ref=e418]: 现场告知用：总房源 ＝ 已预约 ＋ 已轮候 ＋ 剩余可选（均按间统计，仅计已审核发布房源）· 已预约指申请人已在小程序预约该楼盘房源的间数，配租排序时优先于普通轮候 · 已轮候指已进入轮候名单且意向指向该楼盘的间数 · 剩余可选为当前尚未被预约或轮候指向的间数 · 剩余率低于 15% 标红，供现场向申请人说明当前申请形势 · 数据截至 2026-09-08 09:00
+        - table [ref=e420]:
+          - rowgroup [ref=e421]:
+            - row "序号 楼盘 所在区 总房源 已预约 已轮候 剩余可选 剩余率 申请形势 现场告知要点" [ref=e422]:
+              - columnheader "序号" [ref=e423]
+              - columnheader "楼盘" [ref=e424]
+              - columnheader "所在区" [ref=e425]
+              - columnheader "总房源" [ref=e426]
+              - columnheader "已预约" [ref=e427]
+              - columnheader "已轮候" [ref=e428]
+              - columnheader "剩余可选" [ref=e429]
+              - columnheader "剩余率" [ref=e430]
+              - columnheader "申请形势" [ref=e431]
+              - columnheader "现场告知要点" [ref=e432]
+          - rowgroup [ref=e433]:
+            - row "01 湘江1958 人才公寓 天元区 1,020 486 386 148 14.5% 紧张 全市最热楼盘，一室与主卧房间基本无剩余，建议同步登记第二意向片区" [ref=e434]:
+              - cell "01" [ref=e435]
+              - cell "湘江1958 人才公寓" [ref=e436]
+              - cell "天元区" [ref=e437]
+              - cell "1,020" [ref=e438]
+              - cell "486" [ref=e439]
+              - cell "386" [ref=e440]
+              - cell "148" [ref=e441]
+              - cell "14.5%" [ref=e442]
+              - cell "紧张" [ref=e443]:
+                - generic [ref=e444]: 紧张
+              - cell "全市最热楼盘，一室与主卧房间基本无剩余，建议同步登记第二意向片区" [ref=e445]
+            - row "02 清水塘·未来社区 石峰区 686 312 268 106 15.5% 偏紧 次卧房间尚有剩余，主卧需排队；本楼盘 120 间待审核发布，发布后余量将增加" [ref=e446]:
+              - cell "02" [ref=e447]
+              - cell "清水塘·未来社区" [ref=e448]
+              - cell "石峰区" [ref=e449]
+              - cell "686" [ref=e450]
+              - cell "312" [ref=e451]
+              - cell "268" [ref=e452]
+              - cell "106" [ref=e453]
+              - cell "15.5%" [ref=e454]
+              - cell "偏紧" [ref=e455]:
+                - generic [ref=e456]: 偏紧
+              - cell "次卧房间尚有剩余，主卧需排队；本楼盘 120 间待审核发布，发布后余量将增加" [ref=e457]
+            - row "03 栗雨佳苑人才公寓 天元区 600 268 226 106 17.7% 偏紧 人才租金 5.20 元/㎡·月，性价比高，次卧最低月租金 81.12 元，咨询量上升较快" [ref=e458]:
+              - cell "03" [ref=e459]
+              - cell "栗雨佳苑人才公寓" [ref=e460]
+              - cell "天元区" [ref=e461]
+              - cell "600" [ref=e462]
+              - cell "268" [ref=e463]
+              - cell "226" [ref=e464]
+              - cell "106" [ref=e465]
+              - cell "17.7%" [ref=e466]
+              - cell "偏紧" [ref=e467]:
+                - generic [ref=e468]: 偏紧
+              - cell "人才租金 5.20 元/㎡·月，性价比高，次卧最低月租金 81.12 元，咨询量上升较快" [ref=e469]
+            - row "04 董家塅人才公寓 芦淞区 486 186 214 86 17.7% 偏紧 轮候指向多于预约，建议引导申请人先在小程序预约以获得配租排序优先" [ref=e470]:
+              - cell "04" [ref=e471]
+              - cell "董家塅人才公寓" [ref=e472]
+              - cell "芦淞区" [ref=e473]
+              - cell "486" [ref=e474]
+              - cell "186" [ref=e475]
+              - cell "214" [ref=e476]
+              - cell "86" [ref=e477]
+              - cell "17.7%" [ref=e478]
+              - cell "偏紧" [ref=e479]:
+                - generic [ref=e480]: 偏紧
+              - cell "轮候指向多于预约，建议引导申请人先在小程序预约以获得配租排序优先" [ref=e481]
+            - row "05 田心人才公寓 石峰区 420 148 186 86 20.5% 尚有余量 人才租金 5.00 元/㎡·月为全市最低，二室一厅两间均可选，适合首次申请人" [ref=e482]:
+              - cell "05" [ref=e483]
+              - cell "田心人才公寓" [ref=e484]
+              - cell "石峰区" [ref=e485]
+              - cell "420" [ref=e486]
+              - cell "148" [ref=e487]
+              - cell "186" [ref=e488]
+              - cell "86" [ref=e489]
+              - cell "20.5%" [ref=e490]
+              - cell "尚有余量" [ref=e491]:
+                - generic [ref=e492]: 尚有余量
+              - cell "人才租金 5.00 元/㎡·月为全市最低，二室一厅两间均可选，适合首次申请人" [ref=e493]
+            - row "06 云龙人才公寓 经开区 286 96 132 58 20.3% 尚有余量 以单间配套为主，未拆分、整间计租 38.00 ㎡；园区通勤方便，适合单身职工" [ref=e494]:
+              - cell "06" [ref=e495]
+              - cell "云龙人才公寓" [ref=e496]
+              - cell "经开区" [ref=e497]
+              - cell "286" [ref=e498]
+              - cell "96" [ref=e499]
+              - cell "132" [ref=e500]
+              - cell "58" [ref=e501]
+              - cell "20.3%" [ref=e502]
+              - cell "尚有余量" [ref=e503]:
+                - generic [ref=e504]: 尚有余量
+              - cell "以单间配套为主，未拆分、整间计租 38.00 ㎡；园区通勤方便，适合单身职工" [ref=e505]
+            - row "07 时代新城人才公寓 天元区 88 24 42 22 25.0% 尚有余量 本期仅发布 88 间，其余 122 间因套级 VR 全景未上传尚未发布，余量后续增加" [ref=e506]:
+              - cell "07" [ref=e507]
+              - cell "时代新城人才公寓" [ref=e508]
+              - cell "天元区" [ref=e509]
+              - cell "88" [ref=e510]
+              - cell "24" [ref=e511]
+              - cell "42" [ref=e512]
+              - cell "22" [ref=e513]
+              - cell "25.0%" [ref=e514]
+              - cell "尚有余量" [ref=e515]:
+                - generic [ref=e516]: 尚有余量
+              - cell "本期仅发布 88 间，其余 122 间因套级 VR 全景未上传尚未发布，余量后续增加" [ref=e517]
+            - row "08 合计 全市 3,586 1,520 1,454 612 17.1% 偏紧 全市剩余可选 612 间，申请形势偏紧；窗口只登记意向片区、不锁定房源，选房一律由申请人在小程序按配租顺序办理" [ref=e518]:
+              - cell "08" [ref=e519]
+              - cell "合计" [ref=e520]:
+                - generic [ref=e521]: 合计
+              - cell "全市" [ref=e522]
+              - cell "3,586" [ref=e523]
+              - cell "1,520" [ref=e524]
+              - cell "1,454" [ref=e525]
+              - cell "612" [ref=e526]
+              - cell "17.1%" [ref=e527]
+              - cell "偏紧" [ref=e528]:
+                - generic [ref=e529]: 偏紧
+              - cell "全市剩余可选 612 间，申请形势偏紧；窗口只登记意向片区、不锁定房源，选房一律由申请人在小程序按配租顺序办理" [ref=e530]
+        - generic [ref=e531]:
+          - generic [ref=e532]: 共 8 条，显示 1–8 条
+          - generic [ref=e533]:
+            - generic [ref=e534]:
+              - text: 每页
+              - combobox "每页 条" [ref=e535] [cursor=pointer]:
+                - option "10"
+                - option "20" [selected]
+                - option "50"
+                - option "100"
+              - text: 条
+            - generic [ref=e536]:
+              - button "" [disabled] [ref=e537]:
+                - generic [ref=e538]: 
+              - button "" [disabled] [ref=e539]:
+                - generic [ref=e540]: 
+              - button "1" [ref=e541] [cursor=pointer]
+              - button "" [disabled] [ref=e542]:
+                - generic [ref=e543]: 
+              - button "" [disabled] [ref=e544]:
+                - generic [ref=e545]: 
+            - generic [ref=e546]:
+              - text: 前往
+              - spinbutton "前往 页" [ref=e547]: "1"
+              - text: 页
+            - generic [ref=e548]: 共 1 页
+    - generic [ref=e410]:
+      - generic [ref=e411]: 页面性质 只读查询，无新增、修改、删除、审核与选房操作；窗口受理角色对房源与政策均为只读
+      - generic [ref=e412]: 查询范围 全部已审核发布的房源，按间展示；未发布、待审核、已退回、已下架的房源本页与移动端均不可见
+      - generic [ref=e413]: 面积口径 计租面积 ＝ 本间套内面积 ＋ 本间公摊面积，公摊计入租金；公摊比例按套内间数均分
+      - generic [ref=e414]: VR 口径 VR 全景按套，同一套房各间共用一份；进入任一房间均展示其所在套房的全景
+      - generic [ref=e415]: 窗口口径 窗口不在线选房、不锁定房源；意向片区选填、仅作登记，与线上申请汇入同一件池、走同一流程、不因渠道优先

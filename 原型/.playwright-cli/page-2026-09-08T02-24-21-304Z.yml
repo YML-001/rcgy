@@ -1,0 +1,347 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - text: 
+      - generic [ref=e5]: 
+      - generic [ref=e6]: 株洲市人才住房保障管理平台
+    - generic [ref=e7]:
+      - generic "当前业务子系统" [ref=e8]:
+        - generic [ref=e9]: 房源筹集与楼盘表
+      - button " 切换系统" [ref=e10] [cursor=pointer]:
+        - generic [ref=e11]: 
+        - text: 切换系统
+    - generic [ref=e12]:
+      - button " 单位房源管理员 " [ref=e14] [cursor=pointer]:
+        - generic [ref=e15]: 
+        - generic [ref=e16]: 单位房源管理员
+        - generic [ref=e17]: 
+      - generic "消息" [ref=e18] [cursor=pointer]:
+        - generic [ref=e19]: 
+        - generic [ref=e20]: "5"
+      - generic "帮助" [ref=e21] [cursor=pointer]:
+        - generic [ref=e22]: 
+      - generic [ref=e23] [cursor=pointer]:
+        - generic [ref=e24]: 唐
+        - generic [ref=e25]:
+          - generic [ref=e26]: 唐凯
+          - generic [ref=e27]: 市保障性住房服务中心房源管理科 · 单位房源管理员
+      - link "" [ref=e28] [cursor=pointer]:
+        - /url: ../../index.html
+        - generic [ref=e29]: 
+  - complementary [ref=e30]:
+    - generic [ref=e31]:
+      - textbox "菜单搜索" [ref=e32]
+      - generic [ref=e33]: 
+      - text: 
+    - generic [ref=e34]:
+      - link " 我的工作台" [ref=e35] [cursor=pointer]:
+        - /url: ../../modules/workbench/workbench.html?role=housing
+        - generic [ref=e36]: 
+        - generic [ref=e37]: 我的工作台
+      - generic [ref=e39] [cursor=pointer]:
+        - generic [ref=e40]: 
+        - generic [ref=e41]: 待办与协同
+        - generic [ref=e42]: 
+      - generic [ref=e44] [cursor=pointer]:
+        - generic [ref=e45]: 
+        - generic [ref=e46]: 房源筹集与项目
+        - generic [ref=e47]: 
+      - generic [ref=e49] [cursor=pointer]:
+        - generic [ref=e50]: 
+        - generic [ref=e51]: 楼盘表与多源归集
+        - generic [ref=e52]: 
+      - generic [ref=e54] [cursor=pointer]:
+        - generic [ref=e55]: 
+        - generic [ref=e56]: 房源档案与房态
+        - generic [ref=e57]: 
+      - generic [ref=e58]:
+        - generic [ref=e59] [cursor=pointer]:
+          - generic [ref=e60]: 
+          - generic [ref=e61]: 房源发布与预约
+          - generic [ref=e62]: 
+        - generic [ref=e63]:
+          - link "批量上架与下架" [ref=e64] [cursor=pointer]:
+            - /url: ../../modules/house/shelf-batch.html?role=housing
+          - link "房源发布状态统计" [ref=e65] [cursor=pointer]:
+            - /url: ../../modules/house/publish-stat.html?role=housing
+          - link "房源查询（只读）" [ref=e66] [cursor=pointer]:
+            - /url: ../../modules/house/house-query.html?role=housing
+          - link "预约名单管理" [ref=e67] [cursor=pointer]:
+            - /url: ../../modules/house/book-manage.html?role=housing
+      - generic [ref=e69] [cursor=pointer]:
+        - generic [ref=e70]: 
+        - generic [ref=e71]: 房源导入与来源台账
+        - generic [ref=e72]: 
+  - main [ref=e73]:
+    - generic [ref=e75]:
+      - generic [ref=e76]: 
+      - text: 株洲市人才住房保障管理平台
+      - generic [ref=e77]: /
+      - text: 房源筹集与楼盘表
+      - generic [ref=e78]: /
+      - text: 房源发布与预约
+      - generic [ref=e79]: /
+      - generic [ref=e80]: 预约名单管理
+    - generic [ref=e81]:
+      - generic [ref=e82]: 
+      - generic [ref=e83]: 查看各房源预约人数与预约明细，支持导出预约名单。预约数据作为配租组织与房源投放的参考：供需比高的楼盘优先追加投放；已预约本批次房源的申请人在配租排序时优先于普通轮候。
+    - generic [ref=e84]:
+      - generic [ref=e85]:
+        - generic [ref=e87]: 
+        - generic [ref=e88]:
+          - generic [ref=e89]: 预约总人次
+          - generic [ref=e90]: 3,286
+          - generic [ref=e91]: 涉及 6 个在架楼盘
+      - generic [ref=e92]:
+        - generic [ref=e94]: 
+        - generic [ref=e95]:
+          - generic [ref=e96]: 已转申请
+          - generic [ref=e97]: 1,842
+          - generic [ref=e98]: 人次 · 已进入受理流程
+      - generic [ref=e99]:
+        - generic [ref=e101]: "%"
+        - generic [ref=e102]:
+          - generic [ref=e103]: 预约转化率
+          - generic [ref=e104]: 56.1%
+          - generic [ref=e105]: 1,842 / 3,286 人次
+      - generic [ref=e106]:
+        - generic [ref=e108]: 
+        - generic [ref=e109]:
+          - generic [ref=e110]: 供不应求楼盘数
+          - generic [ref=e111]: "3"
+          - generic [ref=e112]: 供需比大于 1.5 · 建议追加投放
+    - generic [ref=e113]:
+      - generic [ref=e114]:
+        - generic [ref=e115]:
+          - generic [ref=e116]: 预约号
+          - textbox "预约号" [ref=e117]: YY2026-0286
+        - generic [ref=e118]:
+          - generic [ref=e119]: 意向楼盘
+          - combobox [ref=e120]:
+            - option "全部" [selected]
+            - option "湘江1958 人才公寓（一、二期）"
+            - option "清水塘·未来社区（一期）"
+            - option "云龙人才公寓"
+            - option "董家塅人才公寓"
+            - option "田心人才公寓"
+            - option "渌口人才公寓"
+        - generic [ref=e121]:
+          - generic [ref=e122]: 意向户型
+          - combobox [ref=e123]:
+            - option "全部" [selected]
+            - option "单间配套"
+            - option "一室一厅"
+            - option "二室一厅"
+            - option "三室一厅"
+        - generic [ref=e124]:
+          - generic [ref=e125]: 预约状态
+          - combobox [ref=e126]:
+            - option "全部" [selected]
+            - option "预约中"
+            - option "已确认"
+            - option "已改约"
+            - option "已取消"
+            - option "已转申请"
+            - option "已配租"
+        - generic [ref=e127]:
+          - generic [ref=e128]: 是否已转申请
+          - combobox [ref=e129]:
+            - option "全部" [selected]
+            - option "是"
+            - option "否"
+        - generic [ref=e130]:
+          - generic [ref=e131]: 预约日期
+          - textbox [ref=e132]: 2026-09-01
+        - generic [ref=e133]:
+          - button " 查询" [ref=e134] [cursor=pointer]:
+            - generic [ref=e135]: 
+            - text: 查询
+          - button "重置" [ref=e136] [cursor=pointer]
+          - button " 导出预约名单" [ref=e137] [cursor=pointer]:
+            - generic [ref=e138]: 
+            - text: 导出预约名单
+          - link " 配租批次管理" [ref=e139] [cursor=pointer]:
+            - /url: ../alloc/batch-list.html
+            - generic [ref=e140]: 
+            - text: 配租批次管理
+          - link " 批量上架与下架" [ref=e141] [cursor=pointer]:
+            - /url: shelf-batch.html
+            - generic [ref=e142]: 
+            - text: 批量上架与下架
+          - button " 刷新热度" [ref=e143] [cursor=pointer]:
+            - generic [ref=e144]: 
+            - text: 刷新热度
+      - generic [ref=e145]:
+        - generic [ref=e146] [cursor=pointer]:
+          - text: 按楼盘预约热度
+          - generic [ref=e147]: "6"
+        - generic [ref=e148] [cursor=pointer]:
+          - text: 预约明细
+          - generic [ref=e149]: 3,286
+      - generic [ref=e151]:
+        - paragraph [ref=e152]: 供需比 = 预约人次 ÷ 可租套数 · 供需比大于 1.5 的楼盘供不应求，建议追加投放 · 数据截至 2026-09-06 18:00
+        - table [ref=e154]:
+          - rowgroup [ref=e155]:
+            - row "序号 楼盘名称 所在区 可租套数 预约人次 供需比 最热户型 建议投放套数 操作" [ref=e156]:
+              - columnheader "序号" [ref=e157]
+              - columnheader "楼盘名称" [ref=e158]
+              - columnheader "所在区" [ref=e159]
+              - columnheader "可租套数" [ref=e160]
+              - columnheader "预约人次" [ref=e161]
+              - columnheader "供需比" [ref=e162]
+              - columnheader "最热户型" [ref=e163]
+              - columnheader "建议投放套数" [ref=e164]
+              - columnheader "操作" [ref=e165]
+          - rowgroup [ref=e166]:
+            - row "01 湘江1958 人才公寓（一、二期） 天元区 620 1,086 1.75 一室一厅 620 投放编排" [ref=e167]:
+              - cell "01" [ref=e168]
+              - cell "湘江1958 人才公寓（一、二期）" [ref=e169]
+              - cell "天元区" [ref=e170]
+              - cell "620" [ref=e171]
+              - cell "1,086" [ref=e172]
+              - cell "1.75" [ref=e173]
+              - cell "一室一厅" [ref=e174]:
+                - generic [ref=e175]: 一室一厅
+              - cell "620" [ref=e176]
+              - cell "投放编排" [ref=e177]
+            - row "02 清水塘·未来社区（一期） 石峰区 486 826 1.70 二室一厅 486 投放编排" [ref=e178]:
+              - cell "02" [ref=e179]
+              - cell "清水塘·未来社区（一期）" [ref=e180]
+              - cell "石峰区" [ref=e181]
+              - cell "486" [ref=e182]
+              - cell "826" [ref=e183]
+              - cell "1.70" [ref=e184]
+              - cell "二室一厅" [ref=e185]:
+                - generic [ref=e186]: 二室一厅
+              - cell "486" [ref=e187]
+              - cell "投放编排" [ref=e188]
+            - row "03 云龙人才公寓 经开区 412 648 1.57 单间配套 412 投放编排" [ref=e189]:
+              - cell "03" [ref=e190]
+              - cell "云龙人才公寓" [ref=e191]
+              - cell "经开区" [ref=e192]
+              - cell "412" [ref=e193]
+              - cell "648" [ref=e194]
+              - cell "1.57" [ref=e195]
+              - cell "单间配套" [ref=e196]:
+                - generic [ref=e197]: 单间配套
+              - cell "412" [ref=e198]
+              - cell "投放编排" [ref=e199]
+            - row "04 董家塅人才公寓 芦淞区 328 386 1.18 一室一厅 328 投放编排" [ref=e200]:
+              - cell "04" [ref=e201]
+              - cell "董家塅人才公寓" [ref=e202]
+              - cell "芦淞区" [ref=e203]
+              - cell "328" [ref=e204]
+              - cell "386" [ref=e205]
+              - cell "1.18" [ref=e206]
+              - cell "一室一厅" [ref=e207]:
+                - generic [ref=e208]: 一室一厅
+              - cell "328" [ref=e209]
+              - cell "投放编排" [ref=e210]
+            - row "05 田心人才公寓 石峰区 274 226 0.82 二室一厅 226 投放编排" [ref=e211]:
+              - cell "05" [ref=e212]
+              - cell "田心人才公寓" [ref=e213]
+              - cell "石峰区" [ref=e214]
+              - cell "274" [ref=e215]
+              - cell "226" [ref=e216]
+              - cell "0.82" [ref=e217]
+              - cell "二室一厅" [ref=e218]:
+                - generic [ref=e219]: 二室一厅
+              - cell "226" [ref=e220]
+              - cell "投放编排" [ref=e221]
+            - row "06 渌口人才公寓 渌口区 186 114 0.61 一室一厅 114 投放编排" [ref=e222]:
+              - cell "06" [ref=e223]
+              - cell "渌口人才公寓" [ref=e224]
+              - cell "渌口区" [ref=e225]
+              - cell "186" [ref=e226]
+              - cell "114" [ref=e227]
+              - cell "0.61" [ref=e228]
+              - cell "一室一厅" [ref=e229]:
+                - generic [ref=e230]: 一室一厅
+              - cell "114" [ref=e231]
+              - cell "投放编排" [ref=e232]
+        - generic [ref=e233]:
+          - generic [ref=e234]: 共 6 条，显示 1–6 条
+          - generic [ref=e235]:
+            - generic [ref=e236]:
+              - text: 每页
+              - combobox "每页 条" [ref=e237] [cursor=pointer]:
+                - option "10"
+                - option "20" [selected]
+                - option "50"
+                - option "100"
+              - text: 条
+            - generic [ref=e238]:
+              - button "" [disabled] [ref=e239]:
+                - generic [ref=e240]: 
+              - button "" [disabled] [ref=e241]:
+                - generic [ref=e242]: 
+              - button "1" [ref=e243] [cursor=pointer]
+              - button "" [disabled] [ref=e244]:
+                - generic [ref=e245]: 
+              - button "" [disabled] [ref=e246]:
+                - generic [ref=e247]: 
+            - generic [ref=e248]:
+              - text: 前往
+              - spinbutton "前往 页" [ref=e249]: "1"
+              - text: 页
+            - generic [ref=e250]: 共 1 页
+      - text:    
+    - generic [ref=e251]:
+      - generic [ref=e252]:
+        - generic [ref=e253]: 
+        - text: 预约优先规则
+        - generic [ref=e254]: YX-1 至 YX-5 · 配租排序时适用
+      - table [ref=e257]:
+        - rowgroup [ref=e258]:
+          - row "规则号 规则内容 判定说明" [ref=e259]:
+            - columnheader "规则号" [ref=e260]
+            - columnheader "规则内容" [ref=e261]
+            - columnheader "判定说明" [ref=e262]
+        - rowgroup [ref=e263]:
+          - row "YX-1 预约优先于普通轮候 已预约本批次房源的申请人整体优先于普通轮候，先排预约人再排轮候" [ref=e264]:
+            - cell "YX-1" [ref=e265]
+            - cell "预约优先于普通轮候" [ref=e266]
+            - cell "已预约本批次房源的申请人整体优先于普通轮候，先排预约人再排轮候" [ref=e267]
+          - row "YX-2 预约内部按时间先后 同为预约的按预约时间先后排序（精确到分秒），即预约序位，不支持人工调整" [ref=e268]:
+            - cell "YX-2" [ref=e269]
+            - cell "预约内部按时间先后" [ref=e270]
+            - cell "同为预约的按预约时间先后排序（精确到分秒），即预约序位，不支持人工调整" [ref=e271]
+          - row "YX-3 改约重排序位 改约至其他楼盘或户型的按改约时间重排序位，不保留原序位" [ref=e272]:
+            - cell "YX-3" [ref=e273]
+            - cell "改约重排序位" [ref=e274]
+            - cell "改约至其他楼盘或户型的按改约时间重排序位，不保留原序位" [ref=e275]
+          - row "YX-4 取消后不再优先 已取消预约不再享有优先权；配租不摇号，按申请受理时间顺序排定" [ref=e276]:
+            - cell "YX-4" [ref=e277]
+            - cell "取消后不再优先" [ref=e278]
+            - cell "已取消预约不再享有优先权；配租不摇号，按申请受理时间顺序排定" [ref=e279]
+          - row "YX-5 预约不等于配租资格 预约仅决定排序先后，仍须通过资格审核两级办理" [ref=e280]:
+            - cell "YX-5" [ref=e281]
+            - cell "预约不等于配租资格" [ref=e282]
+            - cell "预约仅决定排序先后，仍须通过资格审核两级办理" [ref=e283]
+    - generic [ref=e284]:
+      - generic [ref=e285]: 依据 2026 年 9 月 6 日向市住建局汇报讨论会议决议
+      - generic [ref=e286]: 预约口径 小程序须实现房源预约预定，参照省级平台做法；预约数据作为配租组织与房源投放的参考
+      - generic [ref=e287]: 排序口径 已预约本批次房源的申请人优先于普通轮候，同为预约的按预约时间先后
+      - generic [ref=e288]: 导出脱敏 预约名单导出时姓名按姓 + ×× 脱敏，联系方式仅保留后四位，不含身份证号，导出记录留痕
+  - option "预约中"
+  - option "已确认" [selected]
+  - option "已改约"
+  - option "已取消"
+  - option "已转申请"
+  - option "已配租"
+  - option "湘江1958 人才公寓（一、二期）" [selected]
+  - option "清水塘·未来社区（一期）"
+  - option "云龙人才公寓"
+  - option "董家塅人才公寓"
+  - option "田心人才公寓"
+  - option "渌口人才公寓"
+  - option "单间配套"
+  - option "一室一厅"
+  - option "二室一厅" [selected]
+  - option "三室一厅"
+  - option "是"
+  - option "否" [selected]
+  - option "维持现状（不作调整）" [selected]
+  - option "协助改约至其他楼盘或户型"
+  - option "协助取消预约"
+  - option "短信提醒尽快转申请"

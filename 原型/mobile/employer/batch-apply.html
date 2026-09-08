@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>员工批量代申报 · 株洲市人才住房保障管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/mobile.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body class="m-body" data-mtitle="员工批量代申报" data-mmod="M3 用人单位端" data-mcode="M3-01"
+      data-mdesc="一次提交多名员工的申请信息与资料，审批端按人拆分为独立申请件，渠道显示「用人单位（移动端申请）」；单位只报人不选房，职工确认授权时可补填意向片区。"
+      data-mback="home.html" data-mtabset="employer" data-mtab="declare">
+<div class="m-stage">
+  <div class="m-phone">
+    <div class="m-screen">
+      <div class="m-view">
+
+        <div class="m-note warn"><i class="fa-solid fa-triangle-exclamation"></i>
+          <div>本页<b>一次提交多名员工</b>的申请信息与资料，审批端<b>按人拆分为独立申请件</b>，渠道显示「用人单位（移动端申请）」。单位<b>只报人不选房</b>，意向片区由职工确认授权时自行补填，仅作登记、不锁定房源。</div>
+        </div>
+
+        <div class="m-sect">导入方式<span class="m-sect-x">二选一</span></div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-file-import"></i>请选择本次录入方式</div>
+          <div class="m-card-b">
+            <div class="m-opts">
+              <div class="m-opt on"><span class="m-ok"><i class="fa-solid fa-check"></i></span><span class="m-ol"><b>按模板批量导入</b><span>下载单位代申报模板，填好后上传，系统逐行校验并生成待提交清单，适合 10 人以上</span></span></div>
+              <div class="m-opt"><span class="m-ok"><i class="fa-solid fa-check"></i></span><span class="m-ol"><b>逐个添加</b><span>在移动端逐条录入姓名、身份证号、学历与入职时间，适合零星补报</span></span></div>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+              <button class="m-btn sm ghost" type="button" onclick="MB.toast('原型演示：已下载《用人单位代申报模板 V3.xlsx》')"><i class="fa-solid fa-download"></i> 下载模板</button>
+              <button class="m-btn sm" type="button" onclick="MB.toast('原型演示：选择模板文件并上传解析')"><i class="fa-solid fa-upload"></i> 上传模板</button>
+              <button class="m-btn sm" type="button" onclick="MB.toast('原型演示：逐个添加员工，打开录入表单')"><i class="fa-solid fa-user-plus"></i> 逐个添加</button>
+            </div>
+            <div class="m-fi col" style="border-bottom:0;padding-bottom:0">
+              <label>本批次名称</label>
+              <div class="m-fc"><input type="text" value="2026 年 9 月第 2 批（研发中心新入职职工）"><div class="m-fh">仅用于单位内部区分批次，不影响拆分后的独立申请件编号</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="m-sect">已添加员工<span class="m-sect-x">6 人 · 校验不通过 1 人</span></div>
+        <div class="m-cells">
+          <div class="m-cell"><span class="m-ci green"><i class="fa-solid fa-user-check"></i></span><span class="m-cl"><b>谭泽宇</b><span class="m-cs">430211********1826　·	硕士研究生　·	入职 2026-03-02</span></span><span class="m-cv"><span class="m-tag green">校验通过</span></span></div>
+          <div class="m-cell"><span class="m-ci green"><i class="fa-solid fa-user-check"></i></span><span class="m-cl"><b>邓亦凡</b><span class="m-cs">430202********2415　·	全日制本科　·	入职 2026-04-15</span></span><span class="m-cv"><span class="m-tag green">校验通过</span></span></div>
+          <div class="m-cell"><span class="m-ci green"><i class="fa-solid fa-user-check"></i></span><span class="m-cl"><b>周芷若</b><span class="m-cs">430203********0628　·	硕士研究生　·	入职 2026-05-06</span></span><span class="m-cv"><span class="m-tag green">校验通过</span></span></div>
+          <div class="m-cell"><span class="m-ci green"><i class="fa-solid fa-user-check"></i></span><span class="m-cl"><b>龙浩然</b><span class="m-cs">430204********3312　·	全日制本科　·	入职 2026-06-18</span></span><span class="m-cv"><span class="m-tag green">校验通过</span></span></div>
+          <div class="m-cell"><span class="m-ci green"><i class="fa-solid fa-user-check"></i></span><span class="m-cl"><b>贺子铭</b><span class="m-cs">430211********2074　·	博士研究生　·	入职 2026-02-24</span></span><span class="m-cv"><span class="m-tag green">校验通过</span></span></div>
+          <div class="m-cell"><span class="m-ci red"><i class="fa-solid fa-user-xmark"></i></span><span class="m-cl"><b>肖雨桐</b><span class="m-cs">430205********1943　·	全日制大专　·	入职 2026-07-01<br><b>不通过原因</b>：该身份证号已存在在办申请件 RC2026-0828-0104（个人申请），不可重复申报，请删除本行或改在进度页查询</span></span><span class="m-cv"><span class="m-tag red">校验不通过</span></span></div>
+        </div>
+        <div class="m-cells">
+          <div class="m-cell" style="cursor:pointer" onclick="MB.toast('已移除校验不通过的 1 行，可修正后重新导入')"><span class="m-ci"><i class="fa-solid fa-trash-can"></i></span><span class="m-cl"><b>移除校验不通过的行</b><span class="m-cs">移除后本批次可提交 5 人</span></span><i class="m-ca fa-solid fa-angle-right"></i></div>
+        </div>
+
+        <div class="m-sect">批量校验结果</div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-list-check"></i>逐行校验统计</div>
+          <div class="m-card-b">
+            <div class="m-mini">
+              <div><div class="mv">6</div><div class="ml">已添加</div></div>
+              <div><div class="mv ok">5</div><div class="ml">校验通过</div></div>
+              <div><div class="mv bad">1</div><div class="ml">校验不通过</div></div>
+              <div><div class="mv ok">5</div><div class="ml">可提交</div></div>
+            </div>
+            <div class="m-bar" style="margin-top:12px"><span class="green" style="width:83.3%"></span></div>
+            <div class="m-check" style="margin-top:10px">
+              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>身份要素校验　通过 6 / 6</b><span>姓名与身份证号格式、校验位一致</span></div></div>
+              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>学历与毕业年限　通过 6 / 6</b><span>全日制大专及以上，毕业 2 年内</span></div></div>
+              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>在职与劳动合同　通过 6 / 6</b><span>与本单位已备案的在职名单一致</span></div></div>
+              <div class="bad"><i class="fa-solid fa-circle-xmark"></i><div class="m-chl"><b>重复申报校验　不通过 1 / 6</b><span>肖雨桐已有在办申请件 RC2026-0828-0104，同一身份证号<b>不允许并行两件</b></span></div></div>
+              <div class="na"><i class="fa-solid fa-clock"></i><div class="m-chl"><b>社保参保核验　提交后由受理端办理</b><span>查不到记录或已签未参保的，凭<b>单位承诺书容缺受理</b>，登记待补核期限后自动复核</span></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="m-sect">提交后流程</div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-diagram-project"></i>拆分与确认授权</div>
+          <div class="m-card-b">
+            <div class="m-tl">
+              <div class="m-ti on"><div class="m-tt">1　单位提交本批次</div><div class="m-td">邹敏（人事部）提交 5 人，渠道标记「用人单位（移动端申请）」</div></div>
+              <div class="m-ti"><div class="m-tt">2　按人拆分为独立申请件</div><div class="m-td">每人生成 1 个申请编号，单独走受理初审与复审，互不影响</div></div>
+              <div class="m-ti"><div class="m-tt">3　职工本人确认授权</div><div class="m-td">短信 + 站内消息通知本人，<b>3 个自然日内</b>在移动端确认授权，并补填联系方式、婚姻状况与意向片区（选填）</div></div>
+              <div class="m-ti"><div class="m-tt">4　以本人确认时间为受理时间</div><div class="m-td">逾期未确认<b>自动作废</b>，单位可重新代申报</div></div>
+              <div class="m-ti"><div class="m-tt">5　与个人申请汇入同一件池</div><div class="m-td">同一流程、同一时限，不因渠道优先</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="m-note"><i class="fa-solid fa-circle-info"></i>
+          <div>提交进度与拆分后的申请编号在<a href="apply-progress.html" style="color:var(--primary)">申报进度与数据</a>查看。职工离职、调岗、社保停缴等变更请在<a href="staff-change.html" style="color:var(--primary)">在职状态变更上报</a>及时上报。</div>
+        </div>
+
+      </div>
+      <div class="m-actbar">
+        <button class="m-btn w-auto" type="button" onclick="MB.toast('本批次已存草稿，可稍后继续添加')">存草稿</button>
+        <button class="m-btn primary" type="button" onclick="MB.submit('.m-view','确认提交本批次 <b>5 名</b>校验通过的员工代申报？<br>提交后<b>按人拆分为 5 个独立申请件</b>，渠道标记「用人单位（移动端申请）」；须<b>职工本人在 3 个自然日内确认授权</b>，受理时间以本人确认时间为准，逾期未确认自动作废。','确认提交','apply-progress.html')"><i class="fa-solid fa-paper-plane"></i> 提交代申报</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../../assets/js/mobile.js"></script>
+</body>
+</html>

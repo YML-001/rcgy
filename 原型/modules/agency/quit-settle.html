@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>退租结算办理 · 株洲市人才住房保障管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="agency" data-active="agency-07">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才住房保障管理平台
+      <span class="sep">/</span> 运营机构端
+      <span class="sep">/</span> 签约入住与退租
+      <span class="sep">/</span> <span class="cur">退租结算办理</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.openDrawer('jsDrawer')"><i class="fa-solid fa-clipboard-check"></i> 验房与结算</button>
+      <a class="btn" href="sign-checkin.html"><i class="fa-solid fa-key"></i> 签约与入住办理</a>
+      <a class="btn" href="../house/house-status-map.html"><i class="fa-solid fa-table-cells"></i> 房态图管理</a>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出结算台账</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>办理<b>本机构房源</b>的退租<b>现场验房、费用结清与房源恢复</b>。验房结果与扣款须双方现场确认；费用结清后由系统生成结算单，<b>结清后房源转「维修中」或「可配租」状态</b>。<b>数据范围限本机构受托房源</b>（湘江1958 人才公寓、栗雨佳苑、田心人才公寓）。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-clipboard-list"></i></div>
+      <div><div class="s-label">待验房</div><div class="s-value">6</div>
+        <div class="s-trend ">件 · 退租申请受理后 3 个工作日内须上门验房</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-money-check-dollar"></i></div>
+      <div><div class="s-label">待结清</div><div class="s-value">4</div>
+        <div class="s-trend text-2">件 · 已验房，待费用结清与押金退还</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
+      <div><div class="s-label">本月已退租</div><div class="s-value">18</div>
+        <div class="s-trend text-2">件 · 2026-09 · 均已结清并完成房源恢复</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+      <div><div class="s-label">待恢复房源</div><div class="s-value">3</div>
+        <div class="s-trend text-2">间 · 已结清，待维修或保洁后转可配租</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>退租单号</label><input type="text" value="TZ2026-0186" placeholder="如 TZ2026-0186"></div>
+      <div class="filter-item"><label>承租人</label><input type="text" value="王××" placeholder="姓 + ××"></div>
+      <div class="filter-item"><label>楼盘</label><select><option value="">全部（本机构 3 个楼盘）</option><option>湘江1958 人才公寓</option><option>栗雨佳苑</option><option>田心人才公寓</option></select></div>
+      <div class="filter-item"><label>退租类型</label><select data-dict="quitReason" data-ph="全部"></select></div>
+      <div class="filter-item"><label>当前环节</label><select><option value="">全部</option><option>待验房</option><option>待结清</option><option>待恢复</option><option>已办结</option></select></div>
+      <div class="filter-item"><label>申请时间</label><input type="date" value="2026-09-01"></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>退租单号</th><th>承租人</th><th class="cell-lg">楼盘</th><th>房号 + 间号</th><th>退租类型</th><th>申请时间</th><th>当前环节</th><th class="num">应结金额（元）</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>TZ2026-0192</td><td>谭××</td><td>湘江1958 人才公寓 A6 栋</td><td>1408B</td><td><span class="badge blue">主动退租</span></td><td>2026-09-07 09:16</td><td><span class="badge orange">待验房</span></td><td class="num"><span class="muted">待验房后核定</span></td><td><span class="link" onclick="PMS.openDrawer('jsDrawer')">办理验房</span> <span class="link" onclick="PMS.toast('已预约 2026-09-09 上午 09:30 上门验房，承租人谭×× 已确认到场；退租申请受理后须在 3 个工作日内完成验房')">预约记录</span></td></tr>
+          <tr><td>TZ2026-0190</td><td>邓××</td><td>栗雨佳苑 3 栋</td><td>0904</td><td><span class="badge orange">离职离株</span></td><td>2026-09-06 14:22</td><td><span class="badge orange">待验房</span></td><td class="num"><span class="muted">待验房后核定</span></td><td><span class="link" onclick="PMS.openDrawer('jsDrawer')">办理验房</span> <span class="link" onclick="PMS.toast('承租人已离株，委托同事代为交房，委托书已上传；已预约 2026-09-10 上午验房，本机构将全程录像留证')">预约记录</span></td></tr>
+          <tr><td>TZ2026-0186</td><td>王××</td><td>湘江1958 人才公寓 A6 栋</td><td>1502A</td><td><span class="badge blue">主动退租</span></td><td>2026-09-05 10:08</td><td><span class="badge cyan">待结清</span></td><td class="num text-success">446.80</td><td><span class="link" onclick="PMS.openDrawer('jsDrawer')">验房与结算</span> <span class="link" onclick="PMS.toast('已于 2026-09-08 完成验房：扣款合计 200.00 元（墙面污损 120.00 + 专业保洁 80.00）；押金 1,000.00 元退还，扣欠缴租金 166.80 元、水电气费 186.40 元、损坏赔偿 200.00 元，应退承租人 446.80 元')">验房结果</span></td></tr>
+          <tr><td>TZ2026-0184</td><td>周××</td><td>田心人才公寓 B2 栋</td><td>0712A</td><td><span class="badge purple">购买住房</span></td><td>2026-09-04 15:36</td><td><span class="badge cyan">待结清</span></td><td class="num text-success">328.60</td><td><span class="link" onclick="PMS.openDrawer('jsDrawer')">验房与结算</span> <span class="link" onclick="PMS.toast('已于 2026-09-07 完成验房：房屋验收五项全部完好，无扣款；押金 800.00 元退还，扣欠缴租金 195.60 元、水电气费 275.80 元，应退承租人 328.60 元')">验房结果</span></td></tr>
+          <tr class="row-warn"><td>TZ2026-0178</td><td>龙××</td><td>湘江1958 人才公寓 A6 栋</td><td>1206C</td><td><span class="badge gray">保障期届满</span></td><td>2026-09-02 09:44</td><td><span class="badge orange">待恢复</span></td><td class="num text-success">512.40</td><td><span class="link" onclick="PMS.confirm({title:'房源恢复确认',message:'确认将 湘江1958 A6-1206C 转为「维修中」状态？',detail:'验房发现卫生间防水层局部渗漏、次卧空调制冷不足，须先维修后方可配租。转「维修中」后由本机构派单维修，维修完工并验收合格后再转「可配租」，房态变更同步至房态图与移动端房源列表。',type:'warning',okText:'确认转维修中',onOk:function(){PMS.toast('已转「维修中」，维修工单已派发','success');}})">恢复房源</span> <span class="link" onclick="PMS.toast('费用已于 2026-09-05 结清，应退 512.40 元已到账；房源待维修后恢复，已超出 3 个工作日恢复时限，计入本机构考核空置率')">结算详情</span></td></tr>
+          <tr class="row-bad"><td>TZ2026-0166</td><td>肖××</td><td>栗雨佳苑 3 栋</td><td>0608</td><td><span class="badge red">违规清退</span></td><td>2026-08-28 11:02</td><td><span class="badge green">已办结</span></td><td class="num text-danger">-246.80</td><td><span class="link" onclick="PMS.toast('转租他人违规清退。押金 1,000.00 元不予退还，另欠缴租金 578.40 元、水电气费 342.60 元、损坏赔偿 325.80 元，扣除押金后应补缴 246.80 元；已于 2026-09-03 由承租人补缴到账','error')">结算详情</span> <span class="link" onclick="PMS.toast('房源已于 2026-09-05 完成保洁与设施检查，转「可配租」并纳入 2026 年 9 月第二批配租房源')">房源恢复</span></td></tr>
+          <tr><td>TZ2026-0158</td><td>陈××</td><td>田心人才公寓 B2 栋</td><td>0512B</td><td><span class="badge blue">主动退租</span></td><td>2026-08-24 10:18</td><td><span class="badge green">已办结</span></td><td class="num text-success">682.00</td><td><span class="link" onclick="PMS.toast('房屋验收五项全部完好，无扣款；押金 800.00 元退还，扣水电气费 118.00 元，应退 682.00 元已于 2026-08-31 到账；房源已转「可配租」')">结算详情</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sp-block" style="margin-top:8px">
+    <div class="sp-h"><i class="fa-solid fa-diagram-project"></i> 退租流程与房源恢复<span class="sub">R8-07 · TZ-1 至 TZ-6 · 本页只办退租结算</span></div>
+    <div class="sp-b">
+      <div class="sp-tw">
+        <table class="data-table compact">
+          <thead><tr><th>环节</th><th>责任方</th><th class="cell-lg">办理内容</th><th>时限</th><th>结果</th></tr></thead>
+          <tbody>
+            <tr><td><b>① 退租申请受理</b></td><td>承租人 / 本机构</td><td>承租人在移动端提交退租申请并选择退租类型；本机构受理并<b>预约上门验房时间</b></td><td>申请当日受理</td><td>生成退租单</td></tr>
+            <tr><td><b>② 现场验房</b></td><td>本运营机构</td><td>按<b>墙面地面、门窗锁具、家电家具、水电气设施、清洁状况</b>五项验收，逐项记录结果与扣款，双方现场确认并拍照留证</td><td>受理后 <b>3 个工作日</b></td><td>验房单 + 扣款明细</td></tr>
+            <tr><td><b>③ 费用结清</b></td><td>本运营机构</td><td>核算<b>欠缴租金、水电气费、押金退还、损坏赔偿</b>，得出应退或应补合计；应退的退至承租人本人账户，应补的由承租人缴清</td><td>验房后 <b>5 个工作日</b></td><td>结算单</td></tr>
+            <tr><td><b>④ 房源恢复</b></td><td>本运营机构</td><td>结清后房源<b>转「维修中」或「可配租」</b>：需维修保洁的先转维修中，完工验收合格后转可配租；无须维修的直接转可配租</td><td>结清后 <b>3 个工作日</b></td><td>房态变更</td></tr>
+            <tr><td><b>⑤ 房态同步</b></td><td>系统</td><td>房态变更<b>同步至房态图与移动端房源列表</b>；转可配租的自动纳入下一批配租房源池</td><td>自动</td><td>移动端可见</td></tr>
+            <tr><td><b>⑥ 超期计考核</b></td><td>系统</td><td>验房、结清、恢复<b>任一环节超期均计入本机构考核</b>（空置率与服务时效指标），并在台账中标记预警</td><td>自动</td><td>考核扣分</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="sp-src">
+    <span><b>依据</b> 2026 年 9 月 7 日汇报讨论会决议：退租的现场验房、费用结清与房源恢复由运营机构办理</span>
+    <span><b>结算口径</b> 应退（应补）＝ 押金退还 − 欠缴租金 − 水电气费 − 损坏赔偿；金额一律保留两位小数</span>
+    <span><b>台账口径</b> 台账共 31 件 = 待验房 6 + 待结清 4 + 待恢复 3 + 本月已办结 18</span>
+    <span><b>数据范围</b> 限本机构受托房源 · 株洲城发高科人才安居服务有限公司 · 彭建华</span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="jsDrawer">
+  <div class="drawer-head">
+    <h3>验房与结算</h3>
+    <span class="badge cyan">TZ2026-0186 · 湘江1958 A6-1502A · 待结清</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+    <div class="alert alert-warning">
+      <i class="fa-solid fa-triangle-exclamation"></i>
+      <div>验房结果与扣款须<b>双方现场共同确认并拍照留证</b>；正常使用损耗不计扣款。费用结清后系统生成结算单并推送至承租人移动端，<b>应退的于 5 个工作日内退至承租人本人账户</b>，应补的由承租人缴清后方可办结。结清后房源按验房结论转<b>「维修中」或「可配租」</b>。</div>
+    </div>
+
+    <div class="form-grid form-align">
+      <div class="form-item">
+        <label>退租单号 <span class="req">*</span></label>
+        <input type="text" value="TZ2026-0186" readonly>
+      </div>
+      <div class="form-item">
+        <label>承租人 <span class="req">*</span></label>
+        <input type="text" value="王××（138****0318）" readonly>
+        <div class="hint">姓名按姓 + ×× 脱敏展示</div>
+      </div>
+      <div class="form-item">
+        <label>房源 <span class="req">*</span></label>
+        <input type="text" value="湘江1958 人才公寓 A6 栋 1502A（三室两厅 · 计租面积 27.80 ㎡）" readonly>
+      </div>
+      <div class="form-item">
+        <label>退租类型 <span class="req">*</span></label>
+        <select data-dict="quitReason" data-selected="4" data-ph=""></select>
+      </div>
+      <div class="form-item">
+        <label>验房日期 <span class="req">*</span></label>
+        <input type="date" value="2026-09-08">
+      </div>
+      <div class="form-item">
+        <label>本机构验房人 <span class="req">*</span></label>
+        <input type="text" value="彭建华（株洲城发高科人才安居服务有限公司）" readonly>
+      </div>
+    </div>
+
+    <div class="sp-block" style="margin-top:12px">
+      <div class="sp-h"><i class="fa-solid fa-clipboard-check"></i> 房屋验收项<span class="sub">五项验收 · 完好 3 项 / 需扣款 2 项 · 扣款合计 200.00 元</span></div>
+      <div class="sp-b">
+        <div class="sp-tw">
+          <table class="data-table compact">
+            <thead><tr><th>验收项</th><th class="cell-lg">验收标准</th><th class="cell-lg">验收结果</th><th>结论</th><th class="num">扣款（元）</th></tr></thead>
+            <tbody>
+              <tr class="row-warn"><td>墙面地面</td><td>无明显污损、涂画、开裂与空鼓；正常使用痕迹不计扣款</td><td>次卧墙面 2 处涂画污损，合计约 0.60 ㎡，须铲除后重新刮腻子涂料</td><td><span class="badge orange">需扣款</span></td><td class="num">120.00</td></tr>
+              <tr><td>门窗锁具</td><td>开合顺畅、锁闭正常、玻璃完好、五金件无缺失</td><td>入户门、卧室门、推拉窗开合与锁闭均正常，玻璃无破损，五金件齐全</td><td><span class="badge green">完好</span></td><td class="num">0.00</td></tr>
+              <tr><td>家电家具</td><td>清单内 12 项齐全、功能正常；正常损耗不计扣款</td><td>12 项齐全并逐项试机正常；空调滤网积尘属正常损耗，由本机构清洗，不计扣款</td><td><span class="badge green">完好</span></td><td class="num">0.00</td></tr>
+              <tr><td>水电气设施</td><td>三表运行正常、读数已抄录；无漏水、漏电、漏气；线路插座完好</td><td>水表 148.60 吨、电表 4,286.40 度、燃气表 596.20 立方米，均已抄录并拍照；无漏水漏气，插座全部通电</td><td><span class="badge green">完好</span></td><td class="num">0.00</td></tr>
+              <tr class="row-warn"><td>清洁状况</td><td>还房时须清空个人物品并达到基本保洁标准</td><td>个人物品已清空；卫生间地面积垢、厨房台面与灶具油污未清理，须专业保洁</td><td><span class="badge orange">需扣款</span></td><td class="num">80.00</td></tr>
+              <tr><td><span class="badge green">扣款合计</span></td><td><span class="muted">—</span></td><td>墙面修复 120.00 元 + 专业保洁 80.00 元，均按本机构公示维修保洁价目表计收</td><td><span class="badge orange">需扣款</span></td><td class="num"><b>200.00</b></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="sp-block">
+      <div class="sp-h"><i class="fa-solid fa-money-check-dollar"></i> 费用结清<span class="sub">应退（应补）＝ 押金退还 − 欠缴租金 − 水电气费 − 损坏赔偿 · 金额保留两位小数</span></div>
+      <div class="sp-b">
+        <div class="sp-tw">
+          <table class="data-table compact">
+            <thead><tr><th>结算项</th><th>方向</th><th class="cell-lg">计算依据</th><th class="num">金额（元）</th></tr></thead>
+            <tbody>
+              <tr><td>押金退还</td><td><span class="badge green">应退承租人</span></td><td>签约时缴纳押金 1,000.00 元，无违规转租、无欠缴超 3 期情形，全额退还</td><td class="num">1,000.00</td></tr>
+              <tr><td>欠缴租金</td><td><span class="badge red">应扣</span></td><td>2026 年 8 月账单未缴：27.80 ㎡ × 6.00 元/㎡·月 = 166.80 元（9 月按实际在租 8 天已减免）</td><td class="num">166.80</td></tr>
+              <tr><td>水电气费</td><td><span class="badge red">应扣</span></td><td>退租当期用量未缴：水 25.00 吨 × 2.68 元/吨 = 67.00 元；电 128.00 度 × 0.62 元/度 = 79.36 元；燃气 14.00 立方米 × 2.86 元/立方米 = 40.04 元。合计 67.00 + 79.36 + 40.04 = 186.40 元</td><td class="num">186.40</td></tr>
+              <tr><td>损坏赔偿</td><td><span class="badge red">应扣</span></td><td>取验收项扣款合计：墙面修复 120.00 元 + 专业保洁 80.00 元</td><td class="num">200.00</td></tr>
+              <tr><td><span class="badge green">应退合计</span></td><td><span class="badge green">应退承租人</span></td><td>1,000.00 − 166.80 − 186.40 − 200.00 = <b>446.80</b> 元</td><td class="num"><b>446.80</b></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-grid form-align" style="margin-top:12px">
+      <div class="form-item">
+        <label>应退（应补）合计（元） <span class="req">*</span></label>
+        <input type="text" value="446.80" readonly>
+        <div class="hint">正数为应退承租人，负数为应由承租人补缴</div>
+      </div>
+      <div class="form-item">
+        <label>退款账户 <span class="req">*</span></label>
+        <input type="text" value="中国建设银行 6217****4826（王×× 本人账户）" readonly>
+        <div class="hint">须为承租人本人账户，不得退至第三人</div>
+      </div>
+      <div class="form-item">
+        <label>房源恢复去向 <span class="req">*</span></label>
+        <select>
+          <option selected>先转「维修中」（墙面修复 + 专业保洁）</option>
+          <option>直接转「可配租」</option>
+          <option>暂转「已冻结」（待主管单位确认）</option>
+        </select>
+        <div class="hint">需维修保洁的先转维修中，完工验收合格后转可配租</div>
+      </div>
+      <div class="form-item">
+        <label>预计恢复可配租日期 <span class="req">*</span></label>
+        <input type="date" value="2026-09-11">
+        <div class="hint">超出结清后 3 个工作日的计入本机构考核空置率</div>
+      </div>
+      <div class="form-item col-full">
+        <label>验房照片与凭证 <span class="req">*</span></label>
+        <input type="text" data-upload="1" value="1502A_次卧墙面污损.jpg，1502A_卫生间清洁.jpg，1502A_厨房清洁.jpg，1502A_水表读数.jpg，1502A_电表读数.jpg，1502A_燃气表读数.jpg，1502A_验房单双方签字页.pdf">
+      </div>
+      <div class="form-item col-full">
+        <label>双方确认说明 <span class="req">*</span></label>
+        <textarea rows="3">本次验房由本机构验房人彭建华与承租人王××于 2026-09-08 上午现场共同进行，五项验收逐项核对并拍照留证。承租人对次卧墙面涂画污损扣款 120.00 元、卫生间与厨房专业保洁扣款 80.00 元均无异议，扣款标准按本机构公示的维修保洁价目表计收。三表读数当场抄录双方确认。纸质《退租验房单》双方签字各执一份，签字页影像已随附上传。</textarea>
+      </div>
+      <div class="form-item col-full">
+        <label>结算说明 <span class="req">*</span></label>
+        <textarea rows="4">湘江1958 人才公寓 A6 栋 1502A（三室两厅，计租面积 27.80 ㎡，人才租金 6.00 元/㎡·月），承租人王××，因个人原因主动退租，退租申请 2026-09-05 10:08 受理，2026-09-08 完成现场验房。结算：押金退还 1,000.00 元，扣欠缴租金 166.80 元（2026 年 8 月账单）、水电气费 186.40 元、损坏赔偿 200.00 元，应退承租人 446.80 元，将于 5 个工作日内退至其本人建设银行账户。房源按验房结论先转「维修中」，由本机构派单完成墙面修复与专业保洁，预计 2026-09-11 验收合格后转「可配租」并纳入下一批配租房源池。</textarea>
+      </div>
+    </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn" onclick="PMS.toast('已重新试算：押金 1,000.00 − 欠缴租金 166.80 − 水电气费 186.40 − 损坏赔偿 200.00 = 应退 446.80 元','success')">重新试算</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认完成 TZ2026-0186（湘江1958 A6-1502A）的验房与结算，应退承租人 446.80 元？',detail:'提交后系统生成结算单并推送至承租人移动端，应退款项于 5 个工作日内退至承租人本人账户。房源同步转「维修中」，由本机构派单完成墙面修复与专业保洁，验收合格后转「可配租」并同步至房态图与移动端房源列表。恢复超出结清后 3 个工作日的计入本机构考核空置率。',type:'warning',okText:'确认提交结算',onOk:function(){PMS.closeDrawer();PMS.toast('已提交结算，应退 446.80 元待退款；房源已转「维修中」','success');}})"><i class="fa-solid fa-check"></i> 提交结算</button>
+  </div>
+</div>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 31; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>在职状态变更上报 · 株洲市人才住房保障管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/mobile.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body class="m-body" data-mtitle="在职状态变更上报" data-mmod="M3 用人单位端" data-mcode="M3-03"
+      data-mdesc="用人单位上报职工离职、调岗、社保停缴、单位变更等在职状态变更，上报后自动触发承租资格复核。"
+      data-mback="home.html" data-mtabset="employer" data-mtab="declare">
+<div class="m-stage">
+  <div class="m-phone">
+    <div class="m-screen">
+      <div class="m-view">
+
+        <div class="m-note warn"><i class="fa-solid fa-triangle-exclamation"></i>
+          <div>职工发生<b>离职、调岗、社保停缴、单位变更</b>的，用人单位须及时上报。上报后系统<b>自动触发承租资格复核</b>，由市保障性住房服务中心认定是否继续保障或启动退出。</div>
+        </div>
+
+        <div class="m-sect">变更上报<span class="m-sect-x">M3-03</span></div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-user-pen"></i>上报表单</div>
+          <div class="m-card-b">
+            <div class="m-form">
+              <div class="m-fi">
+                <label>职工姓名 <span class="req">*</span></label>
+                <div class="m-fc"><select>
+                  <option selected>谭泽宇　·	研发中心传动技术部</option>
+                  <option>彭思远　·	研发中心电气系统部</option>
+                  <option>邓亦凡　·	制造工程部</option>
+                  <option>周芷若　·	质量管理部</option>
+                </select><div class="m-fh">仅可选择本单位在职或近 6 个月内离职的职工</div></div>
+              </div>
+              <div class="m-fi">
+                <label>变更类型 <span class="req">*</span></label>
+                <div class="m-fc"><select>
+                  <option selected>离职</option>
+                  <option>调岗</option>
+                  <option>社保停缴</option>
+                  <option>单位变更</option>
+                </select></div>
+              </div>
+              <div class="m-fi">
+                <label>变更生效日期 <span class="req">*</span></label>
+                <div class="m-fc"><input type="date" value="2026-08-28"><div class="m-fh">以劳动合同解除日或社保停缴月份首日为准</div></div>
+              </div>
+              <div class="m-fi">
+                <label>是否仍在租 <span class="req">*</span></label>
+                <div class="m-fc"><select data-dict="yesNo"></select><div class="m-fh">据实填报，用于判定是否需要启动腾退</div></div>
+              </div>
+              <div class="m-fi">
+                <label>变更说明 <span class="req">*</span></label>
+                <div class="m-fc"><textarea rows="4">谭泽宇因个人原因于 2026-08-28 办理离职，劳动合同已解除，2026 年 9 月起不再由本单位缴纳养老保险与个人所得税。经与本人确认，目前仍居住在人才公寓，本单位已书面告知其应主动申报条件变化。</textarea><div class="m-fh">必填且不少于 20 字，说明将随复核任务一并送达经办人</div></div>
+              </div>
+              <div class="m-fi">
+                <label>上报人 <span class="req">*</span></label>
+                <div class="m-fc"><input type="text" value="邹敏（人事部）　·	138****4192" readonly><div class="m-fh">由单位认证信息带入，不可修改</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="m-sect">上报后系统动作</div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-diagram-project"></i>触发承租资格复核</div>
+          <div class="m-card-b">
+            <div class="m-check">
+              <div class="ok"><i class="fa-solid fa-1"></i><div class="m-chl"><b>生成承租资格复核任务</b><span>推送至市保障性住房服务中心资格审核科，纳入年审与退出台账</span></div></div>
+              <div class="ok"><i class="fa-solid fa-2"></i><div class="m-chl"><b>同步通知职工本人</b><span>站内消息 + 短信告知已被上报变更，本人可在个人端主动申报条件变化</span></div></div>
+              <div class="wait"><i class="fa-solid fa-3"></i><div class="m-chl"><b>复核认定</b><span>仍符合人才条件的继续享受租金减免；不再符合但符合公租房条件的可续租、<b>按实际市场租金计费、不再享受财政补助</b>；均不符合的启动退出腾退</span></div></div>
+              <div class="na"><i class="fa-solid fa-4"></i><div class="m-chl"><b>结论回传单位</b><span>单位端只可查看复核状态与结论，<b>不展示职工收入、住房核验等敏感信息</b></span></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="m-sect">历史上报记录<span class="m-sect-x">近 6 个月 4 条</span></div>
+        <div class="m-cells">
+          <div class="m-cell"><span class="m-ci orange"><i class="fa-solid fa-user-xmark"></i></span><span class="m-cl"><b>彭思远　社保停缴</b><span class="m-cs">生效 2026-09-01　·	上报 2026-09-04　·	仍在租</span></span><span class="m-cv"><span class="m-tag orange">复核中</span></span></div>
+          <div class="m-cell"><span class="m-ci green"><i class="fa-solid fa-user-check"></i></span><span class="m-cl"><b>刘思远　调岗</b><span class="m-cs">生效 2026-07-15　·	上报 2026-07-16　·	仍在租</span></span><span class="m-cv"><span class="m-tag green">复核通过 · 继续保障</span></span></div>
+          <div class="m-cell"><span class="m-ci red"><i class="fa-solid fa-door-open"></i></span><span class="m-cl"><b>唐若溪　离职</b><span class="m-cs">生效 2026-06-20　·	上报 2026-06-22　·	仍在租</span></span><span class="m-cv"><span class="m-tag red">已启动退出腾退</span></span></div>
+          <div class="m-cell"><span class="m-ci"><i class="fa-solid fa-building-circle-arrow-right"></i></span><span class="m-cl"><b>肖振宇　单位变更</b><span class="m-cs">生效 2026-04-08　·	上报 2026-04-09　·	已退租</span></span><span class="m-cv"><span class="m-tag dark">已办结</span></span></div>
+        </div>
+
+        <div class="m-note"><i class="fa-solid fa-circle-info"></i>
+          <div>未及时上报导致<b>不符合条件人员继续占用房源</b>的，计入用人单位诚信记录并影响后续代申报。职工本人也应在个人端主动申报条件变化，两条渠道互为补充。</div>
+        </div>
+
+      </div>
+      <div class="m-actbar">
+        <button class="m-btn w-auto" type="button" onclick="MB.toast('变更上报已存草稿')">存草稿</button>
+        <button class="m-btn primary" type="button" onclick="MB.submit('.m-view','确认上报<b>谭泽宇　离职</b>（生效 2026-08-28）？<br>提交后<b>自动触发承租资格复核</b>并同步通知职工本人，上报内容全程留痕、不可直接修改。','确认上报','home.html')"><i class="fa-solid fa-paper-plane"></i> 提交上报</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../../assets/js/mobile.js"></script>
+</body>
+</html>

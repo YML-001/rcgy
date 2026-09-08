@@ -1,0 +1,216 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - text: 
+      - generic [ref=e5]: 
+      - generic [ref=e6]: 株洲市人才住房保障管理平台
+    - generic [ref=e7]:
+      - generic "当前业务子系统" [ref=e8]:
+        - generic [ref=e9]: 房源筹集与楼盘表
+      - button " 切换系统" [ref=e10] [cursor=pointer]:
+        - generic [ref=e11]: 
+        - text: 切换系统
+    - generic [ref=e12]:
+      - button " 单位房源管理员 " [ref=e14] [cursor=pointer]:
+        - generic [ref=e15]: 
+        - generic [ref=e16]: 单位房源管理员
+        - generic [ref=e17]: 
+      - generic "消息" [ref=e18] [cursor=pointer]:
+        - generic [ref=e19]: 
+        - generic [ref=e20]: "5"
+      - generic "帮助" [ref=e21] [cursor=pointer]:
+        - generic [ref=e22]: 
+      - generic [ref=e23] [cursor=pointer]:
+        - generic [ref=e24]: 唐
+        - generic [ref=e25]:
+          - generic [ref=e26]: 唐凯
+          - generic [ref=e27]: 市保障性住房服务中心房源管理科 · 单位房源管理员
+      - link "" [ref=e28] [cursor=pointer]:
+        - /url: ../../index.html
+        - generic [ref=e29]: 
+  - complementary [ref=e30]:
+    - generic [ref=e31]:
+      - textbox "菜单搜索" [ref=e32]
+      - generic [ref=e33]: 
+      - text: 
+    - generic [ref=e34]:
+      - link " 我的工作台" [ref=e35] [cursor=pointer]:
+        - /url: ../../modules/workbench/workbench.html?role=housing
+        - generic [ref=e36]: 
+        - generic [ref=e37]: 我的工作台
+      - generic [ref=e39] [cursor=pointer]:
+        - generic [ref=e40]: 
+        - generic [ref=e41]: 待办与协同
+        - generic [ref=e42]: 
+      - generic [ref=e44] [cursor=pointer]:
+        - generic [ref=e45]: 
+        - generic [ref=e46]: 房源筹集与项目
+        - generic [ref=e47]: 
+      - generic [ref=e48]:
+        - generic [ref=e49] [cursor=pointer]:
+          - generic [ref=e50]: 
+          - generic [ref=e51]: 楼盘表与多源归集
+          - generic [ref=e52]: 
+        - generic [ref=e53]:
+          - link "统一楼盘表" [ref=e54] [cursor=pointer]:
+            - /url: ../../modules/house/building-table.html?role=housing
+          - link "房源批量导入" [ref=e55] [cursor=pointer]:
+            - /url: ../../modules/house/building-import.html?role=housing
+          - link "导入与接口比对合并" [ref=e56] [cursor=pointer]:
+            - /url: ../../modules/house/import-merge.html?role=housing
+          - link "导入模板与批次台账" [ref=e57] [cursor=pointer]:
+            - /url: ../../modules/house/import-batch.html?role=housing
+          - link "保租房房源调用" [ref=e58] [cursor=pointer]:
+            - /url: ../../modules/house/src-bzf.html?role=housing
+          - link "公租房房源调用" [ref=e59] [cursor=pointer]:
+            - /url: ../../modules/house/src-gzf.html?role=housing
+          - link "来源与属性打标" [ref=e60] [cursor=pointer]:
+            - /url: ../../modules/house/src-tag.html?role=housing
+          - link "重复登记校验" [ref=e61] [cursor=pointer]:
+            - /url: ../../modules/house/src-dup.html?role=housing
+          - link "房源同步与对账" [ref=e62] [cursor=pointer]:
+            - /url: ../../modules/house/src-sync.html?role=housing
+      - generic [ref=e64] [cursor=pointer]:
+        - generic [ref=e65]: 
+        - generic [ref=e66]: 房源档案与房态
+        - generic [ref=e67]: 
+      - generic [ref=e69] [cursor=pointer]:
+        - generic [ref=e70]: 
+        - generic [ref=e71]: 房源发布与预约
+        - generic [ref=e72]: 
+      - generic [ref=e74] [cursor=pointer]:
+        - generic [ref=e75]: 
+        - generic [ref=e76]: 房源导入与来源台账
+        - generic [ref=e77]: 
+  - main [ref=e78]:
+    - generic [ref=e79]:
+      - generic [ref=e80]:
+        - generic [ref=e81]: 
+        - text: 株洲市人才住房保障管理平台
+        - generic [ref=e82]: /
+        - text: 房源筹集与楼盘表
+        - generic [ref=e83]: /
+        - text: 楼盘表与多源归集
+        - generic [ref=e84]: /
+        - generic [ref=e85]: 批量导入与校验
+      - generic [ref=e86]:
+        - link " 返回楼盘表" [ref=e87] [cursor=pointer]:
+          - /url: building-table.html
+          - generic [ref=e88]: 
+          - text: 返回楼盘表
+        - link " 分批导入与断点续传" [ref=e89] [cursor=pointer]:
+          - /url: import-load.html
+          - generic [ref=e90]: 
+          - text: 分批导入与断点续传
+        - link " 导入校验规则配置" [ref=e91] [cursor=pointer]:
+          - /url: import-rule.html
+          - generic [ref=e92]: 
+          - text: 导入校验规则配置
+        - button " 下载差错清单" [ref=e93] [cursor=pointer]:
+          - generic [ref=e94]: 
+          - text: 下载差错清单
+        - button " 重新校验" [ref=e95] [cursor=pointer]:
+          - generic [ref=e96]: 
+          - text: 重新校验
+    - generic [ref=e97]:
+      - generic [ref=e98]: 
+      - generic [ref=e99]: 按项目—楼栋—单元—楼层—房号—间号六级层级批量导入房源，一行一间：同步导入间级的室厅结构、房间配套、套内面积、公摊比例、公摊面积、计租面积、人才租金标准、原（市场）租金标准，以及套级的房屋总面积、总公摊面积与水费、电费、天然气、物业费标准，导入后自动生成一间一码（房号 + 间号，如 1502A）。本期为房源建账的主要方式，由各运营机构自行导入（导入环节不需报送审批），须支撑全市约一万套、约 1.7 万间规模的分批导入（省保租房系统、公租房系统接口暂不对接）。导入模板由主管单位统一下发，运营机构按模板整理后批量导入；主管单位只做查看、监管与审核发布，不介入房源日常维护。
+    - generic [ref=e100]:
+      - generic [ref=e101]: 
+      - generic [ref=e102]: 本次导入 842 行（间），校验差错 12 行（含重复登记 2 行）。差错行不入库，须修正后重新校验，差错不影响本批已校验通过行与已入库房源。公摊比例、公摊面积与计租面积三项按套联动校验：同一套内各间公摊比例合计须等于 1、各间公摊面积合计须等于套级总公摊面积、每间计租面积须等于套内面积 ＋ 公摊面积。命中多源重复校验的房源已自动锁定，须人工核实后方可提交发布。
+    - generic [ref=e103]:
+      - generic [ref=e104]:
+        - generic [ref=e106]: 
+        - generic [ref=e107]:
+          - generic [ref=e108]: 本次导入行数
+          - generic [ref=e109]: "842"
+          - generic [ref=e110]: 间 · 清水塘·未来社区第 6 批 / 累计建账 4,286 间（2,486 套）
+      - generic [ref=e111]:
+        - generic [ref=e113]: 
+        - generic [ref=e114]:
+          - generic [ref=e115]: 校验通过
+          - generic [ref=e116]: "830"
+          - generic [ref=e117]: 间 · 占 98.6%
+      - generic [ref=e118]:
+        - generic [ref=e120]: 
+        - generic [ref=e121]:
+          - generic [ref=e122]: 校验差错
+          - generic [ref=e123]: "12"
+          - generic [ref=e124]: 含公摊类差错 5 行、重复登记 2 行
+      - generic [ref=e125]:
+        - generic [ref=e127]: 
+        - generic [ref=e128]:
+          - generic [ref=e129]: 重复登记锁定
+          - generic [ref=e130]: "2"
+          - generic [ref=e131]: 待人工核实
+    - generic [ref=e132]:
+      - generic [ref=e133]:
+        - generic [ref=e134] [cursor=pointer]: 导入房源数据
+        - generic [ref=e135] [cursor=pointer]: 模板字段清单
+        - generic [ref=e136] [cursor=pointer]:
+          - text: 校验规则
+          - generic [ref=e137]: "10"
+        - generic [ref=e138] [cursor=pointer]:
+          - text: 校验结果
+          - generic [ref=e139]: "12"
+        - generic [ref=e140] [cursor=pointer]: 导入历史
+      - generic [ref=e142]:
+        - generic [ref=e143] [cursor=pointer]:
+          - generic [ref=e144]: 
+          - generic [ref=e145]: 将按间房源表 Excel 文件拖放到此处，或点击选择文件
+          - generic [ref=e146]: 支持 .xlsx / .xls，一行一间，单批最多 5,000 行，文件大小不超过 20 MB。全市约 1 万套、约 1.7 万间房源按项目分批导入，约需 4 批
+        - generic [ref=e147]:
+          - generic [ref=e148]:
+            - generic [ref=e149]: 
+            - text: 分批导入与自行导入口径
+            - generic [ref=e150]: 本期建账主方式 · 运营机构自行导入 · 不需报送审批
+          - table [ref=e153]:
+            - rowgroup [ref=e154]:
+              - row "项 说明" [ref=e155]:
+                - columnheader "项" [ref=e156]
+                - columnheader "说明" [ref=e157]
+            - rowgroup [ref=e158]:
+              - row "R-1 本期定位 省保租房系统、公租房系统接口暂不对接，批量导入是本期房源建账的主要方式；导入模板由主管单位统一下发，各运营机构按模板整理后自行批量导入建账，导入环节不需报送审批，保证平台按期上线可用" [ref=e159]:
+                - cell "R-1 本期定位" [ref=e160]
+                - cell "省保租房系统、公租房系统接口暂不对接，批量导入是本期房源建账的主要方式；导入模板由主管单位统一下发，各运营机构按模板整理后自行批量导入建账，导入环节不需报送审批，保证平台按期上线可用" [ref=e161]
+              - row "R-2 职责边界 房源数据由各运营机构自行导入与维护（含面积、租金标准、配套、素材）；主管单位只做查看、监管与审核发布，不介入房源日常维护。导入完成并维护素材后由运营机构提交发布，主管单位在房源查询列表按统一发布标准审核发布或退回" [ref=e162]:
+                - cell "R-2 职责边界" [ref=e163]
+                - cell "房源数据由各运营机构自行导入与维护（含面积、租金标准、配套、素材）；主管单位只做查看、监管与审核发布，不介入房源日常维护。导入完成并维护素材后由运营机构提交发布，主管单位在房源查询列表按统一发布标准审核发布或退回" [ref=e164]
+              - row "R-3 规模要求 须支撑全市约一万套、约 1.7 万间房源的分批导入：一行一间，单批上限 5,000 行、单文件不超过 20 MB，约需 4 批；导入按项目组织，每个项目一至多批，互不影响" [ref=e165]:
+                - cell "R-3 规模要求" [ref=e166]
+                - cell "须支撑全市约一万套、约 1.7 万间房源的分批导入：一行一间，单批上限 5,000 行、单文件不超过 20 MB，约需 4 批；导入按项目组织，每个项目一至多批，互不影响" [ref=e167]
+              - row "R-4 分批策略 按项目 → 楼栋拆批，同一套房的各间必须放在同一批：公摊比例合计、各间公摊面积合计与套级总公摊三项为按套联动校验，跨批会导致同一套的间不完整而整套报错" [ref=e168]:
+                - cell "R-4 分批策略" [ref=e169]
+                - cell "按项目 → 楼栋拆批，同一套房的各间必须放在同一批：公摊比例合计、各间公摊面积合计与套级总公摊三项为按套联动校验，跨批会导致同一套的间不完整而整套报错" [ref=e170]
+              - row "R-5 失败隔离 差错不影响已入库房源：差错行不入库，同批已校验通过行正常建账；同一套内任一间报错时整套暂不入库，避免公摊分摊不完整；本批失败不影响前序批次。修正后仅需重新导入差错所在套" [ref=e171]:
+                - cell "R-5 失败隔离" [ref=e172]
+                - cell "差错不影响已入库房源：差错行不入库，同批已校验通过行正常建账；同一套内任一间报错时整套暂不入库，避免公摊分摊不完整；本批失败不影响前序批次。修正后仅需重新导入差错所在套" [ref=e173]
+              - row "R-6 断点续传 大批量导入按 500 行为一段落库，按套对齐分段边界，中断后从最后成功段续传，不产生重复房间。分批导入与断点续传" [ref=e174]:
+                - cell "R-6 断点续传" [ref=e175]
+                - cell "大批量导入按 500 行为一段落库，按套对齐分段边界，中断后从最后成功段续传，不产生重复房间。分批导入与断点续传" [ref=e176]
+              - row "R-7 一间一码 六级层级齐全且校验通过后自动生成一间一码（区代码 + 项目代码 + 楼栋 + 房号 + 间号，如 FY-TY-XJ-A6-1502A）并写入统一楼盘表，同时写入入库类型「批量导入」、本批导入批次号与所属运营机构，发布状态初始为待提交" [ref=e177]:
+                - cell "R-7 一间一码" [ref=e178]
+                - cell "六级层级齐全且校验通过后自动生成一间一码（区代码 + 项目代码 + 楼栋 + 房号 + 间号，如 FY-TY-XJ-A6-1502A）并写入统一楼盘表，同时写入入库类型「批量导入」、本批导入批次号与所属运营机构，发布状态初始为待提交" [ref=e179]
+        - generic [ref=e180]:
+          - button " 下载导入模板" [ref=e181] [cursor=pointer]:
+            - generic [ref=e182]: 
+            - text: 下载导入模板
+          - link " 导入模板与批次台账" [ref=e183] [cursor=pointer]:
+            - /url: import-batch.html
+            - generic [ref=e184]: 
+            - text: 导入模板与批次台账
+          - link " 导入校验规则配置" [ref=e185] [cursor=pointer]:
+            - /url: import-rule.html
+            - generic [ref=e186]: 
+            - text: 导入校验规则配置
+          - button " 开始校验" [ref=e187] [cursor=pointer]:
+            - generic [ref=e188]: 
+            - text: 开始校验
+      - text:     
+    - generic [ref=e189]:
+      - generic [ref=e190]: 导入层级 项目—楼栋—单元—楼层—房号—间号六级，一行一间，齐全后自动生成一间一码（如 FY-TY-XJ-A6-1502A）
+      - generic [ref=e191]: 间级字段 室厅结构、房间配套、套内面积、公摊比例、公摊面积、计租面积、人才租金标准、原（市场）租金标准
+      - generic [ref=e192]: 套级字段 房屋总面积、总公摊面积，以及水费、电费、天然气、物业费标准
+      - generic [ref=e193]: 新增校验 JY-4 间号同套内唯一｜JY-5 公摊比例合计＝1｜JY-6 各间公摊面积合计＝套级总公摊｜JY-7 计租面积＝套内＋公摊｜JY-8 套级字段一致
+      - generic [ref=e194]: 本期定位 房源建账的主要方式，由运营机构自行导入、导入环节不需报送审批；模板由主管单位下发，主管单位只做查看、监管与审核发布，不介入房源日常维护
+      - generic [ref=e195]: 关联页面 房源查询与审核发布 分批导入与断点续传 导入校验规则配置

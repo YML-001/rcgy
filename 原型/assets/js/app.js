@@ -19,7 +19,7 @@
      ========================================================================== */
   var APP_CONFIG = {
     /* ---------- 基本信息 ---------- */
-    sysName: '株洲市人才公寓管理平台',
+    sysName: '株洲市人才住房保障管理平台',
     /* 品牌图标：留空显示图标方块；填相对项目根的图片路径则显示图片 */
     logo: '',
     logoIcon: 'fa-building-user',
@@ -28,130 +28,121 @@
     defaultRole: 'reviewer',
 
     /* ---------- 角色 ----------
+       依 2026-09-07 汇报讨论会决议，PC 端共 13 个角色（R1—R13）。
        role 格式固定为「单位 · 岗位」，顶栏与角色切换器按最后一个 ' · ' 拆分 */
     roles: {
-      window:    { tag: 'PC 管理端', user: '谭建军', role: '市政务服务中心人才住房窗口 · 窗口受理员' },
-      reviewer:  { tag: 'PC 管理端', user: '刘志刚', role: '市保障性住房服务中心资格审核科 · 资格审核员' },
+      reviewer:  { tag: 'PC 管理端', user: '刘志刚', role: '市保障性住房服务中心资格审核科 · 受理初审员' },
+      auditor:   { tag: 'PC 管理端', user: '周慧',   role: '市保障性住房服务中心资格审核科 · 审核员' },
+      housing:   { tag: 'PC 管理端', user: '唐凯',   role: '市保障性住房服务中心房源管理科 · 单位房源管理员' },
+      orgadmin:  { tag: 'PC 管理端', user: '徐立',   role: '市保障性住房服务中心运营监管科 · 企业机构管理员' },
       allocator: { tag: 'PC 管理端', user: '陈晓琳', role: '市保障性住房服务中心配租管理科 · 配租经办员' },
       keeper:    { tag: 'PC 管理端', user: '罗湘',   role: '市保障性住房服务中心财务科 · 租金核算员' },
-      housing:   { tag: 'PC 管理端', user: '唐凯',   role: '市保障性住房服务中心房源管理科 · 房源管理员' },
+      admin:     { tag: 'PC 管理端', user: '龙志宏', role: '市保障性住房服务中心信息科 · 权限配置管理员' },
+      agency:    { tag: 'PC 管理端', user: '彭建华', role: '株洲城发高科人才安居服务有限公司 · 运营机构经办' },
+      employer:  { tag: 'PC 管理端', user: '邹敏',   role: '中车株洲电力机车研究所人事部 · 用人单位经办' },
+      window:    { tag: 'PC 管理端', user: '谭建军', role: '市政务服务中心人才住房窗口 · 窗口受理员' },
+      publisher: { tag: 'PC 管理端', user: '何静',   role: '市保障性住房服务中心综合科 · 信息公开经办' },
       manager:   { tag: 'PC 管理端', user: '李慧敏', role: '市住建局住房保障科 · 业务管理员' },
-      talent:    { tag: 'PC 管理端', user: '贺文斌', role: '市委人才工作领导小组办公室 · 人才政策经办' },
-      finance:   { tag: 'PC 管理端', user: '曾国华', role: '市财政局行政政法科 · 财政审核员' },
-      district:  { tag: 'PC 管理端', user: '周敏',   role: '天元区住房保障服务中心 · 城区经办员' },
-      leader:    { tag: 'PC 管理端', user: '张卫东', role: '市住建局 · 分管领导' },
-      admin:     { tag: 'PC 管理端', user: '龙志宏', role: '市保障性住房服务中心信息科 · 系统管理员' },
-      agency:    { tag: 'PC 管理端', user: '彭建华', role: '株洲市人才安居服务有限公司 · 运营机构经办' }
+      leader:    { tag: 'PC 管理端', user: '张卫东', role: '市住建局 · 分管领导' }
     },
 
     /* ---------- 外部角色（跳转其他应用，不在本外壳内呈现）----------
        人才侧办事入口固定为湘易办小程序与 APP，用独立的移动端原型承载 */
     extRoles: [
-      { key: 'talent-app', name: '青年人才', user: '王梓涵', org: '湘易办移动端 · 公众端',
+      { key: 'talent-app', name: '个人用户', user: '王梓涵', org: '湘易办移动端 · 个人用户',
         icon: 'fa-mobile-screen-button', href: 'mobile/public/home.html' },
-      { key: 'grad-app', name: '应届毕业生', user: '邓亦凡', org: '湘易办移动端 · 公众端',
-        icon: 'fa-graduation-cap', href: 'mobile/public/pre-apply.html' },
-      { key: 'gov-app', name: '工作人员（移动审批）', user: '刘志刚', org: '湘易办移动端 · 政务端',
-        icon: 'fa-user-shield', href: 'mobile/gov/home.html' },
-      { key: 'ops-app', name: '物业维修员', user: '黄卫兵', org: '湘易办移动端 · 政务端',
-        icon: 'fa-screwdriver-wrench', href: 'mobile/gov/wo-list.html' }
+      { key: 'emp-app', name: '用人单位', user: '邹敏', org: '湘易办移动端 · 用人单位',
+        icon: 'fa-building-user', href: 'mobile/employer/home.html' },
+      { key: 'agency-app', name: '运营机构', user: '黄卫兵', org: '湘易办移动端 · 运营机构',
+        icon: 'fa-screwdriver-wrench', href: 'mobile/gov/check-list.html' },
+      { key: 'gov-app', name: '主管单位', user: '刘志刚', org: '湘易办移动端 · 主管单位',
+        icon: 'fa-user-shield', href: 'mobile/gov/home.html' }
     ],
 
     /* ---------- 角色可见菜单白名单 ----------
        null 或不配置 = 全部可见。菜单 key 必须写成「子系统码-两位序号」，
-       运行时按它反推该页面所属子系统。 */
+       运行时按它反推该页面所属子系统。
+       数据范围口径见《各角色功能清单》第六部分：房源归属决定业务数据归属。 */
     roleMenu: {
-      /* 窗口受理员：兜底代办，只做受理与进度查询 */
-      window: ['home', 'wb-01', 'wb-04',
-        'apply-06', 'apply-08', 'apply-11', 'apply-12', 'apply-21',
-        'house-14', 'house-16', 'rule-01', 'rule-02', 'rule-03'
-        ],
-      /* 资格审核员：资格受理与多部门联审 */
-      reviewer: ['home', 'wb-01', 'wb-02', 'wb-03', 'wb-04',
+      /* R1 受理初审角色：资格申请的受理与初审，两级办理的第一级 */
+      reviewer: ['home', 'wb-01', 'wb-02', 'wb-04',
+        'apply-06', 'apply-22', 'apply-09', 'apply-08',
+        'apply-07', 'apply-10', 'apply-11', 'apply-21', 'apply-26', 'apply-27',
         'apply-01', 'apply-02', 'apply-03', 'apply-04', 'apply-05',
-        'apply-06', 'apply-07', 'apply-08', 'apply-09', 'apply-10', 'apply-11', 'apply-12', 'apply-21', 'apply-22',
         'apply-13', 'apply-14', 'apply-15', 'apply-16', 'apply-17', 'apply-18', 'apply-19', 'apply-20',
-        'house-14', 'house-16', 'rent-09', 'rent-11', 'rent-12',
+        'rent-09', 'rent-10', 'rent-13', 'rent-14', 'rent-15',
         'stat-12', 'stat-13', 'stat-14'
         ],
-      /* 配租经办员：配租批次、选房、轮候、合同 */
-      allocator: ['home', 'wb-01', 'wb-02', 'wb-04',
-        'alloc-01', 'alloc-02', 'alloc-03', 'alloc-04', 'alloc-05', 'alloc-06', 'alloc-07',
-        'alloc-08', 'alloc-09', 'alloc-10', 'alloc-11', 'alloc-12', 'alloc-13',
-        'house-14', 'house-15', 'house-16', 'house-19', 'house-20', 'house-27',
-        'apply-01', 'apply-03', 'rule-02', 'rule-03',
-        'stat-15', 'stat-16', 'stat-17'
+      /* R2 审核角色：复审并出具最终结论，两级办理的第二级 */
+      auditor: ['home', 'wb-01', 'wb-02', 'wb-04',
+        'apply-06', 'apply-22', 'apply-07', 'apply-12', 'apply-21', 'apply-26',
+        'apply-08', 'apply-13', 'apply-14', 'apply-15', 'apply-16', 'apply-17', 'apply-18', 'apply-19',
+        'rent-11', 'rent-12',
+        'stat-13'
         ],
-      /* 租金核算员：租金、账单、票据、押金、租房补贴核发 */
+      /* R3 单位房源管理员：全市房源查看与监管、审核发布、标准与字典，不介入日常维护 */
+      housing: ['home', 'wb-01', 'wb-04',
+        'house-01', 'house-04', 'house-05', 'house-06',
+        'house-07', 'house-08', 'house-09', 'house-10', 'house-11', 'house-12', 'house-13',
+        'house-14', 'house-15', 'house-16', 'house-17', 'house-18', 'house-19', 'house-20',
+        'house-21', 'house-22', 'house-23', 'house-26', 'house-27',
+        'house-28', 'house-29', 'house-30', 'house-31', 'house-32', 'house-33', 'house-34', 'house-35',
+        'house-36', 'house-37',
+        'stat-05', 'stat-06', 'stat-07', 'stat-09'
+        ],
+      /* R4 企业机构管理角色：运营机构与用人单位两类外部主体、考核与评价 */
+      orgadmin: ['home', 'wb-01', 'wb-04',
+        'ops-01', 'agency-03', 'agency-04',
+        'ops-02', 'ops-03', 'ops-04', 'ops-06',
+        'ops-07', 'ops-08', 'ops-09',
+        'ops-11', 'ops-12', 'ops-13', 'ops-14'
+        ],
+      /* R5 配租经办角色：配租批次、轮候库、选房编排、合同 */
+      allocator: ['home', 'wb-01', 'wb-02', 'wb-04',
+        'alloc-01', 'alloc-02', 'alloc-03', 'alloc-04', 'alloc-06', 'alloc-07',
+        'alloc-08', 'alloc-09', 'alloc-10', 'alloc-11', 'alloc-12', 'alloc-13',
+        'house-14', 'house-16', 'house-27', 'house-37',
+        'stat-15', 'stat-17'
+        ],
+      /* R6 租金核算角色：租金标准、账单、收缴、补助核发 */
       keeper: ['home', 'wb-01', 'wb-04',
         'rent-01', 'rent-02', 'rent-03', 'rent-04', 'rent-05', 'rent-06', 'rent-07', 'rent-08',
         'rent-16', 'rent-17', 'rent-18', 'rent-19', 'rent-20',
         'alloc-10', 'alloc-12', 'stat-27'
         ],
-      /* 房源管理员：房源筹集、楼盘表、房态、发布与导入建账 */
-      housing: ['home', 'wb-01', 'wb-04',
-        'house-01', 'house-02', 'house-03', 'house-04', 'house-05', 'house-06',
-        'house-07', 'house-08', 'house-09', 'house-10', 'house-11', 'house-12', 'house-13',
-        'house-14', 'house-15', 'house-16', 'house-17', 'house-18', 'house-19', 'house-20',
-        'house-21', 'house-22', 'house-23',
-        'house-24', 'house-25', 'house-26', 'house-27',
-        'house-28', 'house-29', 'house-30', 'house-31', 'house-32', 'house-33', 'house-34', 'house-35',
-        'rent-15', 'ops-05', 'stat-05', 'stat-06', 'stat-07', 'stat-08', 'stat-09', 'stat-10'
+      /* R7 权限配置管理员：全部可见 */
+      admin: null,
+      /* R8 运营机构角色：本机构受托房源及其派生的全部业务数据 */
+      agency: ['home', 'wb-01', 'wb-04',
+        'house-07', 'house-08', 'house-14', 'house-16', 'house-26',
+        'agency-05', 'agency-06', 'agency-07', 'agency-02', 'agency-08',
+        'rent-05', 'ops-05', 'ops-07', 'ops-13'
         ],
-      /* 业务管理员：全量业务，不含系统管理 */
-      manager: ['home', 'wb-01', 'wb-02', 'wb-03', 'wb-04',
-        'house-01', 'house-02', 'house-03', 'house-04', 'house-05', 'house-06',
-        'house-07', 'house-08', 'house-09', 'house-10', 'house-11', 'house-12', 'house-13',
-        'house-14', 'house-15', 'house-16', 'house-17', 'house-18', 'house-19', 'house-20',
-        'house-21', 'house-22', 'house-23',
-        'house-24', 'house-25', 'house-26', 'house-27',
-        'house-28', 'house-29', 'house-30', 'house-31', 'house-32', 'house-33', 'house-34', 'house-35',
-        'apply-01', 'apply-02', 'apply-03', 'apply-04', 'apply-05',
-        'apply-06', 'apply-07', 'apply-08', 'apply-09', 'apply-10', 'apply-11', 'apply-12', 'apply-21', 'apply-22',
-        'apply-13', 'apply-14', 'apply-15', 'apply-16', 'apply-17', 'apply-18', 'apply-19', 'apply-20',
-        'alloc-01', 'alloc-02', 'alloc-03', 'alloc-04', 'alloc-05', 'alloc-06', 'alloc-07',
-        'alloc-08', 'alloc-09', 'alloc-10', 'alloc-11', 'alloc-12', 'alloc-13',
-        'rent-01', 'rent-02', 'rent-03', 'rent-04', 'rent-05', 'rent-06', 'rent-07', 'rent-08',
-        'rent-09', 'rent-10', 'rent-11', 'rent-12', 'rent-13', 'rent-14', 'rent-15',
-        'rent-16', 'rent-17', 'rent-18', 'rent-19', 'rent-20',
-        'ops-01', 'ops-02', 'ops-03', 'ops-04', 'ops-05', 'ops-06',
-        'ops-07', 'ops-08', 'ops-09', 'ops-10', 'ops-11', 'ops-12', 'ops-13', 'ops-14',
-        'agency-01', 'agency-02',
-        'rule-01', 'rule-02', 'rule-03', 'rule-05',
+      /* R9 用人单位角色：本单位职工申报件，不涉及房源与合同 */
+      employer: ['home', 'wb-01', 'wb-04',
+        'employer-01', 'employer-02', 'employer-03', 'employer-04'
+        ],
+      /* R10 窗口受理角色：兜底代办与现场答复，政策与房源均为只读 */
+      window: ['home', 'wb-01', 'wb-04',
+        'apply-23', 'apply-24', 'apply-25', 'apply-06',
+        'house-37', 'house-27', 'rule-16'
+        ],
+      /* R11 信息公开经办角色：对外公开的内容、公告与台账 */
+      publisher: ['home', 'wb-01', 'wb-04',
+        'rule-01', 'rule-15', 'rule-03', 'rule-05'
+        ],
+      /* R12 业务管理员角色：政策规则的配置与生效期 */
+      manager: ['home', 'wb-01', 'wb-03', 'wb-04',
         'rule-06', 'rule-07', 'rule-09', 'rule-10', 'rule-11', 'rule-12',
-        'rule-08', 'rule-13', 'rule-14',
-        'stat-01', 'stat-02', 'stat-03', 'stat-04', 'stat-05', 'stat-06', 'stat-07', 'stat-08',
-        'stat-09', 'stat-10', 'stat-11', 'stat-12', 'stat-13', 'stat-14', 'stat-15', 'stat-16',
-        'stat-17', 'stat-18', 'stat-23', 'stat-24', 'stat-25', 'stat-26', 'stat-27'
+        'rule-08', 'rule-13', 'rule-14'
         ],
-      /* 人才政策经办：人才认定、政策口径、减免会商 */
-      talent: ['home', 'wb-01', 'wb-03', 'wb-04',
-        'apply-01', 'apply-02', 'apply-03', 'apply-05',
-        'rent-01', 'rule-01', 'rule-05', 'rule-06', 'rule-07', 'rule-08', 'rule-13',
-        'stat-01', 'stat-02', 'stat-03', 'stat-11', 'stat-23'
-        ],
-      /* 财政审核员：资金、票据、补助核算 */
-      finance: ['home', 'wb-01', 'wb-04',
-        'house-06', 'rent-01', 'rent-02', 'rent-04', 'rent-05', 'rent-08',
-        'rent-18', 'rent-19', 'rent-20',
-        'stat-23', 'stat-27'
-        ],
-      /* 城区经办员：本区数据范围内的受理与房源 */
-      district: ['home', 'wb-01', 'wb-02', 'wb-04',
-        'apply-06', 'apply-07', 'apply-08', 'apply-11', 'apply-12',
-        'house-14', 'house-16', 'alloc-02', 'alloc-04',
-        'rent-11', 'rent-12', 'rule-09'
-        ],
-      /* 分管领导：驾驶舱与统计，不进业务办理 */
+      /* R13 领导查看角色：驾驶舱与统计，不参与业务办理 */
       leader: ['home', 'wb-02', 'wb-03', 'wb-04',
-        'stat-01', 'stat-02', 'stat-03', 'stat-04', 'stat-05', 'stat-06', 'stat-07', 'stat-08',
-        'stat-09', 'stat-10', 'stat-11', 'stat-12', 'stat-13', 'stat-14', 'stat-15', 'stat-16',
-        'stat-17', 'stat-18', 'stat-23', 'stat-24', 'stat-25', 'stat-26', 'stat-27'
-        ],
-      /* 运营机构经办：本机构的申请初审、补助申报，以及承接的工单与本机构评价结果 */
-      agency: ['home', 'wb-01', 'wb-04', 'agency-01', 'agency-02', 'ops-07', 'ops-13'],
-      /* 系统管理员：全部可见 */
-      admin: null
+        'stat-01', 'stat-02', 'stat-03', 'stat-04', 'stat-05', 'stat-06', 'stat-07',
+        'stat-09', 'stat-11', 'stat-12', 'stat-13', 'stat-14', 'stat-15',
+        'stat-17', 'stat-18', 'stat-23', 'stat-24', 'stat-25', 'stat-26', 'stat-27',
+        'stat-28', 'stat-29', 'stat-30', 'stat-31', 'stat-32', 'stat-33'
+        ]
     },
 
     /* ---------- 常驻菜单：出现在所有子系统菜单之前 ---------- */
@@ -181,8 +172,6 @@
             children: [
               { key: 'house-01', label: '项目表管理', href: 'modules/house/proj-list.html' },
               { key: 'house-21', label: '项目批量导入', href: 'modules/house/proj-import.html' },
-              { key: 'house-02', label: '收购存量商品房', href: 'modules/house/purchase-list.html' },
-              { key: 'house-03', label: '公租房闲置盘活', href: 'modules/house/revitalize-list.html' },
               { key: 'house-04', label: '拎包入住验收', href: 'modules/house/acceptance-list.html' },
               { key: 'house-05', label: '筹集计划与完成率', href: 'modules/house/plan-progress.html' },
               { key: 'house-06', label: '资金来源标注', href: 'modules/house/fund-source.html' }
@@ -217,9 +206,9 @@
           {
             label: '房源发布与预约', icon: 'fa-tower-broadcast',
             children: [
-              { key: 'house-24', label: '房源发布标准配置', href: 'modules/house/publish-standard.html' },
-              { key: 'house-25', label: '房源单位报送与审核', href: 'modules/house/org-report.html' },
               { key: 'house-26', label: '批量上架与下架', href: 'modules/house/shelf-batch.html' },
+              { key: 'house-36', label: '房源发布状态统计', href: 'modules/house/publish-stat.html' },
+              { key: 'house-37', label: '房源查询（只读）', href: 'modules/house/house-query.html' },
               { key: 'house-27', label: '预约名单管理', href: 'modules/house/book-manage.html' }
             ]
           },
@@ -256,6 +245,8 @@
             children: [
               { key: 'apply-06', label: '多渠道件池', href: 'modules/apply/pool-list.html' },
               { key: 'apply-22', label: '初审与复审分级办理', href: 'modules/apply/two-level-audit.html' },
+              { key: 'apply-27', label: '资格审核表打印', href: 'modules/apply/review-form.html' },
+              { key: 'apply-26', label: '容缺受理台账', href: 'modules/apply/pending-check.html' },
               { key: 'apply-09', label: '证照智能识别', href: 'modules/apply/verify-ocr.html' },
               { key: 'apply-08', label: '智能预审核验报告', href: 'modules/apply/verify-report.html' }
             ]
@@ -268,6 +259,14 @@
               { key: 'apply-11', label: '驳回与重新提交', href: 'modules/apply/reject-list.html' },
               { key: 'apply-12', label: '审核结论与送达', href: 'modules/apply/conclusion.html' },
               { key: 'apply-21', label: '全过程电子档案', href: 'modules/apply/archive-list.html' }
+            ]
+          },
+          {
+            label: '窗口兜底代办', icon: 'fa-person-booth',
+            children: [
+              { key: 'apply-23', label: '窗口代办录入', href: 'modules/apply/window-entry.html' },
+              { key: 'apply-24', label: '窗口办件台账', href: 'modules/apply/window-ledger.html' },
+              { key: 'apply-25', label: '材料清单与表单打印', href: 'modules/apply/material-print.html' }
             ]
           },
           {
@@ -295,7 +294,6 @@
               { key: 'alloc-02', label: '顺序配租名单', href: 'modules/alloc/order-list.html' },
               { key: 'alloc-03', label: '选房时段编排', href: 'modules/alloc/slot-plan.html' },
               { key: 'alloc-04', label: '意向轮候库管理', href: 'modules/alloc/queue-list.html' },
-              { key: 'alloc-05', label: '预申请转正管理', href: 'modules/alloc/pre-upgrade.html' },
               { key: 'alloc-06', label: '放弃与资格处置', href: 'modules/alloc/giveup-list.html' },
               { key: 'alloc-07', label: '配租异常处理', href: 'modules/alloc/exception.html' }
             ]
@@ -391,10 +389,44 @@
         key: 'agency', name: '运营机构端', icon: 'fa-building-user', line: '运营协同',
         menu: [
           {
-            label: '初审与补助申报', icon: 'fa-clipboard-check',
+            label: '房源与发布', icon: 'fa-house-circle-check',
             children: [
-              { key: 'agency-01', label: '申请初审办理', href: 'modules/agency/first-audit.html' },
-              { key: 'agency-02', label: '补助申请发起', href: 'modules/agency/subsidy-apply.html' }
+              { key: 'agency-05', label: '房源提交发布', href: 'modules/agency/publish-submit.html' }
+            ]
+          },
+          {
+            label: '签约入住与退租', icon: 'fa-file-signature',
+            children: [
+              { key: 'agency-06', label: '签约与入住办理', href: 'modules/agency/sign-checkin.html' },
+              { key: 'agency-07', label: '退租结算办理', href: 'modules/agency/quit-settle.html' }
+            ]
+          },
+          {
+            label: '补助与考核', icon: 'fa-hand-holding-dollar',
+            children: [
+              { key: 'agency-02', label: '补助申请发起', href: 'modules/agency/subsidy-apply.html' },
+              { key: 'agency-08', label: '考核自评与整改', href: 'modules/agency/kpi-self.html' }
+            ]
+          },
+          {
+            label: '企业机构管理', icon: 'fa-building-shield',
+            children: [
+              { key: 'agency-03', label: '用人单位审核', href: 'modules/agency/employer-audit.html' },
+              { key: 'agency-04', label: '用人单位管理', href: 'modules/agency/employer-manage.html' }
+            ]
+          }
+        ]
+      },
+      {
+        key: 'employer', name: '用人单位端', icon: 'fa-users-line', line: '单位申报',
+        menu: [
+          {
+            label: '单位与申报', icon: 'fa-clipboard-list',
+            children: [
+              { key: 'employer-01', label: '单位注册与认证', href: 'modules/employer/org-register.html' },
+              { key: 'employer-02', label: '员工批量代申报', href: 'modules/employer/batch-apply.html' },
+              { key: 'employer-03', label: '在职状态变更上报', href: 'modules/employer/staff-change.html' },
+              { key: 'employer-04', label: '申报进度与数据', href: 'modules/employer/apply-progress.html' }
             ]
           }
         ]
@@ -407,7 +439,9 @@
             children: [
               { key: 'rule-01', label: '政策宣传内容管理', href: 'modules/rule/content-manage.html' },
               { key: 'rule-02', label: '房源信息公开配置', href: 'modules/rule/house-open.html' },
+              { key: 'rule-15', label: '配租批次公告发布', href: 'modules/rule/batch-notice.html' },
               { key: 'rule-03', label: '配租结果公开', href: 'modules/rule/result-open.html' },
+              { key: 'rule-16', label: '政策资讯查看（只读）', href: 'modules/rule/policy-view.html' },
               { key: 'rule-05', label: '信息公开台账', href: 'modules/rule/open-ledger.html' }
             ]
           },
@@ -450,9 +484,8 @@
               { key: 'stat-05', label: '筹集完成率分析', href: 'modules/stat/house-plan.html' },
               { key: 'stat-06', label: '房源来源构成', href: 'modules/stat/house-source.html' },
               { key: 'stat-07', label: '房源结构分析', href: 'modules/stat/house-struct.html' },
-              { key: 'stat-08', label: '空置分析', href: 'modules/stat/house-vacancy.html' },
               { key: 'stat-09', label: '供需匹配分析', href: 'modules/stat/house-supply.html' },
-              { key: 'stat-10', label: '房源周转分析', href: 'modules/stat/house-turnover.html' }
+              { key: 'stat-32', label: '预约热度与需求分析', href: 'modules/stat/book-demand.html' }
             ]
           },
           {
@@ -463,7 +496,7 @@
               { key: 'stat-13', label: '审核效能分析', href: 'modules/stat/audit-perf.html' },
               { key: 'stat-14', label: '数据核验命中分析', href: 'modules/stat/verify-hit.html' },
               { key: 'stat-15', label: '配租与轮候分析', href: 'modules/stat/alloc-queue.html' },
-              { key: 'stat-16', label: '预申请转化分析', href: 'modules/stat/pre-convert.html' },
+              { key: 'stat-33', label: '申请渠道分析', href: 'modules/stat/channel-stat.html' },
               { key: 'stat-17', label: '放弃配租分析', href: 'modules/stat/giveup.html' },
               { key: 'stat-18', label: '年审与退出分析', href: 'modules/stat/review-exit.html' }
             ]
@@ -498,7 +531,8 @@
               { key: 'system-01', label: '组织机构管理', href: 'modules/system/sys-org.html' },
               { key: 'system-17', label: '岗位管理', href: 'modules/system/sys-post-manage.html' },
               { key: 'system-02', label: '用户账号管理', href: 'modules/system/sys-user.html' },
-              { key: 'system-22', label: '用户角色分配', href: 'modules/system/sys-user-role.html' }
+              { key: 'system-22', label: '用户角色分配', href: 'modules/system/sys-user-role.html' },
+              { key: 'system-25', label: '小程序菜单绑定', href: 'modules/system/sys-mp-menu.html' }
             ]
           },
           {
@@ -516,7 +550,6 @@
             label: '授权审批与安全', icon: 'fa-shield-halved',
             children: [
               { key: 'system-23', label: '授权审批与临时授权', href: 'modules/system/sys-auth-approve.html' },
-              { key: 'system-05', label: '岗位分设与互斥', href: 'modules/system/sys-post.html' },
               { key: 'system-24', label: '权限留痕与反查', href: 'modules/system/sys-perm-log.html' },
               { key: 'system-06', label: '安全策略配置', href: 'modules/system/sys-security.html' },
               { key: 'system-07', label: '登录日志与在线', href: 'modules/system/sys-loginlog.html' },
@@ -565,6 +598,27 @@
       houseSource: [
         ['1', '收购存量商品房'], ['2', '公租房盘活'], ['3', '保租房“一间房”']
       ],
+      /* 房源颗粒度到「间」：一套三室两厅拆为 A、B、C 三间，每间单独计租 */
+      roomStruct: [
+        ['1', '单间配套'], ['2', '一室一厅'], ['3', '二室一厅'], ['4', '三室一厅'], ['5', '三室两厅']
+      ],
+      roomFacility: [
+        ['1', '独立卫生间'], ['2', '空调'], ['3', '阳台'], ['4', '衣柜'], ['5', '书桌'], ['6', '飘窗']
+      ],
+      publishStatus: [
+        ['1', '待提交'], ['2', '待审核'], ['3', '已发布'], ['4', '已退回'], ['5', '已下架']
+      ],
+      /* 四类申请渠道，办件列表与办理界面均须显示 */
+      applyChannel: [
+        ['1', '个人申请'], ['2', '用人单位（移动端申请）'],
+        ['3', '运营机构（PC 申请）'], ['4', '政务窗口（PC 申请）']
+      ],
+      orgType: [['1', '主管单位'], ['2', '运营机构'], ['3', '用人单位']],
+      agencyOrg: [
+        ['1', '株洲城发高科人才安居服务有限公司'], ['2', '清水塘投资运营服务有限公司'],
+        ['3', '株洲高新人才公寓运营有限公司']
+      ],
+      pendingStatus: [['1', '待补核'], ['2', '已补核通过'], ['3', '补核不通过'], ['4', '已转人工']],
       /* 会议明确的四类房源来源渠道，作为筹集进度考核与统计口径基准 */
       srcChannel: [
         ['1', '市本级存量'], ['2', '收购商品房转化'], ['3', '收购保租房转化'], ['4', '园区公租房纳管']
@@ -650,25 +704,25 @@
     home: {
       window: {
         welcome: '人才住房窗口兜底代办工作台',
-        heroStats: [{ v: '6', l: '待受理' }, { v: '18', l: '今日代办' }, { v: '2', l: '待补正' }],
+        heroStats: [{ v: '6', l: '待代录' }, { v: '18', l: '今日代办' }, { v: '9', l: '现场咨询' }],
         kpis: [
-          { c: 'blue', i: 'fa-inbox', l: '本月窗口受理', v: '186', t: '↑ 较上月 8.1%' },
-          { c: 'green', i: 'fa-circle-check', l: '已转联审', v: '174', t: '转办率 93.5%' },
-          { c: 'orange', i: 'fa-clock', l: '待补正', v: '9', t: '平均 1.2 天' },
-          { c: 'cyan', i: 'fa-mobile-screen-button', l: '引导线上办', v: '132', t: '占比 71.0%' }
+          { c: 'blue', i: 'fa-person-booth', l: '本月窗口代办', v: '186', t: '渠道标记为政务窗口 PC 申请' },
+          { c: 'green', i: 'fa-circle-check', l: '已汇入件池', v: '174', t: '与线上申请同一流程' },
+          { c: 'orange', i: 'fa-print', l: '材料清单打印', v: '132', t: '供申请人带回准备' },
+          { c: 'cyan', i: 'fa-building', l: '可选房源', v: '412', t: '已审核发布' }
         ],
         todos: [
-          { c: 'orange', tag: '窗口受理', txt: 'RC2026-0904-0186 谭×× 就业青年人才资格申请待录入', time: '剩 4h', warn: 1, h: 'modules/apply/pool-list.html' },
-          { c: 'blue', tag: '兜底代办', txt: '2 名不便线上操作的人才到窗口申请，待代为录入提交', time: '剩 1天', h: 'modules/apply/pool-list.html' },
-          { c: 'red', tag: '补正告知', txt: 'RC2026-0902-0171 缺境外学历认证书，待一次性告知', time: '已超期', warn: 1, h: 'modules/apply/reject-list.html' }
+          { c: 'orange', tag: '窗口代录', txt: 'RC2026-0907-0186 谭×× 就业青年人才申请待代为录入提交', time: '剩 4h', warn: 1, h: 'modules/apply/window-entry.html' },
+          { c: 'blue', tag: '现场咨询', txt: '2 名申请人咨询天元区楼盘余量与申请形势，待现场答复', time: '剩 1天', h: 'modules/house/house-query.html' },
+          { c: 'blue', tag: '进度查询', txt: 'RC2026-0902-0171 申请人到窗口查询办理进度与补正要求', time: '剩 1天', h: 'modules/apply/window-ledger.html' }
         ],
         shortcuts: [
-          { c: 'blue', i: 'fa-inbox', l: '多渠道件池', h: 'modules/apply/pool-list.html' },
-          { c: 'green', i: 'fa-magnifying-glass', l: '房源档案', h: 'modules/house/house-archive.html' },
-          { c: 'orange', i: 'fa-rotate-left', l: '驳回补正', h: 'modules/apply/reject-list.html' },
-          { c: 'cyan', i: 'fa-bullhorn', l: '配租结果公开', h: 'modules/rule/result-open.html' },
-          { c: 'purple', i: 'fa-file-lines', l: '政策内容管理', h: 'modules/rule/content-manage.html' },
-          { c: 'red', i: 'fa-circle-question', l: '知识库', h: 'modules/ops/kb-list.html' }
+          { c: 'blue', i: 'fa-person-booth', l: '窗口代办录入', h: 'modules/apply/window-entry.html' },
+          { c: 'green', i: 'fa-magnifying-glass', l: '房源查询（只读）', h: 'modules/house/house-query.html' },
+          { c: 'cyan', i: 'fa-list-ol', l: '楼盘余量查看', h: 'modules/house/book-manage.html' },
+          { c: 'orange', i: 'fa-print', l: '材料清单与表单打印', h: 'modules/apply/material-print.html' },
+          { c: 'purple', i: 'fa-book-open', l: '政策资讯查看', h: 'modules/rule/policy-view.html' },
+          { c: 'red', i: 'fa-clipboard-list', l: '窗口办件台账', h: 'modules/apply/window-ledger.html' }
         ]
       },
       reviewer: {
@@ -707,7 +761,7 @@
         todos: [
           { c: 'orange', tag: '锁房超时', txt: '2026 年第 3 批 5 套房源锁定超时待释放给下一顺序人', time: '剩 40min', warn: 1, h: 'modules/alloc/slot-plan.html' },
           { c: 'blue', tag: '批次公示', txt: '2026 年第 3 批配租顺序名单待导出公示', time: '剩 1天', h: 'modules/alloc/order-list.html' },
-          { c: 'blue', tag: '预申请转正', txt: '湖南工业大学 34 名应届生已补齐毕业证，待转正式申请', time: '剩 2天', h: 'modules/alloc/pre-upgrade.html' },
+          { c: 'blue', tag: '预申请转正', txt: '湖南工业大学 34 名应届生已补齐毕业证，待转正式申请', time: '剩 2天', h: 'modules/alloc/queue-list.html' },
           { c: 'red', tag: '资格处置', txt: '3 名人才不服从配租且未办理入住，待写入放弃标记', time: '已超期', warn: 1, h: 'modules/alloc/giveup-list.html' }
         ],
         shortcuts: [
@@ -768,96 +822,26 @@
         ]
       },
       manager: {
-        welcome: '人才住房保障业务管理工作台',
-        heroStats: [{ v: '31', l: '待我审批' }, { v: '2', l: '在办批次' }, { v: '7', l: '风险预警' }],
+        welcome: '政策规则配置与生效期管理工作台',
+        heroStats: [{ v: '3', l: '待生效' }, { v: '2', l: '待配置' }, { v: '14', l: '在用规则' }],
         kpis: [
-          { c: 'blue', i: 'fa-building', l: '房源总量', v: '2,486', t: '计划完成率 82.9%' },
-          { c: 'green', i: 'fa-users', l: '在租人才', v: '1,286', t: '累计保障 1,842 人次' },
-          { c: 'orange', i: 'fa-file-circle-check', l: '本月受理', v: '1,286', t: '3 日办结率 96.4%' },
-          { c: 'red', i: 'fa-triangle-exclamation', l: '风险预警件', v: '46', t: '超期 3 / 欠费 62 户', td: 'text-danger' }
+          { c: 'blue', i: 'fa-scale-balanced', l: '在用规则', v: '14', t: '申请条件 6 · 减免 5 · 其他 3' },
+          { c: 'green', i: 'fa-code-branch', l: '规则版本', v: '26', t: '按受理时点适用版本' },
+          { c: 'orange', i: 'fa-clock', l: '待生效', v: '3', t: '2026-10-01 起施行' },
+          { c: 'cyan', i: 'fa-toggle-on', l: '启用中核验项', v: '8', t: '接口未通可切人工' }
         ],
         todos: [
-          { c: 'red', tag: '规则审批', txt: '渌口区参照制定的实施细则规则版本待审批发布', time: '已超期', warn: 1, h: 'modules/rule/version.html' },
-          { c: 'orange', tag: '批次审批', txt: '2026 年第 3 批配租公告与投放房源清单待审批', time: '剩 8h', warn: 1, h: 'modules/alloc/batch-list.html' },
-          { c: 'blue', tag: '考核结果', txt: '2026 年第二季度运营机构考核评分待审定与通报', time: '剩 2天', h: 'modules/ops/kpi-score.html' },
-          { c: 'blue', tag: '清退审批', txt: '2 户查实转租转借，违规清退与失信标记待审批', time: '剩 3天', h: 'modules/rent/violation.html' }
+          { c: 'orange', tag: '规则配置', txt: '创业人才「正常纳税」判定口径待按市税务局意见更新', time: '剩 2天', warn: 1, h: 'modules/rule/cond-rule.html' },
+          { c: 'blue', tag: '标准维护', txt: '收购保租房转化批次租金减免档次待补充配置', time: '剩 4天', h: 'modules/rule/relief-rule.html' },
+          { c: 'blue', tag: '版本生效', txt: '2026 年第 4 版申请条件规则待设定生效日期并留档', time: '剩 6天', h: 'modules/rule/version.html' }
         ],
         shortcuts: [
-          { c: 'blue', i: 'fa-gauge-high', l: '核心指标看板', h: 'modules/stat/kpi-board.html' },
-          { c: 'green', i: 'fa-layer-group', l: '配租批次管理', h: 'modules/alloc/batch-list.html' },
-          { c: 'cyan', i: 'fa-table-cells', l: '统一楼盘表', h: 'modules/house/building-table.html' },
-          { c: 'orange', i: 'fa-scale-balanced', l: '申请条件规则', h: 'modules/rule/cond-rule.html' },
-          { c: 'red', i: 'fa-triangle-exclamation', l: '实时风险告警', h: 'modules/stat/risk-alert.html' },
-          { c: 'purple', i: 'fa-ranking-star', l: '运营机构考核', h: 'modules/ops/kpi-score.html' }
-        ]
-      },
-      talent: {
-        welcome: '人才认定与政策口径协同工作台',
-        heroStats: [{ v: '12', l: '待会商' }, { v: '86', l: '待同步' }, { v: '4', l: '一事一议' }],
-        kpis: [
-          { c: 'blue', i: 'fa-id-card', l: '人才档案', v: '3,246', t: '本月新增 268 人' },
-          { c: 'green', i: 'fa-graduation-cap', l: '硕士及以上', v: '486', t: '占比 15.0%' },
-          { c: 'cyan', i: 'fa-user-tie', l: '免毕业年限人才', v: '132', t: '职称技能类 98 人' },
-          { c: 'orange', i: 'fa-handshake', l: '待一事一议', v: '12', t: '涉及 4 个楼盘' }
-        ],
-        todos: [
-          { c: 'orange', tag: '一事一议', txt: '湘江1958 二期二室一厅减免标准待会同财政局、住建局议定', time: '剩 1天', warn: 1, h: 'modules/rent/relief-plan.html' },
-          { c: 'blue', tag: '人才库同步', txt: '“株洲人才”库 86 条人才认定信息待同步核对口径', time: '剩 2天', h: 'modules/apply/talent-sync.html' },
-          { c: 'blue', tag: '政策宣传', txt: '创业青年人才申请常见问题解答待复核发布', time: '剩 3天', h: 'modules/rule/content-manage.html' }
-        ],
-        shortcuts: [
-          { c: 'blue', i: 'fa-id-card', l: '人才一人一档', h: 'modules/apply/talent-list.html' },
-          { c: 'green', i: 'fa-layer-group', l: '人才分层分类', h: 'modules/apply/talent-level.html' },
-          { c: 'cyan', i: 'fa-arrows-rotate', l: '人才库同步', h: 'modules/apply/talent-sync.html' },
-          { c: 'orange', i: 'fa-money-bill-transfer', l: '减免标准配置', h: 'modules/rule/relief-rule.html' },
-          { c: 'purple', i: 'fa-bullhorn', l: '政策宣传内容', h: 'modules/rule/content-manage.html' },
-          { c: 'red', i: 'fa-chart-pie', l: '政策成效指标', h: 'modules/stat/policy-effect.html' }
-        ]
-      },
-      finance: {
-        welcome: '财政补助与票据核算工作台',
-        heroStats: [{ v: '9', l: '待复核' }, { v: '1', l: '待拨付' }, { v: '3', l: '票据待开' }],
-        kpis: [
-          { c: 'blue', i: 'fa-hand-holding-dollar', l: '本年补助预算', v: '18,600,000.00', t: '专项补助资金' },
-          { c: 'green', i: 'fa-circle-check', l: '已拨付', v: '11,842,600.00', t: '执行率 63.7%' },
-          { c: 'orange', i: 'fa-file-invoice-dollar', l: '本月待拨付', v: '842,760.00', t: '涉及 1,286 份合同' },
-          { c: 'cyan', i: 'fa-receipt', l: '已开电子票据', v: '9,842', t: '票据与账单一一对应' }
-        ],
-        todos: [
-          { c: 'orange', tag: '资金复核', txt: '2026 年 8 月财政补助分账台账 842,760.00 元待复核', time: '剩 5h', warn: 1, h: 'modules/rent/split-account.html' },
-          { c: 'blue', tag: '票据开具', txt: '3 笔押金收缴待对接财政电子票据系统开具', time: '剩 1天', h: 'modules/rent/invoice.html' },
-          { c: 'blue', tag: '报表报送', txt: '2026 年 8 月人才住房保障资金月报待生成报送', time: '剩 2天', h: 'modules/stat/report-legal.html' }
-        ],
-        shortcuts: [
-          { c: 'blue', i: 'fa-scale-balanced', l: '分账核算', h: 'modules/rent/split-account.html' },
-          { c: 'green', i: 'fa-receipt', l: '账单台账', h: 'modules/rent/bill-list.html' },
-          { c: 'cyan', i: 'fa-file-invoice-dollar', l: '电子票据管理', h: 'modules/rent/invoice.html' },
-          { c: 'orange', i: 'fa-money-bill-wave', l: '资金来源标注', h: 'modules/house/fund-source.html' },
-          { c: 'purple', i: 'fa-scale-balanced', l: '收缴对账', h: 'modules/rent/pay-recon.html' },
-          { c: 'red', i: 'fa-file-excel', l: '法定报表', h: 'modules/stat/report-legal.html' }
-        ]
-      },
-      district: {
-        welcome: '天元区人才住房保障经办工作台',
-        heroStats: [{ v: '11', l: '待受理' }, { v: '4', l: '待入户核查' }, { v: '1', l: '超期' }],
-        kpis: [
-          { c: 'blue', i: 'fa-file-circle-check', l: '本区本月受理', v: '486', t: '占全市 37.8%' },
-          { c: 'green', i: 'fa-building', l: '本区房源', v: '986', t: '可配租 186 套' },
-          { c: 'orange', i: 'fa-users', l: '本区在租', v: '542', t: '轮候 214 人' },
-          { c: 'red', i: 'fa-triangle-exclamation', l: '本区风险件', v: '13', t: '欠费 9 户 / 空置超期 4 套', td: 'text-danger' }
-        ],
-        todos: [
-          { c: 'orange', tag: '受理待办', txt: 'RC2026-0904-0192 天元区 11 件申请待初审录入', time: '剩 6h', warn: 1, h: 'modules/apply/pool-list.html' },
-          { c: 'blue', tag: '入户核查', txt: '栗雨佳苑 4 户疑似空置不住，待安排入户抽查', time: '剩 2天', h: 'modules/house/house-status-map.html' },
-          { c: 'blue', tag: '年审复核', txt: '本区 2026 年度第 3 批年审 86 户待复核', time: '剩 4天', h: 'modules/rent/annual-list.html' }
-        ],
-        shortcuts: [
-          { c: 'blue', i: 'fa-inbox', l: '多渠道件池', h: 'modules/apply/pool-list.html' },
-          { c: 'green', i: 'fa-house-chimney', l: '房态图管理', h: 'modules/house/house-status-map.html' },
-          { c: 'cyan', i: 'fa-list-ol', l: '顺序配租名单', h: 'modules/alloc/order-list.html' },
-          { c: 'orange', i: 'fa-rotate', l: '年审待审名单', h: 'modules/rent/annual-list.html' },
-          { c: 'purple', i: 'fa-scale-balanced', l: '区域差异化规则', h: 'modules/rule/area-rule.html' },
-          { c: 'red', i: 'fa-clock', l: '审核时限台账', h: 'modules/workbench/timelimit.html' }
+          { c: 'blue', i: 'fa-scale-balanced', l: '申请条件规则配置', h: 'modules/rule/cond-rule.html' },
+          { c: 'green', i: 'fa-money-bill-transfer', l: '租金减免标准配置', h: 'modules/rule/relief-rule.html' },
+          { c: 'cyan', i: 'fa-diagram-project', l: '流程编排配置', h: 'modules/rule/flow-design.html' },
+          { c: 'orange', i: 'fa-list-check', l: '表单与材料清单', h: 'modules/rule/form-config.html' },
+          { c: 'purple', i: 'fa-code-branch', l: '规则版本与生效期', h: 'modules/rule/version.html' },
+          { c: 'red', i: 'fa-toggle-on', l: '核验项开关配置', h: 'modules/rule/verify-switch.html' }
         ]
       },
       leader: {
@@ -870,7 +854,7 @@
           { c: 'red', i: 'fa-triangle-exclamation', l: '风险指标', v: '7', t: '空置超期 / 欠费 / 超审', td: 'text-danger' }
         ],
         todos: [
-          { c: 'red', tag: '风险告警', txt: '空置超 90 天房源 36 套，集中在石峰区清水塘片区', time: '待关注', warn: 1, h: 'modules/stat/house-vacancy.html' },
+          { c: 'red', tag: '风险告警', txt: '空置超 90 天房源 36 套，集中在石峰区清水塘片区', time: '待关注', warn: 1, h: 'modules/stat/risk-alert.html' },
           { c: 'orange', tag: '成效汇报', txt: '2026 年前三季度人才安居政策成效汇报材料待调阅', time: '剩 2天', h: 'modules/stat/policy-effect.html' },
           { c: 'blue', tag: '流程堵点', txt: '税务企业纳税核验平均耗时 2.4 天，为联审最长环节', time: '待关注', h: 'modules/stat/verify-hit.html' }
         ],
@@ -881,6 +865,98 @@
           { c: 'red', i: 'fa-triangle-exclamation', l: '实时风险告警', h: 'modules/stat/risk-alert.html' },
           { c: 'orange', i: 'fa-filter', l: '申请漏斗分析', h: 'modules/stat/funnel.html' },
           { c: 'purple', i: 'fa-file-excel', l: '法定报表', h: 'modules/stat/report-legal.html' }
+        ]
+      },
+      auditor: {
+        welcome: '资格复审与结论出具工作台',
+        heroStats: [{ v: '9', l: '待复审' }, { v: '28', l: '今日办结' }, { v: '2', l: '临期' }],
+        kpis: [
+          { c: 'blue', i: 'fa-user-check', l: '本月复审', v: '1,092', t: '两级办理第二级' },
+          { c: 'green', i: 'fa-circle-check', l: '审核通过', v: '946', t: '通过率 86.6%' },
+          { c: 'orange', i: 'fa-rotate-left', l: '退回受理', v: '38', t: '注明退回层级与理由' },
+          { c: 'red', i: 'fa-clock', l: '超期件', v: '2', t: '3 个工作日时限', td: 'text-danger' }
+        ],
+        todos: [
+          { c: 'red', tag: '复审临期', txt: 'RC2026-0906-0212 王×× 复审剩余 4 小时，请及时出具结论', time: '剩 4h', warn: 1, h: 'modules/apply/conclusion.html' },
+          { c: 'orange', tag: '待复审', txt: 'RC2026-0906-0208 谭×× 受理初审已通过，待复审出具结论', time: '剩 1天', h: 'modules/apply/conclusion.html' },
+          { c: 'blue', tag: '年审复核', txt: '2026 年度第 3 批年审名单 168 户待出具年审结论', time: '剩 3天', h: 'modules/rent/annual-result.html' }
+        ],
+        shortcuts: [
+          { c: 'blue', i: 'fa-user-check', l: '复审办理', h: 'modules/apply/conclusion.html' },
+          { c: 'green', i: 'fa-layer-group', l: '两级办理台账', h: 'modules/apply/two-level-audit.html' },
+          { c: 'cyan', i: 'fa-print', l: '资格审核表', h: 'modules/apply/review-form.html' },
+          { c: 'orange', i: 'fa-hourglass-half', l: '容缺受理台账', h: 'modules/apply/pending-check.html' },
+          { c: 'purple', i: 'fa-box-archive', l: '全过程电子档案', h: 'modules/apply/archive-list.html' },
+          { c: 'red', i: 'fa-rotate', l: '年度资格审查', h: 'modules/rent/annual-batch.html' }
+        ]
+      },
+      orgadmin: {
+        welcome: '运营机构与用人单位管理工作台',
+        heroStats: [{ v: '6', l: '单位待审' }, { v: '3', l: '待考核' }, { v: '12', l: '待督办' }],
+        kpis: [
+          { c: 'blue', i: 'fa-building', l: '在册运营机构', v: '3', t: '受托楼盘 6 个' },
+          { c: 'green', i: 'fa-users-line', l: '已认证用人单位', v: '186', t: '本月新增 24 家' },
+          { c: 'orange', i: 'fa-file-circle-question', l: '注册待审核', v: '6', t: '超 2 日 1 家' },
+          { c: 'red', i: 'fa-triangle-exclamation', l: '超时工单', v: '12', t: '待向机构督办', td: 'text-danger' }
+        ],
+        todos: [
+          { c: 'orange', tag: '单位审核', txt: '株洲时代新材料科技股份有限公司注册申请待审核开通', time: '剩 1天', warn: 1, h: 'modules/agency/employer-audit.html' },
+          { c: 'blue', tag: '考核评分', txt: '2026 年第三季度运营机构考核评分待审定与通报', time: '剩 5天', h: 'modules/ops/kpi-score.html' },
+          { c: 'red', tag: '工单督办', txt: '清水塘社区服务有限公司 12 件报修工单超时未办结', time: '已超期', warn: 1, h: 'modules/ops/wo-stat.html' }
+        ],
+        shortcuts: [
+          { c: 'blue', i: 'fa-building-shield', l: '用人单位审核', h: 'modules/agency/employer-audit.html' },
+          { c: 'green', i: 'fa-users-line', l: '用人单位管理', h: 'modules/agency/employer-manage.html' },
+          { c: 'cyan', i: 'fa-city', l: '运营机构档案', h: 'modules/ops/org-list.html' },
+          { c: 'orange', i: 'fa-ranking-star', l: '考核评分', h: 'modules/ops/kpi-score.html' },
+          { c: 'purple', i: 'fa-star-half-stroke', l: '评价结果统计', h: 'modules/ops/eval-stat.html' },
+          { c: 'red', i: 'fa-screwdriver-wrench', l: '工单统计与督办', h: 'modules/ops/wo-stat.html' }
+        ]
+      },
+      employer: {
+        welcome: '用人单位职工代申报工作台',
+        heroStats: [{ v: '18', l: '待确认' }, { v: '46', l: '在办' }, { v: '2', l: '待上报' }],
+        kpis: [
+          { c: 'blue', i: 'fa-user-group', l: '本单位在职职工', v: '2,486', t: '符合条件 386 人' },
+          { c: 'green', i: 'fa-paper-plane', l: '累计代申报', v: '164', t: '本月 46 人' },
+          { c: 'orange', i: 'fa-hourglass-half', l: '待职工确认', v: '18', t: '3 个自然日内未确认自动作废' },
+          { c: 'cyan', i: 'fa-house-circle-check', l: '已获保障', v: '86', t: '在租 82 人' }
+        ],
+        todos: [
+          { c: 'orange', tag: '待确认', txt: '2026 年 9 月批次 18 名职工尚未在移动端确认授权', time: '剩 2天', warn: 1, h: 'modules/employer/apply-progress.html' },
+          { c: 'blue', tag: '批量申报', txt: '第四季度新入职 46 人资料已收齐，待按模板导入提交', time: '剩 5天', h: 'modules/employer/batch-apply.html' },
+          { c: 'red', tag: '状态变更', txt: '2 名职工已离职，须上报变更以触发承租资格复核', time: '已超期', warn: 1, h: 'modules/employer/staff-change.html' }
+        ],
+        shortcuts: [
+          { c: 'blue', i: 'fa-file-import', l: '员工批量代申报', h: 'modules/employer/batch-apply.html' },
+          { c: 'green', i: 'fa-chart-line', l: '申报进度与数据', h: 'modules/employer/apply-progress.html' },
+          { c: 'orange', i: 'fa-user-pen', l: '在职状态变更上报', h: 'modules/employer/staff-change.html' },
+          { c: 'cyan', i: 'fa-building-user', l: '单位注册与认证', h: 'modules/employer/org-register.html' },
+          { c: 'purple', i: 'fa-list-check', l: '待办任务中心', h: 'modules/workbench/todo-center.html' },
+          { c: 'red', i: 'fa-bullhorn', l: '通知公告', h: 'modules/workbench/notice.html' }
+        ]
+      },
+      publisher: {
+        welcome: '政策公开与配租公告发布工作台',
+        heroStats: [{ v: '2', l: '待发布' }, { v: '26', l: '在发内容' }, { v: '1', l: '待公示' }],
+        kpis: [
+          { c: 'blue', i: 'fa-file-lines', l: '在发政策内容', v: '26', t: '购房 8 · 租房 12 · 指南 6' },
+          { c: 'green', i: 'fa-bullhorn', l: '本年配租公告', v: '4', t: '第 3 批进行中' },
+          { c: 'orange', i: 'fa-clock', l: '待发布', v: '2', t: '待复核后发布' },
+          { c: 'cyan', i: 'fa-book', l: '公开台账', v: '186', t: '全程留痕可追溯' }
+        ],
+        todos: [
+          { c: 'orange', tag: '公告发布', txt: '2026 年第 4 批配租公告待发布，需明确房源范围与报名时间', time: '剩 1天', warn: 1, h: 'modules/rule/batch-notice.html' },
+          { c: 'blue', tag: '内容更新', txt: '创业青年人才申请常见问题解答待复核后发布', time: '剩 3天', h: 'modules/rule/content-manage.html' },
+          { c: 'blue', tag: '结果公开', txt: '2026 年第 3 批配租结果名单待公开公示', time: '剩 4天', h: 'modules/rule/result-open.html' }
+        ],
+        shortcuts: [
+          { c: 'blue', i: 'fa-file-pen', l: '政策宣传内容管理', h: 'modules/rule/content-manage.html' },
+          { c: 'green', i: 'fa-bullhorn', l: '配租批次公告发布', h: 'modules/rule/batch-notice.html' },
+          { c: 'cyan', i: 'fa-list-ol', l: '配租结果公开', h: 'modules/rule/result-open.html' },
+          { c: 'orange', i: 'fa-book', l: '信息公开台账', h: 'modules/rule/open-ledger.html' },
+          { c: 'purple', i: 'fa-eye', l: '政策资讯查看', h: 'modules/rule/policy-view.html' },
+          { c: 'red', i: 'fa-bell', l: '通知公告', h: 'modules/workbench/notice.html' }
         ]
       },
       admin: {
@@ -917,12 +993,12 @@
           { c: 'cyan', i: 'fa-hand-holding-dollar', l: '上期已拨补助', v: '842,760.00', t: '2026 年 8 月' }
         ],
         todos: [
-          { c: 'orange', tag: '申请初审', txt: 'RC2026-0904-0186 谭×× 材料完整性与在租状态待初审', time: '剩 4h', warn: 1, h: 'modules/agency/first-audit.html' },
+          { c: 'orange', tag: '申请初审', txt: 'RC2026-0904-0186 谭×× 材料完整性与在租状态待初审', time: '剩 4h', warn: 1, h: 'modules/agency/publish-submit.html' },
           { c: 'blue', tag: '补助申报', txt: '2026 年 9 月租房补助待就 1,192 套在租房源批量发起申请', time: '剩 3天', h: 'modules/agency/subsidy-apply.html' },
           { c: 'red', tag: '评价改进', txt: '湘江1958 报修及时率评分 78.2 分，低于约定标准将扣减补助', time: '剩 5天', warn: 1, h: 'modules/ops/eval-stat.html' }
         ],
         shortcuts: [
-          { c: 'blue', i: 'fa-clipboard-check', l: '申请初审办理', h: 'modules/agency/first-audit.html' },
+          { c: 'blue', i: 'fa-clipboard-check', l: '申请初审办理', h: 'modules/agency/publish-submit.html' },
           { c: 'green', i: 'fa-hand-holding-dollar', l: '补助申请发起', h: 'modules/agency/subsidy-apply.html' },
           { c: 'cyan', i: 'fa-screwdriver-wrench', l: '报修工单流转', h: 'modules/ops/wo-list.html' },
           { c: 'orange', i: 'fa-star-half-stroke', l: '服务评价结果', h: 'modules/ops/eval-stat.html' },

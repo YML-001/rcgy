@@ -3,27 +3,41 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>在线填报资格审核表 · 株洲市人才公寓管理平台</title>
+<title>填报资格审核表 · 株洲市人才住房保障管理平台</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="../../assets/css/app.css">
 <link rel="stylesheet" href="../../assets/css/mobile.css">
 <link rel="stylesheet" href="../../assets/css/ext.css">
 </head>
-<body class="m-body" data-mtitle="填报审核表（1/5）" data-mmod="M5 人才公寓资格申请" data-mcode="M5-02"
-      data-mdesc="在线填写《株洲市创业就业青年人才住房资格审核表》全部字段，含申请人、身份证号、学历、毕业时间、单位、申请类型、婚姻状况、家庭成员等。" data-mback="apply-type.html" data-mtabset="public" data-mtab="apply">
+<body class="m-body" data-mtitle="填表 · 基本信息（2/5）" data-mmod="M5 人才公寓资格申请" data-mcode="M5-02"
+      data-mdesc="先选房后填表：已选房源信息由房源详情页选定自动带入并只读展示，再填写《株洲市创业就业青年人才住房资格审核表》的基本信息；婚姻状况选「已婚」时按民政数据自动切换为家庭申请。" data-mback="apply-type.html" data-mtabset="public" data-mtab="me">
 <div class="m-stage">
   <div class="m-phone">
     <div class="m-screen">
       <div class="m-view">
         <div class="m-steps">
-          <div class="m-sp on"><div class="n">1</div><div class="t">基本信息</div></div>
-          <div class="m-sp"><div class="n">2</div><div class="t">家庭成员</div></div>
-          <div class="m-sp"><div class="n">3</div><div class="t">材料上传</div></div>
-          <div class="m-sp"><div class="n">4</div><div class="t">规则校验</div></div>
-          <div class="m-sp"><div class="n">5</div><div class="t">签署提交</div></div>
+          <div class="m-sp done"><div class="n"><i class="fa-solid fa-check"></i></div><div class="t">选房</div></div>
+          <div class="m-sp on"><div class="n">2</div><div class="t">填表</div></div>
+          <div class="m-sp"><div class="n">3</div><div class="t">材料</div></div>
+          <div class="m-sp"><div class="n">4</div><div class="t">承诺书</div></div>
+          <div class="m-sp"><div class="n">5</div><div class="t">提交</div></div>
         </div>
         <div class="m-note"><i class="fa-solid fa-circle-info"></i>
-          <div>带<i class="fa-solid fa-database"></i>标记的字段由<b>部门共享数据自动回填</b>，您只需补充少量内容。</div>
+          <div>已选房源信息<b>自动带入、只读展示</b>；带<i class="fa-solid fa-database"></i>标记的字段由<b>部门共享数据自动回填</b>，您只需补充少量内容。</div>
+        </div>
+        <div class="m-sect">已选房源<span class="m-sect-x">由房源详情页选定带入</span></div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-door-open"></i>申请房间：1502A 间<a class="m-more" href="house-detail.html">改选房源 <i class="fa-solid fa-angle-right"></i></a></div>
+          <div class="m-card-b">
+          <div class="m-kv">
+            <div><span>楼盘小区</span><span>湘江1958 人才公寓（天元区泰山路 1958 号）</span></div>
+            <div><span>房源（套）</span><span>A6 栋 1502 室　三室两厅，拆 A/B/C 三间</span></div>
+            <div><span>房间</span><span><b>1502A 间</b>　朝南主卧　独立卫生间 · 空调 · 阳台 · 衣柜 · 书桌</span></div>
+            <div><span>计租面积</span><span><b>27.80 ㎡</b>（套内 22.40 ＋ 公摊 5.40，公摊按套内间数均分并计入租金）</span></div>
+            <div><span>人才租金</span><span><b style="color:var(--danger)">166.80 元/月</b>（6.00 元/㎡·月）　原市场租金 500.40 元/月</span></div>
+            <div><span>信息来源</span><span><i class="fa-solid fa-database"></i> <b>由房源详情页选定带入</b>，本页只读，不可修改</span></div>
+          </div>
+          </div>
         </div>
         <div class="m-sect">申请人信息<span class="m-sect-x">实名与学历自动带入</span></div>
         <div class="m-form">
@@ -56,15 +70,19 @@
         <div class="m-form">
           <div class="m-fi">
             <label>申请类型 <span class="req">*</span></label>
-            <div class="m-fc"><select data-dict="applyType"></select><div class="m-fh">已按自动匹配结果预选为就业青年人才</div></div>
+            <div class="m-fc"><select data-dict="applyType" data-selected="2"></select><div class="m-fh">已按第 1 步选择预选为就业青年人才</div></div>
+          </div>
+          <div class="m-fi">
+            <label>申请渠道 <span class="req">*</span></label>
+            <div class="m-fc"><input type="text" value="个人申请（移动端）" readonly><div class="m-fh"><i class="fa-solid fa-database"></i> 四类渠道：个人 / 用人单位 / 运营机构 / 政务窗口</div></div>
           </div>
           <div class="m-fi">
             <label>就业单位 <span class="req">*</span></label>
-            <div class="m-fc"><input type="text" value="中车株洲电力机车研究所有限公司"><div class="m-fh">须与养老保险缴纳单位一致</div></div>
+            <div class="m-fc"><input type="text" value="中车株洲电力机车研究所"><div class="m-fh">须与养老保险缴纳单位一致</div></div>
           </div>
           <div class="m-fi">
             <label>单位所在区 <span class="req">*</span></label>
-            <div class="m-fc"><select data-dict="district"></select><div class="m-fh">须在市城区（不含渌口区）</div></div>
+            <div class="m-fc"><select data-dict="district" data-selected="01"></select><div class="m-fh">须在市城区（不含渌口区）</div></div>
           </div>
           <div class="m-fi">
             <label>岗位</label>
@@ -79,11 +97,11 @@
             <div class="m-fc"><input type="text" value="13" readonly><div class="m-fh"><i class="fa-solid fa-database"></i> 人社系统</div></div>
           </div>
         </div>
-        <div class="m-sect">婚姻与住房情况</div>
+        <div class="m-sect">婚姻与住房情况<span class="m-sect-x">已婚自动切换为家庭申请</span></div>
         <div class="m-form">
           <div class="m-fi">
             <label>婚姻状况 <span class="req">*</span></label>
-            <div class="m-fc"><select data-dict="marriage"></select><div class="m-fh"><i class="fa-solid fa-database"></i> 民政系统核验：未婚</div></div>
+            <div class="m-fc"><select id="mrgSel" data-dict="marriage" data-selected="1"></select><div class="m-fh"><i class="fa-solid fa-database"></i> 民政系统核验结果，选「已婚」将自动切换为家庭申请</div></div>
           </div>
           <div class="m-fi">
             <label>市城区自有住房 <span class="req">*</span></label>
@@ -94,19 +112,38 @@
             <div class="m-fc"><input type="text" value="无" readonly><div class="m-fh"><i class="fa-solid fa-database"></i> 公租房系统核查结果</div></div>
           </div>
         </div>
-        <div class="m-sect">意向与备注</div>
+        <div id="famBox" style="display:none">
+          <div class="m-note success"><i class="fa-solid fa-people-roof"></i>
+            <div><b>已按民政数据自动切换为家庭申请</b>：夫妻双方合并为一份申请、<b>只占一套指标</b>，无房核查范围扩展至配偶及家庭成员。</div>
+          </div>
+          <div class="m-sect">家庭成员<span class="m-sect-x">已婚必填 · 用于无房核查</span></div>
+          <div class="m-form">
+            <div class="m-fi">
+              <label>配偶姓名 <span class="req">*</span></label>
+              <div class="m-fc"><input type="text" value="周芷若"><div class="m-fh"><i class="fa-solid fa-database"></i> 民政婚姻登记信息带入，可核对修改</div></div>
+            </div>
+            <div class="m-fi">
+              <label>配偶身份证号 <span class="req">*</span></label>
+              <div class="m-fc"><input type="text" value="430203********0286"><div class="m-fh">将核查配偶名下不动产与保障历史</div></div>
+            </div>
+            <div class="m-fi">
+              <label>配偶是否同为符合条件人才 <span class="req">*</span></label>
+              <div class="m-fc"><select data-dict="yesNo" data-selected="1"></select><div class="m-fh">双方均符合的合并为一份家庭申请，仍只占一套指标</div></div>
+            </div>
+            <div class="m-fi">
+              <label>共同申请人数 <span class="req">*</span></label>
+              <div class="m-fc"><input type="number" value="2" min="1" max="4"><div class="m-fh">含本人；家庭申请可整套承租三室两厅（1502 室整套 471.60 元/月）</div></div>
+            </div>
+          </div>
+          <div class="m-cells">
+            <a class="m-cell" href="apply-step2.html"><span class="m-ci cyan"><i class="fa-solid fa-people-roof"></i></span><span class="m-cl"><b>完善家庭成员明细</b><span class="m-cs">子女及其他共同居住人可在下一步补充</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          </div>
+        </div>
+        <div class="m-sect">补充说明</div>
         <div class="m-form">
           <div class="m-fi">
-            <label>意向居住片区</label>
-            <div class="m-fc"><input type="text" value="天元区（栗雨片区）"><div class="m-fh">用于房源到位通知与供需测算</div></div>
-          </div>
-          <div class="m-fi">
-            <label>意向房型</label>
-            <div class="m-fc"><select data-dict="roomType"></select><div class="m-fh">一室一厅配租 1 人、二室一厅配租 2 人</div></div>
-          </div>
-          <div class="m-fi">
             <label>备注说明</label>
-            <div class="m-fc"><textarea rows="3" placeholder="选填，如有特殊情况可在此说明">本人符合创业就业青年人才申请条件，希望优先配租天元区栗雨片区房源，如需补充材料请电话联系。</textarea></div>
+            <div class="m-fc"><textarea rows="3">本人符合创业就业青年人才申请条件，已选定湘江1958 A6-1502A 间，如需补充材料请电话联系。</textarea><div class="m-fh">选填，如有特殊情况可在此说明</div></div>
           </div>
         </div>
         <div class="m-cells">
@@ -115,12 +152,30 @@
       </div>
       <div class="m-actbar">
         <button class="m-btn w-auto" type="button" onclick="MB.toast('已保存草稿，可在「我的申请」继续办理')">保存草稿</button>
-        <button class="m-btn primary" type="button" onclick="MB.validate('.m-view')&&MB.go('apply-step2.html')"><i class="fa-solid fa-angle-right"></i> 下一步</button>
+        <button class="m-btn primary" type="button" onclick="MB.validate('.m-view')&&MB.go('apply-step2.html')"><i class="fa-solid fa-angle-right"></i> 下一步：家庭成员</button>
       </div>
     </div>
   </div>
 </div>
 
 <script src="../../assets/js/mobile.js"></script>
+<script>
+/* 已婚按民政数据自动切换为家庭申请：婚姻状况选「已婚」时显示家庭成员区块 */
+(function () {
+  var sel = document.getElementById('mrgSel');
+  var box = document.getElementById('famBox');
+  function sync(tip) {
+    var txt = sel.options[sel.selectedIndex] ? sel.options[sel.selectedIndex].text : '';
+    var married = txt === '已婚';
+    box.style.display = married ? '' : 'none';
+    if (tip) {
+      MB.toast(married ? '已按民政数据自动切换为家庭申请，夫妻双方合并为一份、只占一套指标'
+                       : '已切换为个人申请，无需填报家庭成员', 2400);
+    }
+  }
+  sel.addEventListener('change', function () { sync(true); });
+  sync(false);
+})();
+</script>
 </body>
 </html>

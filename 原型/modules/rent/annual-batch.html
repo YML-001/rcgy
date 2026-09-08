@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>年度资格审查 · 株洲市人才公寓管理平台</title>
+<title>年度资格审查 · 株洲市人才住房保障管理平台</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="../../assets/css/app.css">
 <link rel="stylesheet" href="../../assets/css/spec.css">
@@ -13,50 +13,52 @@
 <main class="app-main">
   <div class="page-head">
     <div class="breadcrumb">
-      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才住房保障管理平台
       <span class="sep">/</span> 租金收缴与年审退出
       <span class="sep">/</span> 年审续租与退出
       <span class="sep">/</span> <span class="cur">年度资格审查</span>
     </div>
     <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.openDrawer('nsDrawer')"><i class="fa-solid fa-plus"></i> 人工发起专项批次</button>
+      <button class="btn" onclick="PMS.toast('已重新推送年审提醒：186 户已通过站内消息与短信触达','success')"><i class="fa-solid fa-bell"></i> 重新推送提醒</button>
       <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
     </div>
   </div>
 
   <div class="alert alert-warning">
     <i class="fa-solid fa-triangle-exclamation"></i>
-    <div>每年发起<b>一次</b>年审批次，自动生成待审名单并复核<b>住房、就业、纳税、社保</b>变化情况，<b>异常件标注供人工核查</b>。人才住房保障实行动态管理，保障资格每年审查一次。</div>
+    <div><b>资格审核通过满一年，系统自动生成年审待办记录并推送提醒</b>：按每户的<b>审核通过日期</b>逐日触发，当月触发的汇总为一个自动批次。自动生成的待办同步推送至承租人移动端与预留手机号；专项核查等特殊情形可由市住保中心<b>人工发起</b>批次，两种生成方式并存、互不替代。</div>
   </div>
 
   <div class="stat-grid">
     <div class="stat-card">
-      <div class="s-icon blue"><i class="fa-solid fa-calendar-check"></i></div>
-      <div><div class="s-label">2027 年度批次</div><div class="s-value">3</div>
-        <div class="s-trend text-2">按入住月份分批</div></div>
+      <div class="s-icon blue"><i class="fa-solid fa-robot"></i></div>
+      <div><div class="s-label">本月自动生成</div><div class="s-value">186</div>
+        <div class="s-trend text-2">件 · 审核通过日期满 1 年触发</div></div>
     </div>
     <div class="stat-card">
-      <div class="s-icon green"><i class="fa-solid fa-users"></i></div>
-      <div><div class="s-label">本批次待审</div><div class="s-value">486</div>
-        <div class="s-trend text-2">第 1 批</div></div>
+      <div class="s-icon cyan"><i class="fa-solid fa-bell"></i></div>
+      <div><div class="s-label">已推送提醒</div><div class="s-value">186</div>
+        <div class="s-trend text-2">推送率 100%　站内 + 短信</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
+      <div><div class="s-label">已完成年审</div><div class="s-value">128</div>
+        <div class="s-trend text-2">完成率 68.8%</div></div>
     </div>
     <div class="stat-card dc-alarm">
       <div class="s-icon orange"><i class="fa-solid fa-code-compare"></i></div>
-      <div><div class="s-label">异常件</div><div class="s-value">62</div>
+      <div><div class="s-label">异常件</div><div class="s-value">12</div>
         <div class="s-trend ">转人工核查</div></div>
-    </div>
-    <div class="stat-card">
-      <div class="s-icon cyan"><i class="fa-solid fa-circle-check"></i></div>
-      <div><div class="s-label">已完成年审</div><div class="s-value">338</div>
-        <div class="s-trend text-2">完成率 69.5%</div></div>
     </div>
   </div>
 
   <div class="card list-card">
     <div class="filter-bar">
-      <div class="filter-item"><label>批次编号</label><input type="text" placeholder="批次编号"></div>
-      <div class="filter-item"><label>年审年度</label><select><option value="">全部</option><option>2027 年度</option><option>2026 年度</option></select></div>
-      <div class="filter-item"><label>批次状态</label><select><option value="">全部</option><option>待发起</option><option>进行中</option><option>已结束</option></select></div>
-      <div class="filter-item"><label>发起日期</label><input type="date"></div>
+      <div class="filter-item"><label>批次编号</label><input type="text" value="NS2026-" placeholder="批次编号"></div>
+      <div class="filter-item"><label>生成方式</label><select><option value="">全部</option><option>系统自动</option><option>人工发起</option></select></div>
+      <div class="filter-item"><label>批次状态</label><select><option value="">全部</option><option>待触发</option><option>进行中</option><option>已结束</option></select></div>
+      <div class="filter-item"><label>触发月份</label><input type="month" value="2026-09"></div>
       <div class="filter-actions">
         <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
         <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
@@ -66,20 +68,41 @@
     <div class="table-wrap">
       <table class="data-table">
         <thead>
-          <tr><th>批次编号</th><th class="cell-lg">批次名称</th><th>年审年度</th><th>待审户数</th><th>已完成</th><th>异常件</th><th>办理截止</th><th>批次状态</th><th>操作</th></tr>
+          <tr><th>批次编号</th><th class="cell-lg">批次名称</th><th>生成方式</th><th class="cell-lg">触发依据</th><th class="num">待审户数</th><th class="num">已推送提醒</th><th class="num">已完成</th><th class="num">异常件</th><th>办理截止</th><th>批次状态</th><th>操作</th></tr>
         </thead>
         <tbody>
-          <tr class="row-warn"><td>NS2027-01</td><td>2027 年度第 1 批资格年审（入住月份 1—4 月）</td><td>2027 年度</td><td class="num">486</td><td class="num">338</td><td class="num">62</td><td>2027-01-20</td><td><span class="badge orange">进行中</span></td><td><span class="link" onclick="location.href='annual-list.html'">待审名单</span></td></tr>
-          <tr><td>NS2027-02</td><td>2027 年度第 2 批资格年审（入住月份 5—8 月）</td><td>2027 年度</td><td class="num">428</td><td class="num">0</td><td class="num">0</td><td>2027-05-20</td><td><span class="badge gray">待发起</span></td><td><span class="link" onclick="PMS.openDrawer('nsDrawer')">发起批次</span></td></tr>
-          <tr><td>NS2027-03</td><td>2027 年度第 3 批资格年审（入住月份 9—12 月）</td><td>2027 年度</td><td class="num">372</td><td class="num">0</td><td class="num">0</td><td>2027-09-20</td><td><span class="badge gray">待发起</span></td><td><span class="link" onclick="PMS.openDrawer('nsDrawer')">发起批次</span></td></tr>
-          <tr><td>NS2026-01</td><td>2026 年度第 1 批资格年审</td><td>2026 年度</td><td class="num">386</td><td class="num">386</td><td class="num">42</td><td>2026-01-20</td><td><span class="badge green">已结束</span></td><td><span class="link" onclick="PMS.toast('386 户全部完成年审：通过 344 户、转市场租金 34 户、启动退出 8 户')">批次结果</span></td></tr>
+          <tr class="row-warn"><td>NS2026-09</td><td class="cell-lg">2026 年 9 月年审待办（自动生成）</td><td><span class="badge green">系统自动</span></td><td class="cell-lg">审核通过日期 <b>2025-09-01 至 2025-09-30</b> 满 1 年逐日触发</td><td class="num">186</td><td class="num">186</td><td class="num">128</td><td class="num">12</td><td>2026-09-30</td><td><span class="badge orange">进行中</span></td><td><span class="link" onclick="location.href='annual-list.html'">待审名单</span> <span class="link" onclick="location.href='annual-result.html'">结论处置</span></td></tr>
+          <tr class="row-warn"><td>NS2026-09Z</td><td class="cell-lg">2026 年第 3 季度在租状态异常专项年审</td><td><span class="badge purple">人工发起</span></td><td class="cell-lg">巡检发现长期未入住、疑似转租共 42 户，由市住保中心人工发起</td><td class="num">42</td><td class="num">42</td><td class="num">26</td><td class="num">6</td><td>2026-09-20</td><td><span class="badge orange">进行中</span></td><td><span class="link" onclick="location.href='annual-list.html'">待审名单</span> <span class="link" onclick="location.href='annual-result.html'">结论处置</span></td></tr>
+          <tr><td>NS2026-10</td><td class="cell-lg">2026 年 10 月年审待办（自动生成）</td><td><span class="badge green">系统自动</span></td><td class="cell-lg">审核通过日期 <b>2025-10-01 至 2025-10-31</b> 满 1 年逐日触发</td><td class="num">208</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td>2026-10-31</td><td><span class="badge gray">待触发</span></td><td><span class="link" onclick="PMS.toast('本批次将于 2026-10-01 起按审核通过日期逐日自动触发，预计 208 户，届时自动推送提醒')">预览名单</span></td></tr>
+          <tr><td>NS2026-08</td><td class="cell-lg">2026 年 8 月年审待办（自动生成）</td><td><span class="badge green">系统自动</span></td><td class="cell-lg">审核通过日期 <b>2025-08-01 至 2025-08-31</b> 满 1 年逐日触发</td><td class="num">172</td><td class="num">172</td><td class="num">172</td><td class="num">8</td><td>2026-08-31</td><td><span class="badge green">已结束</span></td><td><span class="link" onclick="PMS.toast('172 户全部办结：年审通过 156 户、转市场租金 12 户、年审不通过启动退出 4 户')">批次结果</span></td></tr>
+          <tr><td>NS2026-07</td><td class="cell-lg">2026 年 7 月年审待办（自动生成）</td><td><span class="badge green">系统自动</span></td><td class="cell-lg">审核通过日期 <b>2025-07-01 至 2025-07-31</b> 满 1 年逐日触发</td><td class="num">164</td><td class="num">164</td><td class="num">164</td><td class="num">14</td><td>2026-07-31</td><td><span class="badge green">已结束</span></td><td><span class="link" onclick="PMS.toast('164 户全部办结：年审通过 142 户、转市场租金 16 户、年审不通过启动退出 6 户')">批次结果</span></td></tr>
         </tbody>
       </table>
     </div>
   </div>
+
+  <div class="sp-block" style="margin-top:12px">
+    <div class="sp-h"><i class="fa-solid fa-diagram-project"></i> 年审触发与流转规则<span class="sub">审核通过满一年自动生成待办并推送提醒 · 两级办理出具结论</span></div>
+    <div class="sp-b">
+      <div class="sp-tw">
+        <table class="data-table compact">
+          <thead><tr><th>环节</th><th class="cell-lg">规则内容</th><th class="cell-lg">系统动作</th><th>责任方</th></tr></thead>
+          <tbody>
+            <tr><td><b>自动触发</b></td><td class="cell-lg">以每户<b>资格审核通过之日</b>为起算点，<b>满 1 年当日自动生成一条年审待办记录</b>；同一自然月内触发的汇总为一个自动批次，批次编号 NS + 年月</td><td class="cell-lg">复审出具「审核通过」结论时即写入年审触发日期；触发当日自动建单，无需人工发起</td><td>系统</td></tr>
+            <tr><td><b>提醒推送</b></td><td class="cell-lg">待办生成当日推送至承租人<b>建宁安居移动端 + 预留手机号短信</b>；办理截止前 <b>7 天</b>再次提醒，逾期未确认的每 3 天催办一次</td><td class="cell-lg">推送状态回写「已推送提醒」列，失败自动重试并记录</td><td>系统</td></tr>
+            <tr><td><b>自动复核</b></td><td class="cell-lg">调取<b>住房、就业、纳税、社保、欠费</b>五项数据自动复核，五项均正常的标记为正常件，任一项异常的标注为<b>异常件</b>供人工核查</td><td class="cell-lg">异常件在待审名单中标红，正常件支持批量办理</td><td>系统</td></tr>
+            <tr><td><b>两级办理</b></td><td class="cell-lg"><b>年审初审</b>（核对在租状态、欠费与自动复核结果）→ <b>年审复审出具结论</b>；两级意见分别留痕，初审人与复审人不得为同一自然人</td><td class="cell-lg">结论在<span class="link" onclick="location.href='annual-result.html'">年审结论处置</span>逐件出具并电子送达</td><td>市保障性住房服务中心</td></tr>
+            <tr><td><b>结论与流转</b></td><td class="cell-lg"><span class="badge green">年审通过</span> 资格延续，重置下一年审触发日期；<span class="badge orange">转按市场租金续租</span> 生成合同变更协议；<span class="badge red">年审不通过</span> 启动退出</td><td class="cell-lg"><b>年审不通过的自动推送退出待办至运营机构端</b>，由运营机构办理腾退、验房与结算</td><td>市住保中心 + 运营机构</td></tr>
+            <tr><td><b>人工发起</b></td><td class="cell-lg">巡检发现在租状态异常、群众举报核查等特殊情形，由市住保中心<b>人工发起专项批次</b>，可按楼盘、运营机构或指定名单圈定范围</td><td class="cell-lg">人工批次与自动批次并存展示，生成方式列区分标注，不替代自动年审</td><td>市保障性住房服务中心</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
   <div class="sp-src">
     <span><b>政策依据</b> 管理办法第十二条：人才住房保障实行动态管理，保障资格每年审查一次</span>
-    <span><b>年审周期</b> 自入住之日起每满 1 年发起一次，按入住月份分批</span>
+    <span><b>触发口径</b> 资格审核通过之日起满 1 年自动生成年审待办记录并推送提醒</span>
     <span><b>复核数据</b> 住房、就业、纳税、社保四项 + 欠费情况</span>
   </div>
 </main>
@@ -87,66 +110,76 @@
 <div class="drawer-mask"></div>
 <div class="drawer" id="nsDrawer">
   <div class="drawer-head">
-    <h3>发起年审批次</h3>
-    <span class="badge blue">年度年审</span>
+    <h3>人工发起专项年审批次</h3>
+    <span class="badge purple">人工发起</span>
     <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
   </div>
   <div class="drawer-body">
   <div class="alert alert-info">
     <i class="fa-solid fa-circle-info"></i>
-    <div>发起后系统<b>自动生成待审名单</b>并调取四项数据自动复核，异常件标注供人工核查。年审通知将多通道推送至承租人。</div>
+    <div>常规年审<b>无须人工发起</b>：系统按每户审核通过日期满一年自动生成待办并推送提醒。本抽屉用于<b>专项核查</b>（在租状态异常、举报核查等），人工批次与自动批次<b>并存不替代</b>。</div>
   </div>
 
       <div class="form-grid form-align">
         <div class="form-item">
           <label>批次编号 <span class="req">*</span></label>
-          <input type="text" value="NS2027-02" readonly>
+          <input type="text" value="NS2026-09Z2" readonly>
+          <div class="hint">人工批次编号后缀 Z，与自动批次区分</div>
+        </div>
+        <div class="form-item">
+          <label>生成方式 <span class="req">*</span></label>
+          <input type="text" value="人工发起" readonly>
         </div>
         <div class="form-item col-full">
           <label>批次名称 <span class="req">*</span></label>
-          <input type="text" value="2027 年度第 2 批资格年审（入住月份 5—8 月）">
+          <input type="text" value="2026 年第 3 季度长期未入住专项年审">
         </div>
         <div class="form-item">
-          <label>年审年度 <span class="req">*</span></label>
-          <select><option value="">全部</option><option>2027 年度</option><option>2028 年度</option></select>
+          <label>发起事由 <span class="req">*</span></label>
+          <select><option>在租状态异常（长期未入住 / 疑似转租）</option><option>群众举报核查</option><option>用人单位上报在职状态变更</option><option>欠费催缴后仍未清缴</option></select>
         </div>
         <div class="form-item">
           <label>待审范围 <span class="req">*</span></label>
-          <select><option value="">全部</option><option>按入住月份（5—8 月）</option><option>按楼盘</option><option>全量在租</option></select>
+          <select><option>按巡检异常名单</option><option>按楼盘</option><option>按运营机构</option><option>按指定名单导入</option></select>
         </div>
         <div class="form-item">
           <label>待审户数 <span class="req">*</span></label>
-          <input type="text" value="428" readonly>
+          <input type="text" value="28" readonly>
           <div class="hint">系统按范围自动生成</div>
         </div>
         <div class="form-item">
           <label>发起日期 <span class="req">*</span></label>
-          <input type="date">
+          <input type="date" value="2026-09-08">
         </div>
         <div class="form-item">
           <label>办理截止 <span class="req">*</span></label>
-          <input type="date">
+          <input type="date" value="2026-09-30">
           <div class="hint">承租人须在此前完成在线确认</div>
+        </div>
+        <div class="form-item">
+          <label>提醒推送方式 <span class="req">*</span></label>
+          <select><option>站内消息 + 短信</option><option>站内消息 + 微信 + 短信</option><option>仅站内消息</option></select>
         </div>
         <div class="form-item col-full">
           <label>复核项 <span class="req">*</span></label>
-          <input type="text" value="住房、就业、纳税、社保、欠费" readonly>
+          <input type="text" value="住房、就业、纳税、社保、欠费、在租状态" readonly>
         </div>
         <div class="form-item col-full">
           <label>批次说明 <span class="req">*</span></label>
-          <textarea rows="3" placeholder="必填，说明本批次年审范围与要求">本批次对 2027 年度入住月份为 5—8 月的 428 户在租承租人开展资格年审，自动复核住房、就业、纳税、社保与欠费五项，请承租人于办理截止日前完成在线确认，异常件转人工核查。</textarea>
+          <textarea rows="3">本批次针对 2026 年第 3 季度扫码巡检与入户核查发现的 28 户长期未入住、疑似转租情形开展专项年审，自动复核住房、就业、纳税、社保、欠费五项并核对在租状态，请承租人于 2026-09-30 前完成在线确认，异常件转人工核查，核实确属转租的按违规清退处理。</textarea>
         </div>
       </div>
   </div>
   <div class="drawer-foot">
     <button class="btn" data-close-drawer>取消</button>
-    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认发起 2027 年度第 2 批资格年审？涉及 428 户。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已发起，年审通知已推送至 428 户承租人','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+    <button class="btn" onclick="PMS.toast('已保存为草稿，未发起')">保存草稿</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认人工发起「2026 年第 3 季度长期未入住专项年审」？涉及 28 户。',detail:'发起后系统自动生成待审名单、调取五项数据自动复核，并按所选方式推送提醒。人工批次与自动生成的年审批次并存，不影响各户原有的年审触发日期。',type:'warning',okText:'确认发起',onOk:function(){PMS.closeDrawer();PMS.toast('已发起，年审提醒已推送至 28 户承租人','success');}})"><i class="fa-solid fa-check"></i> 发起批次</button>
   </div>
 </div>
 <script>
 (function () {
   var t = document.querySelector('main.app-main .table-wrap > table.data-table');
-  if (t) { t._total = 8; }
+  if (t) { t._total = 5; }
 })();
 </script>
 

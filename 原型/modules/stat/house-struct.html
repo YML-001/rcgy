@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>房源结构分析 · 株洲市人才公寓管理平台</title>
+<title>房源结构分析 · 株洲市人才住房保障管理平台</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="../../assets/css/app.css">
 <link rel="stylesheet" href="../../assets/css/spec.css">
@@ -13,7 +13,7 @@
 <main class="app-main">
   <div class="page-head">
     <div class="breadcrumb">
-      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才住房保障管理平台
       <span class="sep">/</span> 统计分析
       <span class="sep">/</span> 房源分析
       <span class="sep">/</span> <span class="cur">房源结构分析</span>
@@ -25,90 +25,142 @@
 
   <div class="alert alert-warning">
     <i class="fa-solid fa-triangle-exclamation"></i>
-    <div>按<b>区域、户型、面积段、装修标准</b>分析房源结构，与<b>人才需求结构对比</b>，识别供给与需求的结构性错配。</div>
+    <div>房源颗粒度已细化到<b>「间」</b>：一套三室两厅拆为三间单独计租，<b>公摊比例按套内间数均分</b>，<b>计租面积 ＝ 本间套内面积 ＋ 本间公摊面积</b>。房源结构<b>按套与按间两个口径并存展示</b>——全市 <b>2,486 套 / 4,286 间</b>（平均每套约 1.72 间）；需求侧改按<b>间</b>（人份）统计，<b>上架率、空置率、配租率均按间口径计算</b>，按套口径保留供对比。</div>
   </div>
 
   <div class="stat-grid">
     <div class="stat-card">
       <div class="s-icon blue"><i class="fa-solid fa-table-cells"></i></div>
-      <div><div class="s-label">房源总量</div><div class="s-value">2,486</div>
-        <div class="s-trend text-2">套</div></div>
+      <div><div class="s-label">房源总量</div><div class="s-value">4,286 间</div>
+        <div class="s-trend text-2">2,486 套　平均每套 1.72 间</div></div>
     </div>
     <div class="stat-card">
       <div class="s-icon green"><i class="fa-solid fa-door-open"></i></div>
-      <div><div class="s-label">一室一厅</div><div class="s-value">1,120</div>
-        <div class="s-trend text-2">占 45.1%</div></div>
+      <div><div class="s-label">二室一厅（按间最多）</div><div class="s-value">1,952 间</div>
+        <div class="s-trend text-2">976 套　占间数 45.5%</div></div>
     </div>
     <div class="stat-card">
       <div class="s-icon cyan"><i class="fa-solid fa-ruler-combined"></i></div>
-      <div><div class="s-label">平均建筑面积</div><div class="s-value">56.80 ㎡</div>
-        <div class="s-trend text-2">单间至三室</div></div>
+      <div><div class="s-label">平均计租面积</div><div class="s-value">29.12 ㎡</div>
+        <div class="s-trend text-2">每间（含分摊公摊）</div></div>
     </div>
     <div class="stat-card dc-alarm">
       <div class="s-icon orange"><i class="fa-solid fa-code-compare"></i></div>
-      <div><div class="s-label">结构错配</div><div class="s-value">2</div>
-        <div class="s-trend ">一室缺口 / 单间盈余</div></div>
+      <div><div class="s-label">结构缺口</div><div class="s-value">-286 间</div>
+        <div class="s-trend ">一室一厅缺口最大 -172 间</div></div>
     </div>
   </div>
 
-  <div class="card">
-    <div class="card-head">
-      <h3><i class="fa-solid fa-chart-pie"></i> 结构与错配</h3>
-      <span class="sub">S2-03 · 供给 vs 需求</span>
+  <div class="card list-card" data-tabs-scope>
+    <div class="tabs" style="margin-bottom:0;padding:8px 12px 0">
+      <div class="tab active" data-tab="struct">按室厅结构 <span class="badge blue">5</span></div>
+      <div class="tab" data-tab="chart">结构与错配图</div>
     </div>
-    <div class="card-body">
-      <div class="section-title" data-icon="fa-chart-pie">户型结构</div>
-      <div class="flex items-center gap-16">
-        <div class="donut" style="background:conic-gradient(var(--primary) 0% 45.1%, var(--success) 45.1% 75.7%, var(--info) 75.7% 96.5%, var(--warning) 96.5% 100%)">
-          <div class="donut-hole"><b>2,486</b><span class="text-sm">房源总量</span></div>
+
+    <div class="tab-panel active" data-panel="struct">
+      <div class="card-body" style="padding:0">
+        <div class="filter-bar">
+          <div class="filter-item"><label>室厅结构</label><select data-dict="roomStruct" data-ph="全部"></select></div>
+          <div class="filter-item"><label>区域</label><select data-dict="district" data-ph="全部"></select></div>
+          <div class="filter-item"><label>统计口径</label><select><option>按间与按套并存</option><option>仅按间口径</option><option>仅按套口径</option></select></div>
+          <div class="filter-actions">
+            <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+            <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+          </div>
         </div>
-        <div class="legend" style="flex:1">
-          <div class="lg-item"><span class="lg-color" style="background:var(--primary)"></span> 一室一厅　1,120 套　45.1%</div>
-          <div class="lg-item"><span class="lg-color" style="background:var(--success)"></span> 二室一厅　760 套　30.6%</div>
-          <div class="lg-item"><span class="lg-color" style="background:var(--info)"></span> 单间配套　518 套　20.8%</div>
-          <div class="lg-item"><span class="lg-color" style="background:var(--warning)"></span> 三室一厅　88 套　3.5%</div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th>室厅结构</th><th class="num">每套间数</th><th class="num">供给套数</th><th class="num">供给间数</th><th class="num">占比（套）</th><th class="num">占比（间）</th><th class="num">需求间数</th><th class="num">缺口/盈余（间）</th><th class="num">建议筹集占比</th><th class="cell-lg">错配归因与建议</th><th>下钻</th></tr>
+            </thead>
+            <tbody>
+              <tr class="row-bad"><td>一室一厅</td><td class="num">1</td><td class="num">712</td><td class="num">712</td><td class="num">28.6%</td><td class="num">16.6%</td><td class="num">884</td><td class="num">-172</td><td class="num">18%</td><td class="cell-lg"><b>缺口最大</b>：独立成套、无需合租，是单身青年人才首选。平均计租面积 38.40 ㎡（套内 32.00 ＋ 公摊 6.40），建议新增筹集向该结构倾斜</td><td><span class="link" onclick="location.href='house-supply.html'">供需匹配</span></td></tr>
+              <tr class="row-warn"><td>二室一厅</td><td class="num">2</td><td class="num">976</td><td class="num">1,952</td><td class="num">39.3%</td><td class="num">45.5%</td><td class="num">2,046</td><td class="num">-94</td><td class="num">46%</td><td class="cell-lg"><b>按间口径占比最高</b>：拆两间后每间计租面积 27.40 ㎡、单间租金最低，是按间配租的主力。缺口可控，维持筹集重点</td><td><span class="link" onclick="location.href='../house/house-unit-mode.html'">按套与按间</span></td></tr>
+              <tr class="row-warn"><td>单间配套</td><td class="num">1</td><td class="num">386</td><td class="num">386</td><td class="num">15.5%</td><td class="num">9.0%</td><td class="num">428</td><td class="num">-42</td><td class="num">8%</td><td class="cell-lg">小幅缺口。计租面积 31.20 ㎡，无独立厨房、居住体验一般，适合短期过渡型保障，不宜大量新增</td><td><span class="link" onclick="location.href='book-demand.html'">预约热度</span></td></tr>
+              <tr><td>三室一厅</td><td class="num">3</td><td class="num">268</td><td class="num">804</td><td class="num">10.8%</td><td class="num">18.8%</td><td class="num">786</td><td class="num">+18</td><td class="num">19%</td><td class="cell-lg">略有盈余。拆三间后每间计租面积 24.80 ㎡、公摊按三分之一均分，单间租金最低，出租效率高，可适度增加</td><td><span class="link" onclick="location.href='../house/house-unit-mode.html'">按套与按间</span></td></tr>
+              <tr><td>三室两厅</td><td class="num">3</td><td class="num">144</td><td class="num">432</td><td class="num">5.8%</td><td class="num">10.1%</td><td class="num">428</td><td class="num">+4</td><td class="num">9%</td><td class="cell-lg">基本平衡。以湘江1958 A6-1502 为例：套内 78.60 ㎡、总公摊 16.20 ㎡，拆 1502A/B/C 三间，每间公摊 5.40 ㎡</td><td><span class="link" onclick="location.href='../house/building-table.html'">楼盘表</span></td></tr>
+              <tr><td><span class="badge green">合计</span></td><td class="num">1.72</td><td class="num">2,486</td><td class="num">4,286</td><td class="num">100.0%</td><td class="num">100.0%</td><td class="num">4,572</td><td class="num">-286</td><td class="num">100%</td><td class="cell-lg">总体供不足需 286 间；按套口径「一室一厅占比最高」的结论在按间口径下变为「二室一厅占比最高」，筹集策略须按间口径重新排序</td><td><span class="link" onclick="location.href='../house/house-forecast.html'">供需测算</span></td></tr>
+            </tbody>
+          </table>
         </div>
       </div>
-      <div class="section-title" data-icon="fa-chart-simple">户型供需对比</div>
-      <div class="dc-bars">
-        <div class="b-item warn"><span class="b-label">一室一厅　供给 1,120 / 需求 1,386</span><span class="b-track"><span class="b-fill" style="width:80.8%"></span></span><span class="b-val">缺口 -266 套</span></div>
-        <div class="b-item warn"><span class="b-label">二室一厅　供给 760 / 需求 802</span><span class="b-track"><span class="b-fill" style="width:94.8%"></span></span><span class="b-val">缺口 -42 套</span></div>
-        <div class="b-item"><span class="b-label">单间配套　供给 518 / 需求 490</span><span class="b-track"><span class="b-fill" style="width:100%"></span></span><span class="b-val">盈余 +28 套</span></div>
-        <div class="b-item"><span class="b-label">三室一厅　供给 88 / 需求 74</span><span class="b-track"><span class="b-fill" style="width:100%"></span></span><span class="b-val">盈余 +14 套</span></div>
+    </div>
+
+    <div class="tab-panel" data-panel="chart">
+      <div class="dc-scroll">
+        <div class="section-title" data-icon="fa-chart-pie">户型结构（按间口径 · 4,286 间）</div>
+        <div class="flex items-center gap-16">
+          <div class="donut" style="background:conic-gradient(var(--primary) 0% 45.5%, var(--success) 45.5% 64.3%, var(--info) 64.3% 80.9%, var(--warning) 80.9% 91.0%, var(--purple) 91.0% 100%)">
+            <div class="donut-hole"><b>4,286</b><span class="text-sm">房源间数</span></div>
+          </div>
+          <div class="legend" style="flex:1">
+            <div class="lg-item"><span class="lg-color" style="background:var(--primary)"></span> 二室一厅　1,952 间（976 套）　45.5%</div>
+            <div class="lg-item"><span class="lg-color" style="background:var(--success)"></span> 三室一厅　804 间（268 套）　18.8%</div>
+            <div class="lg-item"><span class="lg-color" style="background:var(--info)"></span> 一室一厅　712 间（712 套）　16.6%</div>
+            <div class="lg-item"><span class="lg-color" style="background:var(--warning)"></span> 三室两厅　432 间（144 套）　10.1%</div>
+            <div class="lg-item"><span class="lg-color" style="background:var(--purple)"></span> 单间配套　386 间（386 套）　9.0%</div>
+          </div>
+        </div>
+        <div class="section-title" data-icon="fa-chart-pie" style="margin-top:14px">户型结构（按套口径 · 2,486 套 · 对比）</div>
+        <div class="flex items-center gap-16">
+          <div class="donut" style="background:conic-gradient(var(--info) 0% 28.6%, var(--primary) 28.6% 67.9%, var(--purple) 67.9% 83.4%, var(--success) 83.4% 94.2%, var(--warning) 94.2% 100%)">
+            <div class="donut-hole"><b>2,486</b><span class="text-sm">房源套数</span></div>
+          </div>
+          <div class="legend" style="flex:1">
+            <div class="lg-item"><span class="lg-color" style="background:var(--primary)"></span> 二室一厅　976 套　39.3%</div>
+            <div class="lg-item"><span class="lg-color" style="background:var(--info)"></span> 一室一厅　712 套　28.6%</div>
+            <div class="lg-item"><span class="lg-color" style="background:var(--purple)"></span> 单间配套　386 套　15.5%</div>
+            <div class="lg-item"><span class="lg-color" style="background:var(--success)"></span> 三室一厅　268 套　10.8%</div>
+            <div class="lg-item"><span class="lg-color" style="background:var(--warning)"></span> 三室两厅　144 套　5.8%</div>
+          </div>
+        </div>
+        <div class="section-title" data-icon="fa-chart-simple" style="margin-top:14px">户型供需对比（按间口径 · 需求 4,572 间）</div>
+        <div class="dc-bars wide">
+          <div class="b-item"><span class="b-label">一室一厅　供给 712 / 需求 884</span><span class="b-track"><span class="b-fill bad" style="width:80.5%"></span></span><span class="b-val">缺口 -172 间</span></div>
+          <div class="b-item"><span class="b-label">二室一厅　供给 1,952 / 需求 2,046</span><span class="b-track"><span class="b-fill warn" style="width:95.4%"></span></span><span class="b-val">缺口 -94 间</span></div>
+          <div class="b-item"><span class="b-label">单间配套　供给 386 / 需求 428</span><span class="b-track"><span class="b-fill warn" style="width:90.2%"></span></span><span class="b-val">缺口 -42 间</span></div>
+          <div class="b-item"><span class="b-label">三室一厅　供给 804 / 需求 786</span><span class="b-track"><span class="b-fill" style="width:100%"></span></span><span class="b-val">盈余 +18 间</span></div>
+          <div class="b-item"><span class="b-label">三室两厅　供给 432 / 需求 428</span><span class="b-track"><span class="b-fill" style="width:100%"></span></span><span class="b-val">盈余 +4 间</span></div>
+        </div>
+        <p class="hint" style="margin-top:10px">
+          <i class="fa-solid fa-circle-info"></i>
+          颗粒度调整后结论发生变化：<b>按套口径</b>一室一厅占比最高（28.6%），<b>按间口径</b>则是二室一厅占比最高（45.5%）。由于每间配租 1 人，<b>需求侧应统一按间（人份）口径核算</b>，筹集优先级据此重排。
+        </p>
       </div>
     </div>
   </div>
-  <div class="card list-card">
-    <div class="card-head">
-      <h3><i class="fa-solid fa-table-list"></i> 明细下钻</h3>
-      <span class="sub">可逐级下钻至明细清单</span>
-    </div>
-    <div class="table-wrap">
-      <table class="data-table">
-        <thead>
-          <tr><th>户型</th><th>供给套数</th><th>占比</th><th>需求人数</th><th>配租人数规则</th><th>缺口/盈余</th><th>建议占比</th><th class="cell-lg">错配归因与建议</th><th>下钻</th></tr>
-        </thead>
-        <tbody>
-          <tr class="row-bad"><td>一室一厅</td><td class="num">1,120</td><td><span class="badge blue">45.1%</span></td><td class="num">1,386</td><td>1 人</td><td class="num">-266</td><td><span class="badge green">55%</span></td><td><b>缺口最大</b>：单身青年人才为主体，需求最集中。建议新增筹集向一室一厅倾斜，占比提至 55%</td><td><span class="link" onclick="location.href='house-supply.html'">供需匹配</span></td></tr>
-          <tr class="row-warn"><td>二室一厅</td><td class="num">760</td><td><span class="badge blue">30.6%</span></td><td class="num">802</td><td>2 人</td><td class="num">-42</td><td><span class="badge green">30%</span></td><td>缺口可控。家庭申请与按间配租两类需求；可通过<b>按间拆分</b>提高利用率</td><td><span class="link" onclick="location.href='../house/house-unit-mode.html'">按套与按间</span></td></tr>
-          <tr><td>单间配套</td><td class="num">518</td><td><span class="badge blue">20.8%</span></td><td class="num">490</td><td>1 人</td><td class="num">+28</td><td><span class="badge green">13%</span></td><td>略有盈余。可适度减少新增，或用于短期过渡型保障</td><td><span class="link" onclick="location.href='house-struct.html'">房源结构</span></td></tr>
-          <tr><td>三室一厅</td><td class="num">88</td><td><span class="badge blue">3.5%</span></td><td class="num">74</td><td>3 人（按分摊面积计租）</td><td class="num">+14</td><td><span class="badge green">2%</span></td><td>盈余。仅适用按间配租，暂不建议新增</td><td><span class="link" onclick="location.href='../house/house-unit-mode.html'">按套与按间</span></td></tr>
-          <tr><td><span class="badge green">合计</span></td><td class="num">2,486</td><td><span class="badge green">100%</span></td><td class="num">2,752</td><td><span class="muted">—</span></td><td class="num">-266</td><td><span class="badge green">100%</span></td><td>总体供不足需 266 人份；结构上一室一厅缺、单间与三室略余</td><td><span class="link" onclick="location.href='../house/house-forecast.html'">供需测算</span></td></tr>
-        </tbody>
-      </table>
+
+  <div class="sp-block" style="margin-top:12px">
+    <div class="sp-h"><i class="fa-solid fa-scale-balanced"></i> 按套与按间双口径对照<span class="sub">房源颗粒度细化到「间」后的指标口径调整</span></div>
+    <div class="sp-b">
+      <div class="sp-tw">
+        <table class="data-table compact">
+          <thead><tr><th>指标</th><th class="num">按套口径</th><th class="num">按间口径</th><th class="cell-lg">口径说明</th></tr></thead>
+          <tbody>
+            <tr><td><b>房源规模</b></td><td class="num">2,486 套</td><td class="num">4,286 间</td><td class="cell-lg">一套三室两厅拆为 A、B、C 三间单独计租；全市平均每套约 <b>1.72 间</b></td></tr>
+            <tr><td><b>已上架</b></td><td class="num">2,286 套</td><td class="num">3,942 间</td><td class="cell-lg"><b>上架率</b>：按套 91.9%、<b>按间 92.0%</b></td></tr>
+            <tr><td><b>已配租</b></td><td class="num">1,842 套</td><td class="num">2,986 间</td><td class="cell-lg"><b>配租率</b>：按套 80.6%（套内至少一间在租即计入）、<b>按间 75.7%</b></td></tr>
+            <tr><td><b>空&nbsp;&nbsp;&nbsp;&nbsp;置</b></td><td class="num">444 套</td><td class="num">956 间</td><td class="cell-lg"><b>空置率</b>：按套 19.4%（整套无人在租）、<b>按间 24.3%</b></td></tr>
+            <tr><td><b>面积口径</b></td><td class="num">建筑面积 · 总公摊</td><td class="num">计租面积 29.12 ㎡/间</td><td class="cell-lg">套级保留房屋总面积、总公摊面积；间级记录套内面积、公摊比例与公摊面积。<b>公摊比例按套内间数均分</b>，<b>计租面积 ＝ 本间套内面积 ＋ 本间公摊面积</b>，公摊计入租金</td></tr>
+            <tr><td><b>需求口径</b></td><td class="num">按套（历史）</td><td class="num">4,572 间（人份）</td><td class="cell-lg">每间配租 1 人，需求侧统一按<b>间（人份）</b>核算；轮候在库 + 近 12 个月申请意向 + 预约转化预测</td></tr>
+            <tr><td><b>并存展示</b></td><td class="num">保留供对比</td><td class="num">主口径</td><td class="cell-lg">上架率、空置率、配租率<b>均按间口径计算</b>；按套口径保留用于与历史数据、上级报表口径对比，两个口径同表并列展示</td></tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
+
   <div class="sp-src">
-    <span><b>配租规则</b> 一室一厅配租 1 人、二室一厅配租 2 人（管理办法第九条）</span>
-    <span><b>需求口径</b> 轮候在库 + 预申请锁定 × 转正率 + 历史月均申请 × 预测月数</span>
-    <span><b>建议占比</b> 按需求结构并结合现有存量做平滑调整</span>
+    <span><b>配租规则</b> 按间配租，每间配租 1 人；一套多间可分别配租给不同承租人</span>
+    <span><b>需求口径</b> 轮候在库 + 近 12 个月申请意向 + 预约转化预测，统一折算为「间（人份）」</span>
+    <span><b>建议占比</b> 按间口径的需求结构并结合现有存量做平滑调整</span>
   </div>
 </main>
 
 <script>
 (function () {
   var t = document.querySelector('main.app-main .table-wrap > table.data-table');
-  if (t) { t._total = 5; }
+  if (t) { t._total = 6; }
 })();
 </script>
 

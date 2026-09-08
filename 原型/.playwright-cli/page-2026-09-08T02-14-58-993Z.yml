@@ -1,0 +1,384 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - text: 
+      - generic [ref=e5]: 
+      - generic [ref=e6]: 株洲市人才住房保障管理平台
+    - generic [ref=e7]:
+      - generic "当前业务子系统" [ref=e8]:
+        - generic [ref=e9]: 房源筹集与楼盘表
+      - button " 切换系统" [ref=e10] [cursor=pointer]:
+        - generic [ref=e11]: 
+        - text: 切换系统
+    - generic [ref=e12]:
+      - button " 单位房源管理员 " [ref=e14] [cursor=pointer]:
+        - generic [ref=e15]: 
+        - generic [ref=e16]: 单位房源管理员
+        - generic [ref=e17]: 
+      - generic "消息" [ref=e18] [cursor=pointer]:
+        - generic [ref=e19]: 
+        - generic [ref=e20]: "5"
+      - generic "帮助" [ref=e21] [cursor=pointer]:
+        - generic [ref=e22]: 
+      - generic [ref=e23] [cursor=pointer]:
+        - generic [ref=e24]: 唐
+        - generic [ref=e25]:
+          - generic [ref=e26]: 唐凯
+          - generic [ref=e27]: 市保障性住房服务中心房源管理科 · 单位房源管理员
+      - link "" [ref=e28] [cursor=pointer]:
+        - /url: ../../index.html
+        - generic [ref=e29]: 
+  - complementary [ref=e30]:
+    - generic [ref=e31]:
+      - textbox "菜单搜索" [ref=e32]
+      - generic [ref=e33]: 
+      - text: 
+    - generic [ref=e34]:
+      - link " 我的工作台" [ref=e35] [cursor=pointer]:
+        - /url: ../../modules/workbench/workbench.html?role=housing
+        - generic [ref=e36]: 
+        - generic [ref=e37]: 我的工作台
+      - generic [ref=e39] [cursor=pointer]:
+        - generic [ref=e40]: 
+        - generic [ref=e41]: 待办与协同
+        - generic [ref=e42]: 
+      - generic [ref=e43]:
+        - generic [ref=e44] [cursor=pointer]:
+          - generic [ref=e45]: 
+          - generic [ref=e46]: 房源筹集与项目
+          - generic [ref=e47]: 
+        - generic [ref=e48]:
+          - link "项目表管理" [ref=e49] [cursor=pointer]:
+            - /url: ../../modules/house/proj-list.html?role=housing
+          - link "项目批量导入" [ref=e50] [cursor=pointer]:
+            - /url: ../../modules/house/proj-import.html?role=housing
+          - link "拎包入住验收" [ref=e51] [cursor=pointer]:
+            - /url: ../../modules/house/acceptance-list.html?role=housing
+          - link "筹集计划与完成率" [ref=e52] [cursor=pointer]:
+            - /url: ../../modules/house/plan-progress.html?role=housing
+          - link "资金来源标注" [ref=e53] [cursor=pointer]:
+            - /url: ../../modules/house/fund-source.html?role=housing
+      - generic [ref=e55] [cursor=pointer]:
+        - generic [ref=e56]: 
+        - generic [ref=e57]: 楼盘表与多源归集
+        - generic [ref=e58]: 
+      - generic [ref=e60] [cursor=pointer]:
+        - generic [ref=e61]: 
+        - generic [ref=e62]: 房源档案与房态
+        - generic [ref=e63]: 
+      - generic [ref=e65] [cursor=pointer]:
+        - generic [ref=e66]: 
+        - generic [ref=e67]: 房源发布与预约
+        - generic [ref=e68]: 
+      - generic [ref=e70] [cursor=pointer]:
+        - generic [ref=e71]: 
+        - generic [ref=e72]: 房源导入与来源台账
+        - generic [ref=e73]: 
+  - main [ref=e74]:
+    - generic [ref=e76]:
+      - generic [ref=e77]: 
+      - text: 株洲市人才住房保障管理平台
+      - generic [ref=e78]: /
+      - text: 房源筹集与楼盘表
+      - generic [ref=e79]: /
+      - text: 房源筹集与项目
+      - generic [ref=e80]: /
+      - generic [ref=e81]: 项目表管理
+    - generic [ref=e82]:
+      - generic [ref=e83]: 
+      - generic [ref=e84]: 登记房源项目名称、所在区、收购主体、房源性质、所属运营机构、物业公司名称、总套数、交付时间与验收状态；所属运营机构决定该项目房源及其派生业务数据的归属范围，项目下房源由该运营机构自行导入与维护。房源须达到拎包入住标准，验收合格后方可纳入配租房源池。每个项目标注入库类型，区分批量导入与接口对接两种来源，便于接口开通后按项目分批切换 —— 本期接口暂不对接，全部项目先按批量导入建账；接口开通后按项目逐个改为接口对接，已导入房源保留原入库标记。入库类型与来源渠道分别标注、互不替代。入库类型标识与切换
+    - generic [ref=e85]:
+      - generic [ref=e86]:
+        - generic [ref=e88]: 
+        - generic [ref=e89]:
+          - generic [ref=e90]: 在册项目
+          - generic [ref=e91]: "6"
+          - generic [ref=e92]: 涉及 5 个城区
+      - generic [ref=e93]:
+        - generic [ref=e95]: 
+        - generic [ref=e96]:
+          - generic [ref=e97]: 计划总套数
+          - generic [ref=e98]: 2,486
+          - generic [ref=e99]: 年度计划 3,000 套
+      - generic [ref=e100]:
+        - generic [ref=e102]: 
+        - generic [ref=e103]:
+          - generic [ref=e104]: 已到位套数
+          - generic [ref=e105]: 2,086
+          - generic [ref=e106]: 完成率 82.9%
+      - generic [ref=e107]:
+        - generic [ref=e109]: 
+        - generic [ref=e110]:
+          - generic [ref=e111]: 待验收
+          - generic [ref=e112]: "126"
+          - generic [ref=e113]: 未达标不得投放
+    - generic [ref=e114]:
+      - generic [ref=e115]:
+        - generic [ref=e116]:
+          - generic [ref=e117]: 项目名称
+          - textbox "项目名称或收购主体" [ref=e118]: 湘江1958 人才公寓
+        - generic [ref=e119]:
+          - generic [ref=e120]: 所在区
+          - combobox [ref=e121]:
+            - option "全部" [selected]
+            - option "天元区"
+            - option "荷塘区"
+            - option "芦淞区"
+            - option "石峰区"
+            - option "经开区"
+            - option "渌口区"
+        - generic [ref=e122]:
+          - generic [ref=e123]: 房源性质
+          - combobox [ref=e124]:
+            - option "全部" [selected]
+            - option "收购存量商品房"
+            - option "公租房盘活"
+            - option "保租房“一间房”"
+        - generic [ref=e125]:
+          - generic [ref=e126]: 所属运营机构
+          - combobox [ref=e127]:
+            - option "全部" [selected]
+            - option "株洲城发高科人才安居服务有限公司"
+            - option "清水塘投资运营服务有限公司"
+            - option "株洲高新人才公寓运营有限公司"
+        - generic [ref=e128]:
+          - generic [ref=e129]: 物业公司
+          - textbox "物业公司名称" [ref=e130]: 株洲城发物业服务有限公司
+        - generic [ref=e131]:
+          - generic [ref=e132]: 入库类型
+          - combobox [ref=e133]:
+            - option "全部" [selected]
+            - option "批量导入"
+            - option "接口对接"
+        - generic [ref=e134]:
+          - generic [ref=e135]: 报送单位 / 来源系统
+          - combobox [ref=e136]:
+            - option "全部" [selected]
+            - option "株洲城发高科集团"
+            - option "清水塘投资集团"
+            - option "株洲高新区管委会"
+            - option "株洲经开区管委会"
+            - option "市保障性住房服务中心"
+        - generic [ref=e137]:
+          - generic [ref=e138]: 验收状态
+          - combobox [ref=e139]:
+            - option "全部" [selected]
+            - option "已验收"
+            - option "部分验收"
+            - option "待验收"
+            - option "在建"
+        - generic [ref=e140]:
+          - generic [ref=e141]: 交付时间
+          - textbox [ref=e142]: 2026-09-01
+        - generic [ref=e143]:
+          - button " 查询" [ref=e144] [cursor=pointer]:
+            - generic [ref=e145]: 
+            - text: 查询
+          - button "重置" [ref=e146] [cursor=pointer]
+          - button "+ 新增项目" [ref=e147] [cursor=pointer]:
+            - generic [ref=e148]: +
+            - text: 新增项目
+          - link " 入库类型与切换" [ref=e149] [cursor=pointer]:
+            - /url: intake-type.html
+            - generic [ref=e150]: 
+            - text: 入库类型与切换
+          - button " 导出" [ref=e151] [cursor=pointer]:
+            - generic [ref=e152]: 
+            - text: 导出
+      - table [ref=e154]:
+        - rowgroup [ref=e155]:
+          - row "序号 项目编号 项目名称 所在区 收购主体 房源性质 所属运营机构 物业公司名称 入库类型 报送单位 / 来源系统 总套数 已到位 交付时间 验收状态 操作" [ref=e156]:
+            - columnheader "序号" [ref=e157]
+            - columnheader "项目编号" [ref=e158]
+            - columnheader "项目名称" [ref=e159]
+            - columnheader "所在区" [ref=e160]
+            - columnheader "收购主体" [ref=e161]
+            - columnheader "房源性质" [ref=e162]
+            - columnheader "所属运营机构" [ref=e163]
+            - columnheader "物业公司名称" [ref=e164]
+            - columnheader "入库类型" [ref=e165]
+            - columnheader "报送单位 / 来源系统" [ref=e166]
+            - columnheader "总套数" [ref=e167]
+            - columnheader "已到位" [ref=e168]
+            - columnheader "交付时间" [ref=e169]
+            - columnheader "验收状态" [ref=e170]
+            - columnheader "操作" [ref=e171]
+        - rowgroup [ref=e172]:
+          - row "01 XM2025-001 湘江1958 人才公寓（一、二期） 天元区 株洲市城市建设发展集团有限公司 收购商品房 株洲城发高科人才安居服务有限公司 株洲城发物业服务有限公司 批量导入 株洲城发高科集团（报送） 620 620 2025-11-20 已验收 详情 编辑" [ref=e173]:
+            - cell "01" [ref=e174]
+            - cell "XM2025-001" [ref=e175]
+            - cell "湘江1958 人才公寓（一、二期）" [ref=e176]
+            - cell "天元区" [ref=e177]
+            - cell "株洲市城市建设发展集团有限公司" [ref=e178]
+            - cell "收购商品房" [ref=e179]:
+              - generic [ref=e180]: 收购商品房
+            - cell "株洲城发高科人才安居服务有限公司" [ref=e181]
+            - cell "株洲城发物业服务有限公司" [ref=e182]
+            - cell "批量导入" [ref=e183]:
+              - generic [ref=e184]: 批量导入
+            - cell "株洲城发高科集团（报送）" [ref=e185]
+            - cell "620" [ref=e186]
+            - cell "620" [ref=e187]
+            - cell "2025-11-20" [ref=e188]
+            - cell "已验收" [ref=e189]:
+              - generic [ref=e190]: 已验收
+            - cell "详情 编辑" [ref=e191]
+          - row "02 XM2025-004 栗雨佳苑人才公寓 天元区 株洲市保障性住房建设投资有限公司 公租房盘活 株洲城发高科人才安居服务有限公司 株洲城发物业服务有限公司 批量导入 市保障性住房服务中心（报送） 366 366 2025-12-08 已验收 详情 编辑" [ref=e192]:
+            - cell "02" [ref=e193]
+            - cell "XM2025-004" [ref=e194]
+            - cell "栗雨佳苑人才公寓" [ref=e195]
+            - cell "天元区" [ref=e196]
+            - cell "株洲市保障性住房建设投资有限公司" [ref=e197]
+            - cell "公租房盘活" [ref=e198]:
+              - generic [ref=e199]: 公租房盘活
+            - cell "株洲城发高科人才安居服务有限公司" [ref=e200]
+            - cell "株洲城发物业服务有限公司" [ref=e201]
+            - cell "批量导入" [ref=e202]:
+              - generic [ref=e203]: 批量导入
+            - cell "市保障性住房服务中心（报送）" [ref=e204]
+            - cell "366" [ref=e205]
+            - cell "366" [ref=e206]
+            - cell "2025-12-08" [ref=e207]
+            - cell "已验收" [ref=e208]:
+              - generic [ref=e209]: 已验收
+            - cell "详情 编辑" [ref=e210]
+          - row "03 XM2026-002 茨菇塘公寓 荷塘区 株洲市荷塘区城市建设投资有限公司 公租房盘活 清水塘投资运营服务有限公司 湘天物业管理有限公司 批量导入 市保障性住房服务中心（报送） 486 486 2026-03-16 已验收 详情 编辑" [ref=e211]:
+            - cell "03" [ref=e212]
+            - cell "XM2026-002" [ref=e213]
+            - cell "茨菇塘公寓" [ref=e214]
+            - cell "荷塘区" [ref=e215]
+            - cell "株洲市荷塘区城市建设投资有限公司" [ref=e216]
+            - cell "公租房盘活" [ref=e217]:
+              - generic [ref=e218]: 公租房盘活
+            - cell "清水塘投资运营服务有限公司" [ref=e219]
+            - cell "湘天物业管理有限公司" [ref=e220]
+            - cell "批量导入" [ref=e221]:
+              - generic [ref=e222]: 批量导入
+            - cell "市保障性住房服务中心（报送）" [ref=e223]
+            - cell "486" [ref=e224]
+            - cell "486" [ref=e225]
+            - cell "2026-03-16" [ref=e226]
+            - cell "已验收" [ref=e227]:
+              - generic [ref=e228]: 已验收
+            - cell "详情 编辑" [ref=e229]
+          - row "04 XM2026-005 董家塅安居苑 芦淞区 株洲市芦淞城市发展投资有限公司 收购商品房 株洲城发高科人才安居服务有限公司 芦淞城发物业服务有限公司 批量导入 株洲城发高科集团（报送） 328 286 2026-08-30 部分验收 详情 验收" [ref=e230]:
+            - cell "04" [ref=e231]
+            - cell "XM2026-005" [ref=e232]
+            - cell "董家塅安居苑" [ref=e233]
+            - cell "芦淞区" [ref=e234]
+            - cell "株洲市芦淞城市发展投资有限公司" [ref=e235]
+            - cell "收购商品房" [ref=e236]:
+              - generic [ref=e237]: 收购商品房
+            - cell "株洲城发高科人才安居服务有限公司" [ref=e238]
+            - cell "芦淞城发物业服务有限公司" [ref=e239]
+            - cell "批量导入" [ref=e240]:
+              - generic [ref=e241]: 批量导入
+            - cell "株洲城发高科集团（报送）" [ref=e242]
+            - cell "328" [ref=e243]
+            - cell "286" [ref=e244]
+            - cell "2026-08-30" [ref=e245]
+            - cell "部分验收" [ref=e246]:
+              - generic [ref=e247]: 部分验收
+            - cell "详情 验收" [ref=e248]
+          - row "05 XM2026-008 清水塘新苑 石峰区 株洲市清水塘投资集团有限公司 公租房盘活 清水塘投资运营服务有限公司 清水塘绿地物业服务有限公司 批量导入 清水塘投资集团（报送） 412 328 2026-09-28 待验收 详情 验收" [ref=e249]:
+            - cell "05" [ref=e250]
+            - cell "XM2026-008" [ref=e251]
+            - cell "清水塘新苑" [ref=e252]
+            - cell "石峰区" [ref=e253]
+            - cell "株洲市清水塘投资集团有限公司" [ref=e254]
+            - cell "公租房盘活" [ref=e255]:
+              - generic [ref=e256]: 公租房盘活
+            - cell "清水塘投资运营服务有限公司" [ref=e257]
+            - cell "清水塘绿地物业服务有限公司" [ref=e258]
+            - cell "批量导入" [ref=e259]:
+              - generic [ref=e260]: 批量导入
+            - cell "清水塘投资集团（报送）" [ref=e261]
+            - cell "412" [ref=e262]
+            - cell "328" [ref=e263]
+            - cell "2026-09-28" [ref=e264]
+            - cell "待验收" [ref=e265]:
+              - generic [ref=e266]: 待验收
+            - cell "详情 验收" [ref=e267]
+          - row "06 XM2026-011 云龙人才苑 经开区 湖南云龙投资开发有限公司 保租房“一间房” 株洲高新人才公寓运营有限公司 云龙新城物业服务有限公司 接口对接 待启用 省保障性租赁住房系统（接口开通后切换） 274 0 2026-12-20 在建 详情 切换入库" [ref=e268]:
+            - cell "06" [ref=e269]
+            - cell "XM2026-011" [ref=e270]
+            - cell "云龙人才苑" [ref=e271]
+            - cell "经开区" [ref=e272]
+            - cell "湖南云龙投资开发有限公司" [ref=e273]
+            - cell "保租房“一间房”" [ref=e274]:
+              - generic [ref=e275]: 保租房“一间房”
+            - cell "株洲高新人才公寓运营有限公司" [ref=e276]
+            - cell "云龙新城物业服务有限公司" [ref=e277]
+            - cell "接口对接 待启用" [ref=e278]:
+              - generic [ref=e279]: 接口对接
+              - generic [ref=e280]: 待启用
+            - cell "省保障性租赁住房系统（接口开通后切换）" [ref=e281]
+            - cell "274" [ref=e282]
+            - cell "0" [ref=e283]
+            - cell "2026-12-20" [ref=e284]
+            - cell "在建" [ref=e285]:
+              - generic [ref=e286]: 在建
+            - cell "详情 切换入库" [ref=e287]
+      - generic [ref=e288]:
+        - generic [ref=e289]: 共 6 条，显示 1–6 条
+        - generic [ref=e290]:
+          - generic [ref=e291]:
+            - text: 每页
+            - combobox "每页 条" [ref=e292] [cursor=pointer]:
+              - option "10"
+              - option "20" [selected]
+              - option "50"
+              - option "100"
+            - text: 条
+          - generic [ref=e293]:
+            - button "" [disabled] [ref=e294]:
+              - generic [ref=e295]: 
+            - button "" [disabled] [ref=e296]:
+              - generic [ref=e297]: 
+            - button "1" [ref=e298] [cursor=pointer]
+            - button "" [disabled] [ref=e299]:
+              - generic [ref=e300]: 
+            - button "" [disabled] [ref=e301]:
+              - generic [ref=e302]: 
+          - generic [ref=e303]:
+            - text: 前往
+            - spinbutton "前往 页" [ref=e304]: "1"
+            - text: 页
+          - generic [ref=e305]: 共 1 页
+    - generic [ref=e306]:
+      - generic [ref=e307]: 统计口径 按项目交付验收合格之日归集到位套数
+      - generic [ref=e308]: 数据来源 收购主体报送 + 拎包入住验收结果
+      - generic [ref=e309]: 运营归属 每个项目登记所属运营机构与物业公司名称：运营机构决定房源及其派生的合同、账单、收缴、工单、巡检、补助、考核的数据归属；物业公司与物业服务评价、物业费标准挂钩
+      - generic [ref=e310]: 入库类型 每个项目标注入库类型：批量导入（报送单位 + 导入批次号，本期主要方式）/ 接口对接（来源系统 + 同步时间，本期待启用）；项目下房源默认继承项目入库类型
+      - generic [ref=e311]: 分批切换 接口开通后按项目分批切换，不整体一次性切换；切换须填切换说明与生效时间并经复核，已导入房源保留原入库标记与批次号，与接口来源双轨记录
+      - generic [ref=e312]: 标注关系 入库类型与房源性质 / 来源渠道分别标注、互不替代；切换台账见 入库类型标识与切换
+      - generic [ref=e313]: 政策依据 管理办法第五条：房源应当以单（间）套为主，完成装饰装修并配置相应的家电家具
+  - option "全部" [selected]
+  - option "天元区"
+  - option "荷塘区"
+  - option "芦淞区"
+  - option "石峰区"
+  - option "经开区"
+  - option "渌口区"
+  - option "全部" [selected]
+  - option "收购存量商品房"
+  - option "公租房盘活"
+  - option "保租房“一间房”"
+  - option "株洲城发高科人才安居服务有限公司" [selected]
+  - option "清水塘投资运营服务有限公司"
+  - option "株洲高新人才公寓运营有限公司"
+  - option "请选择" [selected]
+  - option "批量导入"
+  - option "接口对接"
+  - option "请选择" [selected]
+  - option "株洲城发高科集团"
+  - option "清水塘投资集团"
+  - option "株洲高新区管委会"
+  - option "株洲经开区管委会"
+  - option "市保障性住房服务中心"
+  - option "全部" [selected]
+  - option "一般公共预算"
+  - option "专项债券"
+  - option "政策性再贷款"
+  - option "企业自筹"
+  - option "其他"

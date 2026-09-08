@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>意向轮候库管理 · 株洲市人才公寓管理平台</title>
+<title>意向轮候库管理 · 株洲市人才住房保障管理平台</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="../../assets/css/app.css">
 <link rel="stylesheet" href="../../assets/css/spec.css">
@@ -13,7 +13,7 @@
 <main class="app-main">
   <div class="page-head">
     <div class="breadcrumb">
-      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才住房保障管理平台
       <span class="sep">/</span> 配租选房与合同
       <span class="sep">/</span> 配租管理
       <span class="sep">/</span> <span class="cur">意向轮候库管理</span>
@@ -21,14 +21,14 @@
     <div class="page-actions">
       <button class="btn btn-primary" onclick="PMS.confirm({title:'通知确认',message:'确认按轮候排名触发房源到位通知？',detail:'系统按轮候排名（不摇号）向意向片区匹配的轮候人短信通知，须在 1 个工作日内确认是否参与配租。逾期未确认自动顺延至下一顺序人，本人轮候资格不取消、自动排入下一轮。',type:'info',okText:'确认触发',onOk:function(){PMS.toast('已按轮候排名短信通知 86 人，确认时限 1 个工作日','success');}})"><i class="fa-solid fa-bell"></i> 触发到位通知</button>
       <a class="btn" href="../house/book-manage.html"><i class="fa-solid fa-calendar-check"></i> 预约名单管理</a>
-      <a class="btn" href="pre-upgrade.html"><i class="fa-solid fa-user-check"></i> 预申请转正管理</a>
+      <a class="btn" href="../house/book-manage.html"><i class="fa-solid fa-calendar-check"></i> 预约名单管理</a>
       <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
     </div>
   </div>
 
   <div class="alert alert-warning">
     <i class="fa-solid fa-triangle-exclamation"></i>
-    <div>建立轮候库并维护<b>轮候序号与有效期</b>，<b>按轮候排名组织选房、不摇号</b>；含<b>应届生预申请</b>与<b>房源预约</b>两类<b>锁定名额</b>；补齐材料转正式申请，<b>到期未补齐自动作废并释放名额</b>。<span class="link" onclick="location.href='../house/book-manage.html'">预约名单管理</span>　<span class="link" onclick="location.href='pre-upgrade.html'">预申请转正管理</span></div>
+    <div>建立轮候库并维护<b>轮候序号与有效期</b>，<b>按轮候排名组织选房、不摇号</b>；锁定名额只保留<b>房源预约</b>一类（应届生预申请已取消，未毕业的改用房源预约登记意向）；轮候有效期届满未配租的须重新提交申请。<span class="link" onclick="location.href='../house/book-manage.html'">预约名单管理</span></div>
   </div>
 
   <div class="stat-grid">
@@ -75,10 +75,10 @@
         </thead>
         <tbody>
           <tr><td>LH2026-TY-00028</td><td class="num">28</td><td>龙××</td><td><span class="badge blue">正式申请轮候</span></td><td><span class="badge gray">无锁定名额</span></td><td>天元区</td><td>一室一厅</td><td>2026-09-10 15:26</td><td>2027-09-18</td><td><span class="sp-st doing">正常轮候</span></td><td><span class="link" onclick="PMS.toast('天元区新房源到位时按轮候排名自动推送通知（不摇号），须在 1 个工作日内确认是否参与配租')">到位通知</span></td></tr>
-          <tr class="row-warn"><td>YS2027-TY-00318</td><td class="num">36</td><td>邓亦凡</td><td><span class="badge cyan">应届生预申请锁定</span></td><td><span class="badge cyan">应届生预申请</span></td><td>天元区</td><td>一室一厅</td><td>2026-06-12 15:42</td><td>2027-12-31</td><td><span class="sp-st wait">意向预定</span></td><td><span class="link" onclick="location.href='pre-upgrade.html'">转正管理</span></td></tr>
+          <tr class="row-warn"><td>YS2027-TY-00318</td><td class="num">36</td><td>邓亦凡</td><td><span class="badge cyan">房源预约锁定</span></td><td><span class="badge cyan">房源预约</span></td><td>天元区</td><td>一室一厅</td><td>2026-06-12 15:42</td><td>2027-12-31</td><td><span class="sp-st wait">意向预定</span></td><td><span class="link" onclick="location.href='../house/book-manage.html'">预约明细</span></td></tr>
           <tr class="row-warn"><td>YY2026-TY-00042</td><td class="num">4</td><td>刘××</td><td><span class="badge purple">房源预约锁定</span></td><td><span class="badge purple">房源预约</span></td><td>天元区</td><td>一室一厅</td><td>2026-09-10 16:38（预约时间）</td><td>2026-09-24</td><td><span class="sp-st wait">意向预定</span></td><td><span class="link" onclick="location.href='../house/book-manage.html'">预约名单</span> <span class="link" onclick="location.href='order-list.html'">预约优先排序</span></td></tr>
           <tr class="row-warn"><td>LH2026-JK-00042</td><td class="num">42</td><td>彭××</td><td><span class="badge blue">正式申请轮候</span></td><td><span class="badge gray">无锁定名额</span></td><td>经开区</td><td>单间配套</td><td>2026-08-12 09:18</td><td><b style="color:var(--lv-orange)">2026-10-28（剩 53 天）</b></td><td><span class="sp-st doing">正常轮候</span></td><td><span class="link" onclick="PMS.toast('轮候有效期届满前将提醒申请人，届满未配租需重新提交申请')">有效期提醒</span></td></tr>
-          <tr class="row-bad"><td>YS2026-SF-00206</td><td class="num">62</td><td>贺××</td><td><span class="badge cyan">应届生预申请锁定</span></td><td><span class="badge cyan">应届生预申请</span></td><td>石峰区</td><td>单间配套</td><td>2026-05-08 10:12</td><td><b style="color:var(--danger)">2026-09-05（已到期）</b></td><td><span class="sp-st bad">已作废</span></td><td><span class="link" onclick="PMS.toast('到期未补齐毕业证与社保材料、未转正式申请，锁定名额已自动作废并释放，顺延给后位轮候人')">作废记录</span></td></tr>
+          <tr class="row-bad"><td>YS2026-SF-00206</td><td class="num">62</td><td>贺××</td><td><span class="badge cyan">房源预约锁定</span></td><td><span class="badge cyan">房源预约</span></td><td>石峰区</td><td>单间配套</td><td>2026-05-08 10:12</td><td><b style="color:var(--danger)">2026-09-05（已到期）</b></td><td><span class="sp-st bad">已作废</span></td><td><span class="link" onclick="PMS.toast('到期未补齐毕业证与社保材料、未转正式申请，锁定名额已自动作废并释放，顺延给后位轮候人')">作废记录</span></td></tr>
           <tr><td>LH2026-HT-00016</td><td class="num">16</td><td>肖××</td><td><span class="badge blue">正式申请轮候</span></td><td><span class="badge gray">无锁定名额</span></td><td>荷塘区</td><td>二室一厅</td><td>2026-07-26 14:08</td><td>2027-07-25</td><td><span class="sp-st done">已配租</span></td><td><span class="link" onclick="PMS.toast('2026 年第 3 批已配租茨菇塘公寓 5-1204，已出库')">配租记录</span></td></tr>
         </tbody>
       </table>
@@ -92,7 +92,7 @@
       <thead><tr><th>规则</th><th class="cell-lg">项</th><th class="cell-lg">口径</th></tr></thead>
       <tbody>
       <tr><td><b>R-Q1</b></td><td>轮候序号与有效期 ·<br><b>按轮候排名组织选房、不摇号</b></td><td>入库时按排序依据自动生成<b>轮候序号</b>并设定<b>轮候有效期</b>（正式申请 1 年、房源预约至预约截止日、应届生预申请至次年 12-31），届满未配租的需重新提交申请。新房源到位后<b>按轮候排名</b>依次组织选房，<b>不采用摇号方式</b>；名单与排名规则公开可回溯，不支持人工调序</td></tr>
-      <tr><td><b>R-Q2</b></td><td><b>锁定名额一 · 应届生预申请</b><br><span class="muted">当前 186 人</span></td><td>在校应届毕业生可先行预申请<b>锁定意向名额</b>，排序按<b>预申请提交时间</b>；<b>补齐毕业证、社保等材料后转为正式申请</b>，转正后不改变原提交时间。<span class="link" onclick="location.href='pre-upgrade.html'">预申请转正管理</span></td></tr>
+      <tr><td><b>R-Q2</b></td><td><b>锁定名额 · 房源预约</b><br><span class="muted">当前 186 人</span></td><td>已预约本批次房源的申请人<b>优先于普通轮候</b>排序，同为预约的按<b>预约时间</b>先后；预约为<b>意向登记、不占用轮候名额</b>。未毕业的应届毕业生亦通过房源预约登记意向。<span class="link" onclick="location.href='../house/book-manage.html'">预约名单管理</span></td></tr>
       <tr><td><b>R-Q3</b></td><td><b>锁定名额二 · 房源预约</b><br><span class="muted">当前 42 人</span></td><td>已预约意向房源的<b>锁定名额</b>，排序按<b>预约时间</b>；配租时按 <b>R-A0 预约优先</b>排在普通轮候之前，多人预约同一房源按预约时间先后。<b>仍须转为正式申请并通过两级审核</b>。<span class="link" onclick="location.href='../house/book-manage.html'">预约名单管理</span></td></tr>
       <tr><td><b>R-Q4</b></td><td><b>到期未补齐自动作废</b> ·<br>到位通知与逾期</td><td>两类锁定名额到期<b>未补齐材料或未转正式申请</b>的<b>自动作废并释放名额</b>，顺延给后位轮候人（作废前 15/7/3 天推送提醒，结果留痕可申诉）。到位后按排名<b>短信通知当事人</b>、<b>限 1 个工作日内确认</b>；<b>逾期未确认自动顺延至下一顺序人</b>，<b>本人轮候资格不取消、自动排入下一轮</b>。<span class="link" onclick="location.href='slot-plan.html'">选房时段编排</span></td></tr>
       </tbody>

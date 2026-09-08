@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>签约与入住办理 · 株洲市人才住房保障管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="agency" data-active="agency-06">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才住房保障管理平台
+      <span class="sep">/</span> 运营机构端
+      <span class="sep">/</span> 签约入住与退租
+      <span class="sep">/</span> <span class="cur">签约与入住办理</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.openDrawer('jfDrawer')"><i class="fa-solid fa-key"></i> 办理入住交付</button>
+      <a class="btn" href="quit-settle.html"><i class="fa-solid fa-door-open"></i> 退租结算办理</a>
+      <a class="btn" href="../house/house-status-map.html"><i class="fa-solid fa-table-cells"></i> 房态图管理</a>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出办理台账</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>与<b>配租至本机构房源</b>的人才签订租赁合同，并办理<b>入住交付与验收</b>。签约由承租人在移动端<b>个人电子签</b>完成，交付验收由本机构现场办理并生成<b>入住交接单</b>，承租人线上确认后<b>自交付次日起计租</b>。<b>数据范围限本机构受托房源</b>（湘江1958 人才公寓、栗雨佳苑、田心人才公寓）。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-file-signature"></i></div>
+      <div><div class="s-label">待签约</div><div class="s-value">12</div>
+        <div class="s-trend ">件 · 选房确认后 5 个工作日内须完成签约</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-key"></i></div>
+      <div><div class="s-label">待交付</div><div class="s-value">8</div>
+        <div class="s-trend text-2">件 · 已签约，待现场交付验收</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-house-user"></i></div>
+      <div><div class="s-label">本月已入住</div><div class="s-value">46</div>
+        <div class="s-trend text-2">件 · 2026-09 · 均已生成入住交接单并确认</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-door-closed"></i></div>
+      <div><div class="s-label">在租</div><div class="s-value">1,192</div>
+        <div class="s-trend text-2">间 · 本机构在租房源，占在库 1,286 间的 92.7%</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>合同号</label><input type="text" value="RZ2026-00892" placeholder="如 RZ2026-00892"></div>
+      <div class="filter-item"><label>承租人</label><input type="text" value="王××" placeholder="姓 + ××"></div>
+      <div class="filter-item"><label>楼盘</label><select><option value="">全部（本机构 3 个楼盘）</option><option>湘江1958 人才公寓</option><option>栗雨佳苑</option><option>田心人才公寓</option></select></div>
+      <div class="filter-item"><label>配租批次</label><select><option value="">全部</option><option>2026 年 9 月第二批</option><option>2026 年 9 月第一批</option><option>2026 年 8 月第三批</option><option>2026 年 8 月第二批</option></select></div>
+      <div class="filter-item"><label>当前环节</label><select><option value="">全部</option><option>待签约</option><option>待交付</option><option>已入住</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>合同号</th><th>承租人</th><th class="cell-lg">楼盘</th><th>房号 + 间号</th><th class="num">计租面积（㎡）</th><th class="num">人才租金（元/㎡·月）</th><th>配租批次</th><th>当前环节</th><th>签约时间</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>RZ2026-00892</td><td>王××</td><td>湘江1958 人才公寓 A6 栋</td><td>1502A</td><td class="num">27.80</td><td class="num">6.00</td><td>2026 年 9 月第二批</td><td><span class="badge orange">待签约</span></td><td><span class="muted">—</span></td><td><span class="link" onclick="PMS.confirm({title:'签约确认',message:'确认向 王×× 发起 RZ2026-00892 租赁合同电子签约？',detail:'计租面积 27.80 ㎡，人才租金 6.00 元/㎡·月，月租金 166.80 元；保障期 2 年。合同由承租人在移动端个人电子签完成，本机构不代签、不代填。签约完成后进入现场交付验收环节。',type:'warning',okText:'确认发起签约',onOk:function(){PMS.toast('已发起电子签约，短信通知承租人在移动端签署','success');}})">办理签约</span></td></tr>
+          <tr class="row-warn"><td>RZ2026-00894</td><td>谭××</td><td>湘江1958 人才公寓 A6 栋</td><td>1502B</td><td class="num">33.60</td><td class="num">6.00</td><td>2026 年 9 月第二批</td><td><span class="badge orange">待签约</span></td><td><span class="muted">—</span></td><td><span class="link" onclick="PMS.confirm({title:'催签确认',message:'确认向 谭×× 再次发送签约提醒？',detail:'签约通知已于 2026-09-05 发出，承租人 3 日未在移动端签署，距 5 个工作日签约期限剩余 1 天。逾期未签约的按放弃处理，房源释放并顺延至下一顺序人。',type:'warning',okText:'确认发送提醒',onOk:function(){PMS.toast('已向 谭×× 发送签约提醒短信','success');}})">催办签约</span> <span class="link" onclick="PMS.toast('签约通知 2026-09-05 09:10 已发出，承租人尚未在移动端签署；距签约期限剩余 1 天，逾期按放弃处理')">查看</span></td></tr>
+          <tr><td>RZ2026-00886</td><td>邓××</td><td>栗雨佳苑 3 栋</td><td>1104</td><td class="num">48.20</td><td class="num">6.00</td><td>2026 年 9 月第一批</td><td><span class="badge cyan">待交付</span></td><td>2026-09-05 10:22</td><td><span class="link" onclick="PMS.openDrawer('jfDrawer')">办理交付</span> <span class="link" onclick="PMS.toast('合同已于 2026-09-05 10:22 由承租人个人电子签完成，计租面积 48.20 ㎡、月租金 289.20 元，保障期 2026-09-06 至 2028-09-05；待现场交付验收')">查看</span></td></tr>
+          <tr><td>RZ2026-00878</td><td>周××</td><td>田心人才公寓 B2 栋</td><td>0806A</td><td class="num">32.60</td><td class="num">6.00</td><td>2026 年 9 月第一批</td><td><span class="badge cyan">待交付</span></td><td>2026-09-04 15:08</td><td><span class="link" onclick="PMS.openDrawer('jfDrawer')">办理交付</span> <span class="link" onclick="PMS.toast('合同已于 2026-09-04 15:08 由承租人个人电子签完成，计租面积 32.60 ㎡、月租金 195.60 元；已预约 2026-09-09 上午现场交付')">查看</span></td></tr>
+          <tr><td>RZ2026-00862</td><td>龙××</td><td>湘江1958 人才公寓 A6 栋</td><td>1408A</td><td class="num">27.80</td><td class="num">6.00</td><td>2026 年 8 月第三批</td><td><span class="badge green">已入住</span></td><td>2026-08-26 09:16</td><td><span class="link" onclick="PMS.toast('已于 2026-08-28 完成交付验收并生成入住交接单，承租人 2026-08-28 18:04 线上确认，自 2026-08-29 起计租')">查看</span></td></tr>
+          <tr><td>RZ2026-00854</td><td>肖××</td><td>栗雨佳苑 3 栋</td><td>0904</td><td class="num">48.20</td><td class="num">6.00</td><td>2026 年 8 月第三批</td><td><span class="badge green">已入住</span></td><td>2026-08-24 14:32</td><td><span class="link" onclick="PMS.toast('已于 2026-08-26 完成交付验收并生成入住交接单，承租人 2026-08-26 20:12 线上确认，自 2026-08-27 起计租')">查看</span></td></tr>
+          <tr><td>RZ2026-00846</td><td>陈××</td><td>田心人才公寓 B2 栋</td><td>0712B</td><td class="num">34.20</td><td class="num">6.00</td><td>2026 年 8 月第二批</td><td><span class="badge green">已入住</span></td><td>2026-08-18 10:04</td><td><span class="link" onclick="PMS.toast('已于 2026-08-20 完成交付验收并生成入住交接单，承租人 2026-08-20 19:26 线上确认，自 2026-08-21 起计租')">查看</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sp-block" style="margin-top:8px">
+    <div class="sp-h"><i class="fa-solid fa-diagram-project"></i> 签约入住流程<span class="sub">R8-06 · 个人电子签 → 运营机构交付验收 → 承租人确认交接单 → 次日起计租</span></div>
+    <div class="sp-b">
+      <div class="sp-tw">
+        <table class="data-table compact">
+          <thead><tr><th>环节</th><th>责任方</th><th class="cell-lg">办理内容</th><th>时限</th><th>留痕凭证</th></tr></thead>
+          <tbody>
+            <tr><td><b>① 个人电子签</b></td><td>承租人本人</td><td>在移动端签署租赁合同，<b>本机构不代签、不代填</b>；合同要素（承租人、房号 + 间号、计租面积、人才租金、保障期、押金）由系统按配租结果自动带出</td><td>选房确认后 <b>5 个工作日</b></td><td>电子签名 + 时间戳</td></tr>
+            <tr><td><b>② 运营机构交付验收</b></td><td>本运营机构</td><td>现场清点<b>家电家具</b>、抄录<b>水电气表底数</b>、拍摄交付照片，双方现场确认签字</td><td>签约后 <b>3 个工作日</b></td><td>入住交接单 + 交付照片</td></tr>
+            <tr><td><b>③ 承租人确认交接单</b></td><td>承租人本人</td><td>在移动端<b>线上确认入住交接单</b>；对清点结果或表底数有异议的可在 24 小时内提出复核</td><td>交付当日至次日</td><td>线上确认记录</td></tr>
+            <tr><td><b>④ 次日起计租</b></td><td>系统</td><td>承租人确认后，<b>自交付次日起计租</b>并生成首期账单；水电气按表底数起算</td><td>自动</td><td>首期账单</td></tr>
+            <tr><td><b>⑤ 逾期未签约</b></td><td>系统</td><td>逾 5 个工作日未签约的<b>按放弃处理</b>，房源释放并顺延至下一顺序人；本人轮候资格不取消、自动排入下一轮</td><td>自动</td><td>放弃记录</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="sp-src">
+    <span><b>依据</b> 2026 年 9 月 7 日汇报讨论会决议：签约由个人电子签完成，交付验收由运营机构现场办理</span>
+    <span><b>计租口径</b> 承租人线上确认入住交接单后，自交付次日起计租；水电气按交付表底数起算</span>
+    <span><b>台账口径</b> 本月办理件共 66 件 = 待签约 12 + 待交付 8 + 本月已入住 46</span>
+    <span><b>数据范围</b> 限本机构受托房源 · 株洲城发高科人才安居服务有限公司 · 彭建华</span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="jfDrawer">
+  <div class="drawer-head">
+    <h3>入住交付办理</h3>
+    <span class="badge cyan">RZ2026-00886 · 栗雨佳苑 3-1104 · 待交付</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+    <div class="alert alert-warning">
+      <i class="fa-solid fa-triangle-exclamation"></i>
+      <div>交付须<b>双方现场共同清点并签字确认</b>。提交后系统生成<b>入住交接单</b>并推送至承租人移动端，<b>承租人线上确认后自交付次日起计租</b>，水电气费按本次抄录的表底数起算。对清点结果或表底数有异议的，承租人可在 24 小时内提出复核。</div>
+    </div>
+
+    <div class="form-grid form-align">
+      <div class="form-item">
+        <label>合同号 <span class="req">*</span></label>
+        <input type="text" value="RZ2026-00886" readonly>
+      </div>
+      <div class="form-item">
+        <label>承租人 <span class="req">*</span></label>
+        <input type="text" value="邓××（139****2044）" readonly>
+        <div class="hint">姓名按姓 + ×× 脱敏展示</div>
+      </div>
+      <div class="form-item">
+        <label>房源 <span class="req">*</span></label>
+        <input type="text" value="栗雨佳苑 3 栋 1104（一室一厅 · 计租面积 48.20 ㎡）" readonly>
+      </div>
+      <div class="form-item">
+        <label>交付日期 <span class="req">*</span></label>
+        <input type="date" value="2026-09-08">
+        <div class="hint">承租人确认后自交付次日 2026-09-09 起计租</div>
+      </div>
+      <div class="form-item">
+        <label>本机构交付人 <span class="req">*</span></label>
+        <input type="text" value="彭建华（株洲城发高科人才安居服务有限公司）" readonly>
+      </div>
+      <div class="form-item">
+        <label>月租金（元） <span class="req">*</span></label>
+        <input type="text" value="289.20" readonly>
+        <div class="hint">48.20 ㎡ × 6.00 元/㎡·月 = 289.20 元</div>
+      </div>
+    </div>
+
+    <div class="sp-block" style="margin-top:12px">
+      <div class="sp-h"><i class="fa-solid fa-couch"></i> 家电家具清点<span class="sub">共 6 项 · 状态完好 5 项 / 需维修 1 项 · 双方现场共同清点</span></div>
+      <div class="sp-b">
+        <div class="sp-tw">
+          <table class="data-table compact">
+            <thead><tr><th>项目</th><th class="num">数量</th><th>状态</th><th class="cell-lg">备注</th></tr></thead>
+            <tbody>
+              <tr><td>分体式空调</td><td class="num">1</td><td><span class="badge green">完好</span></td><td>格力 1.5 匹，2025-11 新装，制冷制热试机正常</td></tr>
+              <tr><td>床 + 床垫</td><td class="num">1</td><td><span class="badge green">完好</span></td><td>1.5 m×2.0 m，床垫已更换全新床笠</td></tr>
+              <tr><td>衣柜 / 书桌 / 椅</td><td class="num">3</td><td><span class="badge green">完好</span></td><td>衣柜 1 个（两门）、书桌 1 张、办公椅 1 把，柜门与抽屉开合正常</td></tr>
+              <tr><td>燃气热水器</td><td class="num">1</td><td><span class="badge green">完好</span></td><td>12 L 强排式，2026-08-30 完成年度安检，安检合格证已贴</td></tr>
+              <tr><td>油烟机 + 灶具</td><td class="num">2</td><td><span class="badge green">完好</span></td><td>油烟机已清洗，双眼灶具点火正常</td></tr>
+              <tr class="row-warn"><td>窗帘（客厅）</td><td class="num">1</td><td><span class="badge orange">需维修</span></td><td>轨道滑轮 1 处卡滞，本机构承诺 <b>2026-09-11 前</b>免费更换，已在交接单中列明</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="sp-block">
+      <div class="sp-h"><i class="fa-solid fa-gauge"></i> 水电气表底数<span class="sub">双方现场共同抄录并拍照留证 · 费用自交付次日起按表计收</span></div>
+      <div class="sp-b">
+        <div class="sp-tw">
+          <table class="data-table compact">
+            <thead><tr><th>表种</th><th>表号</th><th class="num">起始读数</th><th>单位</th><th class="cell-lg">抄录说明</th></tr></thead>
+            <tbody>
+              <tr><td>水表</td><td>SB-LY3-1104-02</td><td class="num">126.40</td><td>吨</td><td>已拍照留证，与上一承租人退租结算读数 126.40 吨衔接一致</td></tr>
+              <tr><td>电表</td><td>DB-LY3-1104-07</td><td class="num">3,486.20</td><td>度</td><td>已拍照留证，阶梯电价按民用第一档起算</td></tr>
+              <tr><td>燃气表</td><td>QB-LY3-1104-05</td><td class="num">482.60</td><td>立方米</td><td>已拍照留证，燃气卡余额 32.00 元随房交付</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-grid form-align" style="margin-top:12px">
+      <div class="form-item col-full">
+        <label>交付照片 <span class="req">*</span></label>
+        <input type="text" data-upload="1" value="1104_客厅交付.jpg，1104_卧室交付.jpg，1104_厨房交付.jpg，1104_卫生间交付.jpg，1104_水表底数.jpg，1104_电表底数.jpg，1104_燃气表底数.jpg，1104_窗帘轨道卡滞.jpg">
+        <div class="hint">须含各功能间实景与三表底数特写；表底数照片作为费用起算的唯一凭证</div>
+      </div>
+      <div class="form-item">
+        <label>钥匙 / 门禁卡交付 <span class="req">*</span></label>
+        <input type="text" value="房门钥匙 2 把、门禁卡 2 张、信箱钥匙 1 把">
+      </div>
+      <div class="form-item">
+        <label>双方现场确认签字 <span class="req">*</span></label>
+        <select data-dict="yesNo" data-selected="1" data-ph=""></select>
+        <div class="hint">交付人与承租人已在纸质交接单上现场签字，签字页影像随附；承租人另须在移动端线上确认</div>
+      </div>
+      <div class="form-item col-full">
+        <label>双方确认签字说明 <span class="req">*</span></label>
+        <textarea rows="3">本次交付由本机构交付人彭建华与承租人邓××于 2026-09-08 上午现场共同清点，家电家具 6 项逐项试机核对，水、电、燃气三表底数当场抄录并双方拍照留证，纸质《入住交接单》双方签字各执一份，签字页影像已随附上传。承租人对客厅窗帘轨道卡滞事项无异议，同意由本机构于 2026-09-11 前免费更换，该事项已在交接单中单列。承租人须在移动端线上确认交接单，确认后自交付次日 2026-09-09 起计租。</textarea>
+      </div>
+      <div class="form-item col-full">
+        <label>交付说明 <span class="req">*</span></label>
+        <textarea rows="4">栗雨佳苑 3 栋 1104（一室一厅，计租面积 48.20 ㎡，人才租金 6.00 元/㎡·月，月租金 289.20 元），承租人邓××，配租批次 2026 年 9 月第一批，合同 RZ2026-00886 已于 2026-09-05 10:22 由承租人个人电子签完成，保障期 2026-09-06 至 2028-09-05。房屋已完成保洁与设施检查，装修标准为精装拎包入住，家电家具 6 项齐备（客厅窗帘轨道卡滞 1 处待更换），水表底数 126.40 吨、电表底数 3,486.20 度、燃气表底数 482.60 立方米，钥匙 2 把、门禁卡 2 张、信箱钥匙 1 把已交付。押金 1,000.00 元已由承租人于签约时线上缴纳。</textarea>
+      </div>
+    </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn" onclick="PMS.toast('已保存交付办理草稿，可稍后继续办理')">保存草稿</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认完成 RZ2026-00886（栗雨佳苑 3-1104）的入住交付办理？',detail:'提交后系统生成入住交接单并推送至承租人移动端。承租人线上确认后，自交付次日 2026-09-09 起计租并生成首期账单，水电气费按本次抄录的表底数起算。承租人对清点结果或表底数有异议的可在 24 小时内提出复核；客厅窗帘轨道卡滞事项须于 2026-09-11 前完成免费更换，逾期计入本机构考核。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已生成入住交接单，待承租人线上确认','success');}})"><i class="fa-solid fa-check"></i> 提交交付</button>
+  </div>
+</div>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 66; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

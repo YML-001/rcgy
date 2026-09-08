@@ -3,20 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>入户核查表 · 株洲市人才公寓管理平台</title>
+<title>入户核查表 · 株洲市人才住房保障管理平台</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="../../assets/css/app.css">
 <link rel="stylesheet" href="../../assets/css/mobile.css">
 <link rel="stylesheet" href="../../assets/css/ext.css">
 </head>
 <body class="m-body" data-mtitle="入户核查表" data-mmod="G2 现场核查与巡检" data-mcode="G2-01"
-      data-mdesc="按核查表逐项记录入住抽查情况，采集 GPS 定位与现场照片，核查结论可直接生成整改或清退工单。" data-mback="check-list.html" data-mtabset="gov" data-mtab="check">
+      data-mdesc="运营机构现场人员按核查表逐项记录入住抽查情况，采集 GPS 定位与现场照片，核查结论可直接生成整改或清退工单；核查范围为本机构受托房源。" data-mback="check-list.html" data-mtabset="agency" data-mtab="check">
 <div class="m-stage">
   <div class="m-phone">
     <div class="m-screen">
       <div class="m-view">
         <div class="m-note warn"><i class="fa-solid fa-triangle-exclamation"></i>
-          <div>请在<b>现场</b>完成填报。系统将自动采集 GPS 定位，照片须现场拍摄，<b>不支持从相册选择</b>。</div>
+          <div><b>核查与巡检范围为本机构受托房源</b>。请在<b>现场</b>完成填报，系统将自动采集 GPS 定位，照片须现场拍摄，<b>不支持从相册选择</b>。</div>
         </div>
         <div class="m-card">
           <div class="m-card-h"><i class="fa-solid fa-circle-info"></i>核查对象</div>
@@ -28,7 +28,8 @@
             <div><span>合同编号</span><span>RZ2026-00518</span></div>
             <div><span>入住日期</span><span>2026-04-12</span></div>
             <div><span>核查事由</span><span>疑似空置不住（连续 3 月水电用量接近 0）</span></div>
-            <div><span>核查人</span><span>刘志刚</span></div>
+            <div><span>受托机构</span><span>株洲城发高科人才安居服务有限公司</span></div>
+            <div><span>核查人</span><span>黄卫兵（现场维修员）</span></div>
           </div>
           </div>
         </div>
@@ -116,12 +117,19 @@
       </div>
       <div class="m-actbar">
         <button class="m-btn w-auto" type="button" onclick="MB.toast('核查记录已存草稿')">存草稿</button>
-        <button class="m-btn primary" type="button" onclick="MB.submit('.m-view','确认提交核查结论「<b>查实空置不住</b>」？<br>系统将生成整改工单并推送承租人，定位与照片一并归档。','确认提交','check-result.html')"><i class="fa-solid fa-check"></i> 提交核查结论</button>
+        <button class="m-btn primary" type="button" onclick="MB.submit('.m-view','确认提交核查结论「<b>查实空置不住</b>」？<br>系统将生成整改工单并推送承租人，定位与照片一并归档，并同步至主管单位。','确认提交','check-result.html')"><i class="fa-solid fa-check"></i> 提交核查结论</button>
       </div>
     </div>
   </div>
 </div>
 
 <script src="../../assets/js/mobile.js"></script>
+<script>
+/* 运营机构的「我的」独立于主管单位，底部页签指向 me-agency.html */
+document.addEventListener('DOMContentLoaded', function () {
+  var a = document.querySelector('.m-tabbar a[href="me.html"]');
+  if (a) a.setAttribute('href', 'me-agency.html');
+});
+</script>
 </body>
 </html>

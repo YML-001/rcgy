@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>初审与复审分级办理 · 株洲市人才公寓管理平台</title>
+<title>初审与复审分级办理 · 株洲市人才住房保障管理平台</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="../../assets/css/app.css">
 <link rel="stylesheet" href="../../assets/css/spec.css">
@@ -13,7 +13,7 @@
 <main class="app-main">
   <div class="page-head">
     <div class="breadcrumb">
-      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才住房保障管理平台
       <span class="sep">/</span> 人才档案与资格联审
       <span class="sep">/</span> 资格受理与初审
       <span class="sep">/</span> <span class="cur">初审与复审分级办理</span>
@@ -85,7 +85,7 @@
       <div class="filter-item"><label>申请编号</label><input type="text" value="RC2026-" placeholder="申请编号"></div>
       <div class="filter-item"><label>申请人</label><input type="text" value="" placeholder="姓名"></div>
       <div class="filter-item"><label>申请类型</label><select data-dict="applyType" data-ph="全部"></select></div>
-      <div class="filter-item"><label>承接运营机构</label><select><option value="">全部</option><option>株洲市人才安居服务有限公司</option><option>株洲城发物业服务有限公司</option><option>清水塘社区服务有限公司</option></select></div>
+      <div class="filter-item"><label>承接运营机构</label><select><option value="">全部</option><option>株洲城发高科人才安居服务有限公司</option><option>株洲城发物业服务有限公司</option><option>清水塘社区服务有限公司</option></select></div>
       <div class="filter-item"><label>初审结论</label><select><option value="">全部</option><option>待初审</option><option>初审通过</option><option>退回补正</option></select></div>
       <div class="filter-item"><label>复审结论</label><select><option value="">全部</option><option>待复审</option><option>审核通过</option><option>不予通过</option><option>退回补正</option></select></div>
       <div class="filter-actions">
@@ -100,13 +100,13 @@
           <tr><th>申请编号</th><th>申请人</th><th>申请类型</th><th class="cell-lg">承接运营机构</th><th>初审人</th><th class="cell-lg">初审意见摘要</th><th>初审结论</th><th>初审时间</th><th>复审人</th><th>复审结论</th><th>复审时间</th><th>当前环节</th><th>操作</th></tr>
         </thead>
         <tbody>
-          <tr><td>RC2026-0901-0126</td><td>王××</td><td><span class="badge blue">就业</span></td><td>株洲市人才安居服务有限公司</td><td>陈晓东</td><td class="cell-lg">材料 6 项齐全，身份证、劳动合同与社保缴纳单位一致，在租状态核对无误</td><td><span class="badge green">初审通过</span></td><td>2026-09-02 09:26</td><td>刘志刚</td><td><span class="badge green">审核通过</span></td><td>2026-09-03 15:12</td><td><span class="badge green">已办结送达</span></td><td><span class="link" onclick="PMS.openDrawer('slDrawer')">查看两级意见</span></td></tr>
+          <tr><td>RC2026-0901-0126</td><td>王××</td><td><span class="badge blue">就业</span></td><td>株洲城发高科人才安居服务有限公司</td><td>陈晓东</td><td class="cell-lg">材料 6 项齐全，身份证、劳动合同与社保缴纳单位一致，在租状态核对无误</td><td><span class="badge green">初审通过</span></td><td>2026-09-02 09:26</td><td>刘志刚</td><td><span class="badge green">审核通过</span></td><td>2026-09-03 15:12</td><td><span class="badge green">已办结送达</span></td><td><span class="link" onclick="PMS.openDrawer('slDrawer')">查看两级意见</span></td></tr>
           <tr><td>RC2026-0902-0148</td><td>谭××</td><td><span class="badge blue">就业</span></td><td>株洲城发物业服务有限公司</td><td>彭立群</td><td class="cell-lg">材料齐全且真实，在租状态正常，无重复保障记录，建议提请复审</td><td><span class="badge green">初审通过</span></td><td>2026-09-03 10:18</td><td>刘志刚</td><td><span class="badge orange">待复审</span></td><td><span class="muted">—</span></td><td><span class="sp-st wait">市住保中心复审</span></td><td><span class="link" onclick="PMS.openDrawer('slDrawer')">查看两级意见</span> <span class="link" onclick="PMS.openDrawer('slDrawer')">复审办理</span></td></tr>
           <tr class="row-warn"><td>RC2026-0903-0162</td><td>周××</td><td><span class="badge cyan">创业</span></td><td>清水塘社区服务有限公司</td><td>何蓉</td><td class="cell-lg">营业执照与材料真实性承诺书齐全，在租状态正常，材料完整性与真实性初核通过</td><td><span class="badge green">初审通过</span></td><td>2026-09-04 09:12</td><td>刘志刚</td><td><span class="badge orange">退回补正</span></td><td>2026-09-05 10:26</td><td><span class="sp-st bad">退回申请人补正</span> <span class="muted">退回层级：市住保中心复审</span></td><td><span class="link" onclick="PMS.openDrawer('slDrawer')">查看两级意见</span> <span class="link" onclick="location.href='reject-list.html'">补正跟踪</span></td></tr>
-          <tr class="row-warn"><td>RC2026-0903-0171</td><td>李××</td><td><span class="badge blue">就业</span></td><td>株洲市人才安居服务有限公司</td><td>陈晓东</td><td class="cell-lg">缺少毕业证书原件影像；社保缴纳单位与劳动合同单位不一致，材料完整性不符合要求</td><td><span class="badge orange">退回补正</span></td><td>2026-09-04 11:04</td><td><span class="muted">—</span></td><td><span class="badge gray">待复审</span></td><td><span class="muted">—</span></td><td><span class="sp-st bad">退回申请人补正</span> <span class="muted">退回层级：运营单位初审</span></td><td><span class="link" onclick="PMS.openDrawer('slDrawer')">查看两级意见</span> <span class="link" onclick="location.href='reject-list.html'">补正跟踪</span></td></tr>
+          <tr class="row-warn"><td>RC2026-0903-0171</td><td>李××</td><td><span class="badge blue">就业</span></td><td>株洲城发高科人才安居服务有限公司</td><td>陈晓东</td><td class="cell-lg">缺少毕业证书原件影像；社保缴纳单位与劳动合同单位不一致，材料完整性不符合要求</td><td><span class="badge orange">退回补正</span></td><td>2026-09-04 11:04</td><td><span class="muted">—</span></td><td><span class="badge gray">待复审</span></td><td><span class="muted">—</span></td><td><span class="sp-st bad">退回申请人补正</span> <span class="muted">退回层级：运营单位初审</span></td><td><span class="link" onclick="PMS.openDrawer('slDrawer')">查看两级意见</span> <span class="link" onclick="location.href='reject-list.html'">补正跟踪</span></td></tr>
           <tr><td>RC2026-0904-0186</td><td>罗××</td><td><span class="badge blue">就业</span></td><td>株洲城发物业服务有限公司</td><td>彭立群</td><td><span class="muted">—</span></td><td><span class="badge gray">待初审</span></td><td><span class="muted">—</span></td><td><span class="muted">—</span></td><td><span class="badge gray">待复审</span></td><td><span class="muted">—</span></td><td><span class="sp-st doing">运营机构初审</span></td><td><span class="link" onclick="PMS.toast('已提醒株洲城发物业服务有限公司初审经办人彭立群，初审时限剩 1 个工作日')">催办初审</span></td></tr>
           <tr><td>RC2026-0904-0192</td><td>谢××</td><td><span class="badge cyan">创业</span></td><td>清水塘社区服务有限公司</td><td>何蓉</td><td class="cell-lg">材料完整，但企业实际经营场所与营业执照登记地址不一致，已附实地核查照片供复审判定</td><td><span class="badge green">初审通过</span></td><td>2026-09-05 09:26</td><td>刘志刚</td><td><span class="badge red">不予通过</span></td><td>2026-09-05 16:42</td><td><span class="badge green">已办结送达</span></td><td><span class="link" onclick="PMS.openDrawer('slDrawer')">查看两级意见</span> <span class="link" onclick="location.href='conclusion.html'">结论与送达</span></td></tr>
-          <tr><td>RC2026-0905-0204</td><td>邓××</td><td><span class="badge blue">就业</span></td><td>株洲市人才安居服务有限公司</td><td>陈晓东</td><td class="cell-lg">材料齐全真实，在租状态正常，无重复保障与失信记录，建议提请复审</td><td><span class="badge green">初审通过</span></td><td>2026-09-05 10:12</td><td>刘志刚</td><td><span class="badge orange">待复审</span></td><td><span class="muted">—</span></td><td><span class="sp-st wait">市住保中心复审</span></td><td><span class="link" onclick="PMS.openDrawer('slDrawer')">查看两级意见</span> <span class="link" onclick="PMS.openDrawer('slDrawer')">复审办理</span></td></tr>
+          <tr><td>RC2026-0905-0204</td><td>邓××</td><td><span class="badge blue">就业</span></td><td>株洲城发高科人才安居服务有限公司</td><td>陈晓东</td><td class="cell-lg">材料齐全真实，在租状态正常，无重复保障与失信记录，建议提请复审</td><td><span class="badge green">初审通过</span></td><td>2026-09-05 10:12</td><td>刘志刚</td><td><span class="badge orange">待复审</span></td><td><span class="muted">—</span></td><td><span class="sp-st wait">市住保中心复审</span></td><td><span class="link" onclick="PMS.openDrawer('slDrawer')">查看两级意见</span> <span class="link" onclick="PMS.openDrawer('slDrawer')">复审办理</span></td></tr>
           <tr class="row-bad"><td>RC2026-0831-0098</td><td>刘××</td><td><span class="badge blue">就业</span></td><td>株洲城发物业服务有限公司</td><td>彭立群</td><td class="cell-lg">材料齐全，在租状态正常，社保连续缴纳 18 个月，建议提请复审</td><td><span class="badge green">初审通过</span></td><td>2026-09-01 09:08</td><td>刘志刚</td><td><span class="badge orange">待复审</span></td><td><span class="muted">—</span></td><td><span class="sp-st bad">市住保中心复审</span> <span class="muted">已超期 1 个工作日</span></td><td><span class="link" onclick="PMS.openDrawer('slDrawer')">复审办理</span> <span class="link" onclick="location.href='timelimit-manage.html'">时限管理</span></td></tr>
         </tbody>
       </table>
@@ -125,7 +125,7 @@
       </div>
       <div class="card-body">
         <dl class="desc-list">
-          <div class="desc-item full"><dt>责任主体</dt><dd><b>运营机构</b>（株洲市人才安居服务有限公司 / 株洲城发物业服务有限公司 / 清水塘社区服务有限公司），按承接楼盘分派</dd></div>
+          <div class="desc-item full"><dt>责任主体</dt><dd><b>运营机构</b>（株洲城发高科人才安居服务有限公司 / 株洲城发物业服务有限公司 / 清水塘社区服务有限公司），按承接楼盘分派</dd></div>
           <div class="desc-item full"><dt>审核内容</dt><dd>申请材料的<b>完整性</b>（缺件、影像清晰度、承诺书签署）、<b>真实性</b>（原件与填报比对、单位与社保一致性）、以及申请人<b>在租状态</b>核对</dd></div>
           <div class="desc-item full"><dt>可出结论</dt><dd><span class="badge green">初审通过（报复审）</span> <span class="badge orange">退回补正</span>　<b>不出具最终审核结论</b></dd></div>
           <div class="desc-item full"><dt>时限</dt><dd>收到分派之日起 <b>2 个工作日</b>内提出初审意见；临期标黄提醒，超期向机构负责人预警</dd></div>

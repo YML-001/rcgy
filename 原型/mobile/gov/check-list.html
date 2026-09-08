@@ -3,30 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>入户核查任务 · 株洲市人才公寓管理平台</title>
+<title>入户核查任务 · 株洲市人才住房保障管理平台</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="../../assets/css/app.css">
 <link rel="stylesheet" href="../../assets/css/mobile.css">
 <link rel="stylesheet" href="../../assets/css/ext.css">
 </head>
 <body class="m-body" data-mtitle="入户核查" data-mmod="G2 现场核查与巡检" data-mcode="G2-01"
-      data-mdesc="按核查表逐项记录入住抽查情况，采集 GPS 定位与现场照片，核查空置不住、擅自转租转借、改变房屋用途等违规情形。" data-mback="home.html" data-mtabset="gov" data-mtab="check">
+      data-mdesc="运营机构现场人员按核查表逐项记录入住抽查情况，采集 GPS 定位与现场照片，核查空置不住、擅自转租转借、改变房屋用途等违规情形；核查范围为本机构受托房源。" data-mtabset="agency" data-mtab="check">
 <div class="m-stage">
   <div class="m-phone">
     <div class="m-screen">
       <div class="m-view">
         <div class="m-note"><i class="fa-solid fa-circle-info"></i>
-          <div>入户核查须<b>采集 GPS 定位与现场照片</b>作为凭证。核查结论可直接生成<b>整改或清退工单</b>。</div>
+          <div><b>核查与巡检范围为本机构受托房源</b>（湘江1958 人才公寓、栗雨佳苑、田心人才公寓），不显示其他运营机构的房源与承租信息。入户核查须<b>采集 GPS 定位与现场照片</b>作为凭证，核查结论可直接生成<b>整改或清退工单</b>。</div>
         </div>
         <div class="m-seg">
           <button class="on">待核查 4</button><button>已核查 12</button><button>需整改 2</button>
         </div>
-        <div class="m-sect">待核查任务<span class="m-sect-x">4 户</span></div>
+        <div class="m-sect">待核查任务<span class="m-sect-x">4 户 · 本机构受托</span></div>
         <div class="m-cells">
           <a class="m-cell" href="check-form.html"><span class="m-ci red"><i class="fa-solid fa-house-circle-exclamation"></i></span><span class="m-cl"><b>栗雨佳苑 3 栋 0904　周××</b><span class="m-cs">疑似空置不住 · 连续 3 月水电用量接近 0 · 巡检发现</span></span><span class="m-cv"><span class="m-tag red">疑空置</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
           <a class="m-cell" href="check-form.html"><span class="m-ci orange"><i class="fa-solid fa-house-circle-exclamation"></i></span><span class="m-cl"><b>栗雨佳苑 3 栋 1206　唐××</b><span class="m-cs">疑似转租转借 · 邻居反映实际居住人非承租人</span></span><span class="m-cv"><span class="m-tag orange">疑转租</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
-          <a class="m-cell" href="check-form.html"><span class="m-ci orange"><i class="fa-solid fa-house-circle-exclamation"></i></span><span class="m-cl"><b>栗雨佳苑 5 栋 0708　肖××</b><span class="m-cs">疑似改变用途 · 巡检发现门口有工作室标识</span></span><span class="m-cv"><span class="m-tag orange">疑改用途</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
-          <a class="m-cell" href="check-form.html"><span class="m-ci"><i class="fa-solid fa-clipboard-check"></i></span><span class="m-cl"><b>湘江1958 A6 栋 1502　王××</b><span class="m-cs">年审抽查 · 2027 年度第 1 批随机抽取</span></span><span class="m-cv"><span class="m-tag blue">年审抽查</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="check-form.html"><span class="m-ci orange"><i class="fa-solid fa-house-circle-exclamation"></i></span><span class="m-cl"><b>田心人才公寓 2 栋 0708　肖××</b><span class="m-cs">疑似改变用途 · 巡检发现门口有工作室标识</span></span><span class="m-cv"><span class="m-tag orange">疑改用途</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="check-form.html"><span class="m-ci"><i class="fa-solid fa-clipboard-check"></i></span><span class="m-cl"><b>湘江1958 A6 栋 1502A　王××</b><span class="m-cs">年审抽查 · 2027 年度第 1 批随机抽取</span></span><span class="m-cv"><span class="m-tag blue">年审抽查</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
         </div>
         <div class="m-sect">核查情形与处置</div>
         <div class="m-card">
@@ -40,7 +40,7 @@
             </div>
           </div>
         </div>
-        <div class="m-sect">本月核查统计</div>
+        <div class="m-sect">本月核查统计<span class="m-sect-x">株洲城发高科人才安居服务有限公司</span></div>
         <div class="m-card">
           <div class="m-card-b">
             <div class="m-mini">
@@ -48,10 +48,14 @@
               <div><div class="mv ok">12</div><div class="ml">已完成</div></div>
               <div><div class="mv bad">2</div><div class="ml">查实违规</div></div>
             </div>
+            <div class="m-kv" style="margin-top:12px">
+              <div><span>核查人</span><span>黄卫兵　·	株洲城发高科人才安居服务有限公司　·	现场维修员</span></div>
+              <div><span>受托楼盘</span><span>湘江1958 人才公寓、栗雨佳苑、田心人才公寓　共 3 个</span></div>
+            </div>
           </div>
         </div>
         <div class="m-note warn"><i class="fa-solid fa-triangle-exclamation"></i>
-          <div>核查采集的定位与照片作为<b>核查与验收凭证</b>归档。取消保障资格与违规清退属高敏操作，须由业务管理员在 PC 端<b>双人授权 + 人脸二次确认</b>后执行。</div>
+          <div>核查采集的定位与照片作为<b>核查与验收凭证</b>归档。运营机构只负责<b>现场取证与登记</b>；取消保障资格与违规清退属高敏操作，须由主管单位在 PC 端<b>双人授权 + 人脸二次确认</b>后执行。<b>交付与退租办理在 PC 端运营机构侧完成</b>，移动端不承载。</div>
         </div>
       </div>
       <div class="m-actbar">
@@ -62,5 +66,12 @@
 </div>
 
 <script src="../../assets/js/mobile.js"></script>
+<script>
+/* 运营机构的「我的」独立于主管单位，底部页签指向 me-agency.html */
+document.addEventListener('DOMContentLoaded', function () {
+  var a = document.querySelector('.m-tabbar a[href="me.html"]');
+  if (a) a.setAttribute('href', 'me-agency.html');
+});
+</script>
 </body>
 </html>

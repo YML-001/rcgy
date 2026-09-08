@@ -1,6 +1,6 @@
 /* ==========================================================================
    移动端原型运行时（mobile.js）  v1.0
-   株洲市人才公寓管理平台 · 湘易办小程序 / APP 端
+   株洲市人才住房保障管理平台 · 湘易办小程序 / APP 端
 
    与 app.js 的分工：
      app.js    负责 PC 管理端的顶栏 / 侧栏 / 列表增强 / 分页；
@@ -31,29 +31,56 @@
   /* ==========================================================================
      一、配置区 —— 底部页签与端信息
      ========================================================================== */
+  /* 四类移动端角色的底部菜单（依 2026-09-07 决议）：
+       public   个人用户 M1 —— 首页、房源、消息、我的（已删除原「办理」入口）
+       agency   运营机构 M2 —— 核查、工单、我的
+       employer 用人单位 M3 —— 业务申报、单位信息
+       gov      主管单位 M4 —— 待办、我的 */
   var TABSETS = {
     public: {
-      name: '移动端 · 公众端',
-      nav: 'nav.html',
+      name: '个人用户', base: 'mobile/public/',
       items: [
         { key: 'home', label: '首页', icon: 'fa-house', href: 'home.html' },
         { key: 'house', label: '房源', icon: 'fa-building', href: 'house-list.html' },
-        { key: 'apply', label: '办理', icon: 'fa-file-pen', href: 'apply-type.html' },
         { key: 'msg', label: '消息', icon: 'fa-comment-dots', href: 'msg-center.html', dot: '3' },
         { key: 'me', label: '我的', icon: 'fa-user', href: 'me.html' }
       ]
     },
+    agency: {
+      name: '运营机构', base: 'mobile/gov/',
+      items: [
+        { key: 'check', label: '核查', icon: 'fa-location-dot', href: 'check-list.html' },
+        { key: 'wo', label: '工单', icon: 'fa-screwdriver-wrench', href: 'wo-list.html', dot: '5' },
+        { key: 'me', label: '我的', icon: 'fa-user', href: 'me.html' }
+      ]
+    },
+    employer: {
+      name: '用人单位', base: 'mobile/employer/',
+      items: [
+        { key: 'declare', label: '业务申报', icon: 'fa-file-import', href: 'home.html', dot: '2' },
+        { key: 'org', label: '单位信息', icon: 'fa-building-user', href: 'org-info.html' }
+      ]
+    },
     gov: {
-      name: '移动端 · 政务端',
-      nav: 'nav.html',
+      name: '主管单位', base: 'mobile/gov/',
       items: [
         { key: 'home', label: '待办', icon: 'fa-list-check', href: 'home.html', dot: '9' },
-        { key: 'check', label: '核查', icon: 'fa-location-dot', href: 'check-list.html' },
-        { key: 'wo', label: '工单', icon: 'fa-screwdriver-wrench', href: 'wo-list.html' },
         { key: 'me', label: '我的', icon: 'fa-user', href: 'me.html' }
       ]
     }
   };
+
+  /* 角色切换：同一账号具备多重身份时在端内切换，切换后底部菜单随之变化 */
+  var ROLE_SWITCH = [
+    { key: 'public', name: '个人用户', user: '王梓涵', org: '青年人才', icon: 'fa-user',
+      href: 'mobile/public/home.html' },
+    { key: 'agency', name: '运营机构', user: '黄卫兵', org: '株洲城发高科人才安居服务有限公司', icon: 'fa-screwdriver-wrench',
+      href: 'mobile/gov/check-list.html' },
+    { key: 'employer', name: '用人单位', user: '邹敏', org: '中车株洲电力机车研究所', icon: 'fa-building-user',
+      href: 'mobile/employer/home.html' },
+    { key: 'gov', name: '主管单位', user: '刘志刚', org: '市保障性住房服务中心', icon: 'fa-user-shield',
+      href: 'mobile/gov/home.html' }
+  ];
 
   /* 移动端页面只引 mobile.js，取不到 app.js 的 APP_CONFIG.dict，
      故在此内置移动端表单实际用到的字典，取值须与 app.js 的 dict 保持一致。 */
@@ -111,18 +138,53 @@
       '</div>';
   }
 
+  /* ------- 项目根前缀：由 mobile.js 自身的 src 反推，供角色切换跨目录跳转 ------- */
+  function rootBase() {
+    var sc = document.currentScript;
+    if (!sc) {
+      var list = document.getElementsByTagName('script');
+      for (var i = list.length - 1; i >= 0; i--) {
+        if ((list[i].src || '').indexOf('mobile.js') >= 0) { sc = list[i]; break; }
+      }
+    }
+    var src = sc ? sc.getAttribute('src') || '' : '';
+    return src.replace(/assets\/js\/mobile\.js.*$/, '');
+  }
+
   /* ------- 导航栏 ------- */
   function navHTML() {
-    var title = attr('data-mtitle', '株洲人才安居');
+    var title = attr('data-mtitle', '建宁安居');
     var chan = attr('data-mchan');
     var act = attr('data-mact');
+    var noRole = attr('data-mrole') === '0';
     return '<div class="m-nav">' +
         '<button class="m-nav-back" type="button" title="返回"><i class="fa-solid fa-angle-left"></i></button>' +
         '<div class="m-nav-title">' + esc(title) + '</div>' +
         (chan ? '<span class="m-chan">' + esc(chan) + '</span>' : '') +
+        (noRole ? '' : '<button class="m-nav-role" type="button" title="切换角色"><i class="fa-solid fa-repeat"></i></button>') +
         (act ? '<button class="m-nav-act" type="button" title="更多"><i class="fa-solid ' + esc(act) + '"></i></button>'
              : '<span style="width:32px"></span>') +
       '</div>';
+  }
+
+  /* ------- 角色切换半屏弹层（B01）------- */
+  function roleSheetHTML(cur) {
+    var base = rootBase();
+    var html = '<div class="m-sheet" id="mbRoleSheet">' +
+      '<div class="m-sh-h"><i class="fa-solid fa-repeat"></i>切换角色' +
+        '<button class="m-sh-x" type="button"><i class="fa-solid fa-xmark"></i></button></div>' +
+      '<div class="m-sh-b">' +
+        '<div class="m-note"><i class="fa-solid fa-circle-info"></i><div>同一账号具备多重身份的可在端内切换，' +
+        '<b>切换后底部菜单随之变化</b>。</div></div><div class="m-cells">';
+    for (var i = 0; i < ROLE_SWITCH.length; i++) {
+      var r = ROLE_SWITCH[i], on = r.key === cur;
+      html += '<a class="m-cell" href="' + esc(base + r.href) + '">' +
+        '<span class="m-ci' + (on ? '' : ' cyan') + '"><i class="fa-solid ' + r.icon + '"></i></span>' +
+        '<span class="m-cl"><b>' + esc(r.name) + '</b><span class="m-cs">' + esc(r.user) + '　·　' + esc(r.org) + '</span></span>' +
+        (on ? '<span class="m-cv"><span class="m-tag green">当前</span></span>' : '<span class="m-cv">切换</span>') +
+        '<i class="m-ca fa-solid fa-angle-right"></i></a>';
+    }
+    return html + '</div></div></div>';
   }
 
   /* ------- 底部页签 ------- */
@@ -169,6 +231,23 @@
         MB.toast('已在首页，无上一级页面');
       });
     }
+    /* 角色切换：沉浸式页面（data-mnav="0"）没有导航栏，改挂一个浮动按钮 */
+    if (attr('data-mnav') === '0' && attr('data-mrole') !== '0') {
+      var fab = document.createElement('button');
+      fab.type = 'button';
+      fab.className = 'm-role-fab';
+      fab.title = '切换角色';
+      fab.innerHTML = '<i class="fa-solid fa-repeat"></i>';
+      sc.appendChild(fab);
+    }
+    var rb = sc.querySelector('.m-nav-role') || sc.querySelector('.m-role-fab');
+    if (rb) {
+      var rw = document.createElement('div');
+      rw.innerHTML = roleSheetHTML(attr('data-mtabset'));
+      while (rw.firstChild) { sc.appendChild(rw.firstChild); }
+      rb.addEventListener('click', function () { MB.sheet('mbRoleSheet'); });
+    }
+
     var act = sc.querySelector('.m-nav-act');
     if (act) {
       act.addEventListener('click', function () { MB.toast('原型演示：更多操作'); });

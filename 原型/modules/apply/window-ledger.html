@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>窗口办件台账 · 株洲市人才住房保障管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="window" data-active="apply-24">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才住房保障管理平台
+      <span class="sep">/</span> 人才档案与资格联审
+      <span class="sep">/</span> 窗口兜底代办
+      <span class="sep">/</span> <span class="cur">窗口办件台账</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="location.href='window-entry.html'"><i class="fa-solid fa-keyboard"></i> 窗口代办录入</button>
+      <button class="btn" onclick="PMS.confirm({title:'打印确认',message:'确认打印本窗口办件进度回单？',detail:'回单按查询结果输出申请编号、申请人（姓 + ×× 脱敏）、当前环节、办理时限剩余与补正要求，供现场交申请人带回。回单不含身份证号明文与联系方式。',type:'info',okText:'确认打印',onOk:function(){PMS.toast('办件进度回单已生成，请到窗口打印机取件','success');}})"><i class="fa-solid fa-print"></i> 打印进度回单</button>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出台账</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>窗口可按<b>姓名、证件号或申请编号</b>查询<b>全部申请件</b>的办理进度，用于现场答复咨询；但<b>可维护的仅限本窗口代录的申请件</b>，其余渠道申请件只读、不得修改与撤回。窗口代录件渠道均标记<b>「政务窗口（PC 申请）」</b>，受理时间以窗口录入时间为准，与线上申请<b>同池同流程、不因渠道优先</b>。审核结论与不予通过原因由市住保中心资格审核科出具，窗口只负责<b>如实转达</b>，不得自行解释或承诺。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-person-booth"></i></div>
+      <div><div class="s-label">本月代办件</div><div class="s-value">186</div>
+        <div class="s-trend text-success">↑ 较上月 12.7%</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
+      <div><div class="s-label">已办结</div><div class="s-value">164</div>
+        <div class="s-trend text-2">办结率 88.2%，其中不予通过 8 件</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-hourglass-half"></i></div>
+      <div><div class="s-label">在办</div><div class="s-value">20</div>
+        <div class="s-trend text-2">临期 3 件 / 待补正 2 件</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon cyan"><i class="fa-solid fa-stopwatch"></i></div>
+      <div><div class="s-label">平均办结时长</div><div class="s-value">2.4</div>
+        <div class="s-trend ">个工作日 · 时限 3 个工作日</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>申请人姓名</label><input type="text" value="谭泽宇" placeholder="姓名"></div>
+      <div class="filter-item"><label>证件号</label><input type="text" value="430211199607142315" placeholder="身份证号"></div>
+      <div class="filter-item"><label>申请编号</label><input type="text" value="RC2026-0908-0261" placeholder="如 RC2026-0908-0261"></div>
+      <div class="filter-item"><label>办理状态</label><select data-dict="applyStatus" data-ph="全部"></select></div>
+      <div class="filter-item"><label>代录日期</label><input type="date" value="2026-09-08"></div>
+      <div class="filter-item"><label>查询范围</label><select><option selected>本窗口代录件（可维护）</option><option>全部申请件（只读，现场答复用）</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按姓名、证件号或申请编号检索办理进度','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>申请编号</th><th>申请人</th><th class="cell-lg">身份证号</th><th>申请类型</th><th>代录时间</th><th>当前环节</th><th>办理时限剩余</th><th>审核结论</th><th class="cell-lg">不予通过原因</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>RC2026-0908-0261</td><td>谭××</td><td><span class="sp-mask">4302 **** **** 2315<span class="mk" onclick="SP.mask(this.parentElement,'430211199607142315')">查看明文</span></span></td><td><span class="badge blue">就业青年人才</span></td><td>2026-09-08 09:42</td><td><span class="sp-st doing">受理初审</span></td><td><div class="sp-days"><span class="dv">剩 3 天</span><span class="db"><span style="width:15%"></span></span></div></td><td><span class="badge gray">审核中</span></td><td class="cell-lg"><span class="muted">—</span></td><td><span class="link" onclick="PMS.toast('当前环节：受理初审（市住保中心资格审核科 刘志刚），2026-09-08 09:48 已签收；社保缴纳记录按容缺受理登记待补核期限至 2026-10-08')">查看进度</span> <span class="link" onclick="location.href='material-print.html'">打印材料清单</span></td></tr>
+          <tr class="row-warn"><td>RC2026-0907-0248</td><td>王××</td><td><span class="sp-mask">4302 **** **** 0186<span class="mk" onclick="SP.mask(this.parentElement,'430202199803140186')">查看明文</span></span></td><td><span class="badge blue">就业青年人才</span></td><td>2026-09-07 10:26</td><td><span class="sp-st wait">待复审出结论</span></td><td><div class="sp-days d60"><span class="dv">剩 1 天</span><span class="db"><span style="width:66%"></span></span></div></td><td><span class="badge orange">待出结论</span></td><td class="cell-lg"><span class="muted">—</span></td><td><span class="link" onclick="PMS.toast('当前环节：复审出具结论（市住保中心资格审核科 周慧），受理初审已于 2026-09-08 08:20 通过；办理时限剩 1 天，已向审核科推送临期提醒')">查看进度</span> <span class="link" onclick="location.href='material-print.html'">打印材料清单</span></td></tr>
+          <tr><td>RC2026-0906-0232</td><td>邓××</td><td><span class="sp-mask">4302 **** **** 3624<span class="mk" onclick="SP.mask(this.parentElement,'430211199711263624')">查看明文</span></span></td><td><span class="badge cyan">创业青年人才</span></td><td>2026-09-06 14:18</td><td><span class="sp-st doing">多部门数据核验</span></td><td><div class="sp-days"><span class="dv">剩 2 天</span><span class="db"><span style="width:33%"></span></span></div></td><td><span class="badge gray">审核中</span></td><td class="cell-lg"><span class="muted">—</span></td><td><span class="link" onclick="PMS.toast('当前环节：多部门数据核验（工商、企业纳税、不动产、婚姻），已回 3 项、待回 1 项企业纳税核验；核验完成后转复审出具结论')">查看进度</span> <span class="link" onclick="location.href='material-print.html'">打印材料清单</span></td></tr>
+          <tr class="row-warn"><td>RC2026-0904-0206</td><td>周××</td><td><span class="sp-mask">4302 **** **** 6428<span class="mk" onclick="SP.mask(this.parentElement,'430203199802186428')">查看明文</span></span></td><td><span class="badge blue">就业青年人才</span></td><td>2026-09-04 09:12</td><td><span class="sp-st bad">待补正</span></td><td><div class="sp-days d30"><span class="dv">剩 1 天</span><span class="db"><span style="width:80%"></span></span></div></td><td><span class="badge orange">退回补正</span></td><td class="cell-lg">劳动合同缺签章页，退回层级为<b>受理初审</b>，须补交盖章齐全的劳动合同扫描件</td><td><span class="link" onclick="PMS.toast('当前环节：待补正。退回层级 受理初审，退回时间 2026-09-05 15:26，补正期限至 2026-09-09；已短信通知申请人，现场可当场补交后由窗口重新上传')">查看进度</span> <span class="link" onclick="location.href='material-print.html'">打印材料清单</span></td></tr>
+          <tr><td>RC2026-0903-0192</td><td>龙××</td><td><span class="sp-mask">4302 **** **** 5017<span class="mk" onclick="SP.mask(this.parentElement,'430204199605125017')">查看明文</span></span></td><td><span class="badge purple">特殊人才</span></td><td>2026-09-03 15:04</td><td><span class="sp-st done">已办结</span></td><td><span class="muted">已办结</span></td><td><span class="badge green">审核通过</span></td><td class="cell-lg"><span class="muted">—</span></td><td><span class="link" onclick="PMS.toast('已办结：2026-09-05 16:20 复审通过并电子送达，本件已进入轮候库，等待配租批次公告；请引导申请人在建宁安居小程序关注批次公告与选房安排')">查看进度</span> <span class="link" onclick="location.href='material-print.html'">打印材料清单</span></td></tr>
+          <tr><td>RC2026-0902-0184</td><td>罗××</td><td><span class="sp-mask">4302 **** **** 4271<span class="mk" onclick="SP.mask(this.parentElement,'430211199902144271')">查看明文</span></span></td><td><span class="badge cyan">创业青年人才</span></td><td>2026-09-02 11:36</td><td><span class="sp-st done">已办结</span></td><td><span class="muted">已办结</span></td><td><span class="badge green">审核通过</span></td><td class="cell-lg"><span class="muted">—</span></td><td><span class="link" onclick="PMS.toast('已办结：2026-09-04 10:12 复审通过并电子送达，办结用时 2 个工作日；社保容缺已于 2026-09-10 补核通过')">查看进度</span> <span class="link" onclick="location.href='material-print.html'">打印材料清单</span></td></tr>
+          <tr class="row-bad"><td>RC2026-0901-0176</td><td>刘××</td><td><span class="sp-mask">4302 **** **** 8342<span class="mk" onclick="SP.mask(this.parentElement,'430202199304128342')">查看明文</span></span></td><td><span class="badge blue">就业青年人才</span></td><td>2026-09-01 09:20</td><td><span class="sp-st bad">已办结</span></td><td><span class="muted">已办结</span></td><td><span class="badge red">不予通过</span></td><td class="cell-lg">毕业时间 2023-06-30，<b>已超过毕业 2 年</b>，不符合就业青年人才申请条件；且不属于特殊人才免毕业年限情形</td><td><span class="link" onclick="PMS.toast('已办结：2026-09-03 14:08 复审出具不予通过结论并电子送达。窗口只如实转达结论与原因，如申请人有异议请引导其向市保障性住房服务中心资格审核科提出，不得自行解释')">查看进度</span> <span class="link" onclick="location.href='material-print.html'">打印材料清单</span></td></tr>
+          <tr class="row-bad"><td>RC2026-0828-0162</td><td>谭××</td><td><span class="sp-mask">4302 **** **** 1938<span class="mk" onclick="SP.mask(this.parentElement,'430205199407231938')">查看明文</span></span></td><td><span class="badge blue">就业青年人才</span></td><td>2026-08-28 16:42</td><td><span class="sp-st bad">已办结</span></td><td><span class="muted">已办结</span></td><td><span class="badge red">不予通过</span></td><td class="cell-lg">不动产核验显示申请人配偶在市城区已有一套自有住房，<b>不符合无房条件</b>；共同申请人住房情况一并计入</td><td><span class="link" onclick="PMS.toast('已办结：2026-08-31 11:26 复审出具不予通过结论并电子送达。不予通过原因由资格审核科出具，窗口如实转达，异议受理由市保障性住房服务中心负责')">查看进度</span> <span class="link" onclick="location.href='material-print.html'">打印材料清单</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sp-block" style="margin-top:8px">
+    <div class="sp-h"><i class="fa-solid fa-list"></i> 窗口办件统计与查询口径<span class="sub">按月办件量、办结率与平均时长　数据截至 2026-09-08 09:00</span></div>
+    <div class="sp-b">
+      <div class="sp-tw">
+        <table class="data-table compact">
+          <thead><tr><th>月份</th><th class="num">代办件量</th><th class="num">已办结</th><th class="num">办结率</th><th class="num">平均办结时长</th><th class="num">不予通过</th><th class="cell-lg">口径说明</th></tr></thead>
+          <tbody>
+          <tr><td>2026-04</td><td class="num">96</td><td class="num">96</td><td class="num">100.0%</td><td class="num">2.8 天</td><td class="num">4</td><td>办件量按<b>窗口录入时间</b>归月，与线上申请分渠道分别统计，不合并计入个人申请</td></tr>
+          <tr><td>2026-05</td><td class="num">124</td><td class="num">124</td><td class="num">100.0%</td><td class="num">2.7 天</td><td class="num">6</td><td>办结率 ＝ 已办结件 ÷ 代办件量；退回补正期间不计入办理时长</td></tr>
+          <tr><td>2026-06</td><td class="num">148</td><td class="num">148</td><td class="num">100.0%</td><td class="num">2.6 天</td><td class="num">7</td><td>平均办结时长按<b>工作日</b>计，自受理时间起算至复审出具结论止</td></tr>
+          <tr><td>2026-07</td><td class="num">162</td><td class="num">162</td><td class="num">100.0%</td><td class="num">2.5 天</td><td class="num">9</td><td>审核时限自收到申请资料之日起 <b>3 个工作日</b>，临期与超期自动预警</td></tr>
+          <tr><td>2026-08</td><td class="num">165</td><td class="num">165</td><td class="num">100.0%</td><td class="num">2.4 天</td><td class="num">8</td><td>不予通过件须注明具体原因与退回层级，窗口只如实转达</td></tr>
+          <tr class="row-warn"><td><b>2026-09</b>（本月）</td><td class="num">186</td><td class="num">164</td><td class="num">88.2%</td><td class="num">2.4 天</td><td class="num">8</td><td>在办 20 件（临期 3 / 待补正 2），未办结件不计入平均时长</td></tr>
+          <tr><td><span class="badge green">本年累计</span></td><td class="num">881</td><td class="num">859</td><td class="num">97.5%</td><td class="num">2.6 天</td><td class="num">42</td><td>窗口代办占全部申请件 <b>14.5%</b>；<b>受理时间即配租顺序排序依据，不因渠道优先</b>。查询支持<b>姓名、证件号、申请编号</b>三种入口，全部申请件可查进度、<b>仅本窗口代录件可维护</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="sp-src">
+    <span><b>依据</b> 2026 年 9 月 7 日汇报讨论会决议：窗口代办与线上申请同池同流程、不因渠道优先</span>
+    <span><b>查询口径</b> 按<b>姓名、证件号或申请编号</b>查询办理进度，可查全部申请件、<b>仅本窗口代录件可维护</b></span>
+    <span><b>脱敏规则</b> 申请人姓名按姓 + ×× 展示，身份证号默认脱敏，查看明文写入留痕</span>
+    <span><b>时限口径</b> 审核时限 3 个工作日，退回补正期间不计入办理时长</span>
+    <span><b>关联页面</b> <span class="link" onclick="location.href='window-entry.html'">窗口代办录入</span>　<span class="link" onclick="location.href='material-print.html'">材料清单与表单打印</span>　<span class="link" onclick="location.href='pool-list.html'">多渠道件池</span></span>
+  </div>
+</main>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 186; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

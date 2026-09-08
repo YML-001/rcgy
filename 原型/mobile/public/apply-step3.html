@@ -3,27 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>材料上传与智能识别 · 株洲市人才公寓管理平台</title>
+<title>材料上传与智能识别 · 株洲市人才住房保障管理平台</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="../../assets/css/app.css">
 <link rel="stylesheet" href="../../assets/css/mobile.css">
 <link rel="stylesheet" href="../../assets/css/ext.css">
 </head>
-<body class="m-body" data-mtitle="材料上传（3/5）" data-mmod="M5 人才公寓资格申请" data-mcode="M5-03"
-      data-mdesc="上传身份证、结婚证、毕业证、境外学历认证书、劳动合同、养老保险证明、营业执照等材料，系统自动识别关键字段并与填报内容做一致性校验。凡可通过部门接口核验的材料<b>无需上传</b>。" data-mback="apply-step2.html" data-mtabset="public" data-mtab="apply" data-mchan="湘易办">
+<body class="m-body" data-mtitle="材料（3/5）" data-mmod="M5 人才公寓资格申请" data-mcode="M5-03"
+      data-mdesc="上传劳动合同等无法通过接口核验的材料，系统自动识别关键字段并与填报内容做一致性校验；凡可通过部门接口核验的材料无需上传。真实性承诺书在下一步签署。" data-mback="apply-step2.html" data-mtabset="public" data-mtab="me" data-mchan="湘易办">
 <div class="m-stage">
   <div class="m-phone">
     <div class="m-screen">
       <div class="m-view">
         <div class="m-steps">
-          <div class="m-sp done"><div class="n"><i class="fa-solid fa-check"></i></div><div class="t">基本信息</div></div>
-          <div class="m-sp done"><div class="n"><i class="fa-solid fa-check"></i></div><div class="t">家庭成员</div></div>
-          <div class="m-sp on"><div class="n">3</div><div class="t">材料上传</div></div>
-          <div class="m-sp"><div class="n">4</div><div class="t">规则校验</div></div>
-          <div class="m-sp"><div class="n">5</div><div class="t">签署提交</div></div>
+          <div class="m-sp done"><div class="n"><i class="fa-solid fa-check"></i></div><div class="t">选房</div></div>
+          <div class="m-sp done"><div class="n"><i class="fa-solid fa-check"></i></div><div class="t">填表</div></div>
+          <div class="m-sp on"><div class="n">3</div><div class="t">材料</div></div>
+          <div class="m-sp"><div class="n">4</div><div class="t">承诺书</div></div>
+          <div class="m-sp"><div class="n">5</div><div class="t">提交</div></div>
         </div>
         <div class="m-note"><i class="fa-solid fa-circle-info"></i>
-          <div>系统已打通各部门数据接口，<b>可通过接口核验的材料无需上传</b>。拍照上传后自动识别关键字段并回填表单，识别结果与填报内容不一致时高亮提示。</div>
+          <div>已选房间 <b>湘江1958 A6-1502A 间</b>（计租 27.80 ㎡ · 人才租金 166.80 元/月）已带入。系统已打通各部门数据接口，<b>可通过接口核验的材料无需上传</b>；拍照上传后自动识别关键字段并回填表单，不一致时高亮提示。<b>真实性承诺书在下一步签署。</b></div>
         </div>
         <div class="m-sect">免上传材料<span class="m-sect-x">接口核验 · 6 项</span></div>
         <div class="m-card">
@@ -39,7 +39,7 @@
             </div>
           </div>
         </div>
-        <div class="m-sect">需上传材料<span class="m-sect-x">就业青年人才 · 2 项</span></div>
+        <div class="m-sect">需上传材料<span class="m-sect-x">就业青年人才 · 1 项</span></div>
         <div class="m-card">
           <div class="m-card-h"><i class="fa-solid fa-cloud-arrow-up"></i>上传并智能识别</div>
           <div class="m-card-b">
@@ -55,12 +55,12 @@
               </div>
             </div>
             <div class="m-fi col">
-              <label>材料真实性承诺书 <span class="req">*</span></label>
+              <label>其他补充材料</label>
               <div class="m-fc">
                 <div class="m-up">
-                  <div class="m-uadd" data-sheet="commitSheet"><i class="fa-solid fa-file-signature"></i><span>在线签署</span></div>
+                  <div class="m-uadd" data-toast="原型演示：调起相机或从相册选择"><i class="fa-solid fa-camera"></i><span>拍照上传</span></div>
                 </div>
-                <div class="m-fh bad"><i class="fa-solid fa-circle-exclamation"></i> 尚未签署，签署后方可提交</div>
+                <div class="m-fh">选填。如社保查不到记录，可在第 5 步「提交」页上传<b>单位承诺书</b>按容缺受理提交</div>
               </div>
             </div>
           </div>
@@ -91,35 +91,13 @@
           <a class="m-cell" href="me-materials.html"><span class="m-ci"><i class="fa-solid fa-folder-open"></i></span><span class="m-cl"><b>从材料库选择</b><span class="m-cs">已沉淀 4 份通过核验的材料，可直接引用免重复上传</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
         </div>
         <div class="m-note success"><i class="fa-solid fa-circle-check"></i>
-          <div>本次申请<b>免上传 6 项</b>材料，仅需上传 2 项。全部提交、修改、驳回、补材料记录将生成电子档案，可在<b>办理进度</b>中回溯查阅。</div>
+          <div>本次申请<b>免上传 6 项</b>材料，仅需上传 1 项。全部提交、修改、驳回、补材料记录将生成电子档案，可在<b>办理进度</b>中回溯查阅。</div>
         </div>
       </div>
       <div class="m-actbar">
         <a class="m-btn w-auto" href="apply-step2.html">上一步</a>
         <button class="m-btn" type="button" onclick="MB.toast('已保存草稿，可在「我的申请」继续办理')">保存草稿</button>
-        <button class="m-btn primary" type="button" onclick="nextStep()"><i class="fa-solid fa-angle-right"></i> 下一步</button>
-      </div>
-      <div class="m-sheet" id="commitSheet">
-        <div class="m-sh-h"><i class="fa-solid fa-file-signature" style="color:var(--primary)"></i> 材料真实性承诺书<button class="m-sh-x" type="button"><i class="fa-solid fa-xmark"></i></button></div>
-        <div class="m-sh-b">
-          <div class="m-note danger"><i class="fa-solid fa-circle-exclamation"></i>
-            <div>本人承诺所提交的全部申请材料真实、准确、完整。<b>如存在提交虚假材料、隐瞒实情等行为，经核实将取消保障资格，并由运营管理机构进行清退</b>，且记入失信名单后不得再次申请。</div>
-          </div>
-          <div class="m-kv" style="margin-top:12px">
-            <div><span>承诺人</span><span>王梓涵</span></div>
-            <div><span>身份证号</span><span>430211********2418</span></div>
-            <div><span>申请编号</span><span>RC2026-0903-0162</span></div>
-            <div><span>签署方式</span><span>电子签名 + 人脸核身</span></div>
-            <div><span>政策依据</span><span>管理办法第十三条</span></div>
-          </div>
-          <div class="m-opts multi" style="margin-top:12px">
-            <div class="m-opt sq"><span class="m-ok"><i class="fa-solid fa-check"></i></span><span class="m-ol"><b>我已阅读并同意上述承诺内容</b><span>勾选后方可签署</span></span></div>
-          </div>
-        </div>
-        <div class="m-sh-f">
-          <button class="m-btn" type="button" data-sheet-close>取消</button>
-          <button class="m-btn primary" type="button" onclick="signCommit()"><i class="fa-solid fa-pen-nib"></i> 人脸核身并签署</button>
-        </div>
+        <button class="m-btn primary" type="button" onclick="nextStep()"><i class="fa-solid fa-angle-right"></i> 下一步：承诺书</button>
       </div>
     </div>
   </div>
@@ -127,15 +105,8 @@
 
 <script src="../../assets/js/mobile.js"></script>
 <script>
-function signCommit() {
-  var box = document.querySelector('#commitSheet .m-opt');
-  if (!box.classList.contains('on')) { MB.toast('请先勾选已阅读并同意承诺内容'); return; }
-  MB.closeSheet();
-  MB.toast('人脸核身通过，承诺书已签署并归档');
-  setTimeout(function () { location.href = 'apply-step4.html'; }, 1200);
-}
 function nextStep() {
-  MB.confirm('检测到<b>月工资</b>识别结果与填报内容不一致，且<b>真实性承诺书尚未签署</b>。是否仍继续进入规则校验？',
+  MB.confirm('检测到<b>月工资</b>识别结果（8,500 元）与填报内容（8,000 元）不一致。是否仍继续进入<b>承诺书签署</b>？',
     '继续下一步', function () { location.href = 'apply-step4.html'; });
 }
 </script>

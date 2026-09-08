@@ -1,0 +1,369 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - text: 
+      - generic [ref=e5]: 
+      - generic [ref=e6]: 株洲市人才住房保障管理平台
+    - generic [ref=e7]:
+      - generic "当前业务子系统" [ref=e8]:
+        - generic [ref=e9]: 房源筹集与楼盘表
+      - button " 切换系统" [ref=e10] [cursor=pointer]:
+        - generic [ref=e11]: 
+        - text: 切换系统
+    - generic [ref=e12]:
+      - button " 单位房源管理员 " [ref=e14] [cursor=pointer]:
+        - generic [ref=e15]: 
+        - generic [ref=e16]: 单位房源管理员
+        - generic [ref=e17]: 
+      - generic "消息" [ref=e18] [cursor=pointer]:
+        - generic [ref=e19]: 
+        - generic [ref=e20]: "5"
+      - generic "帮助" [ref=e21] [cursor=pointer]:
+        - generic [ref=e22]: 
+      - generic [ref=e23] [cursor=pointer]:
+        - generic [ref=e24]: 唐
+        - generic [ref=e25]:
+          - generic [ref=e26]: 唐凯
+          - generic [ref=e27]: 市保障性住房服务中心房源管理科 · 单位房源管理员
+      - link "" [ref=e28] [cursor=pointer]:
+        - /url: ../../index.html
+        - generic [ref=e29]: 
+  - complementary [ref=e30]:
+    - generic [ref=e31]:
+      - textbox "菜单搜索" [ref=e32]
+      - generic [ref=e33]: 
+      - text: 
+    - generic [ref=e34]:
+      - link " 我的工作台" [ref=e35] [cursor=pointer]:
+        - /url: ../../modules/workbench/workbench.html?role=housing
+        - generic [ref=e36]: 
+        - generic [ref=e37]: 我的工作台
+      - generic [ref=e39] [cursor=pointer]:
+        - generic [ref=e40]: 
+        - generic [ref=e41]: 待办与协同
+        - generic [ref=e42]: 
+      - generic [ref=e44] [cursor=pointer]:
+        - generic [ref=e45]: 
+        - generic [ref=e46]: 房源筹集与项目
+        - generic [ref=e47]: 
+      - generic [ref=e49] [cursor=pointer]:
+        - generic [ref=e50]: 
+        - generic [ref=e51]: 楼盘表与多源归集
+        - generic [ref=e52]: 
+      - generic [ref=e54] [cursor=pointer]:
+        - generic [ref=e55]: 
+        - generic [ref=e56]: 房源档案与房态
+        - generic [ref=e57]: 
+      - generic [ref=e58]:
+        - generic [ref=e59] [cursor=pointer]:
+          - generic [ref=e60]: 
+          - generic [ref=e61]: 房源发布与预约
+          - generic [ref=e62]: 
+        - generic [ref=e63]:
+          - link "批量上架与下架" [ref=e64] [cursor=pointer]:
+            - /url: ../../modules/house/shelf-batch.html?role=housing
+          - link "房源发布状态统计" [ref=e65] [cursor=pointer]:
+            - /url: ../../modules/house/publish-stat.html?role=housing
+          - link "房源查询（只读）" [ref=e66] [cursor=pointer]:
+            - /url: ../../modules/house/house-query.html?role=housing
+          - link "预约名单管理" [ref=e67] [cursor=pointer]:
+            - /url: ../../modules/house/book-manage.html?role=housing
+      - generic [ref=e69] [cursor=pointer]:
+        - generic [ref=e70]: 
+        - generic [ref=e71]: 房源导入与来源台账
+        - generic [ref=e72]: 
+  - main [ref=e73]:
+    - generic [ref=e75]:
+      - generic [ref=e76]: 
+      - text: 株洲市人才住房保障管理平台
+      - generic [ref=e77]: /
+      - text: 房源筹集与楼盘表
+      - generic [ref=e78]: /
+      - text: 房源发布与预约
+      - generic [ref=e79]: /
+      - generic [ref=e80]: 批量上架与下架
+    - generic [ref=e81]:
+      - generic [ref=e82]: 
+      - generic [ref=e83]: 支持按项目或按报送批次批量上架、下架房源，并支持定时发布。上架须先通过报送审核且要素齐全；已预约、已锁定、已签约的房源不得直接下架，须先解除业务关联。
+    - generic [ref=e84]:
+      - generic [ref=e85]:
+        - generic [ref=e87]: 
+        - generic [ref=e88]:
+          - generic [ref=e89]: 在架房源
+          - generic [ref=e90]: 9,258
+          - generic [ref=e91]: 套 · 占一万套目标 92.6%
+      - generic [ref=e92]:
+        - generic [ref=e94]: 
+        - generic [ref=e95]:
+          - generic [ref=e96]: 待上架
+          - generic [ref=e97]: "742"
+          - generic [ref=e98]: 在途 502 + 未启动 240
+      - generic [ref=e99]:
+        - generic [ref=e101]: 
+        - generic [ref=e102]:
+          - generic [ref=e103]: 本月下架
+          - generic [ref=e104]: "126"
+          - generic [ref=e105]: 套 · 维修中 86 / 用途转换 40
+      - generic [ref=e106]:
+        - generic [ref=e108]: 
+        - generic [ref=e109]:
+          - generic [ref=e110]: 定时任务
+          - generic [ref=e111]: "4"
+          - generic [ref=e112]: 本月任务台账共 8 项
+    - generic [ref=e113]:
+      - generic [ref=e114]:
+        - generic [ref=e115]:
+          - generic [ref=e116]: 任务号
+          - textbox "任务号" [ref=e117]: SX2026-09
+        - generic [ref=e118]:
+          - generic [ref=e119]: 操作类型
+          - combobox [ref=e120]:
+            - option "全部" [selected]
+            - option "批量上架"
+            - option "批量下架"
+            - option "定时发布"
+        - generic [ref=e121]:
+          - generic [ref=e122]: 关联项目
+          - textbox "项目名称或批次号" [ref=e123]: 湘江1958 人才公寓
+        - generic [ref=e124]:
+          - generic [ref=e125]: 执行状态
+          - combobox [ref=e126]:
+            - option "全部" [selected]
+            - option "待执行"
+            - option "执行中"
+            - option "已完成"
+            - option "已取消"
+            - option "执行失败"
+        - generic [ref=e127]:
+          - generic [ref=e128]: 计划执行日期
+          - textbox [ref=e129]: 2026-09-20
+        - generic [ref=e130]:
+          - button " 查询" [ref=e131] [cursor=pointer]:
+            - generic [ref=e132]: 
+            - text: 查询
+          - button "重置" [ref=e133] [cursor=pointer]
+          - button "+ 新建上架任务" [ref=e134] [cursor=pointer]:
+            - generic [ref=e135]: +
+            - text: 新建上架任务
+          - link " 房源查询与审核发布" [ref=e136] [cursor=pointer]:
+            - /url: house-archive.html
+            - generic [ref=e137]: 
+            - text: 房源查询与审核发布
+          - link " 对外展示效果" [ref=e138] [cursor=pointer]:
+            - /url: house-display.html
+            - generic [ref=e139]: 
+            - text: 对外展示效果
+          - button " 导出任务台账" [ref=e140] [cursor=pointer]:
+            - generic [ref=e141]: 
+            - text: 导出任务台账
+      - table [ref=e143]:
+        - rowgroup [ref=e144]:
+          - row "序号 任务号 操作类型 关联项目 / 报送批次 涉及套数 计划执行时间 执行状态 操作人 操作" [ref=e145]:
+            - columnheader "序号" [ref=e146]
+            - columnheader "任务号" [ref=e147]
+            - columnheader "操作类型" [ref=e148]
+            - columnheader "关联项目 / 报送批次" [ref=e149]
+            - columnheader "涉及套数" [ref=e150]
+            - columnheader "计划执行时间" [ref=e151]
+            - columnheader "执行状态" [ref=e152]
+            - columnheader "操作人" [ref=e153]
+            - columnheader "操作" [ref=e154]
+        - rowgroup [ref=e155]:
+          - row "01 SX2026-09-001 批量上架 湘江1958 人才公寓（一、二期）／ BS2026-09-01 2,000 2026-09-08 09:00 已完成 唐凯 查看" [ref=e156]:
+            - cell "01" [ref=e157]
+            - cell "SX2026-09-001" [ref=e158]
+            - cell "批量上架" [ref=e159]:
+              - generic [ref=e160]: 批量上架
+            - cell "湘江1958 人才公寓（一、二期）／ BS2026-09-01" [ref=e161]
+            - cell "2,000" [ref=e162]
+            - cell "2026-09-08 09:00" [ref=e163]
+            - cell "已完成" [ref=e164]:
+              - generic [ref=e165]: 已完成
+            - cell "唐凯" [ref=e166]
+            - cell "查看" [ref=e167]
+          - row "02 SX2026-09-002 批量上架 清水塘·未来社区（一期）／ BS2026-09-02 1,800 2026-09-08 09:00 已完成 唐凯 查看" [ref=e168]:
+            - cell "02" [ref=e169]
+            - cell "SX2026-09-002" [ref=e170]
+            - cell "批量上架" [ref=e171]:
+              - generic [ref=e172]: 批量上架
+            - cell "清水塘·未来社区（一期）／ BS2026-09-02" [ref=e173]
+            - cell "1,800" [ref=e174]
+            - cell "2026-09-08 09:00" [ref=e175]
+            - cell "已完成" [ref=e176]:
+              - generic [ref=e177]: 已完成
+            - cell "唐凯" [ref=e178]
+            - cell "查看" [ref=e179]
+          - row "03 SX2026-09-003 定时发布 云龙人才公寓／ BS2026-09-03 1,400 2026-09-15 08:00 待执行 彭雪梅 执行 取消" [ref=e180]:
+            - cell "03" [ref=e181]
+            - cell "SX2026-09-003" [ref=e182]
+            - cell "定时发布" [ref=e183]:
+              - generic [ref=e184]: 定时发布
+            - cell "云龙人才公寓／ BS2026-09-03" [ref=e185]
+            - cell "1,400" [ref=e186]
+            - cell "2026-09-15 08:00" [ref=e187]
+            - cell "待执行" [ref=e188]:
+              - generic [ref=e189]: 待执行
+            - cell "彭雪梅" [ref=e190]
+            - cell "执行 取消" [ref=e191]
+          - row "04 SX2026-09-004 定时发布 董家塅人才公寓／ BS2026-09-04 1,200 2026-09-20 08:00 待执行 彭雪梅 执行 取消" [ref=e192]:
+            - cell "04" [ref=e193]
+            - cell "SX2026-09-004" [ref=e194]
+            - cell "定时发布" [ref=e195]:
+              - generic [ref=e196]: 定时发布
+            - cell "董家塅人才公寓／ BS2026-09-04" [ref=e197]
+            - cell "1,200" [ref=e198]
+            - cell "2026-09-20 08:00" [ref=e199]
+            - cell "待执行" [ref=e200]:
+              - generic [ref=e201]: 待执行
+            - cell "彭雪梅" [ref=e202]
+            - cell "执行 取消" [ref=e203]
+          - row "05 SX2026-09-005 定时发布 田心人才公寓／ BS2026-09-05 1,000 2026-09-25 08:00 已取消 唐凯 查看" [ref=e204]:
+            - cell "05" [ref=e205]
+            - cell "SX2026-09-005" [ref=e206]
+            - cell "定时发布" [ref=e207]:
+              - generic [ref=e208]: 定时发布
+            - cell "田心人才公寓／ BS2026-09-05" [ref=e209]
+            - cell "1,000" [ref=e210]
+            - cell "2026-09-25 08:00" [ref=e211]
+            - cell "已取消" [ref=e212]:
+              - generic [ref=e213]: 已取消
+            - cell "唐凯" [ref=e214]
+            - cell "查看" [ref=e215]
+          - row "06 SX2026-09-006 定时发布 栗雨佳苑人才公寓／ BS2026-09-06-R 486 2026-09-28 08:00 待执行 唐凯 执行 取消" [ref=e216]:
+            - cell "06" [ref=e217]
+            - cell "SX2026-09-006" [ref=e218]
+            - cell "定时发布" [ref=e219]:
+              - generic [ref=e220]: 定时发布
+            - cell "栗雨佳苑人才公寓／ BS2026-09-06-R" [ref=e221]
+            - cell "486" [ref=e222]
+            - cell "2026-09-28 08:00" [ref=e223]
+            - cell "待执行" [ref=e224]:
+              - generic [ref=e225]: 待执行
+            - cell "唐凯" [ref=e226]
+            - cell "执行 取消" [ref=e227]
+          - row "07 SX2026-09-007 批量下架 茨菇塘公寓 B 栋（整栋维修） 86 2026-09-10 18:00 已完成 彭雪梅 查看" [ref=e228]:
+            - cell "07" [ref=e229]
+            - cell "SX2026-09-007" [ref=e230]
+            - cell "批量下架" [ref=e231]:
+              - generic [ref=e232]: 批量下架
+            - cell "茨菇塘公寓 B 栋（整栋维修）" [ref=e233]
+            - cell "86" [ref=e234]
+            - cell "2026-09-10 18:00" [ref=e235]
+            - cell "已完成" [ref=e236]:
+              - generic [ref=e237]: 已完成
+            - cell "彭雪梅" [ref=e238]
+            - cell "查看" [ref=e239]
+          - row "08 SX2026-09-008 批量下架 湘江1958 人才公寓 A6 栋（用途转换） 40 2026-09-12 18:00 执行失败 唐凯 查看" [ref=e240]:
+            - cell "08" [ref=e241]
+            - cell "SX2026-09-008" [ref=e242]
+            - cell "批量下架" [ref=e243]:
+              - generic [ref=e244]: 批量下架
+            - cell "湘江1958 人才公寓 A6 栋（用途转换）" [ref=e245]
+            - cell "40" [ref=e246]
+            - cell "2026-09-12 18:00" [ref=e247]
+            - cell "执行失败" [ref=e248]:
+              - generic [ref=e249]: 执行失败
+            - cell "唐凯" [ref=e250]
+            - cell "查看" [ref=e251]
+      - generic [ref=e252]:
+        - generic [ref=e253]: 共 8 条，显示 1–8 条
+        - generic [ref=e254]:
+          - generic [ref=e255]:
+            - text: 每页
+            - combobox "每页 条" [ref=e256] [cursor=pointer]:
+              - option "10"
+              - option "20" [selected]
+              - option "50"
+              - option "100"
+            - text: 条
+          - generic [ref=e257]:
+            - button "" [disabled] [ref=e258]:
+              - generic [ref=e259]: 
+            - button "" [disabled] [ref=e260]:
+              - generic [ref=e261]: 
+            - button "1" [ref=e262] [cursor=pointer]
+            - button "" [disabled] [ref=e263]:
+              - generic [ref=e264]: 
+            - button "" [disabled] [ref=e265]:
+              - generic [ref=e266]: 
+          - generic [ref=e267]:
+            - text: 前往
+            - spinbutton "前往 页" [ref=e268]: "1"
+            - text: 页
+          - generic [ref=e269]: 共 1 页
+    - generic [ref=e270]:
+      - generic [ref=e271]:
+        - generic [ref=e272]: 
+        - text: 上架前置条件与下架限制
+        - generic [ref=e273]: SJ-1 至 SJ-5 须全部满足 · XJ-1 至 XJ-4 须先解除业务关联
+      - generic [ref=e275]:
+        - table [ref=e277]:
+          - rowgroup [ref=e278]:
+            - row "条件号 前置条件 校验说明" [ref=e279]:
+              - columnheader "条件号" [ref=e280]
+              - columnheader "前置条件" [ref=e281]
+              - columnheader "校验说明" [ref=e282]
+          - rowgroup [ref=e283]:
+            - row "SJ-1 已通过报送审核 审核状态须为「审核通过」，退回补正的批次不进入上架队列" [ref=e284]:
+              - cell "SJ-1" [ref=e285]
+              - cell "已通过报送审核" [ref=e286]
+              - cell "审核状态须为「审核通过」，退回补正的批次不进入上架队列" [ref=e287]
+            - row "SJ-2 要素齐全 11 项必填发布要素完整度须达 100%，缺项房源自动剔除" [ref=e288]:
+              - cell "SJ-2" [ref=e289]
+              - cell "要素齐全" [ref=e290]
+              - cell "11 项必填发布要素完整度须达 100%，缺项房源自动剔除" [ref=e291]
+            - row "SJ-3 无重复登记 按一房一码校验房号唯一性，命中重复的自动锁定并排除" [ref=e292]:
+              - cell "SJ-3" [ref=e293]
+              - cell "无重复登记" [ref=e294]
+              - cell "按一房一码校验房号唯一性，命中重复的自动锁定并排除" [ref=e295]
+            - row "SJ-4 房态为可配租 已锁定、在租、维修中、已冻结的房源不得上架" [ref=e296]:
+              - cell "SJ-4" [ref=e297]
+              - cell "房态为可配租" [ref=e298]
+              - cell "已锁定、在租、维修中、已冻结的房源不得上架" [ref=e299]
+            - row "SJ-5 租金标准已核定 须已核定且落在 8.00—30.00 元/㎡·月区间" [ref=e300]:
+              - cell "SJ-5" [ref=e301]
+              - cell "租金标准已核定" [ref=e302]
+              - cell "须已核定且落在 8.00—30.00 元/㎡·月区间" [ref=e303]
+        - table [ref=e305]:
+          - rowgroup [ref=e306]:
+            - row "限制号 受限情形 解除方式" [ref=e307]:
+              - columnheader "限制号" [ref=e308]
+              - columnheader "受限情形" [ref=e309]
+              - columnheader "解除方式" [ref=e310]
+          - rowgroup [ref=e311]:
+            - row "XJ-1 已预约房源 先取消预约或改约至其他房源，见预约名单管理" [ref=e312]:
+              - cell "XJ-1" [ref=e313]
+              - cell "已预约房源" [ref=e314]
+              - cell "先取消预约或改约至其他房源，见预约名单管理" [ref=e315]
+            - row "XJ-2 已锁定房源 先解除选房锁定并释放房源，见选房编排" [ref=e316]:
+              - cell "XJ-2" [ref=e317]
+              - cell "已锁定房源" [ref=e318]
+              - cell "先解除选房锁定并释放房源，见选房编排" [ref=e319]
+            - row "XJ-3 已签约在租房源 先办理合同解除或到期腾退，见合同台账" [ref=e320]:
+              - cell "XJ-3" [ref=e321]
+              - cell "已签约在租房源" [ref=e322]
+              - cell "先办理合同解除或到期腾退，见合同台账" [ref=e323]
+            - row "XJ-4 已进入配租批次 先移出批次投放清单，见配租批次管理" [ref=e324]:
+              - cell "XJ-4" [ref=e325]
+              - cell "已进入配租批次" [ref=e326]
+              - cell "先移出批次投放清单，见配租批次管理" [ref=e327]
+    - generic [ref=e328]:
+      - generic [ref=e329]: 依据 2026 年 9 月 6 日向市住建局汇报讨论会议决议
+      - generic [ref=e330]: 上架口径 房源一次性上架全市约一万套，按项目或报送批次分批执行，支持定时发布
+      - generic [ref=e331]: 任务号规则 SX + 年月 + 当月序号，一个任务对应一个项目或一个报送批次
+      - generic [ref=e332]: 下架留痕 下架原因、涉及套数、业务关联解除记录与操作人全程留痕
+  - option "批量上架" [selected]
+  - option "批量下架"
+  - option "定时发布"
+  - option "按项目" [selected]
+  - option "按报送批次"
+  - option "清水塘·未来社区（二期）" [selected]
+  - option "湘江1958 人才公寓（一、二期）"
+  - option "云龙人才公寓"
+  - option "董家塅人才公寓"
+  - option "田心人才公寓"
+  - option "栗雨佳苑人才公寓"
+  - option "茨菇塘公寓"
+  - option "渌口人才公寓"
+  - option "定时发布" [selected]
+  - option "立即发布"

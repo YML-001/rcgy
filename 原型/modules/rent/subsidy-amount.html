@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>补助金额核定 · 株洲市人才公寓管理平台</title>
+<title>补助金额核定 · 株洲市人才住房保障管理平台</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="../../assets/css/app.css">
 <link rel="stylesheet" href="../../assets/css/spec.css">
@@ -13,7 +13,7 @@
 <main class="app-main">
   <div class="page-head">
     <div class="breadcrumb">
-      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才住房保障管理平台
       <span class="sep">/</span> 租金收缴与年审退出
       <span class="sep">/</span> 租房补贴核发
       <span class="sep">/</span> <span class="cur">补助金额核定</span>
@@ -62,7 +62,7 @@
     <div class="card-body tight">
     <div class="filter-bar">
       <div class="filter-item"><label>核定期间</label><input type="month" value="2026-09"></div>
-      <div class="filter-item"><label>运营机构</label><select><option value="">全部</option><option>株洲市人才安居服务有限公司</option><option>株洲城发物业服务有限公司</option><option>清水塘社区服务有限公司</option></select></div>
+      <div class="filter-item"><label>运营机构</label><select><option value="">全部</option><option>株洲城发高科人才安居服务有限公司</option><option>株洲城发物业服务有限公司</option><option>清水塘社区服务有限公司</option></select></div>
       <div class="filter-item"><label>楼盘</label><select><option value="">全部</option><option>湘江1958 人才公寓</option><option>云龙人才公寓</option><option>清水塘·未来社区</option><option>董家塅人才公寓</option><option>田心人才公寓</option></select></div>
       <div class="filter-item"><label>核定状态</label><select data-dict="subsidyStatus" data-ph="全部"></select></div>
       <div class="filter-item"><label>结算周期</label><select data-dict="evalCycle" data-ph="全部"></select></div>
@@ -78,9 +78,9 @@
           <tr><th class="cell-lg">运营机构</th><th class="cell-lg">楼盘</th><th class="num">在租套数</th><th class="num">计租面积（㎡）</th><th class="num">补助单价</th><th class="num">服务月数</th><th class="num">应补金额</th><th class="num">服务评价得分</th><th class="num">扣减比例</th><th class="num">扣减金额</th><th class="num">核定金额</th><th>操作</th></tr>
         </thead>
         <tbody>
-          <tr class="row-warn"><td>株洲市人才安居服务有限公司</td><td>湘江1958 人才公寓</td><td class="num">386</td><td class="num">25,662.00</td><td class="num">7.00</td><td class="num">1</td><td class="num">179,634.00</td><td class="num"><span class="badge red">78.2</span></td><td class="num">10%</td><td class="num text-danger">17,963.40</td><td class="num">161,670.60</td><td><span class="link" onclick="PMS.openDrawer('hdDrawer')">核定确认</span> <span class="link" onclick="PMS.toast('25,662.00 ㎡ × 7.00 元/㎡·月 × 1 个月 = 179,634.00 元；评价 78.2 分落 70—79.9 档扣减 10% = 17,963.40 元；核定 161,670.60 元')">算式</span></td></tr>
-          <tr><td>株洲市人才安居服务有限公司</td><td>云龙人才公寓</td><td class="num">268</td><td class="num">17,822.00</td><td class="num">7.00</td><td class="num">1</td><td class="num">124,754.00</td><td class="num"><span class="badge green">91.6</span></td><td class="num">0%</td><td class="num">0.00</td><td class="num">124,754.00</td><td><span class="link" onclick="PMS.toast('2026-09-06 10:24 由罗湘核定，核定金额 124,754.00 元，已生成支付申请 ZF2026-09-01')">已核定</span> <span class="link" onclick="PMS.toast('17,822.00 ㎡ × 7.00 元/㎡·月 × 1 个月 = 124,754.00 元；评价 91.6 分不扣减；核定 124,754.00 元')">算式</span></td></tr>
-          <tr><td>株洲市人才安居服务有限公司</td><td>田心人才公寓</td><td class="num">152</td><td class="num">9,880.00</td><td class="num">7.00</td><td class="num">1</td><td class="num">69,160.00</td><td class="num"><span class="badge orange">88.4</span></td><td class="num">2%</td><td class="num text-danger">1,383.20</td><td class="num">67,776.80</td><td><span class="link" onclick="PMS.toast('2026-09-06 10:26 由罗湘核定，核定金额 67,776.80 元，已生成支付申请 ZF2026-09-02')">已核定</span> <span class="link" onclick="PMS.toast('9,880.00 ㎡ × 7.00 元/㎡·月 × 1 个月 = 69,160.00 元；评价 88.4 分落 85—89.9 档扣减 2% = 1,383.20 元；核定 67,776.80 元')">算式</span></td></tr>
+          <tr class="row-warn"><td>株洲城发高科人才安居服务有限公司</td><td>湘江1958 人才公寓</td><td class="num">386</td><td class="num">25,662.00</td><td class="num">7.00</td><td class="num">1</td><td class="num">179,634.00</td><td class="num"><span class="badge red">78.2</span></td><td class="num">10%</td><td class="num text-danger">17,963.40</td><td class="num">161,670.60</td><td><span class="link" onclick="PMS.openDrawer('hdDrawer')">核定确认</span> <span class="link" onclick="PMS.toast('25,662.00 ㎡ × 7.00 元/㎡·月 × 1 个月 = 179,634.00 元；评价 78.2 分落 70—79.9 档扣减 10% = 17,963.40 元；核定 161,670.60 元')">算式</span></td></tr>
+          <tr><td>株洲城发高科人才安居服务有限公司</td><td>云龙人才公寓</td><td class="num">268</td><td class="num">17,822.00</td><td class="num">7.00</td><td class="num">1</td><td class="num">124,754.00</td><td class="num"><span class="badge green">91.6</span></td><td class="num">0%</td><td class="num">0.00</td><td class="num">124,754.00</td><td><span class="link" onclick="PMS.toast('2026-09-06 10:24 由罗湘核定，核定金额 124,754.00 元，已生成支付申请 ZF2026-09-01')">已核定</span> <span class="link" onclick="PMS.toast('17,822.00 ㎡ × 7.00 元/㎡·月 × 1 个月 = 124,754.00 元；评价 91.6 分不扣减；核定 124,754.00 元')">算式</span></td></tr>
+          <tr><td>株洲城发高科人才安居服务有限公司</td><td>田心人才公寓</td><td class="num">152</td><td class="num">9,880.00</td><td class="num">7.00</td><td class="num">1</td><td class="num">69,160.00</td><td class="num"><span class="badge orange">88.4</span></td><td class="num">2%</td><td class="num text-danger">1,383.20</td><td class="num">67,776.80</td><td><span class="link" onclick="PMS.toast('2026-09-06 10:26 由罗湘核定，核定金额 67,776.80 元，已生成支付申请 ZF2026-09-02')">已核定</span> <span class="link" onclick="PMS.toast('9,880.00 ㎡ × 7.00 元/㎡·月 × 1 个月 = 69,160.00 元；评价 88.4 分落 85—89.9 档扣减 2% = 1,383.20 元；核定 67,776.80 元')">算式</span></td></tr>
           <tr class="row-warn"><td>株洲城发物业服务有限公司</td><td>董家塅人才公寓</td><td class="num">214</td><td class="num">13,910.00</td><td class="num">7.00</td><td class="num">1</td><td class="num">97,370.00</td><td class="num"><span class="badge orange">84.6</span></td><td class="num">5%</td><td class="num text-danger">4,868.50</td><td class="num">92,501.50</td><td><span class="link" onclick="PMS.openDrawer('hdDrawer')">核定确认</span> <span class="link" onclick="PMS.toast('13,910.00 ㎡ × 7.00 元/㎡·月 × 1 个月 = 97,370.00 元；评价 84.6 分落 80—84.9 档扣减 5% = 4,868.50 元；核定 92,501.50 元')">算式</span></td></tr>
           <tr><td>清水塘社区服务有限公司</td><td>清水塘·未来社区</td><td class="num">172</td><td class="num">11,146.00</td><td class="num">7.00</td><td class="num">1</td><td class="num">78,022.00</td><td class="num"><span class="badge green">92.3</span></td><td class="num">0%</td><td class="num">0.00</td><td class="num">78,022.00</td><td><span class="link" onclick="PMS.toast('2026-09-05 16:10 由罗湘核定，核定金额 78,022.00 元，已生成支付申请 ZF2026-09-03')">已核定</span> <span class="link" onclick="PMS.toast('11,146.00 ㎡ × 7.00 元/㎡·月 × 1 个月 = 78,022.00 元；评价 92.3 分不扣减；核定 78,022.00 元')">算式</span></td></tr>
           <tr><td><span class="badge green">合计</span></td><td><b>5 个楼盘 · 3 家运营机构</b></td><td class="num"><b>1,192</b></td><td class="num"><b>78,420.00</b></td><td class="num">7.00</td><td class="num">1</td><td class="num"><b>548,940.00</b></td><td class="num"><span class="muted">—</span></td><td class="num"><span class="muted">4.41%</span></td><td class="num"><b>24,215.10</b></td><td class="num"><b>524,724.90</b></td><td><span class="link" onclick="location.href='subsidy-pay.html'">财政复核与拨付</span></td></tr>
@@ -151,7 +151,7 @@
       </div>
       <div class="form-item col-full">
         <label>运营机构 <span class="req">*</span></label>
-        <input type="text" value="株洲市人才安居服务有限公司（湘江1958 人才公寓）" readonly>
+        <input type="text" value="株洲城发高科人才安居服务有限公司（湘江1958 人才公寓）" readonly>
       </div>
       <div class="form-item">
         <label>在租套数（套）</label>

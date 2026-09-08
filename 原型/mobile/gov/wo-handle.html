@@ -3,24 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>工单处理与完工 · 株洲市人才公寓管理平台</title>
+<title>工单处理与完工 · 株洲市人才住房保障管理平台</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="../../assets/css/app.css">
 <link rel="stylesheet" href="../../assets/css/mobile.css">
 <link rel="stylesheet" href="../../assets/css/ext.css">
 </head>
 <body class="m-body" data-mtitle="工单处理" data-mmod="G3 工单处理" data-mcode="G3-01"
-      data-mdesc="物业人员接收派单、登记上门时间、记录维修内容与材料费、上传完工照片，由住户现场电子签字确认后工单闭环。" data-mback="wo-list.html" data-mtabset="gov" data-mtab="wo">
+      data-mdesc="运营机构现场人员接收派单、登记上门时间、记录维修内容与材料费、上传完工照片，由住户现场电子签字确认后工单闭环；工单范围为本机构受托房源。" data-mback="wo-list.html" data-mtabset="agency" data-mtab="wo">
 <div class="m-stage">
   <div class="m-phone">
     <div class="m-screen">
       <div class="m-view">
+        <div class="m-note"><i class="fa-solid fa-circle-info"></i>
+          <div><b>工单范围为本机构受托房源</b>。处理人：黄卫兵　·	株洲城发高科人才安居服务有限公司　·	现场维修员。</div>
+        </div>
         <div class="m-card">
           <div class="m-card-h"><i class="fa-solid fa-screwdriver-wrench"></i>工单信息</div>
           <div class="m-card-b">
           <div class="m-kv">
             <div><span>工单编号</span><span>GD2026-09-00418</span></div>
-            <div><span>房源</span><span>湘江1958 人才公寓 A6 栋 1502</span></div>
+            <div><span>房源</span><span>湘江1958 人才公寓 A6 栋 1502A</span></div>
+            <div><span>受托机构</span><span>株洲城发高科人才安居服务有限公司（本机构）</span></div>
             <div><span>报修人</span><span>王梓涵　138****6207</span></div>
             <div><span>报修类别</span><span>水暖管道</span></div>
             <div><span>具体位置</span><span>卫生间</span></div>
@@ -65,7 +69,11 @@
           </div>
           <div class="m-fi">
             <label>材料费（元） <span class="req">*</span></label>
-            <div class="m-fc"><input type="text" value="35.00"><div class="m-fh">运营机构承担，不向住户收取</div></div>
+            <div class="m-fc"><input type="text" value="35.00"><div class="m-fh">本机构承担，不向住户收取</div></div>
+          </div>
+          <div class="m-fi">
+            <label>维修人员 <span class="req">*</span></label>
+            <div class="m-fc"><input type="text" value="黄卫兵（现场维修员）" readonly><div class="m-fh">由本机构账号带入，不可修改</div></div>
           </div>
           <div class="m-fi">
             <label>人工工时（小时） <span class="req">*</span></label>
@@ -104,22 +112,29 @@
             </div>
             <div style="margin-top:10px;display:flex;gap:8px">
               <button class="m-btn sm" type="button" onclick="MB.toast('已清空签名')">清空重写</button>
-              <button class="m-btn sm ghost" type="button" onclick="MB.toast('已记录：住户不在场，由运营机构负责人代确认并留痕')">住户不在场</button>
+              <button class="m-btn sm ghost" type="button" onclick="MB.toast('已记录：住户不在场，由本机构负责人代确认并留痕')">住户不在场</button>
             </div>
           </div>
         </div>
         <div class="m-note"><i class="fa-solid fa-circle-info"></i>
-          <div>住户现场电子签字确认后<b>工单闭环</b>，住户可对维修质量与时效评价，评价结果<b>汇入物业考核评价</b>。</div>
+          <div>住户现场电子签字确认后<b>工单闭环</b>，住户可对维修质量与时效评价，评价结果<b>汇入物业服务与运营单位服务两类考核评价</b>，并与政府购买服务补助资金核定挂钩。</div>
         </div>
       </div>
       <div class="m-actbar">
         <a class="m-btn w-auto" href="wo-feedback.html">反馈进度</a>
-        <button class="m-btn primary" type="button" onclick="MB.submit('.m-view','确认工单已完工？<br>住户签字确认后工单闭环，处理时效将计入物业考核。','确认完工','wo-list.html')"><i class="fa-solid fa-check"></i> 完工并请住户签字</button>
+        <button class="m-btn primary" type="button" onclick="MB.submit('.m-view','确认工单已完工？<br>住户签字确认后工单闭环，处理时效将计入本机构考核。','确认完工','wo-list.html')"><i class="fa-solid fa-check"></i> 完工并请住户签字</button>
       </div>
     </div>
   </div>
 </div>
 
 <script src="../../assets/js/mobile.js"></script>
+<script>
+/* 运营机构的「我的」独立于主管单位，底部页签指向 me-agency.html */
+document.addEventListener('DOMContentLoaded', function () {
+  var a = document.querySelector('.m-tabbar a[href="me.html"]');
+  if (a) a.setAttribute('href', 'me-agency.html');
+});
+</script>
 </body>
 </html>

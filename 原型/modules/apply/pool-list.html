@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>多渠道件池 · 株洲市人才公寓管理平台</title>
+<title>多渠道件池 · 株洲市人才住房保障管理平台</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="../../assets/css/app.css">
 <link rel="stylesheet" href="../../assets/css/spec.css">
@@ -13,21 +13,21 @@
 <main class="app-main">
   <div class="page-head">
     <div class="breadcrumb">
-      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才住房保障管理平台
       <span class="sep">/</span> 人才档案与资格联审
-      <span class="sep">/</span> 资格受理与复核
+      <span class="sep">/</span> 资格受理与初审
       <span class="sep">/</span> <span class="cur">多渠道件池</span>
     </div>
     <div class="page-actions">
       <button class="btn btn-primary" onclick="PMS.openDrawer('intakeDrawer')"><i class="fa-solid fa-keyboard"></i> 窗口代办录入</button>
-      <button class="btn" onclick="PMS.confirm({title:'批量操作确认',message:'确认批量通过 8 件核验全部一致的正常件？',detail:'批量操作将逐件写入办件流水并电子送达，人工只需处理例外件。',type:'warning',okText:'确认批量通过',onOk:function(){PMS.toast('已批量通过 8 件，结论已电子送达','success');}})"><i class="fa-solid fa-check"></i> 批量通过正常件</button>
+      <button class="btn" onclick="location.href='audit-desk.html'"><i class="fa-solid fa-user-shield"></i> 受理初审办理</button>
       <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
     </div>
   </div>
 
   <div class="alert alert-warning">
     <i class="fa-solid fa-triangle-exclamation"></i>
-    <div>湘易办、公众号、小程序、<b>政务窗口兜底代办</b>、单位批量申报的申请件统一汇入<b>同一件池，编号规则一致</b>。受理时间即<b>配租顺序排序依据</b>，不因渠道不同而优先。</div>
+    <div><b>个人申请、用人单位（移动端申请）、运营机构（PC 申请）、政务窗口（PC 申请）</b>四类渠道的申请件<b>汇入同一件池、编号规则一致、走同一审核流程</b>，<b>不因渠道不同而优先</b>。办件列表与办理界面均显示申请渠道；<b>受理时间是配租顺序的唯一排序依据</b>，各渠道受理时间口径见页尾说明。</div>
   </div>
 
   <div class="stat-grid">
@@ -37,9 +37,9 @@
         <div class="s-trend text-success">↑ 较上月 14.2%</div></div>
     </div>
     <div class="stat-card">
-      <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
-      <div><div class="s-label">审核通过</div><div class="s-value">1,092</div>
-        <div class="s-trend text-2">通过率 84.9%</div></div>
+      <div class="s-icon green"><i class="fa-solid fa-mobile-screen"></i></div>
+      <div><div class="s-label">线上渠道占比</div><div class="s-value">81.2%</div>
+        <div class="s-trend text-2">个人申请 + 用人单位移动端申报</div></div>
     </div>
     <div class="stat-card">
       <div class="s-icon orange"><i class="fa-solid fa-clock"></i></div>
@@ -55,12 +55,12 @@
 
   <div class="card list-card">
     <div class="filter-bar">
-      <div class="filter-item"><label>申请编号</label><input type="text" placeholder="申请编号"></div>
-      <div class="filter-item"><label>申请人</label><input type="text" placeholder="姓名"></div>
+      <div class="filter-item"><label>申请编号</label><input type="text" value="RC2026-" placeholder="申请编号"></div>
+      <div class="filter-item"><label>申请人</label><input type="text" value="" placeholder="姓名"></div>
       <div class="filter-item"><label>申请类型</label><select data-dict="applyType" data-ph="全部"></select></div>
-      <div class="filter-item"><label>受理渠道</label><select data-dict="channel" data-ph="全部"></select></div>
+      <div class="filter-item"><label>申请渠道</label><select data-dict="applyChannel" data-ph="全部"></select></div>
       <div class="filter-item"><label>办件状态</label><select data-dict="applyStatus" data-ph="全部"></select></div>
-      <div class="filter-item"><label>受理日期</label><input type="date"></div>
+      <div class="filter-item"><label>受理日期</label><input type="date" value="2026-09-01"></div>
       <div class="filter-actions">
         <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
         <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
@@ -70,92 +70,124 @@
     <div class="table-wrap">
       <table class="data-table">
         <thead>
-          <tr><th>申请编号</th><th>申请人</th><th>申请类型</th><th>受理渠道</th><th class="cell-lg">所在单位</th><th>受理时间</th><th>应办结</th><th>剩余时限</th><th>办件状态</th><th>操作</th></tr>
+          <tr><th>申请编号</th><th>申请人</th><th>申请类型</th><th class="cell-lg">申请渠道</th><th class="cell-lg">所在单位</th><th class="cell-lg">受理时间</th><th>应办结</th><th>剩余时限</th><th>办件状态</th><th>操作</th></tr>
         </thead>
         <tbody>
-          <tr class="row-bad"><td>RC2026-0902-0148</td><td>王志远</td><td><span class="badge blue">就业</span></td><td><span class="badge blue">湘易办小程序</span></td><td>株洲硬质合金集团有限公司</td><td>2026-09-02 14:18</td><td>2026-09-05</td><td><div class="sp-days dx"><span class="dv">超期 1 天</span><span class="db"><span style="width:100%"></span></span></div></td><td><span class="sp-st wait">待复核</span></td><td><span class="link" onclick="location.href='audit-desk.html'">复核</span> <span class="link" onclick="location.href='verify-report.html'">核验报告</span></td></tr>
-          <tr class="row-warn"><td>RC2026-0903-0162</td><td>王梓涵</td><td><span class="badge blue">就业</span></td><td><span class="badge blue">湘易办 APP</span></td><td>中车株洲电力机车研究所有限公司</td><td>2026-09-03 10:26</td><td>2026-09-08</td><td><div class="sp-days d60"><span class="dv">剩 1 天</span><span class="db"><span style="width:66%"></span></span></div></td><td><span class="sp-st wait">待复核</span></td><td><span class="link" onclick="location.href='audit-desk.html'">复核</span> <span class="link" onclick="location.href='verify-report.html'">核验报告</span></td></tr>
-          <tr class="row-warn"><td>RC2026-0903-0171</td><td>周宇轩</td><td><span class="badge blue">就业</span></td><td><span class="badge cyan">株洲人才公众号</span></td><td>株洲南方阀门股份有限公司</td><td>2026-09-03 11:04</td><td>2026-09-08</td><td><div class="sp-days d60"><span class="dv">剩 1 天</span><span class="db"><span style="width:66%"></span></span></div></td><td><span class="sp-st bad">待补正</span></td><td><span class="link" onclick="location.href='reject-list.html'">驳回补正</span></td></tr>
-          <tr><td>RC2026-0904-0186</td><td>谭雅丽</td><td><span class="badge blue">就业</span></td><td><span class="badge orange">政务窗口代办</span></td><td>株洲市中心医院</td><td>2026-09-04 09:26</td><td>2026-09-09</td><td><div class="sp-days"><span class="dv">剩 2 天</span><span class="db"><span style="width:33%"></span></span></div></td><td><span class="sp-st doing">联审中</span></td><td><span class="link" onclick="location.href='verify-report.html'">核验报告</span></td></tr>
-          <tr><td>RC2026-0905-0192</td><td>罗建军</td><td><span class="badge cyan">创业</span></td><td><span class="badge purple">单位批量申报</span></td><td>株洲智远智能科技有限公司</td><td>2026-09-05 09:12</td><td>2026-09-10</td><td><div class="sp-days"><span class="dv">剩 3 天</span><span class="db"><span style="width:20%"></span></span></div></td><td><span class="sp-st doing">联审中</span></td><td><span class="link" onclick="location.href='verify-report.html'">核验报告</span></td></tr>
+          <tr class="row-bad"><td>RC2026-0902-0148</td><td>王志远</td><td><span class="badge blue">就业</span></td><td><span class="badge blue">个人申请</span></td><td>株洲硬质合金集团有限公司</td><td>2026-09-02 14:18 <span class="muted">本人提交</span></td><td>2026-09-05</td><td><div class="sp-days dx"><span class="dv">超期 1 天</span><span class="db"><span style="width:100%"></span></span></div></td><td><span class="sp-st wait">待受理初审</span></td><td><span class="link" onclick="location.href='audit-desk.html'">办理</span> <span class="link" onclick="location.href='verify-report.html'">核验报告</span></td></tr>
+          <tr class="row-warn"><td>RC2026-0903-0162</td><td>王梓涵</td><td><span class="badge blue">就业</span></td><td><span class="badge blue">个人申请</span></td><td>中车株洲电力机车研究所</td><td>2026-09-03 10:26 <span class="muted">本人提交</span></td><td>2026-09-08</td><td><div class="sp-days d60"><span class="dv">剩 1 天</span><span class="db"><span style="width:66%"></span></span></div></td><td><span class="sp-st wait">待受理初审</span></td><td><span class="link" onclick="location.href='audit-desk.html'">办理</span> <span class="link" onclick="location.href='verify-report.html'">核验报告</span></td></tr>
+          <tr class="row-warn"><td>RC2026-0903-0171</td><td>谭泽宇</td><td><span class="badge blue">就业</span></td><td><span class="badge green">用人单位（移动端申请）</span></td><td>株洲时代新材料科技股份有限公司</td><td>2026-09-03 11:04 <span class="muted">本人确认授权</span></td><td>2026-09-08</td><td><div class="sp-days d60"><span class="dv">剩 1 天</span><span class="db"><span style="width:66%"></span></span></div></td><td><span class="sp-st bad">待补正</span></td><td><span class="link" onclick="location.href='reject-list.html'">驳回补正</span></td></tr>
+          <tr><td>RC2026-0904-0182</td><td>邓亦凡</td><td><span class="badge blue">就业</span></td><td><span class="badge green">用人单位（移动端申请）</span></td><td>株洲中车时代电气股份有限公司</td><td>2026-09-04 08:52 <span class="muted">本人确认授权</span></td><td>2026-09-09</td><td><div class="sp-days"><span class="dv">剩 2 天</span><span class="db"><span style="width:33%"></span></span></div></td><td><span class="sp-st doing">联审中</span></td><td><span class="link" onclick="location.href='verify-report.html'">核验报告</span></td></tr>
+          <tr><td>RC2026-0904-0186</td><td>谭雅丽</td><td><span class="badge blue">就业</span></td><td><span class="badge orange">政务窗口（PC 申请）</span></td><td>株洲市中心医院</td><td>2026-09-04 09:26 <span class="muted">窗口录入</span></td><td>2026-09-09</td><td><div class="sp-days"><span class="dv">剩 2 天</span><span class="db"><span style="width:33%"></span></span></div></td><td><span class="sp-st doing">联审中</span></td><td><span class="link" onclick="location.href='verify-report.html'">核验报告</span></td></tr>
+          <tr><td>RC2026-0904-0194</td><td>周芷若</td><td><span class="badge cyan">创业</span></td><td><span class="badge orange">政务窗口（PC 申请）</span></td><td>株洲芯创微电子有限公司</td><td>2026-09-04 15:12 <span class="muted">窗口录入</span></td><td>2026-09-09</td><td><div class="sp-days"><span class="dv">剩 2 天</span><span class="db"><span style="width:33%"></span></span></div></td><td><span class="sp-st wait">待受理初审</span></td><td><span class="link" onclick="location.href='audit-desk.html'">办理</span> <span class="link" onclick="location.href='verify-report.html'">核验报告</span></td></tr>
+          <tr><td>RC2026-0905-0202</td><td>罗建军</td><td><span class="badge cyan">创业</span></td><td><span class="badge purple">运营机构（PC 申请）</span></td><td>株洲智远智能科技有限公司</td><td>2026-09-05 09:12 <span class="muted">机构代录</span></td><td>2026-09-10</td><td><div class="sp-days"><span class="dv">剩 3 天</span><span class="db"><span style="width:20%"></span></span></div></td><td><span class="sp-st doing">联审中</span></td><td><span class="link" onclick="location.href='verify-report.html'">核验报告</span></td></tr>
+          <tr><td>RC2026-0905-0216</td><td>龙浩然</td><td><span class="badge blue">就业</span></td><td><span class="badge purple">运营机构（PC 申请）</span></td><td>株洲城发高科人才安居服务有限公司</td><td>2026-09-05 15:42 <span class="muted">机构代录</span></td><td>2026-09-10</td><td><div class="sp-days"><span class="dv">剩 3 天</span><span class="db"><span style="width:20%"></span></span></div></td><td><span class="sp-st wait">待受理初审</span></td><td><span class="link" onclick="location.href='audit-desk.html'">办理</span> <span class="link" onclick="location.href='verify-report.html'">核验报告</span></td></tr>
         </tbody>
       </table>
     </div>
   </div>
+
+  <div class="sp-block" style="margin-top:12px">
+    <div class="sp-h"><i class="fa-solid fa-diagram-project"></i> 四类申请渠道口径<span class="sub">汇入同一件池 · 走同一审核流程 · 不因渠道而优先</span></div>
+    <div class="sp-b">
+      <div class="sp-tw">
+        <table class="data-table compact">
+          <thead><tr><th class="cell-lg">申请渠道</th><th>发起端</th><th class="cell-lg">发起主体</th><th class="cell-lg">受理时间口径</th><th class="cell-lg">是否在线选房</th><th>排序优先级</th></tr></thead>
+          <tbody>
+            <tr><td><span class="badge blue">个人申请</span></td><td>移动端</td><td>人才本人（建宁安居小程序 / 湘易办）</td><td class="cell-lg">以<b>本人提交时间</b>为准</td><td class="cell-lg">可在线预约与选房</td><td><span class="badge gray">同一顺序</span></td></tr>
+            <tr><td><span class="badge green">用人单位（移动端申请）</span></td><td>移动端</td><td>用人单位人事岗（只报人不选房，按人拆分为独立申请件）</td><td class="cell-lg">以<b>职工本人确认授权时间</b>为准；3 个自然日内未确认自动作废</td><td class="cell-lg">不在线选房，意向片区选填且不锁房</td><td><span class="badge gray">同一顺序</span></td></tr>
+            <tr><td><span class="badge purple">运营机构（PC 申请）</span></td><td>PC 端</td><td>运营机构经办（株洲城发高科人才安居服务有限公司等三家）</td><td class="cell-lg">以<b>运营机构代录入提交时间</b>为准</td><td class="cell-lg">不在线选房，房源由配租环节统一编排</td><td><span class="badge gray">同一顺序</span></td></tr>
+            <tr><td><span class="badge orange">政务窗口（PC 申请）</span></td><td>PC 端</td><td>市政务服务中心人才住房窗口（只录身份与资格材料）</td><td class="cell-lg">以<b>窗口录入时间</b>为准</td><td class="cell-lg">不在线选房，意向片区选填且不锁房</td><td><span class="badge gray">同一顺序</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="hint" style="margin-top:8px">
+        <i class="fa-solid fa-circle-info"></i>
+        四类渠道<b>共用一套申请编号规则</b>（RC + 年月日 + 4 位流水）、<b>共用同一件池与同一审核流程</b>（受理初审 → 复审出具结论）；配租顺序<b>只按受理时间先后排定，不因渠道不同而优先</b>。
+      </p>
+    </div>
+  </div>
+
   <div class="sp-src">
-    <span><b>编号规则</b> RC + 年月日 + 4 位流水，各渠道统一</span>
+    <span><b>编号规则</b> RC + 年月日 + 4 位流水，四类渠道统一</span>
     <span><b>排序依据</b> 受理时间即配租顺序排序依据（管理办法第九条）</span>
-    <span><b>审核时限</b> 自收到申请资料之日起 3 个工作日</span>
+    <span><b>审核时限</b> 自收到申请资料之日起 3 个工作日，补正期间中止</span>
   </div>
 </main>
 
 <div class="drawer-mask"></div>
 <div class="drawer" id="intakeDrawer">
   <div class="drawer-head">
-    <h3>政务窗口兜底代办录入</h3>
-    <span class="badge orange">窗口代办</span>
+    <h3>政务窗口代办录入</h3>
+    <span class="badge orange">政务窗口（PC 申请）</span>
     <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
   </div>
   <div class="drawer-body">
   <div class="alert alert-info">
     <i class="fa-solid fa-circle-info"></i>
-    <div>政务服务窗口保留<b>兜底代办</b>。窗口录入的申请件与线上申请<b>汇入同一件池、编号规则一致、走同一审核流程</b>，受理时间以窗口录入时间为准。</div>
+    <div>窗口代办<b>只录身份与资格材料，不在线选房</b>；意向片区选填且<b>不锁定房源</b>。渠道自动标记为<b>政务窗口（PC 申请）</b>，与线上申请<b>汇入同一件池、走同一流程、不因渠道优先</b>，受理时间以<b>窗口录入时间</b>为准。</div>
   </div>
 
       <div class="form-grid form-align">
         <div class="form-item">
           <label>申请编号 <span class="req">*</span></label>
           <input type="text" value="RC2026-0905-0248" readonly>
-          <div class="hint">系统自动生成</div>
+          <div class="hint">系统自动生成，与线上渠道共用同一编号规则</div>
         </div>
         <div class="form-item">
-          <label>受理渠道 <span class="req">*</span></label>
-          <input type="text" value="政务窗口代办" readonly>
+          <label>申请渠道 <span class="req">*</span></label>
+          <input type="text" value="政务窗口（PC 申请）" readonly>
         </div>
         <div class="form-item">
           <label>申请人姓名 <span class="req">*</span></label>
-          <input type="text" placeholder="请输入姓名">
+          <input type="text" value="彭思远">
         </div>
         <div class="form-item">
           <label>身份证号 <span class="req">*</span></label>
-          <input type="text" placeholder="请输入身份证号">
-          <div class="hint">录入后自动调取部门共享数据</div>
+          <input type="text" value="430211199808143276">
+          <div class="hint">录入后自动调取部门共享数据发起联审联查</div>
         </div>
         <div class="form-item">
           <label>手机号 <span class="req">*</span></label>
-          <input type="tel" placeholder="请输入手机号">
+          <input type="tel" value="13907330268">
           <div class="hint">办理进度将推送至该号码</div>
         </div>
         <div class="form-item">
           <label>申请类型 <span class="req">*</span></label>
-          <select data-dict="applyType" data-ph="全部"></select>
+          <select data-dict="applyType" data-ph="请选择"></select>
         </div>
         <div class="form-item col-full">
           <label>所在单位 <span class="req">*</span></label>
-          <input type="text" placeholder="创业企业或就业单位全称">
+          <input type="text" value="株洲时代新材料科技股份有限公司">
         </div>
         <div class="form-item">
           <label>单位所在区 <span class="req">*</span></label>
-          <select data-dict="district" data-ph="全部"></select>
+          <select data-dict="district" data-ph="请选择"></select>
         </div>
         <div class="form-item">
           <label>意向居住片区</label>
-          <select data-dict="district" data-ph="全部"></select>
+          <select data-dict="district" data-ph="选填，仅作登记"></select>
+          <div class="hint">选填，仅作登记，不锁定房源</div>
+        </div>
+        <div class="form-item">
+          <label>受理时间 <span class="req">*</span></label>
+          <input type="text" value="2026-09-05 16:20" readonly>
+          <div class="hint">窗口代办以窗口录入时间为准，作为配租排序依据</div>
         </div>
         <div class="form-item col-full">
           <label>纸质材料扫描件 <span class="req">*</span></label>
-          <input type="text" data-upload="1">
+          <input type="text" data-upload="1" value="身份证正反面.jpg、毕业证书.jpg、劳动合同.pdf、社保缴纳证明.pdf">
           <div class="hint">窗口收取的纸质材料须扫描上传，经证照智能识别后回填</div>
         </div>
         <div class="form-item col-full">
           <label>代办说明 <span class="req">*</span></label>
-          <textarea rows="3" placeholder="必填，说明代办原因（如申请人无智能手机、操作不便等）">申请人为引进的就业青年人才，本人不熟悉智能手机线上申请操作，携带纸质材料到政务服务窗口申请，由经办人代为在系统录入，材料已当面核对齐全无误。</textarea>
+          <textarea rows="3">申请人为引进的就业青年人才，本人不熟悉线上申请操作，携带纸质材料到政务服务窗口申请，由窗口经办人谭建军代为在系统录入，材料已当面核对齐全无误，本人已签署材料真实性承诺书。</textarea>
         </div>
       </div>
   </div>
   <div class="drawer-foot">
     <button class="btn" data-close-drawer>取消</button>
-    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认录入本条窗口代办申请？受理时间将作为配租顺序排序依据。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已录入并汇入件池，待系统自动联审','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+    <button class="btn" onclick="PMS.toast('已保存为草稿，可在窗口办件台账继续编辑')">保存草稿</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认录入本条窗口代办申请？',detail:'渠道自动标记为「政务窗口（PC 申请）」，受理时间以窗口录入时间 2026-09-05 16:20 为准，并作为配租顺序排序依据。申请件汇入同一件池、走同一审核流程，不因渠道优先。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已录入并汇入件池，待系统自动联审','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
   </div>
 </div>
 <script>

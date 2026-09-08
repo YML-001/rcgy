@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>房源档案 · 株洲市人才公寓管理平台</title>
+<title>房源档案 · 株洲市人才住房保障管理平台</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="../../assets/css/app.css">
 <link rel="stylesheet" href="../../assets/css/spec.css">
@@ -13,50 +13,54 @@
 <main class="app-main">
   <div class="page-head">
     <div class="breadcrumb">
-      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才住房保障管理平台
       <span class="sep">/</span> 房源筹集与楼盘表
       <span class="sep">/</span> 房源档案与房态
       <span class="sep">/</span> <span class="cur">房源档案</span>
     </div>
     <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.confirm({title:'批量发布确认',message:'确认批量审核发布已勾选的 486 间房源？',detail:'系统将按统一发布标准逐间校验：室厅结构、房间配套、套内面积、公摊比例、公摊面积、计租面积、人才租金标准、原租金标准八项间级要素齐全，套级房屋总面积、总公摊面积与水电气物业费标准齐全，VR 全景已按套上传。校验通过的即时发布，移动端用户随即可见；校验不通过的自动转入退回队列并注明原因。',type:'warning',okText:'确认批量发布',onOk:function(){PMS.toast('已批量发布 474 间，12 间校验不通过已转入退回队列','success');}})"><i class="fa-solid fa-tower-broadcast"></i> 批量发布</button>
+      <button class="btn" onclick="PMS.openDrawer('rejectDrawer')"><i class="fa-solid fa-rotate-left"></i> 批量退回</button>
+      <a class="btn" href="publish-stat.html"><i class="fa-solid fa-chart-column"></i> 发布状态统计</a>
       <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
     </div>
   </div>
 
-  <div class="alert alert-info">
-    <i class="fa-solid fa-circle-info"></i>
-    <div>维护建筑面积、套内面积、<b>分摊面积</b>、户型、朝向、装修标准、家电家具配置清单、产权信息、租金标准。<b>大户型按分摊面积计算租赁面积</b>（管理办法第六条），档案面积是租金计费与减免核算的取值来源。</div>
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>房源<b>由运营机构按主管单位下发的统一模板自行导入维护并提交发布</b>（导入环节不需报送审批），<b>主管单位在本列表按统一发布标准直接审核发布</b>，支持<b>批量发布</b>与<b>批量退回</b>，<b>审核发布后移动端用户方可看到该房源</b>；不符合的<b>退回并注明原因</b>，由运营机构补正后重新提交。档案<b>按「间」建档</b>：室厅结构、房间配套、套内面积、公摊比例、公摊面积、<b>人才租金标准</b>、<b>原（市场）租金标准</b>按间维护，<b>房屋总面积、总公摊与水电气物业费标准记录到套级</b>。</div>
   </div>
 
   <div class="stat-grid">
     <div class="stat-card">
       <div class="s-icon blue"><i class="fa-solid fa-house-chimney"></i></div>
-      <div><div class="s-label">房源档案</div><div class="s-value">2,486</div>
-        <div class="s-trend text-2">一房一档</div></div>
+      <div><div class="s-label">房源档案</div><div class="s-value">4,286</div>
+        <div class="s-trend text-2">间 · 对应 2,486 套，一间一档</div></div>
     </div>
     <div class="stat-card">
-      <div class="s-icon green"><i class="fa-solid fa-couch"></i></div>
-      <div><div class="s-label">家电家具齐全</div><div class="s-value">2,444</div>
-        <div class="s-trend text-2">达拎包入住标准</div></div>
+      <div class="s-icon green"><i class="fa-solid fa-tower-broadcast"></i></div>
+      <div><div class="s-label">已发布</div><div class="s-value">3,586</div>
+        <div class="s-trend text-2">间 · 占 83.7%，移动端可见</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-clipboard-check"></i></div>
+      <div><div class="s-label">待审核</div><div class="s-value">486</div>
+        <div class="s-trend text-2">间 · 运营机构已提交发布</div></div>
     </div>
     <div class="stat-card dc-alarm">
-      <div class="s-icon red"><i class="fa-solid fa-circle-xmark"></i></div>
-      <div><div class="s-label">配置缺项</div><div class="s-value">42</div>
-        <div class="s-trend ">不得投放配租</div></div>
-    </div>
-    <div class="stat-card">
-      <div class="s-icon cyan"><i class="fa-solid fa-ruler-combined"></i></div>
-      <div><div class="s-label">平均建筑面积</div><div class="s-value">56.80 ㎡</div>
-        <div class="s-trend text-2">单间至三室</div></div>
+      <div class="s-icon red"><i class="fa-solid fa-rotate-left"></i></div>
+      <div><div class="s-label">已退回</div><div class="s-value">126</div>
+        <div class="s-trend ">间 · 须补正后重新提交</div></div>
     </div>
   </div>
 
   <div class="card list-card">
     <div class="filter-bar">
-      <div class="filter-item"><label>房源编号</label><input type="text" placeholder="房源编号"></div>
-      <div class="filter-item"><label>项目 / 房号</label><input type="text" placeholder="项目名称或房号"></div>
-      <div class="filter-item"><label>户型</label><select data-dict="roomType" data-ph="全部"></select></div>
-      <div class="filter-item"><label>装修标准</label><select><option value="">全部</option><option>精装 · 拎包入住</option><option>简装</option><option>毛坯</option></select></div>
+      <div class="filter-item"><label>房间编号</label><input type="text" value="FY-TY-XJ-A6-1502A" placeholder="房间编号"></div>
+      <div class="filter-item"><label>项目 / 房号 + 间号</label><input type="text" value="1502A" placeholder="项目名称或房号 + 间号"></div>
+      <div class="filter-item"><label>室厅结构</label><select data-dict="roomStruct" data-ph="全部"></select></div>
+      <div class="filter-item"><label>所属运营机构</label><select data-dict="agencyOrg" data-ph="全部"></select></div>
+      <div class="filter-item"><label>发布状态</label><select data-dict="publishStatus" data-ph="全部"></select></div>
       <div class="filter-item"><label>房态</label><select data-dict="houseStatus" data-ph="全部"></select></div>
       <div class="filter-actions">
         <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
@@ -67,29 +71,172 @@
     <div class="table-wrap">
       <table class="data-table">
         <thead>
-          <tr><th>房源编号</th><th class="cell-lg">项目 / 房号</th><th>户型</th><th class="num">建筑面积</th><th class="num">套内面积</th><th class="num">分摊面积</th><th>装修标准</th><th>家电家具</th><th class="num">租金标准</th><th>房态</th><th>操作</th></tr>
+          <tr><th>房间编号</th><th class="cell-lg">项目 / 房号 + 间号</th><th class="cell-lg">室厅结构</th><th class="num">套内面积</th><th class="num">公摊面积</th><th class="num">计租面积</th><th class="num">人才租金标准</th><th class="num">原租金标准</th><th>装修与配置</th><th>发布状态</th><th>房态</th><th>操作</th></tr>
         </thead>
         <tbody>
-          <tr><td>FY-TY-XJ-A6-1502</td><td>湘江1958 / A6 栋 1502</td><td>一室一厅</td><td class="num">52.60</td><td class="num">41.80</td><td class="num">10.80</td><td><span class="badge green">精装</span></td><td><span class="badge green">28 项齐全</span></td><td class="num">18.00</td><td><span class="sp-st done">在租</span></td><td><span class="link" onclick="location.href='house-archive-detail.html?id=FY-TY-XJ-A6-1502'">档案</span></td></tr>
-          <tr><td>FY-TY-XJ-A6-1802</td><td>湘江1958 / A6 栋 1802</td><td>二室一厅</td><td class="num">78.60</td><td class="num">62.40</td><td class="num">16.20</td><td><span class="badge green">精装</span></td><td><span class="badge green">28 项齐全</span></td><td class="num">18.00</td><td><span class="sp-st doing">可配租</span></td><td><span class="link" onclick="location.href='house-archive-detail.html?id=FY-TY-XJ-A6-1802'">档案</span></td></tr>
-          <tr class="row-bad"><td>FY-LS-DJD-03-1102</td><td>董家塅安居苑 / 3 栋 1102</td><td>二室一厅</td><td class="num">72.00</td><td class="num">57.60</td><td class="num">14.40</td><td><span class="badge green">精装</span></td><td><span class="badge red">缺 2 项</span></td><td class="num">16.00</td><td><span class="sp-st wait">待验收</span></td><td><span class="link" onclick="location.href='house-archive-detail.html?id=FY-LS-DJD-03-1102'">档案</span> <span class="link" onclick="location.href='acceptance-list.html'">去验收</span></td></tr>
-          <tr class="row-warn"><td>FY-SF-QST-01-0708</td><td>清水塘新苑 / 1 栋 0708</td><td>一室一厅</td><td class="num">50.00</td><td class="num">40.00</td><td class="num">10.00</td><td><span class="badge green">精装</span></td><td><span class="badge green">28 项齐全</span></td><td class="num">14.00</td><td><span class="sp-st bad">维修中</span></td><td><span class="link" onclick="location.href='house-archive-detail.html?id=FY-SF-QST-01-0708'">档案</span></td></tr>
-          <tr><td>FY-JK-YL-02-0708</td><td>云龙人才苑 / 2 栋 0708</td><td>单间配套</td><td class="num">38.00</td><td class="num">30.40</td><td class="num">7.60</td><td><span class="badge green">精装</span></td><td><span class="badge green">22 项齐全</span></td><td class="num">16.00</td><td><span class="sp-st doing">可配租</span></td><td><span class="link" onclick="location.href='house-archive-detail.html?id=FY-JK-YL-02-0708'">档案</span></td></tr>
+          <tr><td>FY-TY-XJ-A6-1502A</td><td>湘江1958 / A6 栋 <b>1502A</b></td><td>三室两厅 · 主卧</td><td class="num">22.40</td><td class="num">5.40</td><td class="num">27.80</td><td class="num">6.00</td><td class="num">18.00</td><td><span class="badge green">精装 · 13 项</span></td><td><span class="badge green">已发布</span></td><td><span class="sp-st done">在租</span></td><td><span class="link" onclick="PMS.openDrawer('archDrawer')">档案</span> <span class="link" onclick="PMS.confirm({title:'下架确认',message:'确认将房间 1502A 从移动端下架？',detail:'下架后移动端用户不再看到本房间，已生效合同与账单不受影响。下架原因与操作人全程留痕，需重新发布时由主管单位在本列表操作。',type:'warning',okText:'确认下架',onOk:function(){PMS.toast('房间 1502A 已下架，移动端已同步','success');}})">下架</span></td></tr>
+          <tr><td>FY-TY-XJ-A6-1502B</td><td>湘江1958 / A6 栋 <b>1502B</b></td><td>三室两厅 · 次卧</td><td class="num">16.80</td><td class="num">5.40</td><td class="num">22.20</td><td class="num">6.00</td><td class="num">18.00</td><td><span class="badge green">精装 · 11 项</span></td><td><span class="badge green">已发布</span></td><td><span class="sp-st done">在租</span></td><td><span class="link" onclick="PMS.openDrawer('archDrawer')">档案</span> <span class="link" onclick="PMS.confirm({title:'下架确认',message:'确认将房间 1502B 从移动端下架？',detail:'下架后移动端用户不再看到本房间，已生效合同与账单不受影响。',type:'warning',okText:'确认下架',onOk:function(){PMS.toast('房间 1502B 已下架，移动端已同步','success');}})">下架</span></td></tr>
+          <tr><td>FY-TY-XJ-A6-1502C</td><td>湘江1958 / A6 栋 <b>1502C</b></td><td>三室两厅 · 次卧</td><td class="num">14.20</td><td class="num">5.40</td><td class="num">19.60</td><td class="num">6.00</td><td class="num">18.00</td><td><span class="badge green">精装 · 10 项</span></td><td><span class="badge green">已发布</span></td><td><span class="sp-st doing">可配租</span></td><td><span class="link" onclick="PMS.openDrawer('archDrawer')">档案</span> <span class="link" onclick="PMS.confirm({title:'下架确认',message:'确认将房间 1502C 从移动端下架？',detail:'下架后移动端用户不再看到本房间，本房间当前为可配租状态，下架后不再进入配租投放清单。',type:'warning',okText:'确认下架',onOk:function(){PMS.toast('房间 1502C 已下架，移动端已同步','success');}})">下架</span></td></tr>
+          <tr class="row-warn"><td>FY-TY-XJ-A6-1802A</td><td>湘江1958 / A6 栋 <b>1802A</b></td><td>二室一厅 · 主卧</td><td class="num">20.60</td><td class="num">8.10</td><td class="num">28.70</td><td class="num">6.00</td><td class="num">18.00</td><td><span class="badge green">精装 · 13 项</span></td><td><span class="badge orange">待审核</span></td><td><span class="sp-st doing">可配租</span></td><td><span class="link" onclick="PMS.openDrawer('archDrawer')">档案</span> <span class="link" onclick="PMS.confirm({title:'审核发布确认',message:'确认按统一发布标准审核发布房间 1802A？',detail:'本间要素校验：室厅结构 二室一厅 · 主卧、房间配套 4 项、套内面积 20.60 ㎡、公摊比例 1/2、公摊面积 8.10 ㎡、计租面积 28.70 ㎡、人才租金 6.00 元/㎡·月、原租金 18.00 元/㎡·月，八项齐全；套级 1802 室房屋总面积 78.60 ㎡、总公摊 16.20 ㎡ 与四项费用标准齐全，VR 全景已按套上传。审核发布后移动端用户方可看到本房间。',type:'warning',okText:'确认发布',onOk:function(){PMS.toast('房间 1802A 已审核发布，移动端用户即时可见','success');}})">审核发布</span> <span class="link" onclick="PMS.openDrawer('rejectDrawer')">退回</span></td></tr>
+          <tr class="row-warn"><td>FY-TY-XJ-A6-1802B</td><td>湘江1958 / A6 栋 <b>1802B</b></td><td>二室一厅 · 次卧</td><td class="num">15.40</td><td class="num">8.10</td><td class="num">23.50</td><td class="num">6.00</td><td class="num">18.00</td><td><span class="badge green">精装 · 11 项</span></td><td><span class="badge orange">待审核</span></td><td><span class="sp-st wait">已锁定</span></td><td><span class="link" onclick="PMS.openDrawer('archDrawer')">档案</span> <span class="link" onclick="PMS.confirm({title:'审核发布确认',message:'确认按统一发布标准审核发布房间 1802B？',detail:'本间计租面积 23.50 ㎡ ＝ 套内 15.40 ＋ 公摊 8.10，人才租金 6.00 元/㎡·月、原租金 18.00 元/㎡·月，八项间级要素齐全。本房间当前为已锁定状态，发布后仍保持锁定、不进入新的配租投放。',type:'warning',okText:'确认发布',onOk:function(){PMS.toast('房间 1802B 已审核发布，移动端用户即时可见','success');}})">审核发布</span> <span class="link" onclick="PMS.openDrawer('rejectDrawer')">退回</span></td></tr>
+          <tr><td>FY-SF-QST-01-0708A</td><td>清水塘·未来社区 / 1 栋 <b>0708A</b></td><td>三室一厅 · 主卧</td><td class="num">18.00</td><td class="num">4.00</td><td class="num">22.00</td><td class="num">5.40</td><td class="num">15.00</td><td><span class="badge green">精装 · 13 项</span></td><td><span class="badge green">已发布</span></td><td><span class="sp-st doing">可配租</span></td><td><span class="link" onclick="PMS.openDrawer('archDrawer')">档案</span> <span class="link" onclick="PMS.confirm({title:'下架确认',message:'确认将房间 0708A 从移动端下架？',detail:'下架后移动端用户不再看到本房间，本房间当前为可配租状态，下架后不再进入配租投放清单。',type:'warning',okText:'确认下架',onOk:function(){PMS.toast('房间 0708A 已下架，移动端已同步','success');}})">下架</span></td></tr>
+          <tr class="row-warn"><td>FY-SF-QST-01-0708B</td><td>清水塘·未来社区 / 1 栋 <b>0708B</b></td><td>三室一厅 · 次卧</td><td class="num">13.60</td><td class="num">4.00</td><td class="num">17.60</td><td class="num">5.40</td><td class="num">15.00</td><td><span class="badge green">精装 · 11 项</span></td><td><span class="badge orange">待审核</span></td><td><span class="sp-st doing">可配租</span></td><td><span class="link" onclick="PMS.openDrawer('archDrawer')">档案</span> <span class="link" onclick="PMS.confirm({title:'审核发布确认',message:'确认按统一发布标准审核发布房间 0708B？',detail:'本间计租面积 17.60 ㎡ ＝ 套内 13.60 ＋ 公摊 4.00，人才租金 5.40 元/㎡·月、原租金 15.00 元/㎡·月；套级 0708 室总公摊 12.00 ㎡ 按 3 间均分为每间 4.00 ㎡，合计一致。审核发布后移动端用户方可看到本房间。',type:'warning',okText:'确认发布',onOk:function(){PMS.toast('房间 0708B 已审核发布，移动端用户即时可见','success');}})">审核发布</span> <span class="link" onclick="PMS.openDrawer('rejectDrawer')">退回</span></td></tr>
+          <tr class="row-bad"><td>FY-SF-QST-01-0708C</td><td>清水塘·未来社区 / 1 栋 <b>0708C</b></td><td>三室一厅 · 次卧</td><td class="num">11.20</td><td class="num">4.00</td><td class="num">15.20</td><td class="num">5.40</td><td class="num">15.00</td><td><span class="badge red">缺 2 项</span></td><td><span class="badge red">已退回</span></td><td><span class="sp-st bad">维修中</span></td><td><span class="link" onclick="PMS.openDrawer('archDrawer')">档案</span> <span class="link" onclick="PMS.toast('退回原因：本间家电家具缺空调、书桌 2 项，未达拎包入住标准；房态为维修中。已于 2026-09-06 退回清水塘投资运营服务有限公司补正')">退回原因</span></td></tr>
+          <tr><td>FY-LS-DJD-03-1102A</td><td>董家塅人才公寓 / 3 栋 <b>1102A</b></td><td>二室一厅 · 主卧</td><td class="num">19.20</td><td class="num">7.20</td><td class="num">26.40</td><td class="num">5.60</td><td class="num">16.00</td><td><span class="badge green">精装 · 13 项</span></td><td><span class="badge green">已发布</span></td><td><span class="sp-st done">在租</span></td><td><span class="link" onclick="PMS.openDrawer('archDrawer')">档案</span> <span class="link" onclick="PMS.confirm({title:'下架确认',message:'确认将房间 1102A 从移动端下架？',detail:'下架后移动端用户不再看到本房间，已生效合同与账单不受影响。',type:'warning',okText:'确认下架',onOk:function(){PMS.toast('房间 1102A 已下架，移动端已同步','success');}})">下架</span></td></tr>
+          <tr><td>FY-LS-DJD-03-1102B</td><td>董家塅人才公寓 / 3 栋 <b>1102B</b></td><td>二室一厅 · 次卧</td><td class="num">14.40</td><td class="num">7.20</td><td class="num">21.60</td><td class="num">5.60</td><td class="num">16.00</td><td><span class="badge green">精装 · 11 项</span></td><td><span class="badge green">已发布</span></td><td><span class="sp-st doing">可配租</span></td><td><span class="link" onclick="PMS.openDrawer('archDrawer')">档案</span> <span class="link" onclick="PMS.confirm({title:'下架确认',message:'确认将房间 1102B 从移动端下架？',detail:'下架后移动端用户不再看到本房间，本房间当前为可配租状态，下架后不再进入配租投放清单。',type:'warning',okText:'确认下架',onOk:function(){PMS.toast('房间 1102B 已下架，移动端已同步','success');}})">下架</span></td></tr>
+          <tr><td>FY-TY-LYJY-03-0904A</td><td>栗雨佳苑人才公寓 / 3 栋 <b>0904A</b></td><td>一室一厅 · 整间</td><td class="num">38.60</td><td class="num">9.60</td><td class="num">48.20</td><td class="num">5.20</td><td class="num">14.00</td><td><span class="badge green">精装 · 22 项</span></td><td><span class="badge gray">已下架</span></td><td><span class="sp-st done">在租</span></td><td><span class="link" onclick="PMS.openDrawer('archDrawer')">档案</span> <span class="link" onclick="PMS.confirm({title:'重新发布确认',message:'确认重新审核发布房间 0904A？',detail:'本房间当前为在租状态且套级 VR 全景素材未上传，重新发布前须由株洲城发高科人才安居服务有限公司按套补齐 VR 全景。确认发布后移动端用户可看到本房间（在租房间仅展示、不可预约）。',type:'warning',okText:'确认发布',onOk:function(){PMS.toast('房间 0904A 已重新发布，同时已向运营机构推送按套补齐 VR 全景的催办','success');}})">重新发布</span></td></tr>
+          <tr><td>FY-JK-YL-02-0706A</td><td>云龙人才公寓 / 2 栋 <b>0706A</b></td><td>单间配套 · 整间</td><td class="num">30.40</td><td class="num">7.60</td><td class="num">38.00</td><td class="num">5.00</td><td class="num">16.00</td><td><span class="badge green">精装 · 22 项</span></td><td><span class="badge blue">待提交</span></td><td><span class="sp-st doing">可配租</span></td><td><span class="link" onclick="PMS.openDrawer('archDrawer')">档案</span> <span class="link is-off" onclick="PMS.toast('株洲高新人才公寓运营有限公司尚未提交发布，主管单位暂不可审核；已向该机构推送提交发布提醒')">审核发布</span></td></tr>
         </tbody>
       </table>
     </div>
   </div>
+
+  <div class="sp-block" style="margin-top:8px">
+    <div class="sp-h"><i class="fa-solid fa-list"></i> 租金与费用标准口径<span class="sub">ZJ-1 至 ZJ-5 · 以湘江1958 A6 栋 1502 室（三室两厅拆三间）为算例</span></div>
+    <div class="sp-b">
+      <div class="sp-tw">
+        <table class="data-table compact">
+          <thead><tr><th>规则号</th><th>项目</th><th>层级</th><th class="cell-lg">口径与算例</th></tr></thead>
+          <tbody>
+          <tr><td><b>ZJ-1</b></td><td>两项租金标准</td><td><span class="badge blue">间级</span></td><td><b>人才租金标准</b>为减免后向人才收取的标准，<b>原（市场）租金标准</b>为同地段市场租金、用于测算减免额与政府购买服务补助，单位均为 <b>元/㎡·月</b>。算例：1502 三间人才租金均 <b>6.00</b>、原租金均 <b>18.00</b>；0708 三间 <b>5.40 / 15.00</b>，1102 两间 <b>5.60 / 16.00</b>，0904A <b>5.20 / 14.00</b>，0706A <b>5.00 / 16.00</b></td></tr>
+          <tr><td><b>ZJ-2</b></td><td><b>计租面积 ＝ 套内 ＋ 公摊</b></td><td><span class="badge blue">间级</span></td><td><b>公摊计入租金</b>。算例：1502A 22.40＋5.40＝<b>27.80 ㎡</b>、1502B <b>22.20</b>、1502C <b>19.60 ㎡</b>；月租金 ＝ 27.80 × 6.00 ＝ <b>166.80 元</b>，月减免额 ＝（18.00 − 6.00）× 27.80 ＝ <b>333.60 元</b></td></tr>
+          <tr><td><b>ZJ-3</b></td><td>公摊比例与公摊面积</td><td><span class="badge blue">间级</span></td><td><b>比例按套内间数均分</b>（拆三间每间 <b>1/3</b>、拆两间 <b>1/2</b>、未拆分 <b>1/1</b>），公摊面积 ＝ 总公摊 × 比例。算例：16.20 ÷ 3 ＝ 每间 <b>5.40</b>，<b>三间合计 16.20 ㎡ ＝ 套级总公摊</b></td></tr>
+          <tr><td><b>ZJ-4</b></td><td>房屋总面积与总公摊面积</td><td><span class="badge cyan">套级</span></td><td>算例：1502 室套内合计 <b>78.60</b>（三间卧室 22.40＋16.80＋14.20＝53.40，客厅厨卫等公共部分 25.20）＋ 总公摊 <b>16.20</b> ＝ 房屋总面积 <b>94.80 ㎡</b>；公共部分各间共用、不单独计租</td></tr>
+          <tr><td><b>ZJ-5</b></td><td>水费 / 电费 / 天然气 / 物业费</td><td><span class="badge cyan">套级</span></td><td>四项<b>记录到套级</b>、本套各间共用：<b>3.58 元/吨</b>、<b>0.68 元/度</b>、<b>2.98 元/立方米</b>、<b>1.20 元/㎡·月</b>。物业费按各间计租面积分摊到间，1502A 为 27.80 × 1.20 ＝ <b>33.36 元/月</b>，与租金账单合并出账。<span class="link" onclick="location.href='../rent/bill-list.html'">账单台账</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
   <div class="sp-src">
-    <span><b>计费依据</b> 档案面积作为租金计费与减免核算取值来源</span>
-    <span><b>分摊口径</b> 大户型按分摊面积计算租赁面积（管理办法第六条）</span>
-    <span><b>验收关联</b> <span class="link" onclick="location.href='acceptance-list.html'">拎包入住验收</span></span>
+    <span><b>维护职责</b> <b>房源数据由各运营机构自行导入与维护</b>，模板由主管单位下发、运营机构按模板整理后批量导入；<b>主管单位只做查看、监管与审核发布</b>，不介入日常维护</span>
+    <span><b>发布口径</b> 待提交 → 待审核 → 已发布／已退回 → 可下架；<b>审核发布后移动端用户方可看到</b>，退回须注明原因</span>
+    <span><b>计费依据</b> 一律取<b>本间计租面积</b>（套内 ＋ 公摊）</span>
+    <span><b>关联页面</b> <span class="link" onclick="location.href='publish-stat.html'">房源发布状态统计</span>　<span class="link" onclick="location.href='building-import.html'">房源批量导入</span></span>
   </div>
 </main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="archDrawer">
+  <div class="drawer-head">
+    <h3>房源档案 · 1502A</h3>
+    <span class="badge green">已发布</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+    <div class="alert alert-info">
+      <i class="fa-solid fa-circle-info"></i>
+      <div>档案分<b>本间信息</b>与<b>本套信息</b>两块：<b>室厅结构、房间配套、套内面积、公摊比例、公摊面积、人才租金标准、原（市场）租金标准</b>按间维护；<b>房屋总面积、总公摊面积与水费、电费、天然气、物业费四项标准</b>记录到套级、本套各间共用。主管单位在本页<b>只做查看与审核发布</b>，字段修改由所属运营机构在其端完成。</div>
+    </div>
+
+    <div class="sp-block">
+      <div class="sp-h"><i class="fa-solid fa-door-open"></i> 本间信息<span class="sub">FY-TY-XJ-A6-1502A · 间级字段</span></div>
+      <div class="sp-b">
+        <div class="sp-kv">
+          <div class="kv"><span class="k">房号 + 间号</span><span class="v">1502A（湘江1958 人才公寓 A6 栋 1 单元 15 层）</span></div>
+          <div class="kv"><span class="k">室厅结构</span><span class="v">三室两厅 · 主卧</span></div>
+          <div class="kv"><span class="k">房间配套</span><span class="v">独立卫生间、空调、阳台、衣柜</span></div>
+          <div class="kv"><span class="k">套内面积</span><span class="v">22.40 ㎡</span></div>
+          <div class="kv"><span class="k">公摊比例</span><span class="v">1/3</span><span class="muted">按套内间数均分，本套拆 3 间</span></div>
+          <div class="kv"><span class="k">公摊面积</span><span class="v">5.40 ㎡</span><span class="muted">总公摊 16.20 × 1/3</span></div>
+          <div class="kv"><span class="k">计租面积</span><span class="v">27.80 ㎡</span><span class="muted">套内 22.40 ＋ 公摊 5.40，公摊计入租金</span></div>
+          <div class="kv"><span class="k">人才租金标准</span><span class="v">6.00 元/㎡·月</span><span class="muted">月租金 166.80 元</span></div>
+          <div class="kv"><span class="k">原租金标准</span><span class="v">18.00 元/㎡·月</span><span class="muted">月减免 333.60 元</span></div>
+          <div class="kv"><span class="k">装修与家电</span><span class="v">精装 · 拎包入住，本间 13 项齐全</span></div>
+          <div class="kv"><span class="k">房态 / 发布状态</span><span class="v">在租 · 已发布（2026-09-08 09:26 审核发布，审核人 唐凯）</span></div>
+          <div class="kv"><span class="k">实景照片</span><span class="v">6 张（按间补充）</span><span class="link" onclick="PMS.toast('原型演示：查看 1502A 主卧实景照片 6 张')">查看</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sp-block">
+      <div class="sp-h"><i class="fa-solid fa-house-chimney"></i> 本套信息（含四项费用标准）<span class="sub">FY-TY-XJ-A6-1502 · 套级字段，本套三间共用</span></div>
+      <div class="sp-b">
+        <div class="sp-kv">
+          <div class="kv"><span class="k">套房编号</span><span class="v">FY-TY-XJ-A6-1502</span></div>
+          <div class="kv"><span class="k">室厅结构</span><span class="v">三室两厅　拆 3 间：1502A / 1502B / 1502C</span></div>
+          <div class="kv"><span class="k">房屋总面积</span><span class="v">94.80 ㎡</span><span class="muted">套内合计 78.60 ＋ 总公摊 16.20</span></div>
+          <div class="kv"><span class="k">套内合计面积</span><span class="v">78.60 ㎡</span><span class="muted">三间卧室套内 53.40 ＋ 公共部分 25.20</span></div>
+          <div class="kv"><span class="k">总公摊面积</span><span class="v">16.20 ㎡</span><span class="muted">按 3 间均分为每间 5.40 ㎡，合计一致</span></div>
+          <div class="kv"><span class="k">水费标准</span><span class="v">3.58 元/吨</span></div>
+          <div class="kv"><span class="k">电费标准</span><span class="v">0.68 元/度</span></div>
+          <div class="kv"><span class="k">天然气标准</span><span class="v">2.98 元/立方米</span></div>
+          <div class="kv"><span class="k">物业费标准</span><span class="v">1.20 元/㎡·月</span><span class="muted">按各间计租面积分摊，1502A 为 33.36 元/月</span></div>
+          <div class="kv"><span class="k">VR 全景</span><span class="v">已上传（按套 · 2026-08-18 拍摄）</span><span class="muted">本套三间共用同一份</span></div>
+          <div class="kv"><span class="k">所属运营机构</span><span class="v">株洲城发高科人才安居服务有限公司</span></div>
+          <div class="kv"><span class="k">物业公司</span><span class="v">株洲城发物业服务有限公司</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-grid form-align">
+      <div class="form-item col-full">
+        <label>审核发布意见 <span class="req">*</span></label>
+        <textarea rows="3">本间八项间级要素（室厅结构、房间配套、套内面积、公摊比例、公摊面积、计租面积、人才租金标准、原租金标准）齐全；套级房屋总面积 94.80 ㎡、总公摊 16.20 ㎡ 与水电气物业四项费用标准齐全，VR 全景已按套上传。计租面积 27.80 ㎡ ＝ 套内 22.40 ＋ 公摊 5.40，核算无误，符合统一发布标准，同意发布。</textarea>
+      </div>
+    </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>关闭</button>
+    <button class="btn" onclick="PMS.closeDrawer();PMS.openDrawer('rejectDrawer')"><i class="fa-solid fa-rotate-left"></i> 退回</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'审核发布确认',message:'确认按统一发布标准审核发布房间 1502A？',detail:'审核发布后移动端用户方可看到本房间。审核意见、审核人与审核时间全程留痕，发布结果同步至房态图与移动端房源列表。',type:'warning',okText:'确认发布',onOk:function(){PMS.closeDrawer();PMS.toast('房间 1502A 已审核发布，移动端用户即时可见','success');}})"><i class="fa-solid fa-check"></i> 审核发布</button>
+  </div>
+</div>
+
+<div class="drawer" id="rejectDrawer">
+  <div class="drawer-head">
+    <h3>退回并注明原因</h3>
+    <span class="badge red">退回</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+    <div class="alert alert-warning">
+      <i class="fa-solid fa-triangle-exclamation"></i>
+      <div><b>退回须注明原因</b>并指明具体补正事项，退回后房源发布状态回到<b>已退回</b>、<b>移动端不可见</b>；由所属运营机构补正后<b>重新提交发布</b>，退回层级、原因与操作人全程留痕。批量退回时原因统一写入所选各间的退回记录。</div>
+    </div>
+
+    <div class="form-grid form-align">
+      <div class="form-item">
+        <label>退回范围 <span class="req">*</span></label>
+        <input type="text" value="已勾选 12 间（清水塘·未来社区 8 间、云龙人才公寓 4 间）" readonly>
+      </div>
+      <div class="form-item">
+        <label>所属运营机构 <span class="req">*</span></label>
+        <select data-dict="agencyOrg" data-selected="清水塘投资运营服务有限公司" data-ph=""></select>
+      </div>
+      <div class="form-item">
+        <label>退回原因分类 <span class="req">*</span></label>
+        <select><option>间级要素不齐（面积、租金标准缺项）</option><option>公摊比例合计不等于 1</option><option>各间公摊面积合计与套级总公摊不一致</option><option>计租面积与套内面积 ＋ 公摊面积不符</option><option>套级四项费用标准缺项</option><option>VR 全景素材未按套上传</option><option>家电家具未达拎包入住标准</option><option>房态不符合发布条件</option></select>
+      </div>
+      <div class="form-item">
+        <label>补正期限 <span class="req">*</span></label>
+        <input type="date" value="2026-09-18">
+        <div class="hint">逾期未补正的在发布状态统计中计入超期退回</div>
+      </div>
+      <div class="form-item col-full">
+        <label>退回原因与补正要求 <span class="req">*</span></label>
+        <textarea rows="5">经按统一发布标准逐间核对，本批 12 间不符合发布条件，具体如下：
+1. 清水塘·未来社区 1 栋 0708C 等 8 间：各间公摊面积合计 11.60 ㎡ 与套级总公摊面积 12.00 ㎡ 不一致，差 0.40 ㎡；公摊比例应按套内 3 间均分为每间 1/3，公摊面积应为每间 4.00 ㎡。请修正后重新导入并提交发布。
+2. 云龙人才公寓 2 栋 0706A 等 4 间：套级 VR 全景素材未按套上传。VR 全景按套组织，同一套房各间共用一份，请按套补齐后重新提交。
+请于 2026-09-18 前完成补正并重新提交发布，逾期将在房源发布状态统计中计入超期退回。</textarea>
+      </div>
+      <div class="form-item col-full">
+        <label>是否短信通知运营机构联系人 <span class="req">*</span></label>
+        <select data-dict="yesNo" data-selected="是" data-ph=""></select>
+      </div>
+    </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'退回确认',message:'确认退回已勾选的 12 间房源？',detail:'退回后这 12 间发布状态置为「已退回」，移动端立即不可见；退回原因与补正要求将短信通知清水塘投资运营服务有限公司与株洲高新人才公寓运营有限公司联系人，补正期限 2026-09-18。退回层级、原因与操作人全程留痕。',type:'warning',okText:'确认退回',onOk:function(){PMS.closeDrawer();PMS.toast('已退回 12 间并注明原因，短信通知已发送','success');}})"><i class="fa-solid fa-rotate-left"></i> 确认退回</button>
+  </div>
+</div>
 
 <script>
 (function () {
   var t = document.querySelector('main.app-main .table-wrap > table.data-table');
-  if (t) { t._total = 2486; }
+  if (t) { t._total = 4286; }
 })();
 </script>
 

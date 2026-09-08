@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>评价结果统计与公开 · 株洲市人才公寓管理平台</title>
+<title>评价结果统计与公开 · 株洲市人才住房保障管理平台</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="../../assets/css/app.css">
 <link rel="stylesheet" href="../../assets/css/spec.css">
@@ -13,7 +13,7 @@
 <main class="app-main">
   <div class="page-head">
     <div class="breadcrumb">
-      <i class="fa-solid fa-house bc-home"></i> 株洲市人才公寓管理平台
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才住房保障管理平台
       <span class="sep">/</span> 运营考核与工单服务
       <span class="sep">/</span> 服务评价管理
       <span class="sep">/</span> <span class="cur">评价结果统计与公开</span>
@@ -44,7 +44,7 @@
     <div class="stat-card">
       <div class="s-icon green"><i class="fa-solid fa-ranking-star"></i></div>
       <div><div class="s-label">最高分机构</div><div class="s-value">91.3</div>
-        <div class="s-trend text-2">株洲市人才安居服务有限公司 · 优秀</div></div>
+        <div class="s-trend text-2">株洲城发高科人才安居服务有限公司 · 优秀</div></div>
     </div>
     <div class="stat-card dc-alarm">
       <div class="s-icon red"><i class="fa-solid fa-arrow-trend-down"></i></div>
@@ -65,7 +65,7 @@
       <div class="card-body" style="padding:0">
         <div class="filter-bar">
           <div class="filter-item"><label>评价周期</label><select><option>2026 年 9 月</option><option>2026 年 8 月</option><option>2026 年 7 月</option><option>2026 年第三季度</option></select></div>
-          <div class="filter-item"><label>运营机构</label><select><option value="">全部</option><option>株洲市人才安居服务有限公司</option><option>株洲城发物业服务有限公司</option><option>清水塘社区服务有限公司</option></select></div>
+          <div class="filter-item"><label>运营机构</label><select><option value="">全部</option><option>株洲城发高科人才安居服务有限公司</option><option>株洲城发物业服务有限公司</option><option>清水塘社区服务有限公司</option></select></div>
           <div class="filter-item"><label>评价对象</label><select data-dict="evalObject" data-ph="全部"></select></div>
           <div class="filter-item"><label>评价等级</label><select><option value="">全部</option><option>优秀（≥ 90）</option><option>良好（85—89.9）</option><option>合格（80—84.9）</option><option>待改进（70—79.9）</option><option>不合格（&lt; 70）</option></select></div>
           <div class="filter-actions">
@@ -79,7 +79,7 @@
               <tr><th class="num">排名</th><th class="cell-lg">运营机构</th><th class="num">在管楼盘数</th><th class="num">在管房源</th><th class="num">物业服务得分</th><th class="num">运营服务得分</th><th class="num">综合得分</th><th>较上期升降</th><th>评价等级</th><th>对应扣减比例</th><th>操作</th></tr>
             </thead>
             <tbody>
-              <tr><td class="num">1</td><td>株洲市人才安居服务有限公司</td><td class="num">2</td><td class="num">720</td><td class="num">90.7</td><td class="num">91.9</td><td class="num"><b>91.3</b></td><td><span class="text-success">↑ 0.4</span></td><td><span class="badge green">优秀</span></td><td><span class="badge green">不扣减</span></td><td><span class="link" onclick="location.href='eval-subsidy.html'">补助挂钩明细</span></td></tr>
+              <tr><td class="num">1</td><td>株洲城发高科人才安居服务有限公司</td><td class="num">2</td><td class="num">720</td><td class="num">90.7</td><td class="num">91.9</td><td class="num"><b>91.3</b></td><td><span class="text-success">↑ 0.4</span></td><td><span class="badge green">优秀</span></td><td><span class="badge green">不扣减</span></td><td><span class="link" onclick="location.href='eval-subsidy.html'">补助挂钩明细</span></td></tr>
               <tr class="row-warn"><td class="num">2</td><td>株洲城发物业服务有限公司</td><td class="num">2</td><td class="num">370</td><td class="num">80.0</td><td class="num">81.6</td><td class="num"><b>80.8</b></td><td><span class="text-danger">↓ 0.8</span></td><td><span class="badge orange">合格</span></td><td><span class="badge orange">所辖楼盘扣减 5% / 10%</span></td><td><span class="link" onclick="location.href='eval-subsidy.html'">补助挂钩明细</span></td></tr>
               <tr class="row-bad"><td class="num">3</td><td>清水塘社区服务有限公司</td><td class="num">1</td><td class="num">260</td><td class="num">67.8</td><td class="num">69.4</td><td class="num"><b>68.6</b></td><td><span class="text-danger">↓ 1.6</span></td><td><span class="badge red">不合格</span></td><td><span class="badge red">扣减 20% + 约谈整改</span></td><td><span class="link" onclick="location.href='eval-subsidy.html'">补助挂钩明细</span></td></tr>
             </tbody>
@@ -98,8 +98,8 @@
                 <table class="data-table compact">
                   <thead><tr><th class="cell-lg">楼盘</th><th class="cell-lg">运营机构</th><th class="num">7 月</th><th class="num">8 月</th><th class="num">9 月</th><th>趋势</th><th>本期等级</th><th class="cell-lg">主要短板指标</th><th>操作</th></tr></thead>
                   <tbody>
-                    <tr><td>云龙人才公寓</td><td>株洲市人才安居服务有限公司</td><td class="num">89.8</td><td class="num">91.0</td><td class="num"><b>93.7</b></td><td><span class="text-success">↑ 连续上升</span></td><td><span class="badge green">优秀</span></td><td><span class="muted">无明显短板</span></td><td><span class="link" onclick="location.href='eval-collect.html'">评价明细</span></td></tr>
-                    <tr><td>湘江1958 人才公寓</td><td>株洲市人才安居服务有限公司</td><td class="num">91.6</td><td class="num">90.8</td><td class="num"><b>89.6</b></td><td><span class="text-danger">↓ 连续下降</span></td><td><span class="badge green">良好</span></td><td class="cell-lg">报修及时率 78.2（权重 25%），周末无值班维修</td><td><span class="link" onclick="location.href='eval-collect.html'">评价明细</span></td></tr>
+                    <tr><td>云龙人才公寓</td><td>株洲城发高科人才安居服务有限公司</td><td class="num">89.8</td><td class="num">91.0</td><td class="num"><b>93.7</b></td><td><span class="text-success">↑ 连续上升</span></td><td><span class="badge green">优秀</span></td><td><span class="muted">无明显短板</span></td><td><span class="link" onclick="location.href='eval-collect.html'">评价明细</span></td></tr>
+                    <tr><td>湘江1958 人才公寓</td><td>株洲城发高科人才安居服务有限公司</td><td class="num">91.6</td><td class="num">90.8</td><td class="num"><b>89.6</b></td><td><span class="text-danger">↓ 连续下降</span></td><td><span class="badge green">良好</span></td><td class="cell-lg">报修及时率 78.2（权重 25%），周末无值班维修</td><td><span class="link" onclick="location.href='eval-collect.html'">评价明细</span></td></tr>
                     <tr><td>董家塅人才公寓</td><td>株洲城发物业服务有限公司</td><td class="num">84.6</td><td class="num">83.8</td><td class="num"><b>83.3</b></td><td><span class="text-danger">↓ 小幅下降</span></td><td><span class="badge orange">合格</span></td><td>公共设施维护 79.4，电梯与公共照明故障处理慢</td><td><span class="link" onclick="location.href='eval-collect.html'">评价明细</span></td></tr>
                     <tr class="row-warn"><td>田心人才公寓</td><td>株洲城发物业服务有限公司</td><td class="num">80.2</td><td class="num">78.6</td><td class="num"><b>77.4</b></td><td><span class="text-danger">↓ 连续下降</span></td><td><span class="badge orange">待改进</span></td><td>环境卫生 72.6，楼道杂物堆放、垃圾清运不及时</td><td><span class="link" onclick="location.href='eval-collect.html'">评价明细</span></td></tr>
                     <tr class="row-bad"><td>清水塘·未来社区</td><td>清水塘社区服务有限公司</td><td class="num">72.4</td><td class="num">70.2</td><td class="num"><b>68.6</b></td><td><span class="text-danger">↓ 连续下降</span></td><td><span class="badge red">不合格</span></td><td class="cell-lg">房屋交付质量 64.8、报修及时率 62.4、投诉处理 66.2</td><td><span class="link" onclick="location.href='eval-collect.html'">评价明细</span></td></tr>

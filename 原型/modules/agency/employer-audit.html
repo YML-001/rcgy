@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>用人单位审核 · 株洲市人才住房保障管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="orgadmin" data-active="agency-03">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才住房保障管理平台
+      <span class="sep">/</span> 运营机构端
+      <span class="sep">/</span> 企业机构管理
+      <span class="sep">/</span> <span class="cur">用人单位审核</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.openDrawer('shDrawer')"><i class="fa-solid fa-clipboard-check"></i> 办理审核</button>
+      <a class="btn" href="employer-manage.html"><i class="fa-solid fa-building-user"></i> 用人单位管理</a>
+      <a class="btn" href="../ops/org-list.html"><i class="fa-solid fa-building-flag"></i> 运营机构档案</a>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>审核用人单位提交的注册申请，逐项查看<b>申请信息、企业信息、负责人与联系电话及佐证材料</b>。<b>审核通过后即开通账号</b>，单位方可为职工批量代申报；材料不齐或与登记信息不一致的<b>退回补正并注明具体理由</b>。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-inbox"></i></div>
+      <div><div class="s-label">待审核</div><div class="s-value">6</div>
+        <div class="s-trend ">件 · 其中 1 件已超 2 个工作日</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
+      <div><div class="s-label">本月通过</div><div class="s-value">24</div>
+        <div class="s-trend text-2">件 · 2026-09 · 已开通经办人账号 32 个</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon red"><i class="fa-solid fa-rotate-left"></i></div>
+      <div><div class="s-label">已退回</div><div class="s-value">3</div>
+        <div class="s-trend text-danger">件 · 均因佐证材料不齐，已注明补正要求</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-building-user"></i></div>
+      <div><div class="s-label">在册单位</div><div class="s-value">186</div>
+        <div class="s-trend text-2">家 · 已认证并开通账号</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>申请单号</label><input type="text" value="YQ2026-0186" placeholder="如 YQ2026-0186"></div>
+      <div class="filter-item"><label>单位名称</label><input type="text" value="株洲时代新材料科技股份有限公司" placeholder="单位名称"></div>
+      <div class="filter-item"><label>统一社会信用代码</label><input type="text" value="91430200MA4L18**7H" placeholder="信用代码"></div>
+      <div class="filter-item"><label>单位类型</label><select><option value="">全部</option><option>上市公司（国有控股）</option><option>国有企业</option><option>民营企业</option><option>外商投资企业</option><option>事业单位</option><option>社会组织</option></select></div>
+      <div class="filter-item"><label>材料完整度</label><select><option value="">全部</option><option>完整（5/5）</option><option>不全（4/5 及以下）</option></select></div>
+      <div class="filter-item"><label>审核状态</label><select><option value="">全部</option><option>待审核</option><option>审核通过</option><option>已退回</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>申请单号</th><th class="cell-lg">单位名称</th><th>统一社会信用代码</th><th>单位类型</th><th>法定代表人</th><th>联系电话</th><th class="num">在职职工数</th><th>提交时间</th><th>材料完整度</th><th>审核状态</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr class="row-warn"><td>YQ2026-0186</td><td>株洲时代新材料科技股份有限公司</td><td>91430200MA4L18**7H</td><td><span class="badge blue">上市公司（国有控股）</span></td><td>王振华</td><td>0731-2833****</td><td class="num">3,842</td><td>2026-09-04 09:16</td><td><span class="badge green">完整 5/5</span></td><td><span class="badge orange">待审核 · 超 2 日</span></td><td><span class="link" onclick="PMS.openDrawer('shDrawer')">办理审核</span></td></tr>
+          <tr><td>YQ2026-0188</td><td>株洲中车时代电气股份有限公司</td><td>91430200MA4L26**2K</td><td><span class="badge blue">上市公司（国有控股）</span></td><td>陈国安</td><td>0731-2848****</td><td class="num">5,264</td><td>2026-09-06 10:22</td><td><span class="badge green">完整 5/5</span></td><td><span class="badge cyan">待审核</span></td><td><span class="link" onclick="PMS.openDrawer('shDrawer')">办理审核</span></td></tr>
+          <tr><td>YQ2026-0189</td><td>株洲硬质合金集团有限公司</td><td>91430200MA4L32**4X</td><td><span class="badge cyan">国有企业</span></td><td>刘志强</td><td>0731-2826****</td><td class="num">2,486</td><td>2026-09-06 14:38</td><td><span class="badge green">完整 5/5</span></td><td><span class="badge cyan">待审核</span></td><td><span class="link" onclick="PMS.openDrawer('shDrawer')">办理审核</span></td></tr>
+          <tr><td>YQ2026-0191</td><td>株洲千金药业股份有限公司</td><td>91430200MA4L45**6D</td><td><span class="badge blue">上市公司（国有控股）</span></td><td>唐建国</td><td>0731-2851****</td><td class="num">1,286</td><td>2026-09-07 09:04</td><td><span class="badge orange">不全 4/5</span></td><td><span class="badge cyan">待审核</span></td><td><span class="link" onclick="PMS.openDrawer('shDrawer')">办理审核</span> <span class="link" onclick="PMS.confirm({title:'退回确认',message:'确认退回 株洲千金药业股份有限公司 的注册申请？',detail:'退回理由：缺经办人授权书。退回后单位可在移动端与 PC 端收到补正通知，补齐材料后重新提交，重新提交后审核时限重新计算。',type:'warning',okText:'确认退回',onOk:function(){PMS.toast('已退回补正，补正要求已通知该单位','success');}})">退回补正</span></td></tr>
+          <tr><td>YQ2026-0192</td><td>株洲欧科亿数控精密刀具股份有限公司</td><td>91430200MA4L58**9M</td><td><span class="badge gray">民营企业</span></td><td>彭立新</td><td>0731-2860****</td><td class="num">862</td><td>2026-09-07 15:26</td><td><span class="badge green">完整 5/5</span></td><td><span class="badge cyan">待审核</span></td><td><span class="link" onclick="PMS.openDrawer('shDrawer')">办理审核</span></td></tr>
+          <tr><td>YQ2026-0193</td><td>株洲联诚集团控股股份有限公司</td><td>91430200MA4L64**3P</td><td><span class="badge gray">民营企业</span></td><td>曾德文</td><td>0731-2872****</td><td class="num">1,046</td><td>2026-09-08 08:42</td><td><span class="badge green">完整 5/5</span></td><td><span class="badge cyan">待审核</span></td><td><span class="link" onclick="PMS.openDrawer('shDrawer')">办理审核</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sp-block" style="margin-top:8px">
+    <div class="sp-h"><i class="fa-solid fa-list"></i> 审核要点<span class="sub">R4-02 · YS-1 至 YS-6 · 审核时限 2 个工作日</span></div>
+    <div class="sp-b">
+      <div class="sp-tw">
+        <table class="data-table compact">
+          <thead><tr><th>要点编号</th><th>审核事项</th><th class="cell-lg">核验方法与判定</th><th>不通过处置</th></tr></thead>
+          <tbody>
+            <tr><td><b>YS-1</b></td><td>统一社会信用代码唯一性</td><td>与在册 186 家单位比对，<b>一码只能对应一个单位账号</b>；与营业执照登记信息逐字比对</td><td>重复的直接驳回并告知原账号经办人</td></tr>
+            <tr><td><b>YS-2</b></td><td>企业信息真实性</td><td>单位名称、单位类型、注册地址、成立日期、法定代表人与<b>工商登记信息一致</b>；行业与在职职工数与社保参保名册相符</td><td>不一致的退回补正并注明差异项</td></tr>
+            <tr><td><b>YS-3</b></td><td>负责人与联系电话可达</td><td>法定代表人与营业执照一致；<b>联系电话须电话回访核实可达</b>，回访记录留痕</td><td>无法联系的退回补正</td></tr>
+            <tr><td><b>YS-4</b></td><td>佐证材料齐备</td><td>营业执照、法人身份证、<b>法人授权书</b>、经办人授权书、社保参保证明<b>五项齐备</b>，影像清晰、在有效期内</td><td>缺件或影像不清的退回补正</td></tr>
+            <tr><td><b>YS-5</b></td><td>法人授权有效</td><td>授权书须<b>加盖单位公章与法定代表人电子签章并通过验签</b>；授权范围须覆盖代申报与变更上报；授权有效期不少于 1 年</td><td>验签失败或授权范围不足的退回补正</td></tr>
+            <tr><td><b>YS-6</b></td><td>通过后开通账号</td><td>审核通过<b>即开通经办人账号</b>，账号数不超过授权书列明人数、<b>有效期不超过法人授权有效期</b>；单位方可代申报</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="sp-src">
+    <span><b>依据</b> 2026 年 9 月 7 日汇报讨论会决议：用人单位注册申请由市保障性住房服务中心运营监管科审核，通过后开通账号</span>
+    <span><b>审核时限</b> 收件后 2 个工作日内出具审核意见，超期在台账中标记预警</span>
+    <span><b>开通口径</b> 通过后即开通账号，单位方可代申报；退回须注明具体理由与补正要求</span>
+    <span><b>经办人</b> 市保障性住房服务中心运营监管科 · 徐立</span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="shDrawer">
+  <div class="drawer-head">
+    <h3>用人单位注册申请审核</h3>
+    <span class="badge orange">YQ2026-0186 · 待审核 · 超 2 日</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+    <div class="alert alert-warning">
+      <i class="fa-solid fa-triangle-exclamation"></i>
+      <div>本件已<b>超 2 个工作日</b>未办理，请尽快出具意见。<b>审核通过后即开通经办人账号，单位方可代申报</b>；退回补正须<b>注明具体理由与补正要求</b>，重新提交后审核时限重新计算。</div>
+    </div>
+
+    <div class="sp-block">
+      <div class="sp-h"><i class="fa-solid fa-file-lines"></i> 申请信息与企业信息<span class="sub">由单位在 PC 端提交 · 与工商登记及社保参保名册比对</span></div>
+      <div class="sp-b">
+        <dl class="desc-list">
+          <div class="desc-item"><dt>申请单号</dt><dd>YQ2026-0186</dd></div>
+          <div class="desc-item"><dt>提交时间</dt><dd>2026-09-04 09:16</dd></div>
+          <div class="desc-item"><dt>申请事项</dt><dd>用人单位注册与认证（首次）</dd></div>
+          <div class="desc-item full"><dt>单位名称</dt><dd>株洲时代新材料科技股份有限公司<span class="muted">（与营业执照一致）</span></dd></div>
+          <div class="desc-item"><dt>统一社会信用代码</dt><dd><b>91430200MA4L18**7H</b><span class="muted">（唯一性校验通过）</span></dd></div>
+          <div class="desc-item"><dt>单位类型</dt><dd>上市公司（国有控股）</dd></div>
+          <div class="desc-item"><dt>所属行业</dt><dd>高分子复合材料制造</dd></div>
+          <div class="desc-item full"><dt>注册地址</dt><dd>株洲市石峰区时代路 158 号<span class="muted">（与工商登记一致）</span></dd></div>
+          <div class="desc-item"><dt>成立日期</dt><dd>2002-12-27</dd></div>
+          <div class="desc-item"><dt>法定代表人</dt><dd>王振华<span class="muted">（与营业执照一致）</span></dd></div>
+          <div class="desc-item"><dt>联系电话</dt><dd>0731-2833****<span class="muted">（2026-09-05 回访可达）</span></dd></div>
+          <div class="desc-item"><dt>在职职工数</dt><dd class="num">3,842 人</dd></div>
+          <div class="desc-item"><dt>社保参保人数</dt><dd class="num">3,826 人<span class="muted">（差 16 人为当月新入职在办）</span></dd></div>
+          <div class="desc-item"><dt>申请经办人账号数</dt><dd class="num">2 个</dd></div>
+          <div class="desc-item full"><dt>拟指定经办人</dt><dd>周慧芳（人力资源部 · 138****2260 · 全部权限）、彭超（人力资源部 · 139****4418 · 代申报 + 进度查看）</dd></div>
+        </dl>
+      </div>
+    </div>
+
+    <div class="sp-block">
+      <div class="sp-h"><i class="fa-solid fa-file-shield"></i> 佐证材料核验结果<span class="sub">五项齐备方可通过 · 缺件或影像不清的退回补正</span></div>
+      <div class="sp-b">
+        <div class="sp-tw">
+          <table class="data-table compact">
+            <thead><tr><th>材料名称</th><th>是否必需</th><th>上传情况</th><th>核验结果</th><th class="cell-lg">核验说明</th></tr></thead>
+            <tbody>
+              <tr><td>营业执照（副本）</td><td><span class="badge red">必需</span></td><td>已上传 1 份</td><td><span class="badge green">通过</span></td><td>影像清晰，名称、代码、地址、法定代表人、成立日期与填报<b>逐项一致</b></td></tr>
+              <tr><td>法人身份证（正反面）</td><td><span class="badge red">必需</span></td><td>已上传 2 份</td><td><span class="badge green">通过</span></td><td>姓名与营业执照法定代表人一致，证件在有效期内</td></tr>
+              <tr><td>法人授权书</td><td><span class="badge red">必需</span></td><td>已上传 1 份</td><td><span class="badge green">通过</span></td><td>已加盖单位公章与法定代表人电子签章，<b>验签通过</b>；授权范围含代申报、变更上报、进度查看；有效期 2026-09-10 至 2028-09-09</td></tr>
+              <tr><td>经办人授权书</td><td><span class="badge red">必需</span></td><td>已上传 2 份</td><td><span class="badge green">通过</span></td><td>与拟指定经办人 2 人一一对应，权限表述与申请一致</td></tr>
+              <tr><td>社保参保证明</td><td><span class="badge red">必需</span></td><td>已上传 1 份</td><td><span class="badge green">通过</span></td><td>2026-08 参保 3,826 人，与在职职工数 3,842 人差 16 人，已附新入职在办说明，<b>差异在合理范围</b></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-grid form-align">
+      <div class="form-item">
+        <label>审核结论 <span class="req">*</span></label>
+        <select>
+          <option selected>通过并开通账号</option>
+          <option>退回补正</option>
+        </select>
+      </div>
+      <div class="form-item">
+        <label>开通的经办人账号数 <span class="req">*</span></label>
+        <input type="text" value="2">
+        <div class="hint">不得超过法人授权书列明的经办人人数</div>
+      </div>
+      <div class="form-item">
+        <label>账号有效期 <span class="req">*</span></label>
+        <input type="date" value="2028-09-09">
+        <div class="hint">不得超过法人授权有效期 2028-09-09</div>
+      </div>
+      <div class="form-item">
+        <label>审核人 <span class="req">*</span></label>
+        <input type="text" value="徐立（市保障性住房服务中心运营监管科）" readonly>
+      </div>
+      <div class="form-item col-full">
+        <label>退回理由 <span class="req">*</span></label>
+        <textarea rows="3">本件材料齐备、信息一致，无须退回。（如需退回请在此逐项写明缺失或不一致的材料名称、具体差异与补正要求，例如：缺经办人授权书 1 份；营业执照影像模糊无法识别统一社会信用代码；社保参保人数与在职职工数差异过大且无说明。）</textarea>
+        <div class="hint">选择「退回补正」时必填，须注明具体理由与补正要求，退回通知同步推送至单位 PC 端与移动端</div>
+      </div>
+      <div class="form-item col-full">
+        <label>审核意见 <span class="req">*</span></label>
+        <textarea rows="4">经审核，株洲时代新材料科技股份有限公司提交的注册申请信息完整，单位名称、统一社会信用代码、单位类型、注册地址、成立日期、法定代表人均与工商登记信息一致；联系电话 0731-2833**** 已于 2026-09-05 电话回访核实可达；在职职工数 3,842 人与 2026 年 8 月社保参保 3,826 人差 16 人，已附新入职在办说明，差异在合理范围。营业执照、法人身份证、法人授权书、经办人授权书、社保参保证明五项材料齐备，影像清晰，法人电子签章验签通过，授权范围覆盖员工批量代申报、在职状态变更上报与申报进度查看，授权有效期至 2028-09-09。同意审核通过，开通经办人账号 2 个（周慧芳、彭超），账号有效期至 2028-09-09。</textarea>
+      </div>
+    </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn" onclick="PMS.toast('已保存审核意见草稿，可稍后继续办理')">保存草稿</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认审核通过并为 株洲时代新材料科技股份有限公司 开通 2 个经办人账号？',detail:'通过后即开通账号，该单位方可为职工批量代申报、上报在职状态变更并查看申报进度。账号有效期至 2028-09-09，不超过法人授权有效期；经办人变更须重新出具法人授权。审核人、审核时间、审核结论与材料核验结果全程留痕。',type:'warning',okText:'确认通过并开通',onOk:function(){PMS.closeDrawer();PMS.toast('已审核通过，2 个经办人账号已开通','success');}})"><i class="fa-solid fa-check"></i> 提交审核</button>
+  </div>
+</div>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 6; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

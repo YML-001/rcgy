@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>申报进度与数据查看 · 株洲市人才住房保障管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/mobile.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body class="m-body" data-mtitle="申报进度与数据" data-mmod="M3 用人单位端" data-mcode="M3-04 / R9-04"
+      data-mdesc="查看本单位职工申报件的当前环节、渠道与结论，以及职工获保障人数与按楼盘的汇总分布；只显示状态与结论，不展示职工敏感信息。"
+      data-mback="home.html" data-mtabset="employer" data-mtab="declare">
+<div class="m-stage">
+  <div class="m-phone">
+    <div class="m-screen">
+      <div class="m-view">
+
+        <div class="m-seg">
+          <button class="on">全部 46</button><button>待确认 18</button><button>审核中 20</button><button>已通过 6</button><button>未通过 2</button>
+        </div>
+
+        <div class="m-note warn"><i class="fa-solid fa-triangle-exclamation"></i>
+          <div><b>数据权限</b>：单位端<b>只显示申报件的状态与结论</b>，不展示职工的收入、社保缴费明细、住房核验等敏感信息，也不涉及具体房源与合同。需查看明细的请由职工本人在个人端查询。</div>
+        </div>
+
+        <div class="m-sect">申报件列表<span class="m-sect-x">按受理时间倒序 · 7 / 46</span></div>
+        <div class="m-cells">
+          <div class="m-cell"><span class="m-ci red"><i class="fa-solid fa-user-clock"></i></span><span class="m-cl"><b>RC2026-0905-0233　周芷若</b><span class="m-cs">当前环节：待职工本人确认授权　·	<b>剩余确认时间 1 个自然日</b><br>渠道：用人单位（移动端申请）</span></span><span class="m-cv"><span class="m-tag red">待确认</span></span></div>
+          <div class="m-cell"><span class="m-ci orange"><i class="fa-solid fa-user-clock"></i></span><span class="m-cl"><b>RC2026-0905-0231　龙浩然</b><span class="m-cs">当前环节：待职工本人确认授权　·	<b>剩余确认时间 2 个自然日</b><br>渠道：用人单位（移动端申请）</span></span><span class="m-cv"><span class="m-tag orange">待确认</span></span></div>
+          <div class="m-cell"><span class="m-ci"><i class="fa-solid fa-file-circle-check"></i></span><span class="m-cl"><b>RC2026-0904-0218　邓亦凡</b><span class="m-cs">当前环节：受理初审中（剩 2 个工作日）<br>渠道：用人单位（移动端申请）</span></span><span class="m-cv"><span class="m-tag blue">审核中</span></span></div>
+          <div class="m-cell"><span class="m-ci"><i class="fa-solid fa-stamp"></i></span><span class="m-cl"><b>RC2026-0903-0196　贺子铭</b><span class="m-cs">当前环节：复审出具结论（剩 1 个工作日）<br>渠道：用人单位（移动端申请）</span></span><span class="m-cv"><span class="m-tag blue">审核中</span></span></div>
+          <div class="m-cell"><span class="m-ci cyan"><i class="fa-solid fa-file-circle-plus"></i></span><span class="m-cl"><b>RC2026-0903-0188　谭泽宇</b><span class="m-cs">当前环节：退回补正（缺劳动合同用工备案页，由本人补齐）<br>渠道：用人单位（移动端申请）</span></span><span class="m-cv"><span class="m-tag cyan">待补正</span></span></div>
+          <div class="m-cell"><span class="m-ci green"><i class="fa-solid fa-circle-check"></i></span><span class="m-cl"><b>RC2026-0902-0174　彭思远</b><span class="m-cs">当前环节：已通过，按受理时间排入配租轮候<br>渠道：用人单位（移动端申请）</span></span><span class="m-cv"><span class="m-tag green">已通过</span></span></div>
+          <div class="m-cell"><span class="m-ci red"><i class="fa-solid fa-circle-xmark"></i></span><span class="m-cl"><b>RC2026-0830-0121　唐若溪</b><span class="m-cs">当前环节：已办结　·	结论：不予通过（不符合申请条件，具体理由已送达本人）<br>渠道：用人单位（移动端申请）</span></span><span class="m-cv"><span class="m-tag red">未通过</span></span></div>
+        </div>
+        <div class="m-cells">
+          <div class="m-cell" style="cursor:pointer" onclick="MB.toast('原型演示：加载后续 39 条申报件')"><span class="m-ci"><i class="fa-solid fa-angles-down"></i></span><span class="m-cl"><b>加载更多</b><span class="m-cs">还有 39 条申报件</span></span><i class="m-ca fa-solid fa-angle-right"></i></div>
+        </div>
+
+        <div class="m-sect">汇总数据<span class="m-sect-x">R9-04</span></div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-chart-simple"></i>职工获保障情况</div>
+          <div class="m-card-b">
+            <div class="m-mini">
+              <div><div class="mv ok">86</div><div class="ml">已获保障(人)</div></div>
+              <div><div class="mv">46</div><div class="ml">在办申报(人)</div></div>
+              <div><div class="mv">148</div><div class="ml">累计申报(人)</div></div>
+              <div><div class="mv ok">96.1%</div><div class="ml">代申报通过率</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-city"></i>房源分布<span class="m-more" data-toast="仅按楼盘汇总人数，不展示具体房号与合同">仅汇总统计</span></div>
+          <div class="m-card-b">
+            <div class="m-kv">
+              <div><span>湘江1958</span><span class="num">42 人　·	天元区泰山路</span></div>
+              <div><span>田心人才公寓</span><span class="num">33 人　·	石峰区田心</span></div>
+              <div><span>栗雨佳苑</span><span class="num">11 人　·	天元区栗雨路</span></div>
+              <div><span>合计</span><span class="num">86 人　·	占本单位符合条件人数 65.2%</span></div>
+            </div>
+            <div class="m-bar" style="margin-top:12px"><span class="green" style="width:65.2%"></span></div>
+            <div class="m-mini" style="margin-top:12px">
+              <div><div class="mv">32</div><div class="ml">本年新增(人)</div></div>
+              <div><div class="mv">18.5%</div><div class="ml">同比增长</div></div>
+              <div><div class="mv">6.00</div><div class="ml">人才租金(元/㎡)</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="m-sect">口径说明</div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-scale-balanced"></i>代申报口径</div>
+          <div class="m-card-b">
+            <div class="m-kv">
+              <div><span>渠道标注</span><span>本单位代申报统一标注「用人单位（移动端申请）」</span></div>
+              <div><span>拆分规则</span><span>批量提交<b>按人拆分为独立申请件</b>，编号规则与个人申请一致</span></div>
+              <div><span>受理时间</span><span>以<b>职工本人确认授权时间</b>为准，3 个自然日内未确认自动作废</span></div>
+              <div><span>配租排序</span><span>按受理时间顺序排定，<b>不因渠道优先</b>，不摇号</span></div>
+              <div><span>补正修改</span><span>补正材料由<b>职工本人</b>办理，单位端只可查看</span></div>
+              <div><span>可见字段</span><span>仅编号、姓名、环节、渠道、状态与结论</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="m-note"><i class="fa-solid fa-circle-info"></i>
+          <div>待确认件请及时提醒职工本人在移动端确认授权，<b>逾期自动作废后需重新代申报</b>。新一批代申报请前往<a href="batch-apply.html" style="color:var(--primary)">员工批量代申报</a>。</div>
+        </div>
+
+      </div>
+      <div class="m-actbar">
+        <button class="m-btn w-auto" type="button" onclick="MB.toast('已向 18 名待确认职工重新推送确认授权提醒')">催办确认</button>
+        <button class="m-btn primary" type="button" onclick="MB.toast('已生成《本单位人才住房保障申报情况表》，可在单位信息页下载','success')"><i class="fa-solid fa-download"></i> 导出汇总数据</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../../assets/js/mobile.js"></script>
+</body>
+</html>

@@ -19,31 +19,31 @@
       <span class="sep">/</span> <span class="cur">驳回与重新提交</span>
     </div>
     <div class="page-actions">
-      <button class="btn btn-primary" onclick="PMS.toast('已向 32 名待补正申请人推送补正提醒','success')"><i class="fa-solid fa-bullhorn"></i> 催办补正</button>
+      <button class="btn btn-primary" onclick="PMS.toast('已向 32 名待补正申请人推送补正提醒，逐项列明需重新提交的材料','success')"><i class="fa-solid fa-bullhorn"></i> 催办补正</button>
       <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
     </div>
   </div>
 
   <div class="alert alert-warning">
     <i class="fa-solid fa-triangle-exclamation"></i>
-    <div>审核不通过时线上写明原因并<b>一次性告知全部缺件项</b>，申请人补齐后重新提交<b>自动回到原审核环节</b>——受理时间不变、不重新排队。</div>
+    <div>台账<b>按材料项记录每一次回退</b>：被退材料项、回退意见、回退层级（受理初审／复审）、经办人与时间逐条留痕，个人端与审核端均可查看历史回退记录。一次性告知全部需重新提交的材料项，不得反复要求补充；申请人<b>只重传被标记项</b>，补齐后<b>自动回到原环节继续办理</b>——受理时间不变、不重新排队、不重新计算审核时限。</div>
   </div>
 
   <div class="stat-grid">
     <div class="stat-card">
       <div class="s-icon blue"><i class="fa-solid fa-rotate-left"></i></div>
-      <div><div class="s-label">本月驳回</div><div class="s-value">194</div>
-        <div class="s-trend text-2">占受理 15.1%</div></div>
+      <div><div class="s-label">本月回退材料项</div><div class="s-value">286</div>
+        <div class="s-trend text-2">涉及 194 件 · 平均 1.5 项/件</div></div>
     </div>
     <div class="stat-card">
       <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
-      <div><div class="s-label">补正后通过</div><div class="s-value">142</div>
+      <div><div class="s-label">按项补正后通过</div><div class="s-value">142</div>
         <div class="s-trend text-2">补正通过率 73.2%</div></div>
     </div>
     <div class="stat-card dc-alarm">
       <div class="s-icon orange"><i class="fa-solid fa-hourglass-half"></i></div>
-      <div><div class="s-label">待补正在办</div><div class="s-value">32</div>
-        <div class="s-trend ">含 3 件临近截止</div></div>
+      <div><div class="s-label">待补正材料项</div><div class="s-value">48</div>
+        <div class="s-trend ">涉及 32 件 · 含 3 件临近截止</div></div>
     </div>
     <div class="stat-card">
       <div class="s-icon red"><i class="fa-solid fa-ban"></i></div>
@@ -56,10 +56,12 @@
     <div class="filter-bar">
       <div class="filter-item"><label>申请编号</label><input type="text" placeholder="申请编号"></div>
       <div class="filter-item"><label>申请人</label><input type="text" placeholder="姓名"></div>
-      <div class="filter-item"><label>驳回类型</label><select><option value="">全部</option><option>退回补正</option><option>不予通过</option></select></div>
-      <div class="filter-item"><label>驳回理由</label><select data-dict="rejectReason" data-ph="全部"></select></div>
-      <div class="filter-item"><label>补正状态</label><select><option value="">全部</option><option>待补正</option><option>已补正重提</option><option>逾期失效</option></select></div>
-      <div class="filter-item"><label>驳回日期</label><input type="date"></div>
+      <div class="filter-item"><label>回退层级</label><select><option value="">全部</option><option>受理初审</option><option>复审</option></select></div>
+      <div class="filter-item"><label>回退去向</label><select><option value="">全部</option><option>退申请人补正</option><option>退受理初审重新认定</option><option>不予通过并送达</option></select></div>
+      <div class="filter-item"><label>被退材料项</label><select><option value="">全部</option><option>身份证正反面</option><option>户口簿本人页</option><option>毕业证书</option><option>境外学历学位认证书</option><option>劳动合同</option><option>社保参保证明</option><option>个税纳税记录</option><option>无房证明</option><option>职业资格证书</option><option>材料真实性承诺书</option></select></div>
+      <div class="filter-item"><label>回退理由</label><select data-dict="rejectReason" data-ph="全部"></select></div>
+      <div class="filter-item"><label>补正状态</label><select><option value="">全部</option><option>待补正</option><option>已补正重提</option><option>已重新认定</option><option>逾期失效</option></select></div>
+      <div class="filter-item"><label>回退日期</label><input type="date"></div>
       <div class="filter-actions">
         <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
         <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
@@ -69,21 +71,25 @@
     <div class="table-wrap">
       <table class="data-table">
         <thead>
-          <tr><th>申请编号</th><th>申请人</th><th>驳回类型</th><th class="cell-lg">驳回理由</th><th class="cell-lg">缺件项</th><th>驳回时间</th><th>补正截止</th><th>补正状态</th><th>操作</th></tr>
+          <tr><th>申请编号</th><th>申请人</th><th>被退材料项</th><th class="cell-lg">回退意见</th><th>回退层级</th><th>经办人</th><th>回退时间</th><th>补正截止</th><th>补正状态</th><th>操作</th></tr>
         </thead>
         <tbody>
-          <tr class="row-warn"><td>RC2026-0903-0171</td><td>周宇轩</td><td><span class="badge orange">退回补正</span></td><td>缺境外学历学位认证书；上传的认证书影像不清晰无法识别</td><td>①教育部留学服务中心学历学位认证书（清晰影像）</td><td>2026-09-04 16:22</td><td>2026-09-19</td><td><span class="badge orange">待补正</span></td><td><span class="link" onclick="PMS.openDrawer('rjDrawer')">查看驳回</span></td></tr>
-          <tr class="row-warn"><td>RC2026-0904-0288</td><td>龙建华</td><td><span class="badge orange">退回补正</span></td><td>高级技师资格证书影像模糊，人社系统亦未返回该证书信息</td><td>①高级技师资格证书清晰影像　②人社部门出具的资格证明（二选一）</td><td>2026-09-04 18:12</td><td>2026-09-19</td><td><span class="badge orange">待补正</span></td><td><span class="link" onclick="PMS.openDrawer('rjDrawer')">查看驳回</span></td></tr>
-          <tr class="row-warn"><td>RC2026-0904-0224</td><td>黄振宇</td><td><span class="badge orange">退回补正</span></td><td>社保正常缴纳但个人所得税无缴纳记录，疑挂靠社保</td><td>①工资发放银行流水（近 6 个月）　②单位在职证明（加盖公章）</td><td>2026-09-04 16:26</td><td>2026-09-19</td><td><span class="badge orange">待补正</span></td><td><span class="link" onclick="PMS.openDrawer('rjDrawer')">查看驳回</span></td></tr>
-          <tr class="row-bad"><td>RC2026-0902-0148</td><td>王志远</td><td><span class="badge red">不予通过</span></td><td>申请人配偶李×× 在天元区名下有 1 套住房（96.40 ㎡，2024-03-18 登记），不符合管理办法第七条第二项</td><td><span class="muted">不涉及补正（一票否决）</span></td><td>2026-09-06 09:18</td><td><span class="muted">—</span></td><td><span class="badge red">不予通过</span></td><td><span class="link" onclick="location.href='conclusion.html'">审核结论</span></td></tr>
-          <tr><td>RC2026-0812-0086</td><td>彭立军</td><td><span class="badge orange">退回补正</span></td><td>劳动合同影像缺第 2 页，无法核对合同期限与工作地点</td><td>①劳动合同完整影像（含全部页）</td><td>2026-08-14 10:26</td><td>2026-08-29</td><td><span class="badge green">已补正重提</span></td><td><span class="link" onclick="PMS.toast('申请人于 2026-08-16 补齐并重新提交，自动回到原审核环节，2026-08-18 审核通过')">查看补正记录</span></td></tr>
+          <tr class="row-warn"><td>RC2026-0903-0171</td><td>周宇轩</td><td>境外学历学位认证书</td><td class="cell-lg">上传的认证书影像不清晰，认证编号与院校名称无法识别，请重新上传经教育部留学服务中心认证的清晰完整影像</td><td><span class="badge orange">受理初审</span><br><span class="muted">退申请人补正</span></td><td>周敏</td><td>2026-09-04 16:22</td><td>2026-09-19</td><td><span class="badge orange">待补正</span></td><td><span class="link" onclick="PMS.openDrawer('rjDrawer')">查看回退</span></td></tr>
+          <tr class="row-warn"><td>RC2026-0903-0171</td><td>周宇轩</td><td>劳动合同</td><td class="cell-lg">劳动合同影像缺第 2 页，无法核对合同期限与工作地点，请补齐含全部页的完整影像</td><td><span class="badge orange">受理初审</span><br><span class="muted">退申请人补正</span></td><td>周敏</td><td>2026-09-04 16:22</td><td>2026-09-19</td><td><span class="badge orange">待补正</span></td><td><span class="link" onclick="PMS.openDrawer('rjDrawer')">查看回退</span></td></tr>
+          <tr class="row-warn"><td>RC2026-0904-0288</td><td>龙建华</td><td>职业资格证书</td><td class="cell-lg">高级技师资格证书影像模糊且人社系统未返回该证书信息，请重新上传清晰影像，或提供人社部门出具的资格证明</td><td><span class="badge purple">复审</span><br><span class="muted">退申请人补正</span></td><td>刘志刚</td><td>2026-09-05 09:36</td><td>2026-09-20</td><td><span class="badge orange">待补正</span></td><td><span class="link" onclick="PMS.openDrawer('rjDrawer')">查看回退</span></td></tr>
+          <tr><td>RC2026-0903-0162</td><td>王梓涵</td><td>个税纳税记录</td><td class="cell-lg">上传的纳税记录仅 3 个月且影像下半页缺失，请补充打印近 12 个月《个人所得税纳税记录》完整影像</td><td><span class="badge orange">受理初审</span><br><span class="muted">退申请人补正</span></td><td>周敏</td><td>2026-09-04 09:20</td><td>2026-09-19</td><td><span class="badge green">已补正重提</span><br><span class="muted">09-04 15:02</span></td><td><span class="link" onclick="PMS.openDrawer('rjDrawer')">查看回退</span></td></tr>
+          <tr><td>RC2026-0903-0162</td><td>王梓涵</td><td>无房证明</td><td class="cell-lg">无房证明查询范围仅到天元区，请补充覆盖株洲市城区（含荷塘、芦淞、石峰、天元）的无自有住房查询结果</td><td><span class="badge orange">受理初审</span><br><span class="muted">退申请人补正</span></td><td>周敏</td><td>2026-09-04 09:20</td><td>2026-09-19</td><td><span class="badge green">已补正重提</span><br><span class="muted">09-04 15:02</span></td><td><span class="link" onclick="PMS.openDrawer('rjDrawer')">查看回退</span></td></tr>
+          <tr><td>RC2026-0905-0196</td><td>彭雪松</td><td><span class="muted">个人所得税核验（认定意见）</span></td><td class="cell-lg">复审对初审「符合」的认定意见有异议，仅该核验项退回受理初审重新认定，材料无需申请人重传</td><td><span class="badge purple">复审</span><br><span class="muted">退受理初审重新认定</span></td><td>刘志刚</td><td>2026-09-06 10:20</td><td><span class="muted">不涉及</span></td><td><span class="badge green">已重新认定</span><br><span class="muted">09-06 14:08</span></td><td><span class="link" onclick="PMS.openDrawer('rjDrawer')">查看回退</span></td></tr>
+          <tr class="row-bad"><td>RC2026-0902-0148</td><td>王志远</td><td><span class="muted">整件不予通过（不涉及材料项回退）</span></td><td class="cell-lg">申请人配偶李×× 在天元区名下有 1 套住房（96.40 ㎡，2024-03-18 登记），不符合管理办法第七条第二项</td><td><span class="badge purple">复审</span><br><span class="muted">不予通过并送达</span></td><td>刘志刚</td><td>2026-09-06 09:18</td><td><span class="muted">—</span></td><td><span class="badge red">不予通过</span></td><td><span class="link" onclick="location.href='conclusion.html'">审核结论</span></td></tr>
+          <tr class="row-bad"><td>RC2026-0805-0057</td><td>黄振宇</td><td>工资发放银行流水</td><td class="cell-lg">社保正常缴纳但个人所得税无缴纳记录，疑挂靠社保，请补充近 6 个月工资发放银行流水与加盖公章的单位在职证明</td><td><span class="badge orange">受理初审</span><br><span class="muted">退申请人补正</span></td><td>周敏</td><td>2026-08-06 16:26</td><td>2026-08-21</td><td><span class="badge red">逾期失效</span><br><span class="muted">未补齐</span></td><td><span class="link" onclick="PMS.toast('超过补正截止时间未补齐，申请已自动失效；条件具备后可重新申请，受理时间按新申请计算')">失效说明</span></td></tr>
         </tbody>
       </table>
     </div>
   </div>
   <div class="sp-src">
-    <span><b>告知要求</b> 一次性告知全部缺件项，不得反复要求补充</span>
-    <span><b>时限口径</b> 补正期间审核时限中止；补正后自动回到原审核环节，受理时间不变</span>
+    <span><b>记录粒度</b> 按材料项一项一条，记录被退材料项、回退意见、回退层级、经办人与时间</span>
+    <span><b>回退层级</b> 受理初审与复审均可按项回退；复审另可仅退回受理初审重新认定，材料不用重传</span>
+    <span><b>时限口径</b> 补正期间审核时限中止；只重传被标记项，补正后回到原环节继续办理，受理时间不变、不重新排队</span>
     <span><b>逾期处理</b> 超过补正截止时间未补齐的申请自动失效，需重新申请（受理时间按新申请计算）</span>
   </div>
 </main>
@@ -91,62 +97,91 @@
 <div class="drawer-mask"></div>
 <div class="drawer" id="rjDrawer">
   <div class="drawer-head">
-    <h3>驳回与补正告知</h3>
-    <span class="badge orange">退回补正</span>
+    <h3>材料项回退详情 · RC2026-0903-0171</h3>
+    <span class="badge orange">待补正</span>
     <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
   </div>
   <div class="drawer-body">
   <div class="alert alert-warning">
     <i class="fa-solid fa-triangle-exclamation"></i>
-    <div>驳回须<b>一次性告知全部缺件项</b>，不得反复要求补充。告知书将通过湘易办站内消息、微信模板消息、短信<b>多通道电子送达</b>。</div>
+    <div>本轮共标记 <b>2 项</b>材料需重新提交，已<b>一次性告知</b>，不得反复要求补充。申请人<b>只重传被标记项</b>，其余 6 项保持已核状态；补正提交后自动回到<b>受理初审</b>本环节继续办理，受理时间仍为 2026-09-03 11:04，不重新排队。回退意见经湘易办站内消息、微信模板消息、短信<b>多通道电子送达</b>。</div>
   </div>
 
-      <div class="form-grid form-align">
-        <div class="form-item">
-          <label>申请编号 <span class="req">*</span></label>
-          <input type="text" value="RC2026-0903-0171" readonly>
+        <div class="sp-block">
+          <div class="sp-h"><i class="fa-solid fa-rotate-left"></i> 本次回退材料项<span class="sub">第 2 轮 · 2 项</span></div>
+          <div class="sp-b">
+  <div class="sp-tw">
+    <table class="data-table compact">
+      <thead><tr><th>被退材料项</th><th class="cell-lg">回退意见</th><th>回退层级</th><th>经办人</th><th>回退时间</th></tr></thead>
+      <tbody>
+      <tr><td>境外学历学位认证书</td><td class="cell-lg">申请人填报英国曼彻斯特大学硕士学历，上传影像不清晰，认证编号与院校名称无法识别。请重新上传经教育部留学服务中心认证的清晰完整影像（须能识别认证编号、院校名称、学位与毕业时间）</td><td><span class="badge orange">受理初审</span></td><td>周敏</td><td>2026-09-04 16:22</td></tr>
+      <tr><td>劳动合同</td><td class="cell-lg">劳动合同影像缺第 2 页，无法核对合同期限与工作地点。请补齐含全部页的完整影像</td><td><span class="badge orange">受理初审</span></td><td>周敏</td><td>2026-09-04 16:22</td></tr>
+      </tbody>
+    </table>
+  </div>
+          </div>
         </div>
-        <div class="form-item">
-          <label>申请人 <span class="req">*</span></label>
-          <input type="text" value="周宇轩" readonly>
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 办件与补正信息<span class="sub">RC2026-0903-0171</span></div>
+          <div class="sp-b">
+        <div class="sp-kv">
+          <div class="kv"><span class="k">申请人</span><span class="v">周宇轩</span><span class="badge blue">就业青年人才</span></div>
+          <div class="kv"><span class="k">所在单位</span><span class="v">株洲南方阀门股份有限公司</span></div>
+          <div class="kv"><span class="k">联系电话</span><span class="v"><span class="sp-mask">139****3182<span class="mk" onclick="SP.mask(this.parentElement,'13907333182')">查看明文</span></span></span></div>
+          <div class="kv"><span class="k">受理时间</span><span class="v">2026-09-03 11:04</span><span class="muted">回退后不变</span></div>
+          <div class="kv"><span class="k">回退层级</span><span class="v">受理初审</span><span class="badge orange">退申请人补正</span></div>
+          <div class="kv"><span class="k">补正截止</span><span class="v warn">2026-09-19</span><span class="muted">回退之日起 15 日</span></div>
+          <div class="kv"><span class="k">送达方式</span><span class="v">湘易办站内消息 + 微信模板消息 + 短信</span><span class="badge green">已送达</span></div>
+          <div class="kv"><span class="k">当前状态</span><span class="v"><span class="sp-st bad">待补正（按材料项）</span></span></div>
+          <div class="kv"><span class="k">时限与排队</span><span class="v ok">补正期间审核时限中止，补正后继续办理</span><span class="muted">不重新排队</span></div>
         </div>
-        <div class="form-item">
-          <label>驳回类型 <span class="req">*</span></label>
-          <select><option value="">全部</option><option>退回补正</option><option>不予通过</option></select>
+          </div>
         </div>
-        <div class="form-item">
-          <label>驳回理由模板</label>
-          <select data-dict="rejectReason" data-ph="全部"></select>
-          <div class="hint">选择后自动填入说明，可继续编辑</div>
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-clock-rotate-left"></i> 历史回退记录<span class="sub">本件累计 2 轮 · 3 项</span></div>
+          <div class="sp-b">
+  <div class="sp-tw">
+    <table class="data-table compact">
+      <thead><tr><th>轮次</th><th>回退层级</th><th>被退材料项</th><th class="cell-lg">回退意见</th><th>经办人</th><th>回退时间</th><th>补正情况</th></tr></thead>
+      <tbody>
+      <tr><td>第 1 轮</td><td><span class="badge orange">受理初审</span></td><td>身份证正反面</td><td class="cell-lg">影像反光，有效期与签发机关无法识别，请在自然光下重新拍摄上传</td><td>周敏</td><td>2026-09-03 15:40</td><td><span class="badge green">已重传 09-03 17:12</span></td></tr>
+      <tr class="row-warn"><td>第 2 轮</td><td><span class="badge orange">受理初审</span></td><td>境外学历学位认证书</td><td class="cell-lg">影像不清晰，认证编号与院校名称无法识别</td><td>周敏</td><td>2026-09-04 16:22</td><td><span class="badge orange">待补正</span></td></tr>
+      <tr class="row-warn"><td>第 2 轮</td><td><span class="badge orange">受理初审</span></td><td>劳动合同</td><td class="cell-lg">缺第 2 页，无法核对合同期限与工作地点</td><td>周敏</td><td>2026-09-04 16:22</td><td><span class="badge orange">待补正</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+            <p class="hint" style="margin-top:8px"><i class="fa-solid fa-circle-info"></i>
+              历史回退记录一并归入电子档案的办理轨迹，个人端在办件详情同步可见，
+              <span class="link" onclick="location.href='archive-detail.html?id=DZ2026-RC-0171'">查看档案轨迹</span>。</p>
+          </div>
         </div>
-        <div class="form-item col-full">
-          <label>缺件项 <span class="req">*</span></label>
-          <textarea rows="3">①经教育部留学服务中心认证的国（境）外学历学位认证书（须为清晰完整影像，能识别认证编号、院校名称、学位与毕业时间）</textarea>
-        </div>
-        <div class="form-item col-full">
-          <label>驳回说明 <span class="req">*</span></label>
-          <textarea rows="4">经核验，申请人填报英国曼彻斯特大学硕士学历，但未提供经教育部留学服务中心认证的国（境）外学历学位认证书；已上传的影像不清晰，关键字段无法识别。按《株洲市城区创业就业青年人才住房保障管理办法》第八条第三项规定，请补齐上述材料后重新提交。补齐后将自动回到原审核环节，受理时间不变。</textarea>
-        </div>
-        <div class="form-item">
-          <label>补正截止日期 <span class="req">*</span></label>
-          <input type="date">
-          <div class="hint">默认为驳回之日起 15 日</div>
-        </div>
-        <div class="form-item col-full">
-          <label>送达方式 <span class="req">*</span></label>
-          <input type="text" value="湘易办站内消息 + 微信模板消息 + 短信" readonly>
-        </div>
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-folder-open"></i> 未被标记的材料<span class="sub">保持已核状态 · 无需重传</span></div>
+          <div class="sp-b">
+      <div class="file-view">
+        <span class="file-chip"><i class="fa-regular fa-image"></i><span class="fv-name">身份证正反面.jpg</span></span>
+        <span class="file-chip"><i class="fa-regular fa-image"></i><span class="fv-name">户口簿本人页.jpg</span></span>
+        <span class="file-chip"><i class="fa-regular fa-file-lines"></i><span class="fv-name">社保参保证明.pdf</span></span>
+        <span class="file-chip"><i class="fa-regular fa-file-lines"></i><span class="fv-name">个税纳税记录.pdf</span></span>
+        <span class="file-chip"><i class="fa-regular fa-file-lines"></i><span class="fv-name">无房证明.pdf</span></span>
+        <span class="file-chip"><i class="fa-solid fa-signature"></i><span class="fv-name">材料真实性承诺书.pdf</span></span>
       </div>
+            <p class="hint" style="margin-top:8px"><i class="fa-solid fa-circle-info"></i>
+              以上 6 项已完成人工认定，回退不影响其结论，申请人端不再要求重复上传。</p>
+          </div>
+        </div>
   </div>
   <div class="drawer-foot">
-    <button class="btn" data-close-drawer>取消</button>
-    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认对 RC2026-0903-0171 出具「退回补正」结论并电子送达？',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已驳回并电子送达，补正期间时限中止','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+    <button class="btn" data-close-drawer>关闭</button>
+    <button class="btn" onclick="PMS.toast('已向周宇轩推送补正提醒（站内消息 + 短信）','success')"><i class="fa-solid fa-bullhorn"></i> 催办补正</button>
+    <button class="btn btn-primary" onclick="location.href='audit-desk.html'"><i class="fa-solid fa-file-lines"></i> 查看办件</button>
   </div>
 </div>
 <script>
 (function () {
+  /* 台账按材料项一项一条：本月回退 286 项 */
   var t = document.querySelector('main.app-main .table-wrap > table.data-table');
-  if (t) { t._total = 194; }
+  if (t) { t._total = 286; }
 })();
 </script>
 

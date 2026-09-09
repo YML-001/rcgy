@@ -10,24 +10,37 @@
 <link rel="stylesheet" href="../../assets/css/ext.css">
 </head>
 <body class="m-body" data-mtitle="我的房源与合同" data-mmod="M2 个人中心" data-mcode="M2-04"
-      data-mdesc="展示当前承租房源信息、电子租赁合同、保障期起止日期与剩余期限。" data-mback="me.html" data-mtabset="public" data-mtab="me">
+      data-mdesc="展示当前承租房源与房间信息、面积构成、租赁合同要素、签约方式与保障期起止。合同支持下载与打印；线下签约的展示核对确认状态。" data-mback="me.html" data-mtabset="public" data-mtab="me">
 <div class="m-stage">
   <div class="m-phone">
     <div class="m-screen">
       <div class="m-view">
         <div class="m-card">
-          <div class="m-hc-img" style="border-radius:12px 12px 0 0;overflow:hidden;position:relative;height:152px"><img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80" alt="湘江1958 A6-1502">
-            <div class="m-hc-badge" style="position:absolute;left:10px;top:10px;display:flex;gap:5px"><span class="m-tag green">在租</span><span class="m-tag blue">保障期内</span></div>
+          <div class="m-hc-img" style="border-radius:12px 12px 0 0;overflow:hidden;position:relative;height:152px"><img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80" alt="湘江1958 A6-1502-02">
+            <div class="m-hc-badge" style="position:absolute;left:10px;top:10px;display:flex;gap:5px"><span class="m-tag green">在租</span><span class="m-tag blue">保障期内</span><span class="m-tag orange">按间配租</span></div>
           </div>
           <div class="m-card-b">
           <div class="m-kv">
-            <div><span>房源</span><span>湘江1958 人才公寓 A6 栋 1502</span></div>
-            <div><span>户型 / 面积</span><span>二室一厅　建筑面积 78.60 ㎡</span></div>
-            <div><span>管理模式</span><span>整套配租（可配租 2 人）</span></div>
-            <div><span>装修标准</span><span>精装 · 家电家具齐全</span></div>
-            <div><span>房源来源</span><span>收购存量商品房</span></div>
-            <div><span>运营机构</span><span>株洲城发高科人才安居服务有限公司</span></div>
+            <div><span>楼盘</span><span><b>湘江1958 人才公寓</b>　天元区泰山路 199 号</span></div>
+            <div><span>房屋（套）</span><span>A6 栋 1502 室　三室一厅　建筑面积 118.60 ㎡</span></div>
+            <div><span>房间（间）</span><span><b>1502-02 号房间</b>　次卧 · 朝南 · 15/26 层</span></div>
+            <div><span>管理模式</span><span><b>按间配租</b>　全套 3 间 / 3 人　·	<b>同套同性别（男）</b></span></div>
+            <div><span>装修标准</span><span>精装 · 家电家具齐全 · 独立衣柜与书桌</span></div>
+            <div><span>房源来源</span><span>收购商品房转化</span></div>
+            <div><span>运营机构</span><span>株洲市人才安居服务有限公司　0731-28301958</span></div>
           </div>
+          </div>
+        </div>
+        <div class="m-sect">面积构成<span class="m-sect-x">按分摊面积计租</span></div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-ruler-combined"></i>计租面积</div>
+          <div class="m-card-b">
+            <div class="m-mini">
+              <div><div class="mv">14.20</div><div class="ml">套内(㎡)</div></div>
+              <div><div class="mv">12.50</div><div class="ml">公摊(㎡)</div></div>
+              <div><div class="mv ok">26.70</div><div class="ml">计租(㎡)</div></div>
+            </div>
+            <div style="margin-top:8px;font-size:11.5px;color:var(--text-3);text-align:center">计租面积 = 套内面积 + 公共区域按 3 间分摊面积</div>
           </div>
         </div>
         <div class="m-sect">保障期<span class="m-sect-x">自入住之日起 2 年</span></div>
@@ -35,8 +48,8 @@
           <div class="m-card-h"><i class="fa-solid fa-calendar-check"></i>保障期进度</div>
           <div class="m-card-b">
             <div class="m-mini">
-              <div><div class="mv">2026-01-06</div><div class="ml">入住日</div></div>
-              <div><div class="mv">2028-01-05</div><div class="ml">保障期满</div></div>
+              <div><div class="mv">2026-09-24</div><div class="ml">入住日</div></div>
+              <div><div class="mv">2028-09-23</div><div class="ml">保障期满</div></div>
               <div><div class="mv warn">21</div><div class="ml">剩余月数</div></div>
             </div>
             <div class="m-bar" style="margin-top:12px"><span style="width:12.5%"></span></div>
@@ -48,36 +61,56 @@
         <div class="m-note"><i class="fa-solid fa-circle-info"></i>
           <div>保障期届满前系统将<b>自动发起续租资格复核</b>，形成三类结论：继续享受人才政策 / 转按市场租金续租 / 启动退出清退。</div>
         </div>
-        <div class="m-sect">电子租赁合同<span class="m-sect-x">M8-03</span></div>
+        <div class="m-sect">租赁合同<span class="m-sect-x">M8-03</span></div>
         <div class="m-card">
           <div class="m-card-h"><i class="fa-solid fa-file-contract"></i>合同要素</div>
           <div class="m-card-b">
           <div class="m-kv">
             <div><span>合同编号</span><span>RZ2026-00862</span></div>
             <div><span>合同状态</span><span><span class="m-tag green">已生效</span></span></div>
+            <div><span>签约方式</span><span><b>线上电子签约</b>（运营方发起 · 本人手机签章）</span></div>
             <div><span>承租人</span><span>王梓涵</span></div>
-            <div><span>出租方</span><span>株洲城发高科人才安居服务有限公司</span></div>
-            <div><span>租赁期限</span><span>2026-01-06 至 2028-01-05</span></div>
-            <div><span>计租面积</span><span>78.60 ㎡（整套）</span></div>
-            <div><span>租金标准</span><span>18.00 元/㎡·月</span></div>
-            <div><span>签署时间</span><span>2026-09-20 15:08</span></div>
+            <div><span>出租方</span><span>株洲市人才安居服务有限公司</span></div>
+            <div><span>租赁期限</span><span>2026-09-24 至 2028-09-23</span></div>
+            <div><span>计租面积</span><span>26.70 ㎡（按间配租，按分摊面积计租）</span></div>
+            <div><span>人才租金标准</span><span>14.00 元/㎡·月</span></div>
+            <div><span>个人实际应缴</span><span><b style="color:var(--danger)">160.20 元/月</b>（财政补助 213.60 元/月）</span></div>
+            <div><span>签署时间</span><span>2026-09-16 15:08</span></div>
             <div><span>归档编号</span><span>GD2026-RZ-00862</span></div>
           </div>
             <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
-              <button class="m-btn sm ghost" type="button" onclick="MB.toast('电子租赁合同 PDF 已下载')"><i class="fa-solid fa-download"></i> 下载合同</button>
+              <button class="m-btn sm ghost" type="button" onclick="MB.toast('租赁合同 PDF 已下载')"><i class="fa-solid fa-download"></i> 下载合同</button>
+              <button class="m-btn sm ghost" type="button" onclick="MB.toast('已调起打印（原型演示）')"><i class="fa-solid fa-print"></i> 打印合同</button>
               <a class="m-btn sm" href="sign-done.html">查看合同文本</a>
             </div>
           </div>
         </div>
+        <div class="m-note"><i class="fa-solid fa-circle-info"></i>
+          <div>若采用<b>线下签约</b>方式，需先在平台上传合同影像，状态为<b>待运营机构核对确认</b>；
+            核对确认通过后合同才转为<b>已生效</b>，同样支持下载与打印。</div>
+        </div>
+        <div class="m-sect">同套住户<span class="m-sect-x">同套同性别</span></div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-venus-mars"></i>A6 栋 1502 室（3 间）</div>
+          <div class="m-card-b">
+            <div class="m-check">
+              <div class="ok"><i class="fa-solid fa-door-closed"></i><div class="m-chl"><b>1502-01 号房间　主卧</b><span>陈××（男）　·	计租面积 28.90 ㎡　·	2026-09-24 入住</span></div></div>
+              <div class="on" style="border-left:3px solid var(--primary);background:var(--primary-light-2);padding-left:9px"><i class="fa-solid fa-door-open" style="color:var(--primary)"></i><div class="m-chl"><b style="color:var(--primary)">1502-02 号房间　次卧（本人）</b><span>王梓涵（男）　·	计租面积 26.70 ㎡　·	2026-09-24 入住</span></div></div>
+              <div class="ok"><i class="fa-solid fa-door-closed"></i><div class="m-chl"><b>1502-03 号房间　次卧</b><span>彭××（男）　·	计租面积 25.30 ㎡　·	2026-09-24 入住</span></div></div>
+            </div>
+            <div style="margin-top:8px;font-size:11.5px;color:var(--text-3)">公共区域水电燃气与物业费由同套 3 户均摊，账单在「我的账单」中单独列示。</div>
+          </div>
+        </div>
         <div class="m-sect">交付凭证<span class="m-sect-x">M10-02 退租对照依据</span></div>
         <div class="m-cells">
-          <a class="m-cell" href="checkin-handover.html"><span class="m-ci green"><i class="fa-solid fa-clipboard-check"></i></span><span class="m-cl"><b>交付验收单</b><span class="m-cs">家电家具清单与水电气表底数，双方已电子签</span></span><span class="m-cv">2026-01-06</span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="checkin-handover.html"><span class="m-ci green"><i class="fa-solid fa-clipboard-check"></i></span><span class="m-cl"><b>交付验收单</b><span class="m-cs">家电家具清单与水电气表底数，双方已电子签</span></span><span class="m-cv">2026-09-24</span><i class="m-ca fa-solid fa-angle-right"></i></a>
         </div>
         <div class="m-sect">合同相关办理</div>
         <div class="m-cells">
           <a class="m-cell" href="renew-apply.html"><span class="m-ci"><i class="fa-solid fa-rotate"></i></span><span class="m-cl"><b>续租申请</b><span class="m-cs">保障期届满前在线提交</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
           <a class="m-cell" href="quit-early.html"><span class="m-ci orange"><i class="fa-solid fa-door-open"></i></span><span class="m-cl"><b>提前退租申请</b><span class="m-cs">生成费用结算预览后进入腾退流程</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
           <a class="m-cell" href="change-declare.html"><span class="m-ci red"><i class="fa-solid fa-triangle-exclamation"></i></span><span class="m-cl"><b>条件变化主动申报</b><span class="m-cs">购房、离职、离株、婚姻变化</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="value-service.html"><span class="m-ci cyan"><i class="fa-solid fa-hand-sparkles"></i></span><span class="m-cl"><b>增值服务</b><span class="m-cs">衣物洗涤、入室清扫、家政等运营机构服务</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
         </div>
       </div>
     </div>

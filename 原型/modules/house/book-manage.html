@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>预约名单管理 · 株洲市人才住房保障管理平台</title>
+<title>意向登记管理 · 株洲市人才住房保障管理平台</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="../../assets/css/app.css">
 <link rel="stylesheet" href="../../assets/css/spec.css">
@@ -16,76 +16,76 @@
       <i class="fa-solid fa-house bc-home"></i> 株洲市人才住房保障管理平台
       <span class="sep">/</span> 房源筹集与楼盘表
       <span class="sep">/</span> 房源发布与预约
-      <span class="sep">/</span> <span class="cur">预约名单管理</span>
+      <span class="sep">/</span> <span class="cur">意向登记管理</span>
     </div>
     <div class="page-actions">
-      <button class="btn btn-primary" onclick="PMS.confirm({title:'导出确认',message:'确认导出本批次房源预约名单？',detail:'导出名单中预约人姓名按姓 + ×× 脱敏，联系方式仅保留后四位，不含身份证号。导出范围、导出人与导出时间全程留痕，仅限配租组织与房源投放决策使用。',type:'info',okText:'确认导出',onOk:function(){PMS.toast('预约名单已导出（已脱敏），导出记录已留痕','success');}})"><i class="fa-solid fa-download"></i> 导出预约名单</button>
+      <button class="btn btn-primary" onclick="PMS.confirm({title:'导出确认',message:'确认导出意向登记统计与明细？',detail:'导出内容为按楼盘、户型汇总的意向登记量与登记明细。登记人姓名按姓 + ×× 脱敏，联系方式仅保留后四位，不含身份证号。导出范围、导出人与导出时间全程留痕，仅限房源筹集与投放决策使用。',type:'info',okText:'确认导出',onOk:function(){PMS.toast('意向登记统计与明细已导出（已脱敏），导出记录已留痕','success');}})"><i class="fa-solid fa-download"></i> 导出意向登记</button>
       <a class="btn" href="../alloc/batch-list.html"><i class="fa-solid fa-layer-group"></i> 配租批次管理</a>
       <a class="btn" href="shelf-batch.html"><i class="fa-solid fa-tower-broadcast"></i> 批量上架与下架</a>
-      <button class="btn" onclick="PMS.toast('已刷新预约热度统计，数据截至 2026-09-06 18:00','success')"><i class="fa-solid fa-rotate"></i> 刷新热度</button>
+      <button class="btn" onclick="PMS.toast('已刷新意向登记统计，数据截至 2026-09-06 18:00','success')"><i class="fa-solid fa-rotate"></i> 刷新统计</button>
     </div>
   </div>
 
   <div class="alert alert-warning">
     <i class="fa-solid fa-triangle-exclamation"></i>
-    <div>查看各房源<b>预约人数与预约明细</b>，支持<b>导出预约名单</b>。<b>预约数据作为配租组织与房源投放的参考</b>：供需比高的楼盘优先追加投放；已预约本批次房源的申请人在配租排序时<b>优先于普通轮候</b>。</div>
+    <div>意向登记<b>只记录到楼盘与户型两级</b>，<b>不选到具体房源（套）与房间（间）</b>；<b>不生成房源占用与轮候记录</b>、<b>不占位次、不收取任何费用、不产生配租权利</b>，也<b>不作为配租排序依据</b>。登记设<b>有效期（半年）并到期自动失效</b>，仅作<b>需求摸底统计</b>，供房源筹集与投放决策参考。<span class="link" onclick="location.href='../alloc/queue-list.html'">意向登记不进轮候库</span></div>
   </div>
 
   <div class="stat-grid">
     <div class="stat-card">
-      <div class="s-icon blue"><i class="fa-solid fa-calendar-check"></i></div>
-      <div><div class="s-label">预约总人次</div><div class="s-value">3,286</div>
-        <div class="s-trend text-2">涉及 6 个在架楼盘</div></div>
+      <div class="s-icon blue"><i class="fa-solid fa-clipboard-list"></i></div>
+      <div><div class="s-label">意向登记总量</div><div class="s-value">3,286</div>
+        <div class="s-trend text-2">人次 · 涉及 6 个在架楼盘</div></div>
     </div>
     <div class="stat-card">
-      <div class="s-icon green"><i class="fa-solid fa-file-signature"></i></div>
-      <div><div class="s-label">已转申请</div><div class="s-value">1,842</div>
-        <div class="s-trend text-2">人次 · 已进入受理流程</div></div>
+      <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
+      <div><div class="s-label">有效登记</div><div class="s-value">2,614</div>
+        <div class="s-trend text-2">在有效期内 · 有效期半年</div></div>
     </div>
     <div class="stat-card">
       <div class="s-icon cyan"><i class="fa-solid fa-percent"></i></div>
-      <div><div class="s-label">预约转化率</div><div class="s-value">56.1%</div>
+      <div><div class="s-label">转正式申请率</div><div class="s-value">56.1%</div>
         <div class="s-trend text-2">1,842 / 3,286 人次</div></div>
     </div>
     <div class="stat-card dc-alarm">
-      <div class="s-icon orange"><i class="fa-solid fa-fire"></i></div>
-      <div><div class="s-label">供不应求楼盘数</div><div class="s-value">3</div>
-        <div class="s-trend ">供需比大于 1.5 · 建议追加投放</div></div>
+      <div class="s-icon orange"><i class="fa-solid fa-hourglass-end"></i></div>
+      <div><div class="s-label">30 天内到期失效</div><div class="s-value">286</div>
+        <div class="s-trend ">到期自动失效 · 提前 15 天提醒</div></div>
     </div>
   </div>
 
   <div class="card list-card" data-tabs-scope>
     <div class="filter-bar">
-      <div class="filter-item"><label>预约号</label><input type="text" value="YY2026-0286" placeholder="预约号"></div>
+      <div class="filter-item"><label>登记号</label><input type="text" value="YX2026-0286" placeholder="登记号"></div>
       <div class="filter-item"><label>意向楼盘</label><select><option value="">全部</option><option>湘江1958 人才公寓（一、二期）</option><option>清水塘·未来社区（一期）</option><option>云龙人才公寓</option><option>董家塅人才公寓</option><option>田心人才公寓</option><option>渌口人才公寓</option></select></div>
       <div class="filter-item"><label>意向户型</label><select data-dict="roomType" data-ph="全部"></select></div>
-      <div class="filter-item"><label>预约状态</label><select data-dict="bookStatus" data-ph="全部"></select></div>
+      <div class="filter-item"><label>登记状态</label><select><option value="">全部</option><option>有效登记</option><option>已转正式申请</option><option>已到期失效</option><option>已取消</option></select></div>
       <div class="filter-item"><label>是否已转申请</label><select data-dict="yesNo" data-ph="全部"></select></div>
-      <div class="filter-item"><label>预约日期</label><input type="date" value="2026-09-01"></div>
+      <div class="filter-item"><label>登记日期</label><input type="date" value="2026-09-01"></div>
       <div class="filter-actions">
         <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
         <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
       </div>
     </div>
     <div class="tabs">
-      <div class="tab active" data-tab="hot">按楼盘预约热度 <span class="badge orange">6</span></div>
-      <div class="tab" data-tab="detail">预约明细 <span class="badge blue">3,286</span></div>
+      <div class="tab active" data-tab="hot">按楼盘与户型意向量 <span class="badge orange">6</span></div>
+      <div class="tab" data-tab="detail">意向登记明细 <span class="badge blue">3,286</span></div>
     </div>
     <div class="tab-panel active" data-panel="hot">
     <div class="card-body">
-    <p class="hint">供需比 = 预约人次 ÷ 可租套数 · 供需比大于 1.5 的楼盘供不应求，建议追加投放 · 数据截至 2026-09-06 18:00</p>
+    <p class="hint">需求倍数 = 意向登记量 ÷ 可租套数 · 需求倍数大于 1.5 的楼盘需求集中，建议追加筹集与投放 · <b>意向登记不占用房源</b>，可租套数不因登记而减少 · 数据截至 2026-09-06 18:00</p>
     <div class="table-wrap">
       <table class="data-table">
         <thead>
-          <tr><th class="cell-lg">楼盘名称</th><th>所在区</th><th class="num">可租套数</th><th class="num">预约人次</th><th class="num">供需比</th><th>最热户型</th><th class="num">建议投放套数</th><th>操作</th></tr>
+          <tr><th class="cell-lg">楼盘名称</th><th>所在区</th><th class="num">可租套数</th><th class="num">意向登记量</th><th class="num">需求倍数</th><th class="num">单间配套</th><th class="num">一室一厅</th><th class="num">二室一厅</th><th class="num">三室一厅</th><th>最热户型</th><th class="num">建议投放套数</th><th>操作</th></tr>
         </thead>
         <tbody>
-          <tr class="row-warn"><td>湘江1958 人才公寓（一、二期）</td><td>天元区</td><td class="num">620</td><td class="num">1,086</td><td class="num">1.75</td><td><span class="badge blue">一室一厅</span></td><td class="num">620</td><td><span class="link" onclick="location.href='../alloc/batch-list.html'">投放编排</span></td></tr>
-          <tr class="row-warn"><td>清水塘·未来社区（一期）</td><td>石峰区</td><td class="num">486</td><td class="num">826</td><td class="num">1.70</td><td><span class="badge blue">二室一厅</span></td><td class="num">486</td><td><span class="link" onclick="location.href='../alloc/batch-list.html'">投放编排</span></td></tr>
-          <tr class="row-warn"><td>云龙人才公寓</td><td>经开区</td><td class="num">412</td><td class="num">648</td><td class="num">1.57</td><td><span class="badge blue">单间配套</span></td><td class="num">412</td><td><span class="link" onclick="location.href='../alloc/batch-list.html'">投放编排</span></td></tr>
-          <tr><td>董家塅人才公寓</td><td>芦淞区</td><td class="num">328</td><td class="num">386</td><td class="num">1.18</td><td><span class="badge blue">一室一厅</span></td><td class="num">328</td><td><span class="link" onclick="location.href='../alloc/batch-list.html'">投放编排</span></td></tr>
-          <tr><td>田心人才公寓</td><td>石峰区</td><td class="num">274</td><td class="num">226</td><td class="num">0.82</td><td><span class="badge blue">二室一厅</span></td><td class="num">226</td><td><span class="link" onclick="location.href='../alloc/batch-list.html'">投放编排</span></td></tr>
-          <tr><td>渌口人才公寓</td><td>渌口区</td><td class="num">186</td><td class="num">114</td><td class="num">0.61</td><td><span class="badge blue">一室一厅</span></td><td class="num">114</td><td><span class="link" onclick="location.href='../alloc/batch-list.html'">投放编排</span></td></tr>
+          <tr class="row-warn"><td>湘江1958 人才公寓（一、二期）</td><td>天元区</td><td class="num">620</td><td class="num">1,086</td><td class="num">1.75</td><td class="num">186</td><td class="num">462</td><td class="num">308</td><td class="num">130</td><td><span class="badge blue">一室一厅</span></td><td class="num">620</td><td><span class="link" onclick="location.href='../alloc/batch-list.html'">投放编排</span></td></tr>
+          <tr class="row-warn"><td>清水塘·未来社区（一期）</td><td>石峰区</td><td class="num">486</td><td class="num">826</td><td class="num">1.70</td><td class="num">124</td><td class="num">262</td><td class="num">348</td><td class="num">92</td><td><span class="badge blue">二室一厅</span></td><td class="num">486</td><td><span class="link" onclick="location.href='../alloc/batch-list.html'">投放编排</span></td></tr>
+          <tr class="row-warn"><td>云龙人才公寓</td><td>经开区</td><td class="num">412</td><td class="num">648</td><td class="num">1.57</td><td class="num">286</td><td class="num">208</td><td class="num">122</td><td class="num">32</td><td><span class="badge blue">单间配套</span></td><td class="num">412</td><td><span class="link" onclick="location.href='../alloc/batch-list.html'">投放编排</span></td></tr>
+          <tr><td>董家塅人才公寓</td><td>芦淞区</td><td class="num">328</td><td class="num">386</td><td class="num">1.18</td><td class="num">96</td><td class="num">168</td><td class="num">98</td><td class="num">24</td><td><span class="badge blue">一室一厅</span></td><td class="num">328</td><td><span class="link" onclick="location.href='../alloc/batch-list.html'">投放编排</span></td></tr>
+          <tr><td>田心人才公寓</td><td>石峰区</td><td class="num">274</td><td class="num">226</td><td class="num">0.82</td><td class="num">42</td><td class="num">66</td><td class="num">102</td><td class="num">16</td><td><span class="badge blue">二室一厅</span></td><td class="num">226</td><td><span class="link" onclick="location.href='../alloc/batch-list.html'">投放编排</span></td></tr>
+          <tr><td>渌口人才公寓</td><td>渌口区</td><td class="num">186</td><td class="num">114</td><td class="num">0.61</td><td class="num">28</td><td class="num">58</td><td class="num">24</td><td class="num">4</td><td><span class="badge blue">一室一厅</span></td><td class="num">114</td><td><span class="link" onclick="location.href='../alloc/batch-list.html'">投放编排</span></td></tr>
         </tbody>
       </table>
     </div>
@@ -93,23 +93,23 @@
     </div>
     <div class="tab-panel" data-panel="detail">
     <div class="card-body">
-    <p class="hint">姓名按姓 + ×× 脱敏展示 · 预约序位按预约时间先后自动排定，不支持人工调整</p>
+    <p class="hint">姓名按姓 + ×× 脱敏展示 · 登记只到楼盘与户型两级，<b>不选到套与间</b> · 登记<b>不排序位、不占位次</b>，列表默认按登记时间倒序展示</p>
     <div class="table-wrap">
       <table class="data-table">
         <thead>
-          <tr><th>预约号</th><th>预约人</th><th class="cell-lg">意向楼盘</th><th>意向户型</th><th>意向入住时间</th><th>预约时间</th><th class="num">预约序位</th><th>状态</th><th>是否已转申请</th><th>操作</th></tr>
+          <tr><th>登记号</th><th>登记人</th><th class="cell-lg">意向楼盘</th><th>意向户型</th><th>登记时间</th><th>有效期至</th><th>剩余有效期</th><th>登记状态</th><th>是否已转申请</th><th>操作</th></tr>
         </thead>
         <tbody>
-          <tr><td>YY2026-0286</td><td>李××</td><td>湘江1958 人才公寓（一、二期）</td><td>一室一厅</td><td>2026-10-01</td><td>2026-09-01 09:02</td><td class="num">1</td><td><span class="badge purple">已配租</span></td><td><span class="badge green">是</span></td><td><span class="link" onclick="PMS.openDrawer('bookDrawer')">详情</span></td></tr>
-          <tr><td>YY2026-0288</td><td>谭××</td><td>湘江1958 人才公寓（一、二期）</td><td>一室一厅</td><td>2026-10-01</td><td>2026-09-01 09:16</td><td class="num">2</td><td><span class="badge cyan">已转申请</span></td><td><span class="badge green">是</span></td><td><span class="link" onclick="PMS.openDrawer('bookDrawer')">详情</span></td></tr>
-          <tr><td>YY2026-0294</td><td>王××</td><td>清水塘·未来社区（一期）</td><td>二室一厅</td><td>2026-10-15</td><td>2026-09-01 10:26</td><td class="num">3</td><td><span class="badge cyan">已转申请</span></td><td><span class="badge green">是</span></td><td><span class="link" onclick="PMS.openDrawer('bookDrawer')">详情</span></td></tr>
-          <tr><td>YY2026-0302</td><td>肖××</td><td>云龙人才公寓</td><td>单间配套</td><td>2026-10-08</td><td>2026-09-02 08:48</td><td class="num">4</td><td><span class="badge green">已确认</span></td><td><span class="badge gray">否</span></td><td><span class="link" onclick="PMS.openDrawer('bookDrawer')">详情</span></td></tr>
-          <tr><td>YY2026-0316</td><td>周××</td><td>湘江1958 人才公寓（一、二期）</td><td>二室一厅</td><td>2026-11-01</td><td>2026-09-02 14:32</td><td class="num">5</td><td><span class="badge green">已确认</span></td><td><span class="badge gray">否</span></td><td><span class="link" onclick="PMS.openDrawer('bookDrawer')">详情</span></td></tr>
-          <tr><td>YY2026-0328</td><td>刘××</td><td>董家塅人才公寓</td><td>一室一厅</td><td>2026-10-20</td><td>2026-09-03 09:12</td><td class="num">6</td><td><span class="badge blue">预约中</span></td><td><span class="badge gray">否</span></td><td><span class="link" onclick="PMS.openDrawer('bookDrawer')">详情</span></td></tr>
-          <tr class="row-warn"><td>YY2026-0334</td><td>彭××</td><td>清水塘·未来社区（一期）</td><td>二室一厅</td><td>2026-10-15</td><td>2026-09-03 15:06</td><td class="num">7</td><td><span class="badge orange">已改约</span></td><td><span class="badge gray">否</span></td><td><span class="link" onclick="PMS.openDrawer('bookDrawer')">详情</span></td></tr>
-          <tr><td>YY2026-0346</td><td>唐××</td><td>田心人才公寓</td><td>二室一厅</td><td>2026-11-15</td><td>2026-09-04 10:20</td><td class="num">8</td><td><span class="badge blue">预约中</span></td><td><span class="badge gray">否</span></td><td><span class="link" onclick="PMS.openDrawer('bookDrawer')">详情</span></td></tr>
-          <tr class="row-bad"><td>YY2026-0352</td><td>龙××</td><td>云龙人才公寓</td><td>单间配套</td><td>2026-10-08</td><td>2026-09-04 16:44</td><td class="num">9</td><td><span class="badge red">已取消</span></td><td><span class="badge gray">否</span></td><td><span class="link" onclick="PMS.openDrawer('bookDrawer')">详情</span></td></tr>
-          <tr><td>YY2026-0368</td><td>陈××</td><td>渌口人才公寓</td><td>一室一厅</td><td>2026-11-20</td><td>2026-09-05 09:38</td><td class="num">10</td><td><span class="badge blue">预约中</span></td><td><span class="badge gray">否</span></td><td><span class="link" onclick="PMS.openDrawer('bookDrawer')">详情</span></td></tr>
+          <tr><td>YX2026-0286</td><td>李××</td><td>湘江1958 人才公寓（一、二期）</td><td>一室一厅</td><td>2026-09-01 09:02</td><td>2027-03-01</td><td><div class="sp-days"><span class="dv">173 天</span><span class="db"><span style="width:95%"></span></span></div></td><td><span class="badge cyan">已转正式申请</span></td><td><span class="badge green">是</span></td><td><span class="link" onclick="PMS.openDrawer('yxDrawer')">详情</span></td></tr>
+          <tr><td>YX2026-0288</td><td>谭××</td><td>湘江1958 人才公寓（一、二期）</td><td>三室一厅</td><td>2026-09-01 09:16</td><td>2027-03-01</td><td><div class="sp-days"><span class="dv">173 天</span><span class="db"><span style="width:95%"></span></span></div></td><td><span class="badge cyan">已转正式申请</span></td><td><span class="badge green">是</span></td><td><span class="link" onclick="PMS.openDrawer('yxDrawer')">详情</span></td></tr>
+          <tr><td>YX2026-0294</td><td>王××</td><td>清水塘·未来社区（一期）</td><td>二室一厅</td><td>2026-09-01 10:26</td><td>2027-03-01</td><td><div class="sp-days"><span class="dv">173 天</span><span class="db"><span style="width:95%"></span></span></div></td><td><span class="badge cyan">已转正式申请</span></td><td><span class="badge green">是</span></td><td><span class="link" onclick="PMS.openDrawer('yxDrawer')">详情</span></td></tr>
+          <tr><td>YX2026-0302</td><td>肖××</td><td>云龙人才公寓</td><td>单间配套</td><td>2026-09-02 08:48</td><td>2027-03-02</td><td><div class="sp-days"><span class="dv">174 天</span><span class="db"><span style="width:95%"></span></span></div></td><td><span class="badge green">有效登记</span></td><td><span class="badge gray">否</span></td><td><span class="link" onclick="PMS.openDrawer('yxDrawer')">详情</span></td></tr>
+          <tr><td>YX2026-0316</td><td>周××</td><td>湘江1958 人才公寓（一、二期）</td><td>二室一厅</td><td>2026-09-02 14:32</td><td>2027-03-02</td><td><div class="sp-days"><span class="dv">174 天</span><span class="db"><span style="width:95%"></span></span></div></td><td><span class="badge green">有效登记</span></td><td><span class="badge gray">否</span></td><td><span class="link" onclick="PMS.openDrawer('yxDrawer')">详情</span></td></tr>
+          <tr><td>YX2026-0328</td><td>刘××</td><td>董家塅人才公寓</td><td>一室一厅</td><td>2026-09-03 09:12</td><td>2027-03-03</td><td><div class="sp-days"><span class="dv">175 天</span><span class="db"><span style="width:96%"></span></span></div></td><td><span class="badge green">有效登记</span></td><td><span class="badge gray">否</span></td><td><span class="link" onclick="PMS.openDrawer('yxDrawer')">详情</span></td></tr>
+          <tr class="row-warn"><td>YX2026-0334</td><td>彭××</td><td>清水塘·未来社区（一期）</td><td>二室一厅</td><td>2026-09-03 15:06</td><td>2027-03-03</td><td><div class="sp-days"><span class="dv">175 天</span><span class="db"><span style="width:96%"></span></span></div></td><td><span class="badge orange">已变更意向</span></td><td><span class="badge gray">否</span></td><td><span class="link" onclick="PMS.openDrawer('yxDrawer')">详情</span></td></tr>
+          <tr class="row-warn"><td>YX2026-0148</td><td>唐××</td><td>田心人才公寓</td><td>二室一厅</td><td>2026-03-20 10:20</td><td><b style="color:var(--lv-orange)">2026-09-20</b></td><td><div class="sp-days d30"><span class="dv">11 天</span><span class="db"><span style="width:6%"></span></span></div></td><td><span class="badge green">有效登记</span></td><td><span class="badge gray">否</span></td><td><span class="link" onclick="PMS.openDrawer('yxDrawer')">详情</span></td></tr>
+          <tr class="row-bad"><td>YX2026-0106</td><td>龙××</td><td>云龙人才公寓</td><td>单间配套</td><td>2026-02-14 16:44</td><td><b style="color:var(--danger)">2026-08-14</b></td><td><div class="sp-days dx"><span class="dv">已到期</span><span class="db"><span style="width:100%"></span></span></div></td><td><span class="badge gray">已到期失效</span></td><td><span class="badge gray">否</span></td><td><span class="link" onclick="PMS.openDrawer('yxDrawer')">详情</span></td></tr>
+          <tr><td>YX2026-0368</td><td>陈××</td><td>渌口人才公寓</td><td>一室一厅</td><td>2026-09-05 09:38</td><td>2027-03-05</td><td><div class="sp-days"><span class="dv">177 天</span><span class="db"><span style="width:97%"></span></span></div></td><td><span class="badge green">有效登记</span></td><td><span class="badge gray">否</span></td><td><span class="link" onclick="PMS.openDrawer('yxDrawer')">详情</span></td></tr>
         </tbody>
       </table>
     </div>
@@ -118,17 +118,17 @@
   </div>
 
   <div class="sp-block" style="margin-top:8px">
-    <div class="sp-h"><i class="fa-solid fa-list"></i> 预约优先规则<span class="sub">YX-1 至 YX-5 · 配租排序时适用</span></div>
+    <div class="sp-h"><i class="fa-solid fa-list"></i> 意向登记口径<span class="sub">YX-1 至 YX-5 · 只作需求摸底统计</span></div>
     <div class="sp-b">
       <div class="sp-tw">
         <table class="data-table compact">
           <thead><tr><th>规则号</th><th>规则内容</th><th class="cell-lg">判定说明</th></tr></thead>
           <tbody>
-          <tr><td><b>YX-1</b></td><td>预约优先于普通轮候</td><td><b>已预约本批次房源的申请人整体优先于普通轮候</b>，先排预约人再排轮候</td></tr>
-          <tr><td><b>YX-2</b></td><td>预约内部按时间先后</td><td>同为预约的按<b>预约时间先后</b>排序（精确到分秒），即预约序位，不支持人工调整</td></tr>
-          <tr><td><b>YX-3</b></td><td>改约重排序位</td><td>改约至其他楼盘或户型的按<b>改约时间</b>重排序位，不保留原序位</td></tr>
-          <tr><td><b>YX-4</b></td><td>取消后不再优先</td><td>已取消预约不再享有优先权；配租不摇号，按申请受理时间顺序排定</td></tr>
-          <tr><td><b>YX-5</b></td><td>预约不等于配租资格</td><td>预约仅决定排序先后，仍须通过<span class="link" onclick="location.href='../apply/audit-desk.html'">资格审核两级办理</span></td></tr>
+          <tr><td><b>YX-1</b></td><td><b>只登记到楼盘与户型</b></td><td>登记层级为<b>楼盘（小区）+ 户型（室、厅）</b>两级，<b>不选到具体房源（套）与房间（间）</b>；房间级由系统在资格审核通过后的<b>自动配租</b>环节确定。<span class="link" onclick="location.href='../alloc/auto-alloc.html'">自动配租匹配规则</span></td></tr>
+          <tr class="row-warn"><td><b>YX-2</b></td><td><b>不占房源、不进轮候库</b></td><td>登记<b>不生成房源占用记录</b>，可租套数不因登记而减少；<b>不生成轮候记录、不占轮候位次</b>，也<b>不收取任何费用</b>。<span class="link" onclick="location.href='../alloc/queue-list.html'">意向轮候库管理</span></td></tr>
+          <tr class="row-warn"><td><b>YX-3</b></td><td><b>不产生配租权利</b></td><td>是否登记过意向<b>不影响配租先后</b>：配租位次一律按<b>资格审核通过时间</b>排定，<b>意向登记不作为排序依据</b>。登记只用于摸清需求与判断投放方向，并在申请时一键带入已选楼盘与户型（可更换）。<span class="link" onclick="location.href='../alloc/order-list.html'">配租位次名单</span></td></tr>
+          <tr><td><b>YX-4</b></td><td>有效期与到期自动失效</td><td>登记有效期<b>半年</b>（后台参数，细则明确后改参数即可）；到期<b>自动失效并从有效登记统计中剔除</b>，提前 15 天推送提醒。失效后可重新登记，重新登记不影响任何配租权利</td></tr>
+          <tr><td><b>YX-5</b></td><td>变更、取消与转正式申请</td><td>有效期内可<b>自由变更意向楼盘与户型或取消</b>，变更与取消<b>均无任何不利后果</b>（无序位、无优先权可失）；期限内可转为正式申请，转入时支持更换意向楼盘与户型，仍须通过<span class="link" onclick="location.href='../apply/two-level-audit.html'">资格审核两级办理</span></td></tr>
           </tbody>
         </table>
       </div>
@@ -136,37 +136,37 @@
   </div>
 
   <div class="sp-src">
-    <span><b>依据</b> 2026 年 9 月 6 日向市住建局汇报讨论会议决议</span>
-    <span><b>预约口径</b> 小程序须实现房源预约预定，参照省级平台做法；预约数据作为配租组织与房源投放的参考</span>
-    <span><b>排序口径</b> 已预约本批次房源的申请人优先于普通轮候，同为预约的按预约时间先后</span>
-    <span><b>导出脱敏</b> 预约名单导出时姓名按姓 + ×× 脱敏，联系方式仅保留后四位，不含身份证号，导出记录留痕</span>
+    <span><b>依据</b> 2026 年 9 月 8 日用户调研座谈会决议：房源预约整体改为意向登记，只作需求摸底与统计分析</span>
+    <span><b>登记口径</b> <b>只到楼盘与户型</b>，<b>不占房源、不进轮候库、不收费用、不产生配租权利、不作为排序依据</b></span>
+    <span><b>有效期</b> 半年（后台参数），<b>到期自动失效</b>，提前 15 天提醒；失效后可重新登记</span>
+    <span><b>统计用途</b> 按楼盘、户型汇总意向量与需求倍数，作为房源筹集与投放依据；导出时姓名脱敏、联系方式仅留后四位，导出记录留痕</span>
   </div>
 </main>
 
 <div class="drawer-mask"></div>
-<div class="drawer" id="bookDrawer">
+<div class="drawer" id="yxDrawer">
   <div class="drawer-head">
-    <h3>预约明细</h3>
-    <span class="badge green">已确认</span>
+    <h3>意向登记明细</h3>
+    <span class="badge green">有效登记</span>
     <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
   </div>
   <div class="drawer-body">
     <div class="alert alert-warning">
       <i class="fa-solid fa-triangle-exclamation"></i>
-      <div>预约信息由申请人在<b>小程序端</b>自主填报，经办人可协助<b>改约或取消</b>，但<b>不得手工调整预约序位</b>。改约后按改约时间重新排定序位；取消后不再享有配租优先权。</div>
+      <div>意向登记由申请人在<b>小程序端</b>自主填报，只填到<b>楼盘与户型</b>两级。经办人可协助变更或取消，<b>登记不排序位、不占房源、不产生配租权利</b>，变更与取消均<b>无任何不利后果</b>。</div>
     </div>
 
     <div class="form-grid form-align">
       <div class="form-item">
-        <label>预约号 <span class="req">*</span></label>
-        <input type="text" value="YY2026-0316" readonly>
+        <label>登记号 <span class="req">*</span></label>
+        <input type="text" value="YX2026-0316" readonly>
       </div>
       <div class="form-item">
-        <label>预约状态 <span class="req">*</span></label>
-        <select data-dict="bookStatus" data-selected="2" data-ph=""></select>
+        <label>登记状态 <span class="req">*</span></label>
+        <select><option>有效登记</option><option>已转正式申请</option><option>已到期失效</option><option>已取消</option></select>
       </div>
       <div class="form-item">
-        <label>预约人 <span class="req">*</span></label>
+        <label>登记人 <span class="req">*</span></label>
         <input type="text" value="周××" readonly>
         <div class="hint">姓名脱敏展示，完整信息见人才档案</div>
       </div>
@@ -177,23 +177,32 @@
       <div class="form-item col-full">
         <label>意向楼盘 <span class="req">*</span></label>
         <select><option>湘江1958 人才公寓（一、二期）</option><option>清水塘·未来社区（一期）</option><option>云龙人才公寓</option><option>董家塅人才公寓</option><option>田心人才公寓</option><option>渌口人才公寓</option></select>
+        <div class="hint">只选到楼盘（小区），<b>不选具体房源（套）与房间（间）</b></div>
       </div>
       <div class="form-item">
         <label>意向户型 <span class="req">*</span></label>
         <select data-dict="roomType" data-selected="3" data-ph=""></select>
       </div>
       <div class="form-item">
-        <label>意向入住时间 <span class="req">*</span></label>
-        <input type="date" value="2026-11-01">
+        <label>登记渠道 <span class="req">*</span></label>
+        <input type="text" value="湘易办小程序" readonly>
       </div>
       <div class="form-item">
-        <label>预约时间 <span class="req">*</span></label>
-        <input type="text" value="2026-09-02 14:32（湘易办小程序）" readonly>
+        <label>登记时间 <span class="req">*</span></label>
+        <input type="text" value="2026-09-02 14:32" readonly>
       </div>
       <div class="form-item">
-        <label>预约序位 <span class="req">*</span></label>
-        <input type="text" value="第 5 位（同楼盘同户型内第 2 位）" readonly>
-        <div class="hint">按预约时间先后自动排定，不支持人工调整</div>
+        <label>有效期至 <span class="req">*</span></label>
+        <input type="text" value="2027-03-02（自登记之日起半年）" readonly>
+        <div class="hint">到期<b>自动失效</b>，提前 15 天推送提醒；后台参数，细则明确后改参数即可</div>
+      </div>
+      <div class="form-item">
+        <label>房源占用 <span class="req">*</span></label>
+        <input type="text" value="无——意向登记不生成房源占用记录" readonly>
+      </div>
+      <div class="form-item">
+        <label>轮候记录 <span class="req">*</span></label>
+        <input type="text" value="无——意向登记不进轮候库、不占位次" readonly>
       </div>
       <div class="form-item">
         <label>是否已转申请 <span class="req">*</span></label>
@@ -201,28 +210,29 @@
       </div>
       <div class="form-item">
         <label>关联申请编号</label>
-        <input type="text" value="尚未转申请，预约有效期至 2026-09-30">
+        <input type="text" value="尚未转申请，登记有效期至 2027-03-02">
       </div>
       <div class="form-item col-full">
-        <label>配租优先说明 <span class="req">*</span></label>
-        <textarea rows="3" readonly>本预约命中规则 YX-1：已预约本批次房源，配租排序时整体优先于普通轮候申请人。
-命中规则 YX-2：同为预约的按预约时间 2026-09-02 14:32 先后排序，当前预约序位第 5 位。
-提示：预约仅决定排序先后，仍须通过资格审核两级办理方可进入配租名单。</textarea>
+        <label>口径说明 <span class="req">*</span></label>
+        <textarea rows="4" readonly>命中规则 YX-1：登记只到楼盘与户型两级，房间级由系统在资格审核通过后的自动配租环节确定。
+命中规则 YX-2：本次登记未生成房源占用记录，未生成轮候记录，未占用轮候位次，未收取任何费用。
+命中规则 YX-3：意向登记不产生配租权利、不作为配租排序依据；配租位次一律按资格审核通过时间排定。
+命中规则 YX-4：有效期至 2027-03-02，到期自动失效并从有效登记统计中剔除。</textarea>
       </div>
       <div class="form-item col-full">
         <label>经办处置 <span class="req">*</span></label>
-        <select><option>维持现状（不作调整）</option><option>协助改约至其他楼盘或户型</option><option>协助取消预约</option><option>短信提醒尽快转申请</option></select>
+        <select><option>维持现状（不作调整）</option><option>协助变更意向楼盘或户型</option><option>协助取消登记</option><option>短信提醒尽快转正式申请</option><option>短信提醒有效期即将届满</option></select>
       </div>
       <div class="form-item col-full">
         <label>处置说明 <span class="req">*</span></label>
-        <textarea rows="3">预约人周××预约湘江1958 人才公寓二室一厅，意向入住时间 2026-11-01，预约序位第 5 位，尚未转为正式申请。已通过短信提醒其在预约有效期 2026-09-30 前提交申请，逾期未转申请的预约自动失效并释放序位。</textarea>
+        <textarea rows="3">登记人周××登记湘江1958 人才公寓二室一厅，登记时间 2026-09-02 14:32，有效期至 2027-03-02，尚未转为正式申请。已通过短信提醒其在有效期届满前提交申请；本次登记未占用房源、未进入轮候库，变更或取消不影响其今后的配租位次。</textarea>
       </div>
     </div>
   </div>
   <div class="drawer-foot">
     <button class="btn" data-close-drawer>取消</button>
-    <button class="btn" onclick="PMS.toast('已向预约人发送转申请提醒短信','success')">发送提醒</button>
-    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认保存对预约 YY2026-0316 的处置意见？',detail:'保存后处置记录与经办人留痕。预约序位由系统按预约时间自动排定，不因本次处置发生变化。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('处置意见已保存并留痕','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+    <button class="btn" onclick="PMS.toast('已向登记人发送转正式申请提醒短信','success')">发送提醒</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认保存对意向登记 YX2026-0316 的处置意见？',detail:'保存后处置记录与经办人留痕。意向登记不占房源、不进轮候库、不产生配租权利，本次处置不影响该登记人今后的配租位次。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('处置意见已保存并留痕','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
   </div>
 </div>
 

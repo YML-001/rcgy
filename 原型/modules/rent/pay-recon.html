@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>翼支付收缴与对账 · 株洲市人才住房保障管理平台</title>
+<title>收缴与对账 · 株洲市人才住房保障管理平台</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="../../assets/css/app.css">
 <link rel="stylesheet" href="../../assets/css/spec.css">
@@ -16,48 +16,155 @@
       <i class="fa-solid fa-house bc-home"></i> 株洲市人才住房保障管理平台
       <span class="sep">/</span> 租金收缴与年审退出
       <span class="sep">/</span> 租金与费用
-      <span class="sep">/</span> <span class="cur">翼支付收缴对账</span>
+      <span class="sep">/</span> <span class="cur">收缴与对账</span>
     </div>
     <div class="page-actions">
+      <a class="btn" href="offline-pay.html"><i class="fa-solid fa-file-circle-check"></i> 线下缴费凭证审核</a>
+      <a class="btn" href="pay-channel.html"><i class="fa-solid fa-sliders"></i> 支付渠道配置</a>
       <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
     </div>
   </div>
 
   <div class="alert alert-warning">
     <i class="fa-solid fa-triangle-exclamation"></i>
-    <div>对接<b>电信翼支付</b>完成线上收缴并自动核销账单，<b>逐日对账并生成差错清单</b>，按楼盘、运营机构、缴费周期统计收缴率与到账情况。</div>
+    <div>收缴渠道<b>三类并列</b>：<b>电信翼支付</b>、<b>微信支付</b>、<b>线下缴费</b>，由承租人自行选择。收款账户<b>按房源所属运营机构路由</b>到该机构对公账户与商户号，<b>平台不归集资金、不代收</b>。线上渠道支付成功<b>实时核销</b>并逐日对账；<b>线下缴费以运营机构确认时间为核销时点</b>。</div>
   </div>
 
   <div class="stat-grid">
     <div class="stat-card">
       <div class="s-icon blue"><i class="fa-solid fa-mobile-screen-button"></i></div>
       <div><div class="s-label">本月收缴笔数</div><div class="s-value">2,486</div>
-        <div class="s-trend text-2">含租金与代收项</div></div>
+        <div class="s-trend text-2">翼支付 1,268 · 微信 962 · 线下 256</div></div>
     </div>
     <div class="stat-card">
       <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
       <div><div class="s-label">实收金额</div><div class="s-value">1,203,180.00</div>
-        <div class="s-trend text-2">收缴率 93.5%</div></div>
+        <div class="s-trend text-2">收缴率 93.5% · 元</div></div>
     </div>
     <div class="stat-card">
-      <div class="s-icon cyan"><i class="fa-solid fa-right-left"></i></div>
-      <div><div class="s-label">对账一致</div><div class="s-value">2,483</div>
-        <div class="s-trend text-2">占 99.9%</div></div>
+      <div class="s-icon orange"><i class="fa-solid fa-hourglass-half"></i></div>
+      <div><div class="s-label">线下待确认</div><div class="s-value">18</div>
+        <div class="s-trend text-2">8,420.00 元 · 不计逾期</div></div>
     </div>
     <div class="stat-card dc-alarm">
       <div class="s-icon red"><i class="fa-solid fa-triangle-exclamation"></i></div>
-      <div><div class="s-label">对账差错</div><div class="s-value">3</div>
-        <div class="s-trend ">流水未匹配账单</div></div>
+      <div><div class="s-label">对账差错</div><div class="s-value">5</div>
+        <div class="s-trend ">翼支付 2 · 微信 1 · 线下 2</div></div>
     </div>
   </div>
 
-  <div class="card list-card">
+  <div class="card list-card" data-tabs-scope>
+    <div class="tabs">
+      <div class="tab active" data-tab="qdhz"><i class="fa-solid fa-layer-group"></i> 分渠道对账 <span class="badge blue">3 段</span></div>
+      <div class="tab" data-tab="ccmx"><i class="fa-solid fa-triangle-exclamation"></i> 对账明细 <span class="badge red">差错 5</span></div>
+      <div class="tab" data-tab="dzkj"><i class="fa-solid fa-list"></i> 对账口径</div>
+    </div>
+
+    <div class="tab-panel active" data-panel="qdhz">
+    <div class="card-body tight">
+    <div class="sp-scroll">
+
+    <div class="sp-block">
+      <div class="sp-h"><i class="fa-solid fa-table-columns"></i> 渠道对账汇总
+        <span class="sub">2026-09 账期 · 三类渠道并列 · <span class="link" onclick="PMS.toast('已重新取数：翼支付 1,268 笔、微信 962 笔、线下 256 笔','success')">重新取数</span></span>
+      </div>
+      <div class="sp-b">
+      <div class="sp-tw">
+        <table class="data-table compact">
+          <thead><tr><th>支付渠道</th><th class="num">收缴笔数</th><th class="num">收缴金额（元）</th><th class="num">已核销笔数</th><th class="num">已核销金额（元）</th><th class="num">待确认</th><th class="num">差错数</th><th>核销时点</th><th>对账方式</th></tr></thead>
+          <tbody>
+            <tr><td><span class="badge blue">电信翼支付</span></td><td class="num">1,268</td><td class="num">618,420.00</td><td class="num">1,266</td><td class="num">617,659.20</td><td class="num"><span class="muted">—</span></td><td class="num"><span class="badge red">2</span></td><td>支付成功<b>实时核销</b></td><td>逐日对账（每日 03:00）拉取翼支付流水</td></tr>
+            <tr><td><span class="badge green">微信支付</span></td><td class="num">962</td><td class="num">466,380.00</td><td class="num">961</td><td class="num">466,147.00</td><td class="num"><span class="muted">—</span></td><td class="num"><span class="badge red">1</span></td><td>支付成功<b>实时核销</b></td><td>逐日对账（每日 03:30）拉取微信对账单</td></tr>
+            <tr class="row-warn"><td><span class="badge orange">线下缴费</span></td><td class="num">256</td><td class="num">118,380.00</td><td class="num">236</td><td class="num">109,270.80</td><td class="num"><b>18</b></td><td class="num"><span class="badge red">2</span></td><td><b>运营机构确认时间</b></td><td>凭证与银行流水人工核对，确认即核销</td></tr>
+            <tr><td><span class="badge gray">合计</span></td><td class="num"><b>2,486</b></td><td class="num"><b>1,203,180.00</b></td><td class="num"><b>2,463</b></td><td class="num"><b>1,193,077.00</b></td><td class="num"><b>18</b></td><td class="num"><b>5</b></td><td><span class="muted">—</span></td><td><span class="muted">—</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="hint" style="margin-top:8px"><i class="fa-solid fa-circle-info"></i> 三类渠道的资金<b>均直接进入房源所属运营机构的对公账户</b>，平台只做账单核销与对账，<b>不归集资金、不代收</b>。</p>
+      </div>
+    </div>
+
+    <div class="sp-block">
+      <div class="sp-h"><i class="fa-solid fa-bolt"></i> 第一段 · 电信翼支付
+        <span class="sub">实时到账 · 实时核销 · 本月 1,268 笔 / 618,420.00 元 · 差错 2 笔</span>
+      </div>
+      <div class="sp-b">
+      <div class="sp-tw">
+        <table class="data-table compact">
+          <thead><tr><th class="cell-lg">运营机构（收款方）</th><th>翼支付商户号</th><th class="num">笔数</th><th class="num">到账金额（元）</th><th class="num">已核销笔数</th><th class="num">已核销金额（元）</th><th class="num">差错数</th><th>对账状态</th></tr></thead>
+          <tbody>
+            <tr class="row-warn"><td>株洲市人才安居服务有限公司</td><td>YZF4302****0001</td><td class="num">628</td><td class="num">306,240.00</td><td class="num">627</td><td class="num">305,768.40</td><td class="num">1</td><td><span class="badge orange">差错待处理</span></td></tr>
+            <tr class="row-warn"><td>株洲城建人才公寓运营管理有限公司</td><td>YZF4302****0002</td><td class="num">402</td><td class="num">196,860.00</td><td class="num">401</td><td class="num">196,570.80</td><td class="num">1</td><td><span class="badge orange">差错待处理</span></td></tr>
+            <tr><td>株洲清水塘安居服务有限公司</td><td>YZF4302****0003</td><td class="num">238</td><td class="num">115,320.00</td><td class="num">238</td><td class="num">115,320.00</td><td class="num">0</td><td><span class="badge green">一致</span></td></tr>
+            <tr><td>云龙示范区人才安居服务中心</td><td><span class="muted">联调中</span></td><td class="num">0</td><td class="num">0.00</td><td class="num">0</td><td class="num">0.00</td><td class="num">0</td><td><span class="badge gray">渠道未启用</span></td></tr>
+            <tr><td><span class="badge gray">小计</span></td><td><span class="muted">—</span></td><td class="num"><b>1,268</b></td><td class="num"><b>618,420.00</b></td><td class="num"><b>1,266</b></td><td class="num"><b>617,659.20</b></td><td class="num"><b>2</b></td><td><span class="muted">—</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="hint" style="margin-top:8px"><i class="fa-solid fa-clock"></i> 核销时点：<b>支付成功回调到达即核销</b>；回调丢失的由逐日对账补偿核销，补偿核销时间单独记录。</p>
+      </div>
+    </div>
+
+    <div class="sp-block">
+      <div class="sp-h"><i class="fa-brands fa-weixin"></i> 第二段 · 微信支付
+        <span class="sub">实时到账 · 实时核销 · 本月 962 笔 / 466,380.00 元 · 差错 1 笔</span>
+      </div>
+      <div class="sp-b">
+      <div class="sp-tw">
+        <table class="data-table compact">
+          <thead><tr><th class="cell-lg">运营机构（收款方）</th><th>微信支付商户号</th><th class="num">笔数</th><th class="num">到账金额（元）</th><th class="num">已核销笔数</th><th class="num">已核销金额（元）</th><th class="num">差错数</th><th>对账状态</th></tr></thead>
+          <tbody>
+            <tr><td>株洲市人才安居服务有限公司</td><td>16853****07</td><td class="num">546</td><td class="num">264,520.00</td><td class="num">546</td><td class="num">264,520.00</td><td class="num">0</td><td><span class="badge green">一致</span></td></tr>
+            <tr class="row-warn"><td>株洲城建人才公寓运营管理有限公司</td><td>16871****42</td><td class="num">416</td><td class="num">201,860.00</td><td class="num">415</td><td class="num">201,627.00</td><td class="num">1</td><td><span class="badge orange">差错待处理</span></td></tr>
+            <tr><td>株洲清水塘安居服务有限公司</td><td><span class="muted">未开通</span></td><td class="num">0</td><td class="num">0.00</td><td class="num">0</td><td class="num">0.00</td><td class="num">0</td><td><span class="badge gray">商户号未开通</span></td></tr>
+            <tr><td>云龙示范区人才安居服务中心</td><td><span class="muted">联调中</span></td><td class="num">0</td><td class="num">0.00</td><td class="num">0</td><td class="num">0.00</td><td class="num">0</td><td><span class="badge gray">渠道未启用</span></td></tr>
+            <tr><td><span class="badge gray">小计</span></td><td><span class="muted">—</span></td><td class="num"><b>962</b></td><td class="num"><b>466,380.00</b></td><td class="num"><b>961</b></td><td class="num"><b>466,147.00</b></td><td class="num"><b>1</b></td><td><span class="muted">—</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="hint" style="margin-top:8px"><i class="fa-solid fa-clock"></i> 核销时点：<b>支付成功回调到达即核销</b>；未开通微信商户号的机构，其房源承租人只能选择翼支付或线下缴费。</p>
+      </div>
+    </div>
+
+    <div class="sp-block">
+      <div class="sp-h"><i class="fa-solid fa-file-circle-check"></i> 第三段 · 线下缴费
+        <span class="sub">转账或现金 · <b>以运营机构确认时间为核销时点</b> · 本月 256 笔 / 118,380.00 元 · <span class="link" onclick="location.href='offline-pay.html'">去审核凭证</span></span>
+      </div>
+      <div class="sp-b">
+      <div class="alert alert-info">
+        <i class="fa-solid fa-circle-info"></i>
+        <div>线下缴费<b>不产生支付平台流水</b>，凭证有两条来源：<b>承租人自行转账后在小程序上传</b>、<b>运营机构代收后在 PC 端代传</b>。两者均须<b>由运营机构核对确认后才算缴费完成、才核销账单</b>；<b>核销时点以确认时间为准</b>，未确认的账单状态为「待确认」，<b>不计逾期、不纳入欠租统计</b>。</div>
+      </div>
+      <div class="sp-tw">
+        <table class="data-table compact">
+          <thead><tr><th class="cell-lg">运营机构（收款方）</th><th>对公收款账户（脱敏）</th><th class="num">笔数</th><th class="num">到账金额（元）</th><th class="num">已确认核销</th><th class="num">待确认</th><th class="num">金额不一致退回</th><th class="num">平均确认时长</th><th>操作</th></tr></thead>
+          <tbody>
+            <tr class="row-warn"><td>株洲市人才安居服务有限公司</td><td>中国建设银行株洲天元支行　4301****8826</td><td class="num">86</td><td class="num">39,820.00</td><td class="num">79</td><td class="num">6</td><td class="num">1</td><td class="num">6.2 小时</td><td><span class="link" onclick="location.href='offline-pay.html'">凭证审核</span></td></tr>
+            <tr><td>株洲城建人才公寓运营管理有限公司</td><td>中国工商银行株洲芦淞支行　1901****3074</td><td class="num">52</td><td class="num">24,060.00</td><td class="num">48</td><td class="num">4</td><td class="num">0</td><td class="num">9.6 小时</td><td><span class="link" onclick="location.href='offline-pay.html'">凭证审核</span></td></tr>
+            <tr><td>株洲清水塘安居服务有限公司</td><td>中国银行株洲石峰支行　5883****2140</td><td class="num">44</td><td class="num">20,340.00</td><td class="num">41</td><td class="num">3</td><td class="num">0</td><td class="num">14.8 小时</td><td><span class="link" onclick="location.href='offline-pay.html'">凭证审核</span></td></tr>
+            <tr class="row-warn"><td>云龙示范区人才安居服务中心</td><td>中国农业银行株洲云龙支行　4302****6619</td><td class="num">74</td><td class="num">34,160.00</td><td class="num">68</td><td class="num">5</td><td class="num">1</td><td class="num">8.4 小时</td><td><span class="link" onclick="location.href='offline-pay.html'">凭证审核</span></td></tr>
+            <tr><td><span class="badge gray">小计</span></td><td><span class="muted">—</span></td><td class="num"><b>256</b></td><td class="num"><b>118,380.00</b></td><td class="num"><b>236</b></td><td class="num"><b>18</b></td><td class="num"><b>2</b></td><td class="num"><b>9.1 小时</b></td><td><span class="muted">—</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="hint" style="margin-top:8px"><i class="fa-solid fa-clock"></i> 核销时点：<b>运营机构点击「确认核销」的时间</b>，不以承租人转账时间为准；是否按期缴纳另按转账时间与缴费截止日比对认定。</p>
+      </div>
+    </div>
+
+    </div>
+    </div>
+    </div>
+
+    <div class="tab-panel" data-panel="ccmx">
+    <div class="card-body tight">
     <div class="filter-bar">
       <div class="filter-item"><label>对账日期</label><input type="date"></div>
-      <div class="filter-item"><label>支付流水号</label><input type="text" placeholder="流水号"></div>
+      <div class="filter-item"><label>支付渠道</label><select><option value="">全部</option><option>电信翼支付</option><option>微信支付</option><option>线下缴费</option></select></div>
+      <div class="filter-item"><label>流水号 / 凭证号</label><input type="text" placeholder="流水号或凭证号"></div>
       <div class="filter-item"><label>账单编号</label><input type="text" placeholder="账单编号"></div>
-      <div class="filter-item"><label>对账结果</label><select><option value="">全部</option><option>一致</option><option>流水未匹配账单</option><option>账单未收到流水</option><option>金额不一致</option></select></div>
-      <div class="filter-item"><label>处理状态</label><select><option value="">全部</option><option>待处理</option><option>已核销</option><option>已退款</option></select></div>
+      <div class="filter-item"><label>运营机构</label><select><option value="">全部</option><option>株洲市人才安居服务有限公司</option><option>株洲城建人才公寓运营管理有限公司</option><option>株洲清水塘安居服务有限公司</option><option>云龙示范区人才安居服务中心</option></select></div>
+      <div class="filter-item"><label>对账结果</label><select><option value="">全部</option><option>一致</option><option>流水未匹配账单</option><option>账单未收到流水</option><option>金额不一致</option><option>回调丢失待补偿</option><option>凭证与到账金额不一致</option></select></div>
+      <div class="filter-item"><label>处理状态</label><select><option value="">全部</option><option>待处理</option><option>已核销</option><option>已退款</option><option>已退回重传</option></select></div>
       <div class="filter-actions">
         <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
         <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
@@ -67,21 +174,57 @@
     <div class="table-wrap">
       <table class="data-table">
         <thead>
-          <tr><th>对账编号</th><th>对账日期</th><th>支付流水号</th><th>账单编号</th><th>承租人</th><th>流水金额</th><th>账单金额</th><th class="cell-lg">差错说明</th><th>对账结果</th><th>操作</th></tr>
+          <tr><th>对账编号</th><th>对账日期</th><th>支付渠道</th><th>流水号 / 凭证号</th><th>账单编号</th><th>承租人</th><th class="cell-lg">运营机构（收款方）</th><th>到账 / 凭证金额</th><th>账单金额</th><th class="cell-lg">差错说明</th><th>对账结果</th><th>操作</th></tr>
         </thead>
         <tbody>
-          <tr class="row-bad"><td>DZ2026-09-04-001</td><td>2026-09-04</td><td>YZF20260904163218</td><td><span class="muted">—</span></td><td>肖梦洁</td><td class="num">284.04</td><td><span class="muted">—</span></td><td>翼支付到账流水未匹配到账单：支付时选择的账单已被前次支付核销，系重复支付，须办理退款</td><td><span class="badge red">流水未匹配</span></td><td><span class="link" onclick="PMS.openDrawer('dzDrawer')">处理</span></td></tr>
-          <tr class="row-bad"><td>DZ2026-09-04-002</td><td>2026-09-04</td><td>YZF20260904174602</td><td><span class="muted">—</span></td><td>龙××</td><td class="num">260.28</td><td><span class="muted">—</span></td><td>流水备注的账单编号格式错误（多一位字符），系统无法匹配，须人工指定账单后核销</td><td><span class="badge red">流水未匹配</span></td><td><span class="link" onclick="PMS.openDrawer('dzDrawer')">处理</span></td></tr>
-          <tr class="row-warn"><td>DZ2026-09-04-003</td><td>2026-09-04</td><td>YZF20260904191426</td><td>ZD2026-09-00386</td><td>李子康</td><td class="num">233.00</td><td class="num">233.28</td><td>金额不一致：少缴 0.28 元（疑为支付时手工输入金额），须补缴或按尾差处理</td><td><span class="badge orange">金额不一致</span></td><td><span class="link" onclick="PMS.openDrawer('dzDrawer')">处理</span></td></tr>
-          <tr><td>DZ2026-09-05-001</td><td>2026-09-05</td><td>YZF20260905094218</td><td>ZD2026-09-00862</td><td>王梓涵</td><td class="num">284.04</td><td class="num">284.04</td><td><span class="muted">—</span></td><td><span class="badge green">一致</span></td><td><span class="link" onclick="PMS.toast('2026-09-05 09:42:20 自动核销，缴费凭证已归档，可申领电子票据')">核销记录</span></td></tr>
+          <tr class="row-bad"><td>DZ2026-09-04-001</td><td>2026-09-04</td><td><span class="badge blue">翼支付</span></td><td>YZF20260904163218</td><td><span class="muted">—</span></td><td>肖梦洁</td><td>株洲市人才安居服务有限公司</td><td class="num">315.60</td><td><span class="muted">—</span></td><td>翼支付到账流水未匹配到账单：支付时选择的账单已被前次支付核销，系重复支付，须办理退款</td><td><span class="badge red">流水未匹配</span></td><td><span class="link" onclick="PMS.openDrawer('dzDrawer')">处理</span></td></tr>
+          <tr class="row-bad"><td>DZ2026-09-06-002</td><td>2026-09-06</td><td><span class="badge blue">翼支付</span></td><td>YZF20260906174602</td><td>ZD2026-09-00742</td><td>唐雅琴</td><td>株洲城建人才公寓运营管理有限公司</td><td class="num">289.20</td><td class="num">289.20</td><td><b>回调丢失待补偿</b>：翼支付已扣款成功且资金已到账，支付结果回调未送达平台，账单未实时核销，须按对账结果补偿核销并记录补偿时间</td><td><span class="badge red">回调丢失待补偿</span></td><td><span class="link" onclick="PMS.openDrawer('dzDrawer')">处理</span></td></tr>
+          <tr class="row-warn"><td>DZ2026-09-05-003</td><td>2026-09-05</td><td><span class="badge green">微信支付</span></td><td>4200002194202609051836</td><td>ZD2026-09-00386</td><td>李子康</td><td>株洲城建人才公寓运营管理有限公司</td><td class="num">233.00</td><td class="num">259.20</td><td>金额不一致：少缴 26.20 元（疑为支付时手工输入金额），须补缴或按尾差处理</td><td><span class="badge orange">金额不一致</span></td><td><span class="link" onclick="PMS.openDrawer('dzDrawer')">处理</span></td></tr>
+          <tr class="row-bad"><td>DZ2026-09-08-004</td><td>2026-09-08</td><td><span class="badge orange">线下缴费</span></td><td>PZ2026-09-00296</td><td>ZD2026-09-00514</td><td>谭思远</td><td>株洲市人才安居服务有限公司</td><td class="num">400.00</td><td class="num">471.60</td><td><b>凭证与到账金额不一致</b>：上传回单金额 400.00 元，银行实际到账 400.00 元，与账单应缴 471.60 元差 71.60 元，须退回补足后重传凭证</td><td><span class="badge red">凭证金额不一致</span></td><td><span class="link" onclick="PMS.openDrawer('dzDrawer')">处理</span> <span class="link" onclick="location.href='offline-pay.html'">去审核</span></td></tr>
+          <tr class="row-bad"><td>DZ2026-09-08-005</td><td>2026-09-08</td><td><span class="badge orange">线下缴费</span></td><td>PZ2026-09-00301</td><td>ZD2026-09-00668</td><td>罗俊</td><td>云龙示范区人才安居服务中心</td><td class="num">289.20</td><td class="num">259.20</td><td><b>凭证与到账金额不一致</b>：承租人多缴 30.00 元，须按尾差核销后将多缴部分冲抵下期账单或原路退回</td><td><span class="badge red">凭证金额不一致</span></td><td><span class="link" onclick="PMS.openDrawer('dzDrawer')">处理</span> <span class="link" onclick="location.href='offline-pay.html'">去审核</span></td></tr>
+          <tr><td>DZ2026-09-05-001</td><td>2026-09-05</td><td><span class="badge blue">翼支付</span></td><td>YZF20260905094218</td><td>ZD2026-09-00862</td><td>王梓涵</td><td>株洲市人才安居服务有限公司</td><td class="num">471.60</td><td class="num">471.60</td><td><span class="muted">—</span></td><td><span class="badge green">一致</span></td><td><span class="link" onclick="PMS.toast('2026-09-05 09:42:20 实时核销，支付流水与缴费凭证已归档，可申领电子票据')">核销记录</span></td></tr>
+          <tr><td>DZ2026-08-12-006</td><td>2026-08-12</td><td><span class="badge orange">线下缴费</span></td><td>PZ2026-08-00274</td><td>ZD2026-08-00908</td><td>邹佳琪</td><td>云龙示范区人才安居服务中心</td><td class="num">195.60</td><td class="num">195.60</td><td><span class="muted">—</span></td><td><span class="badge green">一致</span></td><td><span class="link" onclick="PMS.toast('2026-08-11 15:42 承租人转账并上传回单；2026-08-12 10:26 刘海燕确认核销，核销时点以确认时间为准')">核销记录</span></td></tr>
         </tbody>
       </table>
     </div>
+    </div>
+    </div>
+
+    <div class="tab-panel" data-panel="dzkj">
+    <div class="card-body tight">
+    <div class="sp-scroll">
+    <div class="sp-block">
+      <div class="sp-h"><i class="fa-solid fa-list"></i> 对账与核销口径<span class="sub">本期设计口径，最终以业务确认为准</span></div>
+      <div class="sp-b">
+      <div class="sp-tw">
+        <table class="data-table compact">
+          <thead><tr><th>规则编号</th><th class="cell-lg">口径说明</th></tr></thead>
+          <tbody>
+            <tr><td><b>DZ-1</b></td><td><b>渠道三类并列</b>：电信翼支付、微信支付、线下缴费，由承租人在缴费页自行选择，平台不指定默认渠道</td></tr>
+            <tr><td><b>DZ-2</b></td><td><b>收款账户按房源归属路由</b>：账单收款方取房源所属运营机构的对公账户与商户号，<b>资金直接进入该机构账户，平台不归集资金、不代收</b></td></tr>
+            <tr><td><b>DZ-3</b></td><td><b>线上核销时点</b>：翼支付、微信支付以<b>支付成功回调到达时间</b>为核销时点，实时回写账单状态</td></tr>
+            <tr><td><b>DZ-4</b></td><td><b>线下核销时点</b>：以<b>运营机构确认时间</b>为核销时点，不以转账时间为准；确认前账单状态为「待确认」，<b>不计逾期、不纳入欠租统计</b></td></tr>
+            <tr><td><b>DZ-5</b></td><td><b>线下凭证两条来源</b>：承租人在小程序上传、运营机构在 PC 端代传（现金或转账代收场景），两者<b>均须经运营机构审核确认</b>后才核销</td></tr>
+            <tr><td><b>DZ-6</b></td><td><b>逐日对账</b>：翼支付每日 03:00 拉取流水、微信支付每日 03:30 拉取对账单，与账单核销记录自动比对并生成差错清单</td></tr>
+            <tr><td><b>DZ-7</b></td><td><b>回调丢失待补偿</b>：已扣款到账但回调未送达导致未实时核销的，由对账结果补偿核销，补偿核销时间单独记录并留痕</td></tr>
+            <tr><td><b>DZ-8</b></td><td><b>凭证与到账金额不一致</b>：少缴的退回补足后重传；多缴的按尾差核销后冲抵下期账单或原路退回，处理结果全过程留痕</td></tr>
+            <tr><td><b>DZ-9</b></td><td><b>差错处理留痕</b>：处理人、处理时间、处理方式、处理说明全部入库，退款按原渠道原路退回</td></tr>
+          </tbody>
+        </table>
+      </div>
+      </div>
+    </div>
+    </div>
+    </div>
+    </div>
   </div>
+
   <div class="sp-src">
-    <span><b>对账周期</b> 逐日对账（每日 03:00），生成差错清单转人工核实</span>
-    <span><b>支付通道</b> 电信翼支付平台，支付结果实时回写核销状态</span>
-    <span><b>统计维度</b> 按楼盘、运营机构、缴费周期统计收缴率与到账情况</span>
+    <span><b>数据范围</b> 数据范围按<b>房源归属</b>控制：运营机构只能看到本机构导入与管理的房源，以及由这些房源派生的合同、账单、收缴、工单、巡检、补助、考核数据；主管单位可查看全市数据；用人单位只看本单位职工申报件。</span>
+    <span><b>渠道口径</b> 电信翼支付 / 微信支付 / 线下缴费三类并列，由承租人自行选择</span>
+    <span><b>资金口径</b> 收款账户按房源所属运营机构路由，平台不归集资金、不代收</span>
+    <span><b>核销时点</b> 线上以支付成功回调时间为准；线下以运营机构确认时间为准</span>
+    <span><b>对账周期</b> 翼支付每日 03:00、微信支付每日 03:30，生成差错清单转人工核实</span>
   </div>
 </main>
 
@@ -95,7 +238,7 @@
   <div class="drawer-body">
   <div class="alert alert-danger">
     <i class="fa-solid fa-circle-exclamation"></i>
-    <div>对账差错须<b>人工核实并处理</b>。重复支付的办理退款；流水未匹配的人工指定账单核销；金额不一致的补缴或按尾差处理。处理结果全程留痕。</div>
+    <div>对账差错须<b>人工核实并处理</b>。重复支付的办理原路退款；流水未匹配的人工指定账单核销；回调丢失的按对账结果补偿核销；金额不一致与凭证不一致的补缴、退回重传或按尾差处理。处理结果全程留痕。</div>
   </div>
 
       <div class="form-grid form-align">
@@ -104,12 +247,20 @@
           <input type="text" value="DZ2026-09-04-001" readonly>
         </div>
         <div class="form-item">
-          <label>支付流水号 <span class="req">*</span></label>
+          <label>支付渠道 <span class="req">*</span></label>
+          <input type="text" value="电信翼支付" readonly>
+        </div>
+        <div class="form-item">
+          <label>流水号 / 凭证号 <span class="req">*</span></label>
           <input type="text" value="YZF20260904163218" readonly>
         </div>
         <div class="form-item">
-          <label>流水金额（元） <span class="req">*</span></label>
-          <input type="text" value="284.04" readonly>
+          <label>运营机构（收款方） <span class="req">*</span></label>
+          <input type="text" value="株洲市人才安居服务有限公司（建行 4301****8826）" readonly>
+        </div>
+        <div class="form-item">
+          <label>到账 / 凭证金额（元） <span class="req">*</span></label>
+          <input type="text" value="315.60" readonly>
         </div>
         <div class="form-item">
           <label>差错类型 <span class="req">*</span></label>
@@ -117,21 +268,22 @@
         </div>
         <div class="form-item col-full">
           <label>处理方式 <span class="req">*</span></label>
-          <select><option value="">全部</option><option>办理退款</option><option>人工指定账单核销</option><option>补缴差额</option><option>按尾差核销</option><option>转人工再核实</option></select>
+          <select><option value="">请选择</option><option>办理原路退款</option><option>人工指定账单核销</option><option>按对账结果补偿核销</option><option>补缴差额</option><option>按尾差核销</option><option>退回重传凭证</option><option>冲抵下期账单</option><option>转人工再核实</option></select>
+          <div class="hint">线上渠道退款按原渠道原路退回；线下缴费的退回后账单回到「待缴」，并短信通知承租人重新上传凭证</div>
         </div>
         <div class="form-item col-full">
           <label>指定账单编号</label>
-          <input type="text" placeholder="选择人工核销时必填">
+          <input type="text" placeholder="选择人工核销或补偿核销时必填">
         </div>
         <div class="form-item col-full">
           <label>处理说明 <span class="req">*</span></label>
-          <textarea rows="4">经核实，该笔流水为承租人肖梦洁于 2026-09-04 16:32 重复支付 2026-09 租金。原账单 ZD2026-09-00228 已于 2026-09-04 10:18 由前次支付（流水 YZF20260904101812）核销完毕。本笔属重复支付，办理原路退款 284.04 元至翼支付账户。</textarea>
+          <textarea rows="4">经核实，该笔流水为承租人肖梦洁于 2026-09-04 16:32 通过电信翼支付重复支付 2026-09 租金。原账单 ZD2026-09-00228 已于 2026-09-04 10:18 由前次支付（流水 YZF20260904101812）核销完毕。本笔属重复支付，由收款方株洲市人才安居服务有限公司办理原路退款 315.60 元至翼支付账户。</textarea>
         </div>
       </div>
   </div>
   <div class="drawer-foot">
     <button class="btn" data-close-drawer>取消</button>
-    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认按「办理退款」处理该笔对账差错？退款 284.04 元。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已处理并留痕，退款将原路退回翼支付账户','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认按「办理原路退款」处理该笔对账差错？退款 315.60 元。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已处理并留痕，退款由收款运营机构原路退回翼支付账户','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
   </div>
 </div>
 <script>

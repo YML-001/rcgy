@@ -32,7 +32,7 @@
 .ck-area.gap .an .dot { background: var(--lv-orange); }
 </style>
 </head>
-<body data-role="leader" data-active="stat-02">
+<body data-role="leader" data-active="stat-35">
 <main class="app-main">
   <div class="page-head">
     <div class="breadcrumb">
@@ -67,7 +67,7 @@
     <div class="stat-card">
       <div class="s-icon blue"><i class="fa-solid fa-building"></i></div>
       <div><div class="s-label">房源总量（套）</div><div class="s-value">2,486</div>
-        <div class="s-trend text-2">年度计划 3,000 套 · 完成率 82.9%</div></div>
+        <div class="s-trend text-2">年度计划 3,000 间 · 完成率 82.9%</div></div>
     </div>
     <div class="stat-card">
       <div class="s-icon green"><i class="fa-solid fa-users"></i></div>
@@ -121,9 +121,9 @@
           <span class="an"><span class="dot"></span>芦淞区</span>
           <span class="av">412</span><span class="al">在租 214 · 可配租 68 · 轮候 132</span>
         </a>
-        <a class="ck-area gap" href="../house/house-status-map.html?area=04">
+        <a class="ck-area gap" href="house-plan.html?area=04">
           <span class="an"><span class="dot"></span>石峰区</span>
-          <span class="av">328</span><span class="al">在租 146 · 空置超期 24 套需关注</span>
+          <span class="av">328</span><span class="al">在租 146 · 空置超期 24 间需关注</span>
         </a>
         <a class="ck-area h3" href="house-struct.html?area=05">
           <span class="an"><span class="dot"></span>经开区</span>
@@ -151,9 +151,9 @@
           <div class="donut-hole"><b>2,486</b><span class="text-sm">房源总量</span></div>
         </div>
         <div class="legend" style="flex:1">
-          <div class="lg-item"><span class="lg-color" style="background:var(--primary)"></span> 收购存量商品房　<b>1,144 套</b>　46.0%</div>
-          <div class="lg-item"><span class="lg-color" style="background:var(--success)"></span> 公租房盘活　<b>836 套</b>　33.6%</div>
-          <div class="lg-item"><span class="lg-color" style="background:var(--info)"></span> 保租房「一间房」　<b>506 套</b>　20.4%</div>
+          <div class="lg-item"><span class="lg-color" style="background:var(--primary)"></span> 收购商品房转化　<b>1,144 间</b>　46.0%</div>
+          <div class="lg-item"><span class="lg-color" style="background:var(--success)"></span> 公租房盘活　<b>836 间</b>　33.6%</div>
+          <div class="lg-item"><span class="lg-color" style="background:var(--info)"></span> 保租房「一间房」　<b>506 间</b>　20.4%</div>
         </div>
       </div>
       <div class="section-title mt-16" data-icon="fa-chart-column">年度筹集到位进度（套）</div>
@@ -249,7 +249,7 @@
       <tbody>
       <tr class="row-bad"><td><b>资格审核超期</b></td><td><span class="badge red">红 · 严重</span></td><td class="num">3</td><td class="cell-lg">超 3 个工作日法定时限未办结</td><td><a class="link" href="audit-perf.html">下钻</a></td></tr>
       <tr class="row-bad"><td><b>腾退逾期未执行</b></td><td><span class="badge red">红 · 严重</span></td><td class="num">6</td><td class="cell-lg">已下发腾退通知但逾期未腾退，须升级处置</td><td><a class="link" href="review-exit.html">下钻</a></td></tr>
-      <tr class="row-warn"><td><b>空置超 90 天</b></td><td><span class="badge orange">橙 · 预警</span></td><td class="num">36</td><td class="cell-lg">集中在石峰区清水塘片区，归因位置与配套</td><td><a class="link" href="../house/house-status-map.html">下钻</a></td></tr>
+      <tr class="row-warn"><td><b>空置超 90 天</b></td><td><span class="badge orange">橙 · 预警</span></td><td class="num">36</td><td class="cell-lg">集中在石峰区清水塘片区，归因位置与配套</td><td></td></tr>
       <tr class="row-warn"><td><b>租金欠缴</b></td><td><span class="badge orange">橙 · 预警</span></td><td class="num">62</td><td class="cell-lg">欠费 83,220.00 元，账龄 90 天以上 12 户</td><td><a class="link" href="../rent/arrears.html">下钻</a></td></tr>
       <tr><td><b>年审未完成</b></td><td><span class="badge yellow">黄 · 提示</span></td><td class="num">148</td><td class="cell-lg">2026 年度第 3 批年审在办，尚在批次期限内</td><td><a class="link" href="review-exit.html">下钻</a></td></tr>
       <tr><td><b>接口失败率偏高</b></td><td><span class="badge yellow">黄 · 提示</span></td><td class="num">2</td><td class="cell-lg">学信网 12.4%、税务企业纳税 8.6%，已转人工兜底</td><td><a class="link" href="api-health.html">下钻</a></td></tr>

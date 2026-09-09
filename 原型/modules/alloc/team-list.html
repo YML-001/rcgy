@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>组团台账与整套预留 · 株洲市人才住房保障管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="allocator" data-active="alloc-15">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才住房保障管理平台
+      <span class="sep">/</span> 配租选房与合同
+      <span class="sep">/</span> <span class="cur">组团台账与整套预留</span>
+    </div>
+    <div class="page-actions">
+      <a class="btn" href="auto-alloc.html"><i class="fa-solid fa-wand-magic-sparkles"></i> 自动配租执行</a>
+      <a class="btn" href="order-list.html"><i class="fa-solid fa-list-ol"></i> 配租顺序名单</a>
+      <button class="btn btn-primary" onclick="PMS.confirm({title:'导出确认',message:'确认导出本批次组团台账与整套预留记录？',detail:'导出内容含组编号、发起人、成员与位次、组内最靠后位次、意向楼盘与户型、性别一致性、成团状态、整套预留与匹配结果、拆组原因。成员姓名按姓 + ×× 脱敏，不含联系方式与身份证号，导出记录留痕。',type:'info',okText:'确认导出',onOk:function(){PMS.toast('组团台账与整套预留记录已导出（已脱敏）','success');}})"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>组团是申请人<b>线下沟通好的自愿组合</b>：申请人在申请表里直接填报同住人员，系统<b>不向对方发邀请、不要求对方点确认</b>，按填报的<b>姓名与手机号</b>匹配其申请件并显示审核状态。成员须<b>均已通过资格审核且同性别</b>才成团，<b>成团人数上限＝该户型的间数</b>（三室 3 人、二室 2 人）。配租时对成团的<b>整套预留、整组锁定</b>——不是简单的“组团优先”，锁定期间该套其余房间不参与单人匹配，避免两个组各拿到同一套房的不同间；整组按<b>组内最靠后的位次</b>参与排序，无整套可匹配的<b>按规则拆开、各自位次不变</b>。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-user-group"></i></div>
+      <div><div class="s-label">本批次组团数</div><div class="s-value">34</div>
+        <div class="s-trend text-2">PZ2026-03 · 三人组 11 组 + 两人组 23 组</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
+      <div><div class="s-label">已成团</div><div class="s-value">28</div>
+        <div class="s-trend text-2">成员均通过审核且同性别 · 含已配租 26 组</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-hourglass-half"></i></div>
+      <div><div class="s-label">待成员审核</div><div class="s-value">4</div>
+        <div class="s-trend text-2">成员未提交或审核中 · 未成团</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon red"><i class="fa-solid fa-scissors"></i></div>
+      <div><div class="s-label">已拆组</div><div class="s-value">2</div>
+        <div class="s-trend ">无整套可整组匹配 · 各自位次不变</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>组编号</label><input type="text" placeholder="如 ZT2026-0042"></div>
+      <div class="filter-item"><label>发起人</label><input type="text" placeholder="姓名"></div>
+      <div class="filter-item"><label>意向楼盘</label><select><option value="">全部</option><option>湘江1958 人才公寓</option><option>栗雨佳苑人才公寓</option><option>茨菇塘公寓</option><option>董家塅安居苑</option><option>清水塘新苑</option><option>云龙人才苑</option></select></div>
+      <div class="filter-item"><label>意向户型</label><select data-dict="roomType" data-ph="全部"></select></div>
+      <div class="filter-item"><label>成团状态</label><select><option value="">全部</option><option>组建中（待成员审核）</option><option>已成团</option><option>已配租</option><option>已拆组</option><option>已解散</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>组编号</th><th>发起人</th><th class="num">成员数</th><th class="cell-lg">成员与位次</th><th class="num">组内最靠后位次</th><th class="cell-lg">意向楼盘与户型</th><th>性别一致性</th><th>成团状态</th><th class="cell-lg">匹配结果</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>ZT2026-0031</td><td>李昱衡</td><td class="num">3</td><td class="cell-lg">李××(6)　邓××(9)　周××(11)</td><td class="num">11</td><td class="cell-lg">湘江1958 人才公寓 · 三室一厅</td><td><span class="badge green">一致 · 男</span></td><td><span class="badge green">已配租</span></td><td class="cell-lg"><b>整组匹配同一套房</b>：湘江1958 A3 栋 1108（整套三室一厅，3 间由本组占用）</td><td><span class="link" onclick="PMS.openDrawer('ztDrawer')">查看明细</span></td></tr>
+          <tr><td>ZT2026-0038</td><td>唐宇航</td><td class="num">2</td><td class="cell-lg">唐××(18)　彭××(24)</td><td class="num">24</td><td class="cell-lg">茨菇塘公寓 · 二室一厅</td><td><span class="badge green">一致 · 男</span></td><td><span class="badge green">已配租</span></td><td class="cell-lg"><b>整组匹配同一套房</b>：茨菇塘公寓 5 栋 0602（整套二室一厅，2 间由本组占用）</td><td><span class="link" onclick="PMS.openDrawer('ztDrawer')">查看明细</span></td></tr>
+          <tr class="row-bad"><td>ZT2026-0042</td><td>王梓涵</td><td class="num">3</td><td class="cell-lg">陈××(10)　王××(92)　曾××(168)　<span class="muted">李×× 未通过已退组</span></td><td class="num">168</td><td class="cell-lg">湘江1958 人才公寓 · 三室一厅</td><td><span class="badge green">一致 · 男</span></td><td><span class="badge orange">已拆组</span></td><td class="cell-lg">整组按 168 位参与时<b>无整套三室一厅可整组匹配</b>，按规则<b>拆开按单人配租</b>：A3 栋 0705 主卧 / A6 栋 1502-02 / A6 栋 0808 次卧一，<b>三人位次不变</b></td><td><span class="link" onclick="PMS.openDrawer('ztDrawer')">查看明细</span> <span class="link" onclick="PMS.openDrawer('spDrawer')">拆组说明</span></td></tr>
+          <tr class="row-warn"><td>ZT2026-0047</td><td>谭雅丽</td><td class="num">3</td><td class="cell-lg">谭××(63)　罗××<span class="muted">(待审核)</span>　刘××<span class="muted">(未提交申请)</span></td><td class="num"><span class="muted">—</span></td><td class="cell-lg">栗雨佳苑人才公寓 · 三室一厅</td><td><span class="badge gray">待核定</span></td><td><span class="badge gray">组建中</span></td><td class="cell-lg"><b>未成团</b>：2 名成员未通过资格审核，本批次<b>按单人参与匹配</b>；成员均通过后自动成团，按组内最靠后位次参与下一批次</td><td><span class="link" onclick="PMS.openDrawer('ztDrawer')">查看明细</span></td></tr>
+          <tr class="row-warn"><td>ZT2026-0053</td><td>彭雪松</td><td class="num">2</td><td class="cell-lg">彭××(74)　贺××(88)　<span class="muted">肖×× 未通过已退组</span></td><td class="num">88</td><td class="cell-lg">栗雨佳苑人才公寓 · 三室一厅</td><td><span class="badge green">一致 · 男</span></td><td><span class="badge blue">已成团</span></td><td class="cell-lg">成员肖××不予通过<b>自动退组</b>，剩余 2 人<b>重新计算最靠后位次为 88</b>；本批次无整套三室一厅，<b>保留位次等下一批次</b>，已提示改选二室一厅</td><td><span class="link" onclick="PMS.openDrawer('ztDrawer')">查看明细</span> <span class="link" onclick="PMS.openDrawer('spDrawer')">拆组说明</span></td></tr>
+          <tr><td>ZT2026-0056</td><td>何静怡</td><td class="num">2</td><td class="cell-lg">何××(102)　章××(119)</td><td class="num">119</td><td class="cell-lg">清水塘新苑 · 二室一厅</td><td><span class="badge green">一致 · 女</span></td><td><span class="badge gray">已解散</span></td><td class="cell-lg">发起人 2026-09-12 <b>解散组团</b>，两人此后<b>各自按单人配租</b>，申请状态与位次不变（102 / 119），解散已通知其余成员</td><td><span class="link" onclick="PMS.openDrawer('ztDrawer')">查看明细</span></td></tr>
+          <tr class="row-warn"><td>ZT2026-0061</td><td>肖婧怡</td><td class="num">3</td><td class="cell-lg">肖××(133)　吴××(150)　段××<span class="muted">(待审核)</span></td><td class="num"><span class="muted">—</span></td><td class="cell-lg">湘江1958 人才公寓 · 三室一厅</td><td><span class="badge gray">待核定</span></td><td><span class="badge gray">组建中</span></td><td class="cell-lg"><b>未成团</b>：1 名成员资格审核中，成员均通过且同性别后<b>自动成团</b>，届时按组内最靠后位次整组参与</td><td><span class="link" onclick="PMS.openDrawer('ztDrawer')">查看明细</span></td></tr>
+          <tr class="row-bad"><td>ZT2026-0064</td><td>龙浩然</td><td class="num">2</td><td class="cell-lg">龙××(118)　蒋××(126)</td><td class="num"><span class="muted">—</span></td><td class="cell-lg">云龙人才苑 · 二室一厅</td><td><span class="badge red">不一致 · 男 / 女</span></td><td><span class="badge red">组建中</span></td><td class="cell-lg"><b>性别不一致不予成团</b>（同套同性别为配租硬约束），两人<b>按单人配租、位次不变</b>；已短信告知发起人可更换同性别成员</td><td><span class="link" onclick="PMS.openDrawer('ztDrawer')">查看明细</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sp-block" style="margin-top:12px">
+    <div class="sp-h"><i class="fa-solid fa-list"></i> 整套预留规则<span class="sub">ZT-1 至 ZT-5 · 系统自动执行 · 不支持人工调序</span></div>
+    <div class="sp-b">
+      <div class="sp-tw">
+        <table class="data-table compact">
+          <thead><tr><th>规则</th><th class="cell-lg">规则项</th><th class="cell-lg">口径说明</th></tr></thead>
+          <tbody>
+          <tr><td><b>ZT-1</b></td><td><b>成团条件</b><br><span class="muted">线下自愿组合 · 无邀请无确认</span></td><td>组团由申请人<b>线下沟通好</b>后在申请表直接填报同住人员，系统<b>不向对方发邀请、不要求对方点确认</b>。系统按填报的<b>姓名与手机号</b>匹配其申请件，显示<b>未提交申请／待审核／审核通过／未通过</b>；成员须<b>均已通过资格审核且与发起人同性别</b>，配租时才按整组处理，否则本批次各自按单人配租。<span class="link" onclick="location.href='../apply/audit-desk.html'">资格审核工作台</span></td></tr>
+          <tr><td><b>ZT-2</b></td><td><b>人数上限按户型间数</b><br><span class="muted">三室 3 人 / 二室 2 人</span></td><td><b>成团人数上限＝该户型的间数</b>：三室一厅最多 3 人、二室一厅最多 2 人，即<b>本人加填报成员数不超过间数</b>；超限的申请不予提交。审核<b>未通过的成员不占名额</b>（自动退组）。单间配套与一室一厅为整套配租，<b>不涉及组团</b>。</td></tr>
+          <tr><td><b>ZT-3</b></td><td><b>整组按最靠后位次参与</b><br><span class="muted">避免搭车插队</span></td><td>成团后<b>整组按组内最靠后的位次</b>参与排序：位次靠前的成员<b>不因组团提前配租</b>，位次靠后的成员<b>也不搭车插队</b>。位次口径与单人一致（默认按资格审核通过时间），由系统自动生成、<b>不支持人工调序</b>。<span class="link" onclick="location.href='order-list.html'">配租顺序名单</span></td></tr>
+          <tr class="row-warn"><td><b>ZT-4</b></td><td><b>整套预留与整组锁定</b><br><span class="muted">本期核心口径</span></td><td>轮到该组位次时，系统先在意向楼盘与户型范围内查找<b>间数不少于成团人数的整套房源</b>，命中后<b>整套预留并对该组锁定</b>：<b>锁定期间该套其余房间不参与单人匹配</b>，也不参与其他组的整套预留，从机制上<b>避免两个组各拿到同一套房的不同间</b>。锁定在本次执行内有效，成组匹配完成即转为占用；未成团的组不进入预留环节。<span class="link" onclick="location.href='../house/house-status-map.html'">房态与在住性别</span></td></tr>
+          <tr class="row-bad"><td><b>ZT-5</b></td><td><b>无整套则拆组</b><br><span class="muted">各自位次不变</span></td><td>范围内<b>无可整组匹配的整套房源</b>时，释放预留并<b>按规则拆开、各自按单人配租</b>，<b>组内各人位次全部不变</b>；拆开后仍无房源的<b>保留位次等下一批次</b>。拆组原因、预留尝试记录与逐人结果全程留痕，写入<span class="link" onclick="location.href='exception.html'">配租异常处理</span>与<span class="link" onclick="location.href='auto-alloc.html'">执行明细</span>。</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="sp-kv" style="margin-top:10px">
+        <div class="kv"><span class="k">整套预留开关</span><span class="v">开启（本期强制）</span><span class="muted">成团的必须整套预留，不设“仅优先”降级口径</span></div>
+        <div class="kv"><span class="k">成团人数上限</span><span class="v">按户型间数</span><span class="muted">三室 3 人 · 二室 2 人 · 含本人</span></div>
+        <div class="kv"><span class="k">整组排序位次</span><span class="v">组内最靠后位次</span><span class="link" onclick="location.href='order-list.html'">查看名单</span></div>
+        <div class="kv"><span class="k">同套同性别</span><span class="v warn">硬约束</span><span class="muted">性别不一致的不予成团，各自按单人配租</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sp-block" style="margin-top:12px">
+    <div class="sp-h"><i class="fa-solid fa-user-minus"></i> 成员资格变动联动<span class="sub">自动退组 · 重算最靠后位次 · 通知其余成员</span></div>
+    <div class="sp-b">
+      <p class="hint"><i class="fa-solid fa-circle-info"></i> 成员的有效性由<b>各自的申请与审核状态</b>决定，资格一旦变动系统<b>自动联动</b>，不需发起人操作、也不需其余成员确认。</p>
+      <div class="sp-tw">
+        <table class="data-table compact">
+          <thead><tr><th class="cell-lg">变动情形</th><th class="cell-lg">系统处置</th><th class="cell-lg">通知与留痕</th></tr></thead>
+          <tbody>
+          <tr><td><b>成员被不予通过</b><br><span class="muted">资格审核结论为不予通过</span></td><td><b>自动退出该组</b>、不占名额；剩余成员<b>重新计算组内最靠后位次</b>后继续按整组参与；剩余不足 2 人的转为单人配租</td><td>向<b>其余成员与发起人</b>推送站内消息与短信，说明退组原因与新的最靠后位次；退组记录写入组团台账</td></tr>
+          <tr><td><b>成员撤回申请</b><br><span class="muted">配租前主动撤回</span></td><td><b>自动退出该组</b>；其余成员的申请状态、受理时间与位次<b>不受影响</b>，重算最靠后位次后继续参与</td><td>撤回即时通知其余成员，注明<b>不影响各自位次</b>；<span class="link" onclick="location.href='../apply/pool-list.html'">撤回台账</span></td></tr>
+          <tr class="row-warn"><td><b>成员被认定放弃</b><br><span class="muted">超签约期限或不服从配租</span></td><td><b>自动退出该组</b>并释放其房间；同组其余成员<b>已签约的不受影响</b>，未配租的重算最靠后位次继续参与</td><td>放弃认定结论同步组团台账并通知其余成员；<span class="link" onclick="location.href='giveup-list.html'">放弃与资格处置</span></td></tr>
+          <tr><td><b>成员退出或发起人解散</b><br><span class="muted">个人端自助操作</span></td><td>成员退出的按上述规则重算；<b>发起人解散</b>的整组失效，全部成员转为<b>单人配租</b>，<b>各自位次不变</b></td><td>操作留痕（操作人、时间、组编号）并通知全部成员；个人端落点<span class="link" onclick="location.href='../../mobile/public/my-team.html'">我的组团</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="sp-src">
+    <span><b>成团口径</b> 线下自愿组合，<b>不发邀请、不需对方确认</b>；成员须均已通过资格审核且同性别，按<b>姓名 + 手机号</b>匹配申请件</span>
+    <span><b>人数上限</b> <b>＝ 该户型的间数</b>（三室 3 人、二室 2 人，含本人），未通过的不占名额</span>
+    <span><b>整套预留</b> 轮到组位次时<b>整套预留、整组锁定</b>，锁定期间该套其余房间不参与单人匹配，避免两个组分到同一套房的不同间</span>
+    <span><b>拆组口径</b> 无整套可匹配的<b>拆开按单人配租、各自位次不变</b>；<span class="link" onclick="location.href='auto-alloc.html'">自动配租执行与匹配规则</span>　<span class="link" onclick="location.href='queue-list.html'">意向轮候库</span></span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="ztDrawer">
+  <div class="drawer-head">
+    <h3>组团明细</h3>
+    <span class="badge orange">已拆组</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+    <div class="alert alert-info">
+      <i class="fa-solid fa-circle-info"></i>
+      <div>本组由申请人<b>线下沟通后自行填报</b>，系统<b>未向成员发送邀请、未要求成员确认</b>；成员状态按<b>姓名 + 手机号</b>匹配其申请件自动刷新。成团与拆组均由系统按规则判定，<b>不支持人工干预</b>。</div>
+    </div>
+
+    <div class="form-grid form-align">
+      <div class="form-item">
+        <label>组编号 <span class="req">*</span></label>
+        <input type="text" value="ZT2026-0042" readonly>
+      </div>
+      <div class="form-item">
+        <label>发起人 <span class="req">*</span></label>
+        <input type="text" value="王××（申请编号 RC2026-0903-0162）" readonly>
+      </div>
+      <div class="form-item">
+        <label>配租批次 <span class="req">*</span></label>
+        <input type="text" value="PZ2026-03（2026 年第 3 批）· 执行 ZX2026-03-01" readonly>
+      </div>
+      <div class="form-item">
+        <label>填报时间 <span class="req">*</span></label>
+        <input type="text" value="2026-09-03 10:26（随申请一并提交）" readonly>
+      </div>
+      <div class="form-item">
+        <label>意向楼盘与户型 <span class="req">*</span></label>
+        <input type="text" value="湘江1958 人才公寓 · 三室一厅（3 间）" readonly>
+      </div>
+      <div class="form-item">
+        <label>成团人数上限 <span class="req">*</span></label>
+        <input type="text" value="3 人（＝该户型间数，含本人）" readonly>
+        <div class="hint">现有 3 人，<b>未超上限</b>；未通过的成员不占名额</div>
+      </div>
+      <div class="form-item">
+        <label>成团状态 <span class="req">*</span></label>
+        <input type="text" value="已成团（2026-09-06 10:44）→ 已拆组（2026-09-15 10:04）" readonly>
+      </div>
+      <div class="form-item">
+        <label>组内最靠后位次 <span class="req">*</span></label>
+        <input type="text" value="168（整组按 168 位参与排序）" readonly>
+      </div>
+      <div class="form-item">
+        <label>性别一致性 <span class="req">*</span></label>
+        <input type="text" value="一致：在组 3 人同为男性（身份证号自动识别）" readonly>
+      </div>
+      <div class="form-item">
+        <label>成员资格校验 <span class="req">*</span></label>
+        <input type="text" value="在组 3 人均已通过资格审核" readonly>
+        <div class="hint">成员须<b>均已通过资格审核且同性别</b>，方按整组处理</div>
+      </div>
+      <div class="form-item col-full">
+        <label>成员与位次 <span class="req">*</span></label>
+        <textarea rows="4" readonly>陈××　138****6042　同事　申请编号 RC2026-0902-0141　审核通过 2026-09-02 16:20　位次 10
+王××　138****6621　发起人（本人）　申请编号 RC2026-0903-0162　审核通过 2026-09-05 09:14　位次 92
+曾××　189****5521　同事　申请编号 RC2026-0903-0158　审核通过 2026-09-06 10:44　位次 168（组内最靠后）
+李××　151****3387　同学　申请编号 RC2026-0902-0136　2026-09-04 不予通过　已自动退出该组、不占名额</textarea>
+      </div>
+      <div class="form-item col-full">
+        <label>整套预留过程 <span class="req">*</span></label>
+        <textarea rows="4" readonly>2026-09-15 10:04:12　轮到本组位次 168，在“湘江1958 人才公寓 · 三室一厅”范围内查找间数 ≥ 3 的整套房源。
+2026-09-15 10:04:12　A3 栋 1108 已由 ZT2026-0031 整套预留并锁定（3 间），不参与本组匹配。
+2026-09-15 10:04:13　A6 栋 0808 仅剩 2 间可用（1 间在住），不满足整套预留条件。
+2026-09-15 10:04:13　范围内无间数 ≥ 3 的可用整套，释放预留，转入拆组流程（ZT-5）。</textarea>
+      </div>
+      <div class="form-item col-full">
+        <label>匹配结果 <span class="req">*</span></label>
+        <textarea rows="3" readonly>拆开按单人配租，三人位次不变：
+陈××（位次 10）→ 湘江1958 A3 栋 0705 主卧　王××（位次 92）→ 湘江1958 A6 栋 1502-02　曾××（位次 168）→ 湘江1958 A6 栋 0808 次卧一
+三人所在套房在住人均为男性，同套同性别校验通过。</textarea>
+      </div>
+      <div class="form-item col-full">
+        <label>成员变动记录 <span class="req">*</span></label>
+        <textarea rows="3" readonly>2026-09-04 09:15　李××（151****3387）资格审核不予通过（市城区名下有自有住房），系统自动退出该组、不占名额。
+2026-09-04 09:15　已向发起人与其余成员推送退组通知，剩余成员位次不受影响。
+2026-09-04 16:40　发起人补填曾××（189****5521），2026-09-06 10:44 审核通过，组内最靠后位次由 92 重算为 168。</textarea>
+      </div>
+      <div class="form-item col-full">
+        <label>通知记录 <span class="req">*</span></label>
+        <textarea rows="3" readonly>2026-09-06 10:45　成团通知：3 人均已通过审核且同性别，本组按整组参与配租，整组按位次 168 排序。
+2026-09-15 10:06　拆组通知：本批次无整套三室一厅可整组匹配，已按单人配租，各自位次不变。
+通知经湘易办站内消息与短信双通道送达，逐条留痕。</textarea>
+      </div>
+    </div>
+    <p class="hint" style="margin-top:12px"><i class="fa-solid fa-circle-info"></i> 组团明细与整套预留过程随执行日志固化留痕，可被审计追溯；个人端同步展示于<span class="link" onclick="location.href='../../mobile/public/my-team.html'">我的组团</span>。</p>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>关闭</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'导出确认',message:'确认导出 ZT2026-0042 组团明细？',detail:'导出内容含成员与位次、整套预留过程、匹配结果、成员变动与通知记录。成员姓名按姓 + ×× 脱敏，手机号中间四位掩码，导出记录留痕。',type:'info',okText:'确认导出',onOk:function(){PMS.closeDrawer();PMS.toast('组团明细已导出（已脱敏）','success');}})"><i class="fa-solid fa-download"></i> 导出明细</button>
+  </div>
+</div>
+
+<div class="drawer" id="spDrawer">
+  <div class="drawer-head">
+    <h3>拆组说明</h3>
+    <span class="badge red">已拆组</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+    <div class="alert alert-warning">
+      <i class="fa-solid fa-triangle-exclamation"></i>
+      <div>拆组由系统<b>按 ZT-5 自动判定</b>：意向楼盘与户型范围内无间数不少于成团人数的可用整套时，释放整套预留并<b>拆开按单人配租</b>，<b>组内各人位次全部不变</b>。拆组<b>不影响任何成员的资格与受理时间</b>，也不计入放弃。</div>
+    </div>
+
+    <div class="form-grid form-align">
+      <div class="form-item">
+        <label>组编号 <span class="req">*</span></label>
+        <input type="text" value="ZT2026-0042" readonly>
+      </div>
+      <div class="form-item">
+        <label>拆组时间 <span class="req">*</span></label>
+        <input type="text" value="2026-09-15 10:04:13" readonly>
+      </div>
+      <div class="form-item">
+        <label>拆组依据 <span class="req">*</span></label>
+        <input type="text" value="ZT-5 无整套则拆组" readonly>
+      </div>
+      <div class="form-item">
+        <label>参与位次 <span class="req">*</span></label>
+        <input type="text" value="168（组内最靠后位次）" readonly>
+      </div>
+      <div class="form-item col-full">
+        <label>拆组原因 <span class="req">*</span></label>
+        <textarea rows="3" readonly>本组 3 人，意向范围为“湘江1958 人才公寓 · 三室一厅”。轮到位次 168 时，该范围内三室一厅整套房源已全部被占用或预留（A3 栋 1108 由 ZT2026-0031 整套锁定），无间数 ≥ 3 的可用整套，不满足整组匹配条件。
+本期不跨楼盘调剂，亦不允许把一个组拆到两套房的不同间，故按规则拆开按单人配租。</textarea>
+      </div>
+      <div class="form-item col-full">
+        <label>位次处理 <span class="req">*</span></label>
+        <textarea rows="2" readonly>组内三人位次保持 10 / 92 / 168 不变，拆组不重排、不后移；拆开后按各自位次依序参与本批次剩余房源匹配。
+拆开后仍未匹配到的保留位次进入意向轮候库，等下一批次。</textarea>
+      </div>
+      <div class="form-item col-full">
+        <label>拆组后配租结果 <span class="req">*</span></label>
+        <textarea rows="3" readonly>陈××（位次 10）→ 湘江1958 A3 栋 0705 主卧　（同套在住均为男性）
+王××（位次 92）→ 湘江1958 A6 栋 1502-02　（同套在住均为男性）
+曾××（位次 168）→ 湘江1958 A6 栋 0808 次卧一　（同套在住均为男性）</textarea>
+      </div>
+      <div class="form-item col-full">
+        <label>通知与留痕 <span class="req">*</span></label>
+        <textarea rows="3" readonly>2026-09-15 10:06　已向 3 名成员发送拆组短信，告知拆组原因、本人分配的房间与“位次不变”的口径。
+拆组记录与整套预留尝试过程写入自动配租执行日志与配租异常处理台账，可被审计追溯。
+如需人工更正配租结果，须走配租异常处理审批，本页面不提供人工调整。</textarea>
+      </div>
+    </div>
+    <p class="hint" style="margin-top:12px"><i class="fa-solid fa-circle-info"></i> 另一类情形：成员未全部通过审核的<b>不成团</b>，本批次直接按单人参与匹配，不产生拆组记录。</p>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>关闭</button>
+    <button class="btn" onclick="location.href='exception.html'"><i class="fa-solid fa-triangle-exclamation"></i> 查看配租异常处理</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'导出确认',message:'确认导出 ZT2026-0042 拆组说明？',detail:'导出内容含拆组时间、拆组原因、整套预留尝试记录、位次处理与拆组后配租结果。成员姓名按姓 + ×× 脱敏，导出记录留痕。',type:'info',okText:'确认导出',onOk:function(){PMS.closeDrawer();PMS.toast('拆组说明已导出（已脱敏）','success');}})"><i class="fa-solid fa-download"></i> 导出说明</button>
+  </div>
+</div>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 34; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

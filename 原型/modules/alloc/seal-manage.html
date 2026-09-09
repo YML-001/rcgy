@@ -19,43 +19,47 @@
       <span class="sep">/</span> <span class="cur">电子签章管理</span>
     </div>
     <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.openDrawer('szDrawer')"><i class="fa-solid fa-plus"></i> 签章录入与授权</button>
+      <a class="btn" href="contract-list.html"><i class="fa-solid fa-file-contract"></i> 合同要素台账</a>
       <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
     </div>
   </div>
 
   <div class="alert alert-warning">
     <i class="fa-solid fa-triangle-exclamation"></i>
-    <div>管理<b>运营机构企业印章与数字证书</b>，<b>控制用章权限并记录每次用章日志</b>。签章由第三方 CA 服务机构提供存证，保证法律效力。</div>
+    <div>管理各<b>运营机构企业印章与数字证书的录入状态、授权与发起权限</b>，<b>控制用章权限并记录每次用章日志</b>。<b>未完成签章录入的机构，在签约环节只显示“线下上传”入口</b>，不出现电子签约按钮；<b>录入并授权完成后自动开放电子签约</b>。签章由第三方 CA 服务机构提供存证，保证法律效力。</div>
   </div>
 
   <div class="stat-grid">
     <div class="stat-card">
-      <div class="s-icon blue"><i class="fa-solid fa-stamp"></i></div>
-      <div><div class="s-label">在用印章</div><div class="s-value">3</div>
-        <div class="s-trend text-2">3 家运营机构</div></div>
+      <div class="s-icon blue"><i class="fa-solid fa-building-columns"></i></div>
+      <div><div class="s-label">应录入机构</div><div class="s-value">5</div>
+        <div class="s-trend text-2">运营机构 4 + 主管单位 1</div></div>
     </div>
     <div class="stat-card">
-      <div class="s-icon green"><i class="fa-solid fa-certificate"></i></div>
-      <div><div class="s-label">数字证书</div><div class="s-value">3</div>
-        <div class="s-trend text-2">均在有效期内</div></div>
-    </div>
-    <div class="stat-card">
-      <div class="s-icon cyan"><i class="fa-solid fa-clock-rotate-left"></i></div>
-      <div><div class="s-label">本月用章</div><div class="s-value">186</div>
-        <div class="s-trend text-2">次</div></div>
+      <div class="s-icon green"><i class="fa-solid fa-stamp"></i></div>
+      <div><div class="s-label">已完成录入</div><div class="s-value">3</div>
+        <div class="s-trend text-2">已开放电子签约</div></div>
     </div>
     <div class="stat-card dc-alarm">
-      <div class="s-icon orange"><i class="fa-solid fa-triangle-exclamation"></i></div>
+      <div class="s-icon orange"><i class="fa-solid fa-file-arrow-up"></i></div>
+      <div><div class="s-label">未完成录入</div><div class="s-value">2</div>
+        <div class="s-trend ">签约环节只显示线下上传入口</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon red"><i class="fa-solid fa-triangle-exclamation"></i></div>
       <div><div class="s-label">证书即将到期</div><div class="s-value">1</div>
-        <div class="s-trend ">剩 46 天</div></div>
+        <div class="s-trend ">剩 46 天 · 到期后自动转线下上传</div></div>
     </div>
   </div>
 
   <div class="card list-card">
     <div class="filter-bar">
-      <div class="filter-item"><label>印章名称</label><input type="text" placeholder="印章名称"></div>
       <div class="filter-item"><label>所属机构</label><input type="text" placeholder="机构名称"></div>
-      <div class="filter-item"><label>印章状态</label><select><option value="">全部</option><option>在用</option><option>已停用</option><option>已注销</option></select></div>
+      <div class="filter-item"><label>印章编号</label><input type="text" placeholder="印章编号"></div>
+      <div class="filter-item"><label>录入状态</label><select><option value="">全部</option><option>已录入</option><option>录入中（待 CA 审核）</option><option>未录入</option></select></div>
+      <div class="filter-item"><label>签约入口</label><select><option value="">全部</option><option>电子签约 + 线下上传</option><option>仅线下上传</option><option>文书用章（不参与签约）</option></select></div>
+      <div class="filter-item"><label>印章状态</label><select><option value="">全部</option><option>在用</option><option>待启用</option><option>未启用</option><option>已停用</option><option>已注销</option></select></div>
       <div class="filter-item"><label>到期日期</label><input type="date"></div>
       <div class="filter-actions">
         <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
@@ -66,27 +70,120 @@
     <div class="table-wrap">
       <table class="data-table">
         <thead>
-          <tr><th>印章编号</th><th class="cell-lg">印章名称</th><th class="cell-lg">所属机构</th><th>证书序列号</th><th>CA 机构</th><th>有效期至</th><th>剩余有效期</th><th class="num">本月用章</th><th>状态</th><th>操作</th></tr>
+          <tr><th class="cell-lg">所属机构</th><th>印章编号</th><th class="cell-lg">印章名称</th><th>录入状态</th><th>证书序列号</th><th>有效期至</th><th>剩余有效期</th><th class="cell-lg">授权发起人</th><th class="cell-lg">签约入口</th><th class="num">本月用章</th><th>状态</th><th>操作</th></tr>
         </thead>
         <tbody>
-          <tr><td>YZ-001</td><td>株洲城发高科人才安居服务有限公司合同专用章</td><td>株洲城发高科人才安居服务有限公司</td><td>4F2A8B***C61D</td><td>第三方 CA 服务机构</td><td>2027-06-30</td><td><div class="sp-days"><span class="dv">298 天</span><span class="db"><span style="width:82%"></span></span></div></td><td class="num">142</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.toast('本月用章 142 次，均为租赁合同签署；每次用章记录操作人、时间、合同编号')">用章日志</span></td></tr>
-          <tr><td>YZ-002</td><td>株洲市保障性住房服务中心电子印章</td><td>市保障性住房服务中心</td><td>8C1E6D***A24F</td><td>第三方 CA 服务机构</td><td>2027-12-31</td><td><div class="sp-days"><span class="dv">482 天</span><span class="db"><span style="width:100%"></span></span></div></td><td class="num">44</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.toast('本月用章 44 次，用于审核结论告知书、腾退通知等文书')">用章日志</span></td></tr>
-          <tr class="row-warn"><td>YZ-003</td><td>株洲城建人才公寓运营管理有限公司合同专用章</td><td>株洲城建人才公寓运营管理有限公司</td><td>2B9F4A***E08C</td><td>第三方 CA 服务机构</td><td>2026-10-21</td><td><div class="sp-days d30"><span class="dv">46 天</span><span class="db"><span style="width:12%"></span></span></div></td><td class="num">0</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.toast('数字证书将于 2026-10-21 到期，已提醒机构办理续期；到期后无法签章')">到期提醒</span></td></tr>
+          <tr><td>株洲市人才安居服务有限公司</td><td>YZ-001</td><td>合同专用章</td><td><span class="badge green">已录入</span></td><td>4F2A8B***C61D</td><td>2027-06-30</td><td><div class="sp-days"><span class="dv">298 天</span><span class="db"><span style="width:82%"></span></span></div></td><td>彭雪梅、罗建军、宋婷（3 人，限租赁合同签署）</td><td><span class="badge blue">电子签约 + 线下上传</span></td><td class="num">142</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('szDrawer')">授权管理</span> <span class="link" onclick="PMS.toast('本月用章 142 次，均为租赁合同签署；每次用章记录操作人、时间、合同编号')">用章日志</span></td></tr>
+          <tr><td>市保障性住房服务中心</td><td>YZ-002</td><td>电子印章</td><td><span class="badge green">已录入</span></td><td>8C1E6D***A24F</td><td>2027-12-31</td><td><div class="sp-days"><span class="dv">482 天</span><span class="db"><span style="width:100%"></span></span></div></td><td>李慧敏、陈晓琳（2 人，限文书用章）</td><td><span class="badge gray">文书用章，不参与签约</span></td><td class="num">44</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.toast('本月用章 44 次，用于审核结论告知书、腾退通知等文书')">用章日志</span></td></tr>
+          <tr class="row-warn"><td>株洲城建人才公寓运营管理有限公司</td><td>YZ-003</td><td>合同专用章</td><td><span class="badge green">已录入</span></td><td>2B9F4A***E08C</td><td>2026-10-21</td><td><div class="sp-days d30"><span class="dv">46 天</span><span class="db"><span style="width:12%"></span></span></div></td><td>谭志远（1 人，限租赁合同签署）</td><td><span class="badge blue">电子签约 + 线下上传</span></td><td class="num">68</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.toast('数字证书将于 2026-10-21 到期，已提醒机构办理续期；到期未续期的自动停用电子签约，签约环节只显示线下上传入口')">到期提醒</span></td></tr>
+          <tr class="row-warn"><td>株洲高科集团人才公寓运营有限公司</td><td><span class="muted">待生成</span></td><td>拟用：合同专用章</td><td><span class="badge orange">录入中（待 CA 审核）</span></td><td><span class="muted">—</span></td><td><span class="muted">—</span></td><td><span class="muted">—</span></td><td><span class="muted">未授权</span></td><td><span class="badge cyan">仅线下上传</span></td><td class="num">0</td><td><span class="badge orange">待启用</span></td><td><span class="link" onclick="PMS.openDrawer('szDrawer')">办理录入</span> <span class="link" onclick="PMS.toast('已提交第三方 CA 服务机构审核，预计 3 个工作日出证；审核期间该机构签约环节只显示线下上传入口')">审核进度</span></td></tr>
+          <tr class="row-bad"><td>云龙示范区人才安居服务中心</td><td><span class="muted">未申请</span></td><td><span class="muted">未提交</span></td><td><span class="badge red">未录入</span></td><td><span class="muted">—</span></td><td><span class="muted">—</span></td><td><span class="muted">—</span></td><td><span class="muted">未授权</span></td><td><span class="badge cyan">仅线下上传</span></td><td class="num">0</td><td><span class="badge gray">未启用</span></td><td><span class="link" onclick="PMS.openDrawer('szDrawer')">办理录入</span> <span class="link" onclick="PMS.toast('已向该机构推送签章录入待办，未完成录入前其承租人只能线下签署纸质合同后上传，并由该机构核对确认')">催办录入</span></td></tr>
         </tbody>
       </table>
     </div>
   </div>
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 签章录入、授权与发起权限口径<span class="sub">R-Z1 至 R-Z5 · 与签约双模式联动</span></div>
+          <div class="sp-b">
+  <div class="sp-tw">
+    <table class="data-table compact">
+      <thead><tr><th>规则</th><th class="cell-lg">环节</th><th class="cell-lg">口径</th></tr></thead>
+      <tbody>
+      <tr><td><b>R-Z1</b></td><td><b>签章录入</b></td><td>运营机构提交<b>营业执照、法定代表人授权书、印章样式与经办人身份材料</b>，由主管单位初核后报<b>第三方 CA 服务机构</b>签发数字证书；出证后系统生成印章编号并入库。录入状态分<b>未录入、录入中（待 CA 审核）、已录入</b>三档</td></tr>
+      <tr class="row-warn"><td><b>R-Z2</b></td><td><b>未录入只显示线下上传</b></td><td><b>未完成录入的机构，签约环节只显示“线下上传”入口</b>，不出现电子签约按钮；其承租人到机构签署纸质合同后上传影像，由<b>该机构核对确认后置为签约完成</b>。<b>录入并授权完成后自动开放电子签约</b>，无需另行配置。<span class="link" onclick="location.href='contract-list.html'">合同签署双模式</span></td></tr>
+      <tr><td><b>R-Z3</b></td><td><b>授权与发起权限</b></td><td>按<b>机构 + 业务类型 + 自然人</b>三级授权：明确<b>哪些账号可发起电子签约</b>、可使用哪枚印章、限于哪类文书（租赁合同 / 变更协议 / 解除协议 / 一般文书）。授权须由机构法定代表人书面授权并经主管单位备案，<b>授权变更即时生效并留痕</b></td></tr>
+      <tr><td><b>R-Z4</b></td><td>用章控制与日志</td><td>每次用章记录<b>用章时间、印章、事由、操作人、关联合同编号与 IP</b>，逐条可查；<b>同一合同的发起人与核对确认人不得为同一自然人</b>；异常用章（非工作时间、非授权文书类型）自动预警</td></tr>
+      <tr class="row-warn"><td><b>R-Z5</b></td><td>证书到期与停用</td><td>数字证书到期前 <b>60 / 30 / 7 天</b>推送续期提醒；<b>到期未续期的自动停用电子签约</b>，该机构签约环节<b>回落为只显示线下上传入口</b>，已签合同效力不受影响。印章停用或注销须审批并留痕。<span class="link" onclick="location.href='../system/seal.html'">电子印章管理</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+          </div>
+        </div>
   <div class="sp-src">
-    <span><b>用章控制</b> 按机构与业务类型控制用章权限，每次用章记录日志</span>
-    <span><b>法律效力</b> 由第三方 CA 服务机构提供签署存证</span>
-    <span><b>印章管理</b> <span class="link" onclick="location.href='../system/seal.html'">电子印章管理</span></span>
+    <span><b>录入与开放</b> <b>未完成签章录入的机构在签约环节只显示线下上传入口</b>；<b>录入并授权完成后自动开放电子签约</b></span>
+    <span><b>授权控制</b> 按机构 + 业务类型 + 自然人三级授权，明确可发起电子签约的账号与可用印章，授权变更即时生效并留痕</span>
+    <span><b>用章日志</b> 每次用章记录时间、印章、事由、操作人与关联合同，逐条可查；异常用章自动预警</span>
+    <span><b>法律效力</b> 由第三方 CA 服务机构提供签署存证；<span class="link" onclick="location.href='../system/seal.html'">电子印章管理</span></span>
   </div>
 </main>
 
+<div class="drawer-mask"></div>
+<div class="drawer" id="szDrawer">
+  <div class="drawer-head">
+    <h3>电子签章录入与授权</h3>
+    <span class="badge orange">录入中</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>签章录入完成并完成授权后，该机构签约环节<b>自动开放电子签约</b>；在此之前<b>只显示线下上传入口</b>，承租人签署的纸质合同须由该机构<b>核对确认后</b>才置为签约完成。</div>
+  </div>
+
+      <div class="form-grid form-align">
+        <div class="form-item col-full">
+          <label>所属机构 <span class="req">*</span></label>
+          <input type="text" value="株洲高科集团人才公寓运营有限公司" readonly>
+        </div>
+        <div class="form-item">
+          <label>统一社会信用代码 <span class="req">*</span></label>
+          <input type="text" value="9143020*********2K" readonly>
+        </div>
+        <div class="form-item">
+          <label>录入状态 <span class="req">*</span></label>
+          <select><option>录入中（待 CA 审核）</option><option>已录入</option><option>未录入</option></select>
+        </div>
+        <div class="form-item">
+          <label>印章名称 <span class="req">*</span></label>
+          <input type="text" value="株洲高科集团人才公寓运营有限公司合同专用章">
+        </div>
+        <div class="form-item">
+          <label>印章用途 <span class="req">*</span></label>
+          <select><option>租赁合同签署</option><option>变更与解除协议</option><option>一般文书用章</option></select>
+        </div>
+        <div class="form-item">
+          <label>CA 服务机构 <span class="req">*</span></label>
+          <input type="text" value="第三方 CA 服务机构" readonly>
+        </div>
+        <div class="form-item">
+          <label>证书有效期至</label>
+          <input type="date">
+          <div class="hint">由 CA 出证后自动回填；到期前 60 / 30 / 7 天推送续期提醒</div>
+        </div>
+        <div class="form-item col-full">
+          <label>录入材料 <span class="req">*</span></label>
+          <input type="text" data-upload="1">
+          <div class="hint">营业执照、法定代表人授权书、印章样式、经办人身份材料；主管单位初核后报 CA 签发</div>
+        </div>
+        <div class="form-item col-full">
+          <label>授权发起人（可发起电子签约的账号） <span class="req">*</span></label>
+          <input type="text" value="肖建华（业务负责人）、罗雨欣（合同经办）">
+          <div class="hint">按<b>机构 + 业务类型 + 自然人</b>三级授权；<b>发起人与核对确认人不得为同一自然人</b></div>
+        </div>
+        <div class="form-item">
+          <label>可签署文书类型 <span class="req">*</span></label>
+          <select><option>租赁合同 + 变更协议 + 解除协议</option><option>仅租赁合同</option><option>仅一般文书</option></select>
+        </div>
+        <div class="form-item">
+          <label>签约入口 <span class="req">*</span></label>
+          <input type="text" value="仅线下上传（录入并授权完成后自动开放电子签约）" readonly>
+          <div class="hint">由录入状态与授权情况自动判定，不需人工切换</div>
+        </div>
+        <div class="form-item col-full">
+          <label>授权说明 <span class="req">*</span></label>
+          <textarea rows="3">株洲高科集团人才公寓运营有限公司已提交营业执照、法定代表人授权书与印章样式，经主管单位初核无误，已报第三方 CA 服务机构签发数字证书，预计 3 个工作日出证。出证前该机构签约环节只显示线下上传入口，其承租人签署的纸质合同由该机构核对确认后置为签约完成；出证并完成授权后自动开放电子签约。</textarea>
+        </div>
+      </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认提交电子签章录入与授权？',detail:'提交后报第三方 CA 服务机构签发数字证书。出证并完成授权前，该机构签约环节只显示线下上传入口；出证后自动开放电子签约。授权与变更全程留痕。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已提交 CA 审核，出证并授权后自动开放电子签约','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+  </div>
+</div>
 <script>
 (function () {
   var t = document.querySelector('main.app-main .table-wrap > table.data-table');
-  if (t) { t._total = 3; }
+  if (t) { t._total = 5; }
 })();
 </script>
 

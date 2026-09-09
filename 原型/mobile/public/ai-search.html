@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>语义检索结果 · 株洲市人才住房保障管理平台</title>
+<title>一句话检索 · 株洲市人才住房保障管理平台</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="../../assets/css/app.css">
 <link rel="stylesheet" href="../../assets/css/mobile.css">
 <link rel="stylesheet" href="../../assets/css/ext.css">
 </head>
-<body class="m-body" data-mtitle="检索结果" data-mmod="M3 政策宣传与政策查询" data-mcode="M3-04"
-      data-mdesc="支持「天元区两室一厅还有房吗」这类自然语言输入，自动识别意图后返回匹配的房源列表或政策条款，并支持在政策文件、房源信息、办事指南范围内做模糊检索。" data-mback="policy-list.html" data-mtabset="public" data-mtab="house">
+<body class="m-body" data-mtitle="一句话检索" data-mmod="M3 政策宣传与申请办事指南" data-mcode="M3-04"
+      data-mdesc="支持「天元区两室一厅还有房吗」这类自然语言输入，自动识别意图后返回匹配的楼盘与户型，或返回政策条款与办事指南。检索结果为楼盘，点选后进入楼盘详情选择户型，再分别进入意向登记或正式申请。" data-mback="house-list.html" data-mtabset="public" data-mtab="house">
 <div class="m-stage">
   <div class="m-phone">
     <div class="m-screen">
@@ -20,47 +20,60 @@
           <input type="text" value="天元区两室一厅还有房吗">
           <span class="m-s-ai" onclick="MB.toast('已重新检索')">检索</span>
         </div>
-        <div class="m-note success"><i class="fa-solid fa-circle-check"></i>
-          <div>已识别意图：<b>房源查询</b>　·　提取条件：区域 = 天元区、户型 = 二室一厅、状态 = 可配租</div>
+        <div class="m-pills" style="margin-top:10px">
+          <a href="house-list.html"><i class="fa-solid fa-list"></i> 列表</a>
+          <a href="house-map.html"><i class="fa-solid fa-map-location-dot"></i> 地图找房</a>
+          <a href="house-filter.html"><i class="fa-solid fa-filter"></i> 筛选</a>
+          <a class="on" href="ai-search.html"><i class="fa-solid fa-wand-magic-sparkles"></i> 一句话检索</a>
         </div>
-        <div class="m-sect">匹配房源<span class="m-sect-x">2 个楼盘 / 71 间</span></div>
+        <div class="m-note success"><i class="fa-solid fa-circle-check"></i>
+          <div>已识别意图：<b>房源查询</b>　·　提取条件：区域 = 天元区、户型 = 二室一厅、状态 = 有剩余可选</div>
+        </div>
+        <div class="m-sect">匹配楼盘<span class="m-sect-x">2 个楼盘 · 二室一厅剩余可选 70 间</span></div>
         <a class="m-hcard" href="house-detail.html">
-          <div class="m-hc-img"><img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80" alt="湘江1958">
+          <div class="m-hc-img"><img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80" alt="湘江1958 人才公寓">
             <div class="m-hc-badge"><span class="m-tag blue">收购商品房</span></div>
             <div class="m-hc-vr"><i class="fa-solid fa-vr-cardboard"></i> VR 看房</div>
           </div>
           <div class="m-hc-b">
             <div class="m-hc-t">湘江1958 人才公寓</div>
-            <div class="m-hc-m">天元区 · 泰山路 <span class="dot">|</span> 二室一厅 78.60 ㎡</div>
+            <div class="m-hc-m">天元区 · 泰山路 <span class="dot">|</span> 二室一厅 78.60 ㎡ <span class="dot">|</span> 该户型剩余可选 46 间</div>
+            <div style="display:flex;gap:10px;margin-top:8px;font-size:11px;color:var(--text-3);flex-wrap:wrap"><span>总房源 <b style="color:var(--text-1)">412</b> 间</span><span>意向登记 <b style="color:var(--lv-orange)">86</b></span><span>已轮候 <b style="color:var(--purple)">54</b></span><span>剩余可选 <b style="color:var(--success)">126</b></span></div>
             <div class="m-hc-f">
-              <div class="m-hc-p"><div class="p1">424.44 <small>元/月</small></div><div class="p2">市场租金 1,414.80 元/月</div></div>
-              <span class="m-hc-left">剩 26 间</span>
+              <div class="m-hc-p"><div class="p1">471.60 <small>元/月　整套自付</small></div><div class="p2">市场租金 1,414.80 元/月</div></div>
+              <span class="m-hc-left">剩余 126 间</span>
             </div>
           </div>
         </a>
         <a class="m-hcard" href="house-detail.html" style="margin-top:12px;display:block">
-          <div class="m-hc-img"><img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&q=80" alt="栗雨佳苑">
+          <div class="m-hc-img"><img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&q=80" alt="栗雨佳苑人才公寓">
             <div class="m-hc-badge"><span class="m-tag green">公租房盘活</span></div>
           </div>
           <div class="m-hc-b">
             <div class="m-hc-t">栗雨佳苑人才公寓</div>
-            <div class="m-hc-m">天元区 · 栗雨路 <span class="dot">|</span> 二室一厅 72.40 ㎡</div>
+            <div class="m-hc-m">天元区 · 栗雨路 <span class="dot">|</span> 二室一厅 72.40 ㎡ <span class="dot">|</span> 该户型剩余可选 24 间</div>
+            <div style="display:flex;gap:10px;margin-top:8px;font-size:11px;color:var(--text-3);flex-wrap:wrap"><span>总房源 <b style="color:var(--text-1)">168</b> 间</span><span>意向登记 <b style="color:var(--lv-orange)">42</b></span><span>已轮候 <b style="color:var(--purple)">18</b></span><span>剩余可选 <b style="color:var(--success)">57</b></span></div>
             <div class="m-hc-f">
-              <div class="m-hc-p"><div class="p1">390.96 <small>元/月</small></div><div class="p2">市场租金 1,303.20 元/月</div></div>
-              <span class="m-hc-left">剩 45 间</span>
+              <div class="m-hc-p"><div class="p1">434.40 <small>元/月　整套自付</small></div><div class="p2">市场租金 1,303.20 元/月</div></div>
+              <span class="m-hc-left">剩余 57 间</span>
             </div>
           </div>
         </a>
+        <div class="m-note success proto"><i class="fa-solid fa-route"></i>
+          <div><span class="proto-t">原型说明 · 开发删除</span>检索到楼盘后：<b>进入楼盘详情 → 选择户型 → 意向登记 / 正式申请</b>。只选到「楼盘＋户型」两级，<b>不选具体房屋与房间</b>；房源不由申请人自行选定，资格审核通过后由系统按配租公告设定的时间自动配租。</div>
+        </div>
         <div class="m-sect">相关政策条款<span class="m-sect-x">3 条</span></div>
         <div class="m-cells">
           <a class="m-cell" href="policy-detail.html"><span class="m-ci"><i class="fa-solid fa-scroll"></i></span><span class="m-cl"><b>管理办法第九条</b><span class="m-cs">配租房源原则上按房源大小予以配租，二室一厅配租 2 人</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
           <a class="m-cell" href="policy-detail.html"><span class="m-ci"><i class="fa-solid fa-scroll"></i></span><span class="m-cl"><b>管理办法第六条</b><span class="m-cs">涉及大户型的按分摊面积计算租赁面积</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
           <a class="m-cell" href="policy-detail.html"><span class="m-ci"><i class="fa-solid fa-scroll"></i></span><span class="m-cl"><b>管理办法第十一条</b><span class="m-cs">已婚且夫妻双方均符合条件的可以家庭为单位申请</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
         </div>
-        <div class="m-sect">相关办事指南</div>
+        <div class="m-sect">您可能还想问</div>
         <div class="m-cells">
+          <a class="m-cell" href="house-book.html"><span class="m-ci green"><i class="fa-solid fa-clipboard-check"></i></span><span class="m-cl"><b>「登记了意向就能分到房吗」</b><span class="m-cs">意向登记仅作需求摸底，不占用房源、不进入轮候库、不产生配租权利</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="house-detail.html"><span class="m-ci cyan"><i class="fa-solid fa-venus-mars"></i></span><span class="m-cl"><b>「一套房里会住男女混住吗」</b><span class="m-cs">同一套内按同性别配租，楼盘详情可查看各间当前租住情况</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
           <a class="m-cell" href="apply-guide.html"><span class="m-ci orange"><i class="fa-solid fa-list-check"></i></span><span class="m-cl"><b>人才公寓申请办事指南</b><span class="m-cs">条件、材料、流程与时限</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
-          <a class="m-cell" href="house-filter.html"><span class="m-ci cyan"><i class="fa-solid fa-filter"></i></span><span class="m-cl"><b>房源筛选与排序</b><span class="m-cs">按区域、租金、面积、户型筛选</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="house-filter.html"><span class="m-ci"><i class="fa-solid fa-filter"></i></span><span class="m-cl"><b>房源筛选与排序</b><span class="m-cs">按区域、租金、面积、户型筛选</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
         </div>
         <div class="m-note"><i class="fa-solid fa-circle-info"></i>
           <div>检索范围覆盖<b>政策文件、房源信息、办事指南</b>，支持模糊检索。由电信 AI 能力平台提供语义理解服务。</div>

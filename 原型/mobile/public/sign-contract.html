@@ -3,78 +3,173 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>在线签署租赁合同 · 株洲市人才住房保障管理平台</title>
+<title>签署租赁合同 · 株洲市人才住房保障管理平台</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="../../assets/css/app.css">
 <link rel="stylesheet" href="../../assets/css/mobile.css">
 <link rel="stylesheet" href="../../assets/css/ext.css">
 </head>
-<body class="m-body" data-mtitle="签署租赁合同" data-mmod="M8 电子签约" data-mcode="M8-01"
-      data-mdesc="调用电子签章在线签订租赁合同，个人电子签名与运营机构企业签章同步完成，签署完成即生效并归档。" data-mback="sign-terms.html" data-mtabset="public" data-mtab="me">
+<body class="m-body" data-mtitle="签署租赁合同" data-mmod="M8 合同签署" data-mcode="M8-01"
+      data-mdesc="合同签署支持两种方式：线上电子签约由运营方在平台发起、本人在手机上完成签章；线下签约由本人到运营机构现场签署纸质合同后上传合同影像，经运营机构核对确认后签约完成。合同均支持下载与打印。" data-mback="sign-terms.html" data-mtabset="public" data-mtab="apply">
 <div class="m-stage">
   <div class="m-phone">
     <div class="m-screen">
       <div class="m-view">
-        <div class="m-note"><i class="fa-solid fa-circle-info"></i>
-          <div>个人<b>电子签名</b>与运营机构<b>企业签章</b>同步完成，签署完成即生效并归档。签署前需人脸核身确保为本人操作。</div>
+        <div class="m-note warn"><i class="fa-solid fa-clock"></i>
+          <div>签约期限 <b>5 个工作日</b>：2026-09-16 至 <b>2026-09-22 18:00</b>，逾期未签约视同放弃本次配租。
+            两种签约方式<b>任选其一</b>，法律效力相同。</div>
         </div>
-        <div class="m-card">
-          <div class="m-card-h"><i class="fa-solid fa-file-contract"></i>合同文本<a class="m-more" href="sign-done.html">下载 <i class="fa-solid fa-angle-right"></i></a></div>
+
+        <div class="m-seg" style="margin-top:12px">
+          <button class="on" type="button" onclick="sw(1)"><i class="fa-solid fa-mobile-screen-button"></i> 线上电子签约</button>
+          <button type="button" onclick="sw(2)"><i class="fa-solid fa-file-arrow-up"></i> 线下签约上传</button>
+        </div>
+
+        <div class="m-card" style="margin-top:12px">
+          <div class="m-card-h"><i class="fa-solid fa-file-contract"></i>合同文本
+            <a class="m-more" href="javascript:void(0)" onclick="MB.toast('合同文本 PDF 已下载，可自行打印')">下载 / 打印 <i class="fa-solid fa-angle-right"></i></a></div>
           <div class="m-card-b">
             <div style="text-align:center;font-size:15px;font-weight:700">株洲市青年人才住房租赁合同</div>
-            <div style="text-align:center;margin-top:5px;font-size:12px;color:var(--text-3)">合同编号：RZ2026-00862</div>
+            <div style="text-align:center;margin-top:5px;font-size:12px;color:var(--text-3)">合同编号：RZ2026-00862　配租单号：PZ2026-03-00047</div>
             <div style="margin-top:12px;font-size:13px;line-height:1.9;color:var(--text-2)">
-              <b>出租方（甲方）</b>：株洲城发高科人才安居服务有限公司<br>
+              <b>出租方（甲方）</b>：株洲市人才安居服务有限公司<br>
               <b>承租方（乙方）</b>：王梓涵（430211********2418）<br><br>
-              <b>第一条　租赁房源</b>　甲方将湘江1958 人才公寓 A6 栋 1502 室（建筑面积 52.60 ㎡，套内面积 41.80 ㎡，一室一厅，整套配租 1 人）出租给乙方居住使用。<br><br>
+              <b>第一条　租赁房源</b>　甲方将湘江1958 人才公寓 A6 栋 1502 室 <b>02 号房间</b>出租给乙方居住使用。该套住房为三室一厅，建筑面积 118.60 ㎡，<b>按间配租 3 人</b>；本房间套内面积 14.20 ㎡、公摊面积 12.50 ㎡、<b>计租面积 26.70 ㎡</b>。客厅、餐厅、厨房、卫生间等公共区域由同套住户共同使用，<b>同套配租对象性别一致</b>。<br><br>
               <b>第二条　租赁期限</b>　租赁期限 2 年，自乙方实际入住之日起算。入住日期以双方签署的《交付验收单》确认之日为准，并作为租金减免计费与年度资格审查周期的起算依据。<br><br>
-              <b>第三条　租金与减免</b>　租金标准 18.00 元/㎡·月，应缴租金总额 946.80 元/月。按「一事一议」审定的减免标准，财政补助 662.76 元/月（减免 70%），<b>乙方个人实际应缴 284.04 元/月</b>。减免期自入住之日起 2 年。<br><br>
+              <b>第三条　租金与减免</b>　人才租金标准 14.00 元/㎡·月，按计租面积 26.70 ㎡ 计收，应缴租金总额 373.80 元/月。按「一事一议」审定的减免标准，财政补助 213.60 元/月（减免 57%），<b>乙方个人实际应缴 160.20 元/月</b>。减免期自入住之日起 2 年。<br><br>
               <b>第四条　押金</b>　乙方缴纳押金 1,000.00 元，退租时按《退租结算单》抵扣相关费用后退还。<br><br>
-              <b>第五条　其他费用</b>　物业费、水费、电费、燃气费等由<b>乙方按规定标准自行承担</b>，以交付时抄录的表底数为计费起点。<br><br>
+              <b>第五条　其他费用</b>　物业费、水费、电费、燃气费等由<b>乙方按规定标准自行承担</b>，以交付时抄录的表底数为计费起点；按间配租的公共部分费用由同套住户均摊。<br><br>
               <b>第六条　动态管理</b>　乙方保障资格<b>每年审查一次</b>。因条件变化不再符合条件的，乙方应主动申请退出。保障期届满后仍符合我市保障性住房申请条件的可继续承租，但需<b>按实际租金标准缴纳租金</b>。<br><br>
-              <b>第七条　规范使用</b>　乙方不得擅自转租、转借，不得改变房屋用途，不得空置不住。<br><br>
+              <b>第七条　规范使用</b>　乙方不得擅自转租、转借，不得改变房屋用途，不得空置不住，不得擅自留宿同套外人员。<br><br>
               <b>第八条　违约责任</b>　乙方存在提交虚假材料、隐瞒实情、擅自转租转借等行为的，甲方有权解除本合同，由甲方执行清退，并由市住建部门取消其保障资格、记入失信名单。
             </div>
           </div>
         </div>
-        <div class="m-sect">签署方</div>
-        <div class="m-card">
-          <div class="m-card-h"><i class="fa-solid fa-signature"></i>签署状态</div>
-          <div class="m-card-b">
-            <div class="m-check">
-              <div class="ok"><i class="fa-solid fa-building-flag"></i><div class="m-chl"><b>甲方　株洲城发高科人才安居服务有限公司</b><span>企业签章　·	已完成用章授权　·	用章日志已记录</span></div>
-                <div class="co"><span class="m-tag green">已签章</span></div></div>
-              <div class="na"><i class="fa-solid fa-user"></i><div class="m-chl"><b>乙方　王梓涵</b><span>个人电子签名　·	需先完成人脸核身</span></div>
-                <div class="co"><span class="m-tag orange">待签署</span></div></div>
+
+        <!-- ========== 方式一：线上电子签约 ========== -->
+        <div id="pnOn" style="margin-top:12px">
+          <div class="m-note"><i class="fa-solid fa-circle-info"></i>
+            <div>线上电子签约由<b>运营方在平台发起</b>，本人在手机上完成<b>电子签章</b>；
+              甲方企业签章与乙方个人签名同步完成，签署完成即生效并归档。</div>
+          </div>
+          <div class="m-sect">签署方<span class="m-sect-x">运营方已发起</span></div>
+          <div class="m-card">
+            <div class="m-card-h"><i class="fa-solid fa-signature"></i>签署状态</div>
+            <div class="m-card-b">
+              <div class="m-check">
+                <div class="ok"><i class="fa-solid fa-paper-plane"></i><div class="m-chl"><b>运营方已发起签约</b><span>株洲市人才安居服务有限公司　2026-09-16 09:20 发起　·	已短信通知本人</span></div>
+                  <div class="co"><span class="m-tag green">已发起</span></div></div>
+                <div class="ok"><i class="fa-solid fa-building-flag"></i><div class="m-chl"><b>甲方　株洲市人才安居服务有限公司</b><span>企业电子签章　·	已完成用章授权　·	用章日志已记录</span></div>
+                  <div class="co"><span class="m-tag green">已签章</span></div></div>
+                <div class="na"><i class="fa-solid fa-user"></i><div class="m-chl"><b>乙方　王梓涵</b><span>本人手机签章　·	需先完成人脸核身</span></div>
+                  <div class="co"><span class="m-tag orange">待签署</span></div></div>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="m-sect">签名区</div>
-        <div class="m-card">
-          <div class="m-card-h"><i class="fa-solid fa-pen-nib"></i>手写签名</div>
-          <div class="m-card-b">
-            <div style="height:120px;border:1px dashed var(--primary-soft);border-radius:8px;background:var(--primary-light-2);display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--text-3);font-size:13px">
-              <i class="fa-solid fa-pen-nib" style="font-size:24px;color:var(--primary-soft)"></i>
-              <span style="margin-top:8px">请在此区域手写签名</span>
-            </div>
-            <div style="margin-top:10px;display:flex;gap:8px">
-              <button class="m-btn sm" type="button" onclick="MB.toast('已清空签名')">清空重写</button>
-              <button class="m-btn sm ghost" type="button" onclick="MB.toast('已启用楷体电子签名')">使用电子签名</button>
+          <div class="m-sect">签名区</div>
+          <div class="m-card">
+            <div class="m-card-h"><i class="fa-solid fa-pen-nib"></i>手机签章</div>
+            <div class="m-card-b">
+              <div style="height:120px;border:1px dashed var(--primary-soft);border-radius:8px;background:var(--primary-light-2);display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--text-3);font-size:13px">
+                <i class="fa-solid fa-pen-nib" style="font-size:24px;color:var(--primary-soft)"></i>
+                <span style="margin-top:8px">请在此区域手写签名</span>
+              </div>
+              <div style="margin-top:10px;display:flex;gap:8px">
+                <button class="m-btn sm" type="button" onclick="MB.toast('已清空签名')">清空重写</button>
+                <button class="m-btn sm ghost" type="button" onclick="MB.toast('已启用楷体电子签名')">使用电子签名</button>
+              </div>
             </div>
           </div>
+          <div class="m-note warn"><i class="fa-solid fa-triangle-exclamation"></i>
+            <div>签署由<b>第三方 CA 服务机构</b>提供签署存证，保证法律效力。签署完成即生效并自动归档，
+              可随时<b>查看、下载与打印</b>。</div>
+          </div>
         </div>
-        <div class="m-note warn"><i class="fa-solid fa-triangle-exclamation"></i>
-          <div>签署由<b>第三方 CA 服务机构</b>提供签署存证，保证法律效力。签署完成即生效并自动归档，可随时查看下载。</div>
+
+        <!-- ========== 方式二：线下签约后上传合同影像 ========== -->
+        <div id="pnOff" style="display:none;margin-top:12px">
+          <div class="m-note"><i class="fa-solid fa-circle-info"></i>
+            <div>不便线上签署的，可到运营机构现场签署<b>纸质合同</b>，再把合同影像上传到平台；
+              上传后进入<b>待运营机构核对确认</b>状态，<b>确认通过后才算签约完成</b>。</div>
+          </div>
+          <div class="m-sect">线下签约地点<span class="m-sect-x">运营机构</span></div>
+          <div class="m-card">
+            <div class="m-card-h"><i class="fa-solid fa-building-user"></i>运营机构信息</div>
+            <div class="m-card-b">
+            <div class="m-kv">
+              <div><span>机构名称</span><span><b>株洲市人才安居服务有限公司</b></span></div>
+              <div><span>办理地址</span><span>株洲市天元区泰山路 199 号　湘江1958 人才公寓 A6 栋 1 层客服中心</span></div>
+              <div><span>联系电话</span><span><b>0731-28301958</b>　联系人：唐××</span></div>
+              <div><span>办理时间</span><span>工作日 9:00—12:00、14:00—17:30（法定节假日除外）</span></div>
+              <div><span>需携带材料</span><span>身份证原件、配租结果确认书（可现场出示电子版）</span></div>
+              <div><span>现场用时</span><span>约 20 分钟，当场签署一式两份，乙方留存一份</span></div>
+            </div>
+              <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+                <button class="m-btn sm ghost" type="button" onclick="MB.toast('已拨号 0731-28301958（原型演示）')"><i class="fa-solid fa-phone"></i> 拨打电话</button>
+                <button class="m-btn sm" type="button" onclick="MB.toast('已复制地址：株洲市天元区泰山路 199 号 湘江1958 人才公寓 A6 栋 1 层客服中心')"><i class="fa-solid fa-location-dot"></i> 复制地址</button>
+                <button class="m-btn sm" type="button" onclick="MB.toast('合同文本 PDF 已下载，可自行打印后带到现场')"><i class="fa-solid fa-print"></i> 下载并打印合同</button>
+              </div>
+            </div>
+          </div>
+          <div class="m-sect">上传合同影像<span class="m-sect-x">签署页与签章页</span></div>
+          <div class="m-card">
+            <div class="m-card-h"><i class="fa-solid fa-file-arrow-up"></i>合同影像</div>
+            <div class="m-card-b">
+              <div class="m-up">
+                <div class="m-uc ok"><img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&q=80" alt="合同首页"><span class="m-uc-x"><i class="fa-solid fa-xmark"></i></span><span class="m-uc-n">合同首页</span></div>
+                <div class="m-uc ok"><img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=400&q=80" alt="签署页"><span class="m-uc-x"><i class="fa-solid fa-xmark"></i></span><span class="m-uc-n">双方签署页</span></div>
+                <div class="m-uadd" onclick="MB.toast('原型演示：调起相机或从相册选择')"><i class="fa-solid fa-camera"></i><span>继续上传</span></div>
+              </div>
+              <div class="m-note" style="margin-top:10px"><i class="fa-solid fa-circle-info"></i>
+                <div>需上传<b>合同首页、双方签署与盖章页</b>，共 2—4 张；要求四角完整、字迹清晰，
+                  单张不超过 10 MB。</div>
+              </div>
+            </div>
+          </div>
+          <div class="m-sect">核对确认进度<span class="m-sect-x">确认后签约完成</span></div>
+          <div class="m-card">
+            <div class="m-card-h"><i class="fa-solid fa-list-check"></i>线下签约状态</div>
+            <div class="m-card-b">
+              <div class="m-tl">
+                <div class="m-ti done"><div class="m-tt">现场签署纸质合同</div>
+                  <div class="m-td">2026-09-17 10:12　·	株洲市人才安居服务有限公司客服中心　·	一式两份</div></div>
+                <div class="m-ti on"><div class="m-tt">上传合同影像　<span class="m-tag orange">待运营机构核对确认</span></div>
+                  <div class="m-td">2026-09-17 11:05 上传 2 张　·	已提交至运营机构，承诺 <b>1 个工作日</b>内核对</div></div>
+                <div class="m-ti"><div class="m-tt">运营机构核对确认</div>
+                  <div class="m-td">核对合同编号、承租人、房间、面积与租金要素是否与配租结果一致；不一致的退回并说明原因</div></div>
+                <div class="m-ti"><div class="m-tt">签约完成并归档</div>
+                  <div class="m-td"><b>核对确认通过后才是签约完成</b>，合同要素入库，可下载与打印，并进入入住办理</div></div>
+              </div>
+              <div class="m-note warn" style="margin-top:10px"><i class="fa-solid fa-triangle-exclamation"></i>
+                <div>上传成功<b>不等于签约完成</b>。核对确认前合同状态为<b>待核对</b>，
+                  签约期限仍按 2026-09-22 18:00 计算；被退回的需在期限内重新上传。</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="m-actbar">
-        <a class="m-btn w-auto" href="sign-terms.html">返回条款</a>
+
+      <div class="m-actbar" id="barOn">
+        <button class="m-btn w-auto" type="button" onclick="MB.toast('合同文本 PDF 已下载，可自行打印')"><i class="fa-solid fa-download"></i> 下载</button>
         <button class="m-btn primary" type="button" onclick="MB.confirm('确认签署《株洲市青年人才住房租赁合同》（RZ2026-00862）？<br><b>签署完成即生效并归档</b>，后续变更须走合同变更流程。','人脸核身并签署',function(){MB.toast('人脸核身通过，正在签署…');setTimeout(function(){location.href='sign-done.html'},1400)})"><i class="fa-solid fa-file-signature"></i> 人脸核身并签署</button>
+      </div>
+      <div class="m-actbar" id="barOff" style="display:none">
+        <button class="m-btn w-auto" type="button" onclick="MB.toast('合同文本 PDF 已下载，可自行打印后带到现场签署')"><i class="fa-solid fa-print"></i> 打印</button>
+        <button class="m-btn primary" type="button" onclick="MB.confirm('确认提交线下合同影像（2 张）？<br>提交后进入<b>待运营机构核对确认</b>状态，<b>确认通过后才算签约完成</b>。','提交核对',function(){MB.toast('已提交，等待运营机构核对确认');setTimeout(function(){location.href='sign-done.html?m=off'},1400)})"><i class="fa-solid fa-cloud-arrow-up"></i> 提交合同影像</button>
       </div>
     </div>
   </div>
 </div>
 
 <script src="../../assets/js/mobile.js"></script>
+<script>
+function sw(n) {
+  var on = n === 1;
+  document.getElementById('pnOn').style.display = on ? '' : 'none';
+  document.getElementById('pnOff').style.display = on ? 'none' : '';
+  document.getElementById('barOn').style.display = on ? '' : 'none';
+  document.getElementById('barOff').style.display = on ? 'none' : '';
+}
+</script>
 </body>
 </html>

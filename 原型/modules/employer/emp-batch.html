@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>员工批量代申报 · 株洲市人才住房保障管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="employer" data-active="emp-02">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才住房保障管理平台
+      <span class="sep">/</span> 用人单位端
+      <span class="sep">/</span> <span class="cur">员工批量代申报</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.toast('原型演示：下载代申报名单模板','success')"><i class="fa-solid fa-download"></i> 下载模板</button>
+      <button class="btn" onclick="PMS.toast('原型演示：选择填好的名单上传')"><i class="fa-solid fa-upload"></i> 批量导入</button>
+    </div>
+  </div>
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>统一收集职工资料后按模板批量导入，系统按人拆分为<b>独立申请件</b>逐件办理，申请渠道标记为「用人单位（移动端申请）」。<b>单位只报人不选房</b>，职工确认授权时可补填意向片区，配租阶段由职工本人选房。职工须在湘易办<b>确认授权</b>，单位不得代为确认；受理时间以职工确认时间为准，不因单位代报而优先。</div>
+  </div>
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-file-import"></i></div>
+      <div><div class="s-label">本批导入</div><div class="s-value">48</div>
+        <div class="s-trend">2026-09-06 提交</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
+      <div><div class="s-label">职工已确认</div><div class="s-value">36</div>
+        <div class="s-trend">占 75.0%</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-hourglass-half"></i></div>
+      <div><div class="s-label">待确认</div><div class="s-value">10</div>
+        <div class="s-trend">超 3 日自动作废</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon red"><i class="fa-solid fa-circle-xmark"></i></div>
+      <div><div class="s-label">校验不通过</div><div class="s-value">2</div>
+        <div class="s-trend">证件号格式错误</div></div>
+    </div>
+  </div>
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>姓名</label><input type="text" placeholder="职工姓名"></div>
+      <div class="filter-item"><label>部门</label><input type="text" placeholder="所在部门"></div>
+      <div class="filter-item"><label>人才层次</label><select><option value="">全部</option><option>C 类</option><option>D 类</option><option>E 类</option></select></div>
+      <div class="filter-item"><label>状态</label><select><option value="">全部</option><option>已确认</option><option>待确认</option><option>校验不通过</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>序号</th><th>姓名</th><th>证件号</th><th class="cell-lg">所在部门</th><th>学历</th><th>人才层次</th><th>确认状态</th><th>确认时间</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>01</td><td>李文博</td><td>4302**********0518</td><td>研发中心</td><td>全日制硕士</td><td><span class="badge blue">D 类</span></td><td><span class="badge green">已确认</span></td><td>2026-09-06 10:22</td><td><span class="link" onclick="location.href='emp-progress.html'">查看进度</span></td></tr>
+          <tr><td>02</td><td>陈思远</td><td>4302**********1127</td><td>工艺部</td><td>全日制本科</td><td><span class="badge cyan">E 类</span></td><td><span class="badge green">已确认</span></td><td>2026-09-06 11:05</td><td><span class="link" onclick="location.href='emp-progress.html'">查看进度</span></td></tr>
+          <tr class="row-warn"><td>03</td><td>周雨桐</td><td>4302**********0903</td><td>质量部</td><td>全日制硕士</td><td><span class="badge blue">D 类</span></td><td><span class="badge orange">待确认</span></td><td>—</td><td><span class="link" onclick="PMS.toast('已通过湘易办发送确认提醒','success')">催办</span></td></tr>
+          <tr class="row-bad"><td>04</td><td>郑一凡</td><td>4302*******X</td><td>供应链部</td><td>全日制本科</td><td><span class="badge gray">待定</span></td><td><span class="badge red">校验不通过</span></td><td>—</td><td><span class="link" onclick="PMS.toast('原型演示：修正后重新导入该行')">修正重传</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>操作简化</b> 单位只报人员与材料，不选房；意向片区由职工确认时补填</span>
+    <span><b>拆件规则</b> 一次提交多人，审批端按人拆分为独立申请件逐件办理</span>
+    <span><b>排序口径</b> 受理时间以<b>职工本人确认时间</b>为准，与个人自行申请同一口径</span>
+    <span><b>超期作废</b> 导入后 3 个自然日内未确认的自动作废，可重新导入</span>
+  </div>
+
+</main>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 4; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

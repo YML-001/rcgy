@@ -28,14 +28,14 @@
 
   <div class="alert alert-info">
     <i class="fa-solid fa-circle-info"></i>
-    <div>本卷宗共 <b>12 条操作留痕</b>、6 份卷内材料，已于 2026-09-05 09:15 归档。<b>每一次提交、修改、驳回、补材料全部记录</b>，后期可回溯查阅，满足审计与督查要求。</div>
+    <div>本卷宗共 <b>15 条操作留痕</b>、9 份卷内材料，已于 2026-09-05 09:15 归档。<b>每一次提交、修改、材料项回退、补材料全部记录</b>，含<b>历史回退记录</b>（被退材料项、回退意见、回退层级、经办人与时间），后期可回溯查阅，满足审计与督查要求。</div>
   </div>
 
   <div class="card" data-tabs-scope>
     <div class="tabs">
       <div class="tab active" data-tab="base">卷宗基本信息</div>
-      <div class="tab" data-tab="trace">全过程留痕 <span class="badge blue">12</span></div>
-      <div class="tab" data-tab="docs">材料影像 <span class="badge cyan">2</span></div>
+      <div class="tab" data-tab="trace">全过程留痕 <span class="badge blue">15</span></div>
+      <div class="tab" data-tab="docs">材料影像 <span class="badge cyan">9</span></div>
       <div class="tab" data-tab="audit">审计追溯</div>
     </div>
     <div class="tab-panel active" data-panel="base">
@@ -51,7 +51,9 @@
           <div class="desc-item"><dt>办结时间</dt><dd>2026-09-05 09:14</dd></div>
           <div class="desc-item full"><dt>承办部门</dt><dd>市保障性住房服务中心资格审核科</dd></div>
           <div class="desc-item"><dt>归档时间</dt><dd>2026-09-05 09:15</dd></div>
-          <div class="desc-item"><dt>留痕条数</dt><dd>12 条</dd></div>
+          <div class="desc-item"><dt>留痕条数</dt><dd>15 条</dd></div>
+          <div class="desc-item"><dt>材料项回退</dt><dd>1 轮 · 2 项<span class="muted">（均已按项补正重传）</span></dd></div>
+          <div class="desc-item"><dt>真实性承诺</dt><dd><span class="badge green">已签署</span><span class="muted">含手写签名影像</span></dd></div>
           <div class="desc-item"><dt>卷宗状态</dt><dd><span class="badge green">已归档</span></dd></div>
         </dl>
       </div>
@@ -80,23 +82,37 @@
           <div class="tl-item done"><div class="tl-dot"></div>
             <div class="tl-title">签署真实性承诺书</div>
             <div class="tl-meta">王梓涵 · 2026-09-03 10:24</div>
-            <div class="tl-desc">人脸核身通过（相似度 98.6%），签署记录已存证。</div></div>
+            <div class="tl-desc">手写签名板签名并人脸核身通过（相似度 98.6%），签名影像与办法版本号 V2026.09 一并存证，
+              <span class="link" onclick="PMS.openDrawer('signDrawer')">查看承诺书与手写签名</span>。</div></div>
           <div class="tl-item done"><div class="tl-dot"></div>
             <div class="tl-title">提交申请</div>
             <div class="tl-meta">王梓涵 · 2026-09-03 10:26</div>
-            <div class="tl-desc">受理时间即配租顺序排序依据。</div></div>
+            <div class="tl-desc">受理时间为审核时限起算依据；配租位次按资格审核通过时间排定。</div></div>
           <div class="tl-item done"><div class="tl-dot"></div>
             <div class="tl-title">系统自动联审</div>
             <div class="tl-meta">系统 · 2026-09-03 10:27</div>
-            <div class="tl-desc">并行调用 8 项核验：6 一致、1 不一致、2 不适用（含 1 项待触发）。</div></div>
+            <div class="tl-desc">并行调用 8 项核验：6 项一致、1 项不一致、1 项不适用。</div></div>
           <div class="tl-item done"><div class="tl-dot"></div>
             <div class="tl-title">生成核验报告</div>
             <div class="tl-meta">系统 · 2026-09-03 10:27</div>
             <div class="tl-desc">个人所得税期数与社保不匹配，标记为例外件。</div></div>
           <div class="tl-item done"><div class="tl-dot"></div>
-            <div class="tl-title">天元区初审</div>
+            <div class="tl-title">市住保中心受理初审</div>
             <div class="tl-meta">周敏 · 2026-09-04 09:12</div>
-            <div class="tl-desc">材料影像与填报内容一致，个税例外项已备注，转市住保中心复核。</div></div>
+            <div class="tl-desc">材料佐证 6 项逐项人工认定，个税纳税记录与无房证明两项影像不符合要求。</div></div>
+          <div class="tl-item done"><div class="tl-dot"></div>
+            <div class="tl-title">按材料项回退 2 项</div>
+            <div class="tl-meta">周敏 · 2026-09-04 09:20 · 回退层级：受理初审</div>
+            <div class="tl-desc">被退项「个税纳税记录」「无房证明」，逐项回退意见已电子送达；其余 6 项保持已核状态，整件不退回、受理时间不变。
+              <span class="link" onclick="location.href='reject-list.html'">查看回退台账</span></div></div>
+          <div class="tl-item done"><div class="tl-dot"></div>
+            <div class="tl-title">申请人补正被标记材料项</div>
+            <div class="tl-meta">王梓涵 · 2026-09-04 15:02 · 湘易办 APP</div>
+            <div class="tl-desc">只重传被标记的 2 项材料，未被标记的 6 项未重复上传；办件回到受理初审本环节继续办理，不重新排队。</div></div>
+          <div class="tl-item done"><div class="tl-dot"></div>
+            <div class="tl-title">受理初审重新认定补正材料</div>
+            <div class="tl-meta">周敏 · 2026-09-04 15:22</div>
+            <div class="tl-desc">无房证明认定符合；个税纳税记录期数仍不足，标记转人工核实后提交复审。</div></div>
           <div class="tl-item done"><div class="tl-dot"></div>
             <div class="tl-title">人工核实个税情形</div>
             <div class="tl-meta">刘志刚 · 2026-09-05 08:46</div>
@@ -112,6 +128,28 @@
         </div>
           </div>
         </div>
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-rotate-left"></i> 历史回退记录<span class="sub">P03 · 按材料项 · 本件 1 轮 2 项</span></div>
+          <div class="sp-b">
+  <div class="sp-tw">
+    <table class="data-table compact">
+      <thead><tr><th>轮次</th><th>回退层级</th><th>被退材料项</th><th class="cell-lg">回退意见</th><th>经办人</th><th>回退时间</th><th>补正情况</th></tr></thead>
+      <tbody>
+      <tr><td>第 1 轮</td><td><span class="badge orange">受理初审</span><br><span class="muted">退申请人补正</span></td><td>个税纳税记录</td><td class="cell-lg">上传的纳税记录仅 3 个月且影像下半页缺失，请补充打印近 12 个月《个人所得税纳税记录》完整影像</td><td>周敏</td><td>2026-09-04 09:20</td><td><span class="badge green">已重传 09-04 15:02</span></td></tr>
+      <tr><td>第 1 轮</td><td><span class="badge orange">受理初审</span><br><span class="muted">退申请人补正</span></td><td>无房证明</td><td class="cell-lg">无房证明查询范围仅到天元区，请补充覆盖株洲市城区（含荷塘、芦淞、石峰、天元）的无自有住房查询结果</td><td>周敏</td><td>2026-09-04 09:20</td><td><span class="badge green">已重传 09-04 15:02</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+        <div class="sp-kv" style="margin-top:10px">
+          <div class="kv"><span class="k">回退影响</span><span class="v ok">未被标记的 6 项材料保持已核状态，未重复上传</span></div>
+          <div class="kv"><span class="k">时限与排队</span><span class="v ok">补正当日补齐，审核时限中止 0 天；受理时间仍为 2026-09-03 10:26</span><span class="badge blue">不重新排队</span></div>
+          <div class="kv"><span class="k">个人端可见</span><span class="v">办件详情同步显示被退项、回退意见与补正结果</span><span class="link" onclick="location.href='reject-list.html'">看台账</span></div>
+        </div>
+            <p class="hint" style="margin-top:8px"><i class="fa-solid fa-circle-info"></i>
+              每一次材料项回退与补正重传均单独成条留痕，含前后影像版本，
+              回退意见原文长期留存、不可篡改。</p>
+          </div>
+        </div>
       </div>
     </div>
     <div class="tab-panel" data-panel="docs">
@@ -123,15 +161,39 @@
         <span class="file-chip"><i class="fa-regular fa-file-lines"></i><span class="fv-name">株洲市创业就业青年人才住房资格审核表.pdf</span></span>
         <span class="file-chip"><i class="fa-regular fa-image"></i><span class="fv-name">劳动合同-第1页.jpg</span></span>
         <span class="file-chip"><i class="fa-regular fa-image"></i><span class="fv-name">劳动合同-第2页.jpg</span></span>
+        <span class="file-chip"><i class="fa-regular fa-file-lines"></i><span class="fv-name">个税纳税记录.pdf（补正重传版）</span></span>
+        <span class="file-chip"><i class="fa-regular fa-file-lines"></i><span class="fv-name">无房证明.pdf（补正重传版）</span></span>
         <span class="file-chip"><i class="fa-regular fa-file-lines"></i><span class="fv-name">材料真实性承诺书.pdf</span></span>
+        <span class="file-chip" onclick="PMS.openDrawer('signDrawer')"><i class="fa-solid fa-signature"></i><span class="fv-name">手写签名影像_王梓涵_20260903.png</span></span>
         <span class="file-chip"><i class="fa-regular fa-file-lines"></i><span class="fv-name">多部门数据核验报告.pdf</span></span>
         <span class="file-chip"><i class="fa-regular fa-file-lines"></i><span class="fv-name">资格审核通过告知书.pdf</span></span>
       </div>
         <div class="sp-kv">
           <div class="kv"><span class="k">影像存储</span><span class="v">统一管理存储与保留期限，界面加水印展示</span><span class="link" onclick="location.href='../system/attach.html'">附件与影像管理</span></div>
-          <div class="kv"><span class="k">免上传项</span><span class="v ok">身份、婚姻、不动产、学历、社保共 5 项由接口核验，无纸质材料</span></div>
+          <div class="kv"><span class="k">免上传项</span><span class="v ok">身份与户籍、政策性住房 2 项由接口直连核验，无纸质材料</span></div>
+          <div class="kv"><span class="k">补正重传版本</span><span class="v">个税纳税记录、无房证明各保留 2 个版本，回退前后影像均可调阅</span></div>
           <div class="kv"><span class="k">查阅控制</span><span class="v warn">查阅与导出需授权并全程留痕</span></div>
         </div>
+          </div>
+        </div>
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-signature"></i> 真实性承诺与手写签名<span class="sub">P11 · 可查看下载打印</span></div>
+          <div class="sp-b">
+        <div class="sp-kv">
+          <div class="kv"><span class="k">承诺书</span><span class="v">材料真实性承诺书（管理办法第十三条）</span><span class="badge green">已签署</span></div>
+          <div class="kv"><span class="k">手写签名影像</span><span class="v">手写签名影像_王梓涵_20260903.png</span><span class="muted">PNG · 带水印存储</span></div>
+          <div class="kv"><span class="k">签署时间</span><span class="v">2026-09-03 10:24</span></div>
+          <div class="kv"><span class="k">签署渠道</span><span class="v">湘易办 APP · 手写签名板 + 人脸核身（相似度 98.6%）</span></div>
+          <div class="kv"><span class="k">办法版本号</span><span class="v"><span class="sp-vt cur">V2026.09</span></span><span class="muted">勾选办法条款时记录</span></div>
+          <div class="kv"><span class="k">存证编号</span><span class="v"><span class="sp-uid">SIGN-2026-0903-0162-01</span></span></div>
+        </div>
+        <div class="btn-row" style="margin-top:10px">
+          <button class="btn btn-sm" onclick="PMS.openDrawer('signDrawer')"><i class="fa-regular fa-eye"></i> 查看承诺书与签名</button>
+          <button class="btn btn-sm" onclick="PMS.toast('已下载：承诺书正文 + 手写签名影像（PDF，带水印）','success')"><i class="fa-solid fa-download"></i> 下载</button>
+          <button class="btn btn-sm" onclick="PMS.toast('已调起打印：承诺书正文 1 页 + 手写签名影像 1 页')"><i class="fa-solid fa-print"></i> 打印</button>
+        </div>
+            <p class="hint" style="margin-top:8px"><i class="fa-solid fa-circle-info"></i>
+              承诺书正文与手写签名影像供用人单位与审核人员随时调取；调阅、下载与打印均计入档案查阅记录。</p>
           </div>
         </div>
       </div>
@@ -148,6 +210,7 @@
       <tr><td>刘志刚</td><td>市住保中心资格审核科</td><td>全卷查阅</td><td>2026-09-05 08:46</td><td>PC / 10.62.***.28</td><td><span class="badge green">岗位权限</span></td></tr>
       <tr><td>李慧敏</td><td>市住建局住房保障科</td><td>审核结论 + 核验报告</td><td>2026-09-08 10:12</td><td>PC / 10.62.***.106</td><td><span class="badge green">岗位权限</span></td></tr>
       <tr><td>张卫东</td><td>市住建局</td><td>审核结论</td><td>2026-09-12 15:26</td><td>PC / 10.62.***.12</td><td><span class="badge green">岗位权限</span></td></tr>
+      <tr><td>贺文斌</td><td>中车株洲电力机车研究所（用人单位）</td><td>承诺书正文 + 手写签名影像</td><td>2026-09-10 09:26</td><td>PC / 10.62.***.44</td><td><span class="badge green">岗位权限</span></td></tr>
       <tr class="row-warn"><td>龙志宏</td><td>市住保中心信息科</td><td>身份证号明文</td><td>2026-09-15 09:08</td><td>PC / 10.62.***.86</td><td><span class="badge orange">专项授权</span></td></tr>
       </tbody>
     </table>
@@ -169,6 +232,63 @@
   </div>
 </main>
 
+<div class="drawer-mask"></div>
+<div class="drawer" id="signDrawer">
+  <div class="drawer-head">
+    <h3>材料真实性承诺书与手写签名 · DZ2026-RC-0162</h3>
+    <span class="badge green">已归档</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>承诺书正文与<b>手写签名影像</b>已随卷归档，用人单位与审核人员可随时<b>查看、下载、打印</b>。签名影像与签署时间、<b>办法版本号</b>一并留痕，作为放弃认定与失信处理的举证依据；本次调阅将计入档案查阅记录。</div>
+  </div>
+        <div class="sp-block">
+          <div class="sp-h"><i class="fa-solid fa-file-signature"></i> 承诺书正文<span class="sub">管理办法第十三条</span></div>
+          <div class="sp-b">
+            <div style="font-size:13.5px;line-height:1.95;color:var(--text-2)">
+              本人 <b>王梓涵</b>（身份证号 430211********2418）申请株洲市城区创业就业青年人才住房保障，现郑重承诺：<br><br>
+              一、本人所填报的<b>全部信息真实、准确、完整</b>，所提交的申请材料均为真实有效材料，不存在伪造、变造、涂改情形。<br><br>
+              二、本人及家庭成员在株洲市城区范围内<b>无自有住房</b>，未承租市本级公共租赁住房、人才公寓、直管公房等政策性住房，且未正在享受公共租赁住房租赁补贴。<br><br>
+              三、本人<b>仅申请 1 间（套）</b>人才住房，未以其他方式重复申请或重复享受住房保障政策。<br><br>
+              四、本人授权株洲市人才住房保障管理平台通过部门数据接口<b>核验</b>本人及家庭成员的婚姻、不动产、学历、工商、社保、税务等信息。<br><br>
+              五、本人承诺<b>按约定用途使用</b>所配租房源，不擅自转租、转借，不改变房屋用途，不空置不住。<br><br>
+              六、本人知晓并接受：如存在<b>提交虚假材料、隐瞒实情</b>等行为，经核实将<b>取消保障资格并由运营管理机构进行清退</b>；如不服从配租房源且不办理入住，<b>视同放弃承租房源资格，放弃资格的不得再次申请</b>。<br><br>
+              七、本人保障期内条件变化不再符合条件的，<b>主动申请退出</b>房源。
+            </div>
+            <div class="sp-src" style="margin-top:12px">
+              <span><b>承诺人</b> 王梓涵</span>
+              <span><b>申请编号</b> RC2026-0903-0162</span>
+              <span><b>办法版本号</b> <span class="sp-vt cur">V2026.09</span></span>
+            </div>
+          </div>
+        </div>
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-signature"></i> 手写签名影像<span class="sub">移动端手写签名板采集 · 带水印存储</span></div>
+          <div class="sp-b">
+            <div class="sp-doc" onclick="PMS.toast('打开影像查看器：手写签名影像原图（带水印）')"><i class="fa-solid fa-signature"></i>手写签名影像_王梓涵_20260903.png</div>
+        <div class="sp-kv" style="margin-top:10px">
+          <div class="kv"><span class="k">签署人</span><span class="v">王梓涵</span></div>
+          <div class="kv"><span class="k">签署时间</span><span class="v">2026-09-03 10:24</span></div>
+          <div class="kv"><span class="k">签署渠道</span><span class="v">湘易办 APP · 手写签名板</span></div>
+          <div class="kv"><span class="k">人脸核身</span><span class="v ok">通过</span><span class="badge green">相似度 98.6%</span></div>
+          <div class="kv"><span class="k">影像规格</span><span class="v">PNG · 1080×420 · 带水印存储</span></div>
+          <div class="kv"><span class="k">存证编号</span><span class="v"><span class="sp-uid">SIGN-2026-0903-0162-01</span></span></div>
+          <div class="kv"><span class="k">版本情况</span><span class="v">当前版本 V1</span><span class="muted">重新签署时另存新版本，历史版本保留</span></div>
+          <div class="kv"><span class="k">归档位置</span><span class="v">卷内材料第 7 件</span><span class="badge green">已归档</span></div>
+        </div>
+            <p class="hint" style="margin-top:8px"><i class="fa-solid fa-circle-info"></i>
+              签名影像不可编辑、不可替换；查看、下载与打印均写入档案查阅记录，可被审计追溯。</p>
+          </div>
+        </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>关闭</button>
+    <button class="btn" onclick="PMS.toast('已下载：承诺书正文 + 手写签名影像（PDF，带水印），下载记录已留痕','success')"><i class="fa-solid fa-download"></i> 下载承诺书（含签名）</button>
+    <button class="btn btn-primary" onclick="PMS.toast('已调起打印：承诺书正文 1 页 + 手写签名影像 1 页')"><i class="fa-solid fa-print"></i> 打印</button>
+  </div>
+</div>
 
 <script src="../../assets/js/app.js"></script>
 <script src="../../assets/js/spec.js"></script>

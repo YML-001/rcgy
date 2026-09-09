@@ -19,13 +19,15 @@
       <span class="sep">/</span> <span class="cur">账单台账</span>
     </div>
     <div class="page-actions">
+      <a class="btn" href="pay-recon.html"><i class="fa-solid fa-right-left"></i> 收缴与对账</a>
+      <a class="btn" href="offline-pay.html"><i class="fa-solid fa-file-circle-check"></i> 线下缴费凭证审核</a>
       <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
     </div>
   </div>
 
   <div class="alert alert-info">
     <i class="fa-solid fa-circle-info"></i>
-    <div>按合同归集全部账单，<b>明确区分应缴租金总额、财政补助（减免）金额、个人实际应缴金额</b>并列明计算依据。账单状态与翼支付收缴结果<b>实时同步核销</b>。</div>
+    <div>按合同归集全部账单，<b>明确区分应缴租金总额、财政补助（减免）金额、个人实际应缴金额</b>并列明计算依据。账单标注<b>支付渠道（翼支付／微信／线下）、核销方式（实时核销／运营机构确认核销）与核销时间</b>：线上渠道支付成功实时核销；<b>线下缴费凭证未经运营机构确认的状态为「待确认」，不计逾期、不纳入欠费统计</b>。</div>
   </div>
 
   <div class="stat-grid">
@@ -36,13 +38,18 @@
     </div>
     <div class="stat-card">
       <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
-      <div><div class="s-label">已缴清</div><div class="s-value">1,224</div>
-        <div class="s-trend text-2">收缴率 95.2%</div></div>
+      <div><div class="s-label">已缴清</div><div class="s-value">1,206</div>
+        <div class="s-trend text-2">收缴率 93.8% · 翼支付 628 · 微信 442 · 线下 136</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-hourglass-half"></i></div>
+      <div><div class="s-label">线下待确认</div><div class="s-value">18</div>
+        <div class="s-trend text-2">8,420.00 元 · 不计逾期</div></div>
     </div>
     <div class="stat-card dc-alarm">
       <div class="s-icon red"><i class="fa-solid fa-triangle-exclamation"></i></div>
       <div><div class="s-label">欠费</div><div class="s-value">62</div>
-        <div class="s-trend ">欠费 83,220.00 元</div></div>
+        <div class="s-trend ">欠费 83,220.00 元 · 不含待确认</div></div>
     </div>
     <div class="stat-card">
       <div class="s-icon cyan"><i class="fa-solid fa-hand-holding-dollar"></i></div>
@@ -59,6 +66,8 @@
       <div class="filter-item"><label>账单周期</label><input type="month"></div>
       <div class="filter-item"><label>账单状态</label><select data-dict="billStatus" data-ph="全部"></select></div>
       <div class="filter-item"><label>费用科目</label><select data-dict="feeItem" data-ph="全部"></select></div>
+      <div class="filter-item"><label>支付渠道</label><select><option value="">全部</option><option>电信翼支付</option><option>微信支付</option><option>线下缴费</option><option>未缴费</option></select></div>
+      <div class="filter-item"><label>核销方式</label><select><option value="">全部</option><option>实时核销</option><option>运营机构确认核销</option><option>补偿核销</option><option>未核销</option></select></div>
       <div class="filter-actions">
         <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
         <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
@@ -68,21 +77,24 @@
     <div class="table-wrap">
       <table class="data-table">
         <thead>
-          <tr><th>账单编号</th><th>账单周期</th><th>承租人</th><th class="cell-lg">房源</th><th>费用科目</th><th>应缴总额</th><th>财政补助</th><th>个人应缴</th><th>已缴</th><th>缴费时间</th><th>状态</th><th>操作</th></tr>
+          <tr><th>账单编号</th><th>账单周期</th><th>承租人</th><th class="cell-lg">房源</th><th>费用科目</th><th>应缴总额</th><th>财政补助</th><th>个人应缴</th><th>已缴</th><th>缴费时间</th><th>支付渠道</th><th>核销方式</th><th>核销时间</th><th>状态</th><th>操作</th></tr>
         </thead>
         <tbody>
-          <tr><td>ZD2026-09-00862</td><td>2026-09</td><td>王梓涵</td><td>湘江1958 A6-1502</td><td><span class="badge blue">租金</span></td><td class="num">946.80</td><td class="num">662.76</td><td class="num">284.04</td><td class="num">284.04</td><td>2026-09-05 09:42</td><td><span class="badge green">已缴清</span></td><td><span class="link" onclick="PMS.toast('52.60 ㎡ × 18.00 元/㎡·月 × 1 个月 = 946.80 元；减免 70% = 662.76 元；个人自付 284.04 元')">计算依据</span></td></tr>
-          <tr><td>ZD2026-09-00742</td><td>2026-09</td><td>唐雅琴</td><td>栗雨佳苑 3-1104</td><td><span class="badge blue">租金</span></td><td class="num">867.60</td><td class="num">607.32</td><td class="num">260.28</td><td class="num">260.28</td><td>2026-09-06 14:26</td><td><span class="badge green">已缴清</span></td><td><span class="link" onclick="PMS.toast('48.20 ㎡ × 18.00 元/㎡·月 × 1 个月')">计算依据</span></td></tr>
-          <tr class="row-bad"><td>ZD2026-09-00518</td><td>2026-09</td><td>周宇轩</td><td>栗雨佳苑 3-0904</td><td><span class="badge blue">租金</span></td><td class="num">867.60</td><td class="num">607.32</td><td class="num">260.28</td><td class="num">0.00</td><td><span class="muted">—</span></td><td><span class="badge red">已欠费</span></td><td><span class="link" onclick="location.href='arrears.html'">欠租台账</span></td></tr>
-          <tr><td>ZD2026-09-00862-U</td><td>2026-09</td><td>王梓涵</td><td>湘江1958 A6-1502</td><td><span class="badge cyan">物业费</span></td><td class="num">105.20</td><td class="num">0.00</td><td class="num">105.20</td><td class="num">105.20</td><td>2026-09-05 09:42</td><td><span class="badge green">已缴清</span></td><td><span class="link" onclick="PMS.toast('物业费、水、电、气按规定标准由租户自行承担，不在减免范围内')">费用口径</span></td></tr>
-          <tr><td>ZD2026-01-00862-D</td><td>2026-01</td><td>王梓涵</td><td>湘江1958 A6-1502</td><td><span class="badge orange">押金</span></td><td class="num">1,000.00</td><td class="num">0.00</td><td class="num">1,000.00</td><td class="num">1,000.00</td><td>2026-01-06 10:26</td><td><span class="badge green">已缴清</span></td><td><span class="link" onclick="location.href='deposit.html'">押金管理</span></td></tr>
+          <tr><td>ZD2026-09-00862</td><td>2026-09</td><td>王梓涵</td><td>湘江1958 A6-1502</td><td><span class="badge blue">租金</span></td><td class="num">1,100.40</td><td class="num">628.80</td><td class="num">471.60</td><td class="num">471.60</td><td>2026-09-05 09:42</td><td><span class="badge blue">电信翼支付</span></td><td><span class="badge green">实时核销</span></td><td>2026-09-05 09:42:20</td><td><span class="badge green">已缴清</span></td><td><span class="link" onclick="PMS.toast('78.60 ㎡ × 14.00 元/㎡·月 × 1 个月 = 1,100.40 元；财政补贴 8.00 元/㎡·月 = 628.80 元；个人承担 6.00 元/㎡·月 = 471.60 元')">计算依据</span></td></tr>
+          <tr><td>ZD2026-09-00742</td><td>2026-09</td><td>唐雅琴</td><td>栗雨佳苑 3-1104</td><td><span class="badge blue">租金</span></td><td class="num">674.80</td><td class="num">385.60</td><td class="num">289.20</td><td class="num">289.20</td><td>2026-09-06 14:26</td><td><span class="badge green">微信支付</span></td><td><span class="badge green">实时核销</span></td><td>2026-09-06 14:26:22</td><td><span class="badge green">已缴清</span></td><td><span class="link" onclick="PMS.toast('48.20 ㎡ × 14.00 元/㎡·月 × 1 个月 = 674.80 元；财政补贴 385.60 元；个人应缴 289.20 元')">计算依据</span></td></tr>
+          <tr class="row-warn"><td>ZD2026-08-00862-U</td><td>2026-08</td><td>王梓涵</td><td>湘江1958 A6-1502</td><td><span class="badge cyan">水电物业</span></td><td class="num">364.20</td><td class="num">0.00</td><td class="num">364.20</td><td class="num">364.20</td><td>2026-09-06 15:20</td><td><span class="badge orange">线下缴费</span></td><td><span class="badge orange">运营机构确认核销</span></td><td><span class="muted">—</span></td><td><span class="badge orange">待确认</span></td><td><span class="link" onclick="location.href='offline-pay.html'">凭证审核</span> <span class="link" onclick="PMS.toast('承租人 2026-09-06 15:20 转账并上传回单，待株洲市人才安居服务有限公司确认；待确认期间不计逾期、不纳入欠费统计')">状态说明</span></td></tr>
+          <tr class="row-bad"><td>ZD2026-09-00518</td><td>2026-09</td><td>周宇轩</td><td>栗雨佳苑 3-0904</td><td><span class="badge blue">租金</span></td><td class="num">674.80</td><td class="num">385.60</td><td class="num">289.20</td><td class="num">0.00</td><td><span class="muted">—</span></td><td><span class="muted">未缴费</span></td><td><span class="muted">未核销</span></td><td><span class="muted">—</span></td><td><span class="badge red">已欠费</span></td><td><span class="link" onclick="location.href='arrears.html'">欠租台账</span></td></tr>
+          <tr><td>ZD2026-08-00908</td><td>2026-08</td><td>邹佳琪</td><td>云龙人才公寓 5-1806</td><td><span class="badge blue">租金</span></td><td class="num">456.40</td><td class="num">260.80</td><td class="num">195.60</td><td class="num">195.60</td><td>2026-08-11 15:42</td><td><span class="badge orange">线下缴费</span></td><td><span class="badge orange">运营机构确认核销</span></td><td>2026-08-12 10:26</td><td><span class="badge green">已缴清</span></td><td><span class="link" onclick="PMS.toast('2026-08-11 15:42 承租人转账并上传回单；2026-08-12 10:26 刘海燕（云龙示范区人才安居服务中心）确认核销，核销时点以确认时间为准')">核销记录</span></td></tr>
+          <tr><td>ZD2026-01-00862-D</td><td>2026-01</td><td>王梓涵</td><td>湘江1958 A6-1502</td><td><span class="badge orange">押金</span></td><td class="num">1,000.00</td><td class="num">0.00</td><td class="num">1,000.00</td><td class="num">1,000.00</td><td>2026-01-06 10:26</td><td><span class="badge blue">电信翼支付</span></td><td><span class="badge green">实时核销</span></td><td>2026-01-06 10:26:14</td><td><span class="badge green">已缴清</span></td><td><span class="link" onclick="location.href='deposit.html'">押金管理</span></td></tr>
         </tbody>
       </table>
     </div>
   </div>
   <div class="sp-src">
     <span><b>分项要求</b> 账单明确区分应缴总额、财政补助、个人应缴并列明计算依据</span>
-    <span><b>核销机制</b> 翼支付支付结果实时回写账单核销状态</span>
+    <span><b>支付渠道</b> 电信翼支付 / 微信支付 / 线下缴费三类并列，由承租人自行选择</span>
+    <span><b>核销机制</b> 线上渠道支付结果实时回写核销状态；线下缴费由运营机构确认后核销，核销时点以确认时间为准</span>
+    <span><b>待确认口径</b> 线下凭证已提交未确认的状态为「待确认」，不计逾期、不纳入欠费统计</span>
     <span><b>欠费联动</b> 欠费情况关联年度资格审查与续租审核</span>
   </div>
 </main>

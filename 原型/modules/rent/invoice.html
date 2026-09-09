@@ -70,10 +70,10 @@
           <tr><th>票据号</th><th>账单编号</th><th>交款人</th><th>费用科目</th><th>票据金额</th><th>票据类型</th><th>开具时间</th><th>查验状态</th><th>票据状态</th><th>操作</th></tr>
         </thead>
         <tbody>
-          <tr><td>CZP20260905001086</td><td>ZD2026-09-00862</td><td>王梓涵</td><td><span class="badge blue">租金</span></td><td class="num">284.04</td><td>财政电子票据（非税收入）</td><td>2026-09-05 09:46</td><td><span class="badge green">可查验</span></td><td><span class="badge green">已开具</span></td><td><span class="link" onclick="PMS.toast('票据号 CZP20260905001086，可在湖南省财政电子票据公共服务平台查验真伪')">票据信息</span></td></tr>
+          <tr><td>CZP20260905001086</td><td>ZD2026-09-00862</td><td>王梓涵</td><td><span class="badge blue">租金</span></td><td class="num">315.60</td><td>财政电子票据（非税收入）</td><td>2026-09-05 09:46</td><td><span class="badge green">可查验</span></td><td><span class="badge green">已开具</span></td><td><span class="link" onclick="PMS.toast('票据号 CZP20260905001086，可在湖南省财政电子票据公共服务平台查验真伪')">票据信息</span></td></tr>
           <tr><td>CZP20260106000012</td><td>ZD2026-01-00862-D</td><td>王梓涵</td><td><span class="badge orange">押金</span></td><td class="num">1,000.00</td><td>财政电子票据（非税收入）</td><td>2026-01-06 10:32</td><td><span class="badge green">可查验</span></td><td><span class="badge green">已开具</span></td><td><span class="link" onclick="PMS.toast('押金票据，退租时如全额退还须办理红冲')">票据信息</span></td></tr>
           <tr class="row-warn"><td>CZP20260806000942</td><td>ZD2026-08-00386</td><td>李子康</td><td><span class="badge blue">租金</span></td><td class="num">272.16</td><td>财政电子票据（非税收入）</td><td>2026-08-06 15:12</td><td><span class="badge gray">已作废</span></td><td><span class="badge orange">已红冲</span></td><td><span class="link" onclick="PMS.openDrawer('fpDrawer')">红冲记录</span></td></tr>
-          <tr class="row-warn"><td><span class="muted">—</span></td><td>ZD2026-09-00518</td><td>周宇轩</td><td><span class="badge blue">租金</span></td><td class="num">260.28</td><td><span class="muted">—</span></td><td><span class="muted">—</span></td><td><span class="muted">—</span></td><td><span class="badge orange">待开具</span></td><td><span class="link" onclick="PMS.toast('该账单处于欠费状态，缴清后方可申领开具电子票据')">不可开具</span></td></tr>
+          <tr class="row-warn"><td><span class="muted">—</span></td><td>ZD2026-09-00518</td><td>周宇轩</td><td><span class="badge blue">租金</span></td><td class="num">289.20</td><td><span class="muted">—</span></td><td><span class="muted">—</span></td><td><span class="muted">—</span></td><td><span class="badge orange">待开具</span></td><td><span class="link" onclick="PMS.toast('该账单处于欠费状态，缴清后方可申领开具电子票据')">不可开具</span></td></tr>
         </tbody>
       </table>
     </div>
@@ -81,7 +81,7 @@
   <div class="sp-src">
     <span><b>对接系统</b> 市财政局财政电子票据系统</span>
     <span><b>对应关系</b> 票据与账单一一对应，不支持合并开票</span>
-    <span><b>红冲规则</b> 票据信息有误或金额调整时由租金核算员办理红冲后重新开具</span>
+    <span><b>红冲规则</b> 票据信息有误或金额调整时由租金核算角色办理红冲后重新开具</span>
   </div>
 </main>
 
@@ -121,12 +121,12 @@
         </div>
         <div class="form-item">
           <label>重新开具金额（元） <span class="req">*</span></label>
-          <input type="text" value="233.28">
+          <input type="text" value="259.20">
           <div class="hint">按调整后减免比例 70% 重算</div>
         </div>
         <div class="form-item col-full">
           <label>红冲说明 <span class="req">*</span></label>
-          <textarea rows="3">湘江1958 二期减免标准经一事一议重新审定，减免比例由 65% 调整为 70%，2026-08 账单个人自付由 272.16 元调整为 233.28 元。原票据金额有误，办理红冲后按调整后金额重新开具，差额 38.88 元原路退还。</textarea>
+          <textarea rows="3">湘江1958 二期减免标准经一事一议重新审定，减免比例由 65% 调整为 70%，2026-08 账单个人自付由 272.16 元调整为 259.20 元。原票据金额有误，办理红冲后按调整后金额重新开具，差额 38.88 元原路退还。</textarea>
         </div>
       </div>
   </div>

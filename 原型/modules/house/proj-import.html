@@ -83,7 +83,7 @@
       <tr><td>项目名称</td><td><span class="badge red">必填</span></td><td>文本（不超过 40 字）</td><td>同一所在区内不可重复；与已登记项目重名时按<b>查重规则</b>拦截</td></tr>
       <tr><td>所在区</td><td><span class="badge red">必填</span></td><td>字典值</td><td>天元区 / 荷塘区 / 芦淞区 / 石峰区 / 经开区 / 渌口区</td></tr>
       <tr><td>收购主体</td><td><span class="badge red">必填</span></td><td>文本</td><td>须为已登记的运营机构或平台公司全称</td></tr>
-      <tr><td>房源性质</td><td><span class="badge red">必填</span></td><td>字典值</td><td>收购存量商品房 / 公租房盘活 / 保租房“一间房”</td></tr>
+      <tr><td>房源性质</td><td><span class="badge red">必填</span></td><td>字典值</td><td>收购商品房转化 / 公租房盘活 / 保租房“一间房”</td></tr>
       <tr><td>总套数</td><td><span class="badge red">必填</span></td><td>整数</td><td>大于 0 且不超过 5,000；与后续楼盘表导入套数一致性校验</td></tr>
       <tr><td>交付时间</td><td><span class="badge red">必填</span></td><td>YYYY-MM-DD</td><td>不得早于 2024-01-01；晚于当前日期的记为「未交付」</td></tr>
       <tr><td>验收状态</td><td><span class="badge red">必填</span></td><td>字典值</td><td>未验收 / 验收中 / 已验收；已验收须同时填写验收完成日期</td></tr>
@@ -125,7 +125,7 @@
     <table class="data-table compact">
       <thead><tr><th>行号</th><th class="cell-lg">项目名称</th><th>差错字段</th><th class="cell-lg">差错说明</th><th class="cell-lg">处理建议</th></tr></thead>
       <tbody>
-      <tr class="row-bad"><td>第 12 行</td><td>田心高科园人才公寓（三期）</td><td><span class="badge red">总套数</span></td><td>填写值「5800」超出单项目上限 5,000 套</td><td>确认为同一项目须拆分为多个批次登记，或核实套数后修正</td></tr>
+      <tr class="row-bad"><td>第 12 行</td><td>田心高科园人才公寓（三期）</td><td><span class="badge red">总套数</span></td><td>填写值「5800」超出单项目上限 5,000 间</td><td>确认为同一项目须拆分为多个批次登记，或核实套数后修正</td></tr>
       <tr class="row-bad"><td>第 26 行</td><td>云龙示范区青年人才驿站</td><td><span class="badge red">所在区</span></td><td>填写值「云龙示范区」不在字典范围内</td><td>云龙示范区房源按行政区划归入「石峰区」，请修正为字典值</td></tr>
       <tr class="row-bad"><td>第 34 行</td><td>株洲高新区人才公寓</td><td><span class="badge red">收购主体</span></td><td>填写值「株洲高科集团」未在运营机构档案中登记</td><td>先在<span class="link" onclick="location.href='../ops/org-list.html'">运营机构档案</span>登记后重新导入</td></tr>
       <tr class="row-warn"><td>第 08 行</td><td>湘江1958 人才公寓（二期）</td><td><span class="badge orange">疑似重复</span></td><td>与已登记项目「湘江1958 人才公寓二期」名称相似度 94%</td><td>确认为同一项目请放弃本行；确为不同项目请点击「确认非重复」后导入</td></tr>

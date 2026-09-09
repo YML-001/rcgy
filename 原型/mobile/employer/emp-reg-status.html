@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>注册进度查询 · 株洲市人才住房保障管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/mobile.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<style>
+.up-box { display: flex; gap: 10px; }
+.up-i { flex: 1; height: 88px; border: 1px dashed var(--border-strong); border-radius: 9px;
+  background: var(--bg-soft); display: flex; flex-direction: column; align-items: center;
+  justify-content: center; gap: 5px; color: var(--text-3); font-size: 11.5px; }
+.up-i i { font-size: 20px; color: var(--primary); }
+.up-i.done { border-style: solid; border-color: var(--success);
+  background: var(--success-light); color: var(--success); }
+.up-i.done i { color: var(--success); }
+.rg-step { display: flex; align-items: center; gap: 6px; padding: 12px 14px;
+  background: var(--bg-card); border-bottom: 1px solid var(--row-line); }
+.rg-step .s { flex: 1; text-align: center; font-size: 11.5px; color: var(--text-3); }
+.rg-step .s b { display: block; width: 21px; height: 21px; margin: 0 auto 4px;
+  border-radius: 50%; background: var(--bg-soft); color: var(--text-3);
+  line-height: 21px; font-size: 11px; }
+.rg-step .s.on { color: var(--primary); font-weight: 700; }
+.rg-step .s.on b { background: var(--primary); color: #fff; }
+.rg-step .s.ok b { background: var(--success); color: #fff; }
+</style>
+<body class="m-body" data-mtitle="注册进度查询" data-mmod="M3 用人单位 · 注册"
+      data-mcode="M3-03" data-mtabset="emp" data-mtab="declare" data-mback="login.html"
+      data-mdesc="提交注册申请后凭经办人手机号与短信验证码查询审核状态。被退回的可查看退回原因，修改后重新提交，不需重复注册；审核通过后收到开通短信，即可用该手机号登录。"
+      data-mchan="小程序">
+<div class="m-stage">
+  <div class="m-phone">
+    <div class="m-screen">
+      <div class="m-view">
+        <div class="m-card"><div class="m-card-b"><div class="m-form">
+          <div class="m-fi"><label>经办人手机号</label>
+            <div class="m-fc"><input type="tel" value="13800006621"></div></div>
+          <div class="m-fi"><label>短信验证码</label>
+            <div class="m-fc" style="display:flex;gap:8px">
+              <input type="text" placeholder="6 位验证码" style="flex:1">
+              <button class="m-btn" style="flex:0 0 96px;height:34px;font-size:12.5px;margin:0"
+                onclick="MB.toast('验证码已发送')">获取验证码</button></div></div>
+        </div></div></div>
+
+        <div class="rg-step">
+          <div class="s ok"><b><i class="fa-solid fa-check" style="font-size:9px"></i></b>已提交</div>
+          <div class="s on"><b>2</b>审核中</div>
+          <div class="s"><b>3</b>开通登录</div>
+        </div>
+
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-file-signature"></i>QY2026-0908-0037</div>
+          <div class="m-card-b">
+          <div class="m-kv">
+            <div><span>单位名称</span><span>中车株洲电力机车有限公司</span></div>
+            <div><span>经办人</span><span>谭晓芸　138****6621</span></div>
+            <div><span>提交时间</span><span>2026-09-08 10:24</span></div>
+            <div><span>当前状态</span><span><span class="m-tag orange">审核中</span></span></div>
+            <div><span>审核单位</span><span>市保障性住房服务中心</span></div>
+            <div><span>承诺时限</span><span>3 个工作日</span></div>
+          </div>
+          </div>
+        </div>
+
+        <div class="m-sect">办理进度</div>
+        <div class="m-card"><div class="m-card-b">
+          <div class="m-tl">
+            <div class="m-ti done"><div class="m-tt">1　提交注册申请</div>
+              <div class="m-td"><span class="m-who">谭晓芸</span>　2026-09-08 10:24　
+                申请信息、企业信息、负责人、经办人与佐证材料一次填报完成</div></div>
+            <div class="m-ti done"><div class="m-tt">2　系统校验通过</div>
+              <div class="m-td">统一社会信用代码与经办人手机号均未重复　10:24</div></div>
+            <div class="m-ti on"><div class="m-tt">3　企业机构管理角色审核中</div>
+              <div class="m-td">核对企业信息、负责人、经办人与营业执照、法人授权书，
+                承诺 3 个工作日内办结</div></div>
+            <div class="m-ti"><div class="m-tt">4　开通账号并短信通知</div>
+              <div class="m-td">通过后以经办人手机号 138****6621 开通登录权限，
+                短信告知开通结果</div></div>
+          </div>
+        </div></div>
+
+        <div class="m-note"><i class="fa-solid fa-circle-info"></i>
+          <div>被退回的可在此查看退回原因，<b>修改后重新提交即可，不需重复注册</b>。
+            审核通过后经办人手机号会收到开通短信。</div>
+        </div>
+
+        <div style="padding:14px">
+          <a class="m-btn" href="emp-register.html">修改注册信息</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="../../assets/js/mobile.js"></script>
+</body>
+</html>

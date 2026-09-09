@@ -26,24 +26,24 @@
 
   <div class="alert alert-warning">
     <i class="fa-solid fa-triangle-exclamation"></i>
-    <div>结合<b>意向轮候库、预申请意向片区与历史申请量</b>测算房源缺口，输出<b>建议筹集套数与户型结构</b>。测算结果作为年度筹集计划编制与房源投放决策依据。</div>
+    <div>结合<b>意向轮候库、房源预约意向片区与历史申请量</b>测算房源缺口，输出<b>建议筹集套数与户型结构</b>。测算结果作为年度筹集计划编制与房源投放决策依据。</div>
   </div>
 
   <div class="stat-grid">
     <div class="stat-card">
       <div class="s-icon blue"><i class="fa-solid fa-users"></i></div>
       <div><div class="s-label">轮候在库</div><div class="s-value">612</div>
-        <div class="s-trend text-2">含预申请锁定 186 人</div></div>
+        <div class="s-trend text-2">含房源预约锁定 186 人</div></div>
     </div>
     <div class="stat-card">
       <div class="s-icon green"><i class="fa-solid fa-house-circle-check"></i></div>
       <div><div class="s-label">当前可配租</div><div class="s-value">412</div>
-        <div class="s-trend text-2">缺口 -200 套</div></div>
+        <div class="s-trend text-2">缺口 -200 间</div></div>
     </div>
     <div class="stat-card dc-alarm">
       <div class="s-icon orange"><i class="fa-solid fa-arrow-trend-down"></i></div>
       <div><div class="s-label">总供需缺口</div><div class="s-value">-268</div>
-        <div class="s-trend ">含预申请转正预测</div></div>
+        <div class="s-trend ">含预约转正式申请预测</div></div>
     </div>
     <div class="stat-card">
       <div class="s-icon cyan"><i class="fa-solid fa-lightbulb"></i></div>
@@ -65,13 +65,13 @@
           <div class="sp-b">
   <div class="sp-tw">
     <table class="data-table compact">
-      <thead><tr><th>意向片区</th><th class="num">轮候人数</th><th class="num">预申请锁定</th><th class="num">历史月均申请</th><th class="num">可配租房源</th><th class="num">供需缺口</th><th>缺口程度</th><th class="num">建议筹集</th><th>下钻</th></tr></thead>
+      <thead><tr><th>意向片区</th><th class="num">轮候人数</th><th class="num">房源预约锁定</th><th class="num">历史月均申请</th><th class="num">可配租房源</th><th class="num">供需缺口</th><th>缺口程度</th><th class="num">建议筹集</th><th>下钻</th></tr></thead>
       <tbody>
       <tr class="row-warn"><td>天元区</td><td class="num">214</td><td class="num">86</td><td class="num">142</td><td class="num">186</td><td class="num">-114</td><td><span class="badge orange">橙 · 预警</span></td><td class="num">120</td><td><span class="link" onclick="location.href='../stat/house-supply.html'">供需分析</span></td></tr>
       <tr class="row-bad"><td>经开区</td><td class="num">160</td><td class="num">42</td><td class="num">68</td><td class="num">24</td><td class="num">-178</td><td><span class="badge red">红 · 严重</span></td><td class="num">140</td><td><span class="link" onclick="location.href='../stat/house-supply.html'">供需分析</span></td></tr>
       <tr><td>荷塘区</td><td class="num">106</td><td class="num">28</td><td class="num">54</td><td class="num">62</td><td class="num">-72</td><td><span class="badge yellow">黄 · 提示</span></td><td class="num">60</td><td><span class="link" onclick="location.href='../stat/house-supply.html'">供需分析</span></td></tr>
       <tr><td>芦淞区</td><td class="num">86</td><td class="num">18</td><td class="num">38</td><td class="num">42</td><td class="num">-62</td><td><span class="badge yellow">黄 · 提示</span></td><td class="num">40</td><td><span class="link" onclick="location.href='../stat/house-supply.html'">供需分析</span></td></tr>
-      <tr><td>石峰区</td><td class="num">46</td><td class="num">12</td><td class="num">22</td><td class="num">98</td><td class="num">+40</td><td><span class="badge blue">蓝 · 正常</span></td><td class="num">0</td><td><span class="link" onclick="location.href='../stat/house-supply.html'">供需分析</span></td></tr>
+      <tr><td>石峰区</td><td class="num">46</td><td class="num">12</td><td class="num">22</td><td class="num">98</td><td class="num">+40</td><td><span class="badge blue">蓝 · 正常</span></td><td class="num">0</td><td><span class="link" onclick="PMS.toast('该功能不在本期建设范围')">空置分析</span></td></tr>
       </tbody>
     </table>
   </div>
@@ -79,7 +79,7 @@
         </div>
   <div class="alert alert-warning">
     <i class="fa-solid fa-triangle-exclamation"></i>
-    <div><b>经开区缺口最大（-178 套）</b>：轮候 160 人 + 预申请 42 人，但可配租仅 24 套。建议优先在云龙片区筹集 140 套，其中一室一厅占比不低于 60%。</div>
+    <div><b>经开区缺口最大（-178 间）</b>：轮候 160 人 + 房源预约 42 人，但可配租仅 24 间。建议优先在云龙片区筹集 140 间，其中一室一厅占比不低于 60%。</div>
   </div>
 
       </div>
@@ -110,17 +110,17 @@
           <div class="sp-h"><i class="fa-solid fa-list"></i> 测算公式<span class="sub">P4-13</span></div>
           <div class="sp-b">
             <div class="sp-fx">
-              <b>供需缺口</b>　= 可配租房源 − （轮候人数 + 预申请锁定名额 × 转正率 + 历史月均申请 × 预测月数）<br>
+              <b>供需缺口</b>　= 可配租房源 − （轮候人数 + 预约登记意向 × 转正率 + 历史月均申请 × 预测月数）<br>
               <b>建议筹集套数</b>　= 缺口绝对值 × 安全系数 1.05，向上取整至 20 的倍数<br>
               <b>建议户型占比</b>　= 各户型意向人数 ÷ 意向总人数，并按现有存量结构做平滑调整
             </div>
         <div class="sp-kv">
-          <div class="kv"><span class="k">预约转申请率</span><span class="v">按历史统计 56.1%</span><span class="link" onclick="location.href='book-manage.html'">预约名单管理</span></div>
+          <div class="kv"><span class="k">预约转正式申请率</span><span class="v">按历史统计 78.6%</span><span class="link" onclick="location.href='../stat/book-demand.html'">预约热度与需求分析</span></div>
           <div class="kv"><span class="k">预测月数</span><span class="v">3 个月（滚动）</span></div>
           <div class="kv"><span class="k">安全系数</span><span class="v">1.05</span></div>
-          <div class="kv"><span class="k">轮候数据源</span><span class="v">意向轮候库（含应届生预申请锁定名额）</span><span class="link" onclick="location.href='../alloc/queue-list.html'">轮候库</span></div>
+          <div class="kv"><span class="k">轮候数据源</span><span class="v">意向轮候库（含应届生房源预约锁定名额）</span><span class="link" onclick="location.href='../alloc/queue-list.html'">轮候库</span></div>
           <div class="kv"><span class="k">历史申请量</span><span class="v">近 12 个月受理件按意向片区与房型归集</span><span class="link" onclick="location.href='../stat/funnel.html'">申请漏斗</span></div>
-          <div class="kv"><span class="k">口径说明</span><span class="v warn">冻结与维修中房源不计入可配租，但在建议中标注需先完成修复</span><span class="link" onclick="location.href='house-freeze.html'">房源冻结与停租</span></div>
+          <div class="kv"><span class="k">口径说明</span><span class="v warn">空置超期房源计入可配租，但在建议中标注需先做空置治理</span><span class="link" onclick="PMS.toast('该功能不在本期建设范围')">空置分析</span></div>
         </div>
           </div>
         </div>
@@ -133,7 +133,7 @@
     </div>
   </div>
   <div class="sp-src">
-    <span><b>数据来源</b> 意向轮候库 + 应届生预申请意向片区 + 近 12 个月历史申请量</span>
+    <span><b>数据来源</b> 意向轮候库 + 应届生房源预约意向片区 + 近 12 个月历史申请量</span>
     <span><b>输出用途</b> 建议筹集套数与户型结构，供年度筹集计划编制参考</span>
     <span><b>计划落点</b> <span class="link" onclick="location.href='plan-progress.html'">筹集计划与完成率</span></span>
   </div>

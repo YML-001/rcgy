@@ -9,243 +9,325 @@
 <link rel="stylesheet" href="../../assets/css/spec.css">
 <link rel="stylesheet" href="../../assets/css/ext.css">
 </head>
-<body data-role="window" data-active="rule-16">
+<body data-role="window" data-active="rule-15">
 <main class="app-main">
   <div class="page-head">
     <div class="breadcrumb">
       <i class="fa-solid fa-house bc-home"></i> 株洲市人才住房保障管理平台
       <span class="sep">/</span> 信息公开与规则配置
-      <span class="sep">/</span> 信息公开与公示
       <span class="sep">/</span> <span class="cur">政策资讯查看（只读）</span>
     </div>
-    <div class="page-actions">
-      <button class="btn" onclick="PMS.toast('已按所选政策生成现场答复要点卡，请到窗口打印机取件','success')"><i class="fa-solid fa-print"></i> 打印答复要点</button>
-      <button class="btn" onclick="PMS.toast('已刷新政策资讯，与移动端首页政策资讯同源，数据截至 2026-09-08 09:00','success')"><i class="fa-solid fa-rotate"></i> 刷新</button>
-    </div>
   </div>
-
   <div class="alert alert-info">
     <i class="fa-solid fa-circle-info"></i>
-    <div><b>本页为只读查看</b>，供窗口受理角色现场解答申请人咨询，<b>无任何编辑、新增、下架与发布操作</b>。内容由<b>信息公开经办（市保障性住房服务中心综合科）统一维护发布</b>，与<b>移动端首页政策资讯同源</b>，一处发布、两端同步。政策分<b>购房补贴、租房保障、办事指南</b>三类，另附常见问答，现场答复一律以本页在发口径为准，不得自行解释或承诺。<b>购房补贴本平台只公开政策</b>，办理入口跳转市委组织部现有系统，本平台<b>不承载任何办理环节</b>。</div>
+    <div>供窗口人员<b>现场解答来访咨询</b>使用，按<b>购房补贴、租房保障、办事指南</b>三类分栏展示，另设常见问答。全部内容<b>由信息公开经办角色在政策宣传内容管理中统一维护</b>，本页只读，<b>不提供新增、编辑、发布、撤回等任何操作</b>；口径以现行有效版本为准，条目更新后本页实时同步。</div>
   </div>
 
   <div class="stat-grid">
     <div class="stat-card">
-      <div class="s-icon blue"><i class="fa-solid fa-file-lines"></i></div>
-      <div><div class="s-label">在发政策</div><div class="s-value">26</div>
-        <div class="s-trend text-2">条 · 与移动端政策资讯同源</div></div>
-    </div>
-    <div class="stat-card">
-      <div class="s-icon green"><i class="fa-solid fa-house-chimney-window"></i></div>
-      <div><div class="s-label">购房补贴</div><div class="s-value">8</div>
-        <div class="s-trend text-2">条 · 只公开政策、不承载办理</div></div>
+      <div class="s-icon blue"><i class="fa-solid fa-house-chimney-window"></i></div>
+      <div><div class="s-label">购房补贴</div><div class="s-value">6</div>
+        <div class="s-trend text-2">条 · 现行有效</div></div>
     </div>
     <div class="stat-card">
       <div class="s-icon cyan"><i class="fa-solid fa-key"></i></div>
-      <div><div class="s-label">租房保障</div><div class="s-value">12</div>
-        <div class="s-trend text-2">条 · 含办法原文与租金减免标准</div></div>
+      <div><div class="s-label">租房保障</div><div class="s-value">8</div>
+        <div class="s-trend text-2">条 · 现行有效</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-list-check"></i></div>
+      <div><div class="s-label">办事指南</div><div class="s-value">5</div>
+        <div class="s-trend text-2">条 · 含材料清单与时限</div></div>
     </div>
     <div class="stat-card">
       <div class="s-icon orange"><i class="fa-solid fa-circle-question"></i></div>
-      <div><div class="s-label">常见问答</div><div class="s-value">24</div>
-        <div class="s-trend text-2">条 · 现场答复口径</div></div>
+      <div><div class="s-label">常见问答</div><div class="s-value">12</div>
+        <div class="s-trend text-2">条 · 本月更新 3 条</div></div>
     </div>
   </div>
 
   <div class="card list-card" data-tabs-scope>
-    <div class="filter-bar">
-      <div class="filter-item"><label>标题</label><input type="text" value="人才住房" placeholder="标题关键词"></div>
-      <div class="filter-item"><label>政策类型</label><select><option value="">全部</option><option selected>政策原文</option><option>政策解读</option><option>一图读懂</option><option>办事指南</option><option>常见问答</option></select></div>
-      <div class="filter-item"><label>适用对象</label><select data-dict="applyType" data-ph="全部"></select></div>
-      <div class="filter-item"><label>发布时间</label><input type="date" value="2026-09-01"></div>
-      <div class="filter-actions">
-        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索在发政策资讯','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
-        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+    <div class="tabs" style="margin-bottom:0;padding:8px 12px 0">
+      <div class="tab active" data-tab="gf">购房补贴 <span class="badge blue">6</span></div>
+      <div class="tab" data-tab="zf">租房保障 <span class="badge blue">8</span></div>
+      <div class="tab" data-tab="zn">办事指南 <span class="badge blue">5</span></div>
+      <div class="tab" data-tab="qa">常见问答 <span class="badge orange">12</span></div>
+    </div>
+
+    <div class="tab-panel active" data-panel="gf">
+      <div class="card-body" style="padding:0">
+        <div class="filter-bar">
+          <div class="filter-item"><label>标题关键词</label><input type="text" placeholder="如 购房补贴、学历分档"></div>
+          <div class="filter-item"><label>内容类型</label><select><option value="">全部</option><option>政策原文</option><option>政策解读</option><option>一图读懂</option></select></div>
+          <div class="filter-item"><label>发布年度</label><select><option value="">全部</option><option>2026</option><option>2025</option></select></div>
+          <div class="filter-actions">
+            <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+            <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th>资讯编号</th><th class="cell-lg">标题</th><th>内容类型</th><th>发布机关</th><th>发布日期</th><th>执行期限</th><th>状态</th><th>操作</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>ZC2026-0031</td><td>《株洲市城区创业就业青年人才购房补贴实施细则》</td><td><span class="badge orange">政策原文</span></td><td>市住建局、市财政局</td><td>2026-03-18</td><td>2026-04-01 至 2028-03-31</td><td><span class="badge green">现行有效</span></td><td><span class="link" onclick="PMS.openDrawer('zcDrawer')">查看全文</span></td></tr>
+              <tr><td>ZC2026-0032</td><td>购房补贴标准与学历分档一览（博士 10 万 / 硕士 6 万 / 本科 3 万 / 大专 1 万）</td><td><span class="badge blue">一图读懂</span></td><td>市住建局</td><td>2026-03-20</td><td>随主政策</td><td><span class="badge green">现行有效</span></td><td><span class="link" onclick="PMS.openDrawer('zcDrawer')">查看全文</span></td></tr>
+              <tr><td>ZC2026-0036</td><td>购房补贴与人才公寓租赁保障不重复享受的政策解读</td><td><span class="badge cyan">政策解读</span></td><td>市住建局住房保障科</td><td>2026-04-08</td><td>长期</td><td><span class="badge green">现行有效</span></td><td><span class="link" onclick="PMS.openDrawer('zcDrawer')">查看全文</span></td></tr>
+              <tr><td>ZC2026-0044</td><td>购房补贴申领的服务年限与违约退回情形说明</td><td><span class="badge cyan">政策解读</span></td><td>市住建局住房保障科</td><td>2026-05-12</td><td>长期</td><td><span class="badge green">现行有效</span></td><td><span class="link" onclick="PMS.openDrawer('zcDrawer')">查看全文</span></td></tr>
+              <tr><td>ZC2026-0058</td><td>购房补贴资金拨付方式与到账时限告知</td><td><span class="badge cyan">政策解读</span></td><td>市财政局、市住建局</td><td>2026-06-24</td><td>长期</td><td><span class="badge green">现行有效</span></td><td><span class="link" onclick="PMS.openDrawer('zcDrawer')">查看全文</span></td></tr>
+              <tr class="row-warn"><td>ZC2025-0117</td><td>2025 年度人才购房补贴申报安排（已到期，仅供口径追溯）</td><td><span class="badge orange">政策原文</span></td><td>市住建局</td><td>2025-09-02</td><td>2025-09-10 至 2025-12-31</td><td><span class="badge gray">已到期</span></td><td><span class="link" onclick="PMS.openDrawer('zcDrawer')">查看全文</span></td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
-    <div class="tabs">
-      <div class="tab active" data-tab="buy">购房补贴 <span class="badge blue">8</span></div>
-      <div class="tab" data-tab="rent">租房保障 <span class="badge cyan">12</span></div>
-      <div class="tab" data-tab="guide">办事指南 <span class="badge green">6</span></div>
-      <div class="tab" data-tab="faq">常见问答 <span class="badge orange">24</span></div>
+
+    <div class="tab-panel" data-panel="zf">
+      <div class="card-body" style="padding:0">
+        <div class="filter-bar">
+          <div class="filter-item"><label>标题关键词</label><input type="text" placeholder="如 租金减免、配租批次"></div>
+          <div class="filter-item"><label>内容类型</label><select><option value="">全部</option><option>政策原文</option><option>政策解读</option><option>一图读懂</option></select></div>
+          <div class="filter-item"><label>发布年度</label><select><option value="">全部</option><option>2026</option><option>2025</option></select></div>
+          <div class="filter-actions">
+            <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+            <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th>资讯编号</th><th class="cell-lg">标题</th><th>内容类型</th><th>发布机关</th><th>发布日期</th><th>执行期限</th><th>状态</th><th>操作</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>ZC2026-0012</td><td>《株洲市城区创业就业青年人才住房保障办法》</td><td><span class="badge orange">政策原文</span></td><td>株洲市人民政府</td><td>2026-01-16</td><td>2026-02-01 起施行</td><td><span class="badge green">现行有效</span></td><td><span class="link" onclick="PMS.openDrawer('zcDrawer')">查看全文</span></td></tr>
+              <tr><td>ZC2026-0013</td><td>人才公寓申请条件一图读懂（学历、毕业年限、社保、无房要求）</td><td><span class="badge blue">一图读懂</span></td><td>市住建局</td><td>2026-01-20</td><td>随主政策</td><td><span class="badge green">现行有效</span></td><td><span class="link" onclick="PMS.openDrawer('zcDrawer')">查看全文</span></td></tr>
+              <tr><td>ZC2026-0019</td><td>人才公寓租金减免标准与自付金额测算说明</td><td><span class="badge cyan">政策解读</span></td><td>市住建局住房保障科</td><td>2026-02-06</td><td>长期</td><td><span class="badge green">现行有效</span></td><td><span class="link" onclick="PMS.openDrawer('zcDrawer')">查看全文</span></td></tr>
+              <tr><td>ZC2026-0027</td><td>顺序配租规则与轮候排序口径（不采用摇号）</td><td><span class="badge cyan">政策解读</span></td><td>市保障性住房服务中心</td><td>2026-02-27</td><td>长期</td><td><span class="badge green">现行有效</span></td><td><span class="link" onclick="PMS.openDrawer('zcDrawer')">查看全文</span></td></tr>
+              <tr><td>ZC2026-0041</td><td>保障期限、年度资格审查与续租三类结论说明</td><td><span class="badge cyan">政策解读</span></td><td>市保障性住房服务中心</td><td>2026-04-29</td><td>长期</td><td><span class="badge green">现行有效</span></td><td><span class="link" onclick="PMS.openDrawer('zcDrawer')">查看全文</span></td></tr>
+              <tr><td>ZC2026-0047</td><td>放弃配租的情形认定与资格处置口径</td><td><span class="badge cyan">政策解读</span></td><td>市保障性住房服务中心</td><td>2026-05-20</td><td>长期</td><td><span class="badge green">现行有效</span></td><td><span class="link" onclick="PMS.openDrawer('zcDrawer')">查看全文</span></td></tr>
+              <tr><td>ZC2026-0063</td><td>租房补贴（货币化保障）申领条件与发放标准</td><td><span class="badge orange">政策原文</span></td><td>市住建局、市财政局</td><td>2026-07-02</td><td>2026-07-15 起施行</td><td><span class="badge green">现行有效</span></td><td><span class="link" onclick="PMS.openDrawer('zcDrawer')">查看全文</span></td></tr>
+              <tr><td>ZC2026-0071</td><td>违规转租、空置与骗取保障的清退与失信处理</td><td><span class="badge cyan">政策解读</span></td><td>市住建局住房保障科</td><td>2026-08-05</td><td>长期</td><td><span class="badge green">现行有效</span></td><td><span class="link" onclick="PMS.openDrawer('zcDrawer')">查看全文</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
 
-    <div class="tab-panel active" data-panel="buy">
-    <div class="card-body">
-    <p class="hint"><b>购房补贴口径</b>：本平台<b>只公开政策、不承载任何办理环节</b>，申请办理由<b>接口跳转市委组织部现有系统</b>，跳转时传递已实名信息、免重复登录 · 现场答复只讲政策条件与所需材料，具体受理进度请引导申请人到市委组织部人才服务系统查询 · <b>本页只读，无编辑操作</b></p>
-    <div class="table-wrap">
-      <table class="data-table">
-        <thead>
-          <tr><th class="cell-lg">标题</th><th>类型</th><th>发布时间</th><th>适用对象</th><th class="cell-lg">要点摘要</th><th class="num">阅读量</th><th>操作</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>《株洲市高校毕业生购房补贴实施办法》</td><td><span class="badge orange">政策原文</span></td><td>2026-03-12</td><td>全日制大专及以上毕业生</td><td class="cell-lg">在市城区首次购买自住商品住房，按学历分档给予一次性购房补贴，同一人只享受一次</td><td class="num">28,486</td><td><span class="link" onclick="PMS.openDrawer('pvDrawer')">查看全文</span></td></tr>
-          <tr><td>购房补贴分档标准（博士 / 硕士 / 本科 / 大专）</td><td><span class="badge blue">政策解读</span></td><td>2026-03-12</td><td>全日制大专及以上毕业生</td><td class="cell-lg">博士 20.00 万元、硕士 10.00 万元、本科 5.00 万元、大专 2.00 万元，分三年等额发放</td><td class="num">32,846</td><td><span class="link" onclick="PMS.openDrawer('pvDrawer')">查看全文</span></td></tr>
-          <tr><td>购房补贴申请办理流程（一图读懂）</td><td><span class="badge cyan">一图读懂</span></td><td>2026-04-08</td><td>拟申请购房补贴的人才</td><td class="cell-lg">实名认证 → 跳转市委组织部人才服务系统 → 线上申报 → 组织部核定 → 财政发放，全程不在本平台办理</td><td class="num">18,264</td><td><span class="link" onclick="PMS.openDrawer('pvDrawer')">查看全文</span></td></tr>
-          <tr class="row-warn"><td>购房补贴与人才住房租赁保障不可同时享受的口径说明</td><td><span class="badge blue">政策解读</span></td><td>2026-05-20</td><td>已配租人才住房的申请人</td><td class="cell-lg">已享受人才住房租金减免期间不得同时申领购房补贴；退出人才住房后可按规定申请，保障期内已购房的一并纳入退出处理</td><td class="num">12,486</td><td><span class="link" onclick="PMS.openDrawer('pvDrawer')">查看全文</span></td></tr>
-          <tr><td>购房补贴线上申报入口说明（接口跳转）</td><td><span class="badge cyan">办事指南</span></td><td>2026-04-08</td><td>拟申请购房补贴的人才</td><td class="cell-lg">本平台一个入口、多个菜单跳转市委组织部现有系统，传递已实名信息免重复登录，本平台不承载办理环节</td><td class="num">9,846</td><td><span class="link" onclick="PMS.openDrawer('pvDrawer')">查看全文</span></td></tr>
-          <tr><td>购房补贴所需材料清单</td><td><span class="badge cyan">办事指南</span></td><td>2026-04-08</td><td>拟申请购房补贴的人才</td><td class="cell-lg">身份证、学历证书、购房合同与契税完税凭证、不动产权证书、本人银行账户；具体以组织部系统清单为准</td><td class="num">14,286</td><td><span class="link" onclick="PMS.openDrawer('pvDrawer')">查看全文</span></td></tr>
-          <tr><td>购房补贴资格复核与退回情形</td><td><span class="badge blue">政策解读</span></td><td>2026-06-15</td><td>已申报购房补贴的人才</td><td class="cell-lg">补贴发放期内离株、房屋转让或存在弄虚作假的，停止发放并追回已发金额，纳入失信名单</td><td class="num">6,428</td><td><span class="link" onclick="PMS.openDrawer('pvDrawer')">查看全文</span></td></tr>
-          <tr><td>2026 年购房补贴发放进度公告</td><td><span class="badge orange">政策原文</span></td><td>2026-09-01</td><td>已核定购房补贴的人才</td><td class="cell-lg">截至 2026-08-31 已核定 1,286 人、已发放 986 人；发放进度以市委组织部人才服务系统公布为准</td><td class="num">8,264</td><td><span class="link" onclick="PMS.openDrawer('pvDrawer')">查看全文</span></td></tr>
-        </tbody>
-      </table>
-    </div>
-    </div>
-    </div>
-
-    <div class="tab-panel" data-panel="rent">
-    <div class="card-body">
-    <p class="hint"><b>租房保障口径</b>：房源颗粒度到<b>「间」</b>，计租面积 ＝ 本间套内面积 ＋ 本间公摊面积，公摊计入租金 · 资格审核<b>两级办理</b>（受理初审 → 复审出具结论），均由市保障性住房服务中心承担 · 配租<b>不摇号</b>，按受理时间排定，<b>已预约本批次房源的优先于普通轮候</b> · <b>本页只读，无编辑操作</b></p>
-    <div class="table-wrap">
-      <table class="data-table">
-        <thead>
-          <tr><th class="cell-lg">标题</th><th>类型</th><th>发布时间</th><th>适用对象</th><th class="cell-lg">要点摘要</th><th class="num">阅读量</th><th>操作</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>《株洲市城区创业就业青年人才住房保障管理办法》</td><td><span class="badge orange">政策原文</span></td><td>2026-08-12</td><td>创业、就业青年人才</td><td class="cell-lg">适用市城区（不含渌口区）；全日制大专及以上、毕业 2 年内、在市城区就业或创业且本人及配偶无自有住房</td><td class="num">36,482</td><td><span class="link" onclick="PMS.openDrawer('pvDrawer')">查看全文</span></td></tr>
-          <tr><td>人才住房租金减免标准</td><td><span class="badge blue">政策解读</span></td><td>2026-08-12</td><td>已配租人才住房的承租人</td><td class="cell-lg">人才租金 5.00—6.00 元/㎡·月，原市场租金 14.00—18.00 元/㎡·月；租金按计租面积计收，水电气与物业费另计</td><td class="num">26,846</td><td><span class="link" onclick="PMS.openDrawer('pvDrawer')">查看全文</span></td></tr>
-          <tr><td>房源按「间」计租与公摊分摊口径说明</td><td><span class="badge blue">政策解读</span></td><td>2026-09-01</td><td>拟申请与已配租人才</td><td class="cell-lg">一套三室两厅拆 A、B、C 三间单独计租；公摊比例按套内间数均分，计租面积 ＝ 套内面积 ＋ 公摊面积</td><td class="num">18,264</td><td><span class="link" onclick="PMS.openDrawer('pvDrawer')">查看全文</span></td></tr>
-          <tr><td>配租顺序不摇号、预约优先的排序说明</td><td><span class="badge blue">政策解读</span></td><td>2026-09-01</td><td>已通过资格审核的轮候人</td><td class="cell-lg">配租不摇号，按申请受理时间先后排定；已预约本批次房源的优先于普通轮候，不因申请渠道不同而优先</td><td class="num">22,486</td><td><span class="link" onclick="PMS.openDrawer('pvDrawer')">查看全文</span></td></tr>
-          <tr class="row-warn"><td>选房 1 个工作日确认时限与逾期顺延说明</td><td><span class="badge blue">政策解读</span></td><td>2026-09-01</td><td>已进入选房环节的轮候人</td><td class="cell-lg">选房通知短信送达后须在 1 个工作日内确认，逾期自动顺延至下一顺序人，<b>本人轮候资格不取消、自动排入下一轮</b></td><td class="num">16,428</td><td><span class="link" onclick="PMS.openDrawer('pvDrawer')">查看全文</span></td></tr>
-          <tr><td>社保容缺受理政策说明</td><td><span class="badge blue">政策解读</span></td><td>2026-08-20</td><td>已签劳动合同未参保的就业人才</td><td class="cell-lg">社保查不到记录或已签未参保的，凭用人单位承诺书容缺受理通过，登记待补核期限 30 日、到期自动复核</td><td class="num">12,846</td><td><span class="link" onclick="PMS.openDrawer('pvDrawer')">查看全文</span></td></tr>
-          <tr><td>续租复核与退出腾退政策</td><td><span class="badge orange">政策原文</span></td><td>2026-08-12</td><td>保障期即将届满的承租人</td><td class="cell-lg">保障期满 2 年前自动发起复核：仍符合人才条件的继续减免；符合公租房条件的按市场租金续租、不再享受财政补助；均不符合的启动退出</td><td class="num">14,286</td><td><span class="link" onclick="PMS.openDrawer('pvDrawer')">查看全文</span></td></tr>
-          <tr><td>用人单位代申报与本人确认授权说明</td><td><span class="badge blue">政策解读</span></td><td>2026-09-01</td><td>用人单位与拟申报职工</td><td class="cell-lg">单位只报人不选房，按人拆分为独立申请件；职工本人须在移动端确认授权并补填联系方式，<b>3 个自然日内未确认自动作废</b></td><td class="num">10,486</td><td><span class="link" onclick="PMS.openDrawer('pvDrawer')">查看全文</span></td></tr>
-        </tbody>
-      </table>
-    </div>
-    </div>
+    <div class="tab-panel" data-panel="zn">
+      <div class="card-body" style="padding:0">
+        <div class="filter-bar">
+          <div class="filter-item"><label>标题关键词</label><input type="text" placeholder="如 材料清单、办理时限"></div>
+          <div class="filter-item"><label>适用对象</label><select><option value="">全部</option><option>就业青年人才</option><option>创业青年人才</option><option>特殊人才</option><option>用人单位</option></select></div>
+          <div class="filter-item"><label>办理渠道</label><select><option value="">全部</option><option>湘易办移动端</option><option>政务服务中心窗口</option><option>用人单位代申报</option></select></div>
+          <div class="filter-actions">
+            <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+            <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th>资讯编号</th><th class="cell-lg">标题</th><th>适用对象</th><th>办理渠道</th><th>承诺时限</th><th>更新日期</th><th>状态</th><th>操作</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>BS2026-0004</td><td>人才公寓申请办事指南（全流程：申请—联审—配租—选房—签约）</td><td>就业 / 创业青年人才</td><td>湘易办 + 窗口</td><td>15 个工作日</td><td>2026-09-01</td><td><span class="badge green">现行有效</span></td><td><span class="link" onclick="PMS.openDrawer('zcDrawer')">查看全文</span></td></tr>
+              <tr><td>BS2026-0005</td><td>申请材料清单与免交事项说明（标注※的由系统自动核验）</td><td>全部申请人</td><td>湘易办 + 窗口</td><td>—</td><td>2026-09-01</td><td><span class="badge green">现行有效</span></td><td><span class="link" onclick="PMS.openDrawer('zcDrawer')">查看全文</span></td></tr>
+              <tr><td>BS2026-0008</td><td>用人单位注册与经办人开通办事指南</td><td>用人单位</td><td>湘易办 + PC 管理端</td><td>3 个工作日</td><td>2026-08-22</td><td><span class="badge green">现行有效</span></td><td><span class="link" onclick="PMS.openDrawer('zcDrawer')">查看全文</span></td></tr>
+              <tr><td>BS2026-0011</td><td>购房补贴申领办事指南（含服务年限承诺书填写说明）</td><td>符合条件的青年人才</td><td>湘易办</td><td>20 个工作日</td><td>2026-06-30</td><td><span class="badge green">现行有效</span></td><td><span class="link" onclick="PMS.openDrawer('zcDrawer')">查看全文</span></td></tr>
+              <tr><td>BS2026-0014</td><td>续租、退租与腾退办事指南</td><td>在租承租人</td><td>湘易办 + 运营机构现场</td><td>10 个工作日</td><td>2026-07-18</td><td><span class="badge green">现行有效</span></td><td><span class="link" onclick="PMS.openDrawer('zcDrawer')">查看全文</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
 
-    <div class="tab-panel" data-panel="guide">
-    <div class="card-body">
-    <p class="hint"><b>办事指南口径</b>：审核时限自收到申请资料之日起 <b>3 个工作日</b>；办理进度可按<b>姓名、证件号或申请编号</b>三种入口查询 · 窗口提供<b>兜底代办</b>：只录身份与资格材料、<b>不在线选房</b>，意向片区选填且仅作登记 · <b>本页只读，无编辑操作</b></p>
-    <div class="table-wrap">
-      <table class="data-table">
-        <thead>
-          <tr><th class="cell-lg">标题</th><th>类型</th><th>发布时间</th><th>适用对象</th><th class="cell-lg">要点摘要</th><th class="num">阅读量</th><th>操作</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>人才住房申请办事指南（全流程）</td><td><span class="badge cyan">办事指南</span></td><td>2026-09-01</td><td>全部申请人</td><td class="cell-lg">实名认证 → 提交申请 → 受理初审 → 多部门数据核验 → 复审出具结论 → 电子送达 → 进入轮候库；时限 3 个工作日</td><td class="num">24,862</td><td><span class="link" onclick="PMS.openDrawer('pvDrawer')">查看全文</span></td></tr>
-          <tr><td>窗口兜底代办办事指南</td><td><span class="badge cyan">办事指南</span></td><td>2026-09-01</td><td>不便线上办理的申请人</td><td class="cell-lg">到市政务服务中心人才住房窗口，由经办人核对原件后代为录入；渠道标记「政务窗口（PC 申请）」，受理时间以录入时间为准</td><td class="num">8,486</td><td><span class="link" onclick="PMS.openDrawer('pvDrawer')">查看全文</span></td></tr>
-          <tr><td>申请材料清单（按申请人类型）</td><td><span class="badge cyan">办事指南</span></td><td>2026-09-01</td><td>三类申请人</td><td class="cell-lg">就业、创业、特殊人才分设清单，共 14 项；社保缴纳记录等 5 项可凭承诺书容缺受理</td><td class="num">19,246</td><td><span class="link" onclick="location.href='../apply/material-print.html'">看材料清单</span></td></tr>
-          <tr><td>申请进度查询指南（姓名 / 证件号 / 申请编号）</td><td><span class="badge cyan">办事指南</span></td><td>2026-09-01</td><td>已提交申请的申请人</td><td class="cell-lg">移动端「我的申请」可查；到窗口可凭姓名、证件号或申请编号任一入口查询并打印进度回单</td><td class="num">15,428</td><td><span class="link" onclick="location.href='../apply/window-ledger.html'">看进度查询</span></td></tr>
-          <tr><td>建宁安居小程序操作指南</td><td><span class="badge cyan">办事指南</span></td><td>2026-08-25</td><td>全部申请人</td><td class="cell-lg">湘易办搜索「建宁安居」进入；可看房源、预约房源、报名批次、按顺序选房与查看账单，选房须 1 个工作日内确认</td><td class="num">21,684</td><td><span class="link" onclick="PMS.openDrawer('pvDrawer')">查看全文</span></td></tr>
-          <tr><td>用人单位批量代申报操作指南</td><td><span class="badge cyan">办事指南</span></td><td>2026-09-01</td><td>已认证的用人单位</td><td class="cell-lg">单位注册认证 → 批量导入职工名单 → 按人拆分申请件 → 职工移动端确认授权（3 个自然日内）→ 汇入件池</td><td class="num">6,846</td><td><span class="link" onclick="PMS.openDrawer('pvDrawer')">查看全文</span></td></tr>
-        </tbody>
-      </table>
-    </div>
-    </div>
-    </div>
-
-    <div class="tab-panel" data-panel="faq">
-    <div class="card-body">
-    <p class="hint"><b>常见问答为窗口现场答复的统一口径</b>，与移动端政策专区常见问答同源；答复要点如与政策原文不一致，一律<b>以政策原文为准</b> · 问答由信息公开经办统一维护，<b>本页只读、不得修改</b></p>
-    <div class="table-wrap">
-      <table class="data-table">
-        <thead>
-          <tr><th class="cell-lg">问题</th><th class="cell-lg">答复要点</th><th class="cell-lg">关联政策条款</th><th>更新时间</th><th>操作</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>我刚注册公司多久可以申请？</td><td class="cell-lg">只要已取得全日制大专及以上学历且在<b>毕业 2 年内</b>，作为法定代表人或经营者在市城区首次登记注册创业企业或个体工商户，即可申请，<b>无注册时长门槛</b></td><td>管理办法第二条、第三条</td><td>2026-09-01</td><td><span class="link" onclick="PMS.toast('答复要点：无注册时长门槛，关键看学历与毕业 2 年内，且注册地在市城区（不含渌口区）。依据管理办法第二条、第三条')">查看答复</span></td></tr>
-          <tr><td>单位已签劳动合同但还没参保，能申请吗？</td><td class="cell-lg">可以。社保查不到记录或已签合同未参保的，凭<b>用人单位承诺书容缺受理</b>通过，系统登记待补核期限 <b>30 日</b>、到期自动复核；仍不符合的台账预警并转人工</td><td>社保容缺受理政策说明</td><td>2026-08-20</td><td><span class="link" onclick="PMS.toast('答复要点：可容缺受理，须收取用人单位盖章的社保容缺承诺书，并告知申请人 30 日内补齐参保记录，到期系统自动复核')">查看答复</span></td></tr>
-          <tr><td>窗口能帮我选房吗？</td><td class="cell-lg">不能。<b>窗口只录身份与资格材料，不在线选房</b>；选房一律由申请人在建宁安居小程序按配租顺序自行办理，窗口对房源为<b>只读</b>，不得承诺具体房源</td><td>窗口兜底代办办事指南</td><td>2026-09-01</td><td><span class="link" onclick="PMS.toast('答复要点：窗口不代为选房、不锁定房源。可用房源查询（只读）向申请人介绍楼盘余量与申请形势，但不得承诺具体房号')">查看答复</span></td></tr>
-          <tr class="row-warn"><td>意向片区填了就一定能住那里吗？</td><td class="cell-lg">不是。意向片区为<b>选填项，仅作登记、不锁定房源</b>，不产生任何占位效力；资格审核通过后按<b>配租批次统一组织选房</b>，实际可选以批次公告投放范围与配租顺序为准</td><td>管理办法第九条、批次公告口径</td><td>2026-09-01</td><td><span class="link" onclick="PMS.toast('答复要点：意向片区仅作登记、不锁房。热门片区余量偏紧时可建议申请人同步登记第二意向，但同样不产生占位效力')">查看答复</span></td></tr>
-          <tr><td>配租要摇号吗？窗口办的会不会排后面？</td><td class="cell-lg"><b>不摇号</b>，按申请受理时间先后排定；已预约本批次房源的优先于普通轮候。窗口代办件与线上申请<b>汇入同一件池、走同一流程</b>，受理时间以窗口录入时间为准，<b>不因渠道不同而优先或滞后</b></td><td>管理办法第九条</td><td>2026-09-01</td><td><span class="link" onclick="PMS.toast('答复要点：不摇号、不因渠道优先。可提示申请人在小程序预约本批次房源，预约人在配租排序中优先于普通轮候')">查看答复</span></td></tr>
-          <tr><td>选房通知没及时确认怎么办？资格会不会作废？</td><td class="cell-lg">选房限 <b>1 个工作日</b>内确认，逾期未确认自动顺延至下一顺序人；<b>本人轮候资格不取消，自动排入下一轮</b>，可参加后续批次配租</td><td>管理办法第十条</td><td>2026-09-01</td><td><span class="link" onclick="PMS.toast('答复要点：逾期只顺延本次选房机会，轮候资格保留并自动排入下一轮。请提醒申请人保持手机畅通并留意短信通知')">查看答复</span></td></tr>
-          <tr><td>购房补贴在这个平台办吗？</td><td class="cell-lg">不在本平台办理。本平台<b>只公开购房补贴政策</b>，申请办理由<b>接口跳转市委组织部现有系统</b>，跳转时传递已实名信息、免重复登录；受理进度请到组织部人才服务系统查询</td><td>购房补贴线上申报入口说明</td><td>2026-04-08</td><td><span class="link" onclick="PMS.toast('答复要点：本平台不承载购房补贴任何办理环节。可引导申请人在移动端购房补贴页点击跳转入口，或到市委组织部人才服务窗口咨询')">查看答复</span></td></tr>
-          <tr><td>注册或就业在渌口区可以申请吗？</td><td class="cell-lg">不可以。本办法适用<b>市城区（不含渌口区）</b>范围，注册地或就业单位所在地须在市城区；渌口区可参照本办法制定具体实施细则</td><td>管理办法第二条</td><td>2026-09-01</td><td><span class="link" onclick="PMS.toast('答复要点：渌口区不在本办法适用范围。可告知申请人关注渌口区自行制定的实施细则，本窗口不受理渌口区申请')">查看答复</span></td></tr>
-        </tbody>
-      </table>
-    </div>
-    </div>
+    <div class="tab-panel" data-panel="qa">
+      <div class="card-body" style="padding:0">
+        <div class="filter-bar">
+          <div class="filter-item"><label>问题关键词</label><input type="text" placeholder="如 渌口区、纳税、境外学历"></div>
+          <div class="filter-item"><label>所属类别</label><select><option value="">全部</option><option>购房补贴</option><option>租房保障</option><option>申请与材料</option><option>配租与选房</option><option>租后与年审</option></select></div>
+          <div class="filter-actions">
+            <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+            <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th>问答编号</th><th class="cell-lg">问题</th><th>所属类别</th><th>关联政策条款</th><th>更新日期</th><th>状态</th><th>操作</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>WD2026-0102</td><td>注册在渌口区的创业企业可以申请人才公寓吗？</td><td><span class="badge cyan">申请与材料</span></td><td>《保障办法》第二条</td><td>2026-08-12</td><td><span class="badge green">现行有效</span></td><td><span class="link" onclick="PMS.openDrawer('qaDrawer')">查看全文</span></td></tr>
+              <tr><td>WD2026-0103</td><td>刚注册的创业企业还没有纳税记录，可以申请吗？</td><td><span class="badge cyan">申请与材料</span></td><td>《保障办法》第三条</td><td>2026-08-12</td><td><span class="badge green">现行有效</span></td><td><span class="link" onclick="PMS.openDrawer('qaDrawer')">查看全文</span></td></tr>
+              <tr><td>WD2026-0106</td><td>国（境）外学历需要额外提供什么材料？</td><td><span class="badge cyan">申请与材料</span></td><td>《保障办法》第八条</td><td>2026-07-30</td><td><span class="badge green">现行有效</span></td><td><span class="link" onclick="PMS.openDrawer('qaDrawer')">查看全文</span></td></tr>
+              <tr><td>WD2026-0111</td><td>已经领取购房补贴，还能申请人才公寓吗？</td><td><span class="badge blue">购房补贴</span></td><td>《购房补贴实施细则》第九条</td><td>2026-08-28</td><td><span class="badge green">现行有效</span></td><td><span class="link" onclick="PMS.openDrawer('qaDrawer')">查看全文</span></td></tr>
+              <tr><td>WD2026-0115</td><td>配租顺序怎么排？是不是先到先得？会摇号吗？</td><td><span class="badge orange">配租与选房</span></td><td>《保障办法》第十四条</td><td>2026-09-02</td><td><span class="badge green">现行有效</span></td><td><span class="link" onclick="PMS.openDrawer('qaDrawer')">查看全文</span></td></tr>
+              <tr><td>WD2026-0116</td><td>选房时放弃了，还能再排队吗？</td><td><span class="badge orange">配租与选房</span></td><td>《保障办法》第十六条</td><td>2026-09-02</td><td><span class="badge green">现行有效</span></td><td><span class="link" onclick="PMS.openDrawer('qaDrawer')">查看全文</span></td></tr>
+              <tr><td>WD2026-0119</td><td>夫妻双方都符合条件，可以各申请一套吗？</td><td><span class="badge cyan">申请与材料</span></td><td>《保障办法》第五条</td><td>2026-08-19</td><td><span class="badge green">现行有效</span></td><td><span class="link" onclick="PMS.openDrawer('qaDrawer')">查看全文</span></td></tr>
+              <tr><td>WD2026-0122</td><td>租金怎么算？按间配租的公摊要不要计租？</td><td><span class="badge purple">租房保障</span></td><td>《保障办法》第十九条</td><td>2026-08-19</td><td><span class="badge green">现行有效</span></td><td><span class="link" onclick="PMS.openDrawer('qaDrawer')">查看全文</span></td></tr>
+              <tr><td>WD2026-0126</td><td>年度资格审查不通过会被清退吗？</td><td><span class="badge green">租后与年审</span></td><td>《保障办法》第二十三条</td><td>2026-09-04</td><td><span class="badge green">现行有效</span></td><td><span class="link" onclick="PMS.openDrawer('qaDrawer')">查看全文</span></td></tr>
+              <tr><td>WD2026-0128</td><td>工作单位变动了要不要报备？会影响承租吗？</td><td><span class="badge green">租后与年审</span></td><td>《保障办法》第二十二条</td><td>2026-09-04</td><td><span class="badge green">现行有效</span></td><td><span class="link" onclick="PMS.openDrawer('qaDrawer')">查看全文</span></td></tr>
+              <tr><td>WD2026-0131</td><td>申请被退回后要重新排队吗？编号会变吗？</td><td><span class="badge cyan">申请与材料</span></td><td>《保障办法》第十一条</td><td>2026-08-26</td><td><span class="badge green">现行有效</span></td><td><span class="link" onclick="PMS.openDrawer('qaDrawer')">查看全文</span></td></tr>
+              <tr><td>WD2026-0134</td><td>购房补贴多久到账？需要提供哪些银行信息？</td><td><span class="badge blue">购房补贴</span></td><td>《购房补贴实施细则》第十二条</td><td>2026-08-28</td><td><span class="badge green">现行有效</span></td><td><span class="link" onclick="PMS.openDrawer('qaDrawer')">查看全文</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
 
   <div class="sp-src">
-    <span><b>页面性质</b> <b>只读查看</b>，无新增、修改、删除、下架与发布操作；窗口受理角色对政策与房源<b>均为只读</b></span>
-    <span><b>内容来源</b> 由<b>信息公开经办</b>（市保障性住房服务中心综合科 何静）在政策宣传内容管理中统一维护发布</span>
-    <span><b>同源口径</b> 与<b>移动端首页政策资讯同源</b>，一处发布、两端同步；答复口径与移动端常见问答一致</span>
-    <span><b>购房补贴</b> 本平台<b>只公开政策</b>，办理接口跳转市委组织部现有系统，<b>不承载任何办理环节</b></span>
-    <span><b>关联页面</b> <span class="link" onclick="location.href='../apply/material-print.html'">材料清单与表单打印</span>　<span class="link" onclick="location.href='../apply/window-ledger.html'">窗口办件台账</span>　<span class="link" onclick="location.href='../../mobile/public/policy-list.html'">移动端政策资讯</span></span>
+    <span><b>内容来源</b> 由信息公开经办角色在<span class="link" onclick="PMS.toast('政策宣传内容管理由信息公开经办角色办理，窗口无该菜单权限')">政策宣传内容管理</span>中统一维护，本页只读同步</span>
+    <span><b>解答口径</b> 一律以现行有效版本为准；已到期条目仅供口径追溯，不得作为现场答复依据</span>
+    <span><b>移动端同源</b> 与湘易办政策专区、「株洲人才」公众号展示同一份内容，避免口径不一</span>
+    <span><b>疑难转办</b> 政策口径存疑的，转市保障性住房服务中心综合科答复，不得由窗口自行解释</span>
   </div>
 </main>
 
 <div class="drawer-mask"></div>
-<div class="drawer" id="pvDrawer">
+<div class="drawer" id="zcDrawer">
   <div class="drawer-head">
-    <h3>政策全文预览（只读）</h3>
-    <span class="badge green">在发</span>
+    <h3>政策资讯全文</h3>
+    <span class="badge green">现行有效</span>
+    <span class="badge blue">ZC2026-0031</span>
+    <span class="badge gray">只读</span>
     <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
   </div>
   <div class="drawer-body">
-  <div class="alert alert-info">
-    <i class="fa-solid fa-circle-info"></i>
-    <div>本预览为<b>只读</b>，仅供窗口现场答复引用，<b>不提供编辑与发布操作</b>。内容由信息公开经办统一维护，与移动端政策详情页同源。<b>购房补贴本平台只公开政策，办理入口跳转市委组织部现有系统。</b></div>
-  </div>
+    <div class="alert alert-info">
+      <i class="fa-solid fa-circle-info"></i>
+      <div>全文只读，<b>不可编辑、发布或撤回</b>。窗口现场解答请直接引用本文口径；如申请人需要纸质件，可在<span class="link" onclick="location.href='../apply/window-material.html'">材料清单与表单打印</span>中打印配套的办事指南。</div>
+    </div>
 
-      <div class="form-grid form-align">
-        <div class="form-item col-full">
-          <label>标题</label>
-          <input type="text" value="《株洲市高校毕业生购房补贴实施办法》" readonly>
-        </div>
-        <div class="form-item">
-          <label>政策类型</label>
-          <input type="text" value="政策原文" readonly>
-        </div>
-        <div class="form-item">
-          <label>发布时间</label>
-          <input type="text" value="2026-03-12 09:00" readonly>
-        </div>
-        <div class="form-item">
-          <label>适用对象</label>
-          <input type="text" value="全日制大专及以上毕业生" readonly>
-        </div>
-        <div class="form-item">
-          <label>阅读量</label>
-          <input type="text" value="28,486" readonly>
-        </div>
-        <div class="form-item col-full">
-          <label>正文（只读）</label>
-          <textarea rows="12" readonly>株洲市高校毕业生购房补贴实施办法
+    <div style="margin:18px 0 9px;font-size:14px;font-weight:700;color:var(--primary);display:flex;align-items:center;gap:7px"><i class="fa-solid fa-file-lines"></i> 条目信息</div>
+    <dl class="desc-list">
+      <div class="desc-item full"><dt>标题</dt><dd>《株洲市城区创业就业青年人才购房补贴实施细则》</dd></div>
+      <div class="desc-item"><dt>资讯编号</dt><dd>ZC2026-0031</dd></div>
+      <div class="desc-item"><dt>内容类型</dt><dd>政策原文</dd></div>
+      <div class="desc-item"><dt>所属分类</dt><dd>购房补贴</dd></div>
+      <div class="desc-item"><dt>发布机关</dt><dd>市住建局、市财政局</dd></div>
+      <div class="desc-item"><dt>发布日期</dt><dd>2026-03-18</dd></div>
+      <div class="desc-item"><dt>执行期限</dt><dd>2026-04-01 至 2028-03-31</dd></div>
+      <div class="desc-item"><dt>维护人</dt><dd>市保障性住房服务中心综合科 张莉</dd></div>
+      <div class="desc-item"><dt>最后更新</dt><dd>2026-08-28 10:16</dd></div>
+      <div class="desc-item"><dt>移动端阅读量</dt><dd>21,486 次</dd></div>
+    </dl>
 
-第一条　为吸引高校毕业生来株留株就业创业，支持其在本市安家落户，制定本办法。
+    <div style="margin:18px 0 9px;font-size:14px;font-weight:700;color:var(--primary);display:flex;align-items:center;gap:7px"><i class="fa-solid fa-align-left"></i> 正文</div>
+    <div class="sp-block">
+      <div class="sp-h"><i class="fa-solid fa-quote-left"></i> 全文<span class="sub">只读展示，不可修改</span></div>
+      <div class="sp-b">
+        <div class="tl-desc" style="white-space:pre-line;font-size:13.5px;line-height:1.9">第一条　适用范围
+本细则适用于在株洲市城区（不含渌口区）就业创业，且在市城区首次购买自住商品住房的青年人才。
 
-第二条　适用范围。在本市城区就业或创业，且首次购买自住商品住房的全日制大专及以上学历毕业生。同一人只享受一次，不与其他同类购房补贴重复享受。
+第二条　补贴标准
+按学历分档一次性发放：博士研究生 10 万元；硕士研究生 6 万元；全日制本科 3 万元；全日制大专 1 万元。国（境）外学历须取得教育部留学服务中心学历学位认证，按对应层次执行。
 
-第三条　补贴标准。博士 20.00 万元、硕士 10.00 万元、全日制本科 5.00 万元、全日制大专 2.00 万元，自核定次月起分三年等额发放至本人银行账户。
+第三条　申请条件
+（一）年龄 40 周岁以下，取得全日制大专及以上学历；
+（二）与市城区用人单位签订 3 年以上劳动合同并连续缴纳养老保险满 6 个月，或作为法定代表人、经营者在市城区登记注册创业企业、个体工商户且实际经营纳税；
+（三）本人及配偶在市城区无其他自有住房，且此前未享受过本市各类购房补贴、人才安家费；
+（四）购房合同网签备案时间在本细则执行期内。
 
-第四条　申报与办理。购房补贴由市委人才工作领导小组办公室受理与核定，通过市委组织部人才服务系统线上申报。株洲市人才住房保障管理平台只公开本办法及配套解读，不承载申报、受理、核定与发放环节；申请人可从本平台入口跳转至市委组织部人才服务系统，跳转时传递已实名信息，免重复登录。
+第四条　不重复享受
+购房补贴与人才公寓租赁保障、租房补贴同期不重复享受。已承租人才公寓的，自购房合同网签之日起 3 个月内办理腾退后方可申领。
 
-第五条　与住房租赁保障的衔接。已享受人才住房租金减免期间不得同时申领购房补贴；退出人才住房后可按规定申请。保障期内经核查已购房的，一并纳入人才住房退出处理。
+第九条　服务年限
+申领人须承诺在市城区服务满 5 年。未满 5 年离株或注销创业主体的，按未满年限比例退回补贴资金，并纳入住房保障失信名单。
 
-第六条　监督与追责。补贴发放期内离株、房屋转让或存在弄虚作假情形的，停止发放并追回已发金额，纳入失信名单。
-
-第七条　本办法自 2026 年 4 月 1 日起施行。
-
-现场答复提示：本窗口只解答政策条件与所需材料，具体申报进度请引导申请人到市委组织部人才服务系统查询，不得代为受理或承诺办理结果。</textarea>
-        </div>
-        <div class="form-item col-full">
-          <label>关联政策条款</label>
-          <input type="text" value="第二条 适用范围、第三条 补贴标准、第四条 申报与办理" readonly>
-        </div>
-        <div class="form-item col-full">
-          <label>维护与同步说明</label>
-          <textarea rows="3" readonly>维护人：市保障性住房服务中心综合科 何静（信息公开经办）。发布渠道：湘易办移动端（建宁安居政策资讯）、「株洲人才」微信公众号、市住建局网站，三端同源同步。窗口受理角色对本内容为只读，如发现表述与政策原文不一致，请通过内部工单反馈信息公开经办处理，不得在本页修改。</textarea>
-        </div>
+第十二条　拨付方式
+经资格审核、公示无异议后，由市财政局按季度集中拨付至申领人本人银行账户，公示期满后 30 个工作日内到账。</div>
       </div>
+    </div>
+
+    <div style="margin:18px 0 9px;font-size:14px;font-weight:700;color:var(--primary);display:flex;align-items:center;gap:7px"><i class="fa-solid fa-link"></i> 关联条目</div>
+    <div class="table-wrap">
+      <table class="data-table compact">
+        <thead><tr><th>资讯编号</th><th class="cell-lg">标题</th><th>关系</th></tr></thead>
+        <tbody>
+          <tr><td>ZC2026-0032</td><td>购房补贴标准与学历分档一览</td><td><span class="badge blue">配套图解</span></td></tr>
+          <tr><td>ZC2026-0036</td><td>购房补贴与人才公寓租赁保障不重复享受的政策解读</td><td><span class="badge cyan">条款解读</span></td></tr>
+          <tr><td>BS2026-0011</td><td>购房补贴申领办事指南</td><td><span class="badge green">办理指引</span></td></tr>
+          <tr><td>ZC2025-0117</td><td>2025 年度人才购房补贴申报安排</td><td><span class="badge gray">被替代</span></td></tr>
+        </tbody>
+      </table>
+    </div>
   </div>
   <div class="drawer-foot">
     <button class="btn" data-close-drawer>关闭</button>
-    <button class="btn btn-primary" onclick="PMS.confirm({title:'打印确认',message:'确认打印本篇政策全文与现场答复要点？',detail:'打印件供窗口现场向申请人出示与解释，末页附答复提示。购房补贴类政策打印件须同时注明「本平台不承载办理环节，申报入口跳转市委组织部人才服务系统」。',type:'info',okText:'确认打印',onOk:function(){PMS.closeDrawer();PMS.toast('政策全文与答复要点已生成，请到窗口打印机取件','success');}})"><i class="fa-solid fa-print"></i> 打印本篇</button>
   </div>
 </div>
+
+<div class="drawer" id="qaDrawer">
+  <div class="drawer-head">
+    <h3>常见问答全文</h3>
+    <span class="badge green">现行有效</span>
+    <span class="badge blue">WD2026-0115</span>
+    <span class="badge gray">只读</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+    <div class="alert alert-info">
+      <i class="fa-solid fa-circle-info"></i>
+      <div>问答内容与湘易办政策专区、「株洲人才」公众号同源。<b>窗口按本文口径答复即可</b>，不得自行补充或变通解释；口径需要调整的，反馈至市保障性住房服务中心综合科统一修订。</div>
+    </div>
+
+    <div style="margin:18px 0 9px;font-size:14px;font-weight:700;color:var(--primary);display:flex;align-items:center;gap:7px"><i class="fa-solid fa-circle-question"></i> 问答信息</div>
+    <dl class="desc-list">
+      <div class="desc-item full"><dt>问题</dt><dd>配租顺序怎么排？是不是先到先得？会摇号吗？</dd></div>
+      <div class="desc-item"><dt>问答编号</dt><dd>WD2026-0115</dd></div>
+      <div class="desc-item"><dt>所属类别</dt><dd>配租与选房</dd></div>
+      <div class="desc-item"><dt>关联政策条款</dt><dd>《保障办法》第十四条</dd></div>
+      <div class="desc-item"><dt>维护人</dt><dd>市保障性住房服务中心综合科 张莉</dd></div>
+      <div class="desc-item"><dt>更新日期</dt><dd>2026-09-02</dd></div>
+      <div class="desc-item"><dt>移动端阅读量</dt><dd>8,264 次</dd></div>
+    </dl>
+
+    <div style="margin:18px 0 9px;font-size:14px;font-weight:700;color:var(--primary);display:flex;align-items:center;gap:7px"><i class="fa-solid fa-comment-dots"></i> 标准答复口径</div>
+    <div class="sp-block">
+      <div class="sp-h"><i class="fa-solid fa-quote-left"></i> 答复全文<span class="sub">只读展示，不可修改</span></div>
+      <div class="sp-b">
+        <div class="tl-desc" style="white-space:pre-line;font-size:13.5px;line-height:1.9">本市人才公寓采用顺序配租，不采用摇号方式确定选房顺序。
+
+一、排序依据
+以资格审核通过时间（精确到分钟）为基准顺序号，审核通过时间相同的，按申请受理时间在前的优先；仍相同的，按申请编号升序排列。窗口代办件与线上自助申请、用人单位代申报件同池排序，不因办理渠道而优先。
+
+二、名单公开
+每批次的配租顺序名单在自动配租执行前公开公示 2 天，公示内容含位次、资格审核通过时间、意向楼盘与户型，承租人姓名按「姓 + ××」脱敏。对顺序有异议的，可在公示期内向市保障性住房服务中心提出书面复核。
+
+三、选房安排
+按顺序号分时段组织线上选房，每人选房时长 30 分钟。逾时未选视为顺延一次，本批次内顺延后仍未选的按放弃处理。
+
+四、窗口注意事项
+窗口不得预先承诺具体房号或楼层，也不得代申请人锁定房源；余量以选房当日房态图为准。</div>
+      </div>
+    </div>
+
+    <div style="margin:18px 0 9px;font-size:14px;font-weight:700;color:var(--primary);display:flex;align-items:center;gap:7px"><i class="fa-solid fa-link"></i> 关联条目</div>
+    <div class="table-wrap">
+      <table class="data-table compact">
+        <thead><tr><th>资讯编号</th><th class="cell-lg">标题</th><th>关系</th></tr></thead>
+        <tbody>
+          <tr><td>ZC2026-0027</td><td>顺序配租规则与轮候排序口径（不采用摇号）</td><td><span class="badge cyan">政策依据</span></td></tr>
+          <tr><td>ZC2026-0047</td><td>放弃配租的情形认定与资格处置口径</td><td><span class="badge cyan">延伸口径</span></td></tr>
+          <tr><td>WD2026-0116</td><td>选房时放弃了，还能再排队吗？</td><td><span class="badge blue">相关问答</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>关闭</button>
+  </div>
+</div>
+
 <script>
 (function () {
-  var ts = document.querySelectorAll('main.app-main .table-wrap > table.data-table');
-  if (ts[0]) { ts[0]._total = 8; }
-  if (ts[1]) { ts[1]._total = 12; }
-  if (ts[2]) { ts[2]._total = 6; }
-  if (ts[3]) { ts[3]._total = 24; }
+  var n = { gf: 6, zf: 8, zn: 5, qa: 12 };
+  Object.keys(n).forEach(function (k) {
+    var t = document.querySelector('.tab-panel[data-panel="' + k + '"] .table-wrap > table.data-table');
+    if (t) { t._total = n[k]; }
+  });
 })();
 </script>
 

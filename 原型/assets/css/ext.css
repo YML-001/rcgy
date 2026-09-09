@@ -39,18 +39,54 @@
 }
 
 /* ==========================================================================
-   建宁安居品牌色（移动端个人用户首页 A01）
-   才聚株洲 · 安居建宁
+   原型说明标记 —— 只为讲清口径而加的说明，不是产品界面元素
+     .proto         纯原型说明，开发时整块删除
+     .proto.pend    口径待确认时的占位文案，定稿后替换正式文案、元素保留
+   对外演示想临时隐藏时按 Alt+P，或给 <html> 加 hide-proto
    ========================================================================== */
-:root {
-  --jn-blue-deep: #12419e;
-  --jn-blue: #1f62d4;
-  --jn-blue-lt: #4a95ea;
-  --jn-sky: #a9d2fb;
-  --jn-green: #2fae62;
-  --jn-green-lt: #57c98a;
-  --jn-mint: #3fc7a8;
-  --jn-page: #f4f9ff;
-  --jn-price: #e8453c;
-  --jn-ink: #16305c;
+.proto-t {
+  display: inline-block;
+  margin: 0 6px 2px 0;
+  padding: 0 6px;
+  border-radius: 3px;
+  background: var(--purple);
+  color: #fff;
+  font-size: 10.5px;
+  font-weight: 700;
+  line-height: 17px;
+  letter-spacing: .2px;
+  white-space: nowrap;
 }
+.proto-t.pend { background: #b45309; }
+
+/* 移动端提示条 */
+.m-note.proto {
+  background: var(--purple-light);
+  border: 1px dashed #c4b0f5;
+  border-left: 3px solid var(--purple);
+  color: var(--text-2);
+}
+.m-note.proto > i { color: var(--purple); }
+/* 原 success 变体的绿色重点字压在浅紫底上偏杂，统一收成正文色 */
+.m-note.proto b { color: var(--text-1); }
+.m-note.proto.pend {
+  background: #fff8ec;
+  border-color: var(--line-warning);
+  border-left-color: #b45309;
+}
+.m-note.proto.pend > i { color: #b45309; }
+
+/* PC 端表单说明 */
+.hint.proto {
+  display: block;
+  padding: 4px 8px;
+  border: 1px dashed #c4b0f5;
+  border-radius: 4px;
+  background: var(--purple-light);
+}
+.hint.proto.pend {
+  border-color: var(--line-warning);
+  background: #fff8ec;
+}
+
+html.hide-proto .proto { display: none !important; }

@@ -21,19 +21,21 @@
     </div>
     <div class="page-actions">
       <a class="btn" href="batch-list.html"><i class="fa-solid fa-arrow-left"></i> 返回</a>
-      <a class="btn" href="slot-plan.html"><i class="fa-solid fa-clock"></i> 编排选房时段</a>
-      <button class="btn btn-primary" onclick="PMS.confirm({title:'生成确认',message:'确认生成本批次配租顺序名单？',detail:'名单按申请受理时间先后自动生成，不支持手工调序。生成后进入公示期，公示内容与生成时间公开可回溯。',type:'warning',okText:'确认生成',onOk:function(){PMS.toast('已生成顺序名单，进入公示期','success');}})"><i class="fa-solid fa-list-ol"></i> 生成顺序名单</button>
+      <a class="btn" href="slot-plan.html"><i class="fa-solid fa-clock"></i> 执行时间设定</a>
+      <a class="btn" href="auto-alloc.html"><i class="fa-solid fa-wand-magic-sparkles"></i> 自动配租执行</a>
+      <button class="btn btn-primary" onclick="PMS.confirm({title:'生成确认',message:'确认生成本批次配租位次名单？',detail:'名单按资格审核通过时间先后自动生成，不支持手工调序。名单只用于公示与执行前核对，配租由系统按公告设定的执行时间自动完成，申请人不选房、不报名。',type:'warning',okText:'确认生成',onOk:function(){PMS.toast('已生成配租位次名单，进入公示期','success');}})"><i class="fa-solid fa-list-ol"></i> 生成位次名单</button>
     </div>
   </div>
 
   <div class="alert alert-info">
     <i class="fa-solid fa-circle-info"></i>
-    <div>本批次<b>报名中</b>（截止 2026-09-12 18:00）。投放 320 套、已报名 486 人，供需比 1:1.52。配租顺序按<b>申请受理时间</b>自动生成，名单生成时间与规则公开可回溯。</div>
+    <div>本批次<b>配租公告发布中</b>，<b>自动配租执行时间 2026-09-15 10:00</b>。投放 320 间、可安置 386 人，参与人数 486 人（资格审核通过），供需比 1:1.52。到点系统按<b>资格审核通过时间</b>逐人自动匹配，<b>申请人不选房、不报名</b>。</div>
   </div>
 
   <div class="card" data-tabs-scope>
     <div class="tabs">
       <div class="tab active" data-tab="base">批次基本信息</div>
+      <div class="tab" data-tab="notice">配租公告 <span class="badge orange">发布中</span></div>
       <div class="tab" data-tab="house">投放房源清单 <span class="badge blue">320</span></div>
       <div class="tab" data-tab="flow">批次流转</div>
       <div class="tab" data-tab="progress">配租进度 <span class="badge orange">进行中</span></div>
@@ -42,18 +44,54 @@
       <div class="card-body">
         <dl class="desc-list">
           <div class="desc-item"><dt>批次编号</dt><dd>PZ2026-03</dd></div>
-          <div class="desc-item"><dt>批次状态</dt><dd><span class="badge orange">报名中</span></dd></div>
+          <div class="desc-item"><dt>批次状态</dt><dd><span class="badge orange">公告发布中</span></dd></div>
           <div class="desc-item full"><dt>批次名称</dt><dd>株洲市 2026 年第 3 批青年人才公寓配租</dd></div>
-          <div class="desc-item"><dt>投放套数</dt><dd>320 套</dd></div>
-          <div class="desc-item"><dt>报名人数</dt><dd>486 人</dd></div>
-          <div class="desc-item"><dt>配租方式</dt><dd><span class="badge blue">顺序配租</span>　按申请受理时间</dd></div>
-          <div class="desc-item"><dt>报名时间</dt><dd>2026-09-05 09:00 至 2026-09-12 18:00</dd></div>
-          <div class="desc-item"><dt>名单公示</dt><dd>2026-09-13 至 2026-09-14</dd></div>
-          <div class="desc-item"><dt>选房时间</dt><dd>2026-09-15 至 2026-09-19（分时段）</dd></div>
-          <div class="desc-item"><dt>选房确认时限</dt><dd>1 个工作日（逾期顺延，轮候资格不取消）</dd></div>
+          <div class="desc-item"><dt>投放套数</dt><dd>320 间</dd></div>
+          <div class="desc-item"><dt>可安置人数</dt><dd>386 人</dd></div>
+          <div class="desc-item"><dt>参与人数</dt><dd>486 人（资格审核通过，<b>无需报名</b>）</dd></div>
+          <div class="desc-item"><dt>配租方式</dt><dd><span class="badge blue">系统自动配租</span>　按资格审核通过时间</dd></div>
+          <div class="desc-item"><dt>公告发布时间</dt><dd>2026-09-05 09:00</dd></div>
+          <div class="desc-item"><dt><b>自动配租执行时间</b></dt><dd><b>2026-09-15 10:00</b>　<span class="link" onclick="location.href='slot-plan.html'">执行时间设定</span></dd></div>
+          <div class="desc-item"><dt>结果公示</dt><dd>2026-09-16 至 2026-09-17</dd></div>
+          <div class="desc-item"><dt>签约期限</dt><dd>5 个工作日（逾期未签约且无正当理由按放弃处理）</dd></div>
           <div class="desc-item"><dt>审批人 / 时间</dt><dd>李慧敏　2026-09-04 16:22</dd></div>
-          <div class="desc-item"><dt>发布时间</dt><dd>2026-09-05 09:00</dd></div>
         </dl>
+      </div>
+    </div>
+    <div class="tab-panel" data-panel="notice">
+      <div class="card-body">
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 公告内容<span class="sub">PZGG2026-03 · 已发布</span></div>
+          <div class="sp-b">
+        <dl class="desc-list">
+          <div class="desc-item"><dt>公告编号</dt><dd>PZGG2026-03</dd></div>
+          <div class="desc-item"><dt>公告状态</dt><dd><span class="badge green">已发布</span></dd></div>
+          <div class="desc-item full"><dt>公告标题</dt><dd>株洲市 2026 年第 3 批青年人才公寓配租公告</dd></div>
+          <div class="desc-item full"><dt>本批次房源范围</dt><dd>湘江1958 人才公寓 86 间、栗雨佳苑人才公寓 100 间、茨菇塘公寓 62 间、董家塅安居苑 42 间、清水塘新苑 18 间、云龙人才苑 12 间</dd></div>
+          <div class="desc-item"><dt>投放套数</dt><dd>320 间（整套配租 214 套 + 按间配租 106 间）</dd></div>
+          <div class="desc-item"><dt>可安置人数</dt><dd>386 人</dd></div>
+          <div class="desc-item"><dt><b>自动配租执行时间</b></dt><dd><b>2026-09-15 10:00</b></dd></div>
+          <div class="desc-item"><dt>发布渠道</dt><dd>湘易办 + 株洲人才公众号 + 短信群发</dd></div>
+          <div class="desc-item"><dt>发布人 / 时间</dt><dd>陈晓琳　2026-09-05 09:00</dd></div>
+          <div class="desc-item"><dt>短信群发</dt><dd><span class="badge green">已发送 486 条</span>　失败重试 2 条已补发</dd></div>
+        </dl>
+          </div>
+        </div>
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 配租规则说明<span class="sub">公告正文摘录 · 与自动配租执行一致</span></div>
+          <div class="sp-b">
+        <div class="sp-kv">
+          <div class="kv"><span class="k">一、排序</span><span class="v">按资格审核通过时间先后排定位次，不摇号、不支持人工调序</span><span class="link" onclick="location.href='order-list.html'">位次名单</span></div>
+          <div class="kv"><span class="k">二、范围</span><span class="v">只在申请人选定的楼盘与户型内匹配，匹配不到本轮跳过、保留位次</span><span class="muted">本期不跨楼盘调剂</span></div>
+          <div class="kv"><span class="k">三、同套同性别</span><span class="v">异性占用的房间直接排除，性别由身份证号自动识别</span><span class="muted">本期强制执行</span></div>
+          <div class="kv"><span class="k">四、组团整套预留</span><span class="v">成团的整套预留、整组锁定，整组按组内最靠后位次排序，无整套的拆开按单人配租</span><span class="link" onclick="location.href='auto-alloc.html'">匹配规则</span></div>
+          <div class="kv"><span class="k">签约安排</span><span class="v">结果通知后 5 个工作日内到运营机构签约</span><span class="link" onclick="location.href='giveup-list.html'">逾期处置</span></div>
+        </div>
+        <div class="sp-fx">
+          <b>申请人不选房、不报名</b>：本批次不设报名环节，资格审核通过即自动纳入参与名单；配租结果由系统在执行时间自动生成，申请人只查看结果并按通知去签约。
+        </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="tab-panel" data-panel="house">
@@ -63,14 +101,14 @@
           <div class="sp-b">
   <div class="sp-tw">
     <table class="data-table compact">
-      <thead><tr><th>楼盘</th><th>所在区</th><th class="num">投放套数</th><th class="num">单间</th><th class="num">一室一厅</th><th class="num">二室一厅</th><th>房源来源</th><th class="num">已锁定</th><th>详情</th></tr></thead>
+      <thead><tr><th>楼盘</th><th>所在区</th><th class="num">投放套数</th><th class="num">单间</th><th class="num">一室一厅</th><th class="num">二室一厅</th><th class="num">三室一厅</th><th>房源来源</th><th class="num">可安置人数</th><th>详情</th></tr></thead>
       <tbody>
-      <tr><td>湘江1958 人才公寓</td><td>天元区</td><td class="num">86</td><td class="num">22</td><td class="num">38</td><td class="num">26</td><td><span class="badge blue">收购商品房</span></td><td class="num">26</td><td><span class="link" onclick="location.href='../house/house-status-map.html'">房态图</span></td></tr>
-      <tr><td>栗雨佳苑人才公寓</td><td>天元区</td><td class="num">100</td><td class="num">0</td><td class="num">62</td><td class="num">38</td><td><span class="badge green">公租房盘活</span></td><td class="num">14</td><td><span class="link" onclick="location.href='../house/house-status-map.html'">房态图</span></td></tr>
-      <tr><td>茨菇塘公寓</td><td>荷塘区</td><td class="num">62</td><td class="num">0</td><td class="num">40</td><td class="num">22</td><td><span class="badge green">公租房盘活</span></td><td class="num">18</td><td><span class="link" onclick="location.href='../house/house-status-map.html'">房态图</span></td></tr>
-      <tr><td>董家塅安居苑</td><td>芦淞区</td><td class="num">42</td><td class="num">18</td><td class="num">24</td><td class="num">0</td><td><span class="badge blue">收购商品房</span></td><td class="num">8</td><td><span class="link" onclick="location.href='../house/house-status-map.html'">房态图</span></td></tr>
-      <tr><td>清水塘新苑</td><td>石峰区</td><td class="num">18</td><td class="num">0</td><td class="num">12</td><td class="num">6</td><td><span class="badge green">公租房盘活</span></td><td class="num">2</td><td><span class="link" onclick="location.href='../house/house-status-map.html'">房态图</span></td></tr>
-      <tr><td>云龙人才苑</td><td>经开区</td><td class="num">12</td><td class="num">8</td><td class="num">4</td><td class="num">0</td><td><span class="badge cyan">保租房“一间房”</span></td><td class="num">0</td><td><span class="link" onclick="location.href='../house/house-status-map.html'">房态图</span></td></tr>
+      <tr><td>湘江1958 人才公寓</td><td>天元区</td><td class="num">86</td><td class="num">22</td><td class="num">32</td><td class="num">20</td><td class="num">12</td><td><span class="badge blue">收购商品房</span></td><td class="num">122</td><td><span class="link" onclick="location.href='../house/house-status-map.html'">房态图</span></td></tr>
+      <tr><td>栗雨佳苑人才公寓</td><td>天元区</td><td class="num">100</td><td class="num">0</td><td class="num">62</td><td class="num">38</td><td class="num">0</td><td><span class="badge green">公租房盘活</span></td><td class="num">116</td><td><span class="link" onclick="location.href='../house/house-status-map.html'">房态图</span></td></tr>
+      <tr><td>茨菇塘公寓</td><td>荷塘区</td><td class="num">62</td><td class="num">0</td><td class="num">40</td><td class="num">22</td><td class="num">0</td><td><span class="badge green">公租房盘活</span></td><td class="num">72</td><td><span class="link" onclick="location.href='../house/house-status-map.html'">房态图</span></td></tr>
+      <tr><td>董家塅安居苑</td><td>芦淞区</td><td class="num">42</td><td class="num">18</td><td class="num">24</td><td class="num">0</td><td class="num">0</td><td><span class="badge blue">收购商品房</span></td><td class="num">42</td><td><span class="link" onclick="location.href='../house/house-status-map.html'">房态图</span></td></tr>
+      <tr><td>清水塘新苑</td><td>石峰区</td><td class="num">18</td><td class="num">0</td><td class="num">12</td><td class="num">6</td><td class="num">0</td><td><span class="badge green">公租房盘活</span></td><td class="num">22</td><td><span class="link" onclick="location.href='../house/house-status-map.html'">房态图</span></td></tr>
+      <tr><td>云龙人才苑</td><td>经开区</td><td class="num">12</td><td class="num">8</td><td class="num">4</td><td class="num">0</td><td class="num">0</td><td><span class="badge cyan">保租房“一间房”</span></td><td class="num">12</td><td><span class="link" onclick="location.href='../house/house-status-map.html'">房态图</span></td></tr>
       </tbody>
     </table>
   </div>
@@ -87,28 +125,29 @@
           <div class="tl-item done"><div class="tl-dot"></div>
             <div class="tl-title">创建批次并勾选投放房源</div>
             <div class="tl-meta">陈晓琳 · 2026-09-03 14:26</div>
-            <div class="tl-desc">从可配租房源池勾选 320 套，按楼盘与户型分解。</div></div>
+            <div class="tl-desc">从可配租房源池勾选 320 间，按楼盘与户型分解，可安置 386 人。</div></div>
           <div class="tl-item done"><div class="tl-dot"></div>
-            <div class="tl-title">业务管理员审批</div>
+            <div class="tl-title">业务管理员角色审批</div>
             <div class="tl-meta">李慧敏 · 2026-09-04 16:22</div>
             <div class="tl-desc">审批通过，公告内容与投放清单核定无误。</div></div>
           <div class="tl-item done"><div class="tl-dot"></div>
-            <div class="tl-title">发布配租公告</div>
-            <div class="tl-meta">系统 · 2026-09-05 09:00</div>
-            <div class="tl-desc">同步发布至湘易办与株洲人才公众号。</div></div>
+            <div class="tl-title">发布配租公告并设定执行时间</div>
+            <div class="tl-meta">陈晓琳 · 2026-09-05 09:00</div>
+            <div class="tl-desc">公告设定自动配租执行时间 2026-09-15 10:00，同步发布至湘易办与株洲人才公众号。</div></div>
+          <div class="tl-item done"><div class="tl-dot"></div>
+            <div class="tl-title">向资格审核通过的申请人群发短信</div>
+            <div class="tl-meta">系统 · 2026-09-05 09:02</div>
+            <div class="tl-desc">已发送 486 条，告知房源范围、可安置人数与执行时间；失败重试 2 条已补发。</div></div>
           <div class="tl-item"><div class="tl-dot"></div>
-            <div class="tl-title">在线报名</div>
-            <div class="tl-meta">2026-09-05 至 09-12 · 进行中</div>
-            <div class="tl-desc">已报名 486 人，房源 320 套，供需比 1:1.52。</div></div>
+            <div class="tl-title">等待自动配租执行</div>
+            <div class="tl-meta">2026-09-15 10:00 · 待执行</div>
+            <div class="tl-desc">申请人无需操作；执行前 24 小时再推送一次提醒。</div></div>
           <div class="tl-item pending"><div class="tl-dot"></div>
-            <div class="tl-title">生成顺序名单并公示</div>
-            <div class="tl-meta">2026-09-13 至 09-14</div></div>
+            <div class="tl-title">自动配租执行与结果通知</div>
+            <div class="tl-meta">2026-09-15 10:00 起</div></div>
           <div class="tl-item pending"><div class="tl-dot"></div>
-            <div class="tl-title">分时段选房</div>
-            <div class="tl-meta">2026-09-15 至 09-19</div></div>
-          <div class="tl-item pending"><div class="tl-dot"></div>
-            <div class="tl-title">配租结果公开</div>
-            <div class="tl-meta">选房结束后</div></div>
+            <div class="tl-title">结果公示与签约（5 个工作日）</div>
+            <div class="tl-meta">2026-09-16 起</div></div>
         </div>
           </div>
         </div>
@@ -117,29 +156,31 @@
     <div class="tab-panel" data-panel="progress">
       <div class="card-body">
         <div class="sp-block" style="margin-top:12px">
-          <div class="sp-h"><i class="fa-solid fa-list"></i> 报名与选房进度<span class="sub">实时</span></div>
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 参与与配租进度<span class="sub">实时</span></div>
           <div class="sp-b">
         <div class="sp-kv">
-          <div class="kv"><span class="k">投放套数</span><span class="v">320 套</span></div>
-          <div class="kv"><span class="k">报名人数</span><span class="v">486 人</span><span class="link" onclick="location.href='order-list.html'">顺序名单</span></div>
+          <div class="kv"><span class="k">投放套数</span><span class="v">320 间</span></div>
+          <div class="kv"><span class="k">可安置人数</span><span class="v">386 人</span></div>
+          <div class="kv"><span class="k">参与人数</span><span class="v">486 人</span><span class="link" onclick="location.href='order-list.html'">位次名单</span></div>
           <div class="kv"><span class="k">供需比</span><span class="v warn">1 : 1.52</span></div>
-          <div class="kv"><span class="k">已锁定</span><span class="v">68 套</span></div>
-          <div class="kv"><span class="k">已签约</span><span class="v">0 套（选房尚未开始）</span></div>
-          <div class="kv"><span class="k">预计进入轮候</span><span class="v warn">约 166 人</span><span class="link" onclick="location.href='queue-list.html'">轮候库</span></div>
+          <div class="kv"><span class="k">组团成团数</span><span class="v">28 组（三人组 9 + 两人组 19）</span><span class="link" onclick="location.href='auto-alloc.html'">组团匹配</span></div>
+          <div class="kv"><span class="k">已自动匹配</span><span class="v">0 间（执行时间未到）</span></div>
+          <div class="kv"><span class="k">预计未匹配</span><span class="v warn">约 174 人</span><span class="link" onclick="location.href='queue-list.html'">轮候库</span></div>
         </div>
           </div>
         </div>
   <div class="alert alert-warning">
     <i class="fa-solid fa-triangle-exclamation"></i>
-    <div>本批次<b>报名人数 486 人 > 投放 320 套</b>，预计约 166 人将进入轮候库。请提前编排选房时段并做好轮候通知准备。</div>
+    <div>本批次<b>参与人数 486 人 > 可安置 386 人</b>，预计约 174 人本轮未匹配。未匹配的<b>保留位次等下一批次</b>，请提前做好结果告知与轮候通知准备。</div>
   </div>
 
       </div>
     </div>
   </div>
   <div class="sp-src">
-    <span><b>排序规则</b> 按申请受理时间先后；同一时间按特殊人才、家庭申请、学历、编号细分</span>
-    <span><b>公开落点</b> <span class="link" onclick="location.href='../rule/result-open.html'">配租结果公开</span></span>
+    <span><b>配租方式</b> <b>系统自动配租</b>，公告设定执行时间，到点按资格审核通过时间逐人匹配，<b>申请人不选房、不报名</b></span>
+    <span><b>排序规则</b> 按资格审核通过时间先后；同一时间按特殊人才、家庭申请、学历、编号细分</span>
+    <span><b>执行落点</b> <span class="link" onclick="location.href='auto-alloc.html'">自动配租执行与匹配规则</span>　<span class="link" onclick="location.href='../rule/result-open.html'">配租结果公开</span></span>
   </div>
 </main>
 

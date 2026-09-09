@@ -19,166 +19,146 @@
       <span class="sep">/</span> <span class="cur">统一楼盘表</span>
     </div>
     <div class="page-actions">
-      <a class="btn" href="building-import.html"><i class="fa-solid fa-upload"></i> 房源批量导入</a>
-      <a class="btn" href="house-archive.html"><i class="fa-solid fa-clipboard-check"></i> 房源查询与审核发布</a>
-      <button class="btn btn-primary" onclick="PMS.openDrawer('roomDrawer')"><i class="fa-solid fa-plus"></i> 新增房间</button>
+      <a class="btn" href="building-import.html"><i class="fa-solid fa-upload"></i> 批量导入</a>
+      <button class="btn btn-primary" onclick="PMS.openDrawer('bldDrawer')"><i class="fa-solid fa-plus"></i> 新增房源</button>
       <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
     </div>
   </div>
 
   <div class="alert alert-warning">
     <i class="fa-solid fa-triangle-exclamation"></i>
-    <div>楼盘表按<b>项目—楼栋—单元—楼层—房号—间号</b>六级建账，<b>房源颗粒度到「间」</b>：三室两厅拆 A、B、C 三间，房号格式 <b>1502A</b>，<b>每间单独计租</b>；<b>公摊比例按套内间数均分</b>（拆三间每间 1/3），<b>计租面积 ＝ 本间套内面积 ＋ 本间公摊面积</b>、公摊计入租金；<b>房屋总面积、总公摊与水电气物业费标准记录到套级</b>，<b>VR 全景按套</b>、同套各间共用一份。<b>房源数据由各运营机构自行导入与维护，主管单位只做查看、监管与审核发布</b>，不介入日常维护。<span class="link" onclick="location.href='intake-type.html'">入库类型与切换</span></div>
+    <div>按<b>项目、楼栋、单元、楼层、房号</b>建立标准楼盘表，<b>一房一码</b>；楼盘表是全部房源的<b>唯一底账</b>，房源档案、房态图、配租投放、租金计费均以此为准。<b>每套房源标注入库类型</b>（<b>批量导入</b>或<b>接口对接</b>）<b>与对应的批次号或来源系统</b>：批量导入的记录<b>导入批次号</b>（如 DR2026-09-118），接口对接的记录<b>来源系统与同步时间</b>。<b>两类房源在同一张楼盘表内并存管理</b>，来源标记不互相覆盖；本期接口暂不对接，接口对接类房源标注为<b>待启用</b>。<span class="link" onclick="location.href='intake-type.html'">入库类型标识与切换</span></div>
+  </div>
+
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>房源<b>按「间」维护当前状态与在住人性别</b>两个字段：当前状态取<b>空置／已入住／已锁定</b>，在住人性别取<b>男／女</b>（空置与已锁定间留空）。系统按套<b>自动汇总在住性别</b>（如「本套现住 2 人，均为女生」），汇总结果不需人工填写。两个字段供<b>移动端房源展示与意向登记</b>按间显示空置与在住情况，并作为<b>系统自动配租「同套同性别」校验</b>的取值来源：空置间只能配给与本套在住人<b>同性别</b>的申请人，整套无人在住的空置间不限性别。<b>本期按强制同性别执行，不设开关</b>。</div>
   </div>
 
   <div class="stat-grid">
     <div class="stat-card">
       <div class="s-icon blue"><i class="fa-solid fa-table-cells"></i></div>
-      <div><div class="s-label">在库房源</div><div class="s-value">4,286</div>
-        <div class="s-trend text-2">间 · 对应 2,486 套，一间一码</div></div>
+      <div><div class="s-label">房源总量（间）</div><div class="s-value">2,486</div>
+        <div class="s-trend text-2">一房一码 · 按间维护房态</div></div>
     </div>
     <div class="stat-card">
-      <div class="s-icon green"><i class="fa-solid fa-house-circle-check"></i></div>
-      <div><div class="s-label">可配租</div><div class="s-value">712</div>
-        <div class="s-trend text-2">间 · 实时同步至移动端</div></div>
+      <div class="s-icon green"><i class="fa-solid fa-door-open"></i></div>
+      <div><div class="s-label">空置间</div><div class="s-value">1,112</div>
+        <div class="s-trend text-2">其中已上架可配租 412 间</div></div>
     </div>
     <div class="stat-card">
       <div class="s-icon cyan"><i class="fa-solid fa-users"></i></div>
-      <div><div class="s-label">在租</div><div class="s-value">2,286</div>
-        <div class="s-trend text-2">间 · 出租率 53.3%</div></div>
+      <div><div class="s-label">已入住间</div><div class="s-value">1,286</div>
+        <div class="s-trend text-2">女 692 间 / 男 594 间 · 出租率 51.7%</div></div>
     </div>
     <div class="stat-card dc-alarm">
-      <div class="s-icon orange"><i class="fa-solid fa-house-circle-exclamation"></i></div>
-      <div><div class="s-label">冻结 / 维修</div><div class="s-value">148</div>
-        <div class="s-trend ">间 · 不参与配租</div></div>
+      <div class="s-icon orange"><i class="fa-solid fa-lock"></i></div>
+      <div><div class="s-label">已锁定间</div><div class="s-value">88</div>
+        <div class="s-trend ">自动配租锁定或维修冻结，不参与配租</div></div>
     </div>
   </div>
 
-  <div class="card list-card" data-tabs-scope>
+  <div class="card list-card">
     <div class="filter-bar">
-      <div class="filter-item"><label>房号 + 间号</label><input type="text" value="1502A" placeholder="如 1502A"></div>
-      <div class="filter-item"><label>项目 / 所属套</label><input type="text" value="湘江1958 人才公寓" placeholder="项目名称或所属套房号"></div>
-      <div class="filter-item"><label>室厅结构</label><select data-dict="roomStruct" data-ph="全部"></select></div>
-      <div class="filter-item"><label>所属运营机构</label><select data-dict="agencyOrg" data-ph="全部"></select></div>
+      <div class="filter-item"><label>房源编号</label><input type="text" placeholder="房源编号"></div>
+      <div class="filter-item"><label>项目 / 房号</label><input type="text" placeholder="项目名称或房号"></div>
+      <div class="filter-item"><label>所在区</label><select data-dict="district" data-ph="全部"></select></div>
+      <div class="filter-item"><label>户型</label><select data-dict="roomType" data-ph="全部"></select></div>
+      <div class="filter-item"><label>来源渠道</label><select data-dict="houseSource" data-ph="全部"></select></div>
       <div class="filter-item"><label>入库类型</label><select data-dict="intakeType" data-ph="全部"></select></div>
-      <div class="filter-item"><label>房态</label><select data-dict="houseStatus" data-ph="全部"></select></div>
+      <div class="filter-item"><label>批次号 / 来源系统</label><input type="text" placeholder="如 DR2026-09-118 或 省保租房系统"></div>
+      <div class="filter-item"><label>当前状态（间）</label><select><option value="">全部</option><option>空置</option><option>已入住</option><option>已锁定</option></select></div>
+      <div class="filter-item"><label>间号</label><select><option value="">全部</option><option>A</option><option>B</option><option>C</option><option>D</option></select></div>
+      <div class="filter-item"><label>在住人性别</label><select><option value="">全部</option><option>女</option><option>男</option><option>空置（无在住人）</option></select></div>
+      <div class="filter-item"><label>本套在住性别</label><select><option value="">全部</option><option>均为女生</option><option>均为男生</option><option>暂无在住人</option><option>存量混住（不再新增）</option></select></div>
       <div class="filter-actions">
         <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
         <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
       </div>
     </div>
-    <div class="tabs">
-      <div class="tab active" data-tab="room">按间明细 <span class="badge blue">4,286</span></div>
-      <div class="tab" data-tab="unit">套级信息 <span class="badge cyan">2,486</span></div>
-    </div>
 
-    <div class="tab-panel active" data-panel="room">
-    <div class="card-body">
-    <p class="hint">计租面积 ＝ 本间套内面积 ＋ 本间公摊面积，公摊计入租金 · 公摊比例按套内间数均分，各间公摊面积合计等于套级总公摊面积 · 人才租金标准为减免后标准，原租金标准为同地段市场租金</p>
     <div class="table-wrap">
       <table class="data-table">
         <thead>
-          <tr><th>房号 + 间号</th><th class="cell-lg">所属套</th><th class="cell-lg">室厅结构</th><th class="cell-lg">房间配套</th><th class="num">套内面积</th><th>公摊比例</th><th class="num">公摊面积</th><th class="num">计租面积</th><th class="num">人才租金标准</th><th class="num">原租金标准</th><th>房态</th><th>入库类型</th><th>操作</th></tr>
+          <tr><th>房源编号</th><th class="cell-lg">项目 / 楼栋 / 单元 / 楼层 / 房号-间号</th><th>户型</th><th class="num">整套面积</th><th class="num">本间套内</th><th>公摊比例</th><th class="num">本间公摊</th><th class="num">计租面积</th><th>来源渠道</th><th>入库类型</th><th>管理模式</th><th>当前状态（间）</th><th>在住人性别</th><th>操作</th></tr>
         </thead>
         <tbody>
-          <tr><td><b>1502A</b></td><td>湘江1958 / A6 栋 1502　<span class="muted">拆 3 间</span></td><td>三室两厅 · 主卧</td><td>独立卫生间、空调、阳台、衣柜</td><td class="num">22.40</td><td>1/3</td><td class="num">5.40</td><td class="num">27.80</td><td class="num">6.00</td><td class="num">18.00</td><td><span class="sp-st done">在租</span></td><td><span class="badge blue">批量导入</span></td><td><span class="link" onclick="location.href='house-archive-detail.html?id=FY-TY-XJ-A6-1502A'">档案</span> <span class="link" onclick="PMS.openDrawer('roomDrawer')">编辑</span></td></tr>
-          <tr><td><b>1502B</b></td><td>湘江1958 / A6 栋 1502　<span class="muted">拆 3 间</span></td><td>三室两厅 · 次卧</td><td>空调、衣柜、书桌</td><td class="num">16.80</td><td>1/3</td><td class="num">5.40</td><td class="num">22.20</td><td class="num">6.00</td><td class="num">18.00</td><td><span class="sp-st done">在租</span></td><td><span class="badge blue">批量导入</span></td><td><span class="link" onclick="location.href='house-archive-detail.html?id=FY-TY-XJ-A6-1502B'">档案</span> <span class="link" onclick="PMS.openDrawer('roomDrawer')">编辑</span></td></tr>
-          <tr><td><b>1502C</b></td><td>湘江1958 / A6 栋 1502　<span class="muted">拆 3 间</span></td><td>三室两厅 · 次卧</td><td>空调、衣柜</td><td class="num">14.20</td><td>1/3</td><td class="num">5.40</td><td class="num">19.60</td><td class="num">6.00</td><td class="num">18.00</td><td><span class="sp-st doing">可配租</span></td><td><span class="badge blue">批量导入</span></td><td><span class="link" onclick="location.href='house-archive-detail.html?id=FY-TY-XJ-A6-1502C'">档案</span> <span class="link" onclick="location.href='house-status-map.html'">房态图</span></td></tr>
-          <tr><td><b>1802A</b></td><td>湘江1958 / A6 栋 1802　<span class="muted">拆 2 间</span></td><td>二室一厅 · 主卧</td><td>独立卫生间、空调、阳台、衣柜</td><td class="num">20.60</td><td>1/2</td><td class="num">8.10</td><td class="num">28.70</td><td class="num">6.00</td><td class="num">18.00</td><td><span class="sp-st doing">可配租</span></td><td><span class="badge blue">批量导入</span></td><td><span class="link" onclick="location.href='house-archive-detail.html?id=FY-TY-XJ-A6-1802A'">档案</span> <span class="link" onclick="PMS.openDrawer('roomDrawer')">编辑</span></td></tr>
-          <tr><td><b>1802B</b></td><td>湘江1958 / A6 栋 1802　<span class="muted">拆 2 间</span></td><td>二室一厅 · 次卧</td><td>空调、衣柜、书桌</td><td class="num">15.40</td><td>1/2</td><td class="num">8.10</td><td class="num">23.50</td><td class="num">6.00</td><td class="num">18.00</td><td><span class="sp-st wait">已锁定</span></td><td><span class="badge blue">批量导入</span></td><td><span class="link" onclick="location.href='house-archive-detail.html?id=FY-TY-XJ-A6-1802B'">档案</span> <span class="link" onclick="location.href='../alloc/slot-plan.html'">选房编排</span></td></tr>
-          <tr><td><b>0708A</b></td><td>清水塘·未来社区 / 1 栋 0708　<span class="muted">拆 3 间</span></td><td>三室一厅 · 主卧</td><td>独立卫生间、空调、衣柜、飘窗</td><td class="num">18.00</td><td>1/3</td><td class="num">4.00</td><td class="num">22.00</td><td class="num">5.40</td><td class="num">15.00</td><td><span class="sp-st doing">可配租</span></td><td><span class="badge blue">批量导入</span></td><td><span class="link" onclick="location.href='house-archive-detail.html?id=FY-SF-QST-01-0708A'">档案</span> <span class="link" onclick="PMS.openDrawer('roomDrawer')">编辑</span></td></tr>
-          <tr><td><b>0708B</b></td><td>清水塘·未来社区 / 1 栋 0708　<span class="muted">拆 3 间</span></td><td>三室一厅 · 次卧</td><td>空调、衣柜、书桌</td><td class="num">13.60</td><td>1/3</td><td class="num">4.00</td><td class="num">17.60</td><td class="num">5.40</td><td class="num">15.00</td><td><span class="sp-st doing">可配租</span></td><td><span class="badge blue">批量导入</span></td><td><span class="link" onclick="location.href='house-archive-detail.html?id=FY-SF-QST-01-0708B'">档案</span> <span class="link" onclick="PMS.openDrawer('roomDrawer')">编辑</span></td></tr>
-          <tr class="row-warn"><td><b>0708C</b></td><td>清水塘·未来社区 / 1 栋 0708　<span class="muted">拆 3 间</span></td><td>三室一厅 · 次卧</td><td>空调、衣柜</td><td class="num">11.20</td><td>1/3</td><td class="num">4.00</td><td class="num">15.20</td><td class="num">5.40</td><td class="num">15.00</td><td><span class="sp-st bad">维修中</span></td><td><span class="badge blue">批量导入</span></td><td><span class="link" onclick="location.href='house-archive-detail.html?id=FY-SF-QST-01-0708C'">档案</span> <span class="link" onclick="location.href='house-freeze.html'">冻结记录</span></td></tr>
-          <tr><td><b>1102A</b></td><td>董家塅人才公寓 / 3 栋 1102　<span class="muted">拆 2 间</span></td><td>二室一厅 · 主卧</td><td>独立卫生间、空调、阳台、衣柜</td><td class="num">19.20</td><td>1/2</td><td class="num">7.20</td><td class="num">26.40</td><td class="num">5.60</td><td class="num">16.00</td><td><span class="sp-st done">在租</span></td><td><span class="badge blue">批量导入</span></td><td><span class="link" onclick="location.href='house-archive-detail.html?id=FY-LS-DJD-03-1102A'">档案</span> <span class="link" onclick="PMS.openDrawer('roomDrawer')">编辑</span></td></tr>
-          <tr><td><b>1102B</b></td><td>董家塅人才公寓 / 3 栋 1102　<span class="muted">拆 2 间</span></td><td>二室一厅 · 次卧</td><td>空调、衣柜、书桌</td><td class="num">14.40</td><td>1/2</td><td class="num">7.20</td><td class="num">21.60</td><td class="num">5.60</td><td class="num">16.00</td><td><span class="sp-st doing">可配租</span></td><td><span class="badge blue">批量导入</span></td><td><span class="link" onclick="location.href='house-archive-detail.html?id=FY-LS-DJD-03-1102B'">档案</span> <span class="link" onclick="PMS.openDrawer('roomDrawer')">编辑</span></td></tr>
-          <tr><td><b>0904A</b></td><td>栗雨佳苑人才公寓 / 3 栋 0904　<span class="muted">未拆分</span></td><td>一室一厅 · 整间</td><td>独立卫生间、空调、阳台、衣柜</td><td class="num">38.60</td><td>1/1</td><td class="num">9.60</td><td class="num">48.20</td><td class="num">5.20</td><td class="num">14.00</td><td><span class="sp-st done">在租</span></td><td><span class="badge blue">批量导入</span></td><td><span class="link" onclick="location.href='house-archive-detail.html?id=FY-TY-LYJY-03-0904A'">档案</span> <span class="link" onclick="location.href='house-unit-mode.html'">按间管理</span></td></tr>
-          <tr><td><b>0706A</b></td><td>云龙人才公寓 / 2 栋 0706　<span class="muted">未拆分</span></td><td>单间配套 · 整间</td><td>独立卫生间、空调、阳台、衣柜、书桌</td><td class="num">30.40</td><td>1/1</td><td class="num">7.60</td><td class="num">38.00</td><td class="num">5.00</td><td class="num">16.00</td><td><span class="sp-st doing">可配租</span></td><td><span class="badge purple">接口对接</span><span class="badge gray">待启用</span></td><td><span class="link" onclick="location.href='house-archive-detail.html?id=FY-JK-YL-02-0706A'">档案</span> <span class="link" onclick="location.href='src-bzf.html'">来源</span></td></tr>
+          <tr><td>FY-TY-XJ-A6-1502A</td><td>湘江1958 / A6 栋 / 1 单元 / 15 层 / 1502-A</td><td>三室两厅</td><td class="num">96.50</td><td class="num">18.60</td><td>1/3</td><td class="num">8.10</td><td class="num"><b>26.70</b></td><td><span class="badge blue">收购商品房</span></td><td><span class="badge blue">批量导入</span></td><td><span class="badge gray">按间配租</span></td><td><span class="sp-st done">已入住</span></td><td><span class="badge purple">女</span></td><td><span class="link" onclick="location.href='house-archive-detail.html?id=FY-TY-XJ-A6-1502A'">档案</span></td></tr>
+          <tr><td>FY-TY-XJ-A6-1502B</td><td>湘江1958 / A6 栋 / 1 单元 / 15 层 / 1502-B</td><td>三室两厅</td><td class="num">96.50</td><td class="num">15.20</td><td>1/3</td><td class="num">8.10</td><td class="num"><b>23.30</b></td><td><span class="badge blue">收购商品房</span></td><td><span class="badge blue">批量导入</span></td><td><span class="badge gray">按间配租</span></td><td><span class="sp-st doing">空置</span></td><td><span class="muted">—</span> <span class="badge purple">本套限女</span></td><td><span class="link" onclick="location.href='house-archive-detail.html?id=FY-TY-XJ-A6-1502B'">档案</span></td></tr>
+          <tr><td>FY-TY-XJ-A6-1502C</td><td>湘江1958 / A6 栋 / 1 单元 / 15 层 / 1502-C</td><td>三室两厅</td><td class="num">96.50</td><td class="num">14.40</td><td>1/3</td><td class="num">8.10</td><td class="num"><b>22.50</b></td><td><span class="badge blue">收购商品房</span></td><td><span class="badge blue">批量导入</span></td><td><span class="badge gray">按间配租</span></td><td><span class="sp-st done">已入住</span></td><td><span class="badge purple">女</span></td><td><span class="link" onclick="location.href='house-archive-detail.html?id=FY-TY-XJ-A6-1502C'">档案</span></td></tr>
+          <tr><td>FY-TY-LYJY-03-0904A</td><td>栗雨佳苑 / 3 栋 / 1 单元 / 9 层 / 0904-A</td><td>两室一厅</td><td class="num">78.20</td><td class="num">22.40</td><td>1/2</td><td class="num">9.60</td><td class="num"><b>32.00</b></td><td><span class="badge blue">公租房盘活</span></td><td><span class="badge blue">批量导入</span></td><td><span class="badge gray">按间配租</span></td><td><span class="sp-st doing">空置</span></td><td><span class="muted">—</span> <span class="badge gray">不限性别</span></td><td><span class="link" onclick="location.href='house-archive-detail.html?id=FY-TY-LYJY-03-0904A'">档案</span></td></tr>
+          <tr><td>FY-TY-LYJY-03-0904B</td><td>栗雨佳苑 / 3 栋 / 1 单元 / 9 层 / 0904-B</td><td>两室一厅</td><td class="num">78.20</td><td class="num">18.80</td><td>1/2</td><td class="num">9.60</td><td class="num"><b>28.40</b></td><td><span class="badge blue">公租房盘活</span></td><td><span class="badge blue">批量导入</span></td><td><span class="badge gray">按间配租</span></td><td><span class="sp-st wait">已锁定</span></td><td><span class="muted">—</span> <span class="badge orange">锁定预占（女）</span></td><td><span class="link" onclick="location.href='house-archive-detail.html?id=FY-TY-LYJY-03-0904B'">档案</span></td></tr>
+          <tr><td>FY-HT-CGT-05-0602A</td><td>茨菇塘公寓 / 5 栋 / 2 单元 / 6 层 / 0602-A</td><td>单间</td><td class="num">36.50</td><td class="num">28.20</td><td>1/1</td><td class="num">8.30</td><td class="num"><b>36.50</b></td><td><span class="badge blue">保租房「一间房」</span></td><td><span class="badge blue">批量导入</span></td><td><span class="badge gray">整套配租</span></td><td><span class="sp-st doing">空置</span></td><td><span class="muted">—</span> <span class="badge gray">不限性别</span></td><td><span class="link" onclick="location.href='house-archive-detail.html?id=FY-HT-CGT-05-0602A'">档案</span></td></tr>
         </tbody>
       </table>
     </div>
-    </div>
-    </div>
-
-    <div class="tab-panel" data-panel="unit">
-    <div class="card-body">
-    <p class="hint">套级只登记<b>房屋总面积、总公摊面积</b>与<b>水费、电费、天然气、物业费标准</b>；房屋总面积 ＝ 套内合计 ＋ 总公摊面积，各间公摊面积合计 ＝ 总公摊面积 · VR 全景按套上传，同一套房各间共用一份</p>
-    <div class="table-wrap">
-      <table class="data-table">
-        <thead>
-          <tr><th>套房编号</th><th class="cell-lg">项目 / 楼栋 / 单元 / 楼层 / 房号</th><th>室厅结构</th><th class="num">拆分间数</th><th class="num">房屋总面积</th><th class="num">套内合计</th><th class="num">总公摊面积</th><th class="num">水费</th><th class="num">电费</th><th class="num">天然气</th><th class="num">物业费</th><th>VR 全景</th><th>操作</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>FY-TY-XJ-A6-1502</td><td>湘江1958 人才公寓 / A6 栋 / 1 单元 / 15 层 / 1502</td><td>三室两厅</td><td class="num">3</td><td class="num">94.80</td><td class="num">78.60</td><td class="num">16.20</td><td class="num">3.58</td><td class="num">0.68</td><td class="num">2.98</td><td class="num">1.20</td><td><span class="badge green">已上传</span></td><td><span class="link" onclick="PMS.openDrawer('unitDrawer')">套级维护</span> <span class="link" onclick="location.href='house-display.html'">VR 素材</span></td></tr>
-          <tr><td>FY-TY-XJ-A6-1802</td><td>湘江1958 人才公寓 / A6 栋 / 1 单元 / 18 层 / 1802</td><td>二室一厅</td><td class="num">2</td><td class="num">78.60</td><td class="num">62.40</td><td class="num">16.20</td><td class="num">3.58</td><td class="num">0.68</td><td class="num">2.98</td><td class="num">1.20</td><td><span class="badge green">已上传</span></td><td><span class="link" onclick="PMS.openDrawer('unitDrawer')">套级维护</span> <span class="link" onclick="location.href='house-display.html'">VR 素材</span></td></tr>
-          <tr><td>FY-SF-QST-01-0708</td><td>清水塘·未来社区 / 1 栋 / 1 单元 / 7 层 / 0708</td><td>三室一厅</td><td class="num">3</td><td class="num">80.00</td><td class="num">68.00</td><td class="num">12.00</td><td class="num">3.58</td><td class="num">0.68</td><td class="num">2.98</td><td class="num">1.20</td><td><span class="badge green">已上传</span></td><td><span class="link" onclick="PMS.openDrawer('unitDrawer')">套级维护</span> <span class="link" onclick="location.href='house-display.html'">VR 素材</span></td></tr>
-          <tr><td>FY-LS-DJD-03-1102</td><td>董家塅人才公寓 / 3 栋 / 1 单元 / 11 层 / 1102</td><td>二室一厅</td><td class="num">2</td><td class="num">72.00</td><td class="num">57.60</td><td class="num">14.40</td><td class="num">3.58</td><td class="num">0.68</td><td class="num">2.98</td><td class="num">1.20</td><td><span class="badge green">已上传</span></td><td><span class="link" onclick="PMS.openDrawer('unitDrawer')">套级维护</span> <span class="link" onclick="location.href='house-display.html'">VR 素材</span></td></tr>
-          <tr class="row-warn"><td>FY-TY-LYJY-03-0904</td><td>栗雨佳苑人才公寓 / 3 栋 / 1 单元 / 9 层 / 0904</td><td>一室一厅</td><td class="num">1</td><td class="num">48.20</td><td class="num">38.60</td><td class="num">9.60</td><td class="num">3.58</td><td class="num">0.68</td><td class="num">2.98</td><td class="num">1.20</td><td><span class="badge red">未上传</span></td><td><span class="link" onclick="PMS.openDrawer('unitDrawer')">套级维护</span> <span class="link" onclick="PMS.toast('已向株洲城发高科人才安居服务有限公司推送 VR 全景素材补报催办','success')">催办 VR</span></td></tr>
-          <tr><td>FY-JK-YL-02-0706</td><td>云龙人才公寓 / 2 栋 / 1 单元 / 7 层 / 0706</td><td>单间配套</td><td class="num">1</td><td class="num">38.00</td><td class="num">30.40</td><td class="num">7.60</td><td class="num">3.58</td><td class="num">0.68</td><td class="num">2.98</td><td class="num">1.20</td><td><span class="badge green">已上传</span></td><td><span class="link" onclick="PMS.openDrawer('unitDrawer')">套级维护</span> <span class="link" onclick="location.href='house-display.html'">VR 素材</span></td></tr>
-        </tbody>
-      </table>
-    </div>
-    </div>
-    </div>
   </div>
-
-  <div class="sp-block" style="margin-top:8px">
-    <div class="sp-h"><i class="fa-solid fa-list"></i> 按间计租口径<span class="sub">JZ-1 至 JZ-5 · 以湘江1958 A6 栋 1502 室（三室两厅拆三间）为算例</span></div>
-    <div class="sp-b">
-      <div class="sp-tw">
-        <table class="data-table compact">
-          <thead><tr><th>规则号</th><th>规则</th><th class="cell-lg">口径与算例</th></tr></thead>
-          <tbody>
-          <tr><td><b>JZ-1</b></td><td>颗粒度到「间」<span class="badge blue">间级</span></td><td>按<b>套内间数</b>拆间，房号格式<b>房号 + 间号</b>（<b>1502A</b>），未拆分的按整间建账、间号为 A；间级维护<b>室厅结构、房间配套、套内面积、公摊比例、公摊面积、人才租金标准、原（市场）租金标准</b>七项，<b>每间单独计租、单独配租、单独签约</b></td></tr>
-          <tr><td><b>JZ-2</b></td><td><b>公摊比例按套内间数均分</b></td><td>比例 ＝ <b>1 ÷ 套内间数</b>（拆三间 <b>1/3</b>、拆两间 <b>1/2</b>、未拆分 <b>1/1</b>），<b>同套内合计须等于 1</b>；公摊面积 ＝ <b>总公摊 × 本间比例</b>。算例：16.20 ÷ 3 ＝ 每间 <b>5.40 ㎡</b>，<b>三间合计 16.20 ㎡ ＝ 套级总公摊</b>。系统自动均分，不需手工填写</td></tr>
-          <tr><td><b>JZ-3</b></td><td><b>计租面积 ＝ 套内 ＋ 公摊</b></td><td><b>公摊计入租金</b>。算例：1502A 22.40＋5.40＝<b>27.80</b>、1502B 16.80＋5.40＝<b>22.20</b>、1502C 14.20＋5.40＝<b>19.60 ㎡</b>；三间人才租金均 <b>6.00</b>、原租金均 <b>18.00 元/㎡·月</b>，1502A 月租金 ＝ 27.80 × 6.00 ＝ <b>166.80 元</b></td></tr>
-          <tr><td><b>JZ-4</b></td><td>套级字段<span class="badge cyan">套级</span></td><td>套级保留<b>房屋总面积、总公摊面积</b>与水费 <b>3.58 元/吨</b>、电费 <b>0.68 元/度</b>、天然气 <b>2.98 元/立方米</b>、物业费 <b>1.20 元/㎡·月</b>。算例：套内合计 <b>78.60</b>（三间卧室 53.40 ＋ 客厅厨卫等公共部分 25.20）＋ 总公摊 <b>16.20</b> ＝ 房屋总面积 <b>94.80 ㎡</b></td></tr>
-          <tr><td><b>JZ-5</b></td><td><b>VR 全景按套</b></td><td>按套上传与存储，<b>同套各间共用一份</b>，移动端进入任一房间均展示所在套房全景；<b>实景照片仍可按间补充</b>。<span class="link" onclick="location.href='house-display.html'">房源展示配置</span></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 入库类型与来源标注口径<span class="sub">两类房源在同一张楼盘表内并存管理</span></div>
+          <div class="sp-b">
+  <div class="sp-tw">
+    <table class="data-table compact">
+      <thead><tr><th>入库类型</th><th>批次号 / 来源系统</th><th class="cell-lg">标注规则</th><th class="num">本表房源</th><th>接口状态</th></tr></thead>
+      <tbody>
+      <tr><td><span class="badge blue">批量导入</span></td><td>导入批次号，如 <b>DR2026-09-118</b></td><td>由房源提供单位按统一模板报送、住建部门审核后批量导入建账，须记录<b>导入批次号 + 报送单位</b>，可按批次整批回滚。<b>本期房源建账的主要方式</b></td><td class="num">2,486</td><td><span class="badge green">已建账</span></td></tr>
+      <tr><td><span class="badge purple">接口对接</span></td><td>来源系统 + 同步时间，如 <b>省保障性租赁住房系统 2026-09-05 02:00</b></td><td>由省保障性租赁住房系统、公租房管理系统接口回传建账，须记录<b>来源系统 + 同步时间</b>。<b>本期接口暂不对接，标注为待启用</b>，接口开通后按项目分批切换</td><td class="num">0</td><td><span class="badge gray">待启用</span></td></tr>
+      <tr><td colspan="2"><b>并存管理口径</b></td><td colspan="3">两类房源<b>在同一张楼盘表内并存</b>，共用一房一码编号规则与房态、配租、计费逻辑；<b>入库类型与来源渠道分别标注、互不替代</b>；接口开通后切换入库类型的，<b>保留原导入批次号</b>，与接口来源<b>双轨记录、不互相覆盖</b>。<span class="link" onclick="location.href='import-merge.html'">导入与接口比对合并</span></td></tr>
+      </tbody>
+    </table>
   </div>
-
+          </div>
+        </div>
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 套级在住性别自动汇总<span class="sub">由各间在住人性别自动生成，不需人工填写 · 供自动配租同套同性别校验</span></div>
+          <div class="sp-b">
+  <div class="sp-tw">
+    <table class="data-table compact">
+      <thead><tr><th class="cell-lg">项目 / 房号</th><th>户型</th><th>管理模式</th><th class="num">本套间数</th><th class="num">已入住</th><th class="num">空置</th><th class="num">已锁定</th><th class="cell-lg">本套在住性别（自动汇总）</th><th>空置间可投放性别</th><th>自动配租校验</th></tr></thead>
+      <tbody>
+      <tr><td>湘江1958 / A6 栋 1502</td><td>三室两厅</td><td><span class="badge gray">按间配租</span></td><td class="num">3</td><td class="num">2</td><td class="num">1</td><td class="num">0</td><td><b>本套现住 2 人，均为女生</b>（1502-A 女、1502-C 女）</td><td><span class="badge purple">仅女生</span></td><td><span class="badge green">通过</span></td></tr>
+      <tr><td>湘江1958 / A6 栋 1802</td><td>二室一厅</td><td><span class="badge gray">按间配租</span></td><td class="num">2</td><td class="num">1</td><td class="num">1</td><td class="num">0</td><td><b>本套现住 1 人，男生</b>（1802-A 男）</td><td><span class="badge blue">仅男生</span></td><td><span class="badge green">通过</span></td></tr>
+      <tr><td>栗雨佳苑 / 3 栋 0904</td><td>两室一厅</td><td><span class="badge gray">按间配租</span></td><td class="num">2</td><td class="num">0</td><td class="num">1</td><td class="num">1</td><td>本套暂无在住人，<b>由首位入住人确定本套性别</b></td><td><span class="badge gray">不限性别</span></td><td><span class="badge green">通过</span></td></tr>
+      <tr><td>茨菇塘公寓 / 5 栋 0602</td><td>单间</td><td><span class="badge gray">整套配租</span></td><td class="num">1</td><td class="num">0</td><td class="num">1</td><td class="num">0</td><td>整套配租，<b>不涉及合住</b></td><td><span class="badge gray">不限性别</span></td><td><span class="badge green">通过</span></td></tr>
+      <tr class="row-warn"><td>董家塅安居苑 / 3 栋 1102</td><td>二室一厅</td><td><span class="badge gray">按间配租</span></td><td class="num">2</td><td class="num">2</td><td class="num">0</td><td class="num">0</td><td><b>本套现住 2 人，男女混住</b>（2025 年前存量合住，保障期满腾退后按同性别投放）</td><td><span class="muted">—</span></td><td><span class="badge orange">存量例外，不再新增</span></td></tr>
+      <tr><td colspan="3"><b>汇总口径</b></td><td colspan="7">套级在住性别由<b>本套各间的在住人性别自动汇总</b>：全为女生显示「均为女生」，全为男生显示「均为男生」，无在住人显示「暂无在住人」。空置间的<b>可投放性别＝本套在住性别</b>，整套无人在住的空置间不限性别；<b>已锁定间按锁定对象的性别预占本套性别</b>，避免自动配租并发写入产生混住。存量男女混住的套仅在腾退后按同性别重新投放，<b>不再新增混住</b>。</td></tr>
+      </tbody>
+    </table>
+  </div>
+          </div>
+        </div>
   <div class="sp-src">
-    <span><b>依据</b> 2026 年 9 月 7 日汇报讨论会决议：房源颗粒度到「间」，每间单独计租</span>
-    <span><b>编号规则</b> 区 + 项目 + 楼栋 + 房号 + 间号，一间一码</span>
-    <span><b>维护职责</b> <b>房源数据由各运营机构自行导入与维护</b>，模板由主管单位下发；<b>主管单位只做查看、监管与审核发布</b></span>
-    <span><b>关联页面</b> <span class="link" onclick="location.href='building-import.html'">房源批量导入</span>　<span class="link" onclick="location.href='house-archive.html'">房源查询与审核发布</span></span>
+    <span><b>数据范围</b> 数据范围按<b>房源归属</b>控制：运营机构只能看到本机构导入与管理的房源，以及由这些房源派生的合同、账单、收缴、工单、巡检、补助、考核数据；主管单位可查看全市数据；用人单位只看本单位职工申报件。</span>
+    <span><b>颗粒度</b> 房源管理到「间」，一套三室两厅拆 A、B、C 三间分别配租与计租</span>
+    <span><b>公摊规则</b> 公摊比例按套内间数均分，本间公摊＝整套公摊×比例，公摊计入租金</span>
+    <span><b>计租面积</b> ＝ 本间套内面积 ＋ 本间公摊面积</span>
+    <span><b>当前状态（间）</b> 取<b>空置／已入住／已锁定</b>三值，与七态房态字典的对应关系：可配租→空置，在租→已入住，已签约、已锁定、维修中、已冻结、待腾退→已锁定（不参与配租）</span>
+    <span><b>在住人性别</b> 按间登记<b>男／女</b>，空置与已锁定间留空；套级在住性别自动汇总，<b>供移动端房源展示与自动配租同套同性别校验使用</b></span>
+    <span><b>关联页面</b> <span class="link" onclick="location.href='house-status-map.html'">房态图管理（按间着色与性别标注）</span>　<span class="link" onclick="location.href='building-import.html'">批量导入与校验（房态与性别字段）</span></span>
   </div>
 </main>
 
 <div class="drawer-mask"></div>
-<div class="drawer" id="roomDrawer">
+<div class="drawer" id="bldDrawer">
   <div class="drawer-head">
-    <h3>房间信息维护（按间）</h3>
-    <span class="badge blue">一间一码</span>
+    <h3>房源信息维护</h3>
+    <span class="badge blue">一房一码</span>
     <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
   </div>
   <div class="drawer-body">
-    <div class="alert alert-info">
-      <i class="fa-solid fa-circle-info"></i>
-      <div>房间编号按<b>区 + 项目 + 楼栋 + 房号 + 间号</b>规则自动生成，<b>一间一码不可修改</b>。<b>公摊比例按套内间数自动均分</b>（本套拆 3 间即每间 1/3），<b>公摊面积 ＝ 套级总公摊面积 × 公摊比例</b>，<b>计租面积 ＝ 套内面积 ＋ 公摊面积</b>，三项均由系统自动计算、不需手工填写。<b>房屋总面积、总公摊面积与水电气物业费标准在套级维护</b>，VR 全景按套上传、本套各间共用一份。</div>
-    </div>
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>房源编号按<b>区 + 项目 + 楼栋 + 房号</b>规则自动生成，<b>一房一码不可修改</b>。面积与户型变更将影响租金计费，须经审批。须标注<b>入库类型</b>及对应的<b>批次号或来源系统</b>：批量导入填导入批次号，接口对接填来源系统与同步时间。<b>当前状态与在住人性别按间维护</b>：状态为已入住时性别必填，且须与同套其他在住人<b>同性别</b>，不一致的保存时拦截。</div>
+  </div>
 
       <div class="form-grid form-align">
         <div class="form-item">
-          <label>房间编号 <span class="req">*</span></label>
-          <input type="text" value="FY-TY-XJ-A6-1502A" readonly>
-          <div class="hint">一间一码，自动生成</div>
-        </div>
-        <div class="form-item">
-          <label>所属套房编号 <span class="req">*</span></label>
-          <input type="text" value="FY-TY-XJ-A6-1502" readonly>
-          <div class="hint">套级信息在「套级信息」页签维护</div>
+          <label>房源编号 <span class="req">*</span></label>
+          <input type="text" value="FY-TY-XJ-A6-1802" readonly>
+          <div class="hint">一房一码，自动生成</div>
         </div>
         <div class="form-item">
           <label>项目 <span class="req">*</span></label>
           <input type="text" value="湘江1958 人才公寓" readonly>
-        </div>
-        <div class="form-item">
-          <label>所属运营机构 <span class="req">*</span></label>
-          <select data-dict="agencyOrg" data-selected="株洲城发高科人才安居服务有限公司" data-ph=""></select>
-          <div class="hint">由项目所属运营机构自行导入与维护</div>
         </div>
         <div class="form-item">
           <label>楼栋 <span class="req">*</span></label>
@@ -190,75 +170,59 @@
         </div>
         <div class="form-item">
           <label>楼层 <span class="req">*</span></label>
-          <input type="text" value="15">
+          <input type="text" value="18">
         </div>
         <div class="form-item">
           <label>房号 <span class="req">*</span></label>
-          <input type="text" value="1502">
+          <input type="text" value="1802">
         </div>
         <div class="form-item">
-          <label>间号 <span class="req">*</span></label>
-          <select><option>A</option><option>B</option><option>C</option><option>D</option></select>
-          <div class="hint">同一套内间号唯一，房号 + 间号构成对外房号 1502A</div>
-        </div>
-        <div class="form-item">
-          <label>本套拆分间数 <span class="req">*</span></label>
-          <input type="text" value="3" readonly>
-          <div class="hint">按套内间数登记，公摊比例据此均分</div>
-        </div>
-        <div class="form-item">
-          <label>室厅结构 <span class="req">*</span></label>
-          <select data-dict="roomStruct" data-selected="三室两厅" data-ph=""></select>
-        </div>
-        <div class="form-item">
-          <label>本间类型 <span class="req">*</span></label>
-          <select><option>主卧</option><option>次卧</option><option>整间</option></select>
+          <label>户型 <span class="req">*</span></label>
+          <select data-dict="roomType" data-ph="全部"></select>
         </div>
         <div class="form-item">
           <label>朝向 <span class="req">*</span></label>
-          <select><option>南</option><option>北</option><option>东</option><option>西</option><option>南北通透</option><option>东南</option><option>西南</option></select>
+          <select><option value="">全部</option><option>南</option><option>北</option><option>东</option><option>西</option><option>南北通透</option><option>东南</option><option>西南</option></select>
         </div>
         <div class="form-item">
-          <label>装修标准 <span class="req">*</span></label>
-          <select><option>精装 · 拎包入住</option><option>简装</option><option>毛坯</option></select>
+          <label>建筑面积（㎡） <span class="req">*</span></label>
+          <input type="text" value="78.60">
         </div>
         <div class="form-item">
           <label>套内面积（㎡） <span class="req">*</span></label>
-          <input type="text" value="22.40">
-          <div class="hint">本间自用面积，不含公共部分与公摊</div>
+          <input type="text" value="62.40">
         </div>
         <div class="form-item">
-          <label>公摊比例 <span class="req">*</span></label>
-          <input type="text" value="1/3" readonly>
-          <div class="hint"><b>按套内间数自动均分</b>：本套拆 3 间，每间 1 ÷ 3 ＝ 1/3；同一套内各间公摊比例合计须等于 1</div>
+          <label>分摊面积（㎡） <span class="req">*</span></label>
+          <input type="text" value="16.20">
+          <div class="hint">大户型按分摊面积计租</div>
         </div>
         <div class="form-item">
-          <label>公摊面积（㎡） <span class="req">*</span></label>
-          <input type="text" value="5.40" readonly>
-          <div class="hint"><b>按套内间数自动均分</b>：套级总公摊 16.20 ㎡ × 1/3 ＝ 5.40 ㎡；本套三间合计 16.20 ㎡，与套级总公摊一致</div>
+          <label>管理模式 <span class="req">*</span></label>
+          <select data-dict="unitMode" data-ph="全部"></select>
         </div>
         <div class="form-item">
-          <label>计租面积（㎡） <span class="req">*</span></label>
-          <input type="text" value="27.80" readonly>
-          <div class="hint">自动计算：套内面积 22.40 ＋ 公摊面积 5.40 ＝ 27.80 ㎡，<b>公摊计入租金</b></div>
+          <label>当前状态（间） <span class="req">*</span></label>
+          <select><option>空置</option><option>已入住</option><option>已锁定</option></select>
+          <div class="hint">按间维护；空置间才进入自动配租</div>
         </div>
         <div class="form-item">
-          <label>人才租金标准（元/㎡·月） <span class="req">*</span></label>
-          <input type="text" value="6.00">
-          <div class="hint">减免后标准，月租金 ＝ 27.80 × 6.00 ＝ 166.80 元/月</div>
+          <label>在住人性别 <span class="req">*</span></label>
+          <select><option value="">空置，不填</option><option>女</option><option>男</option></select>
+          <div class="hint">状态为已入住时必填，须与同套其他在住人一致</div>
+        </div>
+        <div class="form-item col-full">
+          <label>本套在住性别（自动汇总）</label>
+          <input type="text" value="本套现住 2 人，均为女生（1502-A 女、1502-C 女）" readonly>
+          <div class="hint">由本套各间在住人性别自动汇总，不可手工修改；空置间的可投放性别以此为准</div>
         </div>
         <div class="form-item">
-          <label>原（市场）租金标准（元/㎡·月） <span class="req">*</span></label>
-          <input type="text" value="18.00">
-          <div class="hint">同地段同品质市场租金，用于测算减免额与政府购买服务补助</div>
-        </div>
-        <div class="form-item">
-          <label>房态 <span class="req">*</span></label>
-          <select data-dict="houseStatus" data-selected="在租" data-ph=""></select>
+          <label>来源渠道 <span class="req">*</span></label>
+          <select data-dict="houseSource" data-ph="全部"></select>
         </div>
         <div class="form-item">
           <label>入库类型 <span class="req">*</span></label>
-          <select data-dict="intakeType" data-selected="批量导入" data-ph=""></select>
+          <select data-dict="intakeType"></select>
           <div class="hint">与来源渠道分别标注、互不替代</div>
         </div>
         <div class="form-item">
@@ -267,126 +231,41 @@
           <div class="hint">批量导入填导入批次号；接口对接填来源系统名称</div>
         </div>
         <div class="form-item">
-          <label>导入机构 / 同步时间 <span class="req">*</span></label>
-          <input type="text" value="株洲城发高科人才安居服务有限公司　2026-09-05 09:26 导入">
+          <label>报送单位 / 同步时间 <span class="req">*</span></label>
+          <input type="text" value="株洲城发高科集团　2026-09-05 09:26 导入">
           <div class="hint">接口对接类填最近一次同步时间</div>
         </div>
-        <div class="form-item col-full">
-          <label>房间配套 <span class="req">*</span></label>
-          <input type="text" value="独立卫生间、空调、阳台、衣柜">
-          <div class="hint">可选项：独立卫生间 / 空调 / 阳台 / 衣柜 / 书桌 / 飘窗，按间分别登记</div>
+        <div class="form-item">
+          <label>装修标准 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>精装 · 拎包入住</option><option>简装</option><option>毛坯</option></select>
+        </div>
+        <div class="form-item">
+          <label>租金标准（元/㎡·月） <span class="req">*</span></label>
+          <input type="text" value="14.00">
         </div>
         <div class="form-item col-full">
-          <label>本间家电家具清单 <span class="req">*</span></label>
-          <textarea rows="3">卧室 7 项：床 1.5 m、床垫、床头柜、衣柜、书桌、书椅、空调；配套独立卫生间 5 项：热水器、洗手台、马桶、淋浴、镜柜；阳台 1 项：晾衣架。本间共 13 项，达拎包入住标准。</textarea>
+          <label>产权信息 <span class="req">*</span></label>
+          <input type="text" value="株洲市人才安居服务有限公司">
         </div>
         <div class="form-item col-full">
-          <label>本间实景照片</label>
-          <input type="text" data-upload="1" value="1502A_主卧实景_6张.zip">
-          <div class="hint">实景照片可按间补充；<b>VR 全景按套上传</b>，本套各间共用一份，在<span class="link" onclick="location.href='house-display.html'">房源展示配置</span>维护</div>
+          <label>家电家具配置清单 <span class="req">*</span></label>
+          <textarea rows="3">客厅 7 项、卧室 7 项 × 2、厨房 6 项、卫生间 5 项、其他 3 项，共 28 项</textarea>
+        </div>
+        <div class="form-item col-full">
+          <label>户型图与实景照片</label>
+          <input type="text" data-upload="1">
         </div>
       </div>
   </div>
   <div class="drawer-foot">
-      <button class="btn" data-close-drawer>取消</button>
-      <button class="btn" onclick="PMS.toast('已按套内间数重新均分公摊：本套 3 间，每间公摊比例 1/3、公摊面积 5.40 ㎡','success')"><i class="fa-solid fa-calculator"></i> 重算公摊</button>
-      <button class="btn btn-primary" onclick="PMS.confirm({title:'保存确认',message:'确认保存房间 1502A 的信息？',detail:'公摊比例 1/3、公摊面积 5.40 ㎡ 由套内间数自动均分，计租面积 27.80 ㎡ ＝ 套内 22.40 ＋ 公摊 5.40。面积与租金标准变更将影响租金计费与减免核算，变更全程留痕。',type:'warning',okText:'确认保存',onOk:function(){PMS.closeDrawer();PMS.toast('已保存并同步至房态图与移动端','success');}})"><i class="fa-solid fa-check"></i> 保存</button>
+      <button class="btn" data-close-drawer onclick="">取消</button>
+      <button class="btn btn-primary" onclick="PMS.confirm({title:'保存确认',message:'确认保存房源信息？',detail:'面积与租金标准变更将影响租金计费与减免核算，变更全程留痕。入库类型与批次号 / 来源系统一并留存，切换入库类型时保留原标记。当前状态与在住人性别保存后即时重算本套在住性别汇总，并同步至房态图、移动端房源展示与自动配租的同套同性别校验；与同套其他在住人性别不一致的将被拦截。',type:'warning',okText:'确认保存',onOk:function(){PMS.closeDrawer();PMS.toast('已保存，本套在住性别已重算并同步至房态图与移动端','success');}})"><i class="fa-solid fa-check"></i> 保存</button>
   </div>
 </div>
-
-<div class="drawer" id="unitDrawer">
-  <div class="drawer-head">
-    <h3>套级信息维护</h3>
-    <span class="badge cyan">套级</span>
-    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
-  </div>
-  <div class="drawer-body">
-    <div class="alert alert-info">
-      <i class="fa-solid fa-circle-info"></i>
-      <div>套级只维护<b>房屋总面积、总公摊面积</b>与<b>水费、电费、天然气、物业费标准</b>。<b>总公摊面积变更后，本套各间公摊面积按套内间数自动重新均分</b>，计租面积随之重算。<b>VR 全景按套上传、本套各间共用一份</b>；室厅结构、房间配套、套内面积与两项租金标准在<b>间级</b>维护。</div>
-    </div>
-
-    <div class="form-grid form-align">
-      <div class="form-item">
-        <label>套房编号 <span class="req">*</span></label>
-        <input type="text" value="FY-TY-XJ-A6-1502" readonly>
-      </div>
-      <div class="form-item">
-        <label>项目 / 楼栋 / 房号 <span class="req">*</span></label>
-        <input type="text" value="湘江1958 人才公寓 / A6 栋 1 单元 15 层 / 1502" readonly>
-      </div>
-      <div class="form-item">
-        <label>室厅结构 <span class="req">*</span></label>
-        <select data-dict="roomStruct" data-selected="三室两厅" data-ph=""></select>
-      </div>
-      <div class="form-item">
-        <label>拆分间数 <span class="req">*</span></label>
-        <input type="text" value="3">
-        <div class="hint">拆 1502A、1502B、1502C 三间，公摊比例据此均分为每间 1/3</div>
-      </div>
-      <div class="form-item">
-        <label>套内合计面积（㎡） <span class="req">*</span></label>
-        <input type="text" value="78.60">
-        <div class="hint">三间卧室套内 22.40 ＋ 16.80 ＋ 14.20 ＝ 53.40，客厅厨房卫生间等公共部分 25.20，合计 78.60</div>
-      </div>
-      <div class="form-item">
-        <label>总公摊面积（㎡） <span class="req">*</span></label>
-        <input type="text" value="16.20">
-        <div class="hint">按套内间数均分至各间：16.20 ÷ 3 ＝ 每间 5.40 ㎡，三间合计 16.20 ㎡</div>
-      </div>
-      <div class="form-item">
-        <label>房屋总面积（㎡） <span class="req">*</span></label>
-        <input type="text" value="94.80" readonly>
-        <div class="hint">自动计算：套内合计 78.60 ＋ 总公摊 16.20 ＝ 94.80 ㎡</div>
-      </div>
-      <div class="form-item">
-        <label>管理模式 <span class="req">*</span></label>
-        <select data-dict="unitMode" data-selected="按间配租" data-ph=""></select>
-      </div>
-      <div class="form-item">
-        <label>水费标准（元/吨） <span class="req">*</span></label>
-        <input type="text" value="3.58">
-      </div>
-      <div class="form-item">
-        <label>电费标准（元/度） <span class="req">*</span></label>
-        <input type="text" value="0.68">
-      </div>
-      <div class="form-item">
-        <label>天然气标准（元/立方米） <span class="req">*</span></label>
-        <input type="text" value="2.98">
-      </div>
-      <div class="form-item">
-        <label>物业费标准（元/㎡·月） <span class="req">*</span></label>
-        <input type="text" value="1.20">
-        <div class="hint">按各间计租面积分摊到间，与承租人账单合并出账</div>
-      </div>
-      <div class="form-item col-full">
-        <label>产权信息 <span class="req">*</span></label>
-        <input type="text" value="株洲市城市建设发展集团有限公司（受托运营：株洲城发高科人才安居服务有限公司）">
-      </div>
-      <div class="form-item col-full">
-        <label>VR 全景素材（按套） <span class="req">*</span></label>
-        <input type="text" data-upload="1" value="FY-TY-XJ-A6-1502_VR全景_20260818.zip">
-        <div class="hint"><b>VR 全景按套上传，本套 1502A、1502B、1502C 三间共用同一份</b>；移动端进入任一房间均展示本套全景。实景照片按间在间级补充</div>
-      </div>
-      <div class="form-item col-full">
-        <label>套级公共部分说明 <span class="req">*</span></label>
-        <textarea rows="3">客厅 22.40 ㎡、开放式厨房 4.20 ㎡、公共卫生间 4.60 ㎡，公共部分合计 25.20 ㎡，由三间承租人共用，不单独计租、已计入套内合计面积。公共区域家电家具 13 项（客厅 7 项、厨房 6 项）由运营机构统一维护。</textarea>
-      </div>
-    </div>
-  </div>
-  <div class="drawer-foot">
-    <button class="btn" data-close-drawer>取消</button>
-    <button class="btn" onclick="PMS.toast('已按 3 间重新均分总公摊 16.20 ㎡：每间 5.40 ㎡，计租面积同步重算','success')"><i class="fa-solid fa-calculator"></i> 重算各间公摊</button>
-    <button class="btn btn-primary" onclick="PMS.confirm({title:'保存确认',message:'确认保存套房 FY-TY-XJ-A6-1502 的套级信息？',detail:'保存后总公摊 16.20 ㎡ 按 3 间自动均分为每间 5.40 ㎡，三间计租面积重算为 27.80 / 22.20 / 19.60 ㎡。水电气物业费标准与账单出账联动，变更全程留痕。',type:'warning',okText:'确认保存',onOk:function(){PMS.closeDrawer();PMS.toast('套级信息已保存，本套三间公摊与计租面积已重算','success');}})"><i class="fa-solid fa-check"></i> 保存</button>
-  </div>
-</div>
-
 <script>
 (function () {
-  var ts = document.querySelectorAll('main.app-main .table-wrap > table.data-table');
-  if (ts[0]) { ts[0]._total = 4286; }
-  if (ts[1]) { ts[1]._total = 2486; }
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 2486; }
 })();
 </script>
 

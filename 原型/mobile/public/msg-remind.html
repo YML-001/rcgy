@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="../../assets/css/ext.css">
 </head>
 <body class="m-body" data-mtitle="关键节点提醒" data-mmod="M12 消息与办理提醒" data-mcode="M12-02"
-      data-mdesc="审核结论、选房时段、签约期限、缴费到期、年审、单位代申报确认、社保容缺补核、腾退等节点按提前量分级提醒。" data-mback="msg-center.html" data-mtabset="public" data-mtab="msg">
+      data-mdesc="配租公告、配租结果与签约、材料单项回退、容缺补核到期、意向登记到期、审核结论、缴费到期、年审、腾退等节点按提前量分级提醒；配租类与签约类为必达消息，短信强制触达。" data-mback="msg-center.html" data-mtabset="public" data-mtab="msg">
 <div class="m-stage">
   <div class="m-phone">
     <div class="m-screen">
@@ -18,33 +18,54 @@
         <div class="m-note warn"><i class="fa-solid fa-triangle-exclamation"></i>
           <div>以下节点均有<b>硬性时限</b>。错过时限可能导致视同放弃、资格作废或启动退出，请务必关注提醒。</div>
         </div>
-        <div class="m-sect">关键节点与提前量</div>
+        <div class="m-sect">必达消息<span class="m-sect-x">短信强制触达 · 不可关闭</span></div>
         <div class="m-card">
-          <div class="m-card-h"><i class="fa-solid fa-bell"></i>十类关键节点</div>
+          <div class="m-card-h"><i class="fa-solid fa-comment-sms"></i>配租与签约两类</div>
           <div class="m-card-b">
             <div class="m-check">
-              <div class="ok"><i class="fa-solid fa-stamp"></i><div class="m-chl"><b>审核结论</b><span>结论出具后<b>即时</b>推送　·	3 个工作日法定时限内办结</span></div></div>
-              <div class="bad"><i class="fa-solid fa-key"></i><div class="m-chl"><b>选房时段</b><span>时段开始前 <b>1 天 + 1 小时</b>推送　·	错过时段将进入轮候</span></div></div>
-              <div class="bad"><i class="fa-solid fa-stopwatch"></i><div class="m-chl"><b>选房与锁房确认提醒</b><span>短信通知后<b>限 1 个工作日内确认</b>，锁定后 <b>20 分钟</b>再次推送　·	<b>逾期顺延至下一顺序人，本人轮候资格不取消</b></span></div></div>
-              <div class="bad"><i class="fa-solid fa-file-signature"></i><div class="m-chl"><b>签约期限</b><span>截止前 <b>3 天 + 1 天</b>推送　·	逾期未签约视同放弃，<b>放弃后不得再次申请</b></span></div></div>
-              <div class="wait"><i class="fa-solid fa-house-chimney"></i><div class="m-chl"><b>入住办理</b><span>签约后 <b>7 天</b>未办理入住时推送　·	不办理入住视同放弃</span></div></div>
-              <div class="wait"><i class="fa-solid fa-receipt"></i><div class="m-chl"><b>缴费到期</b><span>账单生成、到期前 5 天、到期前 1 天、逾期 1 天、逾期 15 天、逾期 90 天<b>六级推送</b></span></div></div>
-              <div class="wait"><i class="fa-solid fa-rotate"></i><div class="m-chl"><b>年度资格审查</b><span>批次发起时 + 截止前 <b>7 天 + 3 天</b>推送　·	逾期转人工核查</span></div></div>
-              <div class="wait"><i class="fa-solid fa-file-shield"></i><div class="m-chl"><b>社保容缺补核</b><span>待补核期限届满前 <b>30 天 + 7 天 + 1 天</b>推送　·	<b>到期系统自动复核</b>，不符合的转人工核实</span></div></div>
-              <div class="wait"><i class="fa-solid fa-user-shield"></i><div class="m-chl"><b>单位代申报确认授权</b><span>确认截止前 <b>1 天</b>推送　·	<b>受理时间以本人确认时间为准，3 个自然日内未确认自动作废</b></span></div></div>
+              <div class="bad"><i class="fa-solid fa-bullhorn"></i><div class="m-chl"><b>配租公告通知　<span class="m-tag red">必达</span></b><span>公告发布时<b>即时</b>向<b>全部资格审核通过的申请人</b>发送短信，告知房源范围、可安置人数与<b>自动配租执行时间</b>；<b>无需报名</b>，到点系统自动配租</span></div></div>
+              <div class="bad"><i class="fa-solid fa-house-circle-check"></i><div class="m-chl"><b>配租结果与签约提醒　<span class="m-tag red">必达</span></b><span>自动配租执行完毕后<b>即时</b>短信告知结果：已配租的告知楼盘、房间与签约安排；未配租的告知<b>轮候位次</b>。签约<b>截止前 3 天 + 1 天</b>再次提醒，<b>签约期限 5 个工作日</b></span></div></div>
+            </div>
+            <div class="m-note" style="margin-top:10px"><i class="fa-solid fa-pen-ruler"></i>
+              <div>上述两类的<b>短信模板文案待定</b>，由市保障性住房服务中心会同运营机构确认后，
+                在管理端「消息模板管理」中配置并留痕。</div>
+            </div>
+          </div>
+        </div>
+        <div class="m-sect">关键节点与提前量<span class="m-sect-x">十一类</span></div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-bell"></i>节点清单</div>
+          <div class="m-card-b">
+            <div class="m-check">
+              <div class="ok"><i class="fa-solid fa-stamp"></i><div class="m-chl"><b>审核结论</b><span>结论出具后<b>即时</b>推送　·	3 个工作日法定时限内办结　·	通过后按<b>审核通过时间</b>排定配租位次</span></div></div>
+              <div class="bad"><i class="fa-solid fa-rotate-left"></i><div class="m-chl"><b>材料单项回退</b><span>回退发起时<b>即时</b>推送 + 补正截止前 <b>1 天</b>再次推送　·	仅回退该项材料，其余进度保留　·	<b>逾期未补正中止办理，资格审核通过时间顺延重算</b></span></div></div>
+              <div class="bad"><i class="fa-solid fa-clock"></i><div class="m-chl"><b>容缺补核到期</b><span>容缺受理时 + 到期前 <b>7 天 + 3 天 + 1 天</b>推送　·	<b>逾期未补齐中止办理并撤销容缺受理结论</b></span></div></div>
+              <div class="bad"><i class="fa-solid fa-hourglass-end"></i><div class="m-chl"><b>意向登记到期</b><span>到期前 <b>30 天 + 7 天 + 1 天</b>推送　·	<b>到期未转正式申请自动失效</b>，需重新登记　·	意向登记<b>不占位次</b>，失效不影响已取得的资格</span></div></div>
+              <div class="bad"><i class="fa-solid fa-bullhorn"></i><div class="m-chl"><b>配租公告发布</b><span>发布时<b>即时</b>短信触达全部资格审核通过的申请人　·	<span class="m-tag red">必达</span></span></div></div>
+              <div class="bad"><i class="fa-solid fa-house-circle-check"></i><div class="m-chl"><b>自动配租结果</b><span>执行完毕后<b>即时</b>短信告知配租结果或轮候位次　·	<span class="m-tag red">必达</span></span></div></div>
+              <div class="bad"><i class="fa-solid fa-file-signature"></i><div class="m-chl"><b>签约期限</b><span>结果公布时 + 截止前 <b>3 天 + 1 天</b>推送　·	<b>签约期限 5 个工作日</b>，逾期未签约视同放弃，房源顺延给下一位申请人</span></div></div>
+              <div class="ok"><i class="fa-solid fa-file-arrow-up"></i><div class="m-chl"><b>线下合同核对结果</b><span>运营机构核对确认或退回时<b>即时</b>推送　·	确认通过才是签约完成；被退回的须在签约期限内重新上传</span></div></div>
+              <div class="ok"><i class="fa-solid fa-house-chimney"></i><div class="m-chl"><b>入住办理</b><span>签约后 <b>7 天</b>未办理入住时推送　·	不办理入住视同放弃</span></div></div>
+              <div class="ok"><i class="fa-solid fa-receipt"></i><div class="m-chl"><b>缴费到期</b><span>账单生成、到期前 5 天、到期前 1 天、逾期 1 天、逾期 15 天、逾期 90 天<b>六级推送</b></span></div></div>
+              <div class="ok"><i class="fa-solid fa-rotate"></i><div class="m-chl"><b>年度资格审查</b><span>批次发起时 + 截止前 <b>7 天 + 3 天</b>推送　·	逾期转人工核查</span></div></div>
               <div class="bad"><i class="fa-solid fa-door-open"></i><div class="m-chl"><b>腾退期限</b><span>通知下发时 + 截止前 <b>15 天 + 7 天 + 1 天</b>推送　·	<b>逾期未腾退自动升级处置</b></span></div></div>
-              <div class="ok"><i class="fa-solid fa-building"></i><div class="m-chl"><b>房源到位</b><span>轮候序号轮到本人时即时推送　·	逾期未响应不影响后续轮候</span></div></div>
             </div>
           </div>
         </div>
         <div class="m-sect">我的待办提醒</div>
         <div class="m-cells">
-          <a class="m-cell" href="bill-pay.html"><span class="m-ci red"><i class="fa-solid fa-receipt"></i></span><span class="m-cl"><b>9 月租金待缴 424.44 元</b><span class="m-cs">缴费截止 2026-09-15 · 剩 10 天</span></span><span class="m-cv"><span class="m-tag red">紧急</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
-          <a class="m-cell" href="alloc-signup.html"><span class="m-ci orange"><i class="fa-solid fa-bullhorn"></i></span><span class="m-cl"><b>2026 年第 3 批配租报名</b><span class="m-cs">报名截止 2026-09-12 18:00 · 剩 7 天</span></span><span class="m-cv"><span class="m-tag orange">重要</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="sign-contract.html"><span class="m-ci red"><i class="fa-solid fa-file-signature"></i></span><span class="m-cl"><b>请完成租赁合同签署</b><span class="m-cs">签约截止 2026-09-22 18:00 · 剩 4 个工作日</span></span><span class="m-cv"><span class="m-tag red">紧急</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="apply-reject.html"><span class="m-ci orange"><i class="fa-solid fa-rotate-left"></i></span><span class="m-cl"><b>社保缴纳证明需重新上传</b><span class="m-cs">材料单项回退 · 补正截止 2026-09-08</span></span><span class="m-cv"><span class="m-tag orange">重要</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="bill-pay.html"><span class="m-ci red"><i class="fa-solid fa-receipt"></i></span><span class="m-cl"><b>9 月租金待缴 471.60 元</b><span class="m-cs">缴费截止 2026-09-15 · 剩 10 天</span></span><span class="m-cv"><span class="m-tag red">紧急</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="pre-expire.html"><span class="m-ci cyan"><i class="fa-solid fa-hourglass-end"></i></span><span class="m-cl"><b>意向登记 30 日后到期</b><span class="m-cs">到期未转正式申请将自动失效</span></span><span class="m-cv"><span class="m-tag cyan">一般</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
           <a class="m-cell" href="repair-detail.html"><span class="m-ci cyan"><i class="fa-solid fa-screwdriver-wrench"></i></span><span class="m-cl"><b>报修工单待评价</b><span class="m-cs">GD2026-08-00362 已完工</span></span><span class="m-cv"><span class="m-tag cyan">一般</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
         </div>
         <div class="m-note"><i class="fa-solid fa-circle-info"></i>
-          <div>关键节点提醒<b>不可关闭</b>。您也可在<a href="policy-subscribe.html" style="color:var(--primary)">政策变更订阅</a>中管理非关键类消息的接收。</div>
+          <div>关键节点提醒<b>不可关闭</b>。您可在<a href="msg-setting.html">消息设置</a>中管理非关键类消息的接收方式。</div>
+        </div>
+        <div class="m-cells">
+          <a class="m-cell" href="alloc-notice.html"><span class="m-ci orange"><i class="fa-solid fa-bullhorn"></i></span><span class="m-cl"><b>2026 年第 3 批配租公告</b><span class="m-cs">投放 320 间 · 自动配租执行 09-15 10:00 · 无需报名</span></span><span class="m-cv"><span class="m-tag orange">已执行</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="alloc-select.html"><span class="m-ci green"><i class="fa-solid fa-house-circle-check"></i></span><span class="m-cl"><b>我的配租结果</b><span class="m-cs">湘江1958 A6 栋 1502-02 · 计租面积 26.70 ㎡</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
         </div>
       </div>
     </div>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>已发布房源与楼盘余量（只读） · 株洲市人才住房保障管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="window" data-active="house-37">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才住房保障管理平台
+      <span class="sep">/</span> 房源筹集与楼盘表
+      <span class="sep">/</span> <span class="cur">已发布房源与楼盘余量（只读）</span>
+    </div>
+  </div>
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>本页<b>仅展示已审核发布的房源</b>，供窗口向来访申请人推介楼盘、说明户型与租金标准，<b>数据只读</b>。房源的新增、导入、冻结、上架下架等维护动作<b>由单位房源管理员在房源筹集与楼盘表中办理</b>，窗口不参与。楼盘余量与后台房态实时同步，以查询当时的数据为准。</div>
+  </div>
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-building-circle-check"></i></div>
+      <div><div class="s-label">已发布房源总数</div><div class="s-value">512</div>
+        <div class="s-trend text-2">间 · 覆盖 7 个楼盘</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-calendar-check"></i></div>
+      <div><div class="s-label">已预约</div><div class="s-value">134</div>
+        <div class="s-trend text-2">间 · 移动端预约看房占位</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-users-line"></i></div>
+      <div><div class="s-label">已轮候</div><div class="s-value">80</div>
+        <div class="s-trend text-2">间 · 意向轮候库已挂钩</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-house-circle-check"></i></div>
+      <div><div class="s-label">剩余可选</div><div class="s-value">298</div>
+        <div class="s-trend text-2">间 · 占已发布 58.2%</div></div>
+    </div>
+  </div>
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>楼盘小区</label><input type="text" placeholder="楼盘名称关键词"></div>
+      <div class="filter-item"><label>所在区</label><select data-dict="district" data-ph="全部"></select></div>
+      <div class="filter-item"><label>户型</label><select data-dict="roomType" data-ph="全部"></select></div>
+      <div class="filter-item"><label>管理模式</label><select><option value="">全部</option><option>整套配租</option><option>按间配租</option></select></div>
+      <div class="filter-item"><label>人才租金标准</label><select><option value="">全部</option><option>9.00 元/㎡·月及以下</option><option>9.01—12.00 元/㎡·月</option><option>12.01 元/㎡·月以上</option></select></div>
+      <div class="filter-item"><label>余量情况</label><select><option value="">全部</option><option>有剩余可选</option><option>余量紧张（少于 20 间）</option><option>已无剩余</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+        <button class="btn" onclick="PMS.toast('已提交导出任务：已发布房源推介清单，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-file-export"></i> 导出推介清单</button>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th class="cell-lg">楼盘小区</th><th>区域</th><th>户型</th><th class="num">套内面积</th><th class="num">公摊面积</th><th class="num">人才租金标准</th><th class="num">总房源数</th><th class="num">已预约</th><th class="num">已轮候</th><th class="num">剩余可选</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>湘江1958 人才公寓（一、二期）</td><td>天元区</td><td>三室一厅（按间）</td><td class="num">18.60</td><td class="num">8.10</td><td class="num">13.00</td><td class="num">126</td><td class="num">34</td><td class="num">22</td><td class="num"><b>70</b></td><td><span class="link" onclick="PMS.openDrawer('fyDrawer')">查看详情</span></td></tr>
+          <tr><td>湘江1958 人才公寓（三期）</td><td>天元区</td><td>一室一厅</td><td class="num">42.30</td><td class="num">12.60</td><td class="num">13.00</td><td class="num">48</td><td class="num">16</td><td class="num">9</td><td class="num"><b>23</b></td><td><span class="link" onclick="PMS.openDrawer('fyDrawer')">查看详情</span></td></tr>
+          <tr><td>栗雨佳苑人才公寓</td><td>天元区</td><td>二室一厅</td><td class="num">56.80</td><td class="num">16.40</td><td class="num">12.00</td><td class="num">86</td><td class="num">28</td><td class="num">18</td><td class="num"><b>40</b></td><td><span class="link" onclick="PMS.openDrawer('fyDrawer')">查看详情</span></td></tr>
+          <tr><td>云龙人才公寓</td><td>经开区</td><td>单间配套</td><td class="num">28.20</td><td class="num">8.30</td><td class="num">9.50</td><td class="num">96</td><td class="num">22</td><td class="num">12</td><td class="num"><b>62</b></td><td><span class="link" onclick="PMS.openDrawer('fyDrawer')">查看详情</span></td></tr>
+          <tr><td>茨菇塘公寓</td><td>荷塘区</td><td>单间配套</td><td class="num">26.40</td><td class="num">7.80</td><td class="num">9.00</td><td class="num">64</td><td class="num">12</td><td class="num">6</td><td class="num"><b>46</b></td><td><span class="link" onclick="PMS.openDrawer('fyDrawer')">查看详情</span></td></tr>
+          <tr><td>田心人才公寓</td><td>石峰区</td><td>一室一厅</td><td class="num">38.60</td><td class="num">11.20</td><td class="num">9.50</td><td class="num">52</td><td class="num">14</td><td class="num">8</td><td class="num"><b>30</b></td><td><span class="link" onclick="PMS.openDrawer('fyDrawer')">查看详情</span></td></tr>
+          <tr class="row-warn"><td>董家塅人才公寓</td><td>芦淞区</td><td>二室一厅</td><td class="num">52.40</td><td class="num">15.80</td><td class="num">10.00</td><td class="num">40</td><td class="num">8</td><td class="num">5</td><td class="num"><b>27</b></td><td><span class="link" onclick="PMS.openDrawer('fyDrawer')">查看详情</span></td></tr>
+          <tr><td><b>合计</b></td><td>—</td><td>—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num"><b>512</b></td><td class="num"><b>134</b></td><td class="num"><b>80</b></td><td class="num"><b>298</b></td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>数据范围</b> 只含「已审核发布」的房源，未提交、待审核、已退回与已下架的房源不在本页展示</span>
+    <span><b>余量口径</b> 剩余可选 ＝ 总房源数 − 已预约 − 已轮候，预约与轮候均对房源形成占位</span>
+    <span><b>同步机制</b> 余量与后台房态实时同步，已锁定或已签约即时扣减，不允许手工填写</span>
+    <span><b>租金口径</b> 人才租金标准由市住建局核定，单位 元/㎡·月，保障期满按原租金标准计费</span>
+    <span><b>维护落点</b> 房源新增、导入、冻结与上架下架由单位房源管理员办理，本页不提供任何维护入口</span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="fyDrawer">
+  <div class="drawer-head">
+    <h3>楼盘与房源详情</h3>
+    <span class="badge green">已审核发布</span>
+    <span class="badge gray">只读</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+    <div class="alert alert-info">
+      <i class="fa-solid fa-circle-info"></i>
+      <div>本抽屉<b>仅供窗口向申请人介绍房源使用</b>，全部字段只读。如发现房源信息与现场不符，请通过工单反馈至市保障性住房服务中心房源管理科，<b>窗口不得直接修改</b>。</div>
+    </div>
+
+    <div style="margin:18px 0 9px;font-size:14px;font-weight:700;color:var(--primary);display:flex;align-items:center;gap:7px"><i class="fa-solid fa-city"></i> 楼盘基本信息</div>
+    <dl class="desc-list">
+      <div class="desc-item full"><dt>楼盘小区</dt><dd>湘江1958 人才公寓（一、二期）</dd></div>
+      <div class="desc-item"><dt>所在区</dt><dd>天元区</dd></div>
+      <div class="desc-item"><dt>项目编码</dt><dd>XM2025-001</dd></div>
+      <div class="desc-item"><dt>来源渠道</dt><dd>收购商品房转化</dd></div>
+      <div class="desc-item full"><dt>详细地址</dt><dd>株洲市天元区滨江南路 1958 号（湘江风光带东侧）</dd></div>
+      <div class="desc-item"><dt>运营机构</dt><dd>株洲市人才安居服务有限公司</dd></div>
+      <div class="desc-item"><dt>物业服务</dt><dd>株洲城发物业服务有限公司</dd></div>
+      <div class="desc-item"><dt>发布审核时间</dt><dd>2026-08-26 15:20</dd></div>
+    </dl>
+
+    <div style="margin:18px 0 9px;font-size:14px;font-weight:700;color:var(--primary);display:flex;align-items:center;gap:7px"><i class="fa-solid fa-ruler-combined"></i> 户型与租金</div>
+    <dl class="desc-list">
+      <div class="desc-item"><dt>户型</dt><dd>三室一厅（按间配租）</dd></div>
+      <div class="desc-item"><dt>管理模式</dt><dd>按间配租</dd></div>
+      <div class="desc-item"><dt>整套建筑面积</dt><dd>96.50 ㎡</dd></div>
+      <div class="desc-item"><dt>本间套内面积</dt><dd>18.60 ㎡</dd></div>
+      <div class="desc-item"><dt>本间公摊面积</dt><dd>8.10 ㎡</dd></div>
+      <div class="desc-item"><dt>计租面积</dt><dd><b>26.70 ㎡</b></dd></div>
+      <div class="desc-item"><dt>人才租金标准</dt><dd><b>13.00 元/㎡·月</b></dd></div>
+      <div class="desc-item"><dt>月租金参考</dt><dd>26.70 ㎡ × 13.00 元/㎡·月 ≈ 347.10 元</dd></div>
+      <div class="desc-item"><dt>押金</dt><dd>一个月租金</dd></div>
+      <div class="desc-item full"><dt>装修与配置</dt><dd>精装拎包入住；配空调、热水器、洗衣机、冰箱、床具、书桌衣柜，公共区域配洗烘一体机</dd></div>
+      <div class="desc-item full"><dt>周边配套</dt><dd>步行 400 米至地铁公交枢纽，1.2 公里内有天元区人民医院、栗雨小学、大汉悦中心商圈</dd></div>
+    </dl>
+
+    <div style="margin:18px 0 9px;font-size:14px;font-weight:700;color:var(--primary);display:flex;align-items:center;gap:7px"><i class="fa-solid fa-table-cells"></i> 分楼栋余量（只读）</div>
+    <div class="table-wrap">
+      <table class="data-table compact">
+        <thead><tr><th>楼栋 / 单元</th><th class="num">发布间数</th><th class="num">已预约</th><th class="num">已轮候</th><th class="num">剩余可选</th><th>楼层区间</th></tr></thead>
+        <tbody>
+          <tr><td>A6 栋 1 单元</td><td class="num">42</td><td class="num">12</td><td class="num">8</td><td class="num">22</td><td>6—18 层</td></tr>
+          <tr><td>A6 栋 2 单元</td><td class="num">36</td><td class="num">10</td><td class="num">6</td><td class="num">20</td><td>6—18 层</td></tr>
+          <tr><td>A7 栋 1 单元</td><td class="num">28</td><td class="num">8</td><td class="num">5</td><td class="num">15</td><td>3—16 层</td></tr>
+          <tr><td>A7 栋 2 单元</td><td class="num">20</td><td class="num">4</td><td class="num">3</td><td class="num">13</td><td>3—16 层</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="margin:18px 0 9px;font-size:14px;font-weight:700;color:var(--primary);display:flex;align-items:center;gap:7px"><i class="fa-solid fa-lock"></i> 窗口告知口径</div>
+    <dl class="desc-list">
+      <div class="desc-item full"><dt>选房方式</dt><dd>资格审核通过后按配租批次统一组织选房，窗口不锁定房源、不承诺具体房号</dd></div>
+      <div class="desc-item full"><dt>余量提示</dt><dd>本页余量为查询当时数据，实际以选房当日房态图为准</dd></div>
+      <div class="desc-item full"><dt>看房预约</dt><dd>申请人可在湘易办移动端自助预约看房，窗口不代为预约</dd></div>
+    </dl>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>关闭</button>
+  </div>
+</div>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 8; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

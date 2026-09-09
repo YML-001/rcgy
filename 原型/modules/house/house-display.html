@@ -19,302 +19,84 @@
       <span class="sep">/</span> <span class="cur">房源展示配置</span>
     </div>
     <div class="page-actions">
-      <button class="btn btn-primary" onclick="PMS.openDrawer('vrDrawer')"><i class="fa-solid fa-vr-cardboard"></i> 按套维护 VR 全景</button>
-      <button class="btn" onclick="PMS.openDrawer('photoDrawer')"><i class="fa-solid fa-images"></i> 按间补充实景照片</button>
       <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
     </div>
   </div>
 
-  <div class="alert alert-warning">
-    <i class="fa-solid fa-triangle-exclamation"></i>
-    <div><b>VR 全景颗粒度为「套」不到「间」</b>：上传与存储均<b>按套（房屋）组织</b>，<b>同一套房各间共用同一份 VR</b>；移动端用户进入任一房间详情，均展示<b>其所在套房</b>的全景。<b>已取消原按间上传 VR 的设计</b>，避免同一套房重复拍摄与重复存储。<b>实景照片仍可按间补充</b>（本间卧室、配套卫生间、阳台等），与套级 VR 互为补充。剩余可租<b>间数</b>与后台房态实时同步，避免申请人看到无效房源。</div>
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>配置房源在移动端的<b>展示内容、VR 素材、上下架时间与剩余套数同步策略</b>。房源信息全过程公开，接受社会监督；剩余间数与后台房态实时同步，避免申请人看到无效房源。</div>
   </div>
 
   <div class="stat-grid">
     <div class="stat-card">
-      <div class="s-icon blue"><i class="fa-solid fa-house-chimney"></i></div>
-      <div><div class="s-label">在库套房</div><div class="s-value">2,486</div>
-        <div class="s-trend text-2">套 · 对应 4,286 间，VR 按套组织</div></div>
+      <div class="s-icon blue"><i class="fa-solid fa-mobile-screen-button"></i></div>
+      <div><div class="s-label">已上架楼盘</div><div class="s-value">6</div>
+        <div class="s-trend text-2">移动端可见</div></div>
     </div>
     <div class="stat-card">
       <div class="s-icon green"><i class="fa-solid fa-vr-cardboard"></i></div>
-      <div><div class="s-label">VR 全景已上传</div><div class="s-value">2,286</div>
-        <div class="s-trend text-2">套 · 占 91.9%，各间共用</div></div>
+      <div><div class="s-label">VR 素材完备</div><div class="s-value">5</div>
+        <div class="s-trend text-2">占 83.3%</div></div>
     </div>
     <div class="stat-card">
       <div class="s-icon cyan"><i class="fa-solid fa-images"></i></div>
-      <div><div class="s-label">实景照片已补充</div><div class="s-value">3,864</div>
-        <div class="s-trend text-2">间 · 占 90.2%，按间补充</div></div>
+      <div><div class="s-label">实景照片</div><div class="s-value">186 张</div>
+        <div class="s-trend text-2">平均每楼盘 31 张</div></div>
     </div>
     <div class="stat-card dc-alarm">
       <div class="s-icon orange"><i class="fa-solid fa-triangle-exclamation"></i></div>
-      <div><div class="s-label">VR 待补</div><div class="s-value">200</div>
-        <div class="s-trend ">套 · 未上传不得审核发布</div></div>
+      <div><div class="s-label">素材待补</div><div class="s-value">1</div>
+        <div class="s-trend ">时代新城缺 VR</div></div>
     </div>
   </div>
 
-  <div class="card list-card" data-tabs-scope>
+  <div class="card list-card">
     <div class="filter-bar">
-      <div class="filter-item"><label>楼盘</label><input type="text" value="湘江1958 人才公寓" placeholder="楼盘名称"></div>
-      <div class="filter-item"><label>套房编号 / 房号 + 间号</label><input type="text" value="FY-TY-XJ-A6-1502" placeholder="如 FY-TY-XJ-A6-1502 或 1502A"></div>
-      <div class="filter-item"><label>室厅结构</label><select data-dict="roomStruct" data-ph="全部"></select></div>
+      <div class="filter-item"><label>楼盘</label><input type="text" placeholder="楼盘名称"></div>
+      <div class="filter-item"><label>所在区</label><select data-dict="district" data-ph="全部"></select></div>
+      <div class="filter-item"><label>上架状态</label><select><option value="">全部</option><option>已上架</option><option>未上架</option><option>已下架</option></select></div>
       <div class="filter-item"><label>VR 素材</label><select><option value="">全部</option><option>已上传</option><option>未上传</option></select></div>
-      <div class="filter-item"><label>发布状态</label><select data-dict="publishStatus" data-ph="全部"></select></div>
-      <div class="filter-item"><label>拍摄时间</label><input type="date" value="2026-08-01"></div>
+      <div class="filter-item"><label>上架时间</label><input type="date"></div>
       <div class="filter-actions">
         <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
         <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
       </div>
     </div>
-    <div class="tabs">
-      <div class="tab active" data-tab="vr">VR 全景（按套） <span class="badge blue">2,486</span></div>
-      <div class="tab" data-tab="photo">实景照片（按间） <span class="badge cyan">4,286</span></div>
-      <div class="tab" data-tab="proj">楼盘展示配置 <span class="badge green">6</span></div>
-    </div>
 
-    <div class="tab-panel active" data-panel="vr">
-    <div class="card-body">
-    <p class="hint">一套房一行：VR 全景按套上传与存储，<b>覆盖房间数</b>即本套共用该份 VR 的间数 · 移动端进入任一房间均展示其所在套房的全景 · <b>VR 未上传的套不得审核发布</b>，其下各间在移动端一律不可见</p>
     <div class="table-wrap">
       <table class="data-table">
         <thead>
-          <tr><th>套房编号</th><th class="cell-lg">楼盘 / 楼栋 / 房号</th><th>室厅结构</th><th class="cell-lg">VR 素材</th><th>拍摄时间</th><th class="num">覆盖房间数</th><th class="cell-lg">共用本套 VR 的房间</th><th>状态</th><th>操作</th></tr>
+          <tr><th>楼盘</th><th>所在区</th><th class="cell-lg">展示名称</th><th class="num">剩余套数</th><th>同步策略</th><th>VR 素材</th><th class="num">实景照片</th><th>户型图</th><th>上架状态</th><th>操作</th></tr>
         </thead>
         <tbody>
-          <tr><td>FY-TY-XJ-A6-1502</td><td>湘江1958 人才公寓 / A6 栋 / 1502</td><td>三室两厅</td><td><span class="badge green">已上传</span>　<span class="muted">6 个场景 · 128 MB</span></td><td>2026-08-18</td><td class="num">3</td><td>1502A、1502B、1502C</td><td><span class="badge green">已发布</span></td><td><span class="link" onclick="PMS.openDrawer('vrDrawer')">维护</span> <span class="link" onclick="PMS.toast('原型演示：打开 1502 室 VR 全景，本套三间共用同一份')">预览 VR</span></td></tr>
-          <tr><td>FY-TY-XJ-A6-1802</td><td>湘江1958 人才公寓 / A6 栋 / 1802</td><td>二室一厅</td><td><span class="badge green">已上传</span>　<span class="muted">5 个场景 · 106 MB</span></td><td>2026-08-18</td><td class="num">2</td><td>1802A、1802B</td><td><span class="badge orange">待审核</span></td><td><span class="link" onclick="PMS.openDrawer('vrDrawer')">维护</span> <span class="link" onclick="PMS.toast('原型演示：打开 1802 室 VR 全景，本套两间共用同一份')">预览 VR</span></td></tr>
-          <tr><td>FY-SF-QST-01-0708</td><td>清水塘·未来社区 / 1 栋 / 0708</td><td>三室一厅</td><td><span class="badge green">已上传</span>　<span class="muted">6 个场景 · 132 MB</span></td><td>2026-08-26</td><td class="num">3</td><td>0708A、0708B、0708C</td><td><span class="badge orange">待审核</span></td><td><span class="link" onclick="PMS.openDrawer('vrDrawer')">维护</span> <span class="link" onclick="PMS.toast('原型演示：打开 0708 室 VR 全景，本套三间共用同一份')">预览 VR</span></td></tr>
-          <tr><td>FY-LS-DJD-03-1102</td><td>董家塅人才公寓 / 3 栋 / 1102</td><td>二室一厅</td><td><span class="badge green">已上传</span>　<span class="muted">5 个场景 · 98 MB</span></td><td>2026-08-30</td><td class="num">2</td><td>1102A、1102B</td><td><span class="badge green">已发布</span></td><td><span class="link" onclick="PMS.openDrawer('vrDrawer')">维护</span> <span class="link" onclick="PMS.toast('原型演示：打开 1102 室 VR 全景，本套两间共用同一份')">预览 VR</span></td></tr>
-          <tr><td>FY-JK-YL-02-0706</td><td>云龙人才公寓 / 2 栋 / 0706</td><td>单间配套</td><td><span class="badge green">已上传</span>　<span class="muted">3 个场景 · 62 MB</span></td><td>2026-09-02</td><td class="num">1</td><td>0706A</td><td><span class="badge blue">待提交</span></td><td><span class="link" onclick="PMS.openDrawer('vrDrawer')">维护</span> <span class="link" onclick="PMS.toast('原型演示：打开 0706 室 VR 全景，本套未拆分、单间共用')">预览 VR</span></td></tr>
-          <tr class="row-bad"><td>FY-TY-LYJY-03-0904</td><td>栗雨佳苑人才公寓 / 3 栋 / 0904</td><td>一室一厅</td><td><span class="badge red">未上传</span></td><td><span class="muted">—</span></td><td class="num">1</td><td>0904A</td><td><span class="badge gray">已下架</span></td><td><span class="link" onclick="PMS.openDrawer('vrDrawer')">维护</span> <span class="link" onclick="PMS.toast('已向株洲城发高科人才安居服务有限公司推送按套补齐 VR 全景素材的催办','success')">催办素材</span></td></tr>
+          <tr><td>湘江1958 人才公寓</td><td>天元区</td><td>湘江1958 人才公寓</td><td class="num">86</td><td><span class="badge green">实时同步</span></td><td><span class="badge green">已上传</span></td><td class="num">42</td><td><span class="badge green">已上传</span></td><td><span class="badge green">已上架</span></td><td><span class="link" onclick="PMS.openDrawer('dpDrawer')">配置</span> <span class="link" onclick="location.href='../../mobile/public/house-detail.html'">看效果</span></td></tr>
+          <tr><td>栗雨佳苑人才公寓</td><td>天元区</td><td>栗雨佳苑人才公寓</td><td class="num">100</td><td><span class="badge green">实时同步</span></td><td><span class="badge green">已上传</span></td><td class="num">36</td><td><span class="badge green">已上传</span></td><td><span class="badge green">已上架</span></td><td><span class="link" onclick="PMS.openDrawer('dpDrawer')">配置</span> <span class="link" onclick="location.href='../../mobile/public/house-detail.html'">看效果</span></td></tr>
+          <tr><td>云龙人才苑</td><td>经开区</td><td>云龙人才苑</td><td class="num">24</td><td><span class="badge green">实时同步</span></td><td><span class="badge green">已上传</span></td><td class="num">28</td><td><span class="badge green">已上传</span></td><td><span class="badge green">已上架</span></td><td><span class="link" onclick="PMS.openDrawer('dpDrawer')">配置</span></td></tr>
+          <tr><td>清水塘新苑</td><td>石峰区</td><td>清水塘新苑</td><td class="num">98</td><td><span class="badge green">实时同步</span></td><td><span class="badge green">已上传</span></td><td class="num">32</td><td><span class="badge green">已上传</span></td><td><span class="badge green">已上架</span></td><td><span class="link" onclick="PMS.openDrawer('dpDrawer')">配置</span></td></tr>
+          <tr class="row-bad"><td>时代新城人才公寓</td><td>天元区</td><td>时代新城人才公寓</td><td class="num">0</td><td><span class="badge green">实时同步</span></td><td><span class="badge red">未上传</span></td><td class="num">8</td><td><span class="badge red">未上传</span></td><td><span class="badge gray">未上架</span></td><td><span class="link" onclick="PMS.openDrawer('dpDrawer')">配置</span> <span class="link" onclick="PMS.toast('已向运营机构推送 VR 与户型图素材补报催办')">催办素材</span></td></tr>
         </tbody>
       </table>
-    </div>
-    </div>
-    </div>
-
-    <div class="tab-panel" data-panel="photo">
-    <div class="card-body">
-    <p class="hint">一间一行：实景照片<b>按间补充</b>（本间卧室、配套卫生间、阳台等）· <b>VR 全景一律取所属套的那一份，不按间上传</b> · 实景照片不足 4 张的房间在审核发布时提示补充</p>
-    <div class="table-wrap">
-      <table class="data-table">
-        <thead>
-          <tr><th>房号 + 间号</th><th class="cell-lg">所属套</th><th>本间类型</th><th class="num">实景照片</th><th>拍摄时间</th><th class="cell-lg">照片内容</th><th>VR 全景来源</th><th>状态</th><th>操作</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><b>1502A</b></td><td>湘江1958 A6 栋 / 1502　<span class="muted">三室两厅拆 3 间</span></td><td>主卧</td><td class="num">6</td><td>2026-08-18</td><td>卧室全景、床品、衣柜、书桌、独立卫生间、阳台</td><td><span class="badge cyan">共用本套 VR</span></td><td><span class="badge green">已上传</span></td><td><span class="link" onclick="PMS.openDrawer('photoDrawer')">补充照片</span> <span class="link" onclick="location.href='../../mobile/public/house-detail.html'">看效果</span></td></tr>
-          <tr><td><b>1502B</b></td><td>湘江1958 A6 栋 / 1502　<span class="muted">三室两厅拆 3 间</span></td><td>次卧</td><td class="num">5</td><td>2026-08-18</td><td>卧室全景、床品、衣柜、书桌、飘窗</td><td><span class="badge cyan">共用本套 VR</span></td><td><span class="badge green">已上传</span></td><td><span class="link" onclick="PMS.openDrawer('photoDrawer')">补充照片</span> <span class="link" onclick="location.href='../../mobile/public/house-detail.html'">看效果</span></td></tr>
-          <tr><td><b>1502C</b></td><td>湘江1958 A6 栋 / 1502　<span class="muted">三室两厅拆 3 间</span></td><td>次卧</td><td class="num">4</td><td>2026-08-18</td><td>卧室全景、床品、衣柜、空调</td><td><span class="badge cyan">共用本套 VR</span></td><td><span class="badge green">已上传</span></td><td><span class="link" onclick="PMS.openDrawer('photoDrawer')">补充照片</span> <span class="link" onclick="location.href='../../mobile/public/house-detail.html'">看效果</span></td></tr>
-          <tr><td><b>1802A</b></td><td>湘江1958 A6 栋 / 1802　<span class="muted">二室一厅拆 2 间</span></td><td>主卧</td><td class="num">6</td><td>2026-08-18</td><td>卧室全景、床品、衣柜、书桌、独立卫生间、阳台</td><td><span class="badge cyan">共用本套 VR</span></td><td><span class="badge green">已上传</span></td><td><span class="link" onclick="PMS.openDrawer('photoDrawer')">补充照片</span> <span class="link" onclick="location.href='../../mobile/public/house-detail.html'">看效果</span></td></tr>
-          <tr><td><b>1802B</b></td><td>湘江1958 A6 栋 / 1802　<span class="muted">二室一厅拆 2 间</span></td><td>次卧</td><td class="num">4</td><td>2026-08-18</td><td>卧室全景、床品、衣柜、书桌</td><td><span class="badge cyan">共用本套 VR</span></td><td><span class="badge green">已上传</span></td><td><span class="link" onclick="PMS.openDrawer('photoDrawer')">补充照片</span> <span class="link" onclick="location.href='../../mobile/public/house-detail.html'">看效果</span></td></tr>
-          <tr><td><b>0708A</b></td><td>清水塘·未来社区 1 栋 / 0708　<span class="muted">三室一厅拆 3 间</span></td><td>主卧</td><td class="num">6</td><td>2026-08-26</td><td>卧室全景、床品、衣柜、飘窗、独立卫生间、空调</td><td><span class="badge cyan">共用本套 VR</span></td><td><span class="badge green">已上传</span></td><td><span class="link" onclick="PMS.openDrawer('photoDrawer')">补充照片</span> <span class="link" onclick="location.href='../../mobile/public/house-detail.html'">看效果</span></td></tr>
-          <tr><td><b>0708B</b></td><td>清水塘·未来社区 1 栋 / 0708　<span class="muted">三室一厅拆 3 间</span></td><td>次卧</td><td class="num">5</td><td>2026-08-26</td><td>卧室全景、床品、衣柜、书桌、空调</td><td><span class="badge cyan">共用本套 VR</span></td><td><span class="badge green">已上传</span></td><td><span class="link" onclick="PMS.openDrawer('photoDrawer')">补充照片</span> <span class="link" onclick="location.href='../../mobile/public/house-detail.html'">看效果</span></td></tr>
-          <tr class="row-bad"><td><b>0708C</b></td><td>清水塘·未来社区 1 栋 / 0708　<span class="muted">三室一厅拆 3 间</span></td><td>次卧</td><td class="num">0</td><td><span class="muted">—</span></td><td><span class="muted">本间实景照片未上传，房态维修中</span></td><td><span class="badge cyan">共用本套 VR</span></td><td><span class="badge red">未上传</span></td><td><span class="link" onclick="PMS.openDrawer('photoDrawer')">补充照片</span> <span class="link" onclick="PMS.toast('已向清水塘投资运营服务有限公司推送 0708C 实景照片补充催办','success')">催办</span></td></tr>
-          <tr><td><b>1102A</b></td><td>董家塅人才公寓 3 栋 / 1102　<span class="muted">二室一厅拆 2 间</span></td><td>主卧</td><td class="num">6</td><td>2026-08-30</td><td>卧室全景、床品、衣柜、书桌、独立卫生间、阳台</td><td><span class="badge cyan">共用本套 VR</span></td><td><span class="badge green">已上传</span></td><td><span class="link" onclick="PMS.openDrawer('photoDrawer')">补充照片</span> <span class="link" onclick="location.href='../../mobile/public/house-detail.html'">看效果</span></td></tr>
-          <tr><td><b>0706A</b></td><td>云龙人才公寓 2 栋 / 0706　<span class="muted">单间配套未拆分</span></td><td>整间</td><td class="num">8</td><td>2026-09-02</td><td>整间全景、床品、衣柜、书桌、独立卫生间、阳台、空调、厨房台</td><td><span class="badge cyan">共用本套 VR</span></td><td><span class="badge green">已上传</span></td><td><span class="link" onclick="PMS.openDrawer('photoDrawer')">补充照片</span> <span class="link" onclick="location.href='../../mobile/public/house-detail.html'">看效果</span></td></tr>
-          <tr class="row-warn"><td><b>0904A</b></td><td>栗雨佳苑人才公寓 3 栋 / 0904　<span class="muted">一室一厅未拆分</span></td><td>整间</td><td class="num">5</td><td>2026-08-20</td><td>卧室全景、客厅、衣柜、独立卫生间、阳台</td><td><span class="badge red">本套 VR 未上传</span></td><td><span class="badge green">已上传</span></td><td><span class="link" onclick="PMS.openDrawer('photoDrawer')">补充照片</span> <span class="link" onclick="PMS.openDrawer('vrDrawer')">按套补 VR</span></td></tr>
-        </tbody>
-      </table>
-    </div>
-    </div>
-    </div>
-
-    <div class="tab-panel" data-panel="proj">
-    <div class="card-body">
-    <p class="hint">楼盘级展示信息：展示名称、展示地址、周边配套、上下架时间与剩余可租间数同步策略 · 剩余可租间数不允许手工填写，一律与后台房态实时同步</p>
-    <div class="table-wrap">
-      <table class="data-table">
-        <thead>
-          <tr><th>楼盘</th><th>所在区</th><th class="cell-lg">展示名称</th><th class="num">剩余可租间数</th><th>同步策略</th><th class="num">VR 已上传套数</th><th class="num">实景照片间数</th><th>户型图</th><th>上架状态</th><th>操作</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>湘江1958 人才公寓</td><td>天元区</td><td>湘江1958 人才公寓</td><td class="num">148</td><td><span class="badge green">实时同步</span></td><td class="num">586</td><td class="num">986</td><td><span class="badge green">已上传</span></td><td><span class="badge green">已上架</span></td><td><span class="link" onclick="PMS.openDrawer('dpDrawer')">配置</span> <span class="link" onclick="location.href='../../mobile/public/house-detail.html'">看效果</span></td></tr>
-          <tr><td>栗雨佳苑人才公寓</td><td>天元区</td><td>栗雨佳苑人才公寓</td><td class="num">106</td><td><span class="badge green">实时同步</span></td><td class="num">348</td><td class="num">568</td><td><span class="badge green">已上传</span></td><td><span class="badge green">已上架</span></td><td><span class="link" onclick="PMS.openDrawer('dpDrawer')">配置</span> <span class="link" onclick="location.href='../../mobile/public/house-detail.html'">看效果</span></td></tr>
-          <tr><td>清水塘·未来社区</td><td>石峰区</td><td>清水塘·未来社区</td><td class="num">106</td><td><span class="badge green">实时同步</span></td><td class="num">462</td><td class="num">786</td><td><span class="badge green">已上传</span></td><td><span class="badge green">已上架</span></td><td><span class="link" onclick="PMS.openDrawer('dpDrawer')">配置</span> <span class="link" onclick="location.href='../../mobile/public/house-detail.html'">看效果</span></td></tr>
-          <tr><td>董家塅人才公寓</td><td>芦淞区</td><td>董家塅人才公寓</td><td class="num">86</td><td><span class="badge green">实时同步</span></td><td class="num">312</td><td class="num">524</td><td><span class="badge green">已上传</span></td><td><span class="badge green">已上架</span></td><td><span class="link" onclick="PMS.openDrawer('dpDrawer')">配置</span> <span class="link" onclick="location.href='../../mobile/public/house-detail.html'">看效果</span></td></tr>
-          <tr><td>云龙人才公寓</td><td>经开区</td><td>云龙人才公寓</td><td class="num">58</td><td><span class="badge green">实时同步</span></td><td class="num">286</td><td class="num">438</td><td><span class="badge green">已上传</span></td><td><span class="badge green">已上架</span></td><td><span class="link" onclick="PMS.openDrawer('dpDrawer')">配置</span> <span class="link" onclick="location.href='../../mobile/public/house-detail.html'">看效果</span></td></tr>
-          <tr class="row-bad"><td>时代新城人才公寓</td><td>天元区</td><td>时代新城人才公寓</td><td class="num">22</td><td><span class="badge green">实时同步</span></td><td class="num">42</td><td class="num">88</td><td><span class="badge red">未上传</span></td><td><span class="badge gray">未上架</span></td><td><span class="link" onclick="PMS.openDrawer('dpDrawer')">配置</span> <span class="link" onclick="PMS.toast('已向株洲高新人才公寓运营有限公司推送按套补齐 VR 全景与户型图素材的催办','success')">催办素材</span></td></tr>
-        </tbody>
-      </table>
-    </div>
-    </div>
     </div>
   </div>
-
-  <div class="sp-block" style="margin-top:8px">
-    <div class="sp-h"><i class="fa-solid fa-list"></i> 展示素材颗粒度口径<span class="sub">SC-1 至 SC-5 · VR 全景按套、实景照片按间</span></div>
-    <div class="sp-b">
-      <div class="sp-tw">
-        <table class="data-table compact">
-          <thead><tr><th>规则号</th><th>素材类型</th><th>颗粒度</th><th class="cell-lg">口径说明</th></tr></thead>
-          <tbody>
-          <tr><td><b>SC-1</b></td><td>VR 全景</td><td><span class="badge cyan">按套</span></td><td><b>颗粒度为「套」不到「间」</b>：上传与存储均按套（房屋）组织，一套房只存一份（含客厅、厨房、卫生间与各卧室场景）；<b>已取消原按间上传 VR 的设计</b>，避免同一套房重复拍摄、重复存储与版本不一致</td></tr>
-          <tr><td><b>SC-2</b></td><td>VR 全景</td><td><span class="badge cyan">按套</span></td><td><b>同一套房各间共用同一份 VR</b>。算例：1502 室拆 1502A / 1502B / 1502C 三间，<b>覆盖房间数 3</b>；移动端进入 1502B 详情，展示的是 <b>1502 室整套</b>全景并标注本间位置</td></tr>
-          <tr><td><b>SC-3</b></td><td>实景照片</td><td><span class="badge blue">按间</span></td><td><b>实景照片仍可按间补充</b>：本间卧室全景、床品、衣柜、书桌、配套卫生间、阳台等分项上传，<b>每间不少于 4 张</b>，不足的仅提示、不阻断发布</td></tr>
-          <tr><td><b>SC-4</b></td><td>户型图</td><td><span class="badge cyan">按套</span></td><td>按套上传，图上<b>标注各间间号与计租面积</b>（1502A <b>27.80</b>、1502B <b>22.20</b>、1502C <b>19.60 ㎡</b>），本套各间共用同一张</td></tr>
-          <tr><td><b>SC-5</b></td><td>发布与剩余量</td><td><span class="badge cyan">按套</span> <span class="badge blue">按间</span></td><td><b>套级 VR 未上传的，其下各间不得审核发布</b>、移动端不可见，VR 变更后本套各间<b>同时刷新</b>；<b>剩余可租间数按间统计</b>、与房态实时同步，已预约、已锁定或已签约的间即时扣减，<b>不允许手工填写</b>。<span class="link" onclick="location.href='house-archive.html'">审核发布</span></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-
   <div class="sp-src">
-    <span><b>依据</b> 2026 年 9 月 7 日汇报讨论会决议：VR 全景按套，同一套房各间共用一份，取消原按间上传设计</span>
-    <span><b>公开要求</b> 房源信息全过程公开，接受社会监督；审核发布后移动端用户方可看到</span>
-    <span><b>素材职责</b> VR 全景、户型图与实景照片均由<b>所属运营机构自行上传维护</b>，主管单位只做查看、监管与审核发布</span>
-    <span><b>同步策略</b> 剩余可租间数与后台房态实时同步，已预约、已锁定或已签约的间即时扣减</span>
-    <span><b>关联页面</b> <span class="link" onclick="location.href='../rule/house-open.html'">房源信息公开配置</span>　<span class="link" onclick="location.href='house-archive.html'">房源查询与审核发布</span></span>
+    <span><b>公开要求</b> 房源信息全过程公开，接受社会监督</span>
+    <span><b>同步策略</b> 剩余可租间数与后台房态实时同步，已锁定或已签约即时扣减</span>
+    <span><b>公开配置</b> <span class="link" onclick="location.href='../rule/house-open.html'">房源信息公开配置</span></span>
   </div>
 </main>
 
 <div class="drawer-mask"></div>
-<div class="drawer" id="vrDrawer">
-  <div class="drawer-head">
-    <h3>VR 全景维护（按套）</h3>
-    <span class="badge cyan">按套 · 各间共用</span>
-    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
-  </div>
-  <div class="drawer-body">
-    <div class="alert alert-info">
-      <i class="fa-solid fa-circle-info"></i>
-      <div><b>VR 全景按套上传，同一套房各间共用同一份</b>，<b>不按间上传</b>。本套 1502 室拆 1502A、1502B、1502C 三间，上传后三间的移动端详情页均展示本套全景。VR 素材更新后本套各间<b>同时刷新</b>，不需逐间重新配置；<b>实景照片按间补充</b>，在「按间补充实景照片」中维护。</div>
-    </div>
-
-    <div class="form-grid form-align">
-      <div class="form-item">
-        <label>套房编号 <span class="req">*</span></label>
-        <input type="text" value="FY-TY-XJ-A6-1502" readonly>
-        <div class="hint">VR 素材按此编号存储，颗粒度为套</div>
-      </div>
-      <div class="form-item">
-        <label>楼盘 / 楼栋 / 房号 <span class="req">*</span></label>
-        <input type="text" value="湘江1958 人才公寓 / A6 栋 1 单元 15 层 / 1502" readonly>
-      </div>
-      <div class="form-item">
-        <label>室厅结构 <span class="req">*</span></label>
-        <select data-dict="roomStruct" data-selected="三室两厅" data-ph=""></select>
-      </div>
-      <div class="form-item">
-        <label>覆盖房间数 <span class="req">*</span></label>
-        <input type="text" value="3" readonly>
-        <div class="hint">本套拆 3 间，均共用本份 VR</div>
-      </div>
-      <div class="form-item col-full">
-        <label>共用本套 VR 的房间 <span class="req">*</span></label>
-        <input type="text" value="1502A（主卧 27.80 ㎡）、1502B（次卧 22.20 ㎡）、1502C（次卧 19.60 ㎡）" readonly>
-        <div class="hint">按套内间数自动带出，不需逐间上传</div>
-      </div>
-      <div class="form-item">
-        <label>拍摄时间 <span class="req">*</span></label>
-        <input type="date" value="2026-08-18">
-      </div>
-      <div class="form-item">
-        <label>拍摄单位 <span class="req">*</span></label>
-        <input type="text" value="株洲城发高科人才安居服务有限公司（委托湘江数字影像）">
-      </div>
-      <div class="form-item col-full">
-        <label>VR 全景素材（按套上传） <span class="req">*</span></label>
-        <input type="text" data-upload="1" value="FY-TY-XJ-A6-1502_VR全景_20260818.zip">
-        <div class="hint">共 6 个场景：客厅、开放式厨房、公共卫生间、主卧 1502A、次卧 1502B、次卧 1502C，合计 128 MB。<b>一套房只上传一份</b></div>
-      </div>
-      <div class="form-item col-full">
-        <label>整套户型图（标注各间间号与计租面积） <span class="req">*</span></label>
-        <input type="text" data-upload="1" value="FY-TY-XJ-A6-1502_户型图_标注间号.png">
-        <div class="hint">按套上传，图上标注 1502A 27.80 ㎡、1502B 22.20 ㎡、1502C 19.60 ㎡，本套各间共用</div>
-      </div>
-      <div class="form-item col-full">
-        <label>场景与本间位置对应说明 <span class="req">*</span></label>
-        <textarea rows="4">VR 全景按套组织，共 6 个场景。移动端用户进入任一房间详情，均展示本套 1502 室的整套全景，并在场景中高亮标注该用户所看房间的位置：
-· 进入 1502A 详情 → 展示本套全景，默认起始场景为「主卧 1502A」，套内 22.40 ㎡、公摊 5.40 ㎡、计租 27.80 ㎡；
-· 进入 1502B 详情 → 展示本套全景，默认起始场景为「次卧 1502B」，计租 22.20 ㎡；
-· 进入 1502C 详情 → 展示本套全景，默认起始场景为「次卧 1502C」，计租 19.60 ㎡。
-客厅、厨房、公共卫生间为三间共用的公共部分（合计 25.20 ㎡），已计入套内合计 78.60 ㎡，不单独计租。</textarea>
-      </div>
-    </div>
-  </div>
-  <div class="drawer-foot">
-    <button class="btn" data-close-drawer>取消</button>
-    <button class="btn" onclick="PMS.toast('原型演示：打开 1502 室 VR 全景预览，本套三间共用同一份')"><i class="fa-solid fa-vr-cardboard"></i> 预览 VR</button>
-    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认保存套房 1502 室的 VR 全景素材？',detail:'VR 全景按套存储，保存后本套 1502A、1502B、1502C 三间的移动端详情页同时刷新为本份全景，不需逐间配置。套级 VR 未上传的房源不得审核发布。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已保存，本套 3 间共用的 VR 全景已生效','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
-  </div>
-</div>
-
-<div class="drawer" id="photoDrawer">
-  <div class="drawer-head">
-    <h3>实景照片补充（按间）</h3>
-    <span class="badge blue">按间</span>
-    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
-  </div>
-  <div class="drawer-body">
-    <div class="alert alert-info">
-      <i class="fa-solid fa-circle-info"></i>
-      <div><b>实景照片按间补充</b>，每间不少于 4 张；<b>VR 全景不在此处上传</b>，一律取所属套 FY-TY-XJ-A6-1502 的那一份，本套三间共用。实景照片与套级 VR 互为补充：VR 看整套格局，实景照片看本间细节。</div>
-    </div>
-
-    <div class="form-grid form-align">
-      <div class="form-item">
-        <label>房号 + 间号 <span class="req">*</span></label>
-        <input type="text" value="1502A" readonly>
-      </div>
-      <div class="form-item">
-        <label>房间编号 <span class="req">*</span></label>
-        <input type="text" value="FY-TY-XJ-A6-1502A" readonly>
-      </div>
-      <div class="form-item">
-        <label>所属套 <span class="req">*</span></label>
-        <input type="text" value="FY-TY-XJ-A6-1502（三室两厅拆 3 间）" readonly>
-      </div>
-      <div class="form-item">
-        <label>本间类型 <span class="req">*</span></label>
-        <select><option>主卧</option><option>次卧</option><option>整间</option></select>
-      </div>
-      <div class="form-item">
-        <label>本间计租面积（㎡） <span class="req">*</span></label>
-        <input type="text" value="27.80" readonly>
-        <div class="hint">套内 22.40 ＋ 公摊 5.40，公摊计入租金</div>
-      </div>
-      <div class="form-item">
-        <label>拍摄时间 <span class="req">*</span></label>
-        <input type="date" value="2026-08-18">
-      </div>
-      <div class="form-item">
-        <label>VR 全景来源 <span class="req">*</span></label>
-        <input type="text" value="共用本套 VR（FY-TY-XJ-A6-1502，2026-08-18 拍摄）" readonly>
-        <div class="hint">VR 按套，不按间上传</div>
-      </div>
-      <div class="form-item">
-        <label>照片张数 <span class="req">*</span></label>
-        <input type="text" value="6" readonly>
-        <div class="hint">每间不少于 4 张，不足的在审核发布时提示补充</div>
-      </div>
-      <div class="form-item col-full">
-        <label>本间实景照片 <span class="req">*</span></label>
-        <input type="text" data-upload="1" value="1502A_主卧实景_6张.zip">
-        <div class="hint">按分项上传：卧室全景、床品、衣柜、书桌、配套独立卫生间、阳台</div>
-      </div>
-      <div class="form-item col-full">
-        <label>本间展示说明 <span class="req">*</span></label>
-        <textarea rows="3">1502A 主卧，套内 22.40 ㎡，含独立卫生间与南向阳台，配空调、衣柜、书桌，实景照片 6 张。计租面积 27.80 ㎡（套内 22.40 ＋ 公摊 5.40），人才租金 6.00 元/㎡·月，月租金 166.80 元。VR 全景请查看本套 1502 室整套全景，进入本间详情默认起始场景为主卧。</textarea>
-      </div>
-    </div>
-  </div>
-  <div class="drawer-foot">
-    <button class="btn" data-close-drawer>取消</button>
-    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认保存房间 1502A 的实景照片与展示说明？',detail:'实景照片按间保存，VR 全景仍取所属套 1502 室的那一份、本套三间共用。保存后移动端房间详情页即时刷新。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已保存 1502A 实景照片 6 张，移动端已刷新','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
-  </div>
-</div>
-
 <div class="drawer" id="dpDrawer">
   <div class="drawer-head">
-    <h3>楼盘展示配置</h3>
+    <h3>房源展示配置</h3>
     <span class="badge blue">移动端</span>
     <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
   </div>
   <div class="drawer-body">
   <div class="alert alert-info">
     <i class="fa-solid fa-circle-info"></i>
-    <div>配置楼盘在<b>建宁安居小程序与「株洲人才」公众号</b>的展示内容。<b>剩余可租间数不允许手工填写</b>，一律与后台房态实时同步。VR 全景按套、实景照片按间，分别在「VR 全景（按套）」与「实景照片（按间）」页签维护，此处不再上传。</div>
+    <div>配置房源在<b>湘易办移动端与「株洲人才」公众号</b>的展示内容。剩余套数<b>不允许手工填写</b>，一律与后台房态实时同步。</div>
   </div>
 
       <div class="form-grid form-align">
@@ -332,48 +114,47 @@
         </div>
         <div class="form-item">
           <label>上架时间 <span class="req">*</span></label>
-          <input type="date" value="2026-09-20">
+          <input type="date">
         </div>
         <div class="form-item">
           <label>下架时间</label>
-          <input type="date" value="2026-12-31">
+          <input type="date">
           <div class="hint">留空表示长期展示</div>
         </div>
         <div class="form-item">
-          <label>剩余可租间数来源 <span class="req">*</span></label>
-          <input type="text" value="房态图实时同步（按间统计，当前 22 间）" readonly>
+          <label>剩余套数来源 <span class="req">*</span></label>
+          <input type="text" value="房态图实时同步" readonly>
           <div class="hint">不允许手工填写</div>
-        </div>
-        <div class="form-item">
-          <label>所属运营机构 <span class="req">*</span></label>
-          <select data-dict="agencyOrg" data-selected="株洲高新人才公寓运营有限公司" data-ph=""></select>
         </div>
         <div class="form-item col-full">
           <label>展示配套信息 <span class="req">*</span></label>
           <textarea rows="3">地铁 3 号线时代路站步行 480 m；天元区大润发 1.2 km；市中心医院天元院区 3.1 km；时代小学 600 m。</textarea>
         </div>
         <div class="form-item col-full">
-          <label>VR 全景与实景素材完备度 <span class="req">*</span></label>
-          <textarea rows="4" readonly>VR 全景（按套）：已上传 42 套 / 应上传 126 套，缺 84 套。缺 VR 的套房其下各间不得审核发布，移动端不可见。
-实景照片（按间）：已上传 88 间 / 应上传 210 间，缺 122 间。不足 4 张的房间在审核发布时提示补充，不阻断发布。
-整套户型图（按套）：未上传，须按套上传并在图上标注各间间号与计租面积。
-处理要求：请株洲高新人才公寓运营有限公司按套补齐 VR 全景与户型图，按间补齐实景照片后重新提交发布。</textarea>
-          <div class="hint">VR 与户型图按套统计，实景照片按间统计</div>
+          <label>VR 全景素材 <span class="req">*</span></label>
+          <input type="text" data-upload="1">
+          <div class="hint">各户型内部全景 + 小区环境漫游</div>
+        </div>
+        <div class="form-item col-full">
+          <label>户型图 <span class="req">*</span></label>
+          <input type="text" data-upload="1">
+        </div>
+        <div class="form-item col-full">
+          <label>实景照片 <span class="req">*</span></label>
+          <input type="text" data-upload="1">
+          <div class="hint">客厅、卧室、厨房、卫生间、小区环境</div>
         </div>
       </div>
   </div>
   <div class="drawer-foot">
     <button class="btn" data-close-drawer>取消</button>
-    <button class="btn" onclick="PMS.toast('已向株洲高新人才公寓运营有限公司推送素材补报催办：按套补 VR 84 套、户型图 126 套，按间补实景照片 122 间','success')"><i class="fa-solid fa-bell"></i> 催办素材</button>
-    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认保存时代新城人才公寓的展示配置？',detail:'套级 VR 全景与户型图素材缺失时，缺素材的套房及其下各间不允许审核发布。剩余可租间数按间与后台房态实时同步，不允许手工填写。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已保存，配置将在下次上架时生效','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认保存时代新城人才公寓的展示配置？VR 与户型图素材缺失时不允许上架。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已保存，配置将在下次上架时生效','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
   </div>
 </div>
 <script>
 (function () {
-  var ts = document.querySelectorAll('main.app-main .table-wrap > table.data-table');
-  if (ts[0]) { ts[0]._total = 2486; }
-  if (ts[1]) { ts[1]._total = 4286; }
-  if (ts[2]) { ts[2]._total = 6; }
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 6; }
 })();
 </script>
 

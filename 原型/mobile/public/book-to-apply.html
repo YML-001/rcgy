@@ -3,32 +3,62 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>预约转申请 · 株洲市人才住房保障管理平台</title>
+<title>意向登记转正式申请 · 株洲市人才住房保障管理平台</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="../../assets/css/app.css">
 <link rel="stylesheet" href="../../assets/css/mobile.css">
 <link rel="stylesheet" href="../../assets/css/ext.css">
 </head>
-<body class="m-body" data-mtitle="预约转申请" data-mmod="N1 房源预约与预定" data-mcode="N1-03"
-      data-mdesc="预约后按提示补齐资格材料转为正式申请；预约记录在配租时优先于轮候排序。" data-mback="book-list.html" data-mtabset="public" data-mtab="me" data-mchan="湘易办">
+<body class="m-body" data-mtitle="转正式申请" data-mmod="N1 房源意向登记" data-mcode="N1-03"
+      data-mdesc="将已登记的意向转为正式资格申请。转申请时带出已登记的楼盘与户型并允许更换，同样只到「楼盘＋户型」两级。意向登记不产生配租权利，是否取得保障资格以正式申请的两级审核结论为准。" data-mback="book-list.html" data-mtabset="public" data-mtab="apply" data-mchan="湘易办">
 <div class="m-stage">
   <div class="m-phone">
     <div class="m-screen">
       <div class="m-view">
-        <div class="m-note success"><i class="fa-solid fa-circle-check"></i>
-          <div>转为正式申请后<b>仍保留预约优先权</b>：配租时您的排序仍优先于普通轮候人员，预约号与申请编号自动关联，<b>无需重新预约、无需重新排队</b>。</div>
+        <div class="m-note"><i class="fa-solid fa-circle-info"></i>
+          <div>转正式申请时，系统将<b>带出您已登记的楼盘与户型</b>，带入后<b>仍可更换</b>。意向登记<b>不产生配租权利</b>，也不改变审核顺序；是否取得保障资格，以正式申请的<b>两级审核结论</b>为准。</div>
         </div>
         <div class="m-card">
-          <div class="m-card-h"><i class="fa-solid fa-calendar-check"></i>待转申请的预约</div>
+          <div class="m-card-h"><i class="fa-solid fa-clipboard-check"></i>待转申请的意向登记<span class="m-tag green" style="margin-left:auto">生效中</span></div>
           <div class="m-card-b">
-          <div class="m-kv">
-            <div><span>预约号</span><span>YY2026-0906-0428</span></div>
-            <div><span>意向房源</span><span>湘江1958 人才公寓 A6-1502A 间　计租 27.80 ㎡（套内 22.40 ＋ 公摊 5.40）</span></div>
-            <div><span>意向入住时间</span><span>2026-10-08</span></div>
-            <div><span>当前预约序位</span><span><b style="color:var(--primary)">第 3 位</b>　<span class="m-tag blue">预约优先</span></span></div>
-            <div><span>预约有效期</span><span><b style="color:var(--danger)">2026-10-06 23:59</b>（剩余 28 天）</span></div>
+          <div class="m-count"><i class="fa-solid fa-hourglass-half"></i>有效期倒计时<span class="m-cn">剩余 180 天</span></div>
+          <div class="m-kv" style="margin-top:10px">
+            <div><span>登记编号</span><span>DJ2026-0909-0428</span></div>
+            <div><span>意向楼盘</span><span>湘江1958 人才公寓（天元区泰山路 1958 号）</span></div>
+            <div><span>意向户型</span><span>二室一厅　78.60 ㎡　·　按间配租 2 人</span></div>
+            <div><span>期望入住时间</span><span>2026-11-01（仅作需求摸底参考）</span></div>
+            <div><span>有效期至</span><span>2027-03-08 23:59</span></div>
+            <div><span>条款确认</span><span>已确认管理办法　<span class="m-tag blue">V2026.09</span>　2026-09-09 21:14</span></div>
             <div><span>拟申请类型</span><span>就业青年人才</span></div>
           </div>
+          </div>
+        </div>
+        <div class="m-sect">带入正式申请的楼盘与户型<span class="m-sect-x">可更换</span></div>
+        <div class="m-form">
+          <div class="m-fi">
+            <label>申请楼盘 <span class="req">*</span></label>
+            <div class="m-fc">
+              <select>
+                <option selected>湘江1958 人才公寓（天元区 · 剩余可选 126 间）</option>
+                <option>栗雨佳苑人才公寓（天元区 · 剩余可选 57 间）</option>
+                <option>云龙人才苑（经开区 · 剩余可选 24 间）</option>
+                <option>茨菇塘公寓（荷塘区 · 剩余可选 32 间）</option>
+                <option>董家塅安居苑（芦淞区 · 剩余可选 18 间）</option>
+                <option>清水塘新苑（石峰区 · 剩余可选 42 间）</option>
+              </select>
+              <div class="m-fh"><i class="fa-solid fa-database"></i> 由意向登记 DJ2026-0909-0428 带入，可在此更换</div>
+            </div>
+          </div>
+          <div class="m-fi">
+            <label>申请户型 <span class="req">*</span></label>
+            <div class="m-fc">
+              <select>
+                <option>单间配套　42.00 ㎡　·　自付 252.00 元/月</option>
+                <option>一室一厅　56.80 ㎡　·　自付 340.80 元/月</option>
+                <option selected>二室一厅　78.60 ㎡　·　整套自付 471.60 元/月</option>
+              </select>
+              <div class="m-fh"><b>只填报到户型一级</b>：不需要、也不能指定具体楼栋、房号与房间，具体房源在配租环节由系统统一分配</div>
+            </div>
           </div>
         </div>
         <div class="m-sect">资格材料补齐清单<span class="m-sect-x">6 项 · 已齐备 4 项</span></div>
@@ -44,7 +74,7 @@
               <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>婚姻状况</b><span>民政系统核验：未婚；同步核验市城区范围内无自有住房、未享受其他住房保障</span></div></div>
             </div>
             <div class="m-note" style="margin-top:10px"><i class="fa-solid fa-circle-info"></i>
-              <div>标记为<b>待接口回传</b>的材料由系统自动调取，<b>无需本人上传</b>。回传完成前可先提交，材料齐备后自动进入初审，不影响预约意向登记。</div>
+              <div>标记为<b>待接口回传</b>的材料由系统自动调取，<b>无需本人上传</b>。回传完成前可先提交，材料齐备后自动进入初审。</div>
             </div>
           </div>
         </div>
@@ -53,25 +83,26 @@
           <div class="m-card-h"><i class="fa-solid fa-diagram-project"></i>办理环节与时限</div>
           <div class="m-card-b">
           <div class="m-tl">
-            <div class="m-ti on"><div class="m-tt">提交正式申请</div><div class="m-td">补齐资格材料，预约号 YY2026-0906-0428 自动关联至申请件</div></div>
-            <div class="m-ti"><div class="m-tt">运营单位初审</div><div class="m-td">株洲城发高科人才安居服务有限公司　·　核对材料完整性、真实性与在租状态，2 个工作日</div></div>
+            <div class="m-ti on"><div class="m-tt">提交正式申请</div><div class="m-td">带入所登记的楼盘与户型，登记编号 DJ2026-0909-0428 自动关联至申请件</div></div>
+            <div class="m-ti"><div class="m-tt">运营单位初审</div><div class="m-td">株洲市人才安居服务有限公司　·　核对材料完整性、真实性与在租状态，2 个工作日</div></div>
             <div class="m-ti"><div class="m-tt">市住保中心复审</div><div class="m-td">市保障性住房服务中心出具审核结论，3 个工作日；两级意见分别留痕</div></div>
-            <div class="m-ti"><div class="m-tt">进入配租（预约优先）</div><div class="m-td">配租不摇号，按受理时间排序；<b>已预约本批次房源的优先于普通轮候</b></div></div>
-            <div class="m-ti"><div class="m-tt">选房确认与签约</div><div class="m-td">选房通知后 1 个工作日内确认，逾期自动顺延至下一顺序人</div></div>
+            <div class="m-ti"><div class="m-tt">资格审核通过，纳入配租</div><div class="m-td">审核通过后纳入配租范围，<b>房源不由申请人自行选定</b>，由系统<b>按配租公告设定的时间自动配租</b></div></div>
+            <div class="m-ti"><div class="m-tt">配租结果通知与办理入住</div><div class="m-td">配租结果通过站内消息与短信告知，按通知办理签约与入住；<b>不服从配租房源且不办理入住的视同放弃</b></div></div>
           </div>
           </div>
         </div>
         <div class="m-note warn"><i class="fa-solid fa-triangle-exclamation"></i>
-          <div>请在<b>预约有效期届满前</b>完成转申请。逾期未转申请的，意向登记自动作废，<b>本人轮候资格不取消</b>，可重新预约其他房间。</div>
+          <div>建议在意向登记<b>有效期届满前</b>完成转申请。有效期届满的，<b>仅本条意向登记失效</b>，<b>不影响本人申请资格</b>，可重新登记或直接提交正式申请。</div>
         </div>
         <div class="m-cells">
           <a class="m-cell" href="apply-guide.html"><span class="m-ci"><i class="fa-solid fa-book-open"></i></span><span class="m-cl"><b>先看办事指南</b><span class="m-cs">申请条件、材料清单、办理流程与时限</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
-          <a class="m-cell" href="book-list.html"><span class="m-ci cyan"><i class="fa-solid fa-calendar-check"></i></span><span class="m-cl"><b>返回我的预约</b><span class="m-cs">查看预约状态、改约或取消预约</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="house-detail.html"><span class="m-ci green"><i class="fa-solid fa-building"></i></span><span class="m-cl"><b>再看看楼盘与户型</b><span class="m-cs">总房源、意向登记、已轮候、剩余可选与套内各间租住情况</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="book-list.html"><span class="m-ci cyan"><i class="fa-solid fa-clipboard-check"></i></span><span class="m-cl"><b>返回我的意向登记</b><span class="m-cs">查看有效期倒计时，变更或取消登记</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
         </div>
       </div>
       <div class="m-actbar">
-        <button class="m-btn w-auto" type="button" onclick="MB.toast('已保存，转申请入口保留至 2026-09-20')">稍后再办</button>
-        <button class="m-btn primary" type="button" onclick="MB.submit('.m-view','确认将预约转为正式资格申请？转申请后保留预约优先权，材料将进入初审。','确认转申请','apply-step1.html')"><i class="fa-solid fa-file-arrow-up"></i> 确认转申请</button>
+        <button class="m-btn w-auto" type="button" onclick="MB.toast('已保存，转申请入口在意向登记有效期内一直保留')">稍后再办</button>
+        <button class="m-btn primary" type="button" onclick="MB.submit('.m-view','确认转为正式资格申请？系统将带入所登记的楼盘与户型（可在申请表中更换），材料齐备后进入两级审核。','确认转申请','apply-step1.html')"><i class="fa-solid fa-file-arrow-up"></i> 确认转申请</button>
       </div>
     </div>
   </div>

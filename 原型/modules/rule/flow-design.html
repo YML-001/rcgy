@@ -70,10 +70,10 @@
           <tr><th>流程编号</th><th class="cell-lg">流程名称</th><th>环节数</th><th>限时环节</th><th class="cell-lg">关键环节与承办角色</th><th>版本</th><th>生效日期</th><th>状态</th><th>操作</th></tr>
         </thead>
         <tbody>
-          <tr><td>LC-001</td><td>人才公寓资格审核流程</td><td class="num">7</td><td class="num">2</td><td>多渠道受理（系统/窗口）→ 系统自动联审 → 生成核验报告 → 城区初审（城区经办员，1 工作日）→ <b>复核审定（资格审核员，3 工作日法定）</b> → 结论电子送达 → 归入电子档案</td><td><span class="sp-vt cur">V2026-09</span></td><td>2026-09-01</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('lcDrawer')">编排</span></td></tr>
-          <tr><td>LC-002</td><td>配租选房流程</td><td class="num">7</td><td class="num">3</td><td>拟定批次 → <b>业务管理员审批</b> → 发布公告 → 在线报名（限期）→ 生成顺序名单并公示（2 天）→ 分时段选房（锁房 30 分钟）→ 配租结果公开</td><td><span class="sp-vt cur">V2026-09</span></td><td>2026-09-01</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('lcDrawer')">编排</span></td></tr>
-          <tr><td>LC-003</td><td>年度资格年审流程</td><td class="num">6</td><td class="num">2</td><td>发起批次 → 自动生成待审名单 → 四项数据自动复核 → 承租人在线确认（限期）→ 异常件人工核查（资格审核员）→ 结论处置并电子送达</td><td><span class="sp-vt cur">V2026-09</span></td><td>2026-09-01</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('lcDrawer')">编排</span></td></tr>
-          <tr class="row-warn"><td>LC-001-N</td><td>人才公寓资格审核流程（拟调整）</td><td class="num">8</td><td class="num">3</td><td>拟在城区初审后<b>增加「税务例外件专项复核」环节</b>（承办角色：资格审核员，时限 1 工作日），以应对企业纳税判定口径未明确期间的人工核实需要</td><td><span class="sp-vt">V2026-10（待审批）</span></td><td>2026-10-01</td><td><span class="badge orange">待审批</span></td><td><span class="link" onclick="PMS.openDrawer('lcDrawer')">编排</span></td></tr>
+          <tr><td>LC-001</td><td>人才公寓资格审核流程</td><td class="num">7</td><td class="num">2</td><td>多渠道受理（系统/窗口）→ 系统自动联审 → 生成核验报告 → 受理初审（受理初审角色，1 工作日）→ <b>复核审定（审核角色，3 工作日法定）</b> → 结论电子送达 → 归入电子档案</td><td><span class="sp-vt cur">V2026-09</span></td><td>2026-09-01</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('lcDrawer')">编排</span></td></tr>
+          <tr><td>LC-002</td><td>配租选房流程</td><td class="num">7</td><td class="num">3</td><td>拟定批次 → <b>业务管理员角色审批</b> → 发布公告并设定执行时间 → 群发短信通知 → 生成顺序名单并公示（2 天）→ <b>系统自动配租</b>（按审核通过时间、意向范围内匹配、同套同性别、组团整套预留）→ 配租结果通知与签约 → 配租结果公开</td><td><span class="sp-vt cur">V2026-09</span></td><td>2026-09-01</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('lcDrawer')">编排</span></td></tr>
+          <tr><td>LC-003</td><td>年度资格年审流程</td><td class="num">6</td><td class="num">2</td><td>发起批次 → 自动生成待审名单 → 四项数据自动复核 → 承租人在线确认（限期）→ 异常件人工核查（审核角色）→ 结论处置并电子送达</td><td><span class="sp-vt cur">V2026-09</span></td><td>2026-09-01</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('lcDrawer')">编排</span></td></tr>
+          <tr class="row-warn"><td>LC-001-N</td><td>人才公寓资格审核流程（拟调整）</td><td class="num">8</td><td class="num">3</td><td>拟在受理初审后<b>增加「税务例外件专项复核」环节</b>（承办角色：审核角色，时限 1 工作日），以应对企业纳税判定口径未明确期间的人工核实需要</td><td><span class="sp-vt">V2026-10（待审批）</span></td><td>2026-10-01</td><td><span class="badge orange">待审批</span></td><td><span class="link" onclick="PMS.openDrawer('lcDrawer')">编排</span></td></tr>
         </tbody>
       </table>
     </div>
@@ -117,18 +117,18 @@
         </div>
         <div class="form-item col-full">
           <label>环节编排 <span class="req">*</span></label>
-          <textarea rows="8">1. 多渠道受理（系统自动 / 窗口受理员）· 即时
+          <textarea rows="8">1. 多渠道受理（系统自动 / 窗口受理角色）· 即时
 2. 系统自动联审（系统）· T+0，8 项并行
 3. 生成核验报告（系统）· T+0
-4. 城区初审（城区经办员）· 1 个工作日 · 可回退至受理
-5. 税务例外件专项复核（资格审核员）· 1 个工作日 · 仅企业纳税或个税例外件流转
-6. 复核审定（资格审核员）· 3 个工作日（法定，含前序环节）· 可回退至补正
+4. 受理初审（受理初审角色）· 1 个工作日 · 全市统一受理，可回退至受理
+5. 税务例外件专项复核（审核角色）· 1 个工作日 · 仅企业纳税或个税例外件流转
+6. 复核审定（审核角色）· 3 个工作日（法定，含前序环节）· 可回退至补正
 7. 结论电子送达（系统）· 即时
 8. 归入电子档案（系统）· 即时</textarea>
         </div>
         <div class="form-item col-full">
           <label>回退条件 <span class="req">*</span></label>
-          <textarea rows="3">①城区初审可回退至受理（材料影像不清晰）；②复核审定可回退至申请人补正（缺件），补正期间时限中止；③专项复核不可回退，须出具核实意见后流转。</textarea>
+          <textarea rows="3">①受理初审可回退至受理（材料影像不清晰）；②复核审定可回退至申请人补正（缺件）或回退至受理初审（初审意见要素不全），补正期间时限中止；③专项复核不可回退，须出具核实意见后流转。</textarea>
         </div>
         <div class="form-item">
           <label>生效日期 <span class="req">*</span></label>
@@ -142,7 +142,7 @@
   </div>
   <div class="drawer-foot">
     <button class="btn" data-close-drawer>取消</button>
-    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认提交资格审核流程 V2026-10 编排审批？在办件仍按原流程执行。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已提交，待业务管理员审批后对新件生效','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认提交资格审核流程 V2026-10 编排审批？在办件仍按原流程执行。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已提交，待业务管理员角色审批后对新件生效','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
   </div>
 </div>
 <script>

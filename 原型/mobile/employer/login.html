@@ -9,74 +9,88 @@
 <link rel="stylesheet" href="../../assets/css/mobile.css">
 <link rel="stylesheet" href="../../assets/css/ext.css">
 </head>
-<body class="m-body" data-mtitle="用人单位登录" data-mmod="M3 用户登录与身份认证" data-mcode="M3-00"
-      data-mdesc="用人单位经办人不走湘易办，用手机号 + 短信验证码登录：小程序拉起手机号授权取号后与已开通的经办人手机号比对，一致方可登录。经办人手机号即登录账号。"
-      data-mtabset="employer" data-mnav="0" data-mrole="0" data-mtint="1">
+<style>
+.lgm-top { padding: 46px 22px 26px; text-align: center;
+  background: linear-gradient(150deg, #17386f 0%, #1a5cb8 100%); color: #fff; }
+.lgm-logo { width: 62px; height: 62px; margin: 0 auto 14px; border-radius: 16px;
+  background: rgba(255,255,255,.18); display: flex; align-items: center;
+  justify-content: center; font-size: 28px; }
+.lgm-t { font-size: 19px; font-weight: 700; letter-spacing: .5px; }
+.lgm-s { margin-top: 7px; font-size: 12.5px; color: rgba(255,255,255,.82); line-height: 1.7; }
+.lgm-body { padding: 20px 16px 16px; }
+.lgm-auth { padding: 16px; border: 1px solid var(--border); border-radius: 12px;
+  background: var(--bg-card); }
+.lgm-auth .ah { display: flex; align-items: center; gap: 9px; font-size: 14px;
+  font-weight: 700; }
+.lgm-auth .ah i { color: #07c160; font-size: 17px; }
+.lgm-auth .ad { margin-top: 9px; font-size: 12px; color: var(--text-3); line-height: 1.8; }
+.lgm-phone { margin-top: 13px; padding: 11px 13px; border-radius: 9px;
+  background: var(--bg-soft); display: flex; align-items: center;
+  justify-content: space-between; }
+.lgm-phone .p { font-size: 16px; font-weight: 700; letter-spacing: 1px; }
+.lgm-phone .x { font-size: 11.5px; color: var(--text-3); }
+.lgm-btn { margin-top: 14px; width: 100%; height: 44px; border: 0; border-radius: 9px;
+  background: #07c160; color: #fff; font-family: var(--font); font-size: 15px;
+  font-weight: 700; display: flex; align-items: center; justify-content: center;
+  gap: 7px; cursor: pointer; }
+.lgm-btn.blue { background: linear-gradient(135deg, #1a5cb8, #2f7de1); }
+.lgm-alt { margin-top: 15px; text-align: center; font-size: 12.5px; }
+.lgm-alt a { color: var(--primary); font-weight: 700; }
+.lgm-hr { margin: 17px 0 13px; display: flex; align-items: center; gap: 10px;
+  font-size: 11.5px; color: var(--text-3); }
+.lgm-hr::before, .lgm-hr::after { content: ''; flex: 1; height: 1px;
+  background: var(--border); }
+.lgm-ag { margin-top: 15px; font-size: 11px; color: var(--text-3); line-height: 1.8;
+  text-align: center; }
+.lgm-ag a { color: var(--primary); }
+</style>
+<body class="m-body" data-mtitle="用人单位登录" data-mmod="M3 用人单位 · 登录"
+      data-mcode="M3-01" data-mtabset="emp" data-mtab="declare" data-mback="../public/login-entry.html"
+      data-mdesc="用人单位不走湘易办，使用独立的登录页面。小程序拉起手机号授权登录，取号后与已开通的经办人手机号比对，匹配的直接进入单位端；未注册的从本页「用人单位注册」入口自助提交注册申请。手机号即账号，不需填写账号密码。"
+      data-mchan="小程序">
 <div class="m-stage">
   <div class="m-phone">
     <div class="m-screen">
-      <div class="m-view">
-        <div class="m-hero">
-          <div class="m-hero-t">建宁安居 · 用人单位端</div>
-          <div class="m-hero-s">经办人手机号 + 短信验证码登录　·	不走湘易办</div>
-          <div class="m-hero-row">
-            <div class="m-hs"><div class="v">手机号</div><div class="l">即登录账号</div></div>
-            <div class="m-hs"><div class="v">短信</div><div class="l">验证码登录</div></div>
-            <div class="m-hs"><div class="v">自助</div><div class="l">在线注册</div></div>
-          </div>
+      <div class="m-view" style="padding:0">
+        <div class="lgm-top">
+          <div class="lgm-logo"><i class="fa-solid fa-building-user"></i></div>
+          <div class="lgm-t">用人单位端</div>
+          <div class="lgm-s">为本单位职工批量代申报　·　经办人手机号即账号</div>
         </div>
-
-        <div class="m-note"><i class="fa-solid fa-circle-info"></i>
-          <div>用人单位<b>不走湘易办</b>，用<b>手机号 + 短信验证码</b>登录：小程序拉起手机号授权取号后，<b>与已开通的经办人手机号比对</b>，一致方可登录。</div>
-        </div>
-
-        <div class="m-sect">经办人登录</div>
-        <div class="m-form">
-          <div class="m-fi">
-            <label>手机号 <span class="req">*</span></label>
-            <div class="m-fc"><input type="tel" value="13802456207"><div class="m-fh"><i class="fa-solid fa-circle-info"></i> 请输入注册时填报的经办人手机号（即登录账号）</div></div>
-          </div>
-          <div class="m-fi">
-            <label>短信验证码 <span class="req">*</span></label>
-            <div class="m-fc">
-              <div style="display:flex;gap:8px;align-items:center">
-                <input type="tel" value="8896" maxlength="6" style="flex:1">
-                <button class="m-btn ghost" type="button" style="flex:0 0 auto;height:34px" onclick="MB.toast('验证码已发送')">获取验证码</button>
-              </div>
-              <div class="m-fh">验证码已发送至 <b>138****6207</b>，60 秒内有效（演示默认已填）</div>
+        <div class="lgm-body">
+          <div class="lgm-auth">
+            <div class="ah"><i class="fa-brands fa-weixin"></i>申请获取你的手机号</div>
+            <div class="ad">取号后与已开通的经办人手机号比对，匹配的直接进入单位端。
+              手机号即登录账号，不需填写账号密码。</div>
+            <div class="lgm-phone">
+              <span class="p">138****6621</span>
+              <span class="x">微信绑定号码</span>
             </div>
+            <button class="lgm-btn blue" onclick="MB.confirm({title:'授权手机号',message:'允许平台获取你的手机号？',detail:'系统将比对该手机号是否为已开通的经办人账号。未注册的单位请先提交注册申请。',okText:'允许',onOk:function(){MB.toast('登录成功，请先完成实名认证');setTimeout(function(){location.href='emp-verify.html';},800);}})">
+              <i class="fa-solid fa-mobile-screen-button"></i> 手机号登录
+            </button>
+          </div>
+
+          <div class="m-note warn" style="margin-top:15px"><i class="fa-solid fa-triangle-exclamation"></i>
+            <div>登录后<b>办理业务前须完成经办人实名认证</b>，
+              核验姓名、身份证号与手机号是否与注册时填报的一致。
+              未通过认证的只能查看单位信息。</div>
+          </div>
+
+          <div class="lgm-hr">还没有账号</div>
+          <div class="m-cells">
+            <a class="m-cell" href="emp-register.html"><span class="m-ci orange"><i class="fa-solid fa-file-signature"></i></span><span class="m-cl"><b>用人单位注册</b><span class="m-cs">注册与账号申请一次办理，审核通过后开通</span></span><span class="m-cv"><span class="m-tag blue">自助</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+            <a class="m-cell" href="emp-reg-status.html"><span class="m-ci"><i class="fa-solid fa-magnifying-glass-chart"></i></span><span class="m-cl"><b>注册进度查询</b><span class="m-cs">凭手机号查询审核状态，退回的可修改后重提</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          </div>
+
+          <div class="lgm-alt" style="margin-top:16px">
+            <a href="../public/login-entry.html">返回个人用户登录</a>
           </div>
         </div>
-
-        <div class="m-sect">登录说明</div>
-        <div class="m-card">
-          <div class="m-card-h"><i class="fa-solid fa-shield-halved"></i>账号与登录规则</div>
-          <div class="m-card-b">
-            <div class="m-check">
-              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>经办人手机号即登录账号</b><span>注册与账号申请合并为一个流程，无需另设账号密码；PC 与移动端共用同一账号</span></div></div>
-              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>手机号取号后自动比对</b><span>登录取号后与企业机构管理已开通的经办人手机号比对，一致方可进入</span></div></div>
-              <div class="wait"><i class="fa-solid fa-user-shield"></i><div class="m-chl"><b>登录后须先实名认证</b><span>办业务前须完成本人实名认证（核验姓名、身份证号、手机号与注册一致），未通过只能查看单位信息</span></div></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="m-sect">还没有账号？</div>
-        <div class="m-cells">
-          <a class="m-cell" href="emp-register.html"><span class="m-ci green"><i class="fa-solid fa-building-circle-check"></i></span><span class="m-cl"><b>用人单位注册</b><span class="m-cs">在线自助注册，一次填报，企业机构管理审核通过后以经办人手机号开通登录</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
-        </div>
-
-        <div class="m-note warn"><i class="fa-solid fa-triangle-exclamation"></i>
-          <div>运营机构账号<b>由主管单位统一开通、不自助注册</b>，请由运营机构经办人使用 <a href="../gov/ops-login.html" style="color:var(--primary)">运营机构登录</a>。主管单位工作人员请使用政务网统一认证登录。</div>
-        </div>
-      </div>
-
-      <div class="m-actbar">
-        <button class="m-btn primary block" type="button" onclick="if(MB.validate('.m-view')){MB.toast('登录成功');setTimeout(function(){location.href='home.html';},800);}"><i class="fa-solid fa-right-to-bracket"></i> 登录</button>
       </div>
     </div>
   </div>
 </div>
-
 <script src="../../assets/js/mobile.js"></script>
 </body>
 </html>

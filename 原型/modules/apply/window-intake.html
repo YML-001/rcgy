@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>窗口代办录入 · 株洲市人才住房保障管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="window" data-active="apply-22">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才住房保障管理平台
+      <span class="sep">/</span> 人才档案与资格联审
+      <span class="sep">/</span> <span class="cur">窗口代办录入</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.openDrawer('intakeDrawer')"><i class="fa-solid fa-plus"></i> 新建代办申请</button>
+      <button class="btn" onclick="location.href='window-material.html'"><i class="fa-solid fa-print"></i> 材料清单打印</button>
+    </div>
+  </div>
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>为不便线上办理的申请人提供<b>兜底代办</b>。窗口代录的申请件与线上申请<b>汇入同一件池、走同一审核流程</b>，<b>窗口不需在线选房</b>，只录入身份与资格材料；申请渠道自动标记为「政务窗口（PC 申请）」，受理时间以窗口录入时间为准，不因渠道而优先。</div>
+  </div>
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-pen-to-square"></i></div>
+      <div><div class="s-label">本月代办</div><div class="s-value">36</div>
+        <div class="s-trend">件</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
+      <div><div class="s-label">已办结</div><div class="s-value">28</div>
+        <div class="s-trend">通过 26 / 退回 2</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-clock"></i></div>
+      <div><div class="s-label">在办</div><div class="s-value">8</div>
+        <div class="s-trend">已提交初审</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-print"></i></div>
+      <div><div class="s-label">材料清单打印</div><div class="s-value">52</div>
+        <div class="s-trend">次</div></div>
+    </div>
+  </div>
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>申请编号</label><input type="text" placeholder="申请编号"></div>
+      <div class="filter-item"><label>申请人</label><input type="text" placeholder="姓名"></div>
+      <div class="filter-item"><label>证件号</label><input type="text" placeholder="身份证号"></div>
+      <div class="filter-item"><label>状态</label><select><option value="">全部</option><option>待初审</option><option>待复审</option><option>审核通过</option><option>不予通过</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>申请编号</th><th>申请人</th><th>申请类型</th><th class="cell-lg">所在单位</th><th>录入时间</th><th>当前状态</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>RC2026-0906-0212</td><td>刘德海</td><td><span class="badge blue">就业</span></td><td>株洲硬质合金集团</td><td>2026-09-06 10:12</td><td><span class="badge orange">待初审</span></td><td><span class="link" onclick="location.href='pool-list.html'">查看</span></td></tr>
+          <tr><td>RC2026-0905-0201</td><td>谭雅丽</td><td><span class="badge cyan">创业</span></td><td>个体工商户</td><td>2026-09-05 15:40</td><td><span class="badge orange">待复审</span></td><td><span class="link" onclick="location.href='pool-list.html'">查看</span></td></tr>
+          <tr><td>RC2026-0904-0188</td><td>周建国</td><td><span class="badge blue">就业</span></td><td>中车株洲电力机车</td><td>2026-09-04 09:22</td><td><span class="badge green">审核通过</span></td><td><span class="link" onclick="location.href='conclusion.html'">查看</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>操作简化</b> 窗口只录资格材料，不选房；意向片区选填，配租时统一选房</span>
+    <span><b>渠道标记</b> 窗口代录自动标记为「政务窗口（PC 申请）」</span>
+    <span><b>排序口径</b> 受理时间以窗口录入时间为准，与线上申请同一排序规则</span>
+    <span><b>材料要求</b> <span class="link" onclick="location.href='window-material.html'">按申请人类型打印材料清单</span></span>
+  </div>
+
+</main>
+<div class="drawer-mask"></div>
+<div class="drawer" id="intakeDrawer">
+  <div class="drawer-head"><h3>窗口代办录入</h3>
+    <span class="badge blue">政务窗口（PC 申请）</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div></div>
+  <div class="drawer-body">
+  <div class="alert alert-warning"><i class="fa-solid fa-triangle-exclamation"></i>
+    <div>代录前须核验申请人<b>身份证原件</b>，并由申请人当面签署真实性承诺书。
+      录入后的申请件与线上申请走同一审核流程，受理时间以本次录入时间为准。</div></div>
+      <div class="form-grid form-align">
+        <div class="form-item"><label>申请人姓名 <span class="req">*</span></label>
+          <input type="text" placeholder="按身份证填写"></div>
+        <div class="form-item"><label>身份证号 <span class="req">*</span></label>
+          <input type="text" placeholder="18 位"></div>
+        <div class="form-item"><label>联系电话 <span class="req">*</span></label>
+          <input type="text" placeholder="11 位手机号"></div>
+        <div class="form-item"><label>申请类型 <span class="req">*</span></label>
+          <select><option>就业青年人才</option><option>创业青年人才</option><option>特殊人才</option></select></div>
+        <div class="form-item col-full"><label>所在单位 / 创业企业 <span class="req">*</span></label>
+          <input type="text" placeholder="单位全称"></div>
+        <div class="form-item col-full"><label>意向片区（选填）</label>
+          <select><option>暂不指定，服从配租</option><option>天元区</option><option>荷塘区</option><option>芦淞区</option><option>石峰区</option><option>渌口区</option></select>
+          <div class="hint">仅作意向登记，不锁定房源。资格审核通过后按批次统一组织选房</div></div>
+        <div class="form-item col-full"><label>材料扫描件 <span class="req">*</span></label>
+          <div class="hint proto"><span class="proto-t">原型说明 · 开发删除</span>身份证、毕业证、劳动合同或营业执照扫描后上传（原型演示不做实际上传）</div></div>
+        <div class="form-item col-full"><label>真实性承诺书 <span class="req">*</span></label>
+          <select><option>申请人已当面签署（纸质件已扫描上传）</option><option>未签署</option></select></div>
+      </div>
+  </div>
+  <div class="drawer-foot"><button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认提交代办申请？',detail:'提交后进入统一件池，渠道标记为政务窗口（PC 申请），受理时间以本次录入时间为准。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已提交，申请编号 RC2026-0908-0221','success');}})"><i class="fa-solid fa-check"></i> 提交代办申请</button></div>
+</div>
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 3; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

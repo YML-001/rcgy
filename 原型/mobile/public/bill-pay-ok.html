@@ -3,55 +3,147 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>缴费成功 · 株洲市人才住房保障管理平台</title>
+<title>缴费结果 · 株洲市人才住房保障管理平台</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="../../assets/css/app.css">
 <link rel="stylesheet" href="../../assets/css/mobile.css">
 <link rel="stylesheet" href="../../assets/css/ext.css">
 </head>
-<body class="m-body" data-mtitle="缴费成功" data-mmod="M9 租金缴纳与账单" data-mcode="M9-02"
-      data-mdesc="支付结果实时回写账单核销状态，支付流水号与缴费凭证同步归档。" data-mback="bill-list.html" data-mtabset="public" data-mtab="home">
+<body class="m-body" data-mtitle="缴费结果" data-mmod="M9 租金缴纳与账单" data-mcode="M9-02"
+      data-mdesc="线上渠道支付成功后实时核销并归档流水号；线下缴费凭证提交后状态为「待运营机构确认」，确认后账单自动核销并推送通知，确认前不计逾期。" data-mback="bill-list.html" data-mtabset="public" data-mtab="home">
 <div class="m-stage">
   <div class="m-phone">
     <div class="m-screen">
       <div class="m-view">
-        <div class="m-result">
-          <div class="m-ri"><i class="fa-solid fa-circle-check"></i></div>
-          <div class="m-rt">缴费成功</div>
-          <div class="m-rd">已支付 <b>424.44 元</b><br>账单已实时核销，缴费凭证已归档</div>
+        <div class="m-seg">
+          <button class="on" type="button" onclick="rs(1)">线上支付成功</button>
+          <button type="button" onclick="rs(2)">线下凭证已提交</button>
         </div>
-        <div class="m-card">
-          <div class="m-card-h"><i class="fa-solid fa-receipt"></i>支付凭证</div>
-          <div class="m-card-b">
-          <div class="m-kv">
-            <div><span>支付金额</span><span><b style="color:var(--danger)">424.44 元</b></span></div>
-            <div><span>支付方式</span><span>电信翼支付</span></div>
-            <div><span>支付流水号</span><span>YZF20260905094218</span></div>
-            <div><span>支付时间</span><span>2026-09-05 09:42:18</span></div>
-            <div><span>账单编号</span><span>ZD2026-09-00862</span></div>
-            <div><span>核销状态</span><span><span class="m-tag green">已核销</span></span></div>
-            <div><span>凭证归档</span><span><span class="m-tag green">已归档</span></span></div>
+
+        <!-- ========== 结果态一：线上支付成功（实时核销） ========== -->
+        <div id="rsOn" style="margin-top:12px">
+          <div class="m-result">
+            <div class="m-ri"><i class="fa-solid fa-circle-check"></i></div>
+            <div class="m-rt">缴费成功</div>
+            <div class="m-rd">已支付 <b>471.60 元</b><br>账单已<b>实时核销</b>，缴费凭证已归档</div>
           </div>
+          <div class="m-card">
+            <div class="m-card-h"><i class="fa-solid fa-receipt"></i>支付凭证</div>
+            <div class="m-card-b">
+            <div class="m-kv">
+              <div><span>支付金额</span><span><b style="color:var(--danger)">471.60 元</b></span></div>
+              <div><span>支付渠道</span><span><span class="m-tag blue">电信翼支付</span></span></div>
+              <div><span>支付流水号</span><span>YZF20260905094218</span></div>
+              <div><span>支付时间</span><span>2026-09-05 09:42:18</span></div>
+              <div><span>账单编号</span><span>ZD2026-09-00862</span></div>
+              <div><span>收款机构</span><span>株洲市人才安居服务有限公司</span></div>
+              <div><span>核销方式</span><span><span class="m-tag green">实时核销</span> 支付成功即核销</span></div>
+              <div><span>核销时间</span><span>2026-09-05 09:42:20</span></div>
+              <div><span>账单状态</span><span><span class="m-tag green">已缴清</span></span></div>
+              <div><span>凭证归档</span><span><span class="m-tag green">已归档</span></span></div>
+            </div>
+            </div>
+          </div>
+          <div class="m-note success"><i class="fa-solid fa-circle-check"></i>
+            <div>本期已缴清。款项已直接进入运营机构对公账户，<b>平台不归集资金</b>。下期账单将于 <b>2026-10-01 02:00</b> 自动生成并推送提醒。</div>
+          </div>
+          <div class="m-sect">后续操作</div>
+          <div class="m-cells">
+            <a class="m-cell" href="bill-invoice.html"><span class="m-ci purple"><i class="fa-solid fa-receipt"></i></span><span class="m-cl"><b>申领电子票据</b><span class="m-cs">对接财政电子票据系统开具</span></span><span class="m-cv"><span class="m-tag orange">可申领</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+            <a class="m-cell" href="bill-list.html"><span class="m-ci"><i class="fa-solid fa-list-check"></i></span><span class="m-cl"><b>返回账单列表</b><span class="m-cs">查看历史账单与缴费记录</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+            <a class="m-cell" href="me-subsidy.html"><span class="m-ci cyan"><i class="fa-solid fa-hand-holding-dollar"></i></span><span class="m-cl"><b>我的租金减免</b><span class="m-cs">累计减免已达 7,922.88 元</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
           </div>
         </div>
-        <div class="m-note success"><i class="fa-solid fa-circle-check"></i>
-          <div>本期已缴清。下期账单将于 <b>2026-10-01 02:00</b> 自动生成并推送提醒。</div>
-        </div>
-        <div class="m-sect">后续操作</div>
-        <div class="m-cells">
-          <a class="m-cell" href="bill-invoice.html"><span class="m-ci purple"><i class="fa-solid fa-receipt"></i></span><span class="m-cl"><b>申领电子票据</b><span class="m-cs">对接财政电子票据系统开具</span></span><span class="m-cv"><span class="m-tag orange">可申领</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
-          <a class="m-cell" href="bill-list.html"><span class="m-ci"><i class="fa-solid fa-list-check"></i></span><span class="m-cl"><b>返回账单列表</b><span class="m-cs">查看历史账单与缴费记录</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
-          <a class="m-cell" href="me-subsidy.html"><span class="m-ci cyan"><i class="fa-solid fa-hand-holding-dollar"></i></span><span class="m-cl"><b>我的租金减免</b><span class="m-cs">累计减免已达 7,922.88 元</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+
+        <!-- ========== 结果态二：线下凭证已提交（待运营机构确认） ========== -->
+        <div id="rsOff" style="display:none;margin-top:12px">
+          <div class="m-result">
+            <div class="m-ri wait"><i class="fa-solid fa-hourglass-half"></i></div>
+            <div class="m-rt">凭证已提交</div>
+            <div class="m-rd">已提交线下缴费凭证 <b>471.60 元</b><br>当前状态<b>待运营机构确认</b>，确认后账单自动核销</div>
+          </div>
+          <div class="m-note warn"><i class="fa-solid fa-circle-info"></i>
+            <div>凭证已送达<b>株洲市人才安居服务有限公司</b>，一般 <b>1 个工作日内</b>完成核对。确认前账单状态为「待确认」，<b>不计逾期、不纳入欠租统计</b>。</div>
+          </div>
+          <div class="m-card">
+            <div class="m-card-h"><i class="fa-solid fa-file-invoice-dollar"></i>提交信息</div>
+            <div class="m-card-b">
+            <div class="m-kv">
+              <div><span>缴费金额</span><span><b style="color:var(--danger)">471.60 元</b></span></div>
+              <div><span>支付渠道</span><span><span class="m-tag orange">线下缴费</span> 银行转账</span></div>
+              <div><span>凭证编号</span><span>PZ2026-09-00318</span></div>
+              <div><span>上传来源</span><span>承租人上传（王梓涵）</span></div>
+              <div><span>提交时间</span><span>2026-09-08 15:36:42</span></div>
+              <div><span>转账时间</span><span>2026-09-08 15:20（中国建设银行）</span></div>
+              <div><span>转账备注</span><span>ZD2026-09-00862 王梓涵　<span class="m-tag green">含账单号</span></span></div>
+              <div><span>账单编号</span><span>ZD2026-09-00862</span></div>
+              <div><span>收款机构</span><span>株洲市人才安居服务有限公司（尾号 8826）</span></div>
+              <div><span>核销方式</span><span><span class="m-tag orange">运营机构确认核销</span></span></div>
+              <div><span>账单状态</span><span><span class="m-tag orange">待确认</span> 不计逾期</span></div>
+            </div>
+            </div>
+          </div>
+          <div class="m-sect">凭证与办理进度</div>
+          <div class="m-card">
+            <div class="m-card-h"><i class="fa-solid fa-image"></i>已上传凭证<a class="m-more" href="javascript:void(0)" onclick="MB.toast('原型演示：打开凭证大图预览')">查看大图 <i class="fa-solid fa-angle-right"></i></a></div>
+            <div class="m-card-b">
+              <div class="m-up">
+                <div class="m-uc ok"><img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&q=80" alt="银行转账回单"><span class="m-uc-n">银行转账回单.jpg</span></div>
+              </div>
+              <div class="m-tl" style="margin-top:14px">
+                <div class="m-ti done"><div class="m-tt">凭证已提交</div><div class="m-td">2026-09-08 15:36　<span class="m-who">王梓涵（承租人上传）</span>　共 1 张，识别金额 471.60 元</div></div>
+                <div class="m-ti on"><div class="m-tt">运营机构核对确认中</div><div class="m-td">预计 <b>2026-09-09 17:30</b> 前完成　<span class="m-who">株洲市人才安居服务有限公司 · 彭雪梅</span></div></div>
+                <div class="m-ti"><div class="m-tt">账单自动核销</div><div class="m-td">确认通过后账单状态置为「已缴清」，核销时点以<b>确认时间</b>为准，并推送核销通知</div></div>
+              </div>
+            </div>
+          </div>
+          <div class="m-sect">核销规则</div>
+          <div class="m-card">
+            <div class="m-card-h"><i class="fa-solid fa-scale-balanced"></i>四条规则</div>
+            <div class="m-card-b">
+              <div class="m-check">
+                <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>确认后自动核销</b><span>运营机构确认通过后，系统自动核销账单并推送通知，无需再次操作</span></div></div>
+                <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>待确认期间不计逾期</b><span>凭证已提交待确认的账单不计逾期、不纳入欠租统计，不影响年审与续租</span></div></div>
+                <div class="bad"><i class="fa-solid fa-circle-exclamation"></i><div class="m-chl"><b>金额不一致会被退回</b><span>凭证金额与应缴 471.60 元不一致的，运营机构将退回并说明差额，须补足后重传</span></div></div>
+                <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>确认前可撤回重传</b><span>发现传错凭证的，可在运营机构确认前撤回并重新上传</span></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="m-cells">
+            <a class="m-cell" href="bill-detail.html"><span class="m-ci"><i class="fa-solid fa-file-invoice-dollar"></i></span><span class="m-cl"><b>查看账单明细</b><span class="m-cs">ZD2026-09-00862 · 2026 年 9 月租金</span></span><span class="m-cv"><span class="m-tag orange">待确认</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+            <a class="m-cell" href="bill-list.html"><span class="m-ci"><i class="fa-solid fa-list-check"></i></span><span class="m-cl"><b>返回账单列表</b><span class="m-cs">查看历史账单与缴费记录</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+            <a class="m-cell" href="me-feedback.html"><span class="m-ci orange"><i class="fa-solid fa-comment-dots"></i></span><span class="m-cl"><b>确认超时未处理</b><span class="m-cs">超过 2 个工作日未确认的可提交反馈催办</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          </div>
         </div>
       </div>
-      <div class="m-actbar">
+      <div class="m-actbar" id="barOn">
         <a class="m-btn w-auto" href="bill-invoice.html">申领票据</a>
         <a class="m-btn primary" href="bill-list.html"><i class="fa-solid fa-check"></i> 完成</a>
+      </div>
+      <div class="m-actbar" id="barOff" style="display:none">
+        <button class="m-btn w-auto" type="button" onclick="MB.confirm('确认撤回本次提交的缴费凭证？<br>撤回后账单回到「待缴」状态，可重新选择缴费方式。','确认撤回',function(){MB.toast('已撤回，可重新上传凭证');setTimeout(function(){location.href='bill-pay.html'},1200)})">撤回重传</button>
+        <a class="m-btn primary" href="bill-list.html"><i class="fa-solid fa-check"></i> 知道了</a>
       </div>
     </div>
   </div>
 </div>
 
 <script src="../../assets/js/mobile.js"></script>
+<script>
+function rs(n) {
+  var on = n === 1;
+  document.getElementById('rsOn').style.display = on ? '' : 'none';
+  document.getElementById('rsOff').style.display = on ? 'none' : '';
+  document.getElementById('barOn').style.display = on ? '' : 'none';
+  document.getElementById('barOff').style.display = on ? 'none' : '';
+}
+if (location.search.indexOf('way=offline') >= 0) {
+  document.addEventListener('DOMContentLoaded', function () {
+    var b = document.querySelectorAll('.m-seg button');
+    if (b.length > 1) { b[0].classList.remove('on'); b[1].classList.add('on'); }
+    rs(2);
+  });
+}
+</script>
 </body>
 </html>

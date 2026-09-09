@@ -3,37 +3,58 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>到位提醒设置 · 株洲市人才住房保障管理平台</title>
+<title>到期提醒设置 · 株洲市人才住房保障管理平台</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="../../assets/css/app.css">
 <link rel="stylesheet" href="../../assets/css/mobile.css">
 <link rel="stylesheet" href="../../assets/css/ext.css">
 </head>
-<body class="m-body" data-mtitle="到位提醒" data-mmod="N1 房源预约与预定" data-mcode="N1-04"
-      data-mdesc="意向楼盘新增房源或预约房源可配租时主动推送提醒，避免错过预约与配租时机。" data-mback="book-list.html" data-mtabset="public" data-mtab="msg">
+<body class="m-body" data-mtitle="到期提醒" data-mmod="N1 房源意向登记" data-mcode="N1-04"
+      data-mdesc="意向登记有效期为半年，届满前分批推送到期提醒，提示本人确认是否重新登记；同时可订阅意向楼盘新增房源与配租公告发布提醒。提醒仅作信息告知，不代表取得配租资格。" data-mback="book-list.html" data-mtabset="public" data-mtab="msg">
 <div class="m-stage">
   <div class="m-phone">
     <div class="m-screen">
       <div class="m-view">
         <div class="m-note"><i class="fa-solid fa-circle-info"></i>
-          <div>设置意向条件后，<b>意向楼盘新增房源</b>或<b>您预约的房源可配租</b>时，系统将通过湘易办站内消息、微信模板消息与短信主动推送提醒。</div>
+          <div>意向登记<b>有效期为 6 个月</b>，届满自动失效。系统将在届满前通过<b>湘易办站内消息、微信模板消息与短信</b>提醒您确认是否重新登记，避免需求统计中断。</div>
+        </div>
+        <div class="m-sect">我的意向登记有效期<span class="m-sect-x">生效中 1 条</span></div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-clipboard-check"></i>湘江1958 人才公寓 · 二室一厅<span class="m-tag green" style="margin-left:auto">生效中</span></div>
+          <div class="m-card-b">
+          <div class="m-count"><i class="fa-solid fa-hourglass-half"></i>有效期倒计时<span class="m-cn">剩余 180 天</span></div>
+          <div class="m-kv" style="margin-top:10px">
+            <div><span>登记编号</span><span>DJ2026-0909-0428</span></div>
+            <div><span>有效期至</span><span><b style="color:var(--danger)">2027-03-08 23:59</b></span></div>
+            <div><span>提醒时点</span><span>届满前 30 天、15 天、3 天各推送一次</span></div>
+          </div>
+            <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+              <a class="m-btn sm ghost" href="book-list.html">我的意向登记</a>
+              <a class="m-btn sm" href="book-change.html">变更登记</a>
+            </div>
+          </div>
         </div>
         <div class="m-sect">提醒项目<span class="m-sect-x">带锁标记的不可关闭</span></div>
         <div class="m-cells">
-          <div class="m-cell"><span class="m-ci red"><i class="fa-solid fa-lock"></i></span><span class="m-cl"><b>预约房源可配租提醒</b><span class="m-cs">您预约的房源进入配租批次、可选房时立即推送</span></span><span class="m-cv"><span class="m-tag dark">必开</span></span></div>
-          <div class="m-cell"><span class="m-ci green"><i class="fa-solid fa-building-circle-arrow-right"></i></span><span class="m-cl"><b>意向楼盘新增房源提醒</b><span class="m-cs">所选意向楼盘新增可租房源或退租释放房源时推送</span></span><span class="m-sw on"></span></div>
-          <div class="m-cell"><span class="m-ci cyan"><i class="fa-solid fa-map-location-dot"></i></span><span class="m-cl"><b>同片区房源到位提醒</b><span class="m-cs">意向片区内其他楼盘有符合条件房源时一并推送</span></span><span class="m-sw on"></span></div>
-          <div class="m-cell"><span class="m-ci red"><i class="fa-solid fa-lock"></i></span><span class="m-cl"><b>配租批次开始提醒</b><span class="m-cs">新批次配租公告发布、报名开始与截止时点推送</span></span><span class="m-cv"><span class="m-tag dark">必开</span></span></div>
+          <div class="m-cell"><span class="m-ci red"><i class="fa-solid fa-lock"></i></span><span class="m-cl"><b>意向登记到期提醒</b><span class="m-cs">有效期届满前 30 天、15 天、3 天各推送一次，提示确认是否重新登记</span></span><span class="m-cv"><span class="m-tag dark">必开</span></span></div>
+          <div class="m-cell"><span class="m-ci red"><i class="fa-solid fa-lock"></i></span><span class="m-cl"><b>配租公告发布提醒</b><span class="m-cs">新批次配租公告发布时推送，公告载明本批次房源与自动配租的时间安排</span></span><span class="m-cv"><span class="m-tag dark">必开</span></span></div>
+          <div class="m-cell"><span class="m-ci green"><i class="fa-solid fa-building-circle-arrow-right"></i></span><span class="m-cl"><b>意向楼盘新增房源提醒</b><span class="m-cs">所登记的意向楼盘新增可租房源或退租释放房源时推送</span></span><span class="m-cv"><span class="m-sw on"></span></span></div>
+          <div class="m-cell"><span class="m-ci cyan"><i class="fa-solid fa-map-location-dot"></i></span><span class="m-cl"><b>同片区房源提醒</b><span class="m-cs">意向片区内其他楼盘有符合条件房源时一并推送</span></span><span class="m-cv"><span class="m-sw on"></span></span></div>
+          <div class="m-cell"><span class="m-ci orange"><i class="fa-solid fa-file-signature"></i></span><span class="m-cl"><b>办法条款更新提醒</b><span class="m-cs">《管理办法》版本更新时推送，提示重新确认条款</span></span><span class="m-cv"><span class="m-sw"></span></span></div>
         </div>
-        <div class="m-sect">意向条件<span class="m-sect-x">用于匹配到位房源</span></div>
+        <div class="m-sect">提醒设置<span class="m-sect-x">用于匹配推送内容</span></div>
         <div class="m-form">
+          <div class="m-fi">
+            <label>到期提前提醒 <span class="req">*</span></label>
+            <div class="m-fc"><input type="number" value="30" min="1" max="90"><div class="m-fh">单位：天。首次提醒的提前天数，之后固定在届满前 15 天、3 天再各推送一次</div></div>
+          </div>
           <div class="m-fi">
             <label>意向片区 <span class="req">*</span></label>
             <div class="m-fc"><select data-dict="district"></select><div class="m-fh">须在市城区范围内（不含渌口区）</div></div>
           </div>
           <div class="m-fi">
             <label>意向户型 <span class="req">*</span></label>
-            <div class="m-fc"><select data-dict="roomType"></select><div class="m-fh">仅推送与所选户型一致或更优的到位房源</div></div>
+            <div class="m-fc"><select data-dict="roomType"></select><div class="m-fh">仅推送与所选户型一致或更优的房源信息</div></div>
           </div>
           <div class="m-fi">
             <label>租金上限 <span class="req">*</span></label>
@@ -41,30 +62,29 @@
           </div>
           <div class="m-fi">
             <label>关注楼盘</label>
-            <div class="m-fc"><input type="text" value="湘江1958 人才公寓、栗雨佳苑人才公寓、云龙人才苑"><div class="m-fh">与「我的收藏」同步，最多关注 5 个楼盘</div></div>
+            <div class="m-fc"><input type="text" value="湘江1958 人才公寓、栗雨佳苑人才公寓、云龙人才苑"><div class="m-fh">与「我的意向登记」同步，最多关注 5 个楼盘</div></div>
           </div>
           <div class="m-fi">
             <label>提醒方式 <span class="req">*</span></label>
             <div class="m-fc"><input type="text" value="湘易办站内消息 + 微信模板消息 + 短信 158****2408" readonly><div class="m-fh">可在「消息设置」中调整接收方式</div></div>
           </div>
         </div>
-        <div class="m-sect">近期到位提醒<span class="m-sect-x">最近 30 天 3 条</span></div>
+        <div class="m-sect">近期提醒<span class="m-sect-x">最近 30 天 3 条</span></div>
         <div class="m-cells">
-          <a class="m-cell" href="house-detail.html"><span class="m-ci green"><i class="fa-solid fa-bell"></i></span><span class="m-cl"><b>【到位提醒】湘江1958 新增 7 间可选房间</b><span class="m-cs">2026-09-06 08:30 · 符合您的意向条件，人才租金 166.80 元/月起</span></span><span class="m-cv"><span class="m-tag green">可预约</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
-          <a class="m-cell" href="alloc-notice.html"><span class="m-ci orange"><i class="fa-solid fa-bullhorn"></i></span><span class="m-cl"><b>【批次提醒】2026 年第 3 批配租已开始报名</b><span class="m-cs">2026-09-05 09:00 · 投放 320 间，报名截止 09-12 18:00</span></span><span class="m-cv"><span class="m-tag orange">进行中</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
-          <a class="m-cell" href="house-detail.html"><span class="m-ci cyan"><i class="fa-solid fa-map-location-dot"></i></span><span class="m-cl"><b>【同片区】栗雨佳苑退租释放 2 间可选房间</b><span class="m-cs">2026-08-29 15:12 · 天元区栗雨路，人才租金 158.40 元/月起</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="book-list.html"><span class="m-ci green"><i class="fa-solid fa-clipboard-check"></i></span><span class="m-cl"><b>【登记确认】意向登记 DJ2026-0909-0428 已生效</b><span class="m-cs">2026-09-09 21:15 · 湘江1958 · 二室一厅，有效期至 2027-03-08</span></span><span class="m-cv"><span class="m-tag green">生效中</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="house-detail.html"><span class="m-ci cyan"><i class="fa-solid fa-building-circle-arrow-right"></i></span><span class="m-cl"><b>【房源提醒】湘江1958 新增 12 间二室一厅</b><span class="m-cs">2026-09-06 08:30 · 符合您的意向条件，整套自付 471.60 元/月</span></span><span class="m-cv"><span class="m-tag blue">可登记</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="alloc-notice.html"><span class="m-ci orange"><i class="fa-solid fa-bullhorn"></i></span><span class="m-cl"><b>【公告提醒】2026 年第 3 批配租公告已发布</b><span class="m-cs">2026-09-05 09:00 · 投放 320 间，按公告设定的时间统一自动配租</span></span><span class="m-cv"><span class="m-tag orange">进行中</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
         </div>
         <div class="m-cells">
           <a class="m-cell" href="msg-setting.html"><span class="m-ci"><i class="fa-solid fa-gear"></i></span><span class="m-cl"><b>消息设置</b><span class="m-cs">管理接收的消息类型、接收方式与免打扰时段</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
-          <a class="m-cell" href="book-list.html"><span class="m-ci cyan"><i class="fa-solid fa-calendar-check"></i></span><span class="m-cl"><b>我的预约</b><span class="m-cs">查询预约状态与前方预约人数</span></span><span class="m-cv">1 条预约中</span><i class="m-ca fa-solid fa-angle-right"></i></a>
         </div>
         <div class="m-note warn"><i class="fa-solid fa-triangle-exclamation"></i>
-          <div>到位提醒仅作<b>信息告知</b>，不代表已完成预约。收到提醒后仍需在线提交预约，<b>预约成功才完成意向登记并取得配租优先排序</b>（预约不占用轮候名额）。</div>
+          <div>提醒仅作<b>信息告知</b>，<b>不代表取得配租资格，也不占用任何房源</b>。房源不由申请人自行选定，须提交<b>正式申请</b>并通过两级审核，由系统<b>按配租公告设定的时间自动配租</b>。</div>
         </div>
       </div>
       <div class="m-actbar">
-        <a class="m-btn w-auto" href="house-list.html">去看房源</a>
-        <button class="m-btn primary" type="button" onclick="MB.toast('到位提醒设置已保存')"><i class="fa-solid fa-check"></i> 保存设置</button>
+        <a class="m-btn w-auto" href="house-list.html">浏览房源</a>
+        <button class="m-btn primary" type="button" onclick="MB.toast('到期提醒设置已保存')"><i class="fa-solid fa-check"></i> 保存设置</button>
       </div>
     </div>
   </div>

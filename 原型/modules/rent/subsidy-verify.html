@@ -19,7 +19,7 @@
       <span class="sep">/</span> <span class="cur">资格与服务核验</span>
     </div>
     <div class="page-actions">
-      <button class="btn btn-primary" onclick="PMS.confirm({title:'核验完成确认',message:'确认 2026-09 期间核验完成并转入补助核定？',detail:'本期申报 1,192 套，核验通过 1,148 套，资格异常 26 套、评价不达标 18 套已单独列出，不进入自动核定。转入后按补助标准 × 计租面积 × 服务月数自动核算应补金额。',type:'warning',okText:'确认转入',onOk:function(){PMS.toast('已转入补助核定环节','success');location.href='subsidy-amount.html';}})"><i class="fa-solid fa-arrow-right-arrow-left"></i> 转入补助核定</button>
+      <button class="btn btn-primary" onclick="PMS.confirm({title:'核验完成确认',message:'确认 2026-09 期间核验完成并转入补助核定？',detail:'本期申报 1,192 间，核验通过 1,148 间，资格异常 26 间、评价不达标 18 间已单独列出，不进入自动核定。转入后按补助标准 × 计租面积 × 服务月数自动核算应补金额。',type:'warning',okText:'确认转入',onOk:function(){PMS.toast('已转入补助核定环节','success');location.href='subsidy-amount.html';}})"><i class="fa-solid fa-arrow-right-arrow-left"></i> 转入补助核定</button>
       <a class="btn" href="subsidy-rule.html"><i class="fa-solid fa-sliders"></i> 补贴标准</a>
       <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
     </div>
@@ -64,7 +64,7 @@
     <div class="sp-scroll">
   <div class="sp-block">
     <div class="sp-h"><i class="fa-solid fa-shield-halved"></i> 核验汇总
-      <span class="sub">2026-09 · 5 项核验 · 全量比对 1,192 套 · <span class="link" onclick="PMS.toast('已重新发起 5 项核验，预计 2 分钟完成','success')">重新核验</span></span>
+      <span class="sub">2026-09 · 5 项核验 · 全量比对 1,192 间 · <span class="link" onclick="PMS.toast('已重新发起 5 项核验，预计 2 分钟完成','success')">重新核验</span></span>
     </div>
     <div class="sp-b">
       <div class="sp-tw">
@@ -203,7 +203,7 @@
       </div>
       <div class="form-item col-full">
         <label>处置说明 <span class="req">*</span></label>
-        <textarea rows="4">经核验，该承租人已于 2026-08-20 年度资格审查中被认定在市城区购买商品住房，人才住房保障资格已失效，不再符合租房补助享受条件。按 HY-1 规则本期剔除、不计补助，核减 1 套、核减金额 368.20 元，同步转退出腾退流程办理。处置意见已告知运营单位，异议可在 3 个工作日内提出复核申请。</textarea>
+        <textarea rows="4">经核验，该承租人已于 2026-08-20 年度资格审查中被认定在市城区购买商品住房，人才住房保障资格已失效，不再符合租房补助享受条件。按 HY-1 规则本期剔除、不计补助，核减 1 间、核减金额 368.20 元，同步转退出腾退流程办理。处置意见已告知运营单位，异议可在 3 个工作日内提出复核申请。</textarea>
       </div>
       <div class="form-item col-full">
         <label>佐证材料 <span class="req">*</span></label>
@@ -214,7 +214,7 @@
   </div>
   <div class="drawer-foot">
     <button class="btn" data-close-drawer>取消</button>
-    <button class="btn btn-primary" onclick="PMS.confirm({title:'处置确认',message:'确认对 FY-TY-XJ-A3-0906 出具「本期剔除」处置结论？',detail:'核减 1 套、核减金额 368.20 元，处置结果直接进入 2026-09 补助核定。结论提交后写入核验流水，更正须重新发起核验。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已出具处置结论，核减结果已进入本期核定','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'处置确认',message:'确认对 FY-TY-XJ-A3-0906 出具「本期剔除」处置结论？',detail:'核减 1 间、核减金额 368.20 元，处置结果直接进入 2026-09 补助核定。结论提交后写入核验流水，更正须重新发起核验。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已出具处置结论，核减结果已进入本期核定','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
   </div>
 </div>
 

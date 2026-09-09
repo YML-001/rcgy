@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>系统使用指南 · 株洲市人才住房保障管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/mobile.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+<style>
+/* —— 使用指南列表专用样式 —— */
+.gd-hd{background:linear-gradient(135deg,#4B93F0,#2C6FD6);color:#fff;
+  padding:15px 14px 16px;border-radius:12px}
+.gd-hd .t{font-size:16.5px;font-weight:800}
+.gd-hd .s{font-size:11.5px;opacity:.92;margin-top:5px;line-height:1.65}
+.gd-hd .r{display:flex;gap:8px;margin-top:12px}
+.gd-hd .r div{flex:1;background:rgba(255,255,255,.18);border-radius:9px;
+  padding:7px 6px;text-align:center}
+.gd-hd .r .v{font-size:15.5px;font-weight:800}
+.gd-hd .r .l{font-size:10px;opacity:.9;margin-top:2px}
+/* 视频条目 */
+.gd-vi{display:flex;gap:11px;padding:11px 14px;text-decoration:none;
+  border-bottom:1px solid var(--row-line);background:var(--bg-card)}
+.gd-vi:last-child{border-bottom:0}
+.gd-vi .th{position:relative;width:108px;height:66px;flex:none;border-radius:8px;
+  overflow:hidden;background:linear-gradient(140deg,#3C6FBF,#1D3F76);
+  display:flex;align-items:center;justify-content:center}
+.gd-vi .th i{color:#fff;font-size:22px;opacity:.9}
+.gd-vi .th .du{position:absolute;right:4px;bottom:4px;font-size:10px;color:#fff;
+  background:rgba(16,21,29,.66);border-radius:4px;padding:1px 5px}
+.gd-vi .tx{flex:1;min-width:0}
+.gd-vi .tt{display:block;font-size:13.5px;font-weight:600;color:var(--text-1);line-height:1.45}
+.gd-vi .td{display:block;font-size:11.5px;color:var(--text-3);margin-top:4px;line-height:1.55}
+.gd-vi .tm{display:flex;flex-wrap:wrap;gap:4px 10px;font-size:11px;color:var(--text-3);margin-top:5px}
+/* 图文条目 */
+.gd-di{display:flex;gap:11px;padding:11px 14px;text-decoration:none;
+  border-bottom:1px solid var(--row-line);background:var(--bg-card);align-items:flex-start}
+.gd-di:last-child{border-bottom:0}
+.gd-di .ic{width:40px;height:40px;flex:none;border-radius:10px;display:flex;
+  align-items:center;justify-content:center;font-size:16px}
+.gd-di .i1{background:var(--primary-light);color:var(--primary)}
+.gd-di .i2{background:var(--success-light);color:var(--success)}
+.gd-di .i3{background:var(--purple-light);color:var(--purple)}
+.gd-di .i4{background:var(--warning-light);color:var(--on-warning)}
+.gd-di .tx{flex:1;min-width:0}
+.gd-di .tt{display:block;font-size:13.5px;font-weight:600;color:var(--text-1);line-height:1.45}
+.gd-di .td{display:block;font-size:11.5px;color:var(--text-3);margin-top:4px;line-height:1.6}
+.gd-di .tm{display:block;font-size:11px;color:var(--text-3);margin-top:5px;line-height:1.7}
+</style>
+</head>
+<body class="m-body" data-mtitle="系统使用指南" data-mmod="M13 系统使用指南" data-mcode="M13-01"
+      data-mdesc="面向人才的使用指南入口，分「系统操作」与「政策解读」两类：操作类以视频演示平台各环节怎么办；政策解读类以图文讲清购房补贴、租房保障与办事指南。" data-mback="home.html" data-mtabset="public" data-mtab="home">
+<div class="m-stage">
+  <div class="m-phone">
+    <div class="m-screen">
+      <div class="m-view">
+        <div class="gd-hd">
+          <div class="t">建宁安居 · 使用指南</div>
+          <div class="s">不会用平台？先看两分钟。操作类看视频跟着做，政策类看图文一次读懂。</div>
+          <div class="r">
+            <div><div class="v">5</div><div class="l">操作视频</div></div>
+            <div><div class="v">4</div><div class="l">政策图文</div></div>
+            <div><div class="v">2026-09</div><div class="l">最近更新</div></div>
+          </div>
+        </div>
+
+        <div class="m-seg" style="margin-top:12px">
+          <button class="on" type="button" onclick="sw(1)"><i class="fa-solid fa-circle-play"></i> 系统操作</button>
+          <button type="button" onclick="sw(2)"><i class="fa-solid fa-book-open"></i> 政策解读</button>
+        </div>
+
+        <!-- ========== 系统操作（视频） ========== -->
+        <div id="pnOp" style="margin-top:12px">
+          <div class="m-note"><i class="fa-solid fa-circle-play"></i>
+            <div>操作类指南以<b>短视频</b>演示，配<b>分步要点</b>文字，可边看边做。
+              视频支持倍速播放，流量下建议连接 Wi-Fi。</div>
+          </div>
+          <div class="m-sect">申请与配租<span class="m-sect-x">3 条</span></div>
+          <div class="m-cells">
+            <a class="gd-vi" href="guide-detail.html">
+              <span class="th"><i class="fa-solid fa-play"></i><span class="du">06:12</span></span>
+              <span class="tx"><span class="tt">从看房到申请的完整步骤</span>
+                <span class="td">怎么找房源、怎么做意向登记、怎么提交资格申请、材料怎么传、进度在哪看</span>
+                <span class="tm"><span><i class="fa-regular fa-clock"></i> 2026-09-01</span><span><i class="fa-regular fa-eye"></i> 3,842 次</span></span></span>
+            </a>
+            <a class="gd-vi" href="guide-detail.html">
+              <span class="th"><i class="fa-solid fa-play"></i><span class="du">04:38</span></span>
+              <span class="tx"><span class="tt">怎么查配租结果与签约</span>
+                <span class="td">系统自动配租后在哪看结果、面积与租金怎么算、线上电子签约与线下上传合同影像怎么选</span>
+                <span class="tm"><span><i class="fa-regular fa-clock"></i> 2026-09-15</span><span><i class="fa-regular fa-eye"></i> 2,106 次</span><span class="m-tag green">最新</span></span></span>
+            </a>
+            <a class="gd-vi" href="guide-detail.html">
+              <span class="th"><i class="fa-solid fa-play"></i><span class="du">03:20</span></span>
+              <span class="tx"><span class="tt">意向登记怎么填才容易配到房</span>
+                <span class="td">意向楼盘与户型决定系统的匹配范围；范围越窄越难配到，登记时间不影响位次</span>
+                <span class="tm"><span><i class="fa-regular fa-clock"></i> 2026-08-26</span><span><i class="fa-regular fa-eye"></i> 1,533 次</span></span></span>
+            </a>
+          </div>
+          <div class="m-sect">租后办理<span class="m-sect-x">2 条</span></div>
+          <div class="m-cells">
+            <a class="gd-vi" href="guide-detail.html">
+              <span class="th"><i class="fa-solid fa-play"></i><span class="du">02:55</span></span>
+              <span class="tx"><span class="tt">租金账单缴费与电子票据申领</span>
+                <span class="td">账单怎么看、翼支付怎么缴、票据在哪申领、欠费会有什么影响</span>
+                <span class="tm"><span><i class="fa-regular fa-clock"></i> 2026-07-18</span><span><i class="fa-regular fa-eye"></i> 2,674 次</span></span></span>
+            </a>
+            <a class="gd-vi" href="guide-detail.html">
+              <span class="th"><i class="fa-solid fa-play"></i><span class="du">03:06</span></span>
+              <span class="tx"><span class="tt">报修下单与服务评价怎么用</span>
+                <span class="td">报修怎么拍照描述、派单进度怎么跟、完工后怎么评价、哪些属于免费维修</span>
+                <span class="tm"><span><i class="fa-regular fa-clock"></i> 2026-06-30</span><span><i class="fa-regular fa-eye"></i> 1,208 次</span></span></span>
+            </a>
+          </div>
+        </div>
+
+        <!-- ========== 政策解读（图文） ========== -->
+        <div id="pnPo" style="display:none;margin-top:12px">
+          <div class="m-note"><i class="fa-solid fa-book-open"></i>
+            <div>政策解读类以<b>图文</b>分段呈现，正文按「谁能办、办什么、怎么办、注意什么」组织，
+              附政策原文出处，可保存或转发。</div>
+          </div>
+          <div class="m-sect">购房补贴<span class="m-sect-x">1 条</span></div>
+          <div class="m-cells">
+            <a class="gd-di" href="guide-detail.html?t=doc">
+              <span class="ic i1"><i class="fa-solid fa-house-circle-check"></i></span>
+              <span class="tx"><span class="tt">人才购房补贴：谁能申请、补多少、怎么办</span>
+                <span class="td">按人才层次分档的补贴标准、在株购房与社保年限要求、申报入口与发放节奏，以及与租房保障的衔接关系</span>
+                <span class="tm"><i class="fa-regular fa-clock"></i> 2026-07-28　·	图文 8 段　·	约 4 分钟读完</span></span>
+            </a>
+          </div>
+          <div class="m-sect">租房保障<span class="m-sect-x">2 条</span></div>
+          <div class="m-cells">
+            <a class="gd-di" href="guide-detail.html?t=doc">
+              <span class="ic i2"><i class="fa-solid fa-key"></i></span>
+              <span class="tx"><span class="tt">人才租房保障：租金标准与减免口径</span>
+                <span class="td">人才租金标准怎么定、按间配租的计租面积怎么算、财政补助减免比例与保障期限、水电物业费谁承担</span>
+                <span class="tm"><i class="fa-regular fa-clock"></i> 2026-07-26　·	图文 6 段　·	约 3 分钟读完</span></span>
+            </a>
+            <a class="gd-di" href="guide-detail.html?t=doc">
+              <span class="ic i2"><i class="fa-solid fa-robot"></i></span>
+              <span class="tx"><span class="tt">自动配租规则一图读懂</span>
+                <span class="td">为什么不用报名、位次怎么排、系统在什么范围内匹配、同套同性别与组团整套预留是什么意思</span>
+                <span class="tm"><i class="fa-regular fa-clock"></i> 2026-09-01　·	图文 5 段　·	约 3 分钟读完　<span class="m-tag green">最新</span></span></span>
+            </a>
+          </div>
+          <div class="m-sect">办事指南<span class="m-sect-x">1 条</span></div>
+          <div class="m-cells">
+            <a class="gd-di" href="guide-detail.html?t=doc">
+              <span class="ic i3"><i class="fa-solid fa-list-check"></i></span>
+              <span class="tx"><span class="tt">人才公寓申请办事指南</span>
+                <span class="td">申请条件、材料清单、办理时限、容缺补核与材料单项回退的处理方式、线上线下办理渠道</span>
+                <span class="tm"><i class="fa-regular fa-clock"></i> 2026-07-20　·	图文 7 段　·	约 5 分钟读完</span></span>
+            </a>
+          </div>
+        </div>
+
+        <div class="m-sect">还没解决？</div>
+        <div class="m-cells">
+          <a class="m-cell" href="ai-search.html"><span class="m-ci"><i class="fa-solid fa-wand-magic-sparkles"></i></span><span class="m-cl"><b>AI 智能问答</b><span class="m-cs">用大白话提问，自动引用政策原文出处</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="policy-list.html"><span class="m-ci cyan"><i class="fa-solid fa-scroll"></i></span><span class="m-cl"><b>政策文件库</b><span class="m-cs">管理办法、实施细则与配套文件原文</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="me-feedback.html"><span class="m-ci orange"><i class="fa-solid fa-lightbulb"></i></span><span class="m-cl"><b>意见反馈</b><span class="m-cs">指南没讲清楚的，欢迎提出来</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+        </div>
+        <div class="m-note"><i class="fa-solid fa-circle-info"></i>
+          <div>指南内容由市保障性住房服务中心维护，随政策与系统功能调整同步更新；
+            如指南与现行政策不一致的，<b>以政策原文为准</b>。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../../assets/js/mobile.js"></script>
+<script>
+function sw(n) {
+  var op = n === 1;
+  document.getElementById('pnOp').style.display = op ? '' : 'none';
+  document.getElementById('pnPo').style.display = op ? 'none' : '';
+}
+</script>
+</body>
+</html>

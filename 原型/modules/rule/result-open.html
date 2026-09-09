@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="../../assets/css/spec.css">
 <link rel="stylesheet" href="../../assets/css/ext.css">
 </head>
-<body data-role="manager" data-active="rule-03">
+<body data-role="pubinfo" data-active="rule-03">
 <main class="app-main">
   <div class="page-head">
     <div class="breadcrumb">
@@ -69,8 +69,8 @@
           <tr><th>公开编号</th><th>批次编号</th><th class="cell-lg">公开内容</th><th>公开类型</th><th>涉及人数</th><th>公示起</th><th>公示止</th><th>浏览量</th><th>状态</th><th>操作</th></tr>
         </thead>
         <tbody>
-          <tr class="row-warn"><td>GK2026-09-0018</td><td>PZ2026-03</td><td>2026 年第 3 批配租顺序名单（486 人，含顺序号、受理时间、意向片区、选房时段）</td><td><span class="badge blue">配租顺序名单</span></td><td class="num">486</td><td>2026-09-13</td><td>2026-09-14</td><td class="num">8,462</td><td><span class="badge orange">公示中</span></td><td><span class="link" onclick="PMS.openDrawer('gkDrawer')">公开配置</span></td></tr>
-          <tr><td>GK2026-06-0014</td><td>PZ2026-02</td><td>2026 年第 2 批配租结果名单（286 套，含房源编号、配租对象、配租时间）</td><td><span class="badge green">配租结果名单</span></td><td class="num">286</td><td>2026-06-25</td><td>长期</td><td class="num">12,486</td><td><span class="badge green">已公开</span></td><td><span class="link" onclick="PMS.toast('已留存公开内容快照，形成可追溯的信息公开台账')">公开快照</span></td></tr>
+          <tr class="row-warn"><td>GK2026-09-0018</td><td>PZ2026-03</td><td>2026 年第 3 批配租顺序名单（486 人，含位次、资格审核通过时间、意向楼盘与户型）</td><td><span class="badge blue">配租顺序名单</span></td><td class="num">486</td><td>2026-09-13</td><td>2026-09-14</td><td class="num">8,462</td><td><span class="badge orange">公示中</span></td><td><span class="link" onclick="PMS.openDrawer('gkDrawer')">公开配置</span></td></tr>
+          <tr><td>GK2026-06-0014</td><td>PZ2026-02</td><td>2026 年第 2 批配租结果名单（286 间，含房源编号、配租对象、配租时间）</td><td><span class="badge green">配租结果名单</span></td><td class="num">286</td><td>2026-06-25</td><td>长期</td><td class="num">12,486</td><td><span class="badge green">已公开</span></td><td><span class="link" onclick="PMS.toast('已留存公开内容快照，形成可追溯的信息公开台账')">公开快照</span></td></tr>
           <tr><td>GK2026-06-0012</td><td>PZ2026-02</td><td>2026 年第 2 批配租顺序名单（412 人）</td><td><span class="badge blue">配租顺序名单</span></td><td class="num">412</td><td>2026-06-16</td><td>2026-06-17</td><td class="num">9,846</td><td><span class="badge green">已公开</span></td><td><span class="link" onclick="PMS.toast('已留存快照')">公开快照</span></td></tr>
           <tr><td>GK2026-09-0016</td><td>PZ2026-02</td><td>2026 年第 2 批放弃配租与资格处置公示（18 人）</td><td><span class="badge orange">放弃与处置公示</span></td><td class="num">18</td><td>2026-09-02</td><td>长期</td><td class="num">3,286</td><td><span class="badge green">已公开</span></td><td><span class="link" onclick="PMS.toast('公示放弃配租人员（姓 + ×× 脱敏）与放弃情形，接受社会监督')">公示内容</span></td></tr>
         </tbody>
@@ -112,7 +112,7 @@
         </div>
         <div class="form-item col-full">
           <label>公开字段 <span class="req">*</span></label>
-          <textarea rows="4">顺序号、配租对象（姓 + ×× 脱敏）、申请类型、受理时间、细分排序依据、意向片区、选房时段、配租状态</textarea>
+          <textarea rows="4">位次、配租对象（姓 + ×× 脱敏）、申请类型、资格审核通过时间、细分排序依据、意向楼盘与户型、配租状态</textarea>
         </div>
         <div class="form-item col-full">
           <label>禁止公开字段 <span class="req">*</span></label>

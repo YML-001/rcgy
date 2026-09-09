@@ -3,44 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>房源详情（按间） · 株洲市人才住房保障管理平台</title>
+<title>楼盘详情 · 株洲市人才住房保障管理平台</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="../../assets/css/app.css">
 <link rel="stylesheet" href="../../assets/css/mobile.css">
 <link rel="stylesheet" href="../../assets/css/ext.css">
-<style>
-/* 可点选的房间卡片：点击即选定该房间 */
-.m-room { display: flex; gap: 10px; padding: 11px 12px; border: 1px solid var(--border); border-radius: var(--m-radius-sm); background: var(--bg-card); cursor: pointer; }
-.m-room + .m-room { margin-top: 9px; }
-.m-room .rt, .m-room .rd, .m-room .rp { display: block; }
-.m-room .rk {
-  flex: none; width: 22px; height: 22px; margin-top: 1px; border: 1.5px solid var(--border-strong);
-  border-radius: 50%; color: var(--bg-card); font-size: 11px;
-  display: flex; align-items: center; justify-content: center;
-}
-.m-room.on { border-color: var(--primary); background: var(--primary-light-2); }
-.m-room.on .rk { border-color: var(--primary); background: var(--primary); }
-.m-room .rb { flex: 1; min-width: 0; }
-.m-room .rt { font-size: 14px; font-weight: 700; color: var(--text-1); }
-.m-room.on .rt { color: var(--primary); }
-.m-room .rd { margin-top: 5px; font-size: 12px; color: var(--text-3); line-height: 1.8; }
-.m-room .rd u { color: var(--text-1); font-weight: 700; text-decoration: none; }
-.m-room .rp { margin-top: 6px; font-size: 12px; color: var(--text-3); }
-.m-room .rp em {
-  font-size: 16px; font-weight: 700; font-style: normal; color: var(--danger);
-  font-variant-numeric: tabular-nums;
-}
-.m-room .rp s { margin-left: 6px; color: var(--text-3); }
-.m-room.off { opacity: .62; }
-/* 按间实景照片 */
-.m-rpic { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-.m-rpic figure { margin: 0; }
-.m-rpic img { width: 100%; height: 68px; object-fit: cover; border-radius: var(--m-radius-sm); display: block; }
-.m-rpic figcaption { margin-top: 4px; font-size: 11px; color: var(--text-3); text-align: center; }
-</style>
 </head>
-<body class="m-body" data-mtitle="湘江1958　A6-1502" data-mmod="M4 房源展示与看房选房" data-mcode="M4-02"
-      data-mdesc="房源展开到「间」：公共部分（客厅、厨房、卫生间）按套统一展示并标注本套共用，A/B/C 三间分别列出套内面积、公摊面积、计租面积、人才租金与原租金、房间配套和当前状态；公摊按套内间数均分并计入租金；VR 全景按套，同一套房各间共用一份。" data-mback="house-list.html" data-mtabset="public" data-mtab="house" data-mact="fa-share-nodes">
+<body class="m-body" data-mtitle="湘江1958 人才公寓" data-mmod="M4 房源展示与租住情况公开" data-mcode="M4-02"
+      data-mdesc="楼盘详情统一展示总房源、意向登记、已轮候、剩余可选四个数字。意向登记与正式申请均只选到「楼盘＋户型」两级，不选具体房屋与房间。房屋与套内各间的租住情况按「楼盘 → 房屋（套）→ 套内各间」展示，公共部分统一展示，各间分别显示套内面积、公摊面积、人才租金标准与当前状态，仅供了解，不在此处选定房源。" data-mback="house-list.html" data-mtabset="public" data-mtab="house" data-mact="fa-share-nodes">
 <div class="m-stage">
   <div class="m-phone">
     <div class="m-screen">
@@ -48,143 +18,159 @@
         <div class="m-card" style="padding:0;overflow:hidden">
           <div class="m-hc-img" style="height:200px;position:relative"><img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80" alt="湘江1958 人才公寓">
             <div class="m-hc-badge" style="position:absolute;left:10px;top:10px;display:flex;gap:5px">
-              <span class="m-tag blue">收购商品房</span><span class="m-tag green">拎包入住</span><span class="m-tag dark">按间配租</span>
+              <span class="m-tag blue">收购商品房</span><span class="m-tag green">拎包入住</span>
             </div>
             <a class="m-hc-vr" href="house-vr.html" style="position:absolute;right:10px;bottom:10px;text-decoration:none">
-              <i class="fa-solid fa-vr-cardboard"></i> VR 全景看房（按套）
+              <i class="fa-solid fa-vr-cardboard"></i> VR 全景看房
             </a>
           </div>
           <div class="m-card-b">
-            <div style="font-size:17px;font-weight:700">湘江1958 人才公寓　A6 栋 1502 室</div>
+            <div style="font-size:17px;font-weight:700">湘江1958 人才公寓</div>
             <div style="margin-top:5px;font-size:12.5px;color:var(--text-3)">
-              <i class="fa-solid fa-location-dot"></i> 天元区泰山路 1958 号　·	<a href="house-around.html" style="color:var(--primary)">周边配套 ›</a>
+              <i class="fa-solid fa-location-dot"></i> 天元区泰山路 1958 号　·　<a href="house-around.html" style="color:var(--primary)">周边配套 ›</a>
             </div>
             <div class="m-hc-tags" style="margin-top:8px">
-              <span class="m-tag dark">三室两厅</span><span class="m-tag dark">拆 A/B/C 三间</span>
-              <span class="m-tag dark">家电家具齐全</span><span class="m-tag dark">近地铁 3 号线</span><span class="m-tag dark">精装</span><span class="m-tag dark">电梯</span>
+              <span class="m-tag dark">家电家具齐全</span><span class="m-tag dark">近地铁 3 号线</span>
+              <span class="m-tag dark">配套成熟</span><span class="m-tag dark">精装</span><span class="m-tag dark">电梯</span>
+            </div>
+          </div>
+        </div>
+        <div class="m-card" style="margin-top:10px">
+          <div class="m-card-b" style="padding:12px">
+            <div class="m-mini">
+              <div><div class="mv">412</div><div class="ml">总房源(间)</div></div>
+              <div><div class="mv warn">86</div><div class="ml">意向登记</div></div>
+              <div><div class="mv">54</div><div class="ml">已轮候</div></div>
+              <div><div class="mv ok">126</div><div class="ml">剩余可选</div></div>
+            </div>
+            <div style="margin-top:10px;font-size:11px;color:var(--text-3);line-height:1.6;
+                 border-top:1px solid var(--row-line);padding-top:9px">
+              意向登记数为需求摸底统计数，<b>不占用房源、不进入轮候库</b>；已轮候为资格审核通过待配租人数；剩余可选＝总房源 − 已配租入住 − 已锁定待签约。
             </div>
           </div>
         </div>
         <div class="m-note"><i class="fa-solid fa-circle-info"></i>
-          <div>本套<b>按「间」配租</b>：一套三室两厅拆为 1502A / 1502B / 1502C 三间，每间单独计租。<b>公摊比例按套内间数均分</b>（拆三间即每间 1/3）；<b>计租面积 ＝ 本间套内面积 ＋ 本间公摊面积</b>，<b>公摊计入租金</b>。点击下方房间卡片即可选定房间。</div>
+          <div>房源<b>不由申请人自行选定</b>。资格审核通过后，由系统<b>按配租公告设定的时间自动配租</b>。本页选择的楼盘与户型，仅用于<b>意向登记</b>与<b>正式申请</b>填报，作为需求摸底与配租匹配的依据。</div>
         </div>
-
-        <div class="m-sect">公共部分<span class="m-sect-x">本套共用 · 计入公摊</span></div>
+        <div class="m-sect">选择户型<span class="m-sect-x">只选到楼盘＋户型两级</span></div>
         <div class="m-card">
-          <div class="m-card-h"><i class="fa-solid fa-couch"></i>客厅 / 厨房 / 卫生间（本套共用）</div>
+          <div class="m-card-h"><i class="fa-solid fa-table-cells-large"></i>本楼盘在册户型<a class="m-more" href="house-compare.html">楼盘对比 <i class="fa-solid fa-angle-right"></i></a></div>
+          <div class="m-card-b">
+          <div class="m-opts">
+            <div class="m-opt"><span class="m-ok"><i class="fa-solid fa-check"></i></span><span class="m-ol"><b>单间配套　42.00 ㎡</b><span>配租 1 人　·　个人自付 <b>252.00 元/月</b>（市场租金 756.00 元/月）　·　剩余可选 36 间</span></span></div>
+            <div class="m-opt"><span class="m-ok"><i class="fa-solid fa-check"></i></span><span class="m-ol"><b>一室一厅　56.80 ㎡</b><span>配租 1 人　·　个人自付 <b>340.80 元/月</b>（市场租金 1,022.40 元/月）　·　剩余可选 44 间</span></span></div>
+            <div class="m-opt on"><span class="m-ok"><i class="fa-solid fa-check"></i></span><span class="m-ol"><b>二室一厅　78.60 ㎡</b><span>整套拆 2 间、配租 2 人　·　整套个人自付 <b>471.60 元/月</b>（市场租金 1,414.80 元/月）　·　剩余可选 46 间</span></span></div>
+          </div>
+          <div class="m-note" style="margin-top:10px"><i class="fa-solid fa-circle-info"></i>
+            <div>选定户型后即可发起<b>意向登记</b>或<b>正式申请</b>。<b>不需要、也不能指定</b>具体楼栋、房号与房间，具体房源在配租环节由系统统一分配。</div>
+          </div>
+          </div>
+        </div>
+        <div class="m-sect">租金与减免<span class="m-sect-x">按所选户型 · 二室一厅</span></div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-hand-holding-dollar"></i>租金测算<a class="m-more" href="me-subsidy.html">减免依据 <i class="fa-solid fa-angle-right"></i></a></div>
+          <div class="m-card-b">
+            <div class="m-amt">
+              <div class="a1"><small>¥</small>471.60<small> /月</small></div>
+              <div class="a2">二室一厅整套减免后个人自付　·　市场租金 1,414.80 元/月</div>
+            </div>
+          <div class="m-kv">
+            <div><span>计租面积</span><span>78.60 ㎡（套内 57.00 ＋ 公共部分 21.60）</span></div>
+            <div><span>人才租金标准</span><span>14.00 元/㎡·月（其中个人承担 6.00 元、财政补贴 8.00 元）</span></div>
+            <div><span>应缴租金总额</span><span>1,100.40 元/月（78.60 ㎡ × 14.00 元/㎡·月）</span></div>
+            <div><span>财政补助（8.00 元/㎡·月，占 57%）</span><span><span style="color:var(--success)">-628.80 元/月</span></span></div>
+            <div><span>个人实际应缴</span><span><b style="color:var(--danger)">471.60 元/月</b>（78.60 ㎡ × 6.00 元/㎡·月）</span></div>
+            <div><span>按间分摊</span><span>A 间 259.20 元/月　·　B 间 212.40 元/月</span></div>
+            <div><span>减免期限</span><span>自入住之日起 2 年，期满按市场租金计费</span></div>
+            <div><span>自理费用</span><span>物业费、水、电、气按规定标准自行承担</span></div>
+          </div>
+          </div>
+        </div>
+        <div class="m-sect">房屋与套内各间租住情况<span class="m-sect-x">仅供了解 · 不在此选定</span></div>
+        <div class="m-note warn"><i class="fa-solid fa-triangle-exclamation"></i>
+          <div>以下按<b>楼盘 → 房屋（套）→ 套内各间</b>公开当前租住情况，帮助您了解实际居住形态。<b>申请人不在此选定房源</b>，意向登记与正式申请均只填报到户型一级。</div>
+        </div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-house-chimney"></i>A6 栋 1502 室　二室一厅 78.60 ㎡<span class="m-tag orange" style="margin-left:auto">部分入住</span></div>
+          <div class="m-card-b">
+            <div class="m-kv">
+              <div><span>公共部分</span><span>客厅 12.60 ㎡　·　厨房 4.20 ㎡　·　卫生间 4.80 ㎡　（合计 21.60 ㎡，两间共用并均摊）</span></div>
+              <div><span>本套现住</span><span><span class="m-tag blue">男生</span>　1 人在住，1 间空置</span></div>
+            </div>
+          </div>
+          <div class="m-cells">
+            <div class="m-cell"><span class="m-ci"><i class="fa-solid fa-bed"></i></span><span class="m-cl"><b>1502-A 间</b><span class="m-cs">套内 32.40 ㎡ ＋ 公摊 10.80 ㎡ ＝ 计租 43.20 ㎡　·　人才租金 259.20 元/月</span></span><span class="m-cv"><span class="m-tag orange">已入住 · 男生</span></span></div>
+            <div class="m-cell"><span class="m-ci green"><i class="fa-solid fa-bed"></i></span><span class="m-cl"><b>1502-B 间</b><span class="m-cs">套内 24.60 ㎡ ＋ 公摊 10.80 ㎡ ＝ 计租 35.40 ㎡　·　人才租金 212.40 元/月</span></span><span class="m-cv"><span class="m-tag green">空置</span></span></div>
+          </div>
+        </div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-house-chimney"></i>A6 栋 1608 室　二室一厅 78.60 ㎡<span class="m-tag orange" style="margin-left:auto">部分入住</span></div>
+          <div class="m-card-b">
+            <div class="m-kv">
+              <div><span>公共部分</span><span>客厅 12.60 ㎡　·　厨房 4.20 ㎡　·　卫生间 4.80 ㎡　（合计 21.60 ㎡，两间共用并均摊）</span></div>
+              <div><span>本套现住</span><span><span class="m-tag red">女生</span>　1 人在住，1 间空置</span></div>
+            </div>
+          </div>
+          <div class="m-cells">
+            <div class="m-cell"><span class="m-ci red"><i class="fa-solid fa-bed"></i></span><span class="m-cl"><b>1608-A 间</b><span class="m-cs">套内 32.40 ㎡ ＋ 公摊 10.80 ㎡ ＝ 计租 43.20 ㎡　·　人才租金 259.20 元/月</span></span><span class="m-cv"><span class="m-tag red">已入住 · 女生</span></span></div>
+            <div class="m-cell is-off" data-why="该套现住为女生，按同套同性别规则不可分配给男性申请人" style="opacity:.55;background:var(--bg-soft)"><span class="m-ci"><i class="fa-solid fa-ban"></i></span><span class="m-cl"><b>1608-B 间</b><span class="m-cs">套内 24.60 ㎡ ＋ 公摊 10.80 ㎡ ＝ 计租 35.40 ㎡　·　人才租金 212.40 元/月</span></span><span class="m-cv"><span class="m-tag dark">不可分配</span></span></div>
+          </div>
+          <div class="m-card-b" style="padding-top:0">
+            <div class="m-note warn"><i class="fa-solid fa-venus-mars"></i>
+              <div>该套现住为<b>女生</b>，按<b>同套同性别规则不可分配</b>给男性申请人，1608-B 间对您置灰展示。若您为女性申请人，则该间正常参与配租匹配。</div>
+            </div>
+          </div>
+        </div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-house-chimney"></i>B2 栋 0903 室　二室一厅 78.60 ㎡<span class="m-tag green" style="margin-left:auto">整套空置</span></div>
+          <div class="m-card-b">
+            <div class="m-kv">
+              <div><span>公共部分</span><span>客厅 12.60 ㎡　·　厨房 4.20 ㎡　·　卫生间 4.80 ㎡　（合计 21.60 ㎡，两间共用并均摊）</span></div>
+              <div><span>本套现住</span><span>暂无人入住，<b>男女均可</b>配入，配入后按同套同性别规则约束后续配租</span></div>
+            </div>
+          </div>
+          <div class="m-cells">
+            <div class="m-cell"><span class="m-ci green"><i class="fa-solid fa-bed"></i></span><span class="m-cl"><b>0903-A 间</b><span class="m-cs">套内 32.40 ㎡ ＋ 公摊 10.80 ㎡ ＝ 计租 43.20 ㎡　·　人才租金 259.20 元/月</span></span><span class="m-cv"><span class="m-tag green">空置</span></span></div>
+            <div class="m-cell"><span class="m-ci green"><i class="fa-solid fa-bed"></i></span><span class="m-cl"><b>0903-B 间</b><span class="m-cs">套内 24.60 ㎡ ＋ 公摊 10.80 ㎡ ＝ 计租 35.40 ㎡　·　人才租金 212.40 元/月</span></span><span class="m-cv"><span class="m-tag green">空置</span></span></div>
+          </div>
+        </div>
+        <div class="m-note"><i class="fa-solid fa-circle-info"></i>
+          <div>本户型按<b>间</b>配租、分别计租：客厅、厨房、卫生间为公共部分，公摊面积按套内间数均分；<b>计租面积＝本间套内面积＋本间公摊面积</b>。全楼盘共 46 间二室一厅剩余可选，实际配到哪一套、哪一间由系统在配租环节确定。</div>
+        </div>
+        <div class="m-sect">楼盘档案</div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-building"></i>基本信息</div>
+          <div class="m-card-b">
+          <div class="m-kv">
+            <div><span>楼盘名称</span><span>湘江1958 人才公寓</span></div>
+            <div><span>坐落位置</span><span>天元区泰山路 1958 号</span></div>
+            <div><span>在册户型</span><span>单间配套、一室一厅、二室一厅（42.00—78.60 ㎡）</span></div>
+            <div><span>总房源</span><span>412 间（含二室一厅拆间后统计）</span></div>
+            <div><span>楼栋与楼层</span><span>A6、B2 等 5 栋　·　26 层，均配电梯</span></div>
+            <div><span>朝向</span><span>南北通透为主</span></div>
+            <div><span>装修标准</span><span>精装 · 拎包入住</span></div>
+            <div><span>管理模式</span><span>按间配租，同一套内按同性别配租</span></div>
+            <div><span>产权信息</span><span>株洲市人才安居服务有限公司</span></div>
+            <div><span>房源来源</span><span>收购商品房转化</span></div>
+          </div>
+          </div>
+        </div>
+        <div class="m-sect">家电家具配置清单<span class="m-sect-x">管理办法第五条</span></div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-list-check"></i>配置清单</div>
           <div class="m-card-b">
             <div class="m-check">
-              <div class="ok"><i class="fa-solid fa-couch"></i><div class="m-chl"><b>客厅（含餐厅）　18.60 ㎡　<span class="m-tag dark">本套共用</span></b><span>沙发、茶几、餐桌椅、电视柜、55 吋液晶电视、窗帘、宽带接入</span></div></div>
-              <div class="ok"><i class="fa-solid fa-kitchen-set"></i><div class="m-chl"><b>厨房　3.40 ㎡　<span class="m-tag dark">本套共用</span></b><span>整体橱柜、油烟机、燃气灶、冰箱、微波炉、燃气热水器</span></div></div>
-              <div class="ok"><i class="fa-solid fa-shower"></i><div class="m-chl"><b>公共卫生间　3.20 ㎡　<span class="m-tag dark">本套共用</span></b><span>坐便器、淋浴、洗手台、镜柜、洗衣机（1502A 间另有独立卫生间）</span></div></div>
-              <div class="na"><i class="fa-solid fa-equals"></i><div class="m-chl"><b>公共部分合计　16.20 ㎡</b><span>即本套<b>总公摊面积</b>，按套内间数均分：16.20 ÷ 3 间 ＝ <b>每间 5.40 ㎡</b>（比例 1/3），<b>公摊计入租金</b></span></div></div>
+              <div class="ok"><i class="fa-solid fa-couch"></i><div class="m-chl"><b>客厅（公共部分）</b><span>沙发、茶几、餐桌椅、电视柜、55 吋液晶电视、窗帘</span></div></div>
+              <div class="ok"><i class="fa-solid fa-bed"></i><div class="m-chl"><b>卧室（各间独立配置）</b><span>1.5 m 床、床垫、床头柜、衣柜、书桌椅、空调、窗帘</span></div></div>
+              <div class="ok"><i class="fa-solid fa-kitchen-set"></i><div class="m-chl"><b>厨房（公共部分）</b><span>整体橱柜、油烟机、燃气灶、冰箱、微波炉、热水器</span></div></div>
+              <div class="ok"><i class="fa-solid fa-shower"></i><div class="m-chl"><b>卫生间（公共部分）</b><span>坐便器、淋浴、洗手台、镜柜、洗衣机</span></div></div>
+              <div class="ok"><i class="fa-solid fa-wifi"></i><div class="m-chl"><b>其他</b><span>宽带接入、门禁卡、烟感报警器</span></div></div>
+            </div>
+            <div class="m-note" style="margin-top:10px"><i class="fa-solid fa-circle-info"></i>
+              <div>入住交付时将<b>逐项确认清单与房屋现状</b>、抄录水电气表底数并拍照留存，双方电子签形成交付凭证，作为退租对照依据。</div>
             </div>
           </div>
         </div>
-
-        <div class="m-sect">选择房间<span class="m-sect-x">A / B / C 三间 · 点击选定</span></div>
-        <div id="roomBox">
-          <div class="m-room on" onclick="pickRoom(this,'A')">
-            <span class="rk"><i class="fa-solid fa-check"></i></span>
-            <span class="rb">
-              <span class="rt">1502A 间　朝南主卧　<span class="m-tag green">可选</span></span>
-              <span class="rd">套内 <u>22.40 ㎡</u> ＋ 公摊 <u>5.40 ㎡</u> ＝ 计租面积 <u>27.80 ㎡</u><br>
-                房间配套：独立卫生间 · 空调 · 阳台 · 衣柜 · 书桌</span>
-              <span class="rp">人才租金 6.00 元/㎡·月　<em>166.80</em> 元/月　·	原（市场）租金 18.00 元/㎡·月 <s>500.40 元/月</s></span>
-            </span>
-          </div>
-          <div class="m-room" onclick="pickRoom(this,'B')">
-            <span class="rk"><i class="fa-solid fa-check"></i></span>
-            <span class="rb">
-              <span class="rt">1502B 间　朝南次卧　<span class="m-tag orange">已预约</span></span>
-              <span class="rd">套内 <u>16.80 ㎡</u> ＋ 公摊 <u>5.40 ㎡</u> ＝ 计租面积 <u>22.20 ㎡</u><br>
-                房间配套：空调 · 阳台 · 衣柜 · 书桌（使用公共卫生间）<br>
-                已有 <u>2 人</u>登记预约意向，<u>预约不占名额</u>，仍可继续登记</span>
-              <span class="rp">人才租金 6.00 元/㎡·月　<em>133.20</em> 元/月　·	原（市场）租金 18.00 元/㎡·月 <s>468.00 元/月</s></span>
-            </span>
-          </div>
-          <div class="m-room off" onclick="pickRoom(this,'C')" data-why="1502C 间已配租入住，暂不可选；可预约其他房间或设置到位提醒">
-            <span class="rk"><i class="fa-solid fa-check"></i></span>
-            <span class="rb">
-              <span class="rt">1502C 间　朝北次卧　<span class="m-tag dark">已租</span></span>
-              <span class="rd">套内 <u>14.20 ㎡</u> ＋ 公摊 <u>5.40 ㎡</u> ＝ 计租面积 <u>118.60 ㎡</u><br>
-                房间配套：空调 · 衣柜 · 书桌（使用公共卫生间，无阳台）<br>
-                当前状态：已配租入住，租期至 2027-08-31</span>
-              <span class="rp">人才租金 6.00 元/㎡·月　<em>117.60</em> 元/月　·	原（市场）租金 18.00 元/㎡·月 <s>446.40 元/月</s></span>
-            </span>
-          </div>
-        </div>
-        <div class="m-note success" id="selNote"><i class="fa-solid fa-circle-check"></i>
-          <div>已选定 <b>1502A 间</b>：计租面积 <b>27.80 ㎡</b>、人才租金 <b>166.80 元/月</b>（原市场租金 500.40 元/月）。可点击底部<b>「预约该房间」</b>登记意向，或<b>「申请该房间」</b>带入申请表。</div>
-        </div>
-
-        <div class="m-sect">三间与套级的加总关系<span class="m-sect-x">数字可自行核对</span></div>
-        <div class="m-card">
-          <div class="m-card-h"><i class="fa-solid fa-calculator"></i>按间拆分与合计</div>
-          <div class="m-card-b">
-          <div class="m-kv">
-            <div><span>1502A 间</span><span>套内 22.40 ＋ 公摊 5.40 ＝ 计租 <b>27.80 ㎡</b>　·	166.80 元/月</span></div>
-            <div><span>1502B 间</span><span>套内 16.80 ＋ 公摊 5.40 ＝ 计租 <b>22.20 ㎡</b>　·	133.20 元/月</span></div>
-            <div><span>1502C 间</span><span>套内 14.20 ＋ 公摊 5.40 ＝ 计租 <b>118.60 ㎡</b>　·	117.60 元/月</span></div>
-            <div><span>三间套内合计</span><span>22.40 ＋ 20.60 ＋ 19.40 ＝ <b>62.40 ㎡</b></span></div>
-            <div><span>三间公摊合计</span><span>5.40 × 3 ＝ <b>16.20 ㎡</b>（＝本套公共部分面积）</span></div>
-            <div><span>三间计租面积合计</span><span>62.40 ＋ 16.20 ＝ <b>78.60 ㎡</b>（＝本套总面积）</span></div>
-            <div><span>套级人才租金合计</span><span>78.60 ㎡ × 6.00 元/㎡·月 ＝ <b>471.60 元/月</b></span></div>
-            <div><span>套级原（市场）租金</span><span>78.60 ㎡ × 18.00 元/㎡·月 ＝ <b>1,414.80 元/月</b></span></div>
-          </div>
-          </div>
-        </div>
-
-        <div class="m-sect">套级房源档案<span class="m-sect-x">按套登记、按间配租</span></div>
-        <div class="m-card">
-          <div class="m-card-h"><i class="fa-solid fa-house-chimney"></i>房源档案</div>
-          <div class="m-card-b">
-          <div class="m-kv">
-            <div><span>房号</span><span>A6 栋 1502 室（拆 1502A / 1502B / 1502C）</span></div>
-            <div><span>室厅结构</span><span>三室两厅（1 独立卫生间 + 1 公共卫生间 + 1 厨房）</span></div>
-            <div><span>套内面积</span><span><b>78.60 ㎡</b>（含本套共用部分 16.20 ㎡）</span></div>
-            <div><span>总公摊面积</span><span><b>16.20 ㎡</b>　·	每间 5.40 ㎡（按套内间数均分，比例 1/3）</span></div>
-            <div><span>朝向 / 楼层</span><span>南北通透　·	15 / 26 层（有电梯）</span></div>
-            <div><span>装修标准</span><span>精装 · 拎包入住</span></div>
-            <div><span>管理模式</span><span><b>按间配租</b>，可分别配租 3 人；已婚家庭可整套承租</span></div>
-            <div><span>水费</span><span>3.58 元/吨（按户表实抄，自理）</span></div>
-            <div><span>电费</span><span>0.68 元/度（按户表实抄，自理）</span></div>
-            <div><span>天然气</span><span>3.06 元/立方米（按户表实抄，自理）</span></div>
-            <div><span>物业费</span><span>1.20 元/㎡·月，按计租面积分摊到间（1502A 间 33.36 元/月）</span></div>
-            <div><span>产权 / 运营</span><span>株洲城发高科人才安居服务有限公司</span></div>
-            <div><span>房源来源</span><span>收购存量商品房　·	<span class="m-tag green">已审核发布</span></span></div>
-          </div>
-          </div>
-        </div>
-
-        <div class="m-sect">VR 与实景<span class="m-sect-x">VR 按套 · 照片按间</span></div>
-        <div class="m-card">
-          <div class="m-card-h"><i class="fa-solid fa-vr-cardboard"></i>VR 全景（按套）</div>
-          <div class="m-card-b">
-            <div class="m-note"><i class="fa-solid fa-circle-info"></i>
-              <div><b>同一套房各间共用一份 VR</b>，进入任一房间均展示所在套房全景（含客厅、厨房、卫生间与三间卧室）；<b>实景照片可按间补充</b>。</div>
-            </div>
-            <div class="m-cells" style="margin-top:10px">
-              <a class="m-cell" href="house-vr.html"><span class="m-ci"><i class="fa-solid fa-vr-cardboard"></i></span><span class="m-cl"><b>进入本套 VR 全景</b><span class="m-cs">A6 栋 1502 室整套全景　·	A / B / C 三间共用此入口</span></span><span class="m-cv"><span class="m-tag blue">按套 1 份</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
-            </div>
-            <div class="m-rpic" style="margin-top:10px">
-              <figure><img src="https://images.unsplash.com/photo-1505873242700-f289a29e1e0f?w=600&q=80" alt="1502A 间实景"><figcaption>1502A 间实景</figcaption></figure>
-              <figure><img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?w=600&q=80" alt="1502B 间实景"><figcaption>1502B 间实景</figcaption></figure>
-              <figure><img src="https://images.unsplash.com/photo-1556909212-d5b604d0c90d?w=600&q=80" alt="公共客厅实景"><figcaption>公共客厅实景</figcaption></figure>
-            </div>
-          </div>
-        </div>
-
-        <div class="m-sect">交付与自理费用</div>
-        <div class="m-card">
-          <div class="m-card-h"><i class="fa-solid fa-list-check"></i>入住交付说明</div>
-          <div class="m-card-b">
-            <div class="m-note"><i class="fa-solid fa-circle-info"></i>
-              <div>入住交付时将<b>按间逐项确认配套清单与房屋现状</b>、抄录水电气表底数并拍照留存，双方电子签形成交付凭证，作为退租对照依据。物业费、水、电、气按上述标准<b>自行承担</b>。</div>
-            </div>
-          </div>
-        </div>
-
         <div class="m-sect">配套与交通</div>
         <div class="m-cells">
           <a class="m-cell" href="house-around.html"><span class="m-ci"><i class="fa-solid fa-train-subway"></i></span><span class="m-cl"><b>地铁 3 号线泰山路站</b><span class="m-cs">步行约 620 m</span></span><span class="m-cv">8 分钟</span><i class="m-ca fa-solid fa-angle-right"></i></a>
@@ -192,40 +178,19 @@
           <a class="m-cell" href="house-around.html"><span class="m-ci red"><i class="fa-solid fa-hospital"></i></span><span class="m-cl"><b>株洲市中心医院天元院区</b><span class="m-cs">驾车约 2.4 km</span></span><span class="m-cv">7 分钟</span><i class="m-ca fa-solid fa-angle-right"></i></a>
           <a class="m-cell" href="house-around.html"><span class="m-ci orange"><i class="fa-solid fa-school"></i></span><span class="m-cl"><b>天元区白鹤小学</b><span class="m-cs">步行约 700 m</span></span><span class="m-cv">9 分钟</span><i class="m-ca fa-solid fa-angle-right"></i></a>
         </div>
-        <div class="m-note warn"><i class="fa-solid fa-triangle-exclamation"></i>
-          <div>房间状态与后台房态<b>实时同步</b>：已签约的房间即时置为「已租」不再可选。<b>预约为意向登记、不占用轮候名额</b>；配租时已预约本批次房源的优先于普通轮候。</div>
+        <div class="m-cells">
+          <a class="m-cell" href="house-vr.html"><span class="m-ci cyan"><i class="fa-solid fa-vr-cardboard"></i></span><span class="m-cl"><b>VR 全景看房</b><span class="m-cs">按套拍摄，同一套房各间共用一份全景</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="house-list.html"><span class="m-ci"><i class="fa-solid fa-building"></i></span><span class="m-cl"><b>返回房源列表</b><span class="m-cs">6 个楼盘 · 299 间剩余可选</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
         </div>
       </div>
       <div class="m-actbar">
-        <button class="m-btn w-auto" type="button" onclick="MB.toast('已收藏本套房源，出现可选房间时将推送提醒')"><i class="fa-regular fa-star"></i></button>
-        <a class="m-btn w-auto" href="house-book.html" id="btnBook">预约该房间</a>
-        <a class="m-btn primary" href="apply-type.html" id="btnApply">申请该房间</a>
+        <a class="m-btn ghost w-auto" href="house-book.html"><i class="fa-solid fa-clipboard-check"></i> 意向登记</a>
+        <a class="m-btn primary" href="apply-step1.html"><i class="fa-solid fa-file-pen"></i> 正式申请</a>
       </div>
     </div>
   </div>
 </div>
 
 <script src="../../assets/js/mobile.js"></script>
-<script>
-/* 房间选定：点击卡片即选定，选中态高亮并给出 toast；已租房间不可选 */
-var ROOMS = {
-  A: { n: '1502A 间', area: '27.80', rent: '166.80', mkt: '500.40' },
-  B: { n: '1502B 间', area: '26.00', rent: '133.20', mkt: '468.00' },
-  C: { n: '1502C 间', area: '24.80', rent: '117.60', mkt: '446.40' }
-};
-function pickRoom(el, key) {
-  if (el.classList.contains('off')) { MB.toast(el.getAttribute('data-why')); return; }
-  var list = document.querySelectorAll('#roomBox .m-room');
-  for (var i = 0; i < list.length; i++) { list[i].classList.remove('on'); }
-  el.classList.add('on');
-  var r = ROOMS[key];
-  document.querySelector('#selNote div').innerHTML =
-    '已选定 <b>' + r.n + '</b>：计租面积 <b>' + r.area + ' ㎡</b>、人才租金 <b>' + r.rent +
-    ' 元/月</b>（原市场租金 ' + r.mkt + ' 元/月）。可点击底部<b>「预约该房间」</b>登记意向，或<b>「申请该房间」</b>带入申请表。';
-  document.getElementById('btnBook').textContent = '预约' + r.n;
-  document.getElementById('btnApply').innerHTML = '申请' + r.n;
-  MB.toast('已选定 ' + r.n + '　计租 ' + r.area + ' ㎡ · ' + r.rent + ' 元/月');
-}
-</script>
 </body>
 </html>

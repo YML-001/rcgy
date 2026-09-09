@@ -32,7 +32,7 @@
     <div class="stat-card">
       <div class="s-icon blue"><i class="fa-solid fa-shield-halved"></i></div>
       <div><div class="s-label">数据范围档位</div><div class="s-value">6</div>
-        <div class="s-trend text-2">全市/分级/本单位/本人/公开/无</div></div>
+        <div class="s-trend text-2">全市/受托/本单位/本人/公开/无</div></div>
     </div>
     <div class="stat-card">
       <div class="s-icon green"><i class="fa-solid fa-filter"></i></div>
@@ -55,7 +55,7 @@
     <div class="filter-bar">
       <div class="filter-item"><label>机构名称</label><input type="text" placeholder="机构名称"></div>
       <div class="filter-item"><label>角色</label><input type="text" placeholder="角色名称"></div>
-      <div class="filter-item"><label>数据范围</label><select><option value="">全部</option><option>全市统一</option><option>市县分级</option><option>本单位</option><option>本人</option><option>公开</option><option>无</option></select></div>
+      <div class="filter-item"><label>数据范围</label><select><option value="">全部</option><option>全市统一</option><option>受托范围</option><option>本单位</option><option>本人</option><option>公开</option><option>无</option></select></div>
       <div class="filter-item"><label>配置状态</label><select><option value="">全部</option><option>在用</option><option>待审批</option></select></div>
       <div class="filter-actions">
         <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
@@ -69,11 +69,11 @@
           <tr><th class="cell-lg">机构 / 角色</th><th>数据范围</th><th>可见区县 / 机构</th><th class="cell-lg">可见业务数据</th><th class="cell-lg">脱敏与限制</th><th>状态</th><th>操作</th></tr>
         </thead>
         <tbody>
-          <tr><td>市住保中心资格审核科 / 资格审核员</td><td><span class="badge blue">全市统一</span></td><td>市城区全部区县</td><td>全部申请件、核验报告、人才档案、年审与退出记录</td><td>身份证号、银行账户界面脱敏；查看明文需授权留痕</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('dsDrawer')">配置</span></td></tr>
-          <tr><td>天元区住房保障服务中心 / 城区经办员</td><td><span class="badge orange">市县分级</span></td><td>天元区</td><td>本区受理的申请件、本区房源与承租户、本区年审名单</td><td>跨区数据不返回；本区汇总指标可见，明细仅限本区</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('dsDrawer')">配置</span></td></tr>
-          <tr><td>株洲城发高科人才安居服务有限公司 / 运营机构经办</td><td><span class="badge green">本单位</span></td><td>本机构受托楼盘</td><td>受托房源房态、已配租承租人<b>必要信息</b>、应收账单、工单与巡检记录</td><td><b>不可见</b>申请审核过程、核验报告、其他机构房源与人才档案</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('dsDrawer')">配置</span></td></tr>
-          <tr><td>中车株洲电力机车研究所 / 单位经办人</td><td><span class="badge green">本单位</span></td><td>本单位（统一社会信用代码）</td><td>本单位职工申报件进度与结果、本单位安居汇总数据</td><td>仅见本单位职工；<b>不可见</b>职工房产、婚姻、纳税等核验明细</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('dsDrawer')">配置</span></td></tr>
-          <tr><td>市住建局 / 分管领导</td><td><span class="badge blue">全市统一</span></td><td>市城区全部区县</td><td>全部统计指标与可下钻明细清单</td><td><b>只读</b>，不可办理业务；下钻至含敏感字段的明细时同样脱敏</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('dsDrawer')">配置</span></td></tr>
+          <tr><td>市住保中心资格审核科 / 受理初审角色</td><td><span class="badge blue">全市统一</span></td><td>市城区全部（不分城区）</td><td>全市受理的申请件、八类核验报告、人工认定与容缺记录、人才档案</td><td>身份证号、银行账户界面脱敏；查看明文需授权留痕</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('dsDrawer')">配置</span></td></tr>
+          <tr><td>市住保中心资格审核科 / 审核角色</td><td><span class="badge blue">全市统一</span></td><td>市城区全部（不分城区）</td><td>待复审与已办结申请件、初审意见、审核结论与送达记录、年审与退出记录</td><td>本人已办初审的申请件不得由本人复核；敏感字段脱敏，查看明文需授权留痕</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('dsDrawer')">配置</span></td></tr>
+          <tr><td>株洲市人才安居服务有限公司 / 运营机构角色</td><td><span class="badge green">本单位</span></td><td>本机构受托楼盘</td><td>受托房源房态、已配租承租人<b>必要信息</b>、应收账单、工单与巡检记录</td><td><b>不可见</b>申请审核过程、核验报告、其他机构房源与人才档案</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('dsDrawer')">配置</span></td></tr>
+          <tr><td>中车株洲电力机车研究所 / 用人单位角色</td><td><span class="badge green">本单位</span></td><td>本单位（统一社会信用代码）</td><td>本单位职工申报件进度与结果、本单位安居汇总数据</td><td>仅见本单位职工；<b>不可见</b>职工房产、婚姻、纳税等核验明细</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('dsDrawer')">配置</span></td></tr>
+          <tr><td>市住建局 / 领导查看角色</td><td><span class="badge blue">全市统一</span></td><td>市城区全部区县</td><td>全部统计指标与可下钻明细清单</td><td><b>只读</b>，不可办理业务；下钻至含敏感字段的明细时同样脱敏</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('dsDrawer')">配置</span></td></tr>
         </tbody>
       </table>
     </div>
@@ -101,15 +101,15 @@
       <div class="form-grid form-align">
         <div class="form-item col-full">
           <label>机构 <span class="req">*</span></label>
-          <input type="text" value="株洲城发高科人才安居服务有限公司" readonly>
+          <input type="text" value="株洲市人才安居服务有限公司" readonly>
         </div>
         <div class="form-item">
           <label>角色 <span class="req">*</span></label>
-          <input type="text" value="运营机构经办" readonly>
+          <input type="text" value="运营机构角色" readonly>
         </div>
         <div class="form-item">
           <label>数据范围档位 <span class="req">*</span></label>
-          <select><option value="">全部</option><option>全市统一</option><option>市县分级</option><option>本单位</option><option>本人</option><option>公开</option><option>无</option></select>
+          <select><option value="">全部</option><option>全市统一</option><option>受托范围</option><option>本单位</option><option>本人</option><option>公开</option><option>无</option></select>
         </div>
         <div class="form-item col-full">
           <label>可见维度 <span class="req">*</span></label>

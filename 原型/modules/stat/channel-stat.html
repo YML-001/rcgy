@@ -9,146 +9,78 @@
 <link rel="stylesheet" href="../../assets/css/spec.css">
 <link rel="stylesheet" href="../../assets/css/ext.css">
 </head>
-<body data-role="leader" data-active="stat-33">
+<body data-role="leader" data-active="stat-30">
 <main class="app-main">
   <div class="page-head">
     <div class="breadcrumb">
       <i class="fa-solid fa-house bc-home"></i> 株洲市人才住房保障管理平台
       <span class="sep">/</span> 统计分析
-      <span class="sep">/</span> 人才与配租分析
       <span class="sep">/</span> <span class="cur">申请渠道分析</span>
     </div>
-    <div class="page-actions">
-      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
-    </div>
   </div>
-
   <div class="alert alert-info">
     <i class="fa-solid fa-circle-info"></i>
-    <div>按<b>个人申请、用人单位（移动端申报）、运营机构（PC 代办）、政务窗口（PC 代办）</b>四类渠道统计<b>办件量、办结时长与通过率</b>。四类渠道<b>汇入同一件池、走同一审核流程，不因渠道不同而优先</b>；本页只作办件效能对比，不作为配租排序依据。</div>
+    <div>按<b>个人申请、用人单位（移动端申请）、运营机构（PC 申请）、政务窗口（PC 申请）</b>四类渠道统计办件量、办结时长与通过率，评估各渠道的实际使用情况。各渠道汇入同一件池、走同一流程，受理时间为统一排序依据。</div>
   </div>
-
   <div class="stat-grid">
     <div class="stat-card">
-      <div class="s-icon blue"><i class="fa-solid fa-inbox"></i></div>
-      <div><div class="s-label">本年办件</div><div class="s-value">3,286</div>
-        <div class="s-trend text-2">件 · 2026 年 1—9 月累计</div></div>
+      <div class="s-icon blue"><i class="fa-solid fa-mobile-screen"></i></div>
+      <div><div class="s-label">个人申请</div><div class="s-value">68.2%</div>
+        <div class="s-trend">212 件，主渠道</div></div>
     </div>
     <div class="stat-card">
-      <div class="s-icon green"><i class="fa-solid fa-mobile-screen"></i></div>
-      <div><div class="s-label">线上渠道占比</div><div class="s-value">81.2%</div>
-        <div class="s-trend text-2">个人申请 + 用人单位移动端 2,668 件</div></div>
+      <div class="s-icon green"><i class="fa-solid fa-building-user"></i></div>
+      <div><div class="s-label">用人单位代申报</div><div class="s-value">21.6%</div>
+        <div class="s-trend">67 件</div></div>
     </div>
     <div class="stat-card">
-      <div class="s-icon cyan"><i class="fa-solid fa-clock"></i></div>
-      <div><div class="s-label">平均办结时长</div><div class="s-value">2.1</div>
-        <div class="s-trend text-2">个工作日 · 法定时限 3 个工作日</div></div>
+      <div class="s-icon cyan"><i class="fa-solid fa-house-user"></i></div>
+      <div><div class="s-label">运营机构代办</div><div class="s-value">6.4%</div>
+        <div class="s-trend">20 件</div></div>
     </div>
     <div class="stat-card">
-      <div class="s-icon orange"><i class="fa-solid fa-circle-check"></i></div>
-      <div><div class="s-label">整体通过率</div><div class="s-value">87.1%</div>
-        <div class="s-trend text-2">审核通过 2,863 件</div></div>
+      <div class="s-icon orange"><i class="fa-solid fa-landmark"></i></div>
+      <div><div class="s-label">政务窗口兜底</div><div class="s-value">3.8%</div>
+        <div class="s-trend">12 件</div></div>
     </div>
   </div>
-
-  <div class="card list-card" data-tabs-scope>
-    <div class="tabs" style="margin-bottom:0;padding:8px 12px 0">
-      <div class="tab active" data-tab="chan">按渠道分析 <span class="badge blue">4</span></div>
-      <div class="tab" data-tab="month">按月趋势 <span class="badge blue">6</span></div>
-    </div>
-
-    <div class="tab-panel active" data-panel="chan">
-      <div class="card-body" style="padding:0">
-        <div class="filter-bar">
-          <div class="filter-item"><label>申请渠道</label><select data-dict="applyChannel" data-ph="全部"></select></div>
-          <div class="filter-item"><label>申请类型</label><select data-dict="applyType" data-ph="全部"></select></div>
-          <div class="filter-item"><label>区域</label><select data-dict="district" data-ph="全部"></select></div>
-          <div class="filter-item"><label>统计区间</label><input type="month" value="2026-09"></div>
-          <div class="filter-actions">
-            <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
-            <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
-          </div>
-        </div>
-        <div class="table-wrap">
-          <table class="data-table">
-            <thead>
-              <tr><th class="cell-lg">申请渠道</th><th class="num">办件量</th><th class="num">占比</th><th class="num">平均办结时长</th><th class="num">3 个工作日办结率</th><th class="num">通过率</th><th class="num">退回补正率</th><th class="num">不予通过率</th><th class="cell-lg">主要退回原因</th></tr>
-            </thead>
-            <tbody>
-              <tr><td class="cell-lg"><span class="badge blue">个人申请</span><span class="muted"> 建宁安居小程序 / 湘易办</span></td><td class="num">1,842</td><td class="num">56.1%</td><td class="num">2.1 个工作日</td><td class="num">92.4%</td><td class="num">86.2%</td><td class="num">10.4%</td><td class="num">3.4%</td><td class="cell-lg">证照影像不清晰、社保缴纳证明缺失、学历认证书未上传</td></tr>
-              <tr><td class="cell-lg"><span class="badge green">用人单位（移动端申请）</span><span class="muted"> 单位代申报 + 本人确认授权</span></td><td class="num">826</td><td class="num">25.1%</td><td class="num">1.8 个工作日</td><td class="num">95.6%</td><td class="num">91.6%</td><td class="num">6.8%</td><td class="num">1.6%</td><td class="cell-lg">职工本人未在 3 个自然日内确认授权、联系方式与婚姻状况未补填</td></tr>
-              <tr class="row-warn"><td class="cell-lg"><span class="badge purple">运营机构（PC 申请）</span><span class="muted"> 三家运营机构代办</span></td><td class="num">386</td><td class="num">11.7%</td><td class="num">2.4 个工作日</td><td class="num">88.6%</td><td class="num">84.5%</td><td class="num">12.4%</td><td class="num">3.1%</td><td class="cell-lg">代录信息与本人材料不一致、劳动合同缺页、单位承诺书未盖章</td></tr>
-              <tr class="row-warn"><td class="cell-lg"><span class="badge orange">政务窗口（PC 申请）</span><span class="muted"> 市政务服务中心窗口代办</span></td><td class="num">232</td><td class="num">7.1%</td><td class="num">2.6 个工作日</td><td class="num">85.3%</td><td class="num">82.8%</td><td class="num">13.8%</td><td class="num">3.4%</td><td class="cell-lg">纸质材料扫描件模糊、身份证已过有效期、毕业时间超 2 年</td></tr>
-              <tr><td class="cell-lg"><span class="badge green">合计</span> <b>四类渠道</b></td><td class="num">3,286</td><td class="num">100.0%</td><td class="num">2.1 个工作日</td><td class="num">92.3%</td><td class="num">87.1%</td><td class="num">10.0%</td><td class="num">2.9%</td><td class="cell-lg">线上渠道自动带出核验数据、缺件提示前置，退回率明显低于 PC 代办渠道</td></tr>
-            </tbody>
-          </table>
-        </div>
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>统计期间</label><select><option value="">全部</option><option>本月</option><option>本季度</option><option>本年度</option></select></div>
+      <div class="filter-item"><label>申请渠道</label><select><option value="">全部</option><option>个人申请</option><option>用人单位（移动端申请）</option><option>运营机构（PC 申请）</option><option>政务窗口（PC 申请）</option></select></div>
+      <div class="filter-item"><label>申请类型</label><select><option value="">全部</option><option>就业青年人才</option><option>创业青年人才</option><option>特殊人才</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
       </div>
     </div>
-
-    <div class="tab-panel" data-panel="month">
-      <div class="card-body" style="padding:0">
-        <div class="filter-bar">
-          <div class="filter-item"><label>起始月份</label><input type="month" value="2026-04"></div>
-          <div class="filter-item"><label>截止月份</label><input type="month" value="2026-09"></div>
-          <div class="filter-item"><label>申请渠道</label><select data-dict="applyChannel" data-ph="全部"></select></div>
-          <div class="filter-actions">
-            <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
-            <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
-          </div>
-        </div>
-        <div class="table-wrap">
-          <table class="data-table">
-            <thead>
-              <tr><th>月份</th><th class="num">个人申请</th><th class="num">用人单位（移动端申请）</th><th class="num">运营机构（PC 申请）</th><th class="num">政务窗口（PC 申请）</th><th class="num">当月合计</th><th class="num">线上占比</th><th class="cell-lg">环比变化说明</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>2026-04</td><td class="num">268</td><td class="num">118</td><td class="num">56</td><td class="num">34</td><td class="num">476</td><td class="num">81.1%</td><td class="cell-lg">春季校招入职集中，个人申请为主</td></tr>
-              <tr><td>2026-05</td><td class="num">286</td><td class="num">132</td><td class="num">62</td><td class="num">38</td><td class="num">518</td><td class="num">80.7%</td><td class="cell-lg">环比 +8.8%，中车系企业启动批量代申报</td></tr>
-              <tr><td>2026-06</td><td class="num">302</td><td class="num">138</td><td class="num">64</td><td class="num">40</td><td class="num">544</td><td class="num">80.9%</td><td class="cell-lg">环比 +5.0%，四类渠道均稳步增长</td></tr>
-              <tr class="row-warn"><td>2026-07</td><td class="num">326</td><td class="num">148</td><td class="num">68</td><td class="num">42</td><td class="num">584</td><td class="num">81.2%</td><td class="cell-lg">环比 +7.4%，应届毕业生集中入职形成峰值</td></tr>
-              <tr><td>2026-08</td><td class="num">312</td><td class="num">142</td><td class="num">66</td><td class="num">38</td><td class="num">558</td><td class="num">81.4%</td><td class="cell-lg">环比 −4.5%，暑期回落属正常季节波动</td></tr>
-              <tr class="row-warn"><td>2026-09</td><td class="num">348</td><td class="num">148</td><td class="num">70</td><td class="num">40</td><td class="num">606</td><td class="num">81.5%</td><td class="cell-lg">环比 +8.6%，秋季入职叠加新一批房源上架带动预约转申请</td></tr>
-              <tr><td><span class="badge green">合计</span></td><td class="num">1,842</td><td class="num">826</td><td class="num">386</td><td class="num">232</td><td class="num">3,286</td><td class="num">81.2%</td><td class="cell-lg">六个月合计 3,286 件，线上两类渠道稳定在 81% 左右，PC 代办渠道作为兜底保持在 19% 以内</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th class="cell-lg">申请渠道</th><th>办件量</th><th>占比</th><th>通过数</th><th>通过率</th><th>平均办结时长</th><th>超期件</th><th>备注</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>个人申请</td><td>212</td><td>68.2%</td><td>182</td><td>85.8%</td><td>2.1 天</td><td>3</td><td><span class="badge blue">主渠道</span></td></tr>
+          <tr><td>用人单位（移动端申请）</td><td>67</td><td>21.6%</td><td>61</td><td>91.0%</td><td>1.8 天</td><td>0</td><td><span class="badge green">通过率最高</span></td></tr>
+          <tr><td>运营机构（PC 申请）</td><td>20</td><td>6.4%</td><td>16</td><td>80.0%</td><td>2.4 天</td><td>1</td><td><span class="badge gray">正常</span></td></tr>
+          <tr class="row-warn"><td>政务窗口（PC 申请）</td><td>12</td><td>3.8%</td><td>9</td><td>75.0%</td><td>2.8 天</td><td>2</td><td><span class="badge orange">兜底渠道</span></td></tr>
+          <tr><td><b>合计</b></td><td><b>311</b></td><td><b>100%</b></td><td><b>268</b></td><td><b>86.2%</b></td><td><b>2.1 天</b></td><td><b>6</b></td><td>—</td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
-
-  <div class="sp-block" style="margin-top:12px">
-    <div class="sp-h"><i class="fa-solid fa-list"></i> 四类渠道口径<span class="sub">受理时间口径 · 汇入同一件池 · 不因渠道优先</span></div>
-    <div class="sp-b">
-      <div class="sp-tw">
-        <table class="data-table compact">
-          <thead><tr><th class="cell-lg">申请渠道</th><th class="cell-lg">发起主体与端</th><th class="cell-lg">受理时间口径</th><th class="cell-lg">流程与排序</th></tr></thead>
-          <tbody>
-            <tr><td><span class="badge blue">个人申请</span></td><td class="cell-lg">人才本人 · 移动端（建宁安居小程序 / 湘易办）</td><td class="cell-lg">以<b>本人提交时间</b>为准</td><td class="cell-lg">汇入同一件池、走同一审核流程；可在线预约与选房，已预约本批次房源的优先于普通轮候</td></tr>
-            <tr><td><span class="badge green">用人单位（移动端申请）</span></td><td class="cell-lg">用人单位人事岗 · 移动端，只报人不选房，按人拆分为独立申请件</td><td class="cell-lg">以<b>职工本人在移动端确认授权的时间</b>为准；<b>3 个自然日内未确认自动作废</b></td><td class="cell-lg">汇入同一件池、走同一审核流程；不在线选房，意向片区仅作登记、不锁定房源</td></tr>
-            <tr><td><span class="badge purple">运营机构（PC 申请）</span></td><td class="cell-lg">运营机构经办 · PC 端，代人才录入申请，不在线选房</td><td class="cell-lg">以<b>运营机构代录入提交时间</b>为准</td><td class="cell-lg">汇入同一件池、走同一审核流程；房源由配租环节统一编排，不得指定房源</td></tr>
-            <tr><td><span class="badge orange">政务窗口（PC 申请）</span></td><td class="cell-lg">市政务服务中心人才住房窗口 · PC 端，只录身份与资格材料</td><td class="cell-lg">以<b>窗口录入时间</b>为准</td><td class="cell-lg">汇入同一件池、走同一审核流程；不在线选房，意向片区选填且不锁房</td></tr>
-            <tr><td><b>排序口径</b></td><td class="cell-lg">四类渠道共用 RC 编号规则与同一件池</td><td class="cell-lg">受理时间即配租顺序排序依据</td><td class="cell-lg">配租<b>不摇号</b>，只按受理时间先后排定，<b>不因渠道不同而优先</b></td></tr>
-            <tr><td><b>办结时长口径</b></td><td class="cell-lg">自受理时间起至复审出具结论止</td><td class="cell-lg">按<b>工作日</b>计算，法定时限 3 个工作日</td><td class="cell-lg"><b>退回补正期间中止不计入</b>；补正后回原环节，受理时间不变</td></tr>
-            <tr><td><b>通过率口径</b></td><td class="cell-lg">通过率 ＝ 审核通过件数 ÷ 办件量</td><td class="cell-lg">通过率 ＋ 退回补正率 ＋ 不予通过率 ＝ 100%</td><td class="cell-lg">退回补正后重新提交并通过的计入通过率，不重复计入办件量</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-
   <div class="sp-src">
-    <span><b>统计区间</b> 2026 年 1 月 1 日至 2026 年 9 月 8 日累计办件 3,286 件</span>
-    <span><b>渠道口径</b> 与 <span class="link" onclick="location.href='../apply/pool-list.html'">多渠道件池</span> 的申请渠道字段一致，四类渠道互斥、不重复计数</span>
-    <span><b>效能提示</b> PC 代办两类渠道退回补正率明显偏高，建议加强窗口与运营机构经办人材料预检培训</span>
+    <span><b>渠道口径</b> 四类渠道汇入同一件池、编号规则一致、走同一审核流程</span>
+    <span><b>排序规则</b> 受理时间为配租顺序的唯一排序依据，不因渠道不同而优先</span>
+    <span><b>兜底定位</b> 政务窗口面向不便线上办理的申请人，占比低属正常</span>
   </div>
+
 </main>
 
 <script>
 (function () {
-  var totals = [5, 7];
-  var list = document.querySelectorAll('main.app-main .table-wrap > table.data-table');
-  for (var i = 0; i < list.length; i++) { list[i]._total = totals[i] || 5; }
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 5; }
 })();
 </script>
 

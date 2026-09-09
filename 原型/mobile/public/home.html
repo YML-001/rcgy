@@ -3,155 +3,227 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>建宁安居 · 株洲市人才公寓系统</title>
+<title>建宁安居首页 · 株洲市人才住房保障管理平台</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="../../assets/css/app.css">
 <link rel="stylesheet" href="../../assets/css/mobile.css">
 <link rel="stylesheet" href="../../assets/css/ext.css">
+<style>
+/* —— 建宁安居首页专用样式（按设计稿）—— */
+.jn-hero{position:relative;padding:10px 14px 16px;background:
+  linear-gradient(160deg,#3E8BE8 0%,#2E76D8 42%,#2465C8 100%);overflow:hidden}
+.jn-hero::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:14px;
+  background:#F3F6FA;border-radius:14px 14px 0 0}
+.jn-loc{display:flex;align-items:center;gap:6px;color:#fff;font-size:13.5px;
+  font-weight:600;position:relative;z-index:2}
+.jn-loc .ic{width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,.24);
+  display:flex;align-items:center;justify-content:center;font-size:9px}
+.jn-loc .sp{margin-left:auto;display:flex;gap:14px;font-size:15px;opacity:.92}
+.jn-slogan{position:relative;z-index:2;margin-top:14px}
+.jn-slogan .t1{font-size:27px;font-weight:800;color:#fff;letter-spacing:1px;
+  text-shadow:0 2px 8px rgba(0,60,140,.28)}
+.jn-slogan .t2{font-size:17px;font-weight:700;color:#EAF3FF;margin-top:4px;
+  letter-spacing:3px}
+.jn-slogan .t3{display:inline-block;margin-top:8px;font-size:10.5px;color:#DCEBFF;
+  background:rgba(255,255,255,.18);border-radius:9px;padding:2px 8px}
+.jn-art{position:absolute;right:-6px;top:52px;width:172px;opacity:.95;z-index:1}
+.jn-art .sky{position:absolute;right:16px;top:-6px;width:3px;height:52px;
+  background:linear-gradient(#BFE0FF,rgba(191,224,255,0));border-radius:2px}
+.jn-art .ball{position:absolute;right:12px;top:-12px;width:11px;height:11px;
+  border-radius:50%;background:#CFE6FF}
+.jn-art .bridge{position:absolute;right:52px;top:26px;width:118px;height:2px;
+  background:rgba(255,255,255,.5)}
+.jn-art .house{position:absolute;right:26px;top:40px;width:104px;height:62px;
+  background:rgba(255,255,255,.9);border-radius:6px 6px 3px 3px}
+.jn-art .roof{position:absolute;right:20px;top:24px;width:0;height:0;
+  border-left:58px solid transparent;border-right:58px solid transparent;
+  border-bottom:26px solid #EAF4FF}
+.jn-art .win{position:absolute;background:#BBD8F7;border-radius:2px;width:15px;height:13px}
+.jn-search{position:relative;z-index:3;margin-top:20px;display:flex;align-items:center;
+  gap:8px;background:#fff;border-radius:22px;padding:9px 8px 9px 14px;
+  box-shadow:0 6px 16px rgba(16,60,120,.18)}
+.jn-search .ph{flex:1;color:#9AA7B8;font-size:13px}
+.jn-search .ai{display:flex;align-items:center;gap:4px;color:#fff;font-size:12.5px;
+  font-weight:700;background:linear-gradient(135deg,#5AA0FF,#2B6FD8);
+  border-radius:16px;padding:6px 12px}
+.jn-svc{display:flex;gap:11px;padding:14px 14px 4px}
+.jn-svc a{flex:1;position:relative;border-radius:12px;padding:13px 12px 12px;
+  overflow:hidden;color:#fff;text-decoration:none;min-height:96px;
+  display:flex;flex-direction:column}
+.jn-svc .b1{background:linear-gradient(135deg,#4B93F0,#2C6FD6)}
+.jn-svc .b2{background:linear-gradient(135deg,#43C08A,#22A06B)}
+.jn-svc .st{font-size:15.5px;font-weight:800;letter-spacing:.5px}
+.jn-svc .ss{font-size:10.5px;line-height:1.55;margin-top:5px;opacity:.92}
+.jn-svc .sb{margin-top:auto;align-self:flex-start;font-size:11px;font-weight:700;
+  background:rgba(255,255,255,.24);border-radius:11px;padding:3px 11px}
+.jn-svc .sic{position:absolute;right:8px;bottom:8px;font-size:34px;opacity:.24}
+.jn-sect{display:flex;align-items:center;padding:16px 14px 8px}
+.jn-sect b{font-size:15.5px;color:#1B2A41;font-weight:800}
+.jn-sect .more{margin-left:auto;font-size:12px;color:#8C9AAC;text-decoration:none}
+.jn-tabs{display:flex;gap:8px;padding:0 14px 10px}
+.jn-tabs span{font-size:12.5px;color:#5C6B7F;background:#fff;border-radius:14px;
+  padding:5px 15px;border:1px solid #E4EAF2}
+.jn-tabs span.on{color:#fff;font-weight:700;border-color:transparent;
+  background:linear-gradient(135deg,#4B93F0,#2C6FD6)}
+.jn-list{margin:0 14px;background:#fff;border-radius:12px;overflow:hidden}
+.jn-li{display:flex;align-items:center;gap:11px;padding:12px;text-decoration:none;
+  border-bottom:1px solid #F0F3F8}
+.jn-li:last-child{border-bottom:0}
+.jn-li .ic{width:38px;height:38px;border-radius:9px;display:flex;align-items:center;
+  justify-content:center;font-size:16px;flex:none}
+.jn-li .ic.b{background:#EAF2FE;color:#2C6FD6}
+.jn-li .ic.o{background:#FEF3E6;color:#E08A2B}
+.jn-li .ic.p{background:#F3EDFC;color:#7B54C8}
+.jn-li .tx{flex:1;min-width:0;display:block}
+.jn-li .t{display:block;font-size:13.5px;color:#1B2A41;font-weight:600;
+  line-height:1.4;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.jn-li .d{display:block;font-size:11px;color:#9AA7B8;margin-top:5px}
+.jn-li .d i{margin-right:4px}
+.jn-li .tg{font-size:10px;border-radius:8px;padding:2px 7px;flex:none;
+  align-self:center;white-space:nowrap}
+.jn-li .tg.b{background:#EAF2FE;color:#2C6FD6}
+.jn-li .tg.o{background:#FEF3E6;color:#E08A2B}
+.jn-li .tg.p{background:#F3EDFC;color:#7B54C8}
+.jn-hs{margin:0 14px 6px;background:#fff;border-radius:12px;overflow:hidden;
+  display:block;text-decoration:none}
+.jn-hs .im{position:relative;height:152px;background:#DCE6F2}
+.jn-hs .im img{width:100%;height:100%;object-fit:cover;display:block}
+.jn-hs .bd{position:absolute;left:9px;top:9px;display:flex;gap:5px}
+.jn-hs .bd span{font-size:10px;color:#fff;border-radius:4px;padding:2px 7px;
+  background:rgba(20,60,120,.62)}
+.jn-hs .vr{position:absolute;right:9px;bottom:9px;font-size:10.5px;color:#fff;
+  background:rgba(20,40,70,.55);border-radius:12px;padding:3px 9px}
+.jn-hs .bb{padding:11px 12px 12px}
+.jn-hs .ht{font-size:16px;font-weight:800;color:#1B2A41}
+.jn-hs .hm{font-size:11.5px;color:#7C8A9C;margin-top:5px}
+.jn-hs .hg{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
+.jn-hs .hg span{font-size:10.5px;color:#5C6B7F;background:#F2F5F9;border-radius:4px;
+  padding:3px 8px}
+.jn-hs .hf{display:flex;align-items:flex-end;margin-top:10px}
+.jn-hs .p1{font-size:19px;font-weight:800;color:#E2543A}
+.jn-hs .p1 small{font-size:11px;font-weight:600;margin-left:2px}
+.jn-hs .p2{font-size:10.5px;color:#9AA7B8;margin-top:2px}
+.jn-hs .lf{margin-left:auto;font-size:11px;color:#E08A2B;background:#FEF3E6;
+  border-radius:10px;padding:3px 9px}
+</style>
 </head>
-<body class="m-body" data-mtitle="建宁安居" data-mmod="M1 个人用户" data-mcode="M1-02 / M1-03 / M1-05 / M1-06"
-      data-mdesc="顶部 banner 展示建宁安居主题图与 LOGO 并保留 AI 检索框；中部为人才租房申请、人才购房补贴两个业务入口；底部依次为政策资讯（购房／租房／办事指南三类可切换）与房源信息展示。"
-      data-mtabset="public" data-mtab="home" data-mnav="0" data-mtint="1" data-mrole="0">
+<body class="m-body" data-mtitle="建宁安居" data-mmod="M1 个人用户 · 首页"
+      data-mcode="M1-01～M1-05"
+      data-mdesc="个人用户首页。顶部为建宁安居主题 banner 并保留 AI 检索；中部为人才租房申请、人才购房补贴两个业务入口，购房补贴点击后跳转市委组织部现有系统；底部依次为政策资讯（购房／租房／办事指南三类可切换）与房源推荐。"
+      data-mtabset="public" data-mtab="home" data-mtint="1" data-mnav="0"
+      data-mchan="湘易办">
 <div class="m-stage">
   <div class="m-phone">
     <div class="m-screen">
-      <div class="m-view pad0 jn-home">
+      <div class="m-view" style="background:#F3F6FA">
 
-        <!-- ① 顶部 banner：主题图 + LOGO + AI 检索（M1-02） -->
-        <div class="jn-banner">
-          <!-- 主题图：株洲城市天际线剪影（广电塔 · 斜拉桥 · 高铁 · 楼群），随渐变一同呈现 -->
-          <svg class="jn-bg" viewBox="0 0 300 130" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <g fill="#ffffff" opacity=".26">
-              <rect x="8" y="66" width="20" height="64" rx="2"/>
-              <rect x="32" y="54" width="15" height="76" rx="2"/>
-              <rect x="51" y="76" width="22" height="54" rx="2"/>
-              <rect x="238" y="60" width="18" height="70" rx="2"/>
-              <rect x="260" y="72" width="24" height="58" rx="2"/>
-              <rect x="286" y="84" width="14" height="46" rx="2"/>
-            </g>
-            <g fill="#ffffff" opacity=".42">
-              <path d="M150 8l3.4 26h-6.8L150 8z"/>
-              <circle cx="150" cy="40" r="8"/>
-              <rect x="147.6" y="46" width="4.8" height="84"/>
-              <path d="M141 62h18l-2.4 68h-13.2L141 62z"/>
-            </g>
-            <g stroke="#ffffff" stroke-width="1.1" opacity=".34">
-              <path d="M186 130V44"/>
-              <path d="M186 50L160 96M186 58l-20 38M186 66l-14 30M186 50l26 46M186 58l20 38M186 66l14 30"/>
-              <path d="M150 100h108"/>
-            </g>
-            <g fill="#ffffff" opacity=".34">
-              <rect x="196" y="104" width="82" height="13" rx="6.5"/>
-              <path d="M278 104c9 0 16 3 20 6.5-4 3.5-11 6.5-20 6.5v-13z"/>
-            </g>
-            <g fill="#ffffff" opacity=".2">
-              <path d="M0 130c34-16 62-16 92 0H0zM206 130c26-13 52-13 94 0H206z"/>
-            </g>
-          </svg>
-          <div class="jn-wave"></div>
-
+        <!-- ① 顶部 banner：建宁安居主题 + AI 检索 -->
+        <div class="jn-hero">
           <div class="jn-loc">
-            <i class="fa-regular fa-compass"></i> 株洲市
-            <span class="jn-acts">
-              <a href="me-feedback.html" title="在线客服"><i class="fa-regular fa-comment-dots"></i></a>
-              <a href="msg-center.html" title="消息"><i class="fa-regular fa-bell"></i><span class="dot"></span></a>
-            </span>
+            <span class="ic"><i class="fa-solid fa-location-dot"></i></span>株洲市
+            <span class="sp"><i class="fa-solid fa-headset"></i><i class="fa-regular fa-bell"></i></span>
           </div>
-
-          <div class="jn-brand">
+          <div class="jn-art">
+            <span class="sky"></span><span class="ball"></span><span class="bridge"></span>
+            <span class="roof"></span><span class="house"></span>
+            <span class="win" style="right:44px;top:56px"></span>
+            <span class="win" style="right:72px;top:56px"></span>
+            <span class="win" style="right:44px;top:76px"></span>
+            <span class="win" style="right:72px;top:76px"></span>
+          </div>
+          <div class="jn-slogan">
             <div class="t1">建宁安居</div>
             <div class="t2">才聚株洲　安居建宁</div>
-            <div class="line"></div>
-            <div class="t3">株洲市人才公寓系统</div>
+            <div class="t3">株洲市人才住房保障服务</div>
           </div>
-
           <a class="jn-search" href="ai-search.html">
-            <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="fa-solid fa-magnifying-glass" style="color:#9AA7B8;font-size:13px"></i>
             <span class="ph">搜索房源、政策或办事指南</span>
-            <span class="ai"><b>Ai</b> 搜索</span>
+            <span class="ai"><i class="fa-solid fa-wand-magic-sparkles"></i>AI 搜索</span>
           </a>
         </div>
 
-        <!-- ② 两个业务入口（M1-03） -->
-        <div class="jn-entry">
-          <a class="rent" href="rent-apply.html">
-            <span class="et">人才租房申请</span>
-            <span class="es">人才租房优惠<br>筑就暖心居所</span>
-            <span class="eb">去申请 <i class="fa-solid fa-circle-arrow-right"></i></span>
-            <i class="fa-solid fa-building-circle-check eic"></i>
+        <!-- ② 两个业务入口 -->
+        <div class="jn-svc">
+          <a class="b1" href="rent-apply.html">
+            <span class="st">人才租房申请</span>
+            <span class="ss">意向登记 · 公寓申请<br>合同 · 账单 · 年审</span>
+            <span class="sb">去申请 ›</span>
+            <i class="fa-solid fa-key sic"></i>
           </a>
-          <a class="buy" href="buy-subsidy.html">
-            <span class="et">人才购房补贴</span>
-            <span class="es">购房享补贴<br>人才安心筑家</span>
-            <span class="eb">去看房 <i class="fa-solid fa-circle-arrow-right"></i></span>
-            <i class="fa-solid fa-house-circle-check eic"></i>
-          </a>
-        </div>
-
-        <!-- ③ 政策资讯：购房 / 租房 / 办事指南三类可切换（M1-05） -->
-        <div class="jn-sect">政策资讯<a class="more" href="policy-list.html">更多资讯 <i class="fa-solid fa-angle-right"></i></a></div>
-        <div class="jn-pills">
-          <button type="button" class="on">全部</button>
-          <button type="button">购房</button>
-          <button type="button">租房</button>
-          <button type="button">办事指南</button>
-        </div>
-        <div class="jn-news">
-          <a href="policy-detail.html">
-            <span class="ni b"><i class="fa-solid fa-file-lines"></i></span>
-            <span class="nb">
-              <span class="nt">优化住房交易服务十条措施</span>
-              <span class="nd"><i class="fa-regular fa-clock"></i>2026-07-28</span>
-            </span>
-            <span class="ng buy">购房</span>
-          </a>
-          <a href="policy-detail.html">
-            <span class="ni o"><i class="fa-solid fa-house-chimney"></i></span>
-            <span class="nb">
-              <span class="nt">租房十大法则请注意</span>
-              <span class="nd"><i class="fa-regular fa-clock"></i>2026-07-28</span>
-            </span>
-            <span class="ng rent">租房</span>
-          </a>
-          <a href="apply-guide.html">
-            <span class="ni r"><i class="fa-solid fa-clipboard-list"></i></span>
-            <span class="nb">
-              <span class="nt">人才公寓申请办事指南</span>
-              <span class="nd"><i class="fa-regular fa-clock"></i>2026-07-28</span>
-            </span>
-            <span class="ng guide">办事指南</span>
+          <a class="b2" href="subsidy-entry.html">
+            <span class="st">人才购房补贴</span>
+            <span class="ss">补贴申请 · 政策<br>进度 · 公示查询</span>
+            <span class="sb">去查看 ›</span>
+            <i class="fa-solid fa-house-circle-check sic"></i>
           </a>
         </div>
 
-        <!-- ④ 房源信息展示（M1-06） -->
-        <div class="jn-sect">好房推荐<a class="more" href="house-list.html">更多房源 <i class="fa-solid fa-angle-right"></i></a></div>
-        <div class="jn-house">
-          <a class="m-hcard" href="house-detail.html">
-            <div class="m-hc-img"><img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80" alt="湘江1958 人才公寓">
-              <div class="m-hc-badge"><span class="m-tag dark">收购商品房</span><span class="m-tag green">拎包入住</span></div>
-            </div>
-            <div class="m-hc-b">
-              <div class="m-hc-t">湘江1958 人才公寓</div>
-              <div class="m-hc-m">天元区 · 泰山路 <span class="dot">|</span> 二室一厅 78.60 ㎡ <span class="dot">|</span> 精装</div>
-              <div class="m-hc-tags"><span class="m-tag dark">家电齐全</span><span class="m-tag dark">近 3 号线</span><span class="m-tag dark">配套成熟</span></div>
-              <div class="m-hc-f">
-                <div class="m-hc-p"><div class="p1">424.44 <small>元/月起</small></div><div class="p2">市场租金 1,414.80 元/月</div></div>
-                <span class="m-hc-left">剩 26 间</span>
-              </div>
-            </div>
+        <!-- ③ 政策资讯 -->
+        <div class="jn-sect"><b>政策资讯</b>
+          <a class="more" href="policy-list.html">更多资讯 ›</a></div>
+        <div class="jn-tabs">
+          <span class="on">全部</span><span>购房</span><span>租房</span><span>办事指南</span>
+        </div>
+        <div class="jn-list">
+          <a class="jn-li" href="policy-detail.html">
+            <span class="ic b"><i class="fa-solid fa-file-lines"></i></span>
+            <span class="tx"><span class="t">优化住房交易服务十条措施</span>
+              <span class="d"><i class="fa-regular fa-clock"></i>2026-07-28</span></span>
+            <span class="tg b">购房</span>
           </a>
-          <div class="jn-quick">
-            <a href="house-list.html">
-              <span class="qi o"><i class="fa-solid fa-city"></i></span>
-              <span class="qb"><span class="qt">查看全部房源</span><span class="qs">6 个楼盘 · 412 间可租</span></span>
-              <span class="qv">全部 <i class="fa-solid fa-circle-arrow-right"></i></span>
-            </a>
-            <a href="alloc-notice.html">
-              <span class="qi b"><i class="fa-solid fa-bullhorn"></i></span>
-              <span class="qb"><span class="qt">2026 年第 3 批配租公告</span><span class="qs">投放 320 间 · 报名至 09-12</span></span>
-              <span class="qv"><span class="m-tag orange">进行中</span><i class="fa-solid fa-circle-arrow-right"></i></span>
-            </a>
+          <a class="jn-li" href="policy-detail.html">
+            <span class="ic o"><i class="fa-solid fa-house-user"></i></span>
+            <span class="tx"><span class="t">租房十大注意事项须知</span>
+              <span class="d"><i class="fa-regular fa-clock"></i>2026-07-26</span></span>
+            <span class="tg o">租房</span>
+          </a>
+          <a class="jn-li" href="apply-guide.html">
+            <span class="ic p"><i class="fa-solid fa-list-check"></i></span>
+            <span class="tx"><span class="t">人才公寓申请办事指南</span>
+              <span class="d"><i class="fa-regular fa-clock"></i>2026-07-20</span></span>
+            <span class="tg p">办事指南</span>
+          </a>
+        </div>
+
+        <!-- ④ 好房推荐 -->
+        <div class="jn-sect"><b>好房推荐</b>
+          <a class="more" href="house-list.html">更多房源 ›</a></div>
+        <a class="jn-hs" href="house-detail.html">
+          <div class="im">
+            <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80" alt="湘江1958 人才公寓">
+            <div class="bd"><span>收购商品房</span><span>拎包入住</span></div>
+            <div class="vr"><i class="fa-solid fa-vr-cardboard"></i> VR 看房</div>
           </div>
+          <div class="bb">
+            <div class="ht">湘江1958 人才公寓</div>
+            <div class="hm">天元区 · 泰山路　|　三室两厅拆 3 间　|　本间计租 26.70 ㎡</div>
+            <div class="hg"><span>家电齐全</span><span>近 3 号线</span><span>配套成熟</span></div>
+            <div class="hf">
+              <div><div class="p1">160.20 <small>元/月起</small></div>
+                <div class="p2">市场租金 373.80 元/月</div></div>
+              <span class="lf">剩 26 间</span>
+            </div>
+          </div>
+        </a>
+        <div class="m-cells" style="margin:0 14px 10px">
+          <a class="m-cell" href="house-list.html">
+            <span class="m-ci cyan"><i class="fa-solid fa-building"></i></span>
+            <span class="m-cl"><b>查看全部房源</b>
+              <span class="m-cs">6 个楼盘 · 412 间可租</span></span>
+            <span class="m-cv">全部 ›</span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="alloc-notice.html">
+            <span class="m-ci orange"><i class="fa-solid fa-bullhorn"></i></span>
+            <span class="m-cl"><b>2026 年第 3 批配租公告</b>
+              <span class="m-cs">投放 320 间 · 自动配租 09-15 10:00</span></span>
+            <span class="m-cv"><span class="m-tag orange">无需报名</span></span>
+            <i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="guide-list.html">
+            <span class="m-ci"><i class="fa-solid fa-circle-play"></i></span>
+            <span class="m-cl"><b>系统使用指南</b>
+              <span class="m-cs">系统操作视频 · 政策解读图文</span></span>
+            <span class="m-cv"><span class="m-tag green">新手必看</span></span>
+            <i class="m-ca fa-solid fa-angle-right"></i></a>
         </div>
 
       </div>
@@ -160,26 +232,5 @@
 </div>
 
 <script src="../../assets/js/mobile.js"></script>
-<script>
-/* 政策资讯三类切换：仅演示分类过滤，数据为静态示例 */
-(function () {
-  var NEWS = {
-    '全部': [0, 1, 2], '购房': [0], '租房': [1], '办事指南': [2]
-  };
-  document.querySelector('.jn-pills').addEventListener('click', function (e) {
-    var b = e.target.closest('button');
-    if (!b) return;
-    var box = b.parentElement.querySelectorAll('button');
-    for (var i = 0; i < box.length; i++) { box[i].classList.remove('on'); }
-    b.classList.add('on');
-    var keep = NEWS[b.textContent.trim()] || [0, 1, 2];
-    var rows = document.querySelectorAll('.jn-news > a');
-    for (var j = 0; j < rows.length; j++) {
-      rows[j].style.display = keep.indexOf(j) >= 0 ? '' : 'none';
-    }
-    MB.toast('已切换为「' + b.textContent.trim() + '」政策');
-  });
-})();
-</script>
 </body>
 </html>

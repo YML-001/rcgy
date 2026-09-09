@@ -77,7 +77,7 @@
           <tr><td>HG2026-09-02</td><td>DR2026-09-106</td><td>栗雨佳苑人才公寓（模板版本错误）</td><td class="num">86</td><td>彭雪梅</td><td>2026-09-02 15:42</td><td><span class="badge green">可回滚</span></td><td><span class="badge green">已回滚</span></td><td><span class="link" onclick="PMS.openDrawer('rbDrawer')">查看校验</span></td></tr>
           <tr><td>HG2026-09-03</td><td>DR2026-09-109</td><td>建宁人才公寓（项目未建档误导入）</td><td class="num">160</td><td>唐凯</td><td>2026-09-03 10:08</td><td><span class="badge green">可回滚</span></td><td><span class="badge green">已回滚</span></td><td><span class="link" onclick="PMS.openDrawer('rbDrawer')">查看校验</span></td></tr>
           <tr><td>HG2026-09-04</td><td>DR2026-09-112</td><td>天元云谷人才公寓（重复报送）</td><td class="num">112</td><td>彭雪梅</td><td>2026-09-04 09:26</td><td><span class="badge green">可回滚</span></td><td><span class="badge green">已回滚</span></td><td><span class="link" onclick="PMS.openDrawer('rbDrawer')">查看校验</span></td></tr>
-          <tr><td>HG2026-09-05</td><td>DR2026-09-122</td><td>清水塘·未来社区（二期，中断批次）</td><td class="num">1,268</td><td>唐凯</td><td>2026-09-05 16:20</td><td><span class="badge green">可回滚</span></td><td><span class="badge orange">审批中</span></td><td><span class="link" onclick="PMS.openDrawer('rbDrawer')">查看校验</span> <span class="link" onclick="PMS.confirm({title:'审批确认',message:'确认批准回滚单 HG2026-09-05？',detail:'批准后立即整批撤销 DR2026-09-122 已入库的 1,268 套房源，整批撤销不可恢复。前置校验已确认无业务关联，全过程留痕。',type:'warning',okText:'确认批准',onOk:function(){PMS.toast('回滚单已批准，1,268 套房源已整批撤销并留痕','success');}})">审批</span></td></tr>
+          <tr><td>HG2026-09-05</td><td>DR2026-09-122</td><td>清水塘·未来社区（二期，中断批次）</td><td class="num">1,268</td><td>唐凯</td><td>2026-09-05 16:20</td><td><span class="badge green">可回滚</span></td><td><span class="badge orange">审批中</span></td><td><span class="link" onclick="PMS.openDrawer('rbDrawer')">查看校验</span> <span class="link" onclick="PMS.confirm({title:'审批确认',message:'确认批准回滚单 HG2026-09-05？',detail:'批准后立即整批撤销 DR2026-09-122 已入库的 1,268 间房源，整批撤销不可恢复。前置校验已确认无业务关联，全过程留痕。',type:'warning',okText:'确认批准',onOk:function(){PMS.toast('回滚单已批准，1,268 间房源已整批撤销并留痕','success');}})">审批</span></td></tr>
           <tr class="row-bad"><td>HG2026-09-06</td><td>DR2026-09-118</td><td>湘江1958 人才公寓（二期）</td><td class="num">1,946</td><td>唐凯</td><td>2026-09-05 17:08</td><td><span class="badge red">存在业务关联</span></td><td><span class="badge red">已拦截</span></td><td><span class="link" onclick="PMS.openDrawer('rbDrawer')">查看校验</span> <span class="link" onclick="PMS.toast('已向配租与合同经办人推送业务关联解除待办')">发起解除</span></td></tr>
           <tr class="row-bad"><td>HG2026-09-07</td><td>DR2026-09-126</td><td>董家塅人才公寓</td><td class="num">1,164</td><td>彭雪梅</td><td>2026-09-06 09:48</td><td><span class="badge red">存在业务关联</span></td><td><span class="badge red">已拦截</span></td><td><span class="link" onclick="PMS.openDrawer('rbDrawer')">查看校验</span> <span class="link" onclick="PMS.toast('已向配租与合同经办人推送业务关联解除待办')">发起解除</span></td></tr>
         </tbody>
@@ -94,8 +94,8 @@
           <tbody>
           <tr><td><b>LZ-1</b> 操作人</td><td>回滚申请人、审批人、执行人三方账号与所属单位，逐级记录</td><td>申请人 唐凯（市住建局住房保障科）／审批人 彭雪梅（市保障性住房服务中心）</td><td>长期留存</td></tr>
           <tr><td><b>LZ-2</b> 操作时间</td><td>申请时间、审批时间、执行开始与结束时间，精确到秒</td><td>申请 2026-09-05 16:20:38／审批 2026-09-06 09:12:04／执行 2026-09-06 09:12:26 至 09:14:02</td><td>长期留存</td></tr>
-          <tr><td><b>LZ-3</b> 回滚前后套数</td><td>回滚前已入库套数、实际撤销套数、回滚后剩余套数，三者须自洽</td><td>回滚前 1,268 套／实际撤销 1,268 套／回滚后 0 套；项目累计入库由 2,486 套减至 1,218 套</td><td>长期留存</td></tr>
-          <tr><td><b>LZ-4</b> 关联业务解除记录</td><td>逐条记录解除的预约、锁定、配租、合同与账单，含解除时间与解除人</td><td>解除预约 12 条（2026-09-05 18:02，经办人 周敏）／移出配租批次 6 套（PZ2026-03）</td><td>长期留存</td></tr>
+          <tr><td><b>LZ-3</b> 回滚前后套数</td><td>回滚前已入库套数、实际撤销套数、回滚后剩余套数，三者须自洽</td><td>回滚前 1,268 间／实际撤销 1,268 间／回滚后 0 间；项目累计入库由 2,486 间减至 1,218 间</td><td>长期留存</td></tr>
+          <tr><td><b>LZ-4</b> 关联业务解除记录</td><td>逐条记录解除的预约、锁定、配租、合同与账单，含解除时间与解除人</td><td>解除预约 12 条（2026-09-05 18:02，经办人 周敏）／移出配租批次 6 间（PZ2026-03）</td><td>长期留存</td></tr>
           <tr><td><b>LZ-5</b> 日志不可篡改</td><td>回滚日志<b>只可追加不可修改删除</b>，按日归档并计算摘要校验值，写入<span class="link" onclick="location.href='../system/audit-log.html'">操作日志</span></td><td>日志编号 LOG2026-09-06-0284，摘要校验值随日志一并归档</td><td><b>长期留存，不随房源档案变更而删除</b></td></tr>
           </tbody>
         </table>
@@ -143,7 +143,7 @@
       </div>
       <div class="form-item">
         <label>涉及套数 <span class="req">*</span></label>
-        <input type="text" value="1,946 套（已入库）" readonly>
+        <input type="text" value="1,946 间（已入库）" readonly>
       </div>
       <div class="form-item">
         <label>校验时间 <span class="req">*</span></label>
@@ -159,7 +159,7 @@
             <thead><tr><th>校验项</th><th>校验结果</th><th class="num">涉及套数</th><th class="cell-lg">处置要求</th></tr></thead>
             <tbody>
             <tr class="row-bad"><td>是否已对外发布</td><td><span class="badge red">已发布</span></td><td class="num">1,946</td><td>须先执行<span class="link" onclick="location.href='shelf-batch.html'">批量下架</span>，下架后房源不再对外展示</td></tr>
-            <tr class="row-bad"><td>是否存在预约记录</td><td><span class="badge red">存在</span></td><td class="num">286</td><td>须由申请人取消预约或经办人改约至其他房源，参见<span class="link" onclick="location.href='book-manage.html'">预约名单管理</span></td></tr>
+            <tr><td>是否存在意向登记</td><td><span class="badge gray">不阻断</span></td><td class="num">286</td><td>意向登记只到楼盘与户型、不占用房源，不影响回滚；仅作提示，可在<span class="link" onclick="location.href='book-manage.html'">意向登记管理</span>中查看</td></tr>
             <tr class="row-bad"><td>是否已进入配租批次</td><td><span class="badge red">已进入</span></td><td class="num">620</td><td>须先将房源移出 PZ2026-03 批次投放清单，参见<span class="link" onclick="location.href='../alloc/batch-list.html'">配租批次管理</span></td></tr>
             <tr class="row-bad"><td>是否已签约在租</td><td><span class="badge red">已签约</span></td><td class="num">128</td><td>须先办理合同解除或到期腾退，<b>在租房源不得回滚</b>，参见<span class="link" onclick="location.href='../alloc/contract-list.html'">合同台账</span></td></tr>
             <tr class="row-bad"><td>是否已生成账单</td><td><span class="badge red">已生成</span></td><td class="num">128</td><td>须先核销或作废已生成账单，涉及已缴租金的须走退款流程，参见<span class="link" onclick="location.href='../rent/bill-list.html'">账单台账</span></td></tr>
@@ -173,15 +173,15 @@
     <div class="form-grid form-align" style="margin-top:12px">
       <div class="form-item col-full">
         <label>回滚原因 <span class="req">*</span></label>
-        <textarea rows="4">株洲城发高科集团于 2026-09-01 报送的 DR2026-09-118 批次中，A6 至 A9 栋共 1,946 套房源的项目编码误填为湘江1958 人才公寓（二期），实际应归属天元云谷人才公寓，来源渠道亦由「收购商品房转化」误标为「市本级存量」，导致分渠道筹集台账统计口径失真。现申请整批撤销该批次后按正确项目编码与来源渠道重新导入建账。</textarea>
+        <textarea rows="4">株洲城发高科集团于 2026-09-01 报送的 DR2026-09-118 批次中，A6 至 A9 栋共 1,946 间房源的项目编码误填为湘江1958 人才公寓（二期），实际应归属天元云谷人才公寓，来源渠道亦由「收购商品房转化」误标为「市本级存量」，导致分渠道筹集台账统计口径失真。现申请整批撤销该批次后按正确项目编码与来源渠道重新导入建账。</textarea>
       </div>
       <div class="form-item col-full">
         <label>业务关联解除计划 <span class="req">*</span></label>
-        <textarea rows="4">①下架：2026-09-08 18:00 前对 1,946 套房源执行批量下架；②预约：286 条预约由市保障性住房服务中心经办人逐条通知申请人改约至天元云谷人才公寓同户型房源，2026-09-10 前完成；③配租：620 套移出 PZ2026-03 批次投放清单，同步调整该批次投放套数；④签约与账单：128 套已签约在租房源不纳入本次回滚范围，按房源档案变更流程单独更正项目编码与来源渠道。</textarea>
+        <textarea rows="4">①下架：2026-09-08 18:00 前对 1,946 间房源执行批量下架；②预约：286 条预约由市保障性住房服务中心经办人逐条通知申请人改约至天元云谷人才公寓同户型房源，2026-09-10 前完成；③配租：620 间移出 PZ2026-03 批次投放清单，同步调整该批次投放套数；④签约与账单：128 间已签约在租房源不纳入本次回滚范围，按房源档案变更流程单独更正项目编码与来源渠道。</textarea>
       </div>
       <div class="form-item col-full">
         <label>回滚范围调整 <span class="req">*</span></label>
-        <select><option>仅回滚无业务关联的 1,818 套（排除 128 套已签约在租）</option><option>全部 1,946 套（须先解除全部业务关联）</option><option>暂不回滚，先完成业务关联解除</option></select>
+        <select><option>仅回滚无业务关联的 1,818 间（排除 128 间已签约在租）</option><option>全部 1,946 间（须先解除全部业务关联）</option><option>暂不回滚，先完成业务关联解除</option></select>
       </div>
       <div class="form-item col-full">
         <label>回滚依据附件</label>
@@ -193,7 +193,7 @@
     <button class="btn" data-close-drawer>取消</button>
     <button class="btn" onclick="PMS.toast('已重新执行五项前置校验，仍存在业务关联')">重新校验</button>
     <button class="btn" onclick="PMS.toast('已向配租与合同经办人推送业务关联解除待办','success')">发起关联解除</button>
-    <button class="btn btn-primary" onclick="PMS.confirm({title:'整批撤销确认',message:'确认对导入批次 DR2026-09-118 执行整批撤销？',detail:'整批撤销不可恢复：本次将删除 1,818 套已入库房源及其一房一码、实景照片与 VR 链接等全部关联数据，128 套已签约在租房源予以保留。执行前须确认下架、预约解除与移出配租批次已全部完成。操作人、操作时间、回滚前后套数与关联业务解除记录全程留痕，日志不可篡改、长期留存。',type:'warning',okText:'确认整批撤销',onOk:function(){PMS.closeDrawer();PMS.toast('已提交整批撤销申请，待审批人复核后执行','success');}})"><i class="fa-solid fa-triangle-exclamation"></i> 提交整批撤销</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'整批撤销确认',message:'确认对导入批次 DR2026-09-118 执行整批撤销？',detail:'整批撤销不可恢复：本次将删除 1,818 间已入库房源及其一房一码、实景照片与 VR 链接等全部关联数据，128 间已签约在租房源予以保留。执行前须确认下架、预约解除与移出配租批次已全部完成。操作人、操作时间、回滚前后套数与关联业务解除记录全程留痕，日志不可篡改、长期留存。',type:'warning',okText:'确认整批撤销',onOk:function(){PMS.closeDrawer();PMS.toast('已提交整批撤销申请，待审批人复核后执行','success');}})"><i class="fa-solid fa-triangle-exclamation"></i> 提交整批撤销</button>
   </div>
 </div>
 

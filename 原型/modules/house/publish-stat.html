@@ -9,128 +9,85 @@
 <link rel="stylesheet" href="../../assets/css/spec.css">
 <link rel="stylesheet" href="../../assets/css/ext.css">
 </head>
-<body data-role="housing" data-active="house-36">
+<body data-role="housing" data-active="house-30">
 <main class="app-main">
   <div class="page-head">
     <div class="breadcrumb">
       <i class="fa-solid fa-house bc-home"></i> 株洲市人才住房保障管理平台
       <span class="sep">/</span> 房源筹集与楼盘表
-      <span class="sep">/</span> 房源发布与预约
+      <span class="sep">/</span> 房源导入与来源台账
       <span class="sep">/</span> <span class="cur">房源发布状态统计</span>
     </div>
     <div class="page-actions">
-      <button class="btn btn-primary" onclick="PMS.confirm({title:'导出确认',message:'确认导出各运营机构上架进度报表？',detail:'报表按运营机构 × 楼盘统计房源间数、已提交、待审核、已发布、已退回与发布率，含全市合计行与超期退回明细，统计截至 2026-09-08 09:00。导出范围、导出人与导出时间全程留痕。',type:'info',okText:'确认导出',onOk:function(){PMS.toast('上架进度报表已导出，可在顶栏消息区下载','success');}})"><i class="fa-solid fa-download"></i> 导出上架进度报表</button>
-      <a class="btn" href="house-archive.html"><i class="fa-solid fa-clipboard-check"></i> 去审核发布</a>
-      <button class="btn" onclick="PMS.confirm({title:'催办确认',message:'确认向发布率低于 60% 的运营机构推送上架进度催办？',detail:'本次催办 2 个楼盘：云龙人才公寓（发布率 58.8%，待审核 152 间、已退回 40 间）、时代新城人才公寓（发布率 41.9%，待提交 58 间、已退回 14 间），均归属株洲高新人才公寓运营有限公司。催办通过站内消息与短信同时发送。',type:'warning',okText:'确认催办',onOk:function(){PMS.toast('已向株洲高新人才公寓运营有限公司推送上架进度催办','success');}})"><i class="fa-solid fa-bell"></i> 催办上架进度</button>
-      <button class="btn" onclick="PMS.toast('已刷新发布状态统计，数据截至 2026-09-08 09:00','success')"><i class="fa-solid fa-rotate"></i> 刷新统计</button>
+      <button class="btn" onclick="PMS.toast('已提交导出任务','success')"><i class="fa-solid fa-download"></i> 导出</button>
+      <button class="btn btn-primary" onclick="PMS.toast('已向 2 家机构发送催办提醒','success')"><i class="fa-solid fa-bell"></i> 催办</button>
     </div>
   </div>
 
-  <div class="alert alert-warning">
-    <i class="fa-solid fa-triangle-exclamation"></i>
-    <div>按<b>运营机构</b>统计<b>已提交、待审核、已发布、已退回</b>的房源<b>间数</b>，跟踪各机构上架进度。房源由<b>运营机构自行导入维护并提交发布</b>，<b>主管单位在房源查询列表按统一发布标准审核发布</b>，<b>审核发布后移动端用户方可看到</b>。<b>已提交 ＝ 待审核 ＋ 已发布 ＋ 已退回</b>，<b>待提交 ＝ 房源间数 − 已提交</b>，<b>发布率 ＝ 已发布 ÷ 房源间数</b>；发布率低于 60% 的楼盘标红预警，可一键催办。<span class="link" onclick="location.href='house-archive.html'">房源查询与审核发布</span></div>
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>按运营机构统计房源的<b>已提交、待审核、已发布、已退回</b>数量，跟踪各机构的上架进度。房源由运营机构自行导入与维护，对外发布须经审核发布，审核通过后移动端用户方可看到。</div>
   </div>
 
   <div class="stat-grid">
     <div class="stat-card">
-      <div class="s-icon blue"><i class="fa-solid fa-table-cells"></i></div>
-      <div><div class="s-label">在库房源间数</div><div class="s-value">4,286</div>
-        <div class="s-trend text-2">间 · 2,486 套 · 3 家运营机构 7 个楼盘</div></div>
-    </div>
-    <div class="stat-card">
-      <div class="s-icon green"><i class="fa-solid fa-tower-broadcast"></i></div>
-      <div><div class="s-label">已发布</div><div class="s-value">3,586</div>
-        <div class="s-trend text-2">间 · 发布率 83.7%，移动端可见</div></div>
-    </div>
-    <div class="stat-card">
-      <div class="s-icon orange"><i class="fa-solid fa-clipboard-check"></i></div>
-      <div><div class="s-label">待审核</div><div class="s-value">486</div>
-        <div class="s-trend text-2">间 · 已提交待主管单位审核发布</div></div>
+      <div class="s-icon blue"><i class="fa-solid fa-layer-group"></i></div>
+      <div><div class="s-label">已导入房源</div><div class="s-value">916</div>
+        <div class="s-trend text-2">间，含未提交发布</div></div>
     </div>
     <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-hourglass-half"></i></div>
+      <div><div class="s-label">待审核发布</div><div class="s-value">128</div>
+        <div class="s-trend">其中 32 间超过 3 天未审</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
+      <div><div class="s-label">已发布上架</div><div class="s-value">412</div>
+        <div class="s-trend text-2">占已导入 45.0%</div></div>
+    </div>
+    <div class="stat-card">
       <div class="s-icon red"><i class="fa-solid fa-rotate-left"></i></div>
-      <div><div class="s-label">已退回</div><div class="s-value">126</div>
-        <div class="s-trend ">间 · 其中超期未补正 18 间</div></div>
+      <div><div class="s-label">已退回</div><div class="s-value">46</div>
+        <div class="s-trend text-2">待补正后重新提交</div></div>
     </div>
   </div>
 
   <div class="card list-card">
     <div class="filter-bar">
-      <div class="filter-item"><label>运营机构</label><select data-dict="agencyOrg" data-ph="全部"></select></div>
-      <div class="filter-item"><label>楼盘</label><input type="text" value="湘江1958 人才公寓" placeholder="楼盘名称"></div>
-      <div class="filter-item"><label>所在区</label><select data-dict="district" data-ph="全部"></select></div>
-      <div class="filter-item"><label>发布状态</label><select data-dict="publishStatus" data-ph="全部"></select></div>
-      <div class="filter-item"><label>发布率区间</label><select><option value="">全部</option><option>90% 及以上</option><option>80%—90%</option><option>60%—80%</option><option>低于 60%（预警）</option></select></div>
-      <div class="filter-item"><label>最近提交时间</label><input type="date" value="2026-09-01"></div>
+      <div class="filter-item"><label>运营机构</label><input type="text" placeholder="机构名称"></div>
+      <div class="filter-item"><label>项目</label><input type="text" placeholder="项目名称"></div>
+      <div class="filter-item"><label>发布状态</label><select><option value="">全部</option><option>未提交</option><option>待审核</option><option>已发布</option><option>已退回</option></select></div>
       <div class="filter-actions">
         <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
         <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
       </div>
     </div>
-
     <div class="table-wrap">
       <table class="data-table">
         <thead>
-          <tr><th class="cell-lg">运营机构</th><th class="cell-lg">楼盘</th><th class="num">房源间数</th><th class="num">已提交</th><th class="num">待审核</th><th class="num">已发布</th><th class="num">已退回</th><th>发布率</th><th>最近提交时间</th><th>操作</th></tr>
+          <tr><th class="cell-lg">运营机构</th><th class="num">已导入</th><th class="num">未提交</th><th class="num">待审核</th><th class="num">已发布</th><th class="num">已退回</th><th>上架率</th><th>最近提交</th><th>操作</th></tr>
         </thead>
         <tbody>
-          <tr><td>株洲城发高科人才安居服务有限公司</td><td>湘江1958 人才公寓</td><td class="num">1,086</td><td class="num">1,078</td><td class="num">46</td><td class="num">1,020</td><td class="num">12</td><td><span class="badge green">93.9%</span></td><td>2026-09-07 16:28</td><td><span class="link" onclick="location.href='house-archive.html'">查看明细</span> <span class="link" onclick="location.href='house-archive.html'">审核发布</span></td></tr>
-          <tr><td>株洲城发高科人才安居服务有限公司</td><td>栗雨佳苑人才公寓</td><td class="num">626</td><td class="num">626</td><td class="num">20</td><td class="num">600</td><td class="num">6</td><td><span class="badge green">95.8%</span></td><td>2026-09-06 11:02</td><td><span class="link" onclick="location.href='house-archive.html'">查看明细</span> <span class="link" onclick="location.href='house-archive.html'">审核发布</span></td></tr>
-          <tr><td>株洲城发高科人才安居服务有限公司</td><td>董家塅人才公寓</td><td class="num">568</td><td class="num">562</td><td class="num">62</td><td class="num">486</td><td class="num">14</td><td><span class="badge blue">85.6%</span></td><td>2026-09-07 09:46</td><td><span class="link" onclick="location.href='house-archive.html'">查看明细</span> <span class="link" onclick="location.href='house-archive.html'">审核发布</span></td></tr>
-          <tr><td>清水塘投资运营服务有限公司</td><td>清水塘·未来社区</td><td class="num">842</td><td class="num">838</td><td class="num">120</td><td class="num">686</td><td class="num">32</td><td><span class="badge blue">81.5%</span></td><td>2026-09-05 09:26</td><td><span class="link" onclick="location.href='house-archive.html'">查看明细</span> <span class="link" onclick="location.href='house-archive.html'">审核发布</span></td></tr>
-          <tr><td>清水塘投资运营服务有限公司</td><td>田心人才公寓</td><td class="num">468</td><td class="num">464</td><td class="num">36</td><td class="num">420</td><td class="num">8</td><td><span class="badge blue">89.7%</span></td><td>2026-09-04 15:18</td><td><span class="link" onclick="location.href='house-archive.html'">查看明细</span> <span class="link" onclick="location.href='house-archive.html'">审核发布</span></td></tr>
-          <tr class="row-warn"><td>株洲高新人才公寓运营有限公司</td><td>云龙人才公寓</td><td class="num">486</td><td class="num">478</td><td class="num">152</td><td class="num">286</td><td class="num">40</td><td><span class="badge orange">58.8%</span></td><td>2026-09-07 14:32</td><td><span class="link" onclick="location.href='house-archive.html'">查看明细</span> <span class="link" onclick="PMS.confirm({title:'催办确认',message:'确认向株洲高新人才公寓运营有限公司推送云龙人才公寓上架催办？',detail:'云龙人才公寓 486 间中待审核 152 间、已退回 40 间、待提交 8 间，发布率 58.8% 低于 60% 预警线。催办要求于 2026-09-18 前完成退回房源补正并重新提交发布。',type:'warning',okText:'确认催办',onOk:function(){PMS.toast('已推送云龙人才公寓上架进度催办','success');}})">催办</span></td></tr>
-          <tr class="row-bad"><td>株洲高新人才公寓运营有限公司</td><td>时代新城人才公寓</td><td class="num">210</td><td class="num">152</td><td class="num">50</td><td class="num">88</td><td class="num">14</td><td><span class="badge red">41.9%</span></td><td>2026-08-28 10:08</td><td><span class="link" onclick="location.href='house-archive.html'">查看明细</span> <span class="link" onclick="PMS.confirm({title:'催办确认',message:'确认向株洲高新人才公寓运营有限公司推送时代新城人才公寓上架催办？',detail:'时代新城人才公寓 210 间中待提交 58 间尚未提交发布、待审核 50 间、已退回 14 间，发布率 41.9% 为全市最低；套级 VR 全景缺 84 套，按套补齐后方可审核发布。最近提交时间 2026-08-28，已逾 11 日无新提交。',type:'warning',okText:'确认催办',onOk:function(){PMS.toast('已推送时代新城人才公寓上架进度催办','success');}})">催办</span></td></tr>
-          <tr><td><span class="badge green">合计</span></td><td><b>全市 3 家运营机构合计</b></td><td class="num">4,286</td><td class="num">4,198</td><td class="num">486</td><td class="num">3,586</td><td class="num">126</td><td><span class="badge blue">83.7%</span></td><td>2026-09-07 16:28</td><td><span class="link" onclick="location.href='house-archive.html'">批量审核发布</span></td></tr>
+          <tr><td>株洲市城市建设发展集团有限公司</td><td class="num">604</td><td class="num">86</td><td class="num">62</td><td class="num">424</td><td class="num">32</td><td><span class="badge green">70.2%</span></td><td>2026-09-06</td><td><span class="link" onclick="location.href='publish.html'">去审核</span></td></tr>
+          <tr class="row-warn"><td>株洲清水塘投资集团有限公司</td><td class="num">186</td><td class="num">42</td><td class="num">54</td><td class="num">76</td><td class="num">14</td><td><span class="badge orange">40.9%</span></td><td>2026-09-05</td><td><span class="link" onclick="location.href='publish.html'">去审核</span></td></tr>
+          <tr><td>株洲高新技术产业开发区管委会</td><td class="num">126</td><td class="num">98</td><td class="num">12</td><td class="num">16</td><td class="num">0</td><td><span class="badge gray">12.7%</span></td><td>2026-09-04</td><td><span class="link" onclick="location.href='publish.html'">去审核</span></td></tr>
+          <tr><td><b>合计</b></td><td class="num"><b>916</b></td><td class="num"><b>226</b></td><td class="num"><b>128</b></td><td class="num"><b>516</b></td><td class="num"><b>46</b></td><td><span class="badge blue">56.3%</span></td><td>—</td><td>—</td></tr>
         </tbody>
       </table>
     </div>
-    <p class="hint">已提交 ＝ 待审核 ＋ 已发布 ＋ 已退回（全市 486 ＋ 3,586 ＋ 126 ＝ 4,198 间）· 待提交 ＝ 房源间数 − 已提交（全市 4,286 − 4,198 ＝ 88 间）· 发布率 ＝ 已发布 ÷ 房源间数（全市 3,586 ÷ 4,286 ＝ 83.7%）· 统计截至 2026-09-08 09:00</p>
   </div>
-
-  <div class="sp-block" style="margin-top:8px">
-    <div class="sp-h"><i class="fa-solid fa-diagram-project"></i> 发布状态流转与各状态含义<span class="sub">待提交 → 待审核 → 已发布／已退回 → 可下架</span></div>
-    <div class="sp-b">
-      <div class="sp-step" style="margin-bottom:8px">
-        <span class="sp">待提交</span><i class="fa-solid fa-arrow-right ar"></i>
-        <span class="sp">待审核</span><i class="fa-solid fa-arrow-right ar"></i>
-        <span class="sp key">已发布</span><i class="fa-solid fa-arrow-right ar"></i>
-        <span class="sp todo">已下架</span>
-        <span class="op">　｜　审核不通过：</span>
-        <span class="sp">待审核</span><i class="fa-solid fa-arrow-right ar"></i>
-        <span class="sp key">已退回</span><i class="fa-solid fa-arrow-right ar"></i>
-        <span class="sp">待审核</span>
-      </div>
-      <div class="sp-tw">
-        <table class="data-table compact">
-          <thead><tr><th>发布状态</th><th class="cell-lg">含义</th><th>移动端可见</th><th class="cell-lg">触发动作与责任主体</th><th>下一状态</th><th class="num">全市间数</th></tr></thead>
-          <tbody>
-          <tr><td><span class="sp-st init">待提交</span></td><td>运营机构已按统一模板<b>自行导入建账</b>，但<b>尚未提交发布</b>；多因套级 VR 全景或按间实景照片未补齐</td><td><span class="badge gray">不可见</span></td><td><b>运营机构</b>补齐素材后<b>提交发布</b></td><td>待审核</td><td class="num">88</td></tr>
-          <tr><td><span class="sp-st wait">待审核</span></td><td>已提交，等待<b>主管单位按统一发布标准</b>逐间核验：间级八项要素齐全、套级面积与四项费用标准齐全、公摊比例合计 ＝ 1、各间公摊合计 ＝ 套级总公摊、计租面积 ＝ 套内 ＋ 公摊、套级 VR 已上传</td><td><span class="badge gray">不可见</span></td><td><b>主管单位</b>在<span class="link" onclick="location.href='house-archive.html'">房源查询列表</span><b>审核发布</b>或<b>退回</b>，支持批量</td><td>已发布 / 已退回</td><td class="num">486</td></tr>
-          <tr><td><span class="sp-st done">已发布</span></td><td>审核通过并对外发布，<b>移动端用户方可看到</b>，可预约、可进入配租投放清单</td><td><span class="badge green">可见</span></td><td><b>主管单位</b>可<b>下架</b>（已预约、已锁定、已签约的须先解除业务关联）</td><td>已下架</td><td class="num">3,586</td></tr>
-          <tr><td><span class="sp-st bad">已退回</span></td><td>不符合发布标准，<b>退回并注明原因</b>与补正事项、期限，全程留痕、<b>移动端立即不可见</b>；逾期未补正计入<b>超期退回</b>（18 间）</td><td><span class="badge gray">不可见</span></td><td><b>运营机构</b>按原因补正后<b>重新提交发布</b></td><td>待审核</td><td class="num">126</td></tr>
-          <tr><td><span class="sp-st dead">已下架</span></td><td>已发布后因维修、用途转换、整栋停租下架，<b>已生效合同与账单不受影响</b></td><td><span class="badge gray">不可见</span></td><td><b>主管单位</b>核验后<b>重新发布</b>；见<span class="link" onclick="location.href='shelf-batch.html'">批量上架与下架</span></td><td>已发布</td><td class="num">86</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-
   <div class="sp-src">
-    <span><b>依据</b> 2026 年 9 月 7 日汇报讨论会决议：运营机构自行导入维护并提交发布，主管单位在房源查询列表直接审核发布，取消原「报送—审核」独立流程页</span>
-    <span><b>统计口径</b> 一律按<b>间</b>；发布率 ＝ 已发布 ÷ 房源间数，按<b>所属运营机构</b>归集</span>
-    <span><b>预警口径</b> 发布率低于 60% 标红；逾期未补正计入<b>超期退回</b>，纳入运营机构考核</span>
-    <span><b>关联页面</b> <span class="link" onclick="location.href='house-archive.html'">房源查询与审核发布</span>　<span class="link" onclick="location.href='shelf-batch.html'">批量上架与下架</span></span>
+    <span><b>统计口径</b> 数量单位为「间」，一套三室两厅计 3 间</span>
+    <span><b>上架率</b> ＝ 已发布 ÷ 已导入</span>
+    <span><b>审核落点</b> <span class="link" onclick="location.href='publish.html'">房源审核发布</span></span>
   </div>
 </main>
-
 <script>
 (function () {
   var t = document.querySelector('main.app-main .table-wrap > table.data-table');
-  if (t) { t._total = 8; }
+  if (t) { t._total = 4; }
 })();
 </script>
-
 <script src="../../assets/js/app.js"></script>
 <script src="../../assets/js/spec.js"></script>
 </body>

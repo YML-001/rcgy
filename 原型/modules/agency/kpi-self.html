@@ -9,223 +9,129 @@
 <link rel="stylesheet" href="../../assets/css/spec.css">
 <link rel="stylesheet" href="../../assets/css/ext.css">
 </head>
-<body data-role="agency" data-active="agency-08">
+<body data-role="agency" data-active="agency-06">
 <main class="app-main">
   <div class="page-head">
     <div class="breadcrumb">
       <i class="fa-solid fa-house bc-home"></i> 株洲市人才住房保障管理平台
       <span class="sep">/</span> 运营机构端
-      <span class="sep">/</span> 补助与考核
       <span class="sep">/</span> <span class="cur">考核自评与整改</span>
     </div>
-    <div class="page-actions">
-      <button class="btn btn-primary" onclick="PMS.openDrawer('zpDrawer')"><i class="fa-solid fa-pen-to-square"></i> 提交自评</button>
-      <a class="btn" href="subsidy-apply.html"><i class="fa-solid fa-hand-holding-dollar"></i> 补助申请发起</a>
-      <a class="btn" href="../ops/eval-stat.html"><i class="fa-solid fa-star-half-stroke"></i> 服务评价结果</a>
-      <a class="btn" href="../ops/wo-list.html"><i class="fa-solid fa-screwdriver-wrench"></i> 报修工单流转</a>
-      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
-    </div>
   </div>
-
-  <div class="alert alert-warning">
-    <i class="fa-solid fa-triangle-exclamation"></i>
-    <div>本页为<b>运营机构侧的自评入口</b>：查看<b>本机构考核指标与得分</b>、<b>提交自评材料</b>、<b>反馈问题整改情况</b>。指标配置、评分与结果应用由主管单位办理，本机构<b>不可修改评分</b>，对得分有异议的在自评说明中提出并附佐证。<b>数据范围限本机构受托房源及其派生业务数据</b>。</div>
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>本页面为<b>运营机构端</b>，按住建部门下发的考核指标开展<b>季度自评</b>，并对考核发现的问题提交整改方案与结果。考核结果与<b>政府购买服务补助资金核定</b>挂钩，低于约定标准的按规则扣减补助。</div>
   </div>
-
   <div class="stat-grid">
     <div class="stat-card">
-      <div class="s-icon green"><i class="fa-solid fa-ranking-star"></i></div>
-      <div><div class="s-label">本期综合得分</div><div class="s-value">92.40</div>
-        <div class="s-trend text-success">2026 年第三季度 · 档位「良好」· 较上期 +0.80</div></div>
+      <div class="s-icon blue"><i class="fa-solid fa-star-half-stroke"></i></div>
+      <div><div class="s-label">上季度得分</div><div class="s-value">88.6</div>
+        <div class="s-trend">评级：良好</div></div>
     </div>
     <div class="stat-card">
-      <div class="s-icon blue"><i class="fa-solid fa-medal"></i></div>
-      <div><div class="s-label">全市排名</div><div class="s-value">第 1 名</div>
-        <div class="s-trend text-2">全市 3 家运营机构 · 平均 84.60 分</div></div>
-    </div>
-    <div class="stat-card dc-alarm">
-      <div class="s-icon orange"><i class="fa-solid fa-triangle-exclamation"></i></div>
-      <div><div class="s-label">待整改问题</div><div class="s-value">3</div>
-        <div class="s-trend ">项 · 其中 1 项整改期限临期（剩余 2 天）</div></div>
+      <div class="s-icon green"><i class="fa-solid fa-chart-line"></i></div>
+      <div><div class="s-label">全市排名</div><div class="s-value">2 / 5</div>
+        <div class="s-trend">较上季持平</div></div>
     </div>
     <div class="stat-card">
-      <div class="s-icon cyan"><i class="fa-solid fa-file-pen"></i></div>
-      <div><div class="s-label">自评提交状态</div><div class="s-value">待提交</div>
-        <div class="s-trend text-2">自评截止 2026-09-15 · 逾期未提交按缺项计 0 分</div></div>
+      <div class="s-icon orange"><i class="fa-solid fa-clipboard-list"></i></div>
+      <div><div class="s-label">待整改</div><div class="s-value">3</div>
+        <div class="s-trend">1 项临近期限</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-coins"></i></div>
+      <div><div class="s-label">补助影响</div><div class="s-value">不扣减</div>
+        <div class="s-trend">得分 ≥ 85 分</div></div>
     </div>
   </div>
-
-  <div class="card list-card" data-tabs-scope>
-    <div class="tabs">
-      <div class="tab active" data-tab="zb"><i class="fa-solid fa-chart-simple"></i> 本机构考核指标与得分</div>
-      <div class="tab" data-tab="zg"><i class="fa-solid fa-screwdriver-wrench"></i> 问题整改 <span class="badge orange">3</span></div>
-    </div>
-
-    <div class="tab-panel active" data-panel="zb">
-    <div class="card-body tight">
-    <div class="sp-scroll">
-      <div class="sp-block" style="margin-bottom:0">
-        <div class="sp-h"><i class="fa-solid fa-chart-simple"></i> 本机构考核指标与得分
-          <span class="sub">株洲城发高科人才安居服务有限公司 · 2026 年第三季度 · 满分 100 分 · 评分过程与依据逐项可追溯 · <span class="link" onclick="PMS.toast('已刷新系统取数，数据截至 2026-09-07 24:00：报修及时率 96.2%、空置率 8.6%、房源完好率 97.2%、租金收缴率 98.4%','success')">刷新取数</span></span>
-        </div>
-        <div class="sp-b">
-          <div class="sp-tw">
-            <table class="data-table compact">
-              <thead><tr><th class="cell-lg">指标名称</th><th class="num">权重</th><th>评分方式</th><th>系统取数</th><th>住户评价</th><th class="num">政府检查</th><th class="num">本期得分</th><th class="num">上期得分</th><th class="num">升降</th><th class="cell-lg">自评说明</th></tr></thead>
-              <tbody>
-                <tr><td>报修及时率</td><td class="num">25%</td><td><span class="badge blue">系统自动取数</span></td><td class="num">96.2%</td><td><span class="muted">—</span></td><td class="num">0.00</td><td class="num">23.50</td><td class="num">23.20</td><td class="num text-success">+0.30</td><td>2,486 单报修中 2,392 单 24 小时内上门；较上期提升 0.6 个百分点，已增配 2 名夜间值班维修工</td></tr>
-                <tr><td>住户满意度</td><td class="num">25%</td><td><span class="badge purple">住户评价</span></td><td><span class="muted">—</span></td><td class="num">4.62 / 5.00</td><td class="num">0.00</td><td class="num">23.10</td><td class="num">22.90</td><td class="num text-success">+0.20</td><td>回收有效问卷 862 份，回收率 72.3%；扣分集中在公共区域保洁频次与快递代收，已排入下期整改</td></tr>
-                <tr><td>空置率</td><td class="num">20%</td><td><span class="badge blue">系统自动取数</span></td><td class="num">8.6%</td><td><span class="muted">—</span></td><td class="num">0.00</td><td class="num">18.40</td><td class="num">18.20</td><td class="num text-success">+0.20</td><td>在库 1,286 间、在租 1,192 间，空置 94 间中 62 间在维修恢复期内；退租后 3 个工作日内恢复率 93.6%</td></tr>
-                <tr class="row-warn"><td>房源完好率</td><td class="num">15%</td><td><span class="badge cyan">系统取数 + 政府检查</span></td><td class="num">97.2%</td><td><span class="muted">—</span></td><td class="num text-danger">-1.00</td><td class="num">13.40</td><td class="num">13.30</td><td class="num text-success">+0.10</td><td>8 月市住建局检查发现湘江1958 A6 栋公共区域杂物堆放，扣 1.00 分；已于 2026-08-22 清理完毕并建立每日巡查台账</td></tr>
-                <tr><td>租金收缴率</td><td class="num">15%</td><td><span class="badge blue">系统自动取数</span></td><td class="num">98.4%</td><td><span class="muted">—</span></td><td class="num">0.00</td><td class="num">14.00</td><td class="num">14.00</td><td class="num muted">0.00</td><td>应收 1,286 间、实收 1,266 间，欠缴 20 间均在 1 期以内，已逐户短信催缴并建立台账跟踪</td></tr>
-                <tr><td><span class="badge green">加权合计</span></td><td class="num"><b>100%</b></td><td><span class="muted">—</span></td><td><span class="muted">—</span></td><td><span class="muted">—</span></td><td class="num text-danger"><b>-1.00</b></td><td class="num"><b>92.40</b></td><td class="num"><b>91.60</b></td><td class="num text-success"><b>+0.80</b></td><td>五项加权得分 93.40 − 政府检查扣分 1.00 = <b>92.40 分</b>，档位「良好」（良好 ≥ 88），全市第 1 名</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-    </div>
-    </div>
-
-    <div class="tab-panel" data-panel="zg">
-    <div class="card-body tight">
+  <div class="card list-card">
     <div class="filter-bar">
-      <div class="filter-item"><label>问题编号</label><input type="text" value="WT2026Q3-006" placeholder="如 WT2026Q3-006"></div>
-      <div class="filter-item"><label>检查来源</label><select><option value="">全部</option><option>市住建局现场检查</option><option>住户评价反馈</option><option>系统指标预警</option><option>投诉建议办理</option></select></div>
-      <div class="filter-item"><label>整改状态</label><select><option value="">全部</option><option>待整改</option><option>整改中</option><option>已整改待复查</option><option>复查合格</option></select></div>
-      <div class="filter-item"><label>整改期限</label><input type="date" value="2026-09-10"></div>
+      <div class="filter-item"><label>考核期</label><select><option value="">全部</option><option>2026 年二季度</option><option>2026 年一季度</option><option>2025 年四季度</option></select></div>
+      <div class="filter-item"><label>考核指标</label><select><option value="">全部</option><option>房源维护</option><option>工单服务</option><option>租金收缴</option><option>承租人满意度</option><option>档案与报送</option></select></div>
+      <div class="filter-item"><label>整改状态</label><select><option value="">全部</option><option>已整改</option><option>整改中</option><option>待整改</option></select></div>
       <div class="filter-actions">
         <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
         <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+        <button class="btn btn-primary" onclick="PMS.openDrawer('selfDrawer')"><i class="fa-solid fa-pen-to-square"></i> 提交本季自评</button>
       </div>
     </div>
-    <p class="hint">整改台账共 8 项 = 已复查合格 5 项 + 待整改 3 项 · 整改期限内未反馈的计入下期考核扣分</p>
     <div class="table-wrap">
       <table class="data-table">
         <thead>
-          <tr><th>问题编号</th><th>检查来源</th><th class="cell-lg">问题描述</th><th>要求整改期限</th><th>整改状态</th><th class="cell-lg">整改反馈</th><th>复查结果</th><th>操作</th></tr>
+          <tr><th class="cell-lg">考核指标</th><th>分值</th><th>得分</th><th>得分率</th><th>扣分事项</th><th>整改状态</th><th>整改期限</th><th>操作</th></tr>
         </thead>
         <tbody>
-          <tr class="row-warn"><td>WT2026Q3-006</td><td><span class="badge red">市住建局现场检查</span></td><td>栗雨佳苑 3 栋 1 层消防通道被电动车占用，且楼道消防栓箱内水带缺失 1 处</td><td>2026-09-10 <span class="badge orange">剩余 2 天</span></td><td><span class="badge orange">整改中</span></td><td>已清理占用电动车 6 辆并加装地面禁停标识，消防栓水带已采购待安装</td><td><span class="muted">待复查</span></td><td><span class="link" onclick="PMS.openDrawer('zpDrawer')">反馈整改</span> <span class="link" onclick="PMS.toast('整改期限 2026-09-10，剩余 2 天。逾期未反馈的按未整改处理，计入下期考核扣分并纳入重点检查','error')">临期提醒</span></td></tr>
-          <tr><td>WT2026Q3-007</td><td><span class="badge purple">住户评价反馈</span></td><td>湘江1958 A6 栋公共区域保洁频次偏低，住户评价中提及 46 次；快递代收点无人值守</td><td>2026-09-20</td><td><span class="badge cyan">待整改</span></td><td>已拟定保洁频次由每日 1 次提升至每日 2 次，快递代收拟引入智能柜，方案待内部审定</td><td><span class="muted">待复查</span></td><td><span class="link" onclick="PMS.openDrawer('zpDrawer')">反馈整改</span></td></tr>
-          <tr><td>WT2026Q3-008</td><td><span class="badge orange">系统指标预警</span></td><td>田心人才公寓退租房源恢复超期 3 间，平均恢复用时 6.2 个工作日（要求 3 个工作日内）</td><td>2026-09-30</td><td><span class="badge cyan">待整改</span></td><td>已建立退租房源恢复台账并指定专人跟踪，维修与保洁供应商响应时限已写入协议</td><td><span class="muted">待复查</span></td><td><span class="link" onclick="PMS.openDrawer('zpDrawer')">反馈整改</span></td></tr>
-          <tr><td>WT2026Q3-003</td><td><span class="badge red">市住建局现场检查</span></td><td>湘江1958 A6 栋公共区域杂物堆放，2 处楼道口堆放装修废弃物</td><td>2026-08-25</td><td><span class="badge green">复查合格</span></td><td>2026-08-22 全部清理完毕，建立每日巡查台账并落实责任人</td><td><span class="badge green">合格</span> 2026-08-26 复查</td><td><span class="link" onclick="PMS.toast('市住建局 2026-08-26 复查确认整改到位，本项对应本期房源完好率政府检查扣分 1.00 分，扣分不因整改到位而撤销，但可避免加倍扣分')">复查记录</span></td></tr>
-          <tr><td>WT2026Q3-002</td><td><span class="badge gray">投诉建议办理</span></td><td>栗雨佳苑 3 栋 09 单元电梯运行异响，住户投诉 4 起</td><td>2026-08-15</td><td><span class="badge green">复查合格</span></td><td>2026-08-12 由电梯维保单位更换导向轮并完成年检，运行恢复正常</td><td><span class="badge green">合格</span> 2026-08-18 复查</td><td><span class="link" onclick="PMS.toast('市住建局 2026-08-18 复查确认整改到位，投诉住户 4 户已全部回访满意')">复查记录</span></td></tr>
+          <tr><td>房源维护</td><td>30</td><td>27.5</td><td>91.7%</td><td>空置房源清洁不及时 2 处</td><td><span class="badge green">已整改</span></td><td>2026-07-20</td><td><span class="link" onclick="PMS.toast('查看整改记录')">查看</span></td></tr>
+          <tr><td>工单服务</td><td>25</td><td>22.0</td><td>88.0%</td><td>2 件紧急工单超出 4 小时响应时限</td><td><span class="badge green">已整改</span></td><td>2026-07-18</td><td><span class="link" onclick="PMS.toast('查看整改记录')">查看</span></td></tr>
+          <tr class="row-warn"><td>租金收缴</td><td>20</td><td>18.6</td><td>93.0%</td><td>茨菇塘公寓收缴率低于 92% 约定标准</td><td><span class="badge orange">整改中</span></td><td>2026-09-15</td><td><span class="link" onclick="PMS.openDrawer('fixDrawer')">提交整改</span></td></tr>
+          <tr><td>承租人满意度</td><td>15</td><td>13.5</td><td>90.0%</td><td>满意度 4.5 分，略低于 4.6 分目标</td><td><span class="badge orange">整改中</span></td><td>2026-09-30</td><td><span class="link" onclick="PMS.openDrawer('fixDrawer')">提交整改</span></td></tr>
+          <tr class="row-bad"><td>档案与报送</td><td>10</td><td>7.0</td><td>70.0%</td><td>8 月房源报送迟报 3 个工作日</td><td><span class="badge red">待整改</span></td><td>2026-09-10</td><td><span class="link" onclick="PMS.openDrawer('fixDrawer')">提交整改</span></td></tr>
+          <tr><td><b>合计</b></td><td><b>100</b></td><td><b>88.6</b></td><td><b>88.6%</b></td><td>评级：良好（85～95 分）</td><td><span class="badge green">补助不扣减</span></td><td>—</td><td>—</td></tr>
         </tbody>
       </table>
     </div>
-    </div>
-    </div>
   </div>
-
-  <div class="sp-block" style="margin-top:8px">
-    <div class="sp-h"><i class="fa-solid fa-list"></i> 考核结果应用<span class="sub">R8-11 · YY-1 至 YY-5 · 档位：优 ≥ 95 / 良好 ≥ 88 / 合格 ≥ 80 / 不合格 &lt; 80</span></div>
-    <div class="sp-b">
-      <div class="sp-tw">
-        <table class="data-table compact">
-          <thead><tr><th>口径编号</th><th>应用事项</th><th class="cell-lg">应用规则</th><th>本机构本期适用</th></tr></thead>
-          <tbody>
-            <tr><td><b>YY-1</b></td><td>续约资格</td><td>考核结果<b>与续约资格挂钩</b>：连续两期「合格」及以上方可续约；出现「不合格」的限期整改，整改不到位的不予续约</td><td><span class="badge green">92.40 分 · 良好 · 符合续约</span></td></tr>
-            <tr><td><b>YY-2</b></td><td>新增房源委托量</td><td>考核结果<b>与新增房源委托量挂钩</b>：「优」上浮不超过 20%，「良好」按计划下达，「合格」不新增，「不合格」暂停新增委托</td><td><span class="badge green">按计划下达</span></td></tr>
-            <tr><td><b>YY-3</b></td><td>政府购买服务补助扣减</td><td><b>服务评价低于约定标准的按规则扣减政府购买服务补助</b>：90 分及以上不扣减；85—89.9 分扣 2%；80—84.9 分扣 5%；低于 80 分扣 10% 并暂停当期拨付</td><td><span class="badge green">92.40 分 · 不扣减</span></td></tr>
-            <tr><td><b>YY-4</b></td><td>问题整改约束</td><td>整改期限内未反馈或复查不合格的<b>计入下期考核扣分</b>并纳入重点检查；同一问题重复出现的<b>加倍扣分</b></td><td><span class="badge orange">3 项待整改 · 1 项临期</span></td></tr>
-            <tr><td><b>YY-5</b></td><td>自评与留痕</td><td>自评为考核的必备环节，<b>逾期未提交按缺项计 0 分</b>；自评得分不直接计入总分，作为评分复核与异议处置的依据，全过程留痕</td><td><span class="badge orange">待提交 · 截止 2026-09-15</span></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-
   <div class="sp-src">
-    <span><b>依据</b> 2026 年 9 月 7 日汇报讨论会决议：服务评价结果与政府购买服务补助资金核定挂钩，低于约定标准按规则扣减</span>
-    <span><b>评分构成</b> 报修及时率 25% + 住户满意度 25% + 空置率 20% + 房源完好率 15% + 租金收缴率 15%，另计政府检查扣分</span>
-    <span><b>数据范围</b> 限本机构受托房源及其派生的工单、巡检、评价、收缴数据 · 指标配置与评分由主管单位办理</span>
-    <span><b>运营机构</b> 株洲城发高科人才安居服务有限公司 · 彭建华</span>
+    <span><b>考核主体</b> 由市住保中心按季度组织考核，本机构先自评后复核</span>
+    <span><b>补助挂钩</b> 得分 ≥ 85 分不扣减；75～85 分扣减 5%；低于 75 分扣减 10% 并约谈</span>
   </div>
+
 </main>
-
 <div class="drawer-mask"></div>
-<div class="drawer" id="zpDrawer">
-  <div class="drawer-head">
-    <h3>考核自评提交</h3>
-    <span class="badge orange">2026 年第三季度 · 待提交</span>
-    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
-  </div>
+<div class="drawer" id="selfDrawer">
+  <div class="drawer-head"><h3>季度考核自评</h3>
+    <span class="badge blue">2026 年三季度</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div></div>
   <div class="drawer-body">
-    <div class="alert alert-warning">
-      <i class="fa-solid fa-triangle-exclamation"></i>
-      <div>自评得分<b>不直接计入总分</b>，作为主管单位<b>评分复核与异议处置</b>的依据。<b>自评截止 2026-09-15，逾期未提交按缺项计 0 分</b>。对系统取数或政府检查扣分有异议的，请在自评说明中逐项写明并附佐证材料；<b>整改承诺须明确责任人与完成时限</b>，期限内未反馈的计入下期考核扣分。</div>
-    </div>
-
-    <div class="form-grid form-align">
-      <div class="form-item">
-        <label>考核期间 <span class="req">*</span></label>
-        <input type="text" value="2026 年第三季度（2026-07-01 至 2026-09-30）" readonly>
+  <div class="alert alert-warning"><i class="fa-solid fa-triangle-exclamation"></i>
+    <div>自评分仅作参考，最终得分由市住保中心复核确定。
+      自评与复核差距超过 10 分的，须书面说明理由。</div></div>
+      <div class="form-grid form-align">
+        <div class="form-item"><label>房源维护（30 分）<span class="req">*</span></label>
+          <input type="text" value="28"></div>
+        <div class="form-item"><label>工单服务（25 分）<span class="req">*</span></label>
+          <input type="text" value="23"></div>
+        <div class="form-item"><label>租金收缴（20 分）<span class="req">*</span></label>
+          <input type="text" value="19"></div>
+        <div class="form-item"><label>承租人满意度（15 分）<span class="req">*</span></label>
+          <input type="text" value="14"></div>
+        <div class="form-item"><label>档案与报送（10 分）<span class="req">*</span></label>
+          <input type="text" value="9"></div>
+        <div class="form-item"><label>自评合计</label>
+          <input type="text" value="93" readonly></div>
+        <div class="form-item col-full"><label>自评说明 <span class="req">*</span></label>
+          <textarea rows="3">本季度已完成上季度扣分事项的整改，房源清洁与工单响应时限均达标；租金收缴率提升至 94.2%。</textarea></div>
       </div>
-      <div class="form-item">
-        <label>运营机构 <span class="req">*</span></label>
-        <input type="text" value="株洲城发高科人才安居服务有限公司" readonly>
-      </div>
-      <div class="form-item">
-        <label>系统评分（参考） <span class="req">*</span></label>
-        <input type="text" value="92.40 分（档位：良好 · 全市第 1 名）" readonly>
-        <div class="hint">五项加权 93.40 − 政府检查扣分 1.00 = 92.40 分</div>
-      </div>
-      <div class="form-item">
-        <label>自评得分 <span class="req">*</span></label>
-        <input type="text" value="93.40">
-        <div class="hint">满分 100 分，保留两位小数；与系统评分差异超过 3 分的须在自评说明中逐项说明理由</div>
-      </div>
-      <div class="form-item">
-        <label>自评档位 <span class="req">*</span></label>
-        <select>
-          <option selected>良好（≥ 88 分）</option>
-          <option>优（≥ 95 分）</option>
-          <option>合格（≥ 80 分）</option>
-          <option>不合格（&lt; 80 分）</option>
-        </select>
-      </div>
-      <div class="form-item">
-        <label>是否对评分提出异议 <span class="req">*</span></label>
-        <select data-dict="yesNo" data-selected="1" data-ph=""></select>
-        <div class="hint">提出异议的须附佐证材料，由主管单位在 5 个工作日内复核答复</div>
-      </div>
-      <div class="form-item">
-        <label>自评人 <span class="req">*</span></label>
-        <input type="text" value="彭建华（株洲城发高科人才安居服务有限公司）" readonly>
-      </div>
-      <div class="form-item">
-        <label>提交日期 <span class="req">*</span></label>
-        <input type="date" value="2026-09-10">
-        <div class="hint">自评截止 2026-09-15</div>
-      </div>
-      <div class="form-item col-full">
-        <label>自评说明 <span class="req">*</span></label>
-        <textarea rows="6">本机构 2026 年第三季度自评 93.40 分，档位「良好」。①报修及时率：2,486 单报修中 2,392 单 24 小时内上门，及时率 96.2%，较上期提升 0.6 个百分点，7 月起增配 2 名夜间值班维修工，自评 23.50 分，与系统一致。②住户满意度：回收有效问卷 862 份（回收率 72.3%），得分 4.62 分，扣分集中在公共区域保洁频次与快递代收，自评 23.10 分，与系统一致。③空置率：在库 1,286 间、在租 1,192 间，空置 94 间中 62 间在维修恢复期内，实际可配租空置仅 32 间，自评 18.40 分，与系统一致。④房源完好率：系统取数 97.2%，自评 14.40 分。对政府检查扣 1.00 分提出异议：湘江1958 A6 栋楼道口装修废弃物系业主自行装修遗留，本机构于检查次日 2026-08-22 即全部清理并建立每日巡查台账，2026-08-26 复查合格，建议按「首次发现且限期内整改到位」不予扣分或减半扣分，佐证材料已随附。⑤租金收缴率：应收 1,286 间、实收 1,266 间，收缴率 98.4%，欠缴 20 间均在 1 期以内，自评 14.00 分，与系统一致。以上五项自评合计 93.40 分。</textarea>
-      </div>
-      <div class="form-item col-full">
-        <label>佐证材料 <span class="req">*</span></label>
-        <input type="text" data-upload="1" value="2026Q3报修工单台账.xlsx，住户满意度问卷汇总表.xlsx，退租房源恢复台账.xlsx，租金收缴明细表.xlsx，A6栋楼道清理前后对照照片.zip，每日巡查台账（2026年8—9月）.pdf，市住建局复查合格记录.pdf">
-        <div class="hint">提出异议的指标须逐项附佐证；材料缺失的异议不予受理</div>
-      </div>
-      <div class="form-item col-full">
-        <label>整改承诺 <span class="req">*</span></label>
-        <textarea rows="5">针对本期 3 项待整改问题，本机构承诺如下：①WT2026Q3-006（栗雨佳苑消防通道占用、消防栓水带缺失）：责任人运营部曾志远，已清理占用电动车 6 辆并加装地面禁停标识，消防栓水带于 2026-09-09 完成安装，2026-09-10 前完成整改并上传照片反馈。②WT2026Q3-007（湘江1958 公共区域保洁频次偏低、快递代收无人值守）：责任人物业部唐建波，自 2026-09-15 起公共区域保洁由每日 1 次提升至每日 2 次，快递智能柜于 2026-09-20 前完成安装启用。③WT2026Q3-008（田心人才公寓退租房源恢复超期）：责任人房源部刘海燕，已建立退租房源恢复台账并指定专人跟踪，维修与保洁供应商 24 小时响应时限已写入补充协议，2026-09-30 前将平均恢复用时压降至 3 个工作日内。本机构确认以上承诺真实可行，逾期未完成的自愿接受下期考核扣分。</textarea>
-      </div>
-    </div>
   </div>
-  <div class="drawer-foot">
-    <button class="btn" data-close-drawer>取消</button>
-    <button class="btn" onclick="PMS.toast('已保存自评草稿，可在 2026-09-15 截止前继续编辑')">保存草稿</button>
-    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认提交 2026 年第三季度考核自评（自评 93.40 分）与整改承诺？',detail:'自评得分不直接计入总分，作为主管单位评分复核与异议处置的依据。本次对房源完好率政府检查扣分 1.00 分提出异议并附佐证，主管单位将在 5 个工作日内复核答复。整改承诺提交后按承诺时限跟踪，期限内未反馈或复查不合格的计入下期考核扣分并纳入重点检查。自评内容、佐证材料与提交时间全程留痕。',type:'warning',okText:'确认提交自评',onOk:function(){PMS.closeDrawer();PMS.toast('已提交自评与整改承诺，待主管单位复核','success');}})"><i class="fa-solid fa-paper-plane"></i> 提交自评</button>
-  </div>
+  <div class="drawer-foot"><button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认提交本季度自评？',detail:'提交后由市住保中心复核，复核结果作为补助核定依据。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已提交，待市住保中心复核','success');}})"><i class="fa-solid fa-check"></i> 提交自评</button></div>
 </div>
-
+<div class="drawer-mask"></div>
+<div class="drawer" id="fixDrawer">
+  <div class="drawer-head"><h3>整改情况反馈</h3>
+    <span class="badge orange">整改中</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div></div>
+  <div class="drawer-body">
+      <div class="form-grid form-align">
+        <div class="form-item col-full"><label>扣分事项 <span class="req">*</span></label>
+          <input type="text" value="茨菇塘公寓收缴率低于 92% 约定标准" readonly></div>
+        <div class="form-item"><label>整改期限 <span class="req">*</span></label>
+          <input type="text" value="2026-09-15" readonly></div>
+        <div class="form-item"><label>整改状态 <span class="req">*</span></label>
+          <select><option>整改中</option><option>已整改</option></select></div>
+        <div class="form-item col-full"><label>整改措施 <span class="req">*</span></label>
+          <textarea rows="3">已安排专人逐户催缴，对欠费 2 个月以上的 12 户上门沟通；同步在移动端推送缴费提醒，本月收缴率已回升至 93.4%。</textarea></div>
+        <div class="form-item col-full"><label>佐证材料</label>
+          <div class="hint proto"><span class="proto-t">原型说明 · 开发删除</span>可上传催缴记录、收缴台账截图等（原型演示不做实际上传）</div></div>
+      </div>
+  </div>
+  <div class="drawer-foot"><button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认提交整改反馈？',detail:'提交后由市住保中心复查，复查通过方可销项。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已提交，待复查','success');}})"><i class="fa-solid fa-check"></i> 提交反馈</button></div>
+</div>
 <script>
 (function () {
   var t = document.querySelector('main.app-main .table-wrap > table.data-table');
-  if (t) { t._total = 8; }
+  if (t) { t._total = 6; }
 })();
 </script>
 

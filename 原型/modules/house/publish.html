@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>房源审核发布 · 株洲市人才住房保障管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="housing" data-active="house-24">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才住房保障管理平台
+      <span class="sep">/</span> 房源筹集与楼盘表
+      <span class="sep">/</span> 房源发布与预约
+      <span class="sep">/</span> <span class="cur">房源审核发布</span>
+    </div>
+  </div>
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>房源由各运营机构自行导入与维护，对外发布须经<b>审核发布</b>：按统一的发布标准核对实景照片、VR 素材、装修标准、家电家具配置与租金等要素是否齐备规范，<b>审核发布后移动端用户方可看到该房源</b>；不符合的退回并注明原因。支持批量发布。</div>
+  </div>
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-inbox"></i></div>
+      <div><div class="s-label">待审核发布</div><div class="s-value">128</div>
+        <div class="s-trend">间，含 32 间超 3 天</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
+      <div><div class="s-label">本月已发布</div><div class="s-value">216</div>
+        <div class="s-trend">间</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon red"><i class="fa-solid fa-rotate-left"></i></div>
+      <div><div class="s-label">已退回</div><div class="s-value">46</div>
+        <div class="s-trend">间，待补正重提</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-eye"></i></div>
+      <div><div class="s-label">在架房源</div><div class="s-value">412</div>
+        <div class="s-trend">间，移动端可见</div></div>
+    </div>
+  </div>
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>运营机构</label><input type="text" placeholder="机构名称"></div>
+      <div class="filter-item"><label>项目</label><input type="text" placeholder="项目名称"></div>
+      <div class="filter-item"><label>发布状态</label><select><option value="">全部</option><option>待审核</option><option>已发布</option><option>已退回</option></select></div>
+      <div class="filter-item"><label>素材状态</label><select><option value="">全部</option><option>素材齐备</option><option>缺实景照片</option><option>缺 VR</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+        <button class="btn btn-primary" onclick="PMS.confirm({title:'批量发布',message:'确认批量发布选中的房源？',detail:'仅素材齐备且符合发布标准的房源可批量发布。',type:'warning',okText:'确认发布',onOk:function(){PMS.toast('已批量发布 86 间','success');}})"><i class="fa-solid fa-upload"></i> 批量发布</button>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th class="cell-lg">项目</th><th>房号-间号</th><th>户型</th><th>计租面积</th><th>运营机构</th><th>提交时间</th><th>素材状态</th><th>发布状态</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr class="row-warn"><td>湘江1958 人才公寓</td><td>A6 栋 1502-B</td><td>三室两厅拆间</td><td>23.30</td><td>城发高科</td><td>2026-09-06</td><td><span class="badge green">素材齐备</span></td><td><span class="badge orange">待审核</span></td><td><span class="link" onclick="PMS.confirm({title:'审核发布',message:'确认发布该房源？',detail:'发布后移动端用户即可看到并预约、申请。',type:'warning',okText:'确认发布',onOk:function(){PMS.toast('已发布，移动端已同步','success');}})">审核发布</span></td></tr>
+          <tr><td>湘江1958 人才公寓</td><td>A6 栋 1503-A</td><td>三室两厅拆间</td><td>26.70</td><td>城发高科</td><td>2026-09-06</td><td><span class="badge green">素材齐备</span></td><td><span class="badge orange">待审核</span></td><td><span class="link" onclick="PMS.toast('已发布','success')">审核发布</span></td></tr>
+          <tr class="row-bad"><td>栗雨佳苑</td><td>3 栋 0904-A</td><td>两室一厅拆间</td><td>32.00</td><td>城发高科</td><td>2026-09-05</td><td><span class="badge orange">缺实景照片</span></td><td><span class="badge orange">待审核</span></td><td><span class="link" onclick="PMS.confirm({title:'退回确认',message:'确认退回该房源？',detail:'请注明退回原因，运营机构补正后可重新提交。',type:'warning',okText:'确认退回',onOk:function(){PMS.toast('已退回并通知运营机构','success');}})">退回</span></td></tr>
+          <tr><td>茨菇塘公寓</td><td>5 栋 0602-A</td><td>单间配套</td><td>36.50</td><td>清水塘投资</td><td>2026-09-04</td><td><span class="badge green">素材齐备</span></td><td><span class="badge green">已发布</span></td><td><span class="link" onclick="PMS.confirm({title:'下架确认',message:'确认下架该房源？',detail:'下架后移动端不再展示，已预约记录保留。',type:'warning',okText:'确认下架',onOk:function(){PMS.toast('已下架','success');}})">下架</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>发布标准</b> 实景照片、VR 全景（按套）、装修标准、家电家具配置与租金</span>
+    <span><b>发布效果</b> 审核发布后移动端用户方可看到，未发布的不对外可见</span>
+    <span><b>统计落点</b> <span class="link" onclick="location.href='publish-stat.html'">房源发布状态统计</span></span>
+  </div>
+
+</main>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 4; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="../../assets/css/spec.css">
 <link rel="stylesheet" href="../../assets/css/ext.css">
 </head>
-<body data-role="manager" data-active="ops-03">
+<body data-role="orgadmin" data-active="ops-03">
 <main class="app-main">
   <div class="page-head">
     <div class="breadcrumb">
@@ -25,7 +25,7 @@
 
   <div class="alert alert-warning">
     <i class="fa-solid fa-triangle-exclamation"></i>
-    <div>融合<b>住户评价、政府检查扣分与系统自动取数</b>按季度、年度生成评分，<b>评分过程与依据可追溯</b>。评分须经业务管理员审定后通报。</div>
+    <div>融合<b>住户评价、政府检查扣分与系统自动取数</b>按季度、年度生成评分，<b>评分过程与依据可追溯</b>。评分须经业务管理员角色审定后通报。</div>
   </div>
 
   <div class="stat-grid">
@@ -69,10 +69,10 @@
           <tr><th>评分编号</th><th class="cell-lg">运营机构</th><th>考核期</th><th>报修及时率</th><th>完工率</th><th>满意度</th><th>空置率</th><th>完好率</th><th>投诉时效</th><th>检查扣分</th><th>总分</th><th>档位</th><th>操作</th></tr>
         </thead>
         <tbody>
-          <tr><td>PF2026Q3-001</td><td>株洲城发高科人才安居服务有限公司</td><td>2026 Q3</td><td class="num">96.2%</td><td class="num">98.4%</td><td class="num">4.62</td><td class="num">8.6%</td><td class="num">97.2%</td><td class="num">94.6%</td><td class="num">-1</td><td class="num">92.4</td><td><span class="badge green">良好</span></td><td><span class="link" onclick="PMS.openDrawer('pfDrawer')">评分明细</span></td></tr>
+          <tr><td>PF2026Q3-001</td><td>株洲市人才安居服务有限公司</td><td>2026 Q3</td><td class="num">96.2%</td><td class="num">98.4%</td><td class="num">4.62</td><td class="num">8.6%</td><td class="num">97.2%</td><td class="num">94.6%</td><td class="num">-1</td><td class="num">92.4</td><td><span class="badge green">良好</span></td><td><span class="link" onclick="PMS.openDrawer('pfDrawer')">评分明细</span></td></tr>
           <tr><td>PF2026Q3-002</td><td>株洲城建人才公寓运营管理有限公司</td><td>2026 Q3</td><td class="num">92.8%</td><td class="num">96.2%</td><td class="num">4.28</td><td class="num">12.4%</td><td class="num">95.8%</td><td class="num">91.2%</td><td class="num">-2</td><td class="num">88.6</td><td><span class="badge green">合格</span></td><td><span class="link" onclick="PMS.openDrawer('pfDrawer')">评分明细</span></td></tr>
           <tr class="row-bad"><td>PF2026Q3-003</td><td>株洲清水塘安居服务有限公司</td><td>2026 Q3</td><td class="num">82.4%</td><td class="num">88.6%</td><td class="num">3.86</td><td class="num">26.8%</td><td class="num">89.4%</td><td class="num">82.6%</td><td class="num">-6</td><td class="num">72.8</td><td><span class="badge red">不合格</span></td><td><span class="link" onclick="PMS.openDrawer('pfDrawer')">评分明细</span></td></tr>
-          <tr><td>PF2026Q2-001</td><td>株洲城发高科人才安居服务有限公司</td><td>2026 Q2</td><td class="num">95.6%</td><td class="num">97.8%</td><td class="num">4.58</td><td class="num">9.2%</td><td class="num">96.8%</td><td class="num">93.8%</td><td class="num">-1</td><td class="num">91.6</td><td><span class="badge green">良好</span></td><td><span class="link" onclick="PMS.toast('2026 Q2 得分 91.6 分（良好），已通报并纳入续约参考')">评分记录</span></td></tr>
+          <tr><td>PF2026Q2-001</td><td>株洲市人才安居服务有限公司</td><td>2026 Q2</td><td class="num">95.6%</td><td class="num">97.8%</td><td class="num">4.58</td><td class="num">9.2%</td><td class="num">96.8%</td><td class="num">93.8%</td><td class="num">-1</td><td class="num">91.6</td><td><span class="badge green">良好</span></td><td><span class="link" onclick="PMS.toast('2026 Q2 得分 91.6 分（良好），已通报并纳入续约参考')">评分记录</span></td></tr>
         </tbody>
       </table>
     </div>
@@ -120,7 +120,7 @@
         </div>
         <div class="form-item col-full">
           <label>主要扣分项 <span class="req">*</span></label>
-          <textarea rows="4">①空置率 26.8%（合格线 ≤15%），扣 12 分。清水塘片区房源投放后认领率低，机构未按要求配合房源展示与 VR 素材报送。②报修及时率 82.4%（合格线 85%），扣 5.4 分。存在 1 单超 24 小时未上门并升级督办。③房源完好率 82.6%（合格线 90%），扣 6.2 分。巡检发现 12 套家电故障未及时报修。④政府检查扣 6 分：8 月检查发现公共区域杂物堆放、消防通道占用问题，整改不到位加倍扣分。</textarea>
+          <textarea rows="4">①空置率 26.8%（合格线 ≤15%），扣 12 分。清水塘片区房源投放后认领率低，机构未按要求配合房源展示与 VR 素材报送。②报修及时率 82.4%（合格线 85%），扣 5.4 分。存在 1 单超 24 小时未上门并升级督办。③房源完好率 82.6%（合格线 90%），扣 6.2 分。巡检发现 12 间家电故障未及时报修。④政府检查扣 6 分：8 月检查发现公共区域杂物堆放、消防通道占用问题，整改不到位加倍扣分。</textarea>
         </div>
         <div class="form-item col-full">
           <label>审定结论 <span class="req">*</span></label>

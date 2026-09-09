@@ -19,13 +19,14 @@
       <span class="sep">/</span> <span class="cur">合同归档与查询</span>
     </div>
     <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已调起批量打印，纸质件可交档案室归卷','success')"><i class="fa-solid fa-print"></i> 批量打印</button>
       <button class="btn btn-primary" onclick="SP.dual('批量导出合同含身份证号等敏感字段，需授权并全程留痕。')"><i class="fa-solid fa-download"></i> 批量导出</button>
     </div>
   </div>
 
   <div class="alert alert-info">
     <i class="fa-solid fa-circle-info"></i>
-    <div>电子合同<b>集中归档</b>，支持按<b>承租人、房源、批次、期限</b>多维查询与导出。归档合同含签署存证、用章日志与变更协议全套材料。</div>
+    <div>电子合同与线下上传合同<b>统一编号、集中归档</b>，支持按<b>承租人、房源、批次、签约方式、期限</b>多维查询与导出，<b>均支持下载打印</b>。归档卷内含合同文本、<b>签署存证或上传影像与核对确认记录</b>、用章日志与变更协议全套材料，纸质与电子档案<b>同步留存</b>。</div>
   </div>
 
   <div class="stat-grid">
@@ -36,13 +37,13 @@
     </div>
     <div class="stat-card">
       <div class="s-icon green"><i class="fa-solid fa-file-signature"></i></div>
-      <div><div class="s-label">签署存证</div><div class="s-value">1,842</div>
+      <div><div class="s-label">电子签约归档</div><div class="s-value">1,498</div>
         <div class="s-trend text-2">第三方 CA 存证</div></div>
     </div>
     <div class="stat-card">
-      <div class="s-icon cyan"><i class="fa-solid fa-file-pen"></i></div>
-      <div><div class="s-label">变更协议</div><div class="s-value">74</div>
-        <div class="s-trend text-2">附于原合同卷内</div></div>
+      <div class="s-icon cyan"><i class="fa-solid fa-file-arrow-up"></i></div>
+      <div><div class="s-label">线下上传归档</div><div class="s-value">344</div>
+        <div class="s-trend text-2">均已核对确认后归档</div></div>
     </div>
     <div class="stat-card">
       <div class="s-icon orange"><i class="fa-solid fa-download"></i></div>
@@ -57,8 +58,9 @@
       <div class="filter-item"><label>承租人</label><input type="text" placeholder="姓名"></div>
       <div class="filter-item"><label>房源</label><input type="text" placeholder="项目名称或房号"></div>
       <div class="filter-item"><label>配租批次</label><input type="text" placeholder="批次编号"></div>
+      <div class="filter-item"><label>签约方式</label><select><option value="">全部</option><option>运营方发起电子签约</option><option>线下签署后上传</option></select></div>
       <div class="filter-item"><label>合同状态</label><select data-dict="contractStatus" data-ph="全部"></select></div>
-      <div class="filter-item"><label>签署日期</label><input type="date"></div>
+      <div class="filter-item"><label>归档日期</label><input type="date"></div>
       <div class="filter-actions">
         <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
         <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
@@ -68,20 +70,42 @@
     <div class="table-wrap">
       <table class="data-table">
         <thead>
-          <tr><th>归档编号</th><th>合同编号</th><th>承租人</th><th class="cell-lg">房源</th><th>配租批次</th><th>签署日期</th><th>保障期</th><th>变更协议</th><th>合同状态</th><th>操作</th></tr>
+          <tr><th>归档编号</th><th>合同编号</th><th>承租人</th><th class="cell-lg">房源</th><th>配租批次</th><th>签约方式</th><th class="cell-lg">核对确认</th><th>归档日期</th><th>保障期</th><th class="num">变更协议</th><th>合同状态</th><th>操作</th></tr>
         </thead>
         <tbody>
-          <tr><td>GD2026-RZ-00862</td><td>RZ2026-00862</td><td>王梓涵</td><td>湘江1958 A6-1502</td><td>PZ2026-03</td><td>2026-09-20</td><td>2026-01-06 至 2028-01-05</td><td class="num">0</td><td><span class="badge green">已生效</span></td><td><span class="link" onclick="location.href='contract-detail.html?id=RZ2026-00862'">查阅</span></td></tr>
-          <tr><td>GD2026-RZ-00386</td><td>RZ2026-00386</td><td>李子康</td><td>湘江1958 A3-1108 主卧</td><td>PZ2026-01</td><td>2026-02-26</td><td>2026-03-08 至 2028-03-07</td><td class="num">1</td><td><span class="badge cyan">已变更</span></td><td><span class="link" onclick="location.href='contract-detail.html?id=RZ2026-00386'">查阅</span></td></tr>
-          <tr class="row-warn"><td>GD2026-RZ-00518</td><td>RZ2026-00518</td><td>周宇轩</td><td>栗雨佳苑 3-0904</td><td>PZ2026-02</td><td>2026-04-02</td><td>2026-04-12 至 2028-04-11</td><td class="num">1</td><td><span class="badge orange">已解除</span></td><td><span class="link" onclick="location.href='contract-detail.html?id=RZ2026-00518'">查阅</span></td></tr>
-          <tr><td>GD2024-RZ-00206</td><td>RZ2024-00206</td><td>谭建国</td><td>栗雨佳苑 3-0608</td><td>PZ2024-01</td><td>2024-03-06</td><td>2024-03-12 至 2026-03-11</td><td class="num">1</td><td><span class="badge gray">已到期</span></td><td><span class="link" onclick="location.href='contract-detail.html?id=RZ2024-00206'">查阅</span></td></tr>
+          <tr><td>GD2026-RZ-00862</td><td>RZ2026-00862</td><td>王梓涵</td><td>湘江1958 A6-1502</td><td>PZ2026-03</td><td><span class="badge blue">电子签约</span></td><td><span class="badge gray">无需核对</span>　双方签署即归档</td><td>2026-09-20</td><td>2026-01-06 至 2028-01-05</td><td class="num">0</td><td><span class="badge green">已生效</span></td><td><span class="link" onclick="location.href='contract-detail.html?id=RZ2026-00862'">查阅</span> <span class="link" onclick="PMS.toast('归档合同 PDF 已下载，可直接打印','success')">下载打印</span></td></tr>
+          <tr><td>GD2026-RZ-00742</td><td>RZ2026-00742</td><td>唐雅琴</td><td>栗雨佳苑 3-1104</td><td>PZ2026-02</td><td><span class="badge cyan">线下上传</span></td><td><span class="badge green">已核对确认</span>　彭雪梅 2026-05-16 10:22</td><td>2026-05-16</td><td>2026-05-18 至 2028-05-17</td><td class="num">0</td><td><span class="badge green">已生效</span></td><td><span class="link" onclick="location.href='contract-detail.html?id=RZ2026-00742'">查阅</span> <span class="link" onclick="PMS.toast('线下合同扫描件已下载，可直接打印','success')">下载打印</span></td></tr>
+          <tr><td>GD2026-RZ-00386</td><td>RZ2026-00386</td><td>李子康</td><td>湘江1958 A3-1108 主卧</td><td>PZ2026-01</td><td><span class="badge blue">电子签约</span></td><td><span class="badge gray">无需核对</span></td><td>2026-02-26</td><td>2026-03-08 至 2028-03-07</td><td class="num">1</td><td><span class="badge cyan">已变更</span></td><td><span class="link" onclick="location.href='contract-detail.html?id=RZ2026-00386'">查阅</span> <span class="link" onclick="PMS.toast('归档合同与变更协议已打包下载，可直接打印','success')">下载打印</span></td></tr>
+          <tr class="row-warn"><td>GD2026-RZ-00518</td><td>RZ2026-00518</td><td>周宇轩</td><td>栗雨佳苑 3-0904</td><td>PZ2026-02</td><td><span class="badge blue">电子签约</span></td><td><span class="badge gray">无需核对</span></td><td>2026-04-02</td><td>2026-04-12 至 2028-04-11</td><td class="num">1</td><td><span class="badge orange">已解除</span></td><td><span class="link" onclick="location.href='contract-detail.html?id=RZ2026-00518'">查阅</span> <span class="link" onclick="PMS.toast('归档合同与解除协议已打包下载，可直接打印','success')">下载打印</span></td></tr>
+          <tr class="row-bad"><td>GD2024-RZ-00206</td><td>RZ2024-00206</td><td>谭建国</td><td>栗雨佳苑 3-0608</td><td>PZ2024-01</td><td><span class="badge cyan">线下上传</span></td><td><span class="badge green">已核对确认</span>　彭雪梅 2024-03-10 09:36</td><td>2024-03-10</td><td>2024-03-12 至 2026-03-11</td><td class="num">1</td><td><span class="badge gray">已到期</span></td><td><span class="link" onclick="location.href='contract-detail.html?id=RZ2024-00206'">查阅</span> <span class="link" onclick="PMS.toast('归档合同扫描件已下载，可直接打印','success')">下载打印</span></td></tr>
         </tbody>
       </table>
     </div>
   </div>
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 统一编号与归档卷内材料<span class="sub">两条签署路径共用同一套编号与卷内规范</span></div>
+          <div class="sp-b">
+  <div class="sp-tw">
+    <table class="data-table compact">
+      <thead><tr><th>卷内材料</th><th class="cell-lg">电子签约（路径一）</th><th class="cell-lg">线下签署后上传（路径二）</th></tr></thead>
+      <tbody>
+      <tr><td><b>合同编号</b></td><td>规则 <b>RZ + 年份 + 5 位流水</b>，配租结果分配后由系统自动生成</td><td>同左，<b>共用同一套规则</b>，<b>不因签署方式不同而区分号段</b></td></tr>
+      <tr><td><b>归档编号</b></td><td>规则 <b>GD + 年份 + RZ + 5 位流水</b>，与合同编号一一对应</td><td>同左，<b>统一归档、统一检索</b></td></tr>
+      <tr><td>合同文本</td><td>系统生成的 PDF 文本（含双方电子签章）</td><td>纸质原件的<b>扫描或拍照影像</b>（PDF 或图片，含签字盖章与骑缝章）</td></tr>
+      <tr><td>签署凭据</td><td>第三方 CA 服务机构<b>签署存证</b>与时间戳</td><td><b>上传记录</b>（上传人、上传时间、影像页数）</td></tr>
+      <tr class="row-warn"><td><b>核对确认记录</b></td><td><span class="muted">不适用（双方签署即完成）</span></td><td><b>必备</b>：核对人、核对时间、核对项与结论；<b>未核对确认的不予归档</b>，合同保持“待签约完成”状态</td></tr>
+      <tr><td>用章日志</td><td>企业电子签章用章记录</td><td>线下用章由运营机构登记，随卷留存</td></tr>
+      <tr><td>变更与解除协议</td><td>附于原合同卷内，与原合同同号管理</td><td>同左，查阅与下载时与原合同一并打包</td></tr>
+      <tr><td>纸质档案</td><td>可下载打印后交承租人与运营机构各留存一份</td><td><b>纸质原件由运营机构留存备查</b>，电子档案同步入库</td></tr>
+      </tbody>
+    </table>
+  </div>
+          </div>
+        </div>
   <div class="sp-src">
-    <span><b>归档内容</b> 合同文本 + 签署存证 + 用章日志 + 变更协议 + 交付凭证</span>
-    <span><b>查询维度</b> 承租人 / 房源 / 批次 / 期限 / 状态</span>
+    <span><b>统一编号</b> 电子签约与线下上传<b>共用同一套合同编号与归档编号规则</b>，统一归档、统一检索、均支持下载打印</span>
+    <span><b>归档内容</b> 合同文本 + 签署存证或上传影像 + <b>核对确认记录</b> + 用章日志 + 变更协议 + 交付凭证</span>
+    <span><b>归档前置</b> 线下上传的<b>须经运营机构核对确认后</b>方可归档，未确认的保持“待签约完成”状态、不进归档库</span>
     <span><b>导出控制</b> 含身份证号等敏感字段的导出需授权并全程留痕</span>
   </div>
 </main>

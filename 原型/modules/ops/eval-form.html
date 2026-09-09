@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="../../assets/css/spec.css">
 <link rel="stylesheet" href="../../assets/css/ext.css">
 </head>
-<body data-role="manager" data-active="ops-11">
+<body data-role="orgadmin" data-active="ops-11">
 <main class="app-main">
   <div class="page-head">
     <div class="breadcrumb">
@@ -98,7 +98,7 @@
             <tr><td><b>PB-02</b></td><td>变更须新建版本并指定生效期间</td><td class="cell-lg">指标增减、权重调整、评分方式变更均须新建版本并填写生效起止期间；生效日之前的评价周期仍按原版本采集</td><td>版本保存时</td></tr>
             <tr><td><b>PB-03</b></td><td>历史评价按当期版本口径解释</td><td class="cell-lg">每份评价记录固化所属版本号，回溯查询与复议时按记录所属版本的指标与权重还原得分，不受后续版本影响</td><td>结果回溯时</td></tr>
             <tr><td><b>PB-04</b></td><td>权重合计须等于 100%</td><td class="cell-lg">物业服务、运营单位服务两套问卷的指标权重<b>分别</b>合计须等于 100%；不等于 100% 的系统在发布前阻断并提示差额</td><td>发布前校验</td></tr>
-            <tr><td><b>PB-05</b></td><td>发布留痕与审批</td><td class="cell-lg">版本发布须经业务管理员确认，记录操作人、发布时间与变更明细（原权重 → 新权重），可被审计追溯</td><td>发布时</td></tr>
+            <tr><td><b>PB-05</b></td><td>发布留痕与审批</td><td class="cell-lg">版本发布须经业务管理员角色确认，记录操作人、发布时间与变更明细（原权重 → 新权重），可被审计追溯</td><td>发布时</td></tr>
           </tbody>
         </table>
       </div>
@@ -188,7 +188,7 @@
   <div class="drawer-foot">
     <button class="btn" data-close-drawer>取消</button>
     <button class="btn" onclick="PMS.toast('已保存为草稿，未发布前不影响在用版本')">保存草稿</button>
-    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认将本次修改写入新版本 V2026-10？',detail:'系统将校验物业服务、运营单位服务两套问卷的权重合计是否均等于 100%，校验通过后转业务管理员确认发布，自指定生效期间起采用。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已提交，权重校验通过，待业务管理员确认发布','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认将本次修改写入新版本 V2026-10？',detail:'系统将校验物业服务、运营单位服务两套问卷的权重合计是否均等于 100%，校验通过后转业务管理员角色确认发布，自指定生效期间起采用。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已提交，权重校验通过，待业务管理员角色确认发布','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
   </div>
 </div>
 

@@ -55,7 +55,7 @@
     <div class="filter-bar">
       <div class="filter-item"><label>申请单号</label><input type="text" placeholder="申请单号"></div>
       <div class="filter-item"><label>被授权人</label><input type="text" placeholder="姓名"></div>
-      <div class="filter-item"><label>授权角色</label><select><option value="">全部</option><option>系统管理员</option><option>业务管理员</option><option>财政审核员</option><option>城区经办员</option><option>租金核算员</option><option>配租经办员</option></select></div>
+      <div class="filter-item"><label>授权角色</label><select><option value="">全部</option><option>权限配置管理员角色</option><option>业务管理员角色</option><option>受理初审角色</option><option>审核角色</option><option>单位房源管理员角色</option><option>企业机构管理角色</option><option>配租经办角色</option><option>租金核算角色</option><option>运营机构角色</option><option>用人单位角色</option><option>窗口受理角色</option><option>信息公开经办角色</option><option>领导查看角色</option></select></div>
       <div class="filter-item"><label>授权类型</label><select><option value="">全部</option><option>长期授权</option><option>临时授权（顶岗）</option><option>临时授权（专项检查）</option></select></div>
       <div class="filter-item"><label>审批状态</label><select><option value="">全部</option><option>待审批</option><option>已生效</option><option>已驳回</option><option>已到期回收</option></select></div>
       <div class="filter-actions">
@@ -70,18 +70,18 @@
           <tr><th>申请单号</th><th class="cell-lg">被授权人 / 机构</th><th>授权角色</th><th>授权类型</th><th class="cell-lg">授权事由</th><th>有效期</th><th>审批人</th><th>状态</th><th>操作</th></tr>
         </thead>
         <tbody>
-          <tr class="row-warn"><td>SQ2026-09-0018</td><td>李慧敏　市住建局住房保障科</td><td><span class="badge red">业务管理员（扩权）</span></td><td><span class="badge blue">长期授权</span></td><td>新增「配租结果纠错回滚」高敏按钮权限，用于处理 2026 年第 3 批配租的 2 件排序纠错</td><td>长期有效</td><td>龙志宏（分管领导）</td><td><span class="badge orange">待审批</span></td><td><span class="link" onclick="PMS.openDrawer('apDrawer')">审批</span></td></tr>
-          <tr class="row-warn"><td>SQ2026-09-0017</td><td>陈晓琳　市住保中心配租管理科</td><td><span class="badge orange">租金核算员</span></td><td><span class="badge orange">临时授权（顶岗）</span></td><td>租金核算员张伟休产假，顶岗办理 9 月账单核算，不含资金复核与拨付审批</td><td>2026-09-01 至 2026-09-12</td><td>龙志宏（分管领导）</td><td><span class="badge green">已生效</span></td><td><span class="link" onclick="PMS.openDrawer('apDrawer')">查看</span></td></tr>
-          <tr><td>SQ2026-08-0015</td><td>唐凯　市住保中心房源管理科</td><td><span class="badge orange">城区经办员</span></td><td><span class="badge cyan">临时授权（专项检查）</span></td><td>参加市委人才办 2026 年人才安居专项检查，需查看渌口区房源与承租数据</td><td>2026-08-18 至 2026-08-29</td><td>李慧敏（业务管理员）</td><td><span class="badge gray">已到期回收</span></td><td><span class="link" onclick="PMS.toast('临时授权于 2026-08-29 24:00 自动回收，已向被授权人与审批人推送通知，回收记录写入权限变更留痕')">自动回收记录</span></td></tr>
-          <tr><td>SQ2026-08-0012</td><td>罗湘　市财政局行政政法科</td><td><span class="badge blue">财政审核员</span></td><td><span class="badge blue">长期授权</span></td><td>新任行政政法科副科长，接替曾国华承担人才公寓资金复核工作</td><td>长期有效</td><td>龙志宏（分管领导）</td><td><span class="badge green">已生效</span></td><td><span class="link" onclick="PMS.openDrawer('apDrawer')">查看</span></td></tr>
-          <tr class="row-bad"><td>SQ2026-07-0009</td><td>曾志豪　荷塘区住房保障服务中心</td><td><span class="badge red">系统管理员</span></td><td><span class="badge blue">长期授权</span></td><td>申请系统管理员权限用于本区数据导出</td><td>—</td><td>龙志宏（分管领导）</td><td><span class="badge red">已驳回</span></td><td><span class="link" onclick="PMS.toast('系统管理员属权限管理岗，与业务办理岗不相容，区级经办人员不得授予。数据导出需求请通过「台账导出」功能办理，或向市住保中心提交专项授权申请')">驳回理由</span></td></tr>
+          <tr class="row-warn"><td>SQ2026-09-0018</td><td>李慧敏　市住建局住房保障科</td><td><span class="badge red">业务管理员角色（扩权）</span></td><td><span class="badge blue">长期授权</span></td><td>新增「规则版本发布」高敏按钮权限，用于发布 2026 年第 4 版人才认定口径与租金标准规则</td><td>长期有效</td><td>龙志宏（领导）</td><td><span class="badge orange">待审批</span></td><td><span class="link" onclick="PMS.openDrawer('apDrawer')">审批</span></td></tr>
+          <tr class="row-warn"><td>SQ2026-09-0017</td><td>陈晓琳　市住保中心配租管理科</td><td><span class="badge orange">租金核算角色</span></td><td><span class="badge orange">临时授权（顶岗）</span></td><td>租金核算岗张伟休产假，顶岗办理 9 月账单核算，不含资金复核与拨付审批</td><td>2026-09-01 至 2026-09-12</td><td>龙志宏（领导）</td><td><span class="badge green">已生效</span></td><td><span class="link" onclick="PMS.openDrawer('apDrawer')">查看</span></td></tr>
+          <tr><td>SQ2026-08-0015</td><td>唐凯　市住保中心房源管理科</td><td><span class="badge orange">领导查看角色</span></td><td><span class="badge cyan">临时授权（专项检查）</span></td><td>参加市委人才办 2026 年人才安居专项检查，需只读查看全市房源与承租汇总数据</td><td>2026-08-18 至 2026-08-29</td><td>龙志宏（权限配置管理员角色）</td><td><span class="badge gray">已到期回收</span></td><td><span class="link" onclick="PMS.toast('临时授权于 2026-08-29 24:00 自动回收，已向被授权人与审批人推送通知，回收记录写入权限变更留痕')">自动回收记录</span></td></tr>
+          <tr><td>SQ2026-08-0012</td><td>罗湘　市住保中心财务科</td><td><span class="badge blue">租金核算角色</span></td><td><span class="badge blue">长期授权</span></td><td>新任财务科副科长，接替曾国华承担人才公寓租金核算与账单生成；资金复核由市财政局作为外部协同环节办理，不在本系统授予角色</td><td>长期有效</td><td>龙志宏（领导）</td><td><span class="badge green">已生效</span></td><td><span class="link" onclick="PMS.openDrawer('apDrawer')">查看</span></td></tr>
+          <tr class="row-bad"><td>SQ2026-07-0009</td><td>曾志豪　市政务服务中心人才住房窗口</td><td><span class="badge red">权限配置管理员角色</span></td><td><span class="badge blue">长期授权</span></td><td>申请权限配置管理员角色用于批量导出经办数据</td><td>—</td><td>龙志宏（领导）</td><td><span class="badge red">已驳回</span></td><td><span class="link" onclick="PMS.toast('权限配置管理员角色属权限管理岗，只配账号与权限、不含业务办理权限，与业务办理岗不相容，业务经办人员不得授予。数据导出需求请通过「台账导出」功能办理，或向市住保中心提交专项授权申请')">驳回理由</span></td></tr>
         </tbody>
       </table>
     </div>
   </div>
   <div class="sp-src">
-    <span><b>审批范围</b> 系统管理员、业务管理员、财政审核员等高敏感角色授权一律须审批</span>
-    <span><b>审批层级</b> 市级角色由分管领导审批；区级与机构角色由业务管理员审批</span>
+    <span><b>审批范围</b> 权限配置管理员角色、业务管理员角色等高敏感角色授权一律须审批</span>
+    <span><b>审批层级</b> 市级角色由领导审批；外部机构角色由权限配置管理员角色审批</span>
     <span><b>临时授权</b> 须明确起止时间与授权事由，到期系统自动回收并通知被授权人与审批人</span>
     <span><b>留痕要求</b> 申请、审批、生效、回收四个节点全部写入<span class="link" onclick="location.href='sys-perm-log.html'">权限变更留痕</span></span>
   </div>

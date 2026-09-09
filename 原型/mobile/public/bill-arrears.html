@@ -10,13 +10,13 @@
 <link rel="stylesheet" href="../../assets/css/ext.css">
 </head>
 <body class="m-body" data-mtitle="欠费查询" data-mmod="M9 租金缴纳与账单" data-mcode="M9-04"
-      data-mdesc="查询本人欠费金额、欠费月份与滞纳规则。" data-mback="bill-list.html" data-mtabset="public" data-mtab="home">
+      data-mdesc="查询本人欠费金额、欠费月份与滞纳规则。线下缴费凭证已提交待运营机构确认的账单不纳入欠租统计、不计逾期。" data-mback="bill-list.html" data-mtabset="public" data-mtab="home">
 <div class="m-stage">
   <div class="m-phone">
     <div class="m-screen">
       <div class="m-view">
         <div class="m-note success"><i class="fa-solid fa-circle-check"></i>
-          <div>您当前<b>无欠费</b>。历史 11 期账单均已按期缴清，累计已缴 3,819.96 元。</div>
+          <div>您当前<b>无欠费</b>。历史 11 期账单均已按期缴清，累计已缴 3,819.96 元。另有 <b>1 笔 364.20 元</b>线下缴费凭证已提交、<b>待运营机构确认</b>，<b>不纳入欠费统计</b>。</div>
         </div>
         <div class="m-card">
           <div class="m-card-h"><i class="fa-solid fa-circle-check"></i>我的欠费情况</div>
@@ -24,7 +24,23 @@
             <div class="m-mini">
               <div><div class="mv ok">0.00</div><div class="ml">欠费金额(元)</div></div>
               <div><div class="mv ok">0</div><div class="ml">欠费月份(期)</div></div>
+              <div><div class="mv warn">364.20</div><div class="ml">待确认(元)</div></div>
               <div><div class="mv ok">11</div><div class="ml">按期缴清(期)</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="m-sect">线下缴费与欠费认定<span class="m-sect-x">待确认不计逾期</span></div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-hourglass-half"></i>待确认账单如何认定</div>
+          <div class="m-card-b">
+            <div class="m-check">
+              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>凭证已提交即冻结逾期计算</b><span>线下缴费上传凭证后账单状态置为「待确认」，<b>不计逾期、不纳入欠费统计</b>，也不触发催缴短信</span></div></div>
+              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>确认通过按转账时间认定按期缴纳</b><span>核销时点以运营机构确认时间为准，但<b>是否按期</b>按您的转账时间与缴费截止日比对认定</span></div></div>
+              <div class="bad"><i class="fa-solid fa-circle-exclamation"></i><div class="m-chl"><b>凭证被退回的从退回之日重新计算</b><span>金额不一致或无法核对到人的，运营机构退回并说明原因，退回后账单回到「待缴」，逾期从退回次日起算</span></div></div>
+              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>确认超时不由承租人承担</b><span>超过 2 个工作日未确认的自动提醒运营机构负责人督办，期间一律不计逾期</span></div></div>
+            </div>
+            <div class="m-note warn" style="margin-top:10px"><i class="fa-solid fa-triangle-exclamation"></i>
+              <div>提交虚假凭证或未实际付款的，运营机构核对后退回并记录，情节严重的按合同约定处理，<b>逾期从原缴费截止日起算</b>。</div>
             </div>
           </div>
         </div>
@@ -34,10 +50,12 @@
           <div class="m-card-b">
           <div class="m-kv">
             <div><span>欠费认定</span><span>账单缴费截止日次日 00:00 起未缴清即计为欠费</span></div>
+            <div><span>待确认口径</span><span>线下缴费<b>凭证已提交待运营机构确认</b>的，状态为<span class="m-tag orange">待确认</span>，<b>不计欠费、不计逾期</b></span></div>
             <div><span>欠费金额</span><span>仅计<b>个人实际应缴部分</b>，财政补助部分不计入</span></div>
             <div><span>账龄分析</span><span>按 30 日、60 日、90 日以上分档，识别催收重点</span></div>
             <div><span>滞纳规则</span><span><span class="m-tag yellow">待定</span> 具体滞纳金标准需业务确认后落库</span></div>
-            <div><span>结清方式</span><span>翼支付线上缴纳，支持欠费与当期账单合并支付</span></div>
+            <div><span>结清方式</span><span><b>电信翼支付、微信支付</b>线上缴纳实时核销；<b>线下缴费</b>转账后上传凭证、经运营机构确认核销。均支持欠费与当期账单合并结清</span></div>
+            <div><span>收款账户</span><span>按房源所属运营机构路由至其对公账户，<b>平台不归集资金、不代收</b></span></div>
           </div>
           </div>
         </div>

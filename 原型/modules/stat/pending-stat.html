@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>容缺受理与补核情况统计 · 株洲市人才住房保障管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="leader" data-active="stat-34">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才住房保障管理平台
+      <span class="sep">/</span> 统计分析
+      <span class="sep">/</span> <span class="cur">容缺受理与补核情况统计</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已生成容缺受理与补核情况分析报告，可在报表中心下载','success')"><i class="fa-solid fa-file-export"></i> 生成报告</button>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>统计<b>容缺受理件量、按期补齐率、到期未达标件量与处理去向</b>（继续容缺／暂停办理／取消资格），并按<b>月趋势</b>与<b>按单位分布</b>两个视角呈现，反映<b>社保数据延迟对办理的实际影响</b>。社保查不到缴纳记录或劳动合同已签尚未参保的，接收单位承诺书后可按容缺受理通过，系统登记补核期限、到期自动复核社保缴纳情况。</div>
+  </div>
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>本页为<b>只读统计</b>，不提供办理入口。容缺件的补核、复核与处置在受理初审角色的<b>容缺受理台账与到期预警</b>中办理，本页数据与其同源、按日汇总。<span class="link" onclick="location.href='../apply/pending-check.html'">容缺受理台账与到期预警</span></div>
+  </div>
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-file-circle-check"></i></div>
+      <div><div class="s-label">容缺受理件量</div><div class="s-value">156</div>
+        <div class="s-trend">件 · 占同期受理量 12.1%</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
+      <div><div class="s-label">按期补齐率</div><div class="s-value">82.9%</div>
+        <div class="s-trend">已到期 140 件中 116 件按期补齐</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-triangle-exclamation"></i></div>
+      <div><div class="s-label">到期未达标</div><div class="s-value">24</div>
+        <div class="s-trend ">继续容缺 10 / 暂停办理 8 / 取消资格 6</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-hourglass-half"></i></div>
+      <div><div class="s-label">平均补齐用时</div><div class="s-value">49 天</div>
+        <div class="s-trend">最长 88 天 · 补核期限 3 个月</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <h3><i class="fa-solid fa-chart-column"></i> 按月容缺受理件量</h3>
+      <span class="sub">S02 · 2026 年 1—9 月 · 共 156 件</span>
+    </div>
+    <div class="card-body">
+      <div class="dc-bars wide">
+        <div class="b-item"><span class="b-label">2026-01</span><span class="b-track"><span class="b-fill" style="width:30.8%"></span></span><span class="b-val">8 件</span></div>
+        <div class="b-item"><span class="b-label">2026-02</span><span class="b-track"><span class="b-fill" style="width:38.5%"></span></span><span class="b-val">10 件</span></div>
+        <div class="b-item"><span class="b-label">2026-03</span><span class="b-track"><span class="b-fill" style="width:53.8%"></span></span><span class="b-val">14 件</span></div>
+        <div class="b-item"><span class="b-label">2026-04</span><span class="b-track"><span class="b-fill" style="width:61.5%"></span></span><span class="b-val">16 件</span></div>
+        <div class="b-item"><span class="b-label">2026-05</span><span class="b-track"><span class="b-fill" style="width:69.2%"></span></span><span class="b-val">18 件</span></div>
+        <div class="b-item warn"><span class="b-label">2026-06</span><span class="b-track"><span class="b-fill warn" style="width:84.6%"></span></span><span class="b-val">22 件</span></div>
+        <div class="b-item warn"><span class="b-label">2026-07（毕业季高峰）</span><span class="b-track"><span class="b-fill warn" style="width:100%"></span></span><span class="b-val">26 件</span></div>
+        <div class="b-item warn"><span class="b-label">2026-08（毕业季高峰）</span><span class="b-track"><span class="b-fill warn" style="width:100%"></span></span><span class="b-val">26 件</span></div>
+        <div class="b-item"><span class="b-label">2026-09（在办未到期）</span><span class="b-track"><span class="b-fill" style="width:61.5%"></span></span><span class="b-val">16 件</span></div>
+      </div>
+      <p class="hint" style="margin-top:10px"><i class="fa-solid fa-circle-info"></i> 7、8 月为毕业季与集中入职期，新入职人员参保通常滞后 1—2 个月，容缺受理件量随之升至月均 26 件，是全年高峰；9 月受理的 16 件补核期限未到，暂不计入按期补齐率。</p>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>统计期间</label><select><option value="">全部</option><option>2026 年度</option><option>本季度</option><option>近 90 天</option><option>近 30 天</option></select></div>
+      <div class="filter-item"><label>单位类型</label><select><option value="">全部</option><option>大型国有企业</option><option>规上民营企业</option><option>中小企业</option><option>个体工商户与创业企业</option></select></div>
+      <div class="filter-item"><label>容缺事由</label><select><option value="">全部</option><option>社保未查到缴纳记录</option><option>劳动合同已签未参保</option><option>社保缴纳月数不足</option><option>跨市转移接续中</option></select></div>
+      <div class="filter-item"><label>处理去向</label><select><option value="">全部</option><option>按期补齐</option><option>继续容缺</option><option>暂停办理</option><option>取消资格</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>月份</th><th class="num">容缺受理件量</th><th class="num">已到期</th><th class="num">按期补齐</th><th>按期补齐率</th><th class="num">到期未达标</th><th class="num">继续容缺</th><th class="num">暂停办理</th><th class="num">取消资格</th><th class="num">平均补齐用时</th><th class="cell-lg">情况说明</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>2026-01</td><td class="num">8</td><td class="num">8</td><td class="num">7</td><td><span class="badge green">87.5%</span></td><td class="num">1</td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num">42 天</td><td>年初受理量小，均为社保未查到缴纳记录</td></tr>
+          <tr><td>2026-02</td><td class="num">10</td><td class="num">10</td><td class="num">8</td><td><span class="badge green">80.0%</span></td><td class="num">2</td><td class="num">1</td><td class="num">1</td><td class="num">0</td><td class="num">48 天</td><td>春节后入职集中，参保滞后 1 个月的居多</td></tr>
+          <tr><td>2026-03</td><td class="num">14</td><td class="num">14</td><td class="num">12</td><td><span class="badge green">85.7%</span></td><td class="num">2</td><td class="num">1</td><td class="num">1</td><td class="num">0</td><td class="num">45 天</td><td>补齐较快，多为大型企业统一申报参保</td></tr>
+          <tr><td>2026-04</td><td class="num">16</td><td class="num">16</td><td class="num">13</td><td><span class="badge green">81.3%</span></td><td class="num">3</td><td class="num">1</td><td class="num">1</td><td class="num">1</td><td class="num">51 天</td><td>首次出现取消资格 1 件，核实为劳动关系不实</td></tr>
+          <tr><td>2026-05</td><td class="num">18</td><td class="num">18</td><td class="num">15</td><td><span class="badge green">83.3%</span></td><td class="num">3</td><td class="num">1</td><td class="num">1</td><td class="num">1</td><td class="num">47 天</td><td>跨市社保转移接续中的 2 件延长补核</td></tr>
+          <tr class="row-warn"><td>2026-06</td><td class="num">22</td><td class="num">22</td><td class="num">18</td><td><span class="badge orange">81.8%</span></td><td class="num">4</td><td class="num">2</td><td class="num">1</td><td class="num">1</td><td class="num">53 天</td><td>毕业季前置，中小企业参保滞后情况增多</td></tr>
+          <tr class="row-bad"><td>2026-07</td><td class="num">26</td><td class="num">26</td><td class="num">21</td><td><span class="badge orange">80.8%</span></td><td class="num">5</td><td class="num">2</td><td class="num">2</td><td class="num">1</td><td class="num">56 天</td><td><b>全年高峰</b>，按期补齐率与补齐用时均为全年最差</td></tr>
+          <tr class="row-warn"><td>2026-08</td><td class="num">26</td><td class="num">26</td><td class="num">22</td><td><span class="badge green">84.6%</span></td><td class="num">4</td><td class="num">1</td><td class="num">1</td><td class="num">2</td><td class="num">49 天</td><td>提前告知单位后补齐率回升，取消资格 2 件为空壳企业</td></tr>
+          <tr><td>2026-09</td><td class="num">16</td><td class="num">0</td><td class="num">0</td><td><span class="muted">—</span></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num"><span class="muted">—</span></td><td>补核期限未到，在办中，不计入按期补齐率</td></tr>
+          <tr><td><b>合计</b></td><td class="num"><b>156</b></td><td class="num"><b>140</b></td><td class="num"><b>116</b></td><td><span class="badge green">82.9%</span></td><td class="num"><b>24</b></td><td class="num"><b>10</b></td><td class="num"><b>8</b></td><td class="num"><b>6</b></td><td class="num"><b>49 天</b></td><td>容缺受理占同期受理量 <b>12.1%</b>，到期未达标占已到期件 <b>17.1%</b></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sp-block" style="margin-top:12px">
+    <div class="sp-h"><i class="fa-solid fa-list"></i> 到期未达标的处理去向<span class="sub">24 件 · 到期自动复核后按情形分类处置</span></div>
+    <div class="sp-b">
+      <div class="sp-tw">
+        <table class="data-table compact">
+          <thead><tr><th>处理去向</th><th class="num">件量</th><th>占到期未达标</th><th class="cell-lg">判定情形</th><th class="cell-lg">后续影响</th></tr></thead>
+          <tbody>
+          <tr><td><span class="badge blue">继续容缺</span></td><td class="num">10</td><td>41.7%</td><td>已实际参保但<b>缴纳月数未达要求</b>，或跨市社保转移接续在办，单位出具补充承诺并说明预计完成时间</td><td>延长补核期限<b>一次</b>，最长再延 3 个月；期间<b>保留资格与在住状态</b>，正常参与自动配租</td></tr>
+          <tr class="row-warn"><td><span class="badge orange">暂停办理</span></td><td class="num">8</td><td>33.3%</td><td>到期仍<b>无参保记录</b>，单位反映参保手续在办、材料尚在补，暂无法判定是否符合条件</td><td><b>暂停后续办理与配租匹配</b>，补齐后恢复；暂停期<b>不计入办理时限</b>，已入住的暂不腾退</td></tr>
+          <tr class="row-bad"><td><span class="badge red">取消资格</span></td><td class="num">6</td><td>25.0%</td><td>到期无参保记录且核实<b>不符合条件</b>，或经核实<b>劳动关系不实、企业无实际经营</b></td><td><b>取消本次申请资格</b>；已入住的按规定腾退并结清费用，纳入诚信记录，<b>2 年内不得再次申请</b></td></tr>
+          <tr><td><b>合计</b></td><td class="num"><b>24</b></td><td><b>100%</b></td><td>已到期 140 件中 24 件未达标，占 <b>17.1%</b></td><td>三类处置均由<b>系统到期自动复核后提请人工确认</b>，处置结果全程留痕</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="sp-block" style="margin-top:12px">
+    <div class="sp-h"><i class="fa-solid fa-list"></i> 按单位分布<span class="sub">按容缺件量降序 · 反映不同类型单位的参保及时性差异</span></div>
+    <div class="sp-b">
+      <div class="sp-tw">
+        <table class="data-table compact">
+          <thead><tr><th class="cell-lg">所在单位</th><th>单位类型</th><th class="num">容缺件量</th><th>占比</th><th class="num">已到期</th><th class="num">按期补齐</th><th>按期补齐率</th><th class="num">到期未达标</th><th class="num">继续容缺</th><th class="num">暂停办理</th><th class="num">取消资格</th><th class="cell-lg">主要容缺事由</th></tr></thead>
+          <tbody>
+          <tr><td>中车株洲电力机车研究所</td><td><span class="badge blue">大型国有企业</span></td><td class="num">32</td><td>20.5%</td><td class="num">30</td><td class="num">27</td><td><span class="badge green">90.0%</span></td><td class="num">3</td><td class="num">2</td><td class="num">1</td><td class="num">0</td><td>新入职人员参保申报滞后 1 个月</td></tr>
+          <tr><td>中车株洲电力机车有限公司</td><td><span class="badge blue">大型国有企业</span></td><td class="num">28</td><td>17.9%</td><td class="num">26</td><td class="num">23</td><td><span class="badge green">88.5%</span></td><td class="num">3</td><td class="num">1</td><td class="num">1</td><td class="num">1</td><td>新入职人员参保申报滞后</td></tr>
+          <tr><td>株洲硬质合金集团</td><td><span class="badge blue">大型国有企业</span></td><td class="num">22</td><td>14.1%</td><td class="num">20</td><td class="num">17</td><td><span class="badge green">85.0%</span></td><td class="num">3</td><td class="num">1</td><td class="num">1</td><td class="num">1</td><td>劳动合同已签未参保</td></tr>
+          <tr><td>株洲时代新材料科技</td><td><span class="badge cyan">规上民营企业</span></td><td class="num">18</td><td>11.5%</td><td class="num">16</td><td class="num">13</td><td><span class="badge green">81.3%</span></td><td class="num">3</td><td class="num">1</td><td class="num">1</td><td class="num">1</td><td>社保缴纳月数不足</td></tr>
+          <tr class="row-warn"><td>株洲智造科技等中小企业（26 家）</td><td><span class="badge orange">中小企业</span></td><td class="num">24</td><td>15.4%</td><td class="num">22</td><td class="num">16</td><td><span class="badge orange">72.7%</span></td><td class="num">6</td><td class="num">3</td><td class="num">2</td><td class="num">1</td><td>参保不及时、断缴后补缴，<b>按期补齐率全市最低</b></td></tr>
+          <tr class="row-warn"><td>个体工商户与创业企业（31 户）</td><td><span class="badge purple">个体与创业</span></td><td class="num">32</td><td>20.5%</td><td class="num">26</td><td class="num">20</td><td><span class="badge orange">76.9%</span></td><td class="num">6</td><td class="num">2</td><td class="num">2</td><td class="num">2</td><td>以灵活就业身份参保或未参保，含空壳企业 2 户</td></tr>
+          <tr><td><b>合计</b></td><td>全市</td><td class="num"><b>156</b></td><td><b>100%</b></td><td class="num"><b>140</b></td><td class="num"><b>116</b></td><td><span class="badge green">82.9%</span></td><td class="num"><b>24</b></td><td class="num"><b>10</b></td><td class="num"><b>8</b></td><td class="num"><b>6</b></td><td>大型国企按期补齐率 88.1%，中小企业与个体户 74.4%，<b>相差 13.7 个百分点</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="sp-block" style="margin-top:12px">
+    <div class="sp-h"><i class="fa-solid fa-list"></i> 社保数据延迟对办理的实际影响<span class="sub">结论与改进方向</span></div>
+    <div class="sp-b">
+      <div class="sp-kv">
+        <div class="kv"><span class="k">影响面</span><span class="v">2026 年容缺受理 <b>156 件</b>，占同期受理量 <b>12.1%</b>；即约<b>每 8 件申请就有 1 件</b>因社保数据查不到而走容缺</span></div>
+        <div class="kv"><span class="k">办理周期</span><span class="v">常规件平均 2.1 天办结，容缺件<b>平均 49 天</b>才最终定性、最长 88 天，办理周期被显著拉长</span></div>
+        <div class="kv"><span class="k">最终定性</span><span class="v">已到期 140 件中 <b>116 件按期补齐</b>（82.9%）→ 说明<b>绝大多数确属参保滞后而非不符合条件</b>，容缺受理有效避免了误拒</span></div>
+        <div class="kv"><span class="k">风险件</span><span class="v">取消资格 <b>6 件</b>（占已到期 4.3%），其中 2 件为只注册无实际经营的空壳企业，容缺到期复核起到了兜底筛查作用</span></div>
+        <div class="kv"><span class="k">结构性差异</span><span class="v">中小企业与个体工商户按期补齐率 <b>74.4%</b>，低于大型国企 <b>13.7 个百分点</b>，是后续重点提醒对象</span></div>
+        <div class="kv"><span class="k">改进方向</span><span class="v">推进与社保、税务的<b>数据直连与按月自动比对</b>，压缩人工复核；对参保滞后集中的单位<b>提前告知补核期限</b>；到期前 15 天自动提醒申请人与单位</span><span class="link" onclick="location.href='api-health.html'">接口健康分析</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sp-src">
+    <span><b>容缺依据</b> 社保查不到缴纳记录或劳动合同已签未参保的，接收<b>单位承诺书</b>后可按容缺受理通过</span>
+    <span><b>补核期限</b> 自受理之日起 <b>3 个月</b>，到期系统<b>自动复核</b>社保缴纳情况，未达标的提请人工确认处置</span>
+    <span><b>按期补齐率</b> ＝ 按期补齐件数 ÷ 已到期件数；<b>补核期限未到的不计入分母</b>（2026-09 的 16 件在办）</span>
+    <span><b>处理去向</b> 继续容缺（延长一次，最长再延 3 个月）／暂停办理（补齐后恢复，不计办理时限）／取消资格（腾退并纳入诚信记录）</span>
+    <span><b>数据来源</b> <span class="link" onclick="location.href='../apply/pending-check.html'">容缺受理台账与到期预警</span>　<span class="link" onclick="location.href='verify-hit.html'">数据核验命中分析</span>　<span class="link" onclick="location.href='audit-perf.html'">审核效能分析</span></span>
+  </div>
+
+</main>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 10; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

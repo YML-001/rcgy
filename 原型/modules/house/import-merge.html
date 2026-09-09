@@ -20,7 +20,7 @@
     </div>
     <div class="page-actions">
       <button class="btn btn-primary" onclick="PMS.toast('省保租房系统、公租房系统接口尚未开通，比对功能待接口开通后启用；当前页面为口径预置与流程演示')"><i class="fa-solid fa-rotate"></i> 重新比对</button>
-      <button class="btn" onclick="PMS.confirm({title:'批量确认',message:'确认合并 86 套接口新增房源？',detail:'接口尚未开通，本操作为口径预置演示。接口开通启用后：合并将自动生成一房一码并纳入统一楼盘表，同时保留导入来源与接口来源双轨记录，可在批次台账中整批回滚。',type:'warning',okText:'确认合并',onOk:function(){PMS.toast('已合并 86 套房源，批次号 HB2026-0905-002','success');}})"><i class="fa-solid fa-check"></i> 批量确认新增（86 套）</button>
+      <button class="btn" onclick="PMS.confirm({title:'批量确认',message:'确认合并 86 间接口新增房源？',detail:'接口尚未开通，本操作为口径预置演示。接口开通启用后：合并将自动生成一房一码并纳入统一楼盘表，同时保留导入来源与接口来源双轨记录，可在批次台账中整批回滚。',type:'warning',okText:'确认合并',onOk:function(){PMS.toast('已合并 86 间房源，批次号 HB2026-0905-002','success');}})"><i class="fa-solid fa-check"></i> 批量确认新增（86 间）</button>
       <a class="btn" href="intake-type.html"><i class="fa-solid fa-tags"></i> 入库类型与切换</a>
       <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
     </div>
@@ -35,7 +35,7 @@
     <div class="stat-card">
       <div class="s-icon blue"><i class="fa-solid fa-code-compare"></i></div>
       <div><div class="s-label">待比对导入房源</div><div class="s-value">2,486</div>
-        <div class="s-trend text-2">批量导入建账 2,486 套 · 接口待启用</div></div>
+        <div class="s-trend text-2">批量导入建账 2,486 间 · 接口待启用</div></div>
     </div>
     <div class="stat-card">
       <div class="s-icon green"><i class="fa-solid fa-plus"></i></div>
@@ -73,14 +73,14 @@
           <tr><th>房源编号</th><th class="cell-lg">房源坐落</th><th>数据来源</th><th>差异类型</th><th class="cell-lg">差异内容（导入值 → 接口值）</th><th>命中规则</th><th>来源轨道</th><th>处置状态</th><th>操作</th></tr>
         </thead>
         <tbody>
-          <tr><td colspan="9"><b>差异一 · 新增</b>　<span class="muted">接口回传、导入台账中无此房源，确认后新建一房一码　共 86 套</span></td></tr>
+          <tr><td colspan="9"><b>差异一 · 新增</b>　<span class="muted">接口回传、导入台账中无此房源，确认后新建一房一码　共 86 间</span></td></tr>
           <tr><td>FY-SF-TX-B3-0906</td><td>石峰区 田心高科园人才公寓 B3 栋 9 层 0906</td><td><span class="badge blue">省保租房系统</span></td><td><span class="badge green">新增</span></td><td>导入台账无此房源；接口回传为省厅「一间房」人才引进房源，建筑面积 42.60 ㎡</td><td><span class="badge gray">① 房屋编码</span></td><td><span class="badge purple">接口来源</span></td><td><span class="badge orange">待确认</span></td><td><span class="link" onclick="PMS.openDrawer('mgDrawer')">确认合并</span></td></tr>
           <tr><td>FY-JK-DL-A2-1105</td><td>经开区 董亚人才社区 A2 栋 11 层 1105</td><td><span class="badge blue">省保租房系统</span></td><td><span class="badge green">新增</span></td><td>导入台账无此房源；接口回传户型「一室一厅」，装修标准「精装 · 拎包入住」</td><td><span class="badge gray">① 房屋编码</span></td><td><span class="badge purple">接口来源</span></td><td><span class="badge green">已合并</span></td><td><span class="link" onclick="PMS.toast('2026-09-05 11:12 由唐凯逐条确认合并，已生成一房一码 FY-JK-DL-A2-1105 并纳入统一楼盘表；批量导入原始快照与接口来源记录双轨留存，不互相覆盖')">合并记录</span></td></tr>
-          <tr><td colspan="9"><b>差异二 · 变更</b>　<span class="muted">两侧同一房源字段不一致（含接口未回传的状态变更），确认后更新并留存快照　共 42 套</span></td></tr>
-          <tr class="row-warn"><td>FY-TY-XJ-A6-1802</td><td>天元区 湘江1958 人才公寓 A6 栋 18 层 1802</td><td><span class="badge blue">省保租房系统</span></td><td><span class="badge orange">变更</span></td><td>建筑面积 <b>78.60 → 78.24</b> ㎡；租金标准 <b>18.00 → 17.60</b> 元/㎡·月</td><td><span class="badge gray">① 房屋编码</span></td><td><span class="badge cyan">双轨并存</span></td><td><span class="badge orange">待确认</span></td><td><span class="link" onclick="PMS.openDrawer('mgDrawer')">确认合并</span></td></tr>
+          <tr><td colspan="9"><b>差异二 · 变更</b>　<span class="muted">两侧同一房源字段不一致（含接口未回传的状态变更），确认后更新并留存快照　共 42 间</span></td></tr>
+          <tr class="row-warn"><td>FY-TY-XJ-A6-1802</td><td>天元区 湘江1958 人才公寓 A6 栋 18 层 1802</td><td><span class="badge blue">省保租房系统</span></td><td><span class="badge orange">变更</span></td><td>建筑面积 <b>78.60 → 78.24</b> ㎡；租金标准 <b>14.00 → 17.60</b> 元/㎡·月</td><td><span class="badge gray">① 房屋编码</span></td><td><span class="badge cyan">双轨并存</span></td><td><span class="badge orange">待确认</span></td><td><span class="link" onclick="PMS.openDrawer('mgDrawer')">确认合并</span></td></tr>
           <tr class="row-warn"><td>FY-HT-QST-C2-0512</td><td>荷塘区 清水塘新苑 C2 栋 5 层 0512</td><td><span class="badge cyan">公租房管理系统</span></td><td><span class="badge orange">变更</span></td><td>房源状态 <b>可配租 → 在租</b>（公租房系统显示已有承租记录，承租人非人才公寓对象）</td><td><span class="badge gray">② 坐落地址 + ③ 房号</span></td><td><span class="badge cyan">双轨并存</span></td><td><span class="badge orange">待确认</span></td><td><span class="link" onclick="PMS.openDrawer('mgDrawer')">确认合并</span></td></tr>
           <tr class="row-warn"><td>FY-TY-XJ-A6-2001</td><td>天元区 湘江1958 人才公寓 A6 栋 20 层 2001</td><td><span class="badge blue">省保租房系统</span></td><td><span class="badge orange">变更</span></td><td>导入台账有此房源，接口<b>未回传</b>；疑似省厅尚未录入或已调整用途。<b>按双轨记录保留导入来源房源</b>，不因接口未回传而下架</td><td><span class="badge gray">① 房屋编码</span></td><td><span class="badge blue">导入来源</span></td><td><span class="badge orange">待确认</span></td><td><span class="link" onclick="PMS.openDrawer('mgDrawer')">确认合并</span></td></tr>
-          <tr><td colspan="9"><b>差异三 · 疑似重复</b>　<span class="muted">同一实际房源在两侧或两个接口重复登记，自动锁定不参与配租，须人工确认　共 12 套</span></td></tr>
+          <tr><td colspan="9"><b>差异三 · 疑似重复</b>　<span class="muted">同一实际房源在两侧或两个接口重复登记，自动锁定不参与配租，须人工确认　共 12 间</span></td></tr>
           <tr class="row-bad"><td>FY-LS-JK-D1-0308</td><td>芦淞区 建宁人才公寓 D1 栋 3 层 0308</td><td><span class="badge cyan">公租房管理系统</span></td><td><span class="badge red">疑似重复</span></td><td>该房源在<b>省保租房系统与公租房系统同时登记</b>，导入台账来源标注为「公租房盘活」，接口回传两条记录</td><td><span class="badge gray">③ 房号 + ② 坐落地址</span></td><td><span class="badge cyan">双轨并存</span></td><td><span class="badge red">已锁定</span></td><td><span class="link" onclick="PMS.openDrawer('mgDrawer')">重复处置</span></td></tr>
         </tbody>
       </table>
@@ -149,7 +149,7 @@
         <div class="form-item col-full">
           <label>导入值（批量导入 · 2026-03-18） <span class="req">*</span></label>
           <textarea rows="4" readonly>建筑面积：78.60 ㎡　套内面积：62.40 ㎡
-租金标准：18.00 元/㎡·月
+租金标准：14.00 元/㎡·月
 装修标准：精装 · 拎包入住
 房源状态：在租（承租人 王梓涵，合同 HT2026-0312-0086）</textarea>
         </div>
@@ -166,7 +166,7 @@
         </div>
         <div class="form-item col-full">
           <label>在租合同影响 <span class="req">*</span></label>
-          <input type="text" value="影响 1 份在租合同：HT2026-0312-0086 王梓涵，月租金 1,414.80 → 1,376.42 元" readonly>
+          <input type="text" value="影响 1 份在租合同：HT2026-0312-0086 王梓涵，月租金 1,100.40 → 1,376.42 元" readonly>
         </div>
         <div class="form-item col-full">
           <label>合同处置 <span class="req">*</span></label>

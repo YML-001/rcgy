@@ -32,26 +32,31 @@
     <div>配置<b>必填项、数据格式、字典取值、房号唯一性</b>等校验规则。<b>校验不通过的整批拦截，并回显错误行号与具体原因</b>；规则调整<b>不需修改代码</b>，保存即时生效并留痕可回溯。</div>
   </div>
 
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>本次按 0908 会议要求新增两条规则，与房源按间的房态与性别字段配套：<b>JY-13 当前状态字典校验</b>（取值须为空置／已入住／已锁定）与 <b>JY-14 同套同性别校验</b>（已入住的间性别必填，<b>同一套房内已入住人员须同性别</b>，同套出现男、女并存的整批拦截并回显冲突行号）。两条规则均为<b>整批拦截</b>，是自动配租同套同性别匹配的数据前提。<span class="link" onclick="location.href='building-import.html'">批量导入与校验</span></div>
+  </div>
+
   <div class="stat-grid">
     <div class="stat-card">
       <div class="s-icon blue"><i class="fa-solid fa-shield-halved"></i></div>
-      <div><div class="s-label">校验规则</div><div class="s-value">12</div>
-        <div class="s-trend text-2">条 · 整批拦截 9 / 仅提示 3</div></div>
+      <div><div class="s-label">校验规则</div><div class="s-value">14</div>
+        <div class="s-trend text-2">条 · 整批拦截 11 / 仅提示 3</div></div>
     </div>
     <div class="stat-card">
       <div class="s-icon green"><i class="fa-solid fa-toggle-on"></i></div>
-      <div><div class="s-label">启用中</div><div class="s-value">11</div>
+      <div><div class="s-label">启用中</div><div class="s-value">13</div>
         <div class="s-trend text-2">条 · 停用 1 条（JY-11）</div></div>
     </div>
     <div class="stat-card dc-alarm">
       <div class="s-icon orange"><i class="fa-solid fa-hand"></i></div>
-      <div><div class="s-label">本月拦截批次</div><div class="s-value">5</div>
+      <div><div class="s-label">本月拦截批次</div><div class="s-value">6</div>
         <div class="s-trend ">批 · 已全部回显错误行号</div></div>
     </div>
     <div class="stat-card dc-alarm">
       <div class="s-icon red"><i class="fa-solid fa-list-ol"></i></div>
-      <div><div class="s-label">拦截行数</div><div class="s-value">268</div>
-        <div class="s-trend ">行 · 涉及 6 个导入批次</div></div>
+      <div><div class="s-label">拦截行数</div><div class="s-value">282</div>
+        <div class="s-trend ">行 · 涉及 7 个导入批次</div></div>
     </div>
   </div>
 
@@ -76,16 +81,18 @@
         <tbody>
           <tr><td>JY-01</td><td>房号唯一性校验</td><td><span class="badge purple">唯一性</span></td><td>房号</td><td>UNIQUE(项目编码 + 楼栋 + 单元 + 房号)，同时与已入库房源全量比对</td><td>房号在批次 ${batchNo} 中已存在，请核实后删除重复行</td><td><span class="badge red">整批拦截</span></td><td><span class="badge green">启用</span> <span class="link" onclick="PMS.confirm({title:'停用确认',message:'确认停用规则 JY-01 房号唯一性校验？',detail:'停用后同一房号可重复导入，将产生重复房源并影响一房一码统计，强烈建议保持启用。',type:'warning',okText:'确认停用',onOk:function(){PMS.toast('规则 JY-01 已停用，变更已留痕','success');}})">停用</span></td><td><span class="link" onclick="PMS.openDrawer('ruleDrawer')">编辑</span></td></tr>
           <tr><td>JY-02</td><td>建筑面积必填且两位小数</td><td><span class="badge blue">必填</span></td><td>建筑面积</td><td>NOT NULL AND REGEXP '^\d+\.\d{2}$' AND 值 &gt; 0 AND 值 &lt; 300.00</td><td>建筑面积为空或格式不符，须填写两位小数且在 0—300.00 ㎡ 之间</td><td><span class="badge red">整批拦截</span></td><td><span class="badge green">启用</span> <span class="link" onclick="PMS.confirm({title:'停用确认',message:'确认停用规则 JY-02 建筑面积必填且两位小数？',detail:'停用后建筑面积可为空或格式不规范，将影响租金计算与发布达标判定。',type:'warning',okText:'确认停用',onOk:function(){PMS.toast('规则 JY-02 已停用，变更已留痕','success');}})">停用</span></td><td><span class="link" onclick="PMS.openDrawer('ruleDrawer')">编辑</span></td></tr>
-          <tr><td>JY-03</td><td>套内面积不得大于建筑面积</td><td><span class="badge orange">逻辑</span></td><td>套内面积 / 建筑面积</td><td>套内面积 &lt;= 建筑面积 AND (建筑面积 − 套内面积) 与分摊面积误差 &lt;= 0.10 ㎡</td><td>套内面积 ${inner} 大于建筑面积 ${build}，请核对不动产登记面积后更正</td><td><span class="badge red">整批拦截</span></td><td><span class="badge green">启用</span> <span class="link" onclick="PMS.confirm({title:'停用确认',message:'确认停用规则 JY-03 套内面积不得大于建筑面积？',detail:'停用后面积逻辑错误的数据可直接入库，将影响房源档案准确性。',type:'warning',okText:'确认停用',onOk:function(){PMS.toast('规则 JY-03 已停用，变更已留痕','success');}})">停用</span></td><td><span class="link" onclick="PMS.openDrawer('ruleDrawer')">编辑</span></td></tr>
+          <tr><td>JY-03</td><td>套内面积不得大于建筑面积</td><td><span class="badge orange">逻辑</span></td><td>套内面积 / 建筑面积</td><td>套内面积 &lt;= 建筑面积 AND (建筑面积 − 套内面积) 与分摊面积误差 &lt;= 0.10 ㎡</td><td>套内面积 ${inner} 大于建筑面积 ${build}，请核对不动产登记面积后更正</td><td><span class="badge red">整批拦截</span></td><td><span class="badge green">启用</span> <span class="link" onclick="PMS.confirm({title:'停用确认',message:'确认停用规则 JY-03 间内面积不得大于建筑面积？',detail:'停用后面积逻辑错误的数据可直接入库，将影响房源档案准确性。',type:'warning',okText:'确认停用',onOk:function(){PMS.toast('规则 JY-03 已停用，变更已留痕','success');}})">停用</span></td><td><span class="link" onclick="PMS.openDrawer('ruleDrawer')">编辑</span></td></tr>
           <tr><td>JY-04</td><td>装修标准须为字典值</td><td><span class="badge cyan">字典</span></td><td>装修标准</td><td>值 IN ('精装 · 拎包入住', '简装', '毛坯')，不接受自定义文本</td><td>装修标准「${value}」不在字典范围内，可选值：精装 · 拎包入住 / 简装 / 毛坯</td><td><span class="badge red">整批拦截</span></td><td><span class="badge green">启用</span> <span class="link" onclick="PMS.confirm({title:'停用确认',message:'确认停用规则 JY-04 装修标准须为字典值？',detail:'停用后装修标准可填写任意文本，将影响拎包入住达标判定与对外展示一致性。',type:'warning',okText:'确认停用',onOk:function(){PMS.toast('规则 JY-04 已停用，变更已留痕','success');}})">停用</span></td><td><span class="link" onclick="PMS.openDrawer('ruleDrawer')">编辑</span></td></tr>
           <tr><td>JY-05</td><td>租金标准区间校验</td><td><span class="badge orange">范围</span></td><td>租金标准</td><td>值 &gt;= 8.00 AND 值 &lt;= 30.00（单位 元/㎡·月），保留两位小数</td><td>租金标准 ${value} 元/㎡·月 超出 8.00—30.00 区间，须报市住建局核定</td><td><span class="badge red">整批拦截</span></td><td><span class="badge green">启用</span> <span class="link" onclick="PMS.confirm({title:'停用确认',message:'确认停用规则 JY-05 租金标准区间校验？',detail:'停用后租金标准可超出核定区间，将直接影响账单计费与财政补助核定。',type:'warning',okText:'确认停用',onOk:function(){PMS.toast('规则 JY-05 已停用，变更已留痕','success');}})">停用</span></td><td><span class="link" onclick="PMS.openDrawer('ruleDrawer')">编辑</span></td></tr>
-          <tr><td>JY-06</td><td>楼层不得大于总层数</td><td><span class="badge orange">逻辑</span></td><td>所在楼层 / 总层数</td><td>所在楼层 &gt;= 1 AND 所在楼层 &lt;= 总层数 AND 总层数 &lt;= 99</td><td>所在楼层 ${floor} 大于总层数 ${total}，请核对楼栋信息</td><td><span class="badge red">整批拦截</span></td><td><span class="badge green">启用</span> <span class="link" onclick="PMS.confirm({title:'停用确认',message:'确认停用规则 JY-06 楼层不得大于总层数？',detail:'停用后楼层逻辑错误的数据可直接入库，将影响楼盘表展示与选房。',type:'warning',okText:'确认停用',onOk:function(){PMS.toast('规则 JY-06 已停用，变更已留痕','success');}})">停用</span></td><td><span class="link" onclick="PMS.openDrawer('ruleDrawer')">编辑</span></td></tr>
+          <tr><td>JY-06</td><td>楼层不得大于总层数</td><td><span class="badge orange">逻辑</span></td><td>所在楼层 / 总层数</td><td>所在楼层 &gt;= 1 AND 所在楼层 &lt;= 总层数 AND 总层数 &lt;= 99</td><td>所在楼层 ${floor} 大于总层数 ${total}，请核对楼栋信息</td><td><span class="badge red">整批拦截</span></td><td><span class="badge green">启用</span> <span class="link" onclick="PMS.confirm({title:'停用确认',message:'确认停用规则 JY-06 楼层不得大于总层数？',detail:'停用后楼层逻辑错误的数据可直接入库，将影响楼盘表展示与自动配租。',type:'warning',okText:'确认停用',onOk:function(){PMS.toast('规则 JY-06 已停用，变更已留痕','success');}})">停用</span></td><td><span class="link" onclick="PMS.openDrawer('ruleDrawer')">编辑</span></td></tr>
           <tr><td>JY-07</td><td>朝向字典校验</td><td><span class="badge cyan">字典</span></td><td>朝向</td><td>值 IN ('东','南','西','北','东南','西南','东北','西北')</td><td>朝向「${value}」不在八向字典范围内，请从字典取值</td><td><span class="badge orange">仅提示</span></td><td><span class="badge green">启用</span> <span class="link" onclick="PMS.confirm({title:'停用确认',message:'确认停用规则 JY-07 朝向字典校验？',detail:'该规则为仅提示级别，停用后朝向取值不再校验，仅影响对外展示筛选。',type:'warning',okText:'确认停用',onOk:function(){PMS.toast('规则 JY-07 已停用，变更已留痕','success');}})">停用</span></td><td><span class="link" onclick="PMS.openDrawer('ruleDrawer')">编辑</span></td></tr>
           <tr><td>JY-08</td><td>家电家具配置非空</td><td><span class="badge blue">必填</span></td><td>家电家具配置清单</td><td>NOT NULL AND 顿号分隔项数 &gt;= 8 AND 字符长度 &lt;= 300</td><td>家电家具配置清单为空或少于 8 项，须逐项列举后重新报送</td><td><span class="badge orange">仅提示</span></td><td><span class="badge green">启用</span> <span class="link" onclick="PMS.confirm({title:'停用确认',message:'确认停用规则 JY-08 家电家具配置非空？',detail:'该规则为仅提示级别，停用后家电家具清单可为空，将影响拎包入住标准核验。',type:'warning',okText:'确认停用',onOk:function(){PMS.toast('规则 JY-08 已停用，变更已留痕','success');}})">停用</span></td><td><span class="link" onclick="PMS.openDrawer('ruleDrawer')">编辑</span></td></tr>
           <tr><td>JY-09</td><td>项目编码须已建档</td><td><span class="badge purple">唯一性</span></td><td>项目编码</td><td>EXISTS(SELECT 1 FROM 项目台账 WHERE 项目编码 = ${value} AND 状态 = '在册')</td><td>项目编码 ${value} 未在项目台账建档，请先登记项目后再导入房源</td><td><span class="badge red">整批拦截</span></td><td><span class="badge green">启用</span> <span class="link" onclick="PMS.confirm({title:'停用确认',message:'确认停用规则 JY-09 项目编码须已建档？',detail:'停用后可导入未建档项目的房源，将产生无归属房源并影响筹集进度统计。',type:'warning',okText:'确认停用',onOk:function(){PMS.toast('规则 JY-09 已停用，变更已留痕','success');}})">停用</span></td><td><span class="link" onclick="PMS.openDrawer('ruleDrawer')">编辑</span></td></tr>
           <tr><td>JY-10</td><td>来源渠道须为四类之一</td><td><span class="badge cyan">字典</span></td><td>来源渠道</td><td>值 IN ('市本级存量','收购商品房转化','收购保租房转化','园区公租房纳管')</td><td>来源渠道「${value}」不在四类口径内，请按 QD-01 至 QD-04 取值</td><td><span class="badge red">整批拦截</span></td><td><span class="badge green">启用</span> <span class="link" onclick="PMS.confirm({title:'停用确认',message:'确认停用规则 JY-10 来源渠道须为四类之一？',detail:'停用后来源渠道可填写四类以外取值，将破坏分渠道筹集台账统计口径。',type:'warning',okText:'确认停用',onOk:function(){PMS.toast('规则 JY-10 已停用，变更已留痕','success');}})">停用</span></td><td><span class="link" onclick="PMS.openDrawer('ruleDrawer')">编辑</span></td></tr>
-          <tr class="row-warn"><td>JY-11</td><td>实景照片数量校验</td><td><span class="badge orange">范围</span></td><td>实景照片</td><td>照片张数 &gt;= 6 AND 首图标注 = '客厅'</td><td>实景照片不足 6 张或首图非客厅，请补充后重新报送</td><td><span class="badge orange">仅提示</span></td><td><span class="badge gray">停用</span> <span class="link" onclick="PMS.confirm({title:'启用确认',message:'确认启用规则 JY-11 实景照片数量校验？',detail:'启用后导入环节即校验照片数量与首图，当前存量数据中约 486 套将命中提示，建议与报送单位沟通后再启用。',type:'warning',okText:'确认启用',onOk:function(){PMS.toast('规则 JY-11 已启用并即时生效，变更已留痕','success');}})">启用</span></td><td><span class="link" onclick="PMS.openDrawer('ruleDrawer')">编辑</span></td></tr>
+          <tr class="row-warn"><td>JY-11</td><td>实景照片数量校验</td><td><span class="badge orange">范围</span></td><td>实景照片</td><td>照片张数 &gt;= 6 AND 首图标注 = '客厅'</td><td>实景照片不足 6 张或首图非客厅，请补充后重新报送</td><td><span class="badge orange">仅提示</span></td><td><span class="badge gray">停用</span> <span class="link" onclick="PMS.confirm({title:'启用确认',message:'确认启用规则 JY-11 实景照片数量校验？',detail:'启用后导入环节即校验照片数量与首图，当前存量数据中约 486 间将命中提示，建议与报送单位沟通后再启用。',type:'warning',okText:'确认启用',onOk:function(){PMS.toast('规则 JY-11 已启用并即时生效，变更已留痕','success');}})">启用</span></td><td><span class="link" onclick="PMS.openDrawer('ruleDrawer')">编辑</span></td></tr>
           <tr><td>JY-12</td><td>报送单位与项目授权一致</td><td><span class="badge orange">逻辑</span></td><td>报送单位 / 项目编码</td><td>项目编码 IN (当前账号已授权项目集合)，越权项目直接拒绝写入</td><td>项目 ${value} 不属于本单位授权范围，请联系市住建局调整授权</td><td><span class="badge red">整批拦截</span></td><td><span class="badge green">启用</span> <span class="link" onclick="PMS.confirm({title:'停用确认',message:'确认停用规则 JY-12 报送单位与项目授权一致？',detail:'停用后报送单位可导入他单位项目房源，将破坏越权数据不可见、不可改的控制要求，不建议停用。',type:'warning',okText:'确认停用',onOk:function(){PMS.toast('规则 JY-12 已停用，变更已留痕','success');}})">停用</span></td><td><span class="link" onclick="PMS.openDrawer('ruleDrawer')">编辑</span></td></tr>
+          <tr><td>JY-13</td><td>当前状态须为按间房态字典值</td><td><span class="badge cyan">字典</span></td><td>当前状态（间）</td><td>值 IN ('空置','已入住','已锁定')，每行按<b>间</b>填写，不接受七态房态旧值（可配租、在租、已签约等）</td><td>当前状态「${value}」不在按间房态字典内，可选值：空置 / 已入住 / 已锁定</td><td><span class="badge red">整批拦截</span></td><td><span class="badge green">启用</span> <span class="link" onclick="PMS.confirm({title:'停用确认',message:'确认停用规则 JY-13 当前状态须为按间房态字典值？',detail:'停用后当前状态可填写任意文本，按间房态底账将不可用，直接影响移动端房源展示与自动配租的空置间判定，不建议停用。',type:'warning',okText:'确认停用',onOk:function(){PMS.toast('规则 JY-13 已停用，变更已留痕','success');}})">停用</span></td><td><span class="link" onclick="PMS.openDrawer('ruleDrawer')">编辑</span></td></tr>
+          <tr class="row-warn"><td>JY-14</td><td>同套同性别校验</td><td><span class="badge orange">逻辑</span></td><td>在住人性别 / 当前状态 / 房号</td><td>当前状态 = '已入住' 时 在住人性别 IN ('男','女') 且 NOT NULL；<br>COUNT(DISTINCT 在住人性别) &lt;= 1 GROUP BY (项目编码 + 楼栋 + 单元 + 房号)，<b>同套已入住人员须同性别</b>；<br>当前状态 IN ('空置','已锁定') 时 在住人性别 IS NULL；<br>存量例外列标注为「存量混住」的套跳过本校验</td><td>同一套房 ${roomNo} 内已入住人员性别不一致（${genderList}），违反同套同性别规则，请核实第 ${rowNos} 行；属 2025 年前存量混住的请在「存量例外」列标注后重新报送</td><td><span class="badge red">整批拦截</span></td><td><span class="badge green">启用</span> <span class="link" onclick="PMS.confirm({title:'停用确认',message:'确认停用规则 JY-14 同套同性别校验？',detail:'停用后同一套房内可导入男女混住数据，套级在住性别汇总将失去唯一性，自动配租的同套同性别匹配无法执行。本期按会议决议强制同性别、不设开关，强烈建议保持启用。',type:'warning',okText:'确认停用',onOk:function(){PMS.toast('规则 JY-14 已停用，变更已留痕','success');}})">停用</span></td><td><span class="link" onclick="PMS.openDrawer('ruleDrawer')">编辑</span></td></tr>
         </tbody>
       </table>
     </div>
@@ -110,10 +117,11 @@
   </div>
 
   <div class="sp-src">
-    <span><b>依据</b> 2026 年 9 月 6 日向市住建局汇报讨论会议决议</span>
+    <span><b>依据</b> 2026 年 9 月 6 日向市住建局汇报讨论会议决议；JY-13、JY-14 依 2026 年 9 月 8 日讨论会议决议新增</span>
     <span><b>拦截口径</b> 校验不通过的整批拦截，并回显错误行号与具体原因，修正后就该批次重新上传</span>
     <span><b>热配置</b> 规则调整不需修改代码，保存即时生效，变更留痕可回溯</span>
     <span><b>规则编码</b> JY + 两位序号，一条规则对应一个校验点，作用字段与失败提示语一并配置</span>
+    <span><b>房态与性别</b> <b>JY-13</b> 校验按间当前状态（空置／已入住／已锁定）；<b>JY-14</b> 校验已入住的间性别必填且<b>同套同性别</b>，冲突整批拦截。两条规则本期<b>强制启用、不设开关</b>，为自动配租同套同性别匹配提供数据前提</span>
   </div>
 </main>
 
@@ -198,7 +206,7 @@ AND NOT EXISTS(SELECT 1 FROM 房源档案 WHERE 一房一码 = MD5(项目编码 
 <script>
 (function () {
   var t = document.querySelector('main.app-main .table-wrap > table.data-table');
-  if (t) { t._total = 12; }
+  if (t) { t._total = 14; }
 })();
 </script>
 

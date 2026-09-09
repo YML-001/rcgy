@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>增值服务发布 · 株洲市人才住房保障管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="agency" data-active="agency-07">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才住房保障管理平台
+      <span class="sep">/</span> 运营机构端
+      <span class="sep">/</span> <span class="cur">增值服务发布</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.openDrawer('vsDrawer')"><i class="fa-solid fa-plus"></i> 新增服务</button>
+      <a class="btn" href="../ops/wo-list.html"><i class="fa-solid fa-screwdriver-wrench"></i> 维修工单处理</a>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>本页面为<b>运营机构端</b>，由本机构自行发布可为承租人提供的<b>增值服务</b>：衣物洗涤、入室清扫、家政服务等。每条服务须填写<b>服务名称、服务内容、价格、外部链接地址、适用楼盘</b>，提交后状态为<b>待审核</b>，<b>经主管单位（市住保中心）审核通过后在移动端展示</b>，承租人在移动端点击后<b>跳转至机构自有服务页面</b>下单与支付，平台不代收费用。</div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div><b>与房屋维修的边界</b>：属于<b>房屋维修范畴</b>的事项（水电、门窗、墙面、管道、家具家电故障等房屋及配套设施的维修养护）<b>仍走报修工单</b>，由承租人在移动端提交报修、机构按时限响应处理，<b>不得作为增值服务对外收费</b>。增值服务限于<b>生活服务类</b>，属自愿选择、按次付费，<b>不得与租金、押金捆绑，不得强制消费</b>。审核中发现越界的一律退回或下架。<span class="link" onclick="location.href='../ops/wo-list.html'">维修工单处理</span></div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-hand-holding-heart"></i></div>
+      <div><div class="s-label">本机构服务项</div><div class="s-value">9</div>
+        <div class="s-trend text-2">已发布 6 / 待审核 2 / 已下架 1</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-mobile-screen-button"></i></div>
+      <div><div class="s-label">移动端已展示</div><div class="s-value">6</div>
+        <div class="s-trend text-2">覆盖 4 个楼盘、1,286 户在住人才</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-clock"></i></div>
+      <div><div class="s-label">待主管单位审核</div><div class="s-value">2</div>
+        <div class="s-trend ">承诺 3 个工作日内出结果</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+      <div><div class="s-label">本月外链跳转</div><div class="s-value">1,286</div>
+        <div class="s-trend text-2">人次 · 衣物洗涤占 46.2%</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>服务编号</label><input type="text" placeholder="如 ZZ2026-005"></div>
+      <div class="filter-item"><label>服务名称</label><input type="text" placeholder="关键词"></div>
+      <div class="filter-item"><label>服务类别</label><select><option value="">全部</option><option>衣物洗涤</option><option>入室清扫</option><option>家政服务</option><option>生活便利</option></select></div>
+      <div class="filter-item"><label>适用楼盘</label><select><option value="">全部</option><option>湘江1958 人才公寓</option><option>栗雨佳苑人才公寓</option><option>茨菇塘公寓</option><option>云龙人才苑</option></select></div>
+      <div class="filter-item"><label>状态</label><select><option value="">全部</option><option>待审核</option><option>已发布</option><option>已下架</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+        <button class="btn btn-primary" onclick="PMS.openDrawer('vsDrawer')"><i class="fa-solid fa-plus"></i> 新增服务</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>服务编号</th><th class="cell-lg">服务名称</th><th>服务类别</th><th class="cell-lg">服务内容</th><th class="cell-lg">价格</th><th class="cell-lg">外部链接地址</th><th class="cell-lg">适用楼盘</th><th>提交时间</th><th>状态</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>ZZ2026-001</td><td>衣物洗涤上门收送</td><td><span class="badge blue">衣物洗涤</span></td><td>上门收件，干洗、水洗、熨烫，48 小时内送回；每周一、四固定上门</td><td>普洗 8 元/件起，羽绒服 35 元/件，床品 25 元/套</td><td>https://fw.zzrcaj.com/laundry</td><td>湘江1958 人才公寓、栗雨佳苑人才公寓</td><td>2026-08-20 10:12</td><td><span class="badge green">已发布</span></td><td><span class="link" onclick="PMS.openDrawer('vsDrawer')">编辑</span> <span class="link" onclick="PMS.confirm({title:'下架确认',message:'确认下架「衣物洗涤上门收送」？',detail:'下架后移动端立即不再展示该服务，已产生的订单由机构自行履约完毕。重新上架须再次报主管单位审核。',type:'warning',okText:'确认下架',onOk:function(){PMS.toast('已下架，移动端已同步隐藏','success');}})">下架</span></td></tr>
+          <tr><td>ZZ2026-002</td><td>日常入室清扫</td><td><span class="badge cyan">入室清扫</span></td><td>2 小时标准保洁，含地面、卫浴、厨房台面、垃圾清运，自带工具与耗材</td><td>68 元/次（建筑面积 60 ㎡ 内），超出部分 1 元/㎡</td><td>https://fw.zzrcaj.com/clean-daily</td><td>全部在管楼盘</td><td>2026-08-20 10:26</td><td><span class="badge green">已发布</span></td><td><span class="link" onclick="PMS.openDrawer('vsDrawer')">编辑</span> <span class="link" onclick="PMS.confirm({title:'下架确认',message:'确认下架「日常入室清扫」？',detail:'下架后移动端立即不再展示该服务。重新上架须再次报主管单位审核。',type:'warning',okText:'确认下架',onOk:function(){PMS.toast('已下架，移动端已同步隐藏','success');}})">下架</span></td></tr>
+          <tr><td>ZZ2026-003</td><td>季度深度保洁</td><td><span class="badge cyan">入室清扫</span></td><td>4 小时深度保洁，含油烟机、玻璃、阳台、衣柜内部与冰箱清洁</td><td>268 元/次，人才公寓在住人才 8 折</td><td>https://fw.zzrcaj.com/clean-deep</td><td>湘江1958 人才公寓、茨菇塘公寓</td><td>2026-08-22 09:04</td><td><span class="badge green">已发布</span></td><td><span class="link" onclick="PMS.openDrawer('vsDrawer')">编辑</span> <span class="link" onclick="PMS.confirm({title:'下架确认',message:'确认下架「季度深度保洁」？',detail:'下架后移动端立即不再展示该服务。重新上架须再次报主管单位审核。',type:'warning',okText:'确认下架',onOk:function(){PMS.toast('已下架，移动端已同步隐藏','success');}})">下架</span></td></tr>
+          <tr><td>ZZ2026-004</td><td>家政钟点工与育儿嫂对接</td><td><span class="badge purple">家政服务</span></td><td>对接持证家政公司，提供钟点工、月嫂、育儿嫂预约，服务人员持健康证与背景核查记录</td><td>钟点工 45 元/小时起，育儿嫂 6,800 元/月起</td><td>https://fw.zzrcaj.com/housekeeping</td><td>湘江1958 人才公寓、栗雨佳苑人才公寓、茨菇塘公寓</td><td>2026-08-26 14:38</td><td><span class="badge green">已发布</span></td><td><span class="link" onclick="PMS.openDrawer('vsDrawer')">编辑</span> <span class="link" onclick="PMS.confirm({title:'下架确认',message:'确认下架「家政钟点工与育儿嫂对接」？',detail:'下架后移动端立即不再展示该服务。重新上架须再次报主管单位审核。',type:'warning',okText:'确认下架',onOk:function(){PMS.toast('已下架，移动端已同步隐藏','success');}})">下架</span></td></tr>
+          <tr><td>ZZ2026-005</td><td>家电清洗（空调、洗衣机、热水器）</td><td><span class="badge purple">家政服务</span></td><td>空调内机清洗、洗衣机内筒除垢、热水器排污，属清洗保养，<b>不含故障维修</b></td><td>空调 120 元/台，洗衣机 110 元/台，热水器 150 元/台</td><td>https://fw.zzrcaj.com/appliance-clean</td><td>全部在管楼盘</td><td>2026-08-28 11:20</td><td><span class="badge green">已发布</span></td><td><span class="link" onclick="PMS.openDrawer('vsDrawer')">编辑</span> <span class="link" onclick="PMS.confirm({title:'下架确认',message:'确认下架「家电清洗」？',detail:'下架后移动端立即不再展示该服务。家电故障维修属房屋维修范畴，始终由报修工单处理，与本服务无关。',type:'warning',okText:'确认下架',onOk:function(){PMS.toast('已下架，移动端已同步隐藏','success');}})">下架</span></td></tr>
+          <tr><td>ZZ2026-006</td><td>快递代收与暂存</td><td><span class="badge orange">生活便利</span></td><td>前台代收快递并短信通知，免费暂存 7 天，超期按 1 元/件·天收取保管费</td><td>代收免费，超期保管 1 元/件·天</td><td>https://fw.zzrcaj.com/express</td><td>全部在管楼盘</td><td>2026-09-01 08:52</td><td><span class="badge green">已发布</span></td><td><span class="link" onclick="PMS.openDrawer('vsDrawer')">编辑</span> <span class="link" onclick="PMS.confirm({title:'下架确认',message:'确认下架「快递代收与暂存」？',detail:'下架后移动端立即不再展示该服务。重新上架须再次报主管单位审核。',type:'warning',okText:'确认下架',onOk:function(){PMS.toast('已下架，移动端已同步隐藏','success');}})">下架</span></td></tr>
+          <tr class="row-warn"><td>ZZ2026-007</td><td>入住与腾退搬家搬运</td><td><span class="badge purple">家政服务</span></td><td>小型搬家、家具与行李搬运，含 1 名司机 2 名搬运工，市城区内当日达</td><td>200 元/次起，按里程与楼层加收</td><td>https://fw.zzrcaj.com/moving</td><td>湘江1958 人才公寓、云龙人才苑</td><td>2026-09-07 16:40</td><td><span class="badge orange">待审核</span></td><td><span class="link" onclick="PMS.openDrawer('vsDrawer')">编辑</span> <span class="link" onclick="PMS.toast('已撤回，可修改后重新提交审核','success')">撤回</span></td></tr>
+          <tr class="row-warn"><td>ZZ2026-008</td><td>宽带办理与提速代办</td><td><span class="badge orange">生活便利</span></td><td>代跑三家运营商宽带开户、过户与提速，资费由运营商收取，本机构不加价</td><td>代办免费，宽带资费按运营商标准</td><td>https://fw.zzrcaj.com/broadband</td><td>全部在管楼盘</td><td>2026-09-08 09:15</td><td><span class="badge orange">待审核</span></td><td><span class="link" onclick="PMS.openDrawer('vsDrawer')">编辑</span> <span class="link" onclick="PMS.toast('已撤回，可修改后重新提交审核','success')">撤回</span></td></tr>
+          <tr class="row-bad"><td>ZZ2026-009</td><td>室内水电与门窗维修（已下架）</td><td><span class="badge red">越界事项</span></td><td>审核认定属<b>房屋维修范畴</b>，须走报修工单免费处理，<b>不得作为增值服务收费</b>，已按主管单位意见下架</td><td><span class="muted">—</span></td><td><span class="muted">—</span></td><td>湘江1958 人才公寓</td><td>2026-08-18 15:06</td><td><span class="badge gray">已下架</span></td><td><span class="link" onclick="location.href='../ops/wo-list.html'">转报修工单</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sp-block" style="margin-top:12px">
+    <div class="sp-h"><i class="fa-solid fa-list"></i> 发布、审核与展示口径<span class="sub">R03 · 经主管单位审核后在移动端展示</span></div>
+    <div class="sp-b">
+      <div class="sp-tw">
+        <table class="data-table compact">
+          <thead><tr><th>机制号</th><th>机制项</th><th class="cell-lg">说明</th></tr></thead>
+          <tbody>
+          <tr><td><b>VS-1</b></td><td>发布主体</td><td>由<b>运营机构自行发布</b>，只能发布并查看<b>本机构</b>的服务项与所辖楼盘，越权数据不可见、不可改；主管单位可查看全市各机构的服务项</td></tr>
+          <tr><td><b>VS-2</b></td><td>必填要素</td><td><b>服务名称、服务类别、服务内容、价格（含计价方式）、外部链接地址、适用楼盘</b>六项必填；价格须写清单位与计价口径，链接须可公网访问，保存前系统校验链接可达</td></tr>
+          <tr><td><b>VS-3</b></td><td>审核流转</td><td>提交后状态为<b>待审核</b>，由<b>主管单位（企业机构管理角色）</b>在 3 个工作日内审核：通过转<b>已发布</b>，退回附意见并可修改后重新提交；机构可在审核前<b>撤回</b>。审核结果站内消息通知，全程留痕</td></tr>
+          <tr><td><b>VS-4</b></td><td>移动端展示</td><td><b>仅已发布</b>的服务在移动端展示，按适用楼盘对在住人才可见：承租人只看到自己所住楼盘的服务项；点击后<b>跳转外部链接</b>下单与支付，<b>平台不代收费用、不参与结算</b>。<span class="link" onclick="location.href='../../mobile/public/value-service.html'">移动端增值服务页</span></td></tr>
+          <tr class="row-warn"><td><b>VS-5</b></td><td>与报修的边界</td><td>属<b>房屋及配套设施维修养护</b>的事项（水电、门窗、墙面、管道、家具家电故障等）<b>一律走报修工单</b>，由机构按响应时限免费处理，<b>不得列为增值服务收费</b>；家电<b>清洗保养</b>可作为增值服务，<b>故障维修</b>不可。审核发现越界的退回或下架</td></tr>
+          <tr><td><b>VS-6</b></td><td>自愿与监督</td><td>增值服务<b>自愿选择、按次付费</b>，<b>不得与租金、押金捆绑，不得强制消费</b>；服务投诉与评价纳入运营机构考核，投诉集中或评价过低的服务由主管单位<b>直接下架</b>。<span class="link" onclick="location.href='kpi-self.html'">考核自评与整改</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="sp-block" style="margin-top:12px">
+    <div class="sp-h"><i class="fa-solid fa-list"></i> 本机构审核记录<span class="sub">近 5 条 · 只读</span></div>
+    <div class="sp-b">
+      <div class="sp-tw">
+        <table class="data-table compact">
+          <thead><tr><th>服务编号</th><th class="cell-lg">服务名称</th><th>提交时间</th><th>审核单位</th><th>审核时间</th><th>审核结果</th><th class="cell-lg">审核意见</th></tr></thead>
+          <tbody>
+          <tr><td>ZZ2026-008</td><td>宽带办理与提速代办</td><td>2026-09-08 09:15</td><td>市住保中心</td><td><span class="muted">—</span></td><td><span class="badge orange">待审核</span></td><td>已受理，承诺 3 个工作日内出结果</td></tr>
+          <tr><td>ZZ2026-007</td><td>入住与腾退搬家搬运</td><td>2026-09-07 16:40</td><td>市住保中心</td><td><span class="muted">—</span></td><td><span class="badge orange">待审核</span></td><td>已受理，须补充搬运人员保险凭证</td></tr>
+          <tr><td>ZZ2026-006</td><td>快递代收与暂存</td><td>2026-09-01 08:52</td><td>市住保中心</td><td>2026-09-02 10:26</td><td><span class="badge green">审核通过</span></td><td>超期保管费标准明示，同意发布</td></tr>
+          <tr class="row-warn"><td>ZZ2026-005</td><td>家电清洗（空调、洗衣机、热水器）</td><td>2026-08-28 11:20</td><td>市住保中心</td><td>2026-08-29 15:12</td><td><span class="badge green">审核通过</span></td><td>限清洗保养，<b>不得涉及故障维修</b>；服务内容已按要求补注说明后通过</td></tr>
+          <tr class="row-bad"><td>ZZ2026-009</td><td>室内水电与门窗维修</td><td>2026-08-18 15:06</td><td>市住保中心</td><td>2026-08-19 09:40</td><td><span class="badge red">退回并下架</span></td><td>属<b>房屋维修范畴</b>，应通过报修工单免费处理，不得作为增值服务收费</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="sp-src">
+    <span><b>服务范围</b> 衣物洗涤、入室清扫、家政服务、生活便利等<b>生活服务类</b>，属自愿选择、按次付费</span>
+    <span><b>审核与展示</b> 提交后待审核，<b>经主管单位审核通过后在移动端展示</b>，按适用楼盘对在住人才可见</span>
+    <span><b>收费方式</b> 移动端点击后跳转机构外部链接下单支付，<b>平台不代收费用</b>，不得与租金、押金捆绑</span>
+    <span><b>维修边界</b> 属房屋维修范畴的<b>仍走报修工单</b>免费处理，不得列为增值服务。<span class="link" onclick="location.href='../ops/wo-list.html'">维修工单处理</span></span>
+    <span><b>数据范围</b> 运营机构只能看到并维护本机构的服务项与所辖楼盘，主管单位可查看全市</span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="vsDrawer">
+  <div class="drawer-head">
+    <h3>增值服务发布</h3>
+    <span class="badge orange">待审核</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+    <div class="alert alert-warning">
+      <i class="fa-solid fa-triangle-exclamation"></i>
+      <div>提交后状态为<b>待审核</b>，由<b>主管单位审核通过后才在移动端展示</b>，审核前可撤回修改。请写清<b>价格与计价方式</b>并确保<b>外部链接可公网访问</b>；属<b>房屋维修范畴</b>的事项不得在此发布，<b>仍走报修工单</b>免费处理。</div>
+    </div>
+
+    <div class="form-grid form-align">
+      <div class="form-item">
+        <label>服务编号 <span class="req">*</span></label>
+        <input type="text" value="ZZ2026-007" readonly>
+        <div class="hint">系统自动生成，不可修改</div>
+      </div>
+      <div class="form-item">
+        <label>服务类别 <span class="req">*</span></label>
+        <select><option>衣物洗涤</option><option>入室清扫</option><option>家政服务</option><option>生活便利</option></select>
+      </div>
+      <div class="form-item col-full">
+        <label>服务名称 <span class="req">*</span></label>
+        <input type="text" value="入住与腾退搬家搬运">
+      </div>
+      <div class="form-item col-full">
+        <label>服务内容 <span class="req">*</span></label>
+        <textarea rows="3">小型搬家、家具与行李搬运，含 1 名司机与 2 名搬运工，市城区范围内当日达；搬运人员均已购买人身意外险，家具损坏按约定赔付。不含房屋及配套设施的维修养护事项。</textarea>
+        <div class="hint">写清服务范围、时长、人员资质与不含事项；不得包含房屋维修内容</div>
+      </div>
+      <div class="form-item col-full">
+        <label>价格与计价方式 <span class="req">*</span></label>
+        <input type="text" value="200 元/次起，按里程加收 3 元/公里，无电梯楼层加收 10 元/层">
+        <div class="hint">须写清单位与计价口径，明示是否有起步价、附加费与人才优惠</div>
+      </div>
+      <div class="form-item col-full">
+        <label>外部链接地址 <span class="req">*</span></label>
+        <input type="text" value="https://fw.zzrcaj.com/moving">
+        <div class="hint">承租人在移动端点击后跳转该地址下单与支付，平台不代收费用；保存前校验链接可公网访问</div>
+      </div>
+      <div class="form-item col-full">
+        <label>适用楼盘 <span class="req">*</span></label>
+        <input type="text" value="湘江1958 人才公寓、云龙人才苑">
+        <div class="hint">可多选，只能选择本机构在管楼盘；移动端按楼盘对在住人才可见</div>
+      </div>
+      <div class="form-item">
+        <label>服务商名称 <span class="req">*</span></label>
+        <input type="text" value="株洲市人才安居服务有限公司">
+      </div>
+      <div class="form-item">
+        <label>服务电话 <span class="req">*</span></label>
+        <input type="text" value="0731-2812 8866">
+      </div>
+      <div class="form-item">
+        <label>服务时间 <span class="req">*</span></label>
+        <input type="text" value="每日 08:30—18:00，需提前 1 天预约">
+      </div>
+      <div class="form-item">
+        <label>状态 <span class="req">*</span></label>
+        <input type="text" value="待审核（提交后由主管单位审核）" readonly>
+      </div>
+      <div class="form-item col-full">
+        <label>服务说明图 / 价目表</label>
+        <input type="text" data-upload="1">
+        <div class="hint">可上传价目表或服务流程图，随服务项在移动端展示</div>
+      </div>
+      <div class="form-item col-full">
+        <label>合规承诺 <span class="req">*</span></label>
+        <textarea rows="2">承诺本服务属生活服务类，自愿选择、按次付费，不与租金、押金捆绑，不强制消费；不包含房屋及配套设施维修养护事项，涉及维修的一律通过报修工单免费处理。</textarea>
+      </div>
+    </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn" onclick="PMS.toast('已存为草稿，未提交审核','success')">存草稿</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认提交该增值服务报主管单位审核？',detail:'提交后状态为待审核，由市住保中心在 3 个工作日内审核，通过后在移动端按适用楼盘对在住人才展示；审核前可撤回修改。属房屋维修范畴的事项不得作为增值服务收费，审核发现越界的将退回或下架。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已提交，待主管单位审核','success');}})"><i class="fa-solid fa-check"></i> 提交审核</button>
+  </div>
+</div>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 9; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

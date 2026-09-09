@@ -10,265 +10,88 @@
 <link rel="stylesheet" href="../../assets/css/ext.css">
 </head>
 <body class="m-body" data-mtitle="审批详情" data-mmod="G1 移动审批" data-mcode="G1-01"
-      data-mdesc="核验报告按核验项标注核验方式：接口直连项显示部门返回数据与取数时间、结论只读；材料佐证项须先查看材料影像、逐项认定（符合/不符合/需补正）并填认定说明后方可提交结论。受理初审与复审两级意见分别留痕。" data-mback="approve-list.html" data-mtabset="gov" data-mtab="home">
+      data-mdesc="移动端待办审批。核验报告按核验项标注“接口直连”或“材料佐证”：接口直连项直接呈现部门返回结论；材料佐证项须先查看材料影像并逐项认定后才能提交结论，未认定完的提交按钮置灰。材料佐证项一并显示受理初审的人工认定意见供复核参考，对认定有异议的可单项退回重新认定，不必整件退回。" data-mback="approve-list.html" data-mtabset="gov" data-mtab="home">
 <div class="m-stage">
   <div class="m-phone">
     <div class="m-screen">
       <div class="m-view">
         <div class="m-note danger"><i class="fa-solid fa-circle-exclamation"></i>
-          <div>本件已<b>超期 1 天</b>，且<b>不动产佐证材料识别要素与填报不符</b>。请查看各项材料影像，<b>逐项认定</b>后出具结论，超期原因须记录。</div>
+          <div>本件<b>不动产核验不一致</b>且已<b>超期 1 天</b>。请立即核实并出具结论，超期原因须记录。</div>
         </div>
         <div class="m-card">
           <div class="m-card-h"><i class="fa-solid fa-circle-info"></i>办件信息</div>
           <div class="m-card-b">
           <div class="m-kv">
             <div><span>申请编号</span><span>RC2026-0902-0148</span></div>
-            <div><span>待办类型</span><span><span class="m-tag blue">资格申请受理件</span></span></div>
             <div><span>申请人</span><span>王××（430211********1826）</span></div>
             <div><span>申请类型</span><span>就业青年人才</span></div>
-            <div><span>申请渠道</span><span>个人申请（湘易办小程序）</span></div>
+            <div><span>受理渠道</span><span>湘易办小程序</span></div>
             <div><span>受理时间</span><span>2026-09-02 14:18</span></div>
             <div><span>应办结</span><span><b style="color:var(--danger)">2026-09-05（超期 1 天）</b></span></div>
-            <div><span>就业单位</span><span>株洲时代新材料科技股份有限公司</span></div>
-            <div><span>当前状态</span><span><span class="m-tag orange">待受理初审认定</span></span></div>
+            <div><span>就业单位</span><span>株洲硬质合金集团有限公司</span></div>
+            <div><span>初审人</span><span>周敏（天元区住房保障服务中心）</span></div>
+            <div><span>当前状态</span><span><span class="m-tag orange">待复核</span></span></div>
           </div>
           </div>
         </div>
-
-        <div class="m-note"><i class="fa-solid fa-circle-info"></i>
-          <div><b>核验双模式</b>：本件按本期默认——<b>身份为接口直连</b>（已开通、数据只读），<b>其余七项为材料佐证</b>（人工核验）。材料佐证项须<b>先查看材料影像并逐项认定</b>（符合 / 不符合 / 需补正）、填写认定说明，<b>全部认定后方可提交结论</b>。</div>
-        </div>
-
-        <div class="m-sect">接口直连 · 自动核验<span class="m-sect-x">1 项 · 结论只读</span></div>
+        <div class="m-sect">联审联查核验报告<span class="m-sect-x">接口直连 2 项 / 材料佐证 6 项</span></div>
         <div class="m-card">
-          <div class="m-card-h"><i class="fa-solid fa-plug-circle-check"></i>部门返回数据</div>
+          <div class="m-card-h"><i class="fa-solid fa-shield-halved"></i>核验结果<span style="margin-left:auto;font-size:11px;font-weight:400;color:var(--text-3)">材料佐证项须查看影像后认定</span></div>
           <div class="m-card-b">
             <div class="m-check">
-              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>身份核验</b><span>公安人口库 ＋ 人像比对：王×× / 430211********1826，比对通过。取数时间 2026-09-02 14:19</span></div><span style="margin-left:auto"><span class="m-tag green">一致</span></span></div>
+              <div class="bad"><i class="fa-solid fa-circle-xmark"></i><div class="m-chl"><b>不动产与住房核验 · 不一致　<span class="m-tag orange" style="font-weight:400">材料佐证</span></b><span>申请人上传的无房证明经比对不实：不动产登记查得<b>家庭成员（配偶）在天元区名下有 1 套住房</b>（建筑面积 96.40 ㎡，登记时间 2024-03-18），与申请人填报「无自有住房」不符。<br><span style="color:var(--danger)">初审认定：不符合</span>　<span class="m-who">周敏　2026-09-04 15:12</span>　<a href="javascript:void(0)" onclick="MB.toast('原型演示：打开材料影像')" style="color:var(--primary)">查看影像</a></span></div>
+                <div class="co"><span class="m-tag red">一票否决</span></div></div>
+              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>婚姻状况核验 · 一致　<span class="m-tag orange" style="font-weight:400">材料佐证</span></b><span>结婚证影像与填报一致：已婚，配偶 李××。<br><span style="color:var(--success)">初审认定：符合</span>　<span class="m-who">周敏　2026-09-04 15:08</span>　<a href="javascript:void(0)" onclick="MB.toast('原型演示：打开材料影像')" style="color:var(--primary)">查看影像</a></span></div></div>
+              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>学历学位核验 · 一致　<span class="m-tag orange" style="font-weight:400">材料佐证</span></b><span>毕业证影像：中南大学 全日制硕士 2025-06-30，在毕业 2 年内。<br><span style="color:var(--success)">初审认定：符合</span>　<span class="m-who">周敏　2026-09-04 15:09</span>　<a href="javascript:void(0)" onclick="MB.toast('原型演示：打开材料影像')" style="color:var(--primary)">查看影像</a></span></div></div>
+              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>养老保险核验 · 一致　<span class="m-tag orange" style="font-weight:400">材料佐证</span></b><span>社保参保证明：连续缴纳 14 个月，单位与劳动合同一致。<br><span style="color:var(--success)">初审认定：符合</span>　<span class="m-who">周敏　2026-09-04 15:10</span></span></div></div>
+              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>个人所得税核验 · 一致　<span class="m-tag orange" style="font-weight:400">材料佐证</span></b><span>纳税记录：连续缴纳 14 个月，在本地实际从业。<br><span style="color:var(--success)">初审认定：符合</span>　<span class="m-who">周敏　2026-09-04 15:11</span></span></div></div>
+              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>政策性住房核验 · 一致　<span class="m-tag blue" style="font-weight:400">接口直连</span></b><span>公租房系统返回：未承租公租房、人才公寓、直管公房。取数时间 2026-09-02 14:19，结论只读。</span></div></div>
+              <div class="na"><i class="fa-solid fa-minus"></i><div class="m-chl"><b>市场监管核验 · 不适用　<span class="m-tag orange" style="font-weight:400">材料佐证</span></b><span>申请类型为就业青年人才，本项不参与判定。</span></div></div>
+              <div class="na"><i class="fa-solid fa-clock"></i><div class="m-chl"><b>身份与户籍核验 · 一致　<span class="m-tag blue" style="font-weight:400">接口直连</span></b><span>公安人口信息返回姓名、身份证号、户籍地址与填报一致。取数时间 2026-09-02 14:19。</span></div></div>
             </div>
           </div>
         </div>
-
-        <div class="m-sect">材料佐证 · 逐项认定<span class="m-sect-x">已认定 <b id="vProg">0 / 6</b></span></div>
-
-        <div class="m-card verify-item" data-need="1">
-          <div class="m-card-h"><i class="fa-solid fa-house-circle-exclamation"></i>不动产核验<span style="margin-left:auto"><span class="m-tag dark">材料佐证</span></span></div>
-          <div class="m-card-b">
-            <div class="m-fi col">
-              <label>材料影像：不动产（无房）信息查询证明 · 1 份</label>
-              <div class="m-fc">
-                <div class="m-up">
-                  <div class="m-uc ok"><img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&q=80" alt="无房证明.jpg"><span class="m-uc-n">无房证明.jpg</span></div>
-                </div>
-                <div class="m-fh">识别要素：配偶 李×× 天元区名下住房 1 套（96.40 ㎡，登记 2024-03-18），与填报「无自有住房」<b>不符</b></div>
-              </div>
-            </div>
-            <div class="m-fi col">
-              <label>逐项认定 <span class="req">*</span></label>
-              <div class="m-fc"><div class="m-seg vseg"><button type="button">符合</button><button type="button">不符合</button><button type="button">需补正</button></div></div>
-            </div>
-            <div class="m-fi col">
-              <label>认定说明</label>
-              <div class="m-fc"><textarea rows="2">经核不动产佐证材料，配偶名下有住房，不符合无自有住房要求，建议不符合并转复审。</textarea></div>
-            </div>
-          </div>
+        <div class="m-note warn"><i class="fa-solid fa-circle-info"></i>
+          <div><b>材料佐证 6 项</b>已由受理初审逐项认定并署名。
+            对某一项认定有异议的可<b>单项退回重新认定</b>，不必整件退回；
+            <a href="javascript:void(0)" onclick="MB.confirm({title:'单项退回',message:'退回哪一项重新认定？',detail:'退回后仅该项回到受理初审重新认定，其余项结论保留，整件不退回、时限不重算。',okText:'选择项目',onOk:function(){MB.toast('已退回「不动产与住房核验」重新认定');}})" style="color:var(--primary)">单项退回</a>。</div>
         </div>
-
-        <div class="m-card verify-item" data-need="1">
-          <div class="m-card-h"><i class="fa-solid fa-ring"></i>婚姻核验<span style="margin-left:auto"><span class="m-tag dark">材料佐证</span></span></div>
-          <div class="m-card-b">
-            <div class="m-fi col">
-              <label>材料影像：结婚证 · 1 份</label>
-              <div class="m-fc">
-                <div class="m-up">
-                  <div class="m-uc ok"><img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80" alt="结婚证.jpg"><span class="m-uc-n">结婚证.jpg</span></div>
-                </div>
-                <div class="m-fh">识别要素：已婚，配偶 李××，登记机关 天元区民政局。与填报「已婚·家庭申请」<b>一致</b></div>
-              </div>
-            </div>
-            <div class="m-fi col">
-              <label>逐项认定 <span class="req">*</span></label>
-              <div class="m-fc"><div class="m-seg vseg"><button type="button">符合</button><button type="button">不符合</button><button type="button">需补正</button></div></div>
-            </div>
-            <div class="m-fi col">
-              <label>认定说明</label>
-              <div class="m-fc"><textarea rows="2">结婚证影像清晰、与填报一致，婚姻状况认定符合。</textarea></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="m-card verify-item" data-need="1">
-          <div class="m-card-h"><i class="fa-solid fa-graduation-cap"></i>学历核验<span style="margin-left:auto"><span class="m-tag dark">材料佐证</span></span></div>
-          <div class="m-card-b">
-            <div class="m-fi col">
-              <label>材料影像：毕业证 ＋ 学历认证书 · 各 1 份</label>
-              <div class="m-fc">
-                <div class="m-up">
-                  <div class="m-uc ok"><img src="https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?w=600&q=80" alt="毕业证.jpg"><span class="m-uc-n">毕业证.jpg</span></div>
-                </div>
-                <div class="m-fh">识别要素：中南大学 全日制硕士 2025-06-30 毕业，在毕业 2 年内。与填报<b>一致</b></div>
-              </div>
-            </div>
-            <div class="m-fi col">
-              <label>逐项认定 <span class="req">*</span></label>
-              <div class="m-fc"><div class="m-seg vseg"><button type="button">符合</button><button type="button">不符合</button><button type="button">需补正</button></div></div>
-            </div>
-            <div class="m-fi col">
-              <label>认定说明</label>
-              <div class="m-fc"><textarea rows="2">毕业证与学信网备案表一致，学历认定符合。</textarea></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="m-card verify-item" data-need="1">
-          <div class="m-card-h"><i class="fa-solid fa-shield-heart"></i>社保核验<span style="margin-left:auto"><span class="m-tag dark">材料佐证</span></span></div>
-          <div class="m-card-b">
-            <div class="m-fi col">
-              <label>材料影像：社保参保证明 · 1 份</label>
-              <div class="m-fc">
-                <div class="m-up">
-                  <div class="m-uc ok"><img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&q=80" alt="社保参保证明.jpg"><span class="m-uc-n">社保参保证明.jpg</span></div>
-                </div>
-                <div class="m-fh">识别要素：连续缴纳 14 个月，缴费单位与劳动合同一致。与填报<b>一致</b></div>
-              </div>
-            </div>
-            <div class="m-fi col">
-              <label>逐项认定 <span class="req">*</span></label>
-              <div class="m-fc"><div class="m-seg vseg"><button type="button">符合</button><button type="button">不符合</button><button type="button">需补正</button></div></div>
-            </div>
-            <div class="m-fi col">
-              <label>认定说明</label>
-              <div class="m-fc"><textarea rows="2">参保证明连续满足要求，单位一致，社保认定符合。</textarea></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="m-card verify-item" data-need="1">
-          <div class="m-card-h"><i class="fa-solid fa-receipt"></i>个税核验<span style="margin-left:auto"><span class="m-tag dark">材料佐证</span></span></div>
-          <div class="m-card-b">
-            <div class="m-fi col">
-              <label>材料影像：个税完税证明 · 1 份</label>
-              <div class="m-fc">
-                <div class="m-up">
-                  <div class="m-uc ok"><img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80" alt="个税完税证明.jpg"><span class="m-uc-n">个税完税证明.jpg</span></div>
-                </div>
-                <div class="m-fh">识别要素：近 6 个月有申报记录，佐证在株实际从业。与社保单位一致</div>
-              </div>
-            </div>
-            <div class="m-fi col">
-              <label>逐项认定 <span class="req">*</span></label>
-              <div class="m-fc"><div class="m-seg vseg"><button type="button">符合</button><button type="button">不符合</button><button type="button">需补正</button></div></div>
-            </div>
-            <div class="m-fi col">
-              <label>认定说明</label>
-              <div class="m-fc"><textarea rows="2">纳税记录连续、单位一致，个税认定符合。</textarea></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="m-card verify-item" data-need="1">
-          <div class="m-card-h"><i class="fa-solid fa-id-card"></i>户籍核验<span style="margin-left:auto"><span class="m-tag dark">材料佐证</span></span></div>
-          <div class="m-card-b">
-            <div class="m-fi col">
-              <label>材料影像：户口簿 · 1 份</label>
-              <div class="m-fc">
-                <div class="m-up">
-                  <div class="m-uc ok"><img src="https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?w=600&q=80" alt="户口簿.jpg"><span class="m-uc-n">户口簿.jpg</span></div>
-                </div>
-                <div class="m-fh">识别要素：户籍地 株洲市天元区，首页与本人页齐全。与填报<b>一致</b></div>
-              </div>
-            </div>
-            <div class="m-fi col">
-              <label>逐项认定 <span class="req">*</span></label>
-              <div class="m-fc"><div class="m-seg vseg"><button type="button">符合</button><button type="button">不符合</button><button type="button">需补正</button></div></div>
-            </div>
-            <div class="m-fi col">
-              <label>认定说明</label>
-              <div class="m-fc"><textarea rows="2">户口簿影像齐全、要素一致，户籍认定符合。</textarea></div>
-            </div>
-          </div>
-        </div>
-
+        <div class="m-sect">申报材料<span class="m-sect-x">5 项</span></div>
         <div class="m-card">
-          <div class="m-card-h"><i class="fa-solid fa-store-slash"></i>市场监管核验<span style="margin-left:auto"><span class="m-tag dark">材料佐证</span></span></div>
+          <div class="m-card-h"><i class="fa-solid fa-folder-open"></i>材料影像</div>
           <div class="m-card-b">
-            <div class="m-check">
-              <div class="na"><i class="fa-solid fa-minus"></i><div class="m-chl"><b>不适用 · 无需认定</b><span>申请类型为就业青年人才，不涉及营业执照 / 纳税申报表核验（创业青年人才才判定），本项不计入逐项认定</span></div></div>
+            <div class="m-up">
+              <div class="m-uc ok"><img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=600&q=80" alt="身份证"><span class="m-uc-n">身份证.jpg</span></div>
+              <div class="m-uc ok"><img src="https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?w=600&q=80" alt="毕业证"><span class="m-uc-n">毕业证.jpg</span></div>
+              <div class="m-uc ok"><img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&q=80" alt="劳动合同"><span class="m-uc-n">劳动合同.pdf</span></div>
+              <div class="m-uc ok"><img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80" alt="结婚证"><span class="m-uc-n">结婚证.jpg</span></div>
+              <div class="m-uc ok"><img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80" alt="承诺书"><span class="m-uc-n">承诺书.pdf</span></div>
             </div>
           </div>
         </div>
-
-        <div class="m-sect">受理初审意见<span class="m-sect-x">两级留痕 · 第 1 级</span></div>
+        <div class="m-sect">初审意见</div>
         <div class="m-card">
-          <div class="m-card-h"><i class="fa-solid fa-user-check"></i>受理初审</div>
+          <div class="m-card-h"><i class="fa-solid fa-user-check"></i>市住保中心受理初审</div>
           <div class="m-card-b">
           <div class="m-kv">
-            <div><span>初审人</span><span>陈婕（市保障性住房服务中心资格审核科 · 受理初审岗）</span></div>
+            <div><span>初审人</span><span>周敏（天元区住房保障服务中心）</span></div>
             <div><span>初审时间</span><span>2026-09-03 10:22</span></div>
-            <div><span>认定署名</span><span><input type="text" value="陈婕" style="width:120px;height:28px;padding:0 8px;border:1px solid var(--border-strong);border-radius:var(--radius);font-family:var(--font);font-size:13px"></span></div>
+            <div><span>初审意见</span><span>材料影像与填报内容一致。<b>但不动产核验显示配偶名下有房，疑不符合第七条第二项，转市住保中心复核认定。</b></span></div>
           </div>
           </div>
         </div>
         <div class="m-note warn"><i class="fa-solid fa-triangle-exclamation"></i>
-          <div>资格审核<b>两级办理</b>：受理初审（第 1 级）→ 复审出具结论（第 2 级），<b>两级意见分别留痕</b>；材料佐证项<b>复审可单项退回重新认定</b>，退回补正须注明<b>退回层级与具体理由</b>。两级均由市保障性住房服务中心承担，<b>不下放运营机构</b>。</div>
+          <div>按<b>不相容岗位控制</b>，初审人周敏与复核人不得为同一人。您（刘志刚）非本件初审人，可以复核。</div>
         </div>
       </div>
       <div class="m-actbar">
         <button class="m-btn w-auto" type="button" onclick="MB.toast('已转办给市住保中心资格审核科其他经办人')">转办</button>
-        <button class="m-btn primary is-off" id="passBtn" type="button" data-why="请先查看各项材料影像，并对 6 项材料佐证项逐项认定（符合/不符合/需补正）后再提交结论">提交结论</button>
+        <a class="m-btn primary" href="approve-action.html"><i class="fa-solid fa-stamp"></i> 出具结论</a>
       </div>
     </div>
   </div>
 </div>
 
 <script src="../../assets/js/mobile.js"></script>
-<script>
-/* 材料佐证项须逐项认定后方可提交：统计 .verify-item[data-need] 内是否已选认定，
-   全部认定后解除底部「提交结论」按钮置灰（is-off）。 */
-(function () {
-  function view() { return document.querySelector('.m-view'); }
-  var enabled = false;
-
-  function enableSubmit() {
-    if (enabled) return;
-    var old = document.getElementById('passBtn');
-    if (!old) return;
-    enabled = true;
-    /* 克隆一次以剥离 mobile.js 为 is-off[data-why] 绑定的提示监听，避免启用后仍弹置灰原因 */
-    var fresh = old.cloneNode(true);
-    fresh.classList.remove('is-off');
-    fresh.removeAttribute('data-why');
-    old.parentNode.replaceChild(fresh, old);
-    fresh.addEventListener('click', function () {
-      MB.submit('.m-view', '确认提交本件<b>受理初审</b>结论？<br>接口直连项数据只读引用，6 项材料佐证项已逐项认定并留痕，转<b>复审出具结论</b>。', '确认提交', 'approve-action.html');
-    });
-    MB.toast('材料佐证项已全部认定，可提交结论', 2200);
-  }
-
-  function refreshGate() {
-    var v = view();
-    if (!v) return;
-    var items = v.querySelectorAll('.verify-item[data-need="1"]');
-    var done = 0;
-    for (var i = 0; i < items.length; i++) {
-      if (items[i].querySelector('.vseg button.on')) done++;
-    }
-    var badge = document.getElementById('vProg');
-    if (badge) badge.textContent = done + ' / ' + items.length;
-    if (items.length > 0 && done >= items.length) enableSubmit();
-  }
-
-  document.addEventListener('DOMContentLoaded', function () {
-    var v = view();
-    if (!v) return;
-    /* 认定按钮由 mobile.js 完成单选高亮；此处延后一拍读取状态再刷新门禁 */
-    v.addEventListener('click', function (e) {
-      var b = e.target.closest ? e.target.closest('.vseg button') : null;
-      if (b) setTimeout(refreshGate, 0);
-    });
-    refreshGate();
-  });
-})();
-</script>
 </body>
 </html>

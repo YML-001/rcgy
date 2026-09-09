@@ -3,164 +3,132 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>预约热度与需求分析 · 株洲市人才住房保障管理平台</title>
+<title>意向登记需求分析 · 株洲市人才住房保障管理平台</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="../../assets/css/app.css">
 <link rel="stylesheet" href="../../assets/css/spec.css">
 <link rel="stylesheet" href="../../assets/css/ext.css">
 </head>
-<body data-role="leader" data-active="stat-32">
+<body data-role="leader" data-active="stat-29">
 <main class="app-main">
   <div class="page-head">
     <div class="breadcrumb">
       <i class="fa-solid fa-house bc-home"></i> 株洲市人才住房保障管理平台
       <span class="sep">/</span> 统计分析
-      <span class="sep">/</span> 房源分析
-      <span class="sep">/</span> <span class="cur">预约热度与需求分析</span>
+      <span class="sep">/</span> <span class="cur">意向登记需求分析</span>
     </div>
     <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已生成需求摸底分析报告，可在报表中心下载','success')"><i class="fa-solid fa-file-export"></i> 生成报告</button>
       <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
     </div>
   </div>
-
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>按<b>楼盘、户型、区域、人才类型</b>四个维度统计<b>意向登记量与转正式申请率</b>，摸清人才住房的<b>真实需求量与需求结构</b>，作为下一步<b>房源筹集与投放</b>的依据：需求集中的片区与户型优先筹集与投放，需求偏低的适度控制新增。</div>
+  </div>
   <div class="alert alert-warning">
     <i class="fa-solid fa-triangle-exclamation"></i>
-    <div>按<b>楼盘、户型、区域</b>三个维度统计<b>预约量与预约转申请率</b>，识别最受欢迎的房源类型与片区，为下一步<b>房源筹集与投放</b>提供依据。<b>供需比 ＝ 预约量 ÷ 可选间数</b>，供需比 ≥ 2.0 判定为热点，优先加大投放；转化率低于 40% 的需核查预约质量。房源颗粒度已细化到「间」，本页可选量、预约量一律<b>按间统计</b>。</div>
+    <div><b>统计口径</b>：意向登记<b>只作需求摸底</b>，<b>不占用房源、不进入轮候库、不收取任何费用</b>，也不构成配租的先后顺序；登记只登记到<b>楼盘与户型</b>，不指定具体房源。因此本页<b>不统计房源占用类指标</b>（不含在架房源数、登记覆盖率、房源锁定等口径），仅反映需求侧的规模与结构。配租按<b>系统自动配租</b>执行，按审核通过顺序在意向范围内匹配，<b>申请人不选房</b>。</div>
   </div>
-
   <div class="stat-grid">
     <div class="stat-card">
-      <div class="s-icon blue"><i class="fa-solid fa-calendar-check"></i></div>
-      <div><div class="s-label">累计预约</div><div class="s-value">1,520</div>
-        <div class="s-trend text-2">人次 · 2026 年累计</div></div>
+      <div class="s-icon blue"><i class="fa-solid fa-clipboard-list"></i></div>
+      <div><div class="s-label">累计意向登记</div><div class="s-value">486</div>
+        <div class="s-trend">人次 · 覆盖 6 个楼盘</div></div>
     </div>
     <div class="stat-card">
-      <div class="s-icon green"><i class="fa-solid fa-file-signature"></i></div>
-      <div><div class="s-label">预约转申请</div><div class="s-value">892</div>
-        <div class="s-trend text-2">件 · 其中已进入轮候 610</div></div>
+      <div class="s-icon green"><i class="fa-solid fa-arrow-trend-up"></i></div>
+      <div><div class="s-label">转正式申请率</div><div class="s-value">62.3%</div>
+        <div class="s-trend">303 人转正式申请</div></div>
     </div>
     <div class="stat-card">
-      <div class="s-icon cyan"><i class="fa-solid fa-arrow-trend-up"></i></div>
-      <div><div class="s-label">预约转申请率</div><div class="s-value">58.7%</div>
-        <div class="s-trend text-2">892 ÷ 1,520</div></div>
+      <div class="s-icon orange"><i class="fa-solid fa-location-dot"></i></div>
+      <div><div class="s-label">需求最集中片区</div><div class="s-value">天元区</div>
+        <div class="s-trend">占意向登记量 71.6%</div></div>
     </div>
-    <div class="stat-card dc-alarm">
-      <div class="s-icon red"><i class="fa-solid fa-fire"></i></div>
-      <div><div class="s-label">供需比最高楼盘</div><div class="s-value">湘江1958</div>
-        <div class="s-trend ">供需比 3.42　热点</div></div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-house"></i></div>
+      <div><div class="s-label">需求最集中户型</div><div class="s-value">单间配套</div>
+        <div class="s-trend">占意向登记量 41.2%</div></div>
     </div>
   </div>
 
-  <div class="card list-card" data-tabs-scope>
-    <div class="tabs" style="margin-bottom:0;padding:8px 12px 0">
-      <div class="tab active" data-tab="proj">按楼盘 <span class="badge blue">6</span></div>
-      <div class="tab" data-tab="room">按户型 <span class="badge blue">5</span></div>
-      <div class="tab" data-tab="area">按区域 <span class="badge blue">6</span></div>
+  <div class="card">
+    <div class="card-head">
+      <h3><i class="fa-solid fa-chart-simple"></i> 分区域需求分布</h3>
+      <span class="sub">S01 · 需求摸底 · 共 486 人次</span>
     </div>
+    <div class="card-body">
+      <div class="dc-bars wide">
+        <div class="b-item"><span class="b-label">天元区（湘江1958、栗雨佳苑）</span><span class="b-track"><span class="b-fill" style="width:100%"></span></span><span class="b-val">348 人次</span></div>
+        <div class="b-item"><span class="b-label">荷塘区（茨菇塘公寓）</span><span class="b-track"><span class="b-fill" style="width:19.5%"></span></span><span class="b-val">68 人次</span></div>
+        <div class="b-item"><span class="b-label">石峰区（清水塘新苑）</span><span class="b-track"><span class="b-fill" style="width:12.1%"></span></span><span class="b-val">42 人次</span></div>
+        <div class="b-item"><span class="b-label">经开区（云龙人才苑）</span><span class="b-track"><span class="b-fill" style="width:5.2%"></span></span><span class="b-val">18 人次</span></div>
+        <div class="b-item"><span class="b-label">芦淞区（董家塅安居苑）</span><span class="b-track"><span class="b-fill" style="width:2.9%"></span></span><span class="b-val">10 人次</span></div>
+      </div>
+      <p class="hint" style="margin-top:10px"><i class="fa-solid fa-circle-info"></i> 天元区占七成以上，与产业与就业岗位分布一致，是下一步房源筹集的重点方向；芦淞区、经开区需求偏低，宜控制新增规模、优先消化存量。</p>
+    </div>
+  </div>
 
-    <div class="tab-panel active" data-panel="proj">
-      <div class="card-body" style="padding:0">
-        <div class="filter-bar">
-          <div class="filter-item"><label>楼盘</label><input type="text" value="" placeholder="楼盘名称"></div>
-          <div class="filter-item"><label>区域</label><select data-dict="district" data-ph="全部"></select></div>
-          <div class="filter-item"><label>热度等级</label><select><option value="">全部</option><option>高热</option><option>中热</option><option>平热</option></select></div>
-          <div class="filter-item"><label>统计区间</label><input type="month" value="2026-09"></div>
-          <div class="filter-actions">
-            <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
-            <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
-          </div>
-        </div>
-        <div class="table-wrap">
-          <table class="data-table">
-            <thead>
-              <tr><th class="cell-lg">楼盘</th><th>区域</th><th class="num">可选间数</th><th class="num">预约量</th><th class="num">轮候量</th><th class="num">供需比</th><th class="num">转申请数</th><th class="num">转申请率</th><th>热度等级</th><th class="cell-lg">投放建议</th></tr>
-            </thead>
-            <tbody>
-              <tr class="row-bad"><td class="cell-lg">湘江1958 人才公寓</td><td>天元区</td><td class="num">126</td><td class="num">431</td><td class="num">196</td><td class="num">3.42</td><td class="num">268</td><td class="num">62.2%</td><td><span class="badge red">高热</span></td><td class="cell-lg"><b>优先加大投放</b>：泰山路片区地铁与产业配套最优，建议下批次新增投放 80 间，并优先安排二室一厅按间拆分房源</td></tr>
-              <tr class="row-bad"><td class="cell-lg">云龙人才公寓</td><td>经开区</td><td class="num">108</td><td class="num">302</td><td class="num">132</td><td class="num">2.80</td><td class="num">184</td><td class="num">60.9%</td><td><span class="badge red">高热</span></td><td class="cell-lg"><b>优先加大投放</b>：云龙示范区新入职人才集中，建议新增投放 60 间，配套通勤班车宣传</td></tr>
-              <tr class="row-warn"><td class="cell-lg">栗雨佳苑</td><td>天元区</td><td class="num">94</td><td class="num">216</td><td class="num">94</td><td class="num">2.30</td><td class="num">132</td><td class="num">61.1%</td><td><span class="badge red">高热</span></td><td class="cell-lg">优先加大投放：建议新增投放 40 间，与湘江1958 形成天元区连片供给</td></tr>
-              <tr class="row-warn"><td class="cell-lg">田心人才公寓</td><td>石峰区</td><td class="num">136</td><td class="num">248</td><td class="num">88</td><td class="num">1.82</td><td class="num">142</td><td class="num">57.3%</td><td><span class="badge orange">中热</span></td><td class="cell-lg">维持现有投放，补齐 VR 全景与实景照片素材，提升预约转化</td></tr>
-              <tr><td class="cell-lg">董家塅人才公寓</td><td>芦淞区</td><td class="num">112</td><td class="num">186</td><td class="num">62</td><td class="num">1.66</td><td class="num">102</td><td class="num">54.8%</td><td><span class="badge orange">中热</span></td><td class="cell-lg">维持现有投放，优先完成 42 间整改验收后再上架</td></tr>
-              <tr><td class="cell-lg">清水塘·未来社区</td><td>石峰区</td><td class="num">110</td><td class="num">137</td><td class="num">38</td><td class="num">1.25</td><td class="num">64</td><td class="num">46.7%</td><td><span class="badge blue">平热</span></td><td class="cell-lg">暂缓新增投放：转化率偏低，建议加强片区商业与学校配套宣传，引导跨区选房消化</td></tr>
-              <tr><td class="cell-lg"><span class="badge green">合计</span> <b>全市 6 个楼盘</b></td><td>—</td><td class="num">686</td><td class="num">1,520</td><td class="num">610</td><td class="num">2.22</td><td class="num">892</td><td class="num">58.7%</td><td><span class="badge orange">整体偏热</span></td><td class="cell-lg">全市可选间数不足预约量的一半，建议下一批次合计新增投放 180 间，向天元区与经开区倾斜</td></tr>
-            </tbody>
-          </table>
-        </div>
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>统计期间</label><select><option value="">全部</option><option>近 30 天</option><option>近 90 天</option><option>本年度</option></select></div>
+      <div class="filter-item"><label>所在区</label><select><option value="">全部</option><option>天元区</option><option>荷塘区</option><option>芦淞区</option><option>石峰区</option><option>经开区</option></select></div>
+      <div class="filter-item"><label>楼盘</label><select><option value="">全部</option><option>湘江1958 人才公寓</option><option>栗雨佳苑人才公寓</option><option>茨菇塘公寓</option><option>清水塘新苑</option><option>云龙人才苑</option><option>董家塅安居苑</option></select></div>
+      <div class="filter-item"><label>户型</label><select><option value="">全部</option><option>单间配套</option><option>一室一厅</option><option>二室一厅</option><option>三室一厅</option></select></div>
+      <div class="filter-item"><label>人才类型</label><select><option value="">全部</option><option>就业青年人才</option><option>创业青年人才</option><option>特殊人才</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
       </div>
     </div>
-
-    <div class="tab-panel" data-panel="room">
-      <div class="card-body" style="padding:0">
-        <div class="filter-bar">
-          <div class="filter-item"><label>室厅结构</label><select data-dict="roomStruct" data-ph="全部"></select></div>
-          <div class="filter-item"><label>区域</label><select data-dict="district" data-ph="全部"></select></div>
-          <div class="filter-item"><label>统计区间</label><input type="month" value="2026-09"></div>
-          <div class="filter-actions">
-            <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
-            <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
-          </div>
-        </div>
-        <div class="table-wrap">
-          <table class="data-table">
-            <thead>
-              <tr><th>室厅结构</th><th class="num">可选间数</th><th class="num">预约量</th><th class="num">供需比</th><th class="num">转申请数</th><th class="num">转申请率</th><th class="num">平均等待</th><th class="num">建议筹集占比</th><th class="cell-lg">需求特征与筹集建议</th></tr>
-            </thead>
-            <tbody>
-              <tr class="row-bad"><td>一室一厅</td><td class="num">128</td><td class="num">386</td><td class="num">3.02</td><td class="num">232</td><td class="num">60.1%</td><td class="num">26 天</td><td class="num">20%</td><td class="cell-lg"><b>供需比最高</b>：独立成套、私密性最好，是刚入职单身人才的首选，建议筹集时优先保障</td></tr>
-              <tr class="row-bad"><td>二室一厅</td><td class="num">268</td><td class="num">642</td><td class="num">2.40</td><td class="num">386</td><td class="num">60.1%</td><td class="num">32 天</td><td class="num">42%</td><td class="cell-lg"><b>预约总量最大</b>：按间拆分后单间租金最低、可选量最多，是按间配租的主力户型，建议作为筹集重点</td></tr>
-              <tr class="row-warn"><td>三室一厅</td><td class="num">112</td><td class="num">246</td><td class="num">2.20</td><td class="num">138</td><td class="num">56.1%</td><td class="num">22 天</td><td class="num">18%</td><td class="cell-lg">拆三间后公摊按间均分，单间计租面积适中，适合合租需求，建议适度增加</td></tr>
-              <tr><td>单间配套</td><td class="num">96</td><td class="num">142</td><td class="num">1.48</td><td class="num">78</td><td class="num">54.9%</td><td class="num">14 天</td><td class="num">10%</td><td class="cell-lg">等待时间最短、随时可入住，但空间局促，适合短期过渡型保障，不宜大量新增</td></tr>
-              <tr><td>三室两厅</td><td class="num">82</td><td class="num">104</td><td class="num">1.27</td><td class="num">58</td><td class="num">55.8%</td><td class="num">18 天</td><td class="num">10%</td><td class="cell-lg">总面积大、公摊分摊后单间计租面积偏高，热度一般，维持现有规模即可</td></tr>
-              <tr><td><span class="badge green">合计</span></td><td class="num">686</td><td class="num">1,520</td><td class="num">2.22</td><td class="num">892</td><td class="num">58.7%</td><td class="num">26 天</td><td class="num">100%</td><td class="cell-lg">一室一厅与二室一厅合计承载 67.6% 的预约量，下一批次筹集应以这两类为主，合计占比不低于 62%</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>所在区</th><th class="cell-lg">楼盘</th><th class="num">意向登记量</th><th>占比</th><th class="num">转正式申请数</th><th>转正式申请率</th><th>主要意向户型</th><th>主要人才类型</th><th>需求判断</th><th class="cell-lg">筹集与投放建议</th></tr>
+        </thead>
+        <tbody>
+          <tr class="row-bad"><td>天元区</td><td>湘江1958 人才公寓</td><td class="num">236</td><td>48.6%</td><td class="num">152</td><td>64.4%</td><td>单间配套</td><td>就业青年人才</td><td><span class="badge red">需求高度集中</span></td><td><b>优先筹集与投放</b>：二期新增房源向单间配套倾斜，按间配租提高利用率</td></tr>
+          <tr class="row-warn"><td>天元区</td><td>栗雨佳苑人才公寓</td><td class="num">112</td><td>23.0%</td><td class="num">68</td><td>60.7%</td><td>一室一厅</td><td>就业青年人才</td><td><span class="badge orange">需求较集中</span></td><td>维持投放节奏，优先消化空置间；一室一厅可适度增加</td></tr>
+          <tr><td>荷塘区</td><td>茨菇塘公寓</td><td class="num">68</td><td>14.0%</td><td class="num">42</td><td>61.8%</td><td>一室一厅</td><td>创业青年人才</td><td><span class="badge green">需求一般</span></td><td>按现有规模投放，配合园区创业企业做定向宣传</td></tr>
+          <tr><td>石峰区</td><td>清水塘新苑</td><td class="num">42</td><td>8.6%</td><td class="num">26</td><td>61.9%</td><td>二室一厅</td><td>就业青年人才</td><td><span class="badge blue">需求偏低</span></td><td>控制新增，加强通勤与配套宣传；空置间较多，优先消化存量</td></tr>
+          <tr><td>经开区</td><td>云龙人才苑</td><td class="num">18</td><td>3.7%</td><td class="num">10</td><td>55.6%</td><td>单间配套</td><td>创业青年人才</td><td><span class="badge blue">需求偏低</span></td><td>暂不新增，转向园区用人单位集中摸底后再定投放</td></tr>
+          <tr><td>芦淞区</td><td>董家塅安居苑</td><td class="num">10</td><td>2.1%</td><td class="num">5</td><td>50.0%</td><td>二室一厅</td><td>特殊人才</td><td><span class="badge blue">需求偏低</span></td><td>暂不新增；存量混住套腾退后按同性别重新投放</td></tr>
+          <tr><td><b>合计</b></td><td>全市 6 个楼盘</td><td class="num"><b>486</b></td><td><b>100%</b></td><td class="num"><b>303</b></td><td><b>62.3%</b></td><td>单间配套 41.2%</td><td>就业青年人才 62.1%</td><td><span class="badge green">需求集中于天元区</span></td><td>新增筹集向<b>天元区 + 单间配套与一室一厅</b>倾斜</td></tr>
+        </tbody>
+      </table>
     </div>
+  </div>
 
-    <div class="tab-panel" data-panel="area">
-      <div class="card-body" style="padding:0">
-        <div class="filter-bar">
-          <div class="filter-item"><label>区域</label><select data-dict="district" data-ph="全部"></select></div>
-          <div class="filter-item"><label>有无可选房源</label><select><option value="">全部</option><option>有可选房源</option><option>无可选房源</option></select></div>
-          <div class="filter-item"><label>统计区间</label><input type="month" value="2026-09"></div>
-          <div class="filter-actions">
-            <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
-            <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
-          </div>
-        </div>
-        <div class="table-wrap">
-          <table class="data-table">
-            <thead>
-              <tr><th>区域</th><th class="num">可选间数</th><th class="num">预约量</th><th class="num">供需比</th><th class="num">转申请数</th><th class="num">转申请率</th><th class="num">无房源意向登记</th><th class="num">缺口</th><th class="cell-lg">建议投放</th></tr>
-            </thead>
-            <tbody>
-              <tr class="row-bad"><td>天元区</td><td class="num">220</td><td class="num">647</td><td class="num">2.94</td><td class="num">400</td><td class="num">61.8%</td><td class="num">—</td><td class="num">-427</td><td class="cell-lg"><b>缺口最大</b>：栗雨与泰山路片区产业人才最集中，建议下一批次投放 200 间，以一室一厅、二室一厅为主</td></tr>
-              <tr class="row-bad"><td>经开区</td><td class="num">108</td><td class="num">302</td><td class="num">2.80</td><td class="num">184</td><td class="num">60.9%</td><td class="num">—</td><td class="num">-194</td><td class="cell-lg"><b>优先投放</b>：云龙示范区在建产业园入职人才增长快，建议投放 120 间并同步配套通勤保障</td></tr>
-              <tr class="row-warn"><td>石峰区</td><td class="num">246</td><td class="num">385</td><td class="num">1.57</td><td class="num">206</td><td class="num">53.5%</td><td class="num">—</td><td class="num">-139</td><td class="cell-lg">可选量充足但转化率偏低，建议先补齐 VR 与实景素材、加强配套宣传，再投放 60 间</td></tr>
-              <tr class="row-warn"><td>芦淞区</td><td class="num">112</td><td class="num">186</td><td class="num">1.66</td><td class="num">102</td><td class="num">54.8%</td><td class="num">—</td><td class="num">-74</td><td class="cell-lg">先完成董家塅 42 间整改验收上架即可缓解，再视情投放 60 间</td></tr>
-              <tr class="row-warn"><td>荷塘区</td><td class="num">0</td><td class="num">0</td><td class="num">—</td><td class="num">0</td><td class="num">—</td><td class="num">152</td><td class="num">-152</td><td class="cell-lg"><b>本期无可预约房源</b>但意向登记 152 人，建议优先筹集 90 间，可从园区公租房纳管渠道解决</td></tr>
-              <tr><td>渌口区</td><td class="num">0</td><td class="num">0</td><td class="num">—</td><td class="num">0</td><td class="num">—</td><td class="num">22</td><td class="num">-22</td><td class="cell-lg">意向登记量小且分散，暂缓投放，引导跨区选择天元区、石峰区房源</td></tr>
-              <tr><td><span class="badge green">合计</span></td><td class="num">686</td><td class="num">1,520</td><td class="num">2.22</td><td class="num">892</td><td class="num">58.7%</td><td class="num">174</td><td class="num">-1,008</td><td class="cell-lg">区域冷热不均是主要矛盾：天元区与经开区严重供不应求，荷塘区完全无房源可选，石峰区可选量充足但转化不足</td></tr>
-            </tbody>
-          </table>
-        </div>
+  <div class="sp-block" style="margin-top:12px">
+    <div class="sp-h"><i class="fa-solid fa-list"></i> 按户型的需求结构<span class="sub">意向登记只登记到楼盘与户型，不指定具体房源</span></div>
+    <div class="sp-b">
+      <div class="sp-tw">
+        <table class="data-table compact">
+          <thead><tr><th>意向户型</th><th class="num">意向登记量</th><th>占比</th><th class="num">转正式申请数</th><th>转正式申请率</th><th>需求判断</th><th class="cell-lg">筹集建议</th></tr></thead>
+          <tbody>
+          <tr class="row-bad"><td>单间配套</td><td class="num">200</td><td>41.2%</td><td class="num">124</td><td>62.0%</td><td><span class="badge red">最集中</span></td><td>单身青年人才为主体，<b>新增筹集优先</b>；也可用二室、三室<b>按间拆分</b>补充供给</td></tr>
+          <tr class="row-warn"><td>一室一厅</td><td class="num">156</td><td>32.1%</td><td class="num">102</td><td>65.4%</td><td><span class="badge orange">较集中</span></td><td>转正式申请率最高，<b>意愿最实</b>，建议与单间配套并列为筹集重点</td></tr>
+          <tr><td>二室一厅</td><td class="num">96</td><td>19.8%</td><td class="num">56</td><td>58.3%</td><td><span class="badge green">一般</span></td><td>家庭申请与合住两类需求；按间配租时须满足<b>同套同性别</b>，投放前核对本套在住性别</td></tr>
+          <tr><td>三室一厅</td><td class="num">34</td><td>7.0%</td><td class="num">21</td><td>61.8%</td><td><span class="badge blue">偏低</span></td><td>仅适用按间配租，暂不建议新增；已有房源按间拆分投放</td></tr>
+          <tr><td><b>合计</b></td><td class="num"><b>486</b></td><td><b>100%</b></td><td class="num"><b>303</b></td><td><b>62.3%</b></td><td><span class="badge green">小户型为主</span></td><td>单间配套与一室一厅合计占 <b>73.3%</b>，是筹集与投放的主方向</td></tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
 
   <div class="sp-block" style="margin-top:12px">
-    <div class="sp-h"><i class="fa-solid fa-list"></i> 投放建议口径<span class="sub">供需比与转化率的计算方式及分级标准</span></div>
+    <div class="sp-h"><i class="fa-solid fa-list"></i> 按人才类型的需求结构<span class="sub">与人才认定类型一致</span></div>
     <div class="sp-b">
       <div class="sp-tw">
         <table class="data-table compact">
-          <thead><tr><th>指标</th><th class="cell-lg">计算口径</th><th class="cell-lg">分级标准与处置建议</th></tr></thead>
+          <thead><tr><th>人才类型</th><th class="num">意向登记量</th><th>占比</th><th class="num">转正式申请数</th><th>转正式申请率</th><th>主要意向户型</th><th class="cell-lg">需求特征与投放提示</th></tr></thead>
           <tbody>
-            <tr><td><b>供&nbsp;需&nbsp;比</b></td><td class="cell-lg"><b>供需比 ＝ 预约量 ÷ 可选间数</b>。可选间数为统计区间内<b>已审核发布且状态可预约的间数</b>（按间统计，一套三室两厅计 3 间）；预约量为同期<b>有效预约人次</b>，已取消与重复预约不计入</td><td class="cell-lg"><span class="badge red">高热</span> 供需比 ≥ 2.0，判定为<b>热点，优先加大投放</b>；<span class="badge orange">中热</span> 1.5 ≤ 供需比 &lt; 2.0，维持现有投放；<span class="badge blue">平热</span> 供需比 &lt; 1.5，暂缓新增投放</td></tr>
-            <tr><td><b>转申请率</b></td><td class="cell-lg"><b>转申请率 ＝ 预约后提交申请件数 ÷ 预约量</b>。同一人多次预约同一楼盘只计 1 次；跨楼盘预约分别计入各楼盘</td><td class="cell-lg">转化率 <b>&lt; 40%</b> 的须<b>核查预约质量</b>：排查是否存在素材缺失、房型描述与实际不符、租金标准展示不清、恶意占号等情形</td></tr>
-            <tr><td><b>缺&nbsp;&nbsp;&nbsp;&nbsp;口</b></td><td class="cell-lg"><b>缺口 ＝ 预约量 ＋ 无房源意向登记数 − 可选间数</b>。无房源意向登记指该区域暂无可预约房源、由申请人登记意向片区形成的潜在需求</td><td class="cell-lg">缺口为负值表示供不应求，按缺口绝对值排序确定投放优先级；缺口为正值的区域引导跨区选房消化</td></tr>
-            <tr><td><b>平均等待</b></td><td class="cell-lg">预约确认之日至完成选房之日的<b>平均自然日数</b>，仅统计已完成选房的预约记录</td><td class="cell-lg">平均等待超过 30 天的户型须优先扩大供给；低于 15 天的可适度控制新增</td></tr>
-            <tr><td><b>预约优先</b></td><td class="cell-lg">已预约本批次房源的申请人在配租排序时<b>优先于普通轮候</b>；同为预约的按受理时间先后排定，<b>不摇号</b></td><td class="cell-lg">预约热度数据只作为筹集与投放依据，<b>不改变配租排序规则</b></td></tr>
+          <tr><td>就业青年人才</td><td class="num">302</td><td>62.1%</td><td class="num">196</td><td>64.9%</td><td>单间配套、一室一厅</td><td>需求主体，集中在天元区大型用人单位周边；<b>通勤距离</b>是首要考虑，建议按用人单位所在片区组团投放</td></tr>
+          <tr><td>创业青年人才</td><td class="num">138</td><td>28.4%</td><td class="num">82</td><td>59.4%</td><td>一室一厅</td><td>登记后观望期较长、转化偏慢，多分布在园区与孵化基地周边；建议联合园区做政策宣讲提高转化</td></tr>
+          <tr class="row-warn"><td>特殊人才</td><td class="num">46</td><td>9.5%</td><td class="num">25</td><td>54.3%</td><td>二室一厅、三室一厅</td><td>数量少但<b>偏好大户型与家庭居住</b>，转化率最低；建议按人定向对接，避免大户型盲目筹集</td></tr>
+          <tr><td><b>合计</b></td><td class="num"><b>486</b></td><td><b>100%</b></td><td class="num"><b>303</b></td><td><b>62.3%</b></td><td>单间配套 41.2%</td><td>三类人才需求量与户型偏好差异明显，筹集结构宜按<b>就业青年人才为主</b>安排</td></tr>
           </tbody>
         </table>
       </div>
@@ -168,17 +136,19 @@
   </div>
 
   <div class="sp-src">
-    <span><b>统计区间</b> 2026 年 1 月 1 日至 2026 年 9 月 8 日累计</span>
-    <span><b>统计颗粒度</b> 房源一律按「间」统计，一套三室两厅拆为 3 间分别计入可选量</span>
-    <span><b>数据来源</b> 移动端房源预约记录 + 件池申请记录 + 轮候库，按楼盘、户型、区域三维交叉归集</span>
+    <span><b>分析用途</b> 意向登记反映真实需求规模与结构，作为下一步<b>房源筹集与投放</b>的依据</span>
+    <span><b>核心口径</b> 意向登记<b>不占用房源、不进入轮候库、不收取费用</b>，不构成配租顺序；登记只到楼盘与户型，不指定具体房源</span>
+    <span><b>转正式申请率</b> ＝ 由意向登记转为正式申请并受理的人数 ÷ 同期意向登记人数</span>
+    <span><b>指标剔除</b> 已剔除在架房源数、登记覆盖率、房源锁定等<b>房源占用相关指标</b>，本页只看需求侧</span>
+    <span><b>数据来源</b> <span class="link" onclick="location.href='../house/book-manage.html'">意向登记名单</span>　<span class="link" onclick="location.href='house-supply.html'">供需匹配分析</span>　<span class="link" onclick="location.href='house-struct.html'">房源结构分析</span></span>
   </div>
+
 </main>
 
 <script>
 (function () {
-  var totals = [7, 6, 7];
-  var list = document.querySelectorAll('main.app-main .table-wrap > table.data-table');
-  for (var i = 0; i < list.length; i++) { list[i]._total = totals[i] || 7; }
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 7; }
 })();
 </script>
 

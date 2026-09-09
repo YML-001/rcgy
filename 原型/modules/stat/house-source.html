@@ -23,127 +23,85 @@
     </div>
   </div>
 
-  <div class="alert alert-warning">
-    <i class="fa-solid fa-triangle-exclamation"></i>
-    <div>房源颗粒度已细化到<b>「间」</b>：一套三室两厅拆为三间单独计租，公摊按套内间数均分。来源构成<b>按套与按间两个口径并存展示</b>——全市 <b>2,486 套 / 4,286 间</b>（平均每套约 1.72 间）；<b>上架率、空置率、配租率均按间口径计算</b>，按套口径保留供对比。成本指标同时给出<b>单套成本与单间成本</b>。</div>
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>房源类指标同时按「套」与「间」两个口径统计并展示。颗粒度改为间后，一套三室两厅计 3 间，房源规模、上架率、空置率、配租率等指标按间重算，按套口径保留用于与既有台账衔接。</div>
+  </div>
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>分析<b>收购商品房转化、公租房盘活、保租房「一间房」</b>三类来源的<b>占比与变化趋势</b>，为筹集策略优化提供依据。</div>
   </div>
 
   <div class="stat-grid">
     <div class="stat-card">
       <div class="s-icon blue"><i class="fa-solid fa-cart-shopping"></i></div>
-      <div><div class="s-label">收购存量商品房</div><div class="s-value">1,144 套</div>
-        <div class="s-trend text-2">1,972 间　占 46.0%</div></div>
+      <div><div class="s-label">收购商品房转化</div><div class="s-value">1,144</div>
+        <div class="s-trend text-2">占 46.0%</div></div>
     </div>
     <div class="stat-card">
       <div class="s-icon green"><i class="fa-solid fa-recycle"></i></div>
-      <div><div class="s-label">公租房盘活</div><div class="s-value">836 套</div>
-        <div class="s-trend text-2">1,438 间　占 33.6%</div></div>
+      <div><div class="s-label">公租房盘活</div><div class="s-value">836</div>
+        <div class="s-trend text-2">占 33.6%</div></div>
     </div>
     <div class="stat-card">
       <div class="s-icon cyan"><i class="fa-solid fa-house-flag"></i></div>
-      <div><div class="s-label">保租房“一间房”</div><div class="s-value">506 套</div>
-        <div class="s-trend text-2">876 间　占 20.4%</div></div>
+      <div><div class="s-label">保租房“一间房”</div><div class="s-value">506</div>
+        <div class="s-trend text-2">占 20.4%</div></div>
     </div>
     <div class="stat-card">
       <div class="s-icon orange"><i class="fa-solid fa-money-bill-wave"></i></div>
-      <div><div class="s-label">平均单间成本</div><div class="s-value">103,571.26</div>
-        <div class="s-trend text-2">元/间　单套成本 178,562.51 元</div></div>
+      <div><div class="s-label">平均单套成本</div><div class="s-value">193,130.81</div>
+        <div class="s-trend text-2">元</div></div>
     </div>
   </div>
 
-  <div class="card list-card" data-tabs-scope>
-    <div class="tabs" style="margin-bottom:0;padding:8px 12px 0">
-      <div class="tab active" data-tab="src">按来源渠道 <span class="badge blue">3</span></div>
-      <div class="tab" data-tab="chart">构成与成本图</div>
+  <div class="card">
+    <div class="card-head">
+      <h3><i class="fa-solid fa-chart-pie"></i> 来源构成与成本</h3>
+      <span class="sub">S2-02 · 不重复建设省厅已有功能</span>
     </div>
-
-    <div class="tab-panel active" data-panel="src">
-      <div class="card-body" style="padding:0">
-        <div class="filter-bar">
-          <div class="filter-item"><label>来源渠道</label><select><option value="">全部</option><option>收购存量商品房</option><option>公租房盘活</option><option>保租房“一间房”</option></select></div>
-          <div class="filter-item"><label>区域</label><select data-dict="district" data-ph="全部"></select></div>
-          <div class="filter-item"><label>统计口径</label><select><option>按间与按套并存</option><option>仅按间口径</option><option>仅按套口径</option></select></div>
-          <div class="filter-actions">
-            <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
-            <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
-          </div>
+    <div class="card-body">
+      <div class="section-title" data-icon="fa-chart-pie">来源构成</div>
+      <div class="flex items-center gap-16">
+        <div class="donut" style="background:conic-gradient(var(--primary) 0% 46.0%, var(--success) 46.0% 79.6%, var(--info) 79.6% 100%)">
+          <div class="donut-hole"><b>2,486</b><span class="text-sm">房源总量</span></div>
         </div>
-        <div class="table-wrap">
-          <table class="data-table">
-            <thead>
-              <tr><th class="cell-lg">来源渠道</th><th class="num">房源套数</th><th class="num">房源间数</th><th class="num">占比（套）</th><th class="num">占比（间）</th><th class="num">平均每套间数</th><th class="num">累计投入（元）</th><th class="num">单套成本（元）</th><th class="num">单间成本（元）</th><th class="cell-lg">管理边界</th><th>下钻</th></tr>
-            </thead>
-            <tbody>
-              <tr><td class="cell-lg"><span class="badge blue">收购存量商品房</span></td><td class="num">1,144</td><td class="num">1,972</td><td class="num">46.0%</td><td class="num">46.0%</td><td class="num">1.72</td><td class="num">346,076,016.00</td><td class="num">302,514.00</td><td class="num">175,494.94</td><td class="cell-lg"><b>全流程管理</b>：计划、踏勘、评估定价、审批、合同、付款、过户、验收，交付后按间拆分建账</td><td><span class="link" onclick="location.href='../house/source-ledger.html'">来源台账</span></td></tr>
-              <tr><td class="cell-lg"><span class="badge green">公租房盘活</span></td><td class="num">836</td><td class="num">1,438</td><td class="num">33.6%</td><td class="num">33.6%</td><td class="num">1.72</td><td class="num">97,830,392.00</td><td class="num">117,022.00</td><td class="num">68,032.26</td><td class="cell-lg"><b>调用 + 盘活登记</b>：调用闲置房源清单与状态，登记原属性与现用途，按间重新登记计租面积</td><td><span class="link" onclick="location.href='../house/src-gzf.html'">公租房调用</span></td></tr>
-              <tr><td class="cell-lg"><span class="badge cyan">保租房“一间房”</span></td><td class="num">506</td><td class="num">876</td><td class="num">20.4%</td><td class="num">20.4%</td><td class="num">1.73</td><td class="num">0.00</td><td class="num">0.00</td><td class="num">0.00</td><td class="cell-lg"><b>仅归集展示</b>：省住建厅已开发面向人才引进的「一间房」功能，本平台不重复建设，按间归集</td><td><span class="link" onclick="location.href='../house/src-bzf.html'">保租房调用</span></td></tr>
-              <tr><td class="cell-lg"><span class="badge green">合计</span> <b>三类来源</b></td><td class="num">2,486</td><td class="num">4,286</td><td class="num">100.0%</td><td class="num">100.0%</td><td class="num">1.72</td><td class="num">443,906,408.00</td><td class="num">178,562.51</td><td class="num">103,571.26</td><td class="cell-lg">三类来源在统一楼盘表中按来源打标归集，套级与间级台账双轨记录，原属性与现用途并存</td><td><span class="link" onclick="location.href='../house/src-tag.html'">来源与属性打标</span></td></tr>
-            </tbody>
-          </table>
+        <div class="legend" style="flex:1">
+          <div class="lg-item"><span class="lg-color" style="background:var(--primary)"></span> 收购商品房转化　1,144 间　46.0%</div>
+          <div class="lg-item"><span class="lg-color" style="background:var(--success)"></span> 公租房盘活　836 间　33.6%</div>
+          <div class="lg-item"><span class="lg-color" style="background:var(--info)"></span> 保租房“一间房”　506 间　20.4%</div>
         </div>
       </div>
-    </div>
-
-    <div class="tab-panel" data-panel="chart">
-      <div class="dc-scroll">
-        <div class="section-title" data-icon="fa-chart-pie">来源构成（按间口径 · 4,286 间）</div>
-        <div class="flex items-center gap-16">
-          <div class="donut" style="background:conic-gradient(var(--primary) 0% 46.0%, var(--success) 46.0% 79.6%, var(--info) 79.6% 100%)">
-            <div class="donut-hole"><b>4,286</b><span class="text-sm">房源间数</span></div>
-          </div>
-          <div class="legend" style="flex:1">
-            <div class="lg-item"><span class="lg-color" style="background:var(--primary)"></span> 收购存量商品房　1,972 间（1,144 套）　46.0%</div>
-            <div class="lg-item"><span class="lg-color" style="background:var(--success)"></span> 公租房盘活　1,438 间（836 套）　33.6%</div>
-            <div class="lg-item"><span class="lg-color" style="background:var(--info)"></span> 保租房“一间房”　876 间（506 套）　20.4%</div>
-          </div>
-        </div>
-        <div class="section-title" data-icon="fa-chart-pie" style="margin-top:14px">来源构成（按套口径 · 2,486 套 · 对比）</div>
-        <div class="flex items-center gap-16">
-          <div class="donut" style="background:conic-gradient(var(--primary) 0% 46.0%, var(--success) 46.0% 79.6%, var(--info) 79.6% 100%)">
-            <div class="donut-hole"><b>2,486</b><span class="text-sm">房源套数</span></div>
-          </div>
-          <div class="legend" style="flex:1">
-            <div class="lg-item"><span class="lg-color" style="background:var(--primary)"></span> 收购存量商品房　1,144 套　46.0%</div>
-            <div class="lg-item"><span class="lg-color" style="background:var(--success)"></span> 公租房盘活　836 套　33.6%</div>
-            <div class="lg-item"><span class="lg-color" style="background:var(--info)"></span> 保租房“一间房”　506 套　20.4%</div>
-          </div>
-        </div>
-        <div class="section-title" data-icon="fa-chart-simple" style="margin-top:14px">三类来源单间成本对比</div>
-        <div class="dc-bars wide">
-          <div class="b-item"><span class="b-label">收购存量商品房　175,494.94 元/间</span><span class="b-track"><span class="b-fill warn" style="width:100%"></span></span><span class="b-val">成本最高，房源品质与位置最优</span></div>
-          <div class="b-item"><span class="b-label">公租房盘活　68,032.26 元/间</span><span class="b-track"><span class="b-fill" style="width:38.8%"></span></span><span class="b-val">成本最低，需投入装修与家电配置</span></div>
-          <div class="b-item"><span class="b-label">保租房“一间房”　本平台零成本</span><span class="b-track"><span class="b-fill" style="width:0%"></span></span><span class="b-val">省厅已建，本平台只做按间归集展示</span></div>
-        </div>
-        <p class="hint" style="margin-top:10px">
-          <i class="fa-solid fa-circle-info"></i>
-          按间口径与按套口径的<b>来源占比完全一致</b>（三类来源平均每套间数均在 1.72—1.73 之间），说明来源结构不受颗粒度调整影响；但<b>单间成本比单套成本低约 42%</b>，按间摊薄后收购渠道的性价比明显改善，可作为下一步筹集决策的参考。
-        </p>
+      <div class="section-title" data-icon="fa-chart-simple">三类来源成本对比</div>
+      <div class="dc-bars">
+        <div class="b-item warn"><span class="b-label">收购商品房转化　单套成本 302,514 元</span><span class="b-track"><span class="b-fill" style="width:100%"></span></span><span class="b-val">成本最高，但房源品质与位置最优</span></div>
+        <div class="b-item"><span class="b-label">公租房盘活　单套成本 117,022 元</span><span class="b-track"><span class="b-fill" style="width:38.7%"></span></span><span class="b-val">成本最低，需投入装修与家电配置</span></div>
+        <div class="b-item"><span class="b-label">保租房“一间房”　本系统零成本</span><span class="b-track"><span class="b-fill" style="width:0%"></span></span><span class="b-val">省厅已建，本系统只做归集展示</span></div>
       </div>
     </div>
   </div>
-
-  <div class="sp-block" style="margin-top:12px">
-    <div class="sp-h"><i class="fa-solid fa-scale-balanced"></i> 按套与按间双口径对照<span class="sub">房源颗粒度细化到「间」后的指标口径调整</span></div>
-    <div class="sp-b">
-      <div class="sp-tw">
-        <table class="data-table compact">
-          <thead><tr><th>指标</th><th class="num">按套口径</th><th class="num">按间口径</th><th class="cell-lg">口径说明</th></tr></thead>
-          <tbody>
-            <tr><td><b>房源规模</b></td><td class="num">2,486 套</td><td class="num">4,286 间</td><td class="cell-lg">一套三室两厅拆为 A、B、C 三间单独计租；全市平均每套约 <b>1.72 间</b></td></tr>
-            <tr><td><b>已上架</b></td><td class="num">2,286 套</td><td class="num">3,942 间</td><td class="cell-lg"><b>上架率</b>：按套 91.9%、<b>按间 92.0%</b>。审核发布后移动端可见</td></tr>
-            <tr><td><b>已配租</b></td><td class="num">1,842 套</td><td class="num">2,986 间</td><td class="cell-lg"><b>配租率</b>：按套 80.6%（套内至少一间在租即计入）、<b>按间 75.7%</b></td></tr>
-            <tr><td><b>空&nbsp;&nbsp;&nbsp;&nbsp;置</b></td><td class="num">444 套</td><td class="num">956 间</td><td class="cell-lg"><b>空置率</b>：按套 19.4%（整套无人在租）、<b>按间 24.3%</b>，按间更能反映真实可配租余量</td></tr>
-            <tr><td><b>成本口径</b></td><td class="num">178,562.51 元/套</td><td class="num">103,571.26 元/间</td><td class="cell-lg">含收购价款 + 装修与家电配置投入；保租房归集本平台零成本。单间成本 ＝ 累计投入 ÷ 间数</td></tr>
-            <tr><td><b>并存展示</b></td><td class="num">保留供对比</td><td class="num">主口径</td><td class="cell-lg">上架率、空置率、配租率<b>均按间口径计算</b>；按套口径保留用于与历史数据、上级报表口径对比，两个口径同表并列展示</td></tr>
-          </tbody>
-        </table>
-      </div>
+  <div class="card list-card">
+    <div class="card-head">
+      <h3><i class="fa-solid fa-table-list"></i> 明细下钻</h3>
+      <span class="sub">可逐级下钻至明细清单</span>
+    </div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>来源渠道</th><th>房源套数</th><th>占比</th><th>累计投入</th><th>单套成本</th><th>数据主系统</th><th class="cell-lg">管理边界</th><th>下钻</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="badge blue">收购商品房转化</span></td><td class="num">1,144</td><td><span class="badge blue">46.0%</span></td><td class="num">346,076,000.00</td><td class="num">302,514.00</td><td>本系统</td><td><b>全流程管理</b>：收购计划、踏勘、评估定价、审批、合同、付款、过户、验收</td><td><span class="link" onclick="PMS.toast('该功能不在本期建设范围')">收购管理</span></td></tr>
+          <tr><td><span class="badge green">公租房盘活</span></td><td class="num">836</td><td><span class="badge green">33.6%</span></td><td class="num">97,830,400.00</td><td class="num">117,022.00</td><td>公租房管理系统</td><td><b>调用 + 盘活审批</b>：调用闲置房源清单与状态，登记盘活审批与原属性</td><td><span class="link" onclick="location.href='../house/src-gzf.html'">公租房调用</span></td></tr>
+          <tr><td><span class="badge cyan">保租房“一间房”</span></td><td class="num">506</td><td><span class="badge cyan">20.4%</span></td><td class="num">0.00</td><td class="num">0.00</td><td>省保障性租赁住房系统</td><td><b>仅归集展示</b>：省厅已开发面向人才引进的「一间房」功能，本系统不重复建设</td><td><span class="link" onclick="location.href='../house/src-bzf.html'">保租房调用</span></td></tr>
+          <tr><td><span class="badge orange">合计</span></td><td class="num">2,486</td><td><span class="badge green">100%</span></td><td class="num">443,906,400.00</td><td class="num">178,562.75</td><td><span class="muted">—</span></td><td>三类来源在统一楼盘表中按来源打标归集，原属性与现用途双轨记录</td><td><span class="link" onclick="location.href='../house/src-tag.html'">来源与属性打标</span></td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
-
   <div class="sp-src">
-    <span><b>不重复建设</b> 省住建厅已开发的保租房「一间房」房源管理功能不重复建设，本平台只按间归集展示</span>
-    <span><b>成本口径</b> 含收购价款 + 装修与家电配置投入；同时给出单套成本与单间成本</span>
+    <span><b>不重复建设</b> 省住建厅已开发的保租房「一间房」房源管理功能不重复建设</span>
+    <span><b>成本口径</b> 含收购价款 + 装修与家电配置投入；保租房归集本系统零成本</span>
     <span><b>资金标注</b> <span class="link" onclick="location.href='../house/fund-source.html'">资金来源标注</span></span>
   </div>
 </main>

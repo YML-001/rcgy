@@ -19,30 +19,32 @@
       <span class="sep">/</span> <span class="cur">合同要素台账</span>
     </div>
     <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.openDrawer('xsDrawer')"><i class="fa-solid fa-upload"></i> 上传线下合同</button>
+      <a class="btn" href="seal-manage.html"><i class="fa-solid fa-stamp"></i> 电子签章管理</a>
       <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
     </div>
   </div>
 
   <div class="alert alert-info">
     <i class="fa-solid fa-circle-info"></i>
-    <div><b>结构化记录</b>承租人、房源、租赁面积（大户型按分摊面积）、租金标准、减免金额、保障期起止日、押金等要素，作为<b>租金计费与减免核算的唯一数据源</b>。</div>
+    <div>合同签署支持<b>两条路径</b>：<b>运营方发起电子签约</b>（企业电子签章 + 个人手机签章）；<b>上传线下已签字盖章的合同</b>（PDF 或图片）。<b>线下上传的须由运营机构核对确认后才置为“签约完成”</b>，未确认的显示<b>待运营机构核对确认</b>状态，<b>不以申请人上传动作本身作为完成依据</b>。两者<b>统一编号、统一归档</b>，均支持下载打印。合同要素为<b>租金计费与减免核算的唯一数据源</b>。</div>
   </div>
 
   <div class="stat-grid">
     <div class="stat-card">
       <div class="s-icon blue"><i class="fa-solid fa-file-contract"></i></div>
       <div><div class="s-label">在册合同</div><div class="s-value">1,286</div>
-        <div class="s-trend text-2">均已生效</div></div>
+        <div class="s-trend text-2">电子签约 1,042 + 线下上传 244</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-clipboard-check"></i></div>
+      <div><div class="s-label">待运营机构核对确认</div><div class="s-value">26</div>
+        <div class="s-trend ">线下上传 · 未确认不算签约完成</div></div>
     </div>
     <div class="stat-card">
       <div class="s-icon green"><i class="fa-solid fa-calendar-check"></i></div>
       <div><div class="s-label">保障期内</div><div class="s-value">1,242</div>
         <div class="s-trend text-2">占 96.6%</div></div>
-    </div>
-    <div class="stat-card dc-alarm">
-      <div class="s-icon orange"><i class="fa-solid fa-hourglass-half"></i></div>
-      <div><div class="s-label">届满 6 个月内</div><div class="s-value">186</div>
-        <div class="s-trend ">待发起续租复核</div></div>
     </div>
     <div class="stat-card">
       <div class="s-icon cyan"><i class="fa-solid fa-money-bill-wave"></i></div>
@@ -56,6 +58,8 @@
       <div class="filter-item"><label>合同编号</label><input type="text" placeholder="合同编号"></div>
       <div class="filter-item"><label>承租人</label><input type="text" placeholder="姓名"></div>
       <div class="filter-item"><label>房源</label><input type="text" placeholder="项目名称或房号"></div>
+      <div class="filter-item"><label>签约方式</label><select><option value="">全部</option><option>运营方发起电子签约</option><option>线下签署后上传</option></select></div>
+      <div class="filter-item"><label>核对确认</label><select><option value="">全部</option><option>无需核对（电子签约）</option><option>待运营机构核对确认</option><option>已核对确认</option><option>核对不通过退回重传</option></select></div>
       <div class="filter-item"><label>合同状态</label><select data-dict="contractStatus" data-ph="全部"></select></div>
       <div class="filter-item"><label>保障期止</label><input type="date"></div>
       <div class="filter-actions">
@@ -67,25 +71,158 @@
     <div class="table-wrap">
       <table class="data-table">
         <thead>
-          <tr><th>合同编号</th><th>承租人</th><th class="cell-lg">房源</th><th>计租面积</th><th>租金标准</th><th>应缴租金</th><th>财政补助</th><th>个人自付</th><th>押金</th><th>保障期</th><th>状态</th><th>操作</th></tr>
+          <tr><th>合同编号</th><th>承租人</th><th class="cell-lg">房源</th><th>签约方式</th><th class="cell-lg">核对确认</th><th class="num">计租面积</th><th class="num">租金标准</th><th class="num">应缴租金</th><th class="num">财政补助</th><th class="num">个人自付</th><th>保障期</th><th>状态</th><th>操作</th></tr>
         </thead>
         <tbody>
-          <tr><td>RZ2026-00862</td><td>王梓涵</td><td>湘江1958 A6-1502（一室一厅 52.60 ㎡）</td><td class="num">52.60</td><td class="num">18.00</td><td class="num">946.80</td><td class="num">662.76</td><td class="num">284.04</td><td class="num">1,000.00</td><td>2026-01-06 至 2028-01-05</td><td><span class="badge green">已生效</span></td><td><span class="link" onclick="location.href='contract-detail.html?id=RZ2026-00862'">详情</span></td></tr>
-          <tr><td>RZ2026-00742</td><td>唐雅琴</td><td>栗雨佳苑 3-1104（一室一厅 48.20 ㎡）</td><td class="num">48.20</td><td class="num">18.00</td><td class="num">867.60</td><td class="num">607.32</td><td class="num">260.28</td><td class="num">1,000.00</td><td>2026-05-18 至 2028-05-17</td><td><span class="badge green">已生效</span></td><td><span class="link" onclick="location.href='contract-detail.html?id=RZ2026-00742'">详情</span></td></tr>
-          <tr class="row-warn"><td>RZ2026-00518</td><td>周宇轩</td><td>栗雨佳苑 3-0904（一室一厅 48.20 ㎡）</td><td class="num">48.20</td><td class="num">18.00</td><td class="num">867.60</td><td class="num">607.32</td><td class="num">260.28</td><td class="num">1,000.00</td><td>2026-04-12 至 2028-04-11</td><td><span class="badge orange">待解除</span></td><td><span class="link" onclick="location.href='contract-detail.html?id=RZ2026-00518'">详情</span></td></tr>
-          <tr><td>RZ2026-00386</td><td>李子康</td><td>湘江1958 A3-1108 主卧（按间 43.20 ㎡）</td><td class="num">43.20</td><td class="num">18.00</td><td class="num">777.60</td><td class="num">544.32</td><td class="num">233.28</td><td class="num">800.00</td><td>2026-03-08 至 2028-03-07</td><td><span class="badge green">已生效</span></td><td><span class="link" onclick="location.href='contract-detail.html?id=RZ2026-00386'">详情</span></td></tr>
-          <tr class="row-bad"><td>RZ2024-00206</td><td>谭建国</td><td>栗雨佳苑 3-0608（一室一厅 46.00 ㎡）</td><td class="num">46.00</td><td class="num">18.00</td><td class="num">828.00</td><td class="num">0.00</td><td class="num">828.00</td><td class="num">1,000.00</td><td>2024-03-12 至 2026-03-11</td><td><span class="badge gray">已到期</span></td><td><span class="link" onclick="location.href='contract-detail.html?id=RZ2024-00206'">详情</span></td></tr>
+          <tr><td>RZ2026-00862</td><td>王梓涵</td><td>湘江1958 A6-1502（一室一厅 52.60 ㎡）</td><td><span class="badge blue">电子签约</span></td><td><span class="badge gray">无需核对</span>　企业签章 + 个人手机签章同步完成</td><td class="num">52.60</td><td class="num">14.00</td><td class="num">736.40</td><td class="num">420.80</td><td class="num">315.60</td><td>2026-01-06 至 2028-01-05</td><td><span class="badge green">已生效</span></td><td><span class="link" onclick="location.href='contract-detail.html?id=RZ2026-00862'">详情</span> <span class="link" onclick="PMS.toast('电子合同 PDF 已下载，可直接打印留存','success')">下载打印</span></td></tr>
+          <tr class="row-warn"><td>RZ2026-00908</td><td>邹佳琪</td><td>云龙人才苑 2-0808（单间配套 32.60 ㎡）</td><td><span class="badge cyan">线下上传</span></td><td><span class="badge orange">待运营机构核对确认</span>　承租人 2026-09-21 16:08 上传扫描件 6 页</td><td class="num">32.60</td><td class="num">14.00</td><td class="num">456.40</td><td class="num">260.80</td><td class="num">195.60</td><td>待核对确认后写入</td><td><span class="badge orange">待签约完成</span></td><td><span class="link" onclick="PMS.openDrawer('hdDrawer')">核对确认</span> <span class="link" onclick="PMS.toast('上传影像已下载，可打印后与纸质原件比对','success')">下载打印</span></td></tr>
+          <tr><td>RZ2026-00742</td><td>唐雅琴</td><td>栗雨佳苑 3-1104（一室一厅 48.20 ㎡）</td><td><span class="badge cyan">线下上传</span></td><td><span class="badge green">已核对确认</span>　彭雪梅 2026-05-16 10:22 核对无误，置为签约完成</td><td class="num">48.20</td><td class="num">14.00</td><td class="num">674.80</td><td class="num">385.60</td><td class="num">289.20</td><td>2026-05-18 至 2028-05-17</td><td><span class="badge green">已生效</span></td><td><span class="link" onclick="location.href='contract-detail.html?id=RZ2026-00742'">详情</span> <span class="link" onclick="PMS.toast('线下合同扫描件已下载，可直接打印留存','success')">下载打印</span></td></tr>
+          <tr class="row-bad"><td>RZ2026-00916</td><td>贺子豪</td><td>董家塅安居苑 2-1106 次卧（按间 22.80 ㎡）</td><td><span class="badge cyan">线下上传</span></td><td><span class="badge red">核对不通过</span>　缺甲方骑缝章、第 4 页字迹不清，已退回重传</td><td class="num">22.80</td><td class="num">14.00</td><td class="num">319.20</td><td class="num">182.40</td><td class="num">136.80</td><td><span class="muted">—</span></td><td><span class="badge orange">待签约完成</span></td><td><span class="link" onclick="PMS.openDrawer('hdDrawer')">核对确认</span> <span class="link" onclick="PMS.toast('已短信通知承租人与运营机构重新上传合规影像','success')">催办重传</span></td></tr>
+          <tr class="row-warn"><td>RZ2026-00518</td><td>周宇轩</td><td>栗雨佳苑 3-0904（一室一厅 48.20 ㎡）</td><td><span class="badge blue">电子签约</span></td><td><span class="badge gray">无需核对</span></td><td class="num">48.20</td><td class="num">14.00</td><td class="num">674.80</td><td class="num">385.60</td><td class="num">289.20</td><td>2026-04-12 至 2028-04-11</td><td><span class="badge orange">待解除</span></td><td><span class="link" onclick="location.href='contract-detail.html?id=RZ2026-00518'">详情</span> <span class="link" onclick="PMS.toast('电子合同 PDF 已下载，可直接打印留存','success')">下载打印</span></td></tr>
+          <tr><td>RZ2026-00386</td><td>李子康</td><td>湘江1958 A3-1108 主卧（按间 43.20 ㎡）</td><td><span class="badge blue">电子签约</span></td><td><span class="badge gray">无需核对</span></td><td class="num">43.20</td><td class="num">14.00</td><td class="num">604.80</td><td class="num">345.60</td><td class="num">259.20</td><td>2026-03-08 至 2028-03-07</td><td><span class="badge green">已生效</span></td><td><span class="link" onclick="location.href='contract-detail.html?id=RZ2026-00386'">详情</span> <span class="link" onclick="PMS.toast('电子合同 PDF 已下载，可直接打印留存','success')">下载打印</span></td></tr>
+          <tr class="row-bad"><td>RZ2024-00206</td><td>谭建国</td><td>栗雨佳苑 3-0608（一室一厅 46.00 ㎡）</td><td><span class="badge cyan">线下上传</span></td><td><span class="badge green">已核对确认</span>　彭雪梅 2024-03-10 09:36 核对无误</td><td class="num">46.00</td><td class="num">14.00</td><td class="num">644.00</td><td class="num">0.00</td><td class="num">644.00</td><td>2024-03-12 至 2026-03-11</td><td><span class="badge gray">已到期</span></td><td><span class="link" onclick="location.href='contract-detail.html?id=RZ2024-00206'">详情</span> <span class="link" onclick="PMS.toast('线下合同扫描件已下载，可直接打印留存','success')">下载打印</span></td></tr>
         </tbody>
       </table>
     </div>
   </div>
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 合同签署双模式与归档口径<span class="sub">R-C1 至 R-C5 · 统一编号归档 · 均支持下载打印</span></div>
+          <div class="sp-b">
+  <div class="sp-tw">
+    <table class="data-table compact">
+      <thead><tr><th>规则</th><th class="cell-lg">环节</th><th class="cell-lg">口径</th></tr></thead>
+      <tbody>
+      <tr><td><b>R-C1</b></td><td><b>路径一 · 运营方发起电子签约</b></td><td>由<b>运营方在系统内发起</b>，甲方加盖<b>企业电子签章</b>、乙方在手机上完成<b>个人签章 + 人脸核身</b>；双方签署完成即<b>自动置为签约完成</b>并生效归档，无需另行核对。第三方 CA 服务机构提供签署存证。<b>仅已完成电子签章录入并获授权的机构可发起</b>。<span class="link" onclick="location.href='seal-manage.html'">电子签章库</span></td></tr>
+      <tr><td><b>R-C2</b></td><td><b>路径二 · 线下签署后上传</b></td><td>承租人到运营机构签署<b>纸质合同</b>，由承租人或运营机构上传<b>已签字盖章的 PDF 或图片版</b>影像；上传后合同进入<b>待运营机构核对确认</b>状态。<b>未完成电子签章录入的机构，签约环节只显示线下上传入口</b></td></tr>
+      <tr class="row-warn"><td><b>R-C3</b></td><td><b>线下上传须核对确认</b><br><span class="muted">不以上传动作为完成依据</span></td><td>线下上传的合同<b>须由运营机构逐份核对</b>纸质原件与上传影像一致、签字盖章齐全、要素填写与系统一致，<b>核对确认后才置为“签约完成”</b>；<b>不以申请人上传动作本身作为完成依据</b>。核对不通过的<b>退回重传</b>并注明原因，核对人、核对时间与结论全程留痕</td></tr>
+      <tr><td><b>R-C4</b></td><td><b>统一编号与归档</b></td><td>两条路径<b>共用同一套合同编号与归档编号规则</b>（RZ + 年份 + 流水 / GD + 年份 + RZ + 流水），归档卷内均包含<b>合同文本、签署存证或上传影像、核对确认记录、用章日志与变更协议</b>；纸质与电子档案<b>同步留存</b>。<span class="link" onclick="location.href='contract-archive.html'">合同归档与查询</span></td></tr>
+      <tr><td><b>R-C5</b></td><td>下载与打印</td><td>两条路径的合同<b>均支持下载与打印</b>，便于承租人、运营机构与主管单位留存纸质档案；含身份证号等敏感字段的批量导出需授权并全程留痕</td></tr>
+      </tbody>
+    </table>
+  </div>
+          </div>
+        </div>
   <div class="sp-src">
-    <span><b>唯一数据源</b> 合同要素是租金计费与减免核算的唯一取值来源</span>
-    <span><b>大户型口径</b> 按分摊面积计算租赁面积（管理办法第六条）</span>
-    <span><b>到期联动</b> <span class="link" onclick="location.href='expire-warn.html'">到期预警</span></span>
+    <span><b>签署双模式</b> <b>运营方发起电子签约</b>与<b>线下签署后上传</b>两条路径并存；线下上传的<b>须经运营机构核对确认后才置为签约完成</b></span>
+    <span><b>数据范围</b> 数据范围按<b>房源归属</b>控制：运营机构只能看到本机构导入与管理的房源，以及由这些房源派生的合同、账单、收缴、工单、巡检、补助、考核数据；主管单位可查看全市数据；用人单位只看本单位职工申报件。</span>
+    <span><b>唯一数据源</b> 合同要素是租金计费与减免核算的唯一取值来源；大户型按分摊面积计算租赁面积（管理办法第六条）</span>
+    <span><b>到期联动</b> <span class="link" onclick="location.href='expire-warn.html'">到期预警</span>　<span class="link" onclick="location.href='contract-archive.html'">统一编号归档</span></span>
   </div>
 </main>
 
+<div class="drawer-mask"></div>
+<div class="drawer" id="xsDrawer">
+  <div class="drawer-head">
+    <h3>上传线下已签字盖章合同</h3>
+    <span class="badge cyan">线下上传</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>上传后合同进入<b>待运营机构核对确认</b>状态，<b>不以上传动作本身作为签约完成依据</b>。须由运营机构核对纸质原件与影像一致、签字盖章齐全后，方可置为<b>签约完成</b>并生效归档。</div>
+  </div>
+
+      <div class="form-grid form-align">
+        <div class="form-item">
+          <label>合同编号 <span class="req">*</span></label>
+          <input type="text" value="RZ2026-00908" readonly>
+          <div class="hint">与电子签约共用同一套编号规则，统一归档</div>
+        </div>
+        <div class="form-item">
+          <label>配租批次 <span class="req">*</span></label>
+          <input type="text" value="PZ2026-03（自动配租 ZX2026-03-01）" readonly>
+        </div>
+        <div class="form-item">
+          <label>承租人 <span class="req">*</span></label>
+          <input type="text" value="邹佳琪" readonly>
+        </div>
+        <div class="form-item">
+          <label>租赁房源 <span class="req">*</span></label>
+          <input type="text" value="云龙人才苑 2 栋 0808（单间配套 32.60 ㎡）" readonly>
+        </div>
+        <div class="form-item">
+          <label>出租方（运营机构） <span class="req">*</span></label>
+          <input type="text" value="云龙示范区人才安居服务中心" readonly>
+          <div class="hint">该机构<b>电子签章尚未完成录入</b>，签约环节<b>只显示线下上传入口</b>；<span class="link" onclick="location.href='seal-manage.html'">签章录入进度</span></div>
+        </div>
+        <div class="form-item">
+          <label>线下签署日期 <span class="req">*</span></label>
+          <input type="date" value="2026-09-21">
+        </div>
+        <div class="form-item col-full">
+          <label>合同影像（PDF 或图片） <span class="req">*</span></label>
+          <input type="text" data-upload="1">
+          <div class="hint">须为<b>已签字盖章</b>的完整合同，含骑缝章；支持 PDF 与 JPG / PNG，单份不超过 20 MB</div>
+        </div>
+        <div class="form-item col-full">
+          <label>上传说明 <span class="req">*</span></label>
+          <textarea rows="3">承租人邹佳琪于 2026-09-21 到云龙示范区人才安居服务中心现场签署纸质租赁合同一式三份，已由双方签字并加盖公章与骑缝章，现上传扫描件 6 页，申请运营机构核对确认。</textarea>
+        </div>
+      </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'上传确认',message:'确认提交线下已签合同影像？',detail:'提交后合同进入待运营机构核对确认状态，核对确认后才置为签约完成。上传影像、上传人与上传时间全程留痕。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已上传，待运营机构核对确认后置为签约完成','success');}})"><i class="fa-solid fa-upload"></i> 提交上传</button>
+  </div>
+</div>
+
+<div class="drawer" id="hdDrawer">
+  <div class="drawer-head">
+    <h3>线下合同核对确认</h3>
+    <span class="badge orange">待核对确认</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+    <div class="sp-dual">
+      <i class="lead fa-solid fa-user-shield"></i>
+      <div>核对确认由<b>运营机构经办人</b>办理，<b>核对确认后合同才置为“签约完成”</b>并生效归档；核对人、核对时间与结论全程留痕。</div>
+      <div class="who"><span class="muted">核对人</span><b>刘海燕（云龙示范区人才安居服务中心）</b></div>
+    </div>
+
+      <div class="form-grid form-align">
+        <div class="form-item">
+          <label>合同编号 <span class="req">*</span></label>
+          <input type="text" value="RZ2026-00908" readonly>
+        </div>
+        <div class="form-item">
+          <label>承租人 <span class="req">*</span></label>
+          <input type="text" value="邹佳琪" readonly>
+        </div>
+        <div class="form-item">
+          <label>上传人 / 时间 <span class="req">*</span></label>
+          <input type="text" value="邹佳琪（承租人本人）　2026-09-21 16:08" readonly>
+        </div>
+        <div class="form-item">
+          <label>上传影像 <span class="req">*</span></label>
+          <input type="text" value="租赁合同扫描件 6 页（PDF 4.2 MB）" readonly>
+          <div class="hint"><span class="link" onclick="PMS.toast('已打开影像预览，可逐页比对纸质原件')">查看影像</span>　<span class="link" onclick="PMS.toast('影像已下载，可打印后与纸质原件比对','success')">下载打印</span></div>
+        </div>
+        <div class="form-item col-full">
+          <label>核对项 <span class="req">*</span></label>
+          <textarea rows="4" readonly>一、纸质原件与上传影像页数、内容是否一致（6 页）
+二、双方签字是否齐全，甲方公章与骑缝章是否加盖完整
+三、承租人、房源、计租面积、租金标准、保障期起止、押金等要素是否与系统一致
+四、是否为本机构管理房源，是否与本批次自动配租结果一致</textarea>
+        </div>
+        <div class="form-item col-full">
+          <label>核对结论 <span class="req">*</span></label>
+          <select><option>核对无误，置为签约完成</option><option>核对不通过，退回重传</option></select>
+          <div class="hint">核对不通过的须注明原因，系统自动短信通知承租人与运营机构重新上传</div>
+        </div>
+        <div class="form-item col-full">
+          <label>核对说明 <span class="req">*</span></label>
+          <textarea id="hdDrawerTxt" rows="3" placeholder="必填，不少于 10 字">经逐页比对，上传影像与纸质原件一致，共 6 页；双方签字齐全，甲方公章与骑缝章加盖完整；承租人、房源、计租面积 32.60 ㎡、租金标准 14.00 元/㎡·月、保障期与押金等要素均与系统一致，与本批次自动配租结果一致。核对无误，置为签约完成并归档。</textarea>
+        </div>
+      </div>
+    <p class="hint" style="margin-top:12px"><i class="fa-solid fa-circle-info"></i> 置为签约完成后，合同按统一编号归档，纸质原件由运营机构留存备查，电子档案同步入库。</p>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn" onclick="PMS.confirm({title:'退回确认',message:'确认核对不通过并退回重传？',detail:'退回后合同保持待签约完成状态，系统自动短信通知承租人与运营机构重新上传合规影像。',type:'warning',okText:'确认退回',onOk:function(){PMS.closeDrawer();PMS.toast('已退回重传并短信通知','success');}})">退回重传</button>
+    <button class="btn btn-primary" onclick="confirmOffline()"><i class="fa-solid fa-check"></i> 核对无误并置为签约完成</button>
+  </div>
+</div>
 <script>
 (function () {
   var t = document.querySelector('main.app-main .table-wrap > table.data-table');
@@ -95,5 +232,19 @@
 
 <script src="../../assets/js/app.js"></script>
 <script src="../../assets/js/spec.js"></script>
+<script>
+function confirmOffline() {
+  var t = document.getElementById('hdDrawerTxt');
+  if (t && (t.value || '').trim().length < 10) {
+    PMS.toast('核对说明为必填且不少于 10 字', 'error'); t.focus(); return;
+  }
+  PMS.confirm({
+    title: '核对确认', message: '确认核对无误并将合同置为“签约完成”？',
+    detail: '置为签约完成后合同生效并按统一编号归档，纸质原件由运营机构留存备查。核对人、核对时间与结论全程留痕，更正须走合同变更流程。',
+    type: 'warning', okText: '确认置为签约完成',
+    onOk: function () { PMS.closeDrawer(); PMS.toast('已核对确认，合同已置为签约完成并归档', 'success'); }
+  });
+}
+</script>
 </body>
 </html>

@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>线下缴费凭证审核 · 株洲市人才住房保障管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="agency" data-active="agency-25">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才住房保障管理平台
+      <span class="sep">/</span> 运营机构端
+      <span class="sep">/</span> <span class="cur">线下缴费凭证审核</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.openDrawer('dcDrawer')"><i class="fa-solid fa-cloud-arrow-up"></i> 机构代传凭证</button>
+      <a class="btn" href="pay-recon.html"><i class="fa-solid fa-right-left"></i> 收缴与对账</a>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>线下缴费凭证有<b>两条来源</b>：承租人自行转账后<b>在小程序上传</b>，或运营机构代收现金／转账后<b>在 PC 端代传</b>。两者<b>均须由本机构核对确认后才算缴费完成、才核销账单</b>；<b>确认后账单自动核销，核销时点以确认时间为准</b>。未确认的账单状态为「待确认」，<b>不计逾期、不纳入欠租统计</b>。核对人、核对时间、核对项与确认说明<b>全过程留痕</b>。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-hourglass-half"></i></div>
+      <div><div class="s-label">待确认</div><div class="s-value">6</div>
+        <div class="s-trend ">3,180.00 元 · 最长已等待 26 小时</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
+      <div><div class="s-label">今日已确认</div><div class="s-value">12</div>
+        <div class="s-trend text-2">5,642.40 元 · 平均确认时长 6.2 小时</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon red"><i class="fa-solid fa-rotate-left"></i></div>
+      <div><div class="s-label">金额不一致退回</div><div class="s-value">1</div>
+        <div class="s-trend text-2">本月 · 累计差额 71.60 元</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-building-columns"></i></div>
+      <div><div class="s-label">本月线下缴费金额</div><div class="s-value">39,820.00</div>
+        <div class="s-trend text-2">元 · 86 笔 · 建行 4301****8826</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>账单号</label><input type="text" placeholder="如 ZD2026-09-00862"></div>
+      <div class="filter-item"><label>承租人</label><input type="text" placeholder="姓名"></div>
+      <div class="filter-item"><label>上传来源</label><select><option value="">全部</option><option>承租人上传</option><option>机构代传</option></select></div>
+      <div class="filter-item"><label>状态</label><select><option value="">全部</option><option>待确认</option><option>已确认核销</option><option>金额不一致</option><option>已退回</option></select></div>
+      <div class="filter-item"><label>上传日期</label><input type="date"></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>账单号</th><th>承租人</th><th class="cell-lg">房源</th><th>应缴金额</th><th>凭证金额</th><th>上传来源</th><th>上传时间</th><th>状态</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr class="row-warn"><td>ZD2026-09-00862</td><td>王梓涵</td><td>湘江1958 A6-1502</td><td class="num">471.60</td><td class="num">471.60</td><td><span class="badge blue">承租人上传</span></td><td>2026-09-08 15:36</td><td><span class="badge orange">待确认</span></td><td><span class="link" onclick="PMS.openDrawer('pzDrawer')">查看凭证</span> <span class="link" onclick="PMS.openDrawer('qrDrawer')">确认核销</span> <span class="link" onclick="PMS.openDrawer('thDrawer')">金额不一致退回</span></td></tr>
+          <tr class="row-warn"><td>ZD2026-08-00862-U</td><td>王梓涵</td><td>湘江1958 A6-1502</td><td class="num">364.20</td><td class="num">364.20</td><td><span class="badge blue">承租人上传</span></td><td>2026-09-06 15:20</td><td><span class="badge orange">待确认</span></td><td><span class="link" onclick="PMS.openDrawer('pzDrawer')">查看凭证</span> <span class="link" onclick="PMS.openDrawer('qrDrawer')">确认核销</span> <span class="link" onclick="PMS.openDrawer('thDrawer')">金额不一致退回</span></td></tr>
+          <tr class="row-warn"><td>ZD2026-09-00926</td><td>曾诗涵</td><td>湘江1958 A6-0902</td><td class="num">315.60</td><td class="num">315.60</td><td><span class="badge cyan">机构代传</span></td><td>2026-09-08 10:42</td><td><span class="badge orange">待确认</span></td><td><span class="link" onclick="PMS.openDrawer('pzDrawer')">查看凭证</span> <span class="link" onclick="PMS.openDrawer('qrDrawer')">确认核销</span> <span class="link" onclick="PMS.openDrawer('thDrawer')">金额不一致退回</span></td></tr>
+          <tr class="row-bad"><td>ZD2026-09-00514</td><td>谭思远</td><td>湘江1958 A3-0806</td><td class="num">471.60</td><td class="num">400.00</td><td><span class="badge blue">承租人上传</span></td><td>2026-09-08 09:14</td><td><span class="badge red">金额不一致</span></td><td><span class="link" onclick="PMS.openDrawer('pzDrawer')">查看凭证</span> <span class="link is-off" onclick="PMS.toast('凭证金额 400.00 元与应缴 471.60 元不一致，差 71.60 元，不允许确认核销','error')">确认核销</span> <span class="link" onclick="PMS.openDrawer('thDrawer')">金额不一致退回</span></td></tr>
+          <tr><td>ZD2026-09-00738</td><td>廖俊杰</td><td>湘江1958 A2-1106</td><td class="num">289.20</td><td class="num">289.20</td><td><span class="badge blue">承租人上传</span></td><td>2026-09-07 20:08</td><td><span class="badge green">已确认核销</span></td><td><span class="link" onclick="PMS.openDrawer('pzDrawer')">查看凭证</span> <span class="link" onclick="PMS.toast('2026-09-08 09:26 彭雪梅确认核销，账单已自动置为「已缴清」，核销时点以确认时间为准')">核销记录</span></td></tr>
+          <tr><td>ZD2026-09-00655</td><td>邓雅静</td><td>湘江1958 A3-1204</td><td class="num">195.60</td><td class="num">195.60</td><td><span class="badge cyan">机构代传</span></td><td>2026-09-07 16:30</td><td><span class="badge green">已确认核销</span></td><td><span class="link" onclick="PMS.openDrawer('pzDrawer')">查看凭证</span> <span class="link" onclick="PMS.toast('承租人 2026-09-07 现金缴纳，由前台曾敏收讫并代传收据；2026-09-07 17:12 彭雪梅确认核销')">核销记录</span></td></tr>
+          <tr class="row-bad"><td>ZD2026-09-00402</td><td>胡明轩</td><td>湘江1958 A6-0708</td><td class="num">160.20</td><td class="num">160.20</td><td><span class="badge blue">承租人上传</span></td><td>2026-09-05 11:26</td><td><span class="badge red">已退回</span></td><td><span class="link" onclick="PMS.openDrawer('pzDrawer')">查看凭证</span> <span class="link" onclick="PMS.toast('2026-09-05 15:08 彭雪梅退回：转账备注未填账单号且付款人非承租人本人，银行流水中未查到对应到账。已短信通知承租人补充说明后重传')">退回记录</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sp-src">
+    <span><b>数据范围</b> 按<b>房源归属</b>控制：本机构只能看到本机构管理房源派生的账单与线下缴费凭证</span>
+    <span><b>凭证来源</b> 承租人在小程序上传；运营机构代收现金或转账后在 PC 端代传</span>
+    <span><b>核销规则</b> 两条来源均须经本机构确认，<b>确认后账单自动核销</b>，核销时点以<b>确认时间</b>为准</span>
+    <span><b>待确认口径</b> 未确认的账单状态为「待确认」，不计逾期、不纳入欠租统计</span>
+    <span><b>留痕要求</b> 核对人、核对时间、核对项、确认说明与退回原因全过程入库留痕</span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="pzDrawer">
+  <div class="drawer-head">
+    <h3>查看缴费凭证</h3>
+    <span class="badge orange">待确认</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+    <div class="alert alert-info">
+      <i class="fa-solid fa-circle-info"></i>
+      <div>请对照<b>银行流水</b>核对凭证的付款时间、金额、收款账户与转账备注。核对无误的点「确认核销」，金额不符或无法核对到人的点「金额不一致退回」。</div>
+    </div>
+
+    <div class="form-grid form-align">
+      <div class="form-item">
+        <label>凭证编号 <span class="req">*</span></label>
+        <input type="text" value="PZ2026-09-00318" readonly>
+      </div>
+      <div class="form-item">
+        <label>账单号 <span class="req">*</span></label>
+        <input type="text" value="ZD2026-09-00862" readonly>
+      </div>
+      <div class="form-item">
+        <label>承租人 / 房源 <span class="req">*</span></label>
+        <input type="text" value="王梓涵　湘江1958 A6-1502（二室一厅 78.60 ㎡）" readonly>
+      </div>
+      <div class="form-item">
+        <label>应缴金额（元） <span class="req">*</span></label>
+        <input type="text" value="471.60" readonly>
+        <div class="hint">78.60 ㎡ × 6.00 元/㎡·月（个人承担部分），财政补贴 8.00 元/㎡·月另行拨付</div>
+      </div>
+      <div class="form-item">
+        <label>凭证金额（元） <span class="req">*</span></label>
+        <input type="text" value="471.60" readonly>
+        <div class="hint">与应缴金额一致</div>
+      </div>
+      <div class="form-item">
+        <label>上传来源 <span class="req">*</span></label>
+        <input type="text" value="承租人上传（王梓涵 · 湘易办小程序）" readonly>
+      </div>
+      <div class="form-item">
+        <label>转账时间 <span class="req">*</span></label>
+        <input type="text" value="2026-09-08 15:20（中国建设银行手机银行）" readonly>
+      </div>
+      <div class="form-item">
+        <label>上传时间 <span class="req">*</span></label>
+        <input type="text" value="2026-09-08 15:36" readonly>
+      </div>
+      <div class="form-item col-full">
+        <label>转账备注 <span class="req">*</span></label>
+        <input type="text" value="ZD2026-09-00862 王梓涵" readonly>
+        <div class="hint">备注含账单号，可自动匹配到账单</div>
+      </div>
+      <div class="form-item col-full">
+        <label>收款账户 <span class="req">*</span></label>
+        <input type="text" value="株洲市人才安居服务有限公司　中国建设银行株洲天元支行　4301****8826" readonly>
+        <div class="hint">按房源所属运营机构路由的本机构对公账户，资金直接进入本机构账户，平台不归集资金</div>
+      </div>
+      <div class="form-item col-full">
+        <label>凭证影像 <span class="req">*</span></label>
+        <input type="text" value="银行转账回单.jpg（1 张 · 1.8 MB）" readonly>
+        <div class="hint"><span class="link" onclick="PMS.toast('已打开凭证大图，可放大比对回单要素')">查看大图</span>　<span class="link" onclick="PMS.toast('已下载凭证影像，可打印后与银行流水比对','success')">下载</span>　<span class="link" onclick="PMS.toast('已调取 2026-09-08 建行 4301****8826 到账流水，查到 15:20 一笔 471.60 元入账','success')">比对银行流水</span></div>
+      </div>
+      <div class="form-item col-full">
+        <label>承租人补充说明</label>
+        <textarea rows="3" readonly>本人已于 2026-09-08 15:20 通过建行手机银行转账 471.60 元至贵司账户，转账备注已填写账单号 ZD2026-09-00862，请核对确认。</textarea>
+      </div>
+    </div>
+    <p class="hint" style="margin-top:12px"><i class="fa-solid fa-circle-info"></i> 确认核销后账单<b>自动置为「已缴清」</b>并推送通知承租人；<b>核销时点以本次确认时间为准</b>，不以转账时间为准。</p>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>关闭</button>
+    <button class="btn" onclick="PMS.closeDrawer();PMS.openDrawer('thDrawer')">金额不一致退回</button>
+    <button class="btn btn-primary" onclick="PMS.closeDrawer();PMS.openDrawer('qrDrawer')"><i class="fa-solid fa-check"></i> 去确认核销</button>
+  </div>
+</div>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="qrDrawer">
+  <div class="drawer-head">
+    <h3>确认核销</h3>
+    <span class="badge orange">待确认</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+    <div class="sp-dual">
+      <i class="lead fa-solid fa-user-shield"></i>
+      <div>确认核销由<b>运营机构经办人</b>办理，<b>确认后账单自动核销</b>并置为「已缴清」，<b>核销时点以确认时间为准</b>；核对人、核对时间与核对项全程留痕。</div>
+      <div class="who"><span class="muted">核对人</span><b>彭雪梅（株洲市人才安居服务有限公司）</b></div>
+    </div>
+
+    <div class="form-grid form-align">
+      <div class="form-item">
+        <label>凭证编号 <span class="req">*</span></label>
+        <input type="text" value="PZ2026-09-00318" readonly>
+      </div>
+      <div class="form-item">
+        <label>账单号 <span class="req">*</span></label>
+        <input type="text" value="ZD2026-09-00862" readonly>
+      </div>
+      <div class="form-item">
+        <label>承租人 / 房源 <span class="req">*</span></label>
+        <input type="text" value="王梓涵　湘江1958 A6-1502" readonly>
+      </div>
+      <div class="form-item">
+        <label>应缴 / 凭证金额（元） <span class="req">*</span></label>
+        <input type="text" value="471.60　/　471.60（一致）" readonly>
+      </div>
+      <div class="form-item col-full">
+        <label>核对项 <span class="req">*</span></label>
+        <div class="sp-tw">
+          <table class="data-table compact">
+            <thead><tr><th>核对项</th><th class="cell-lg">核对内容</th><th>核对结果</th></tr></thead>
+            <tbody>
+              <tr><td><b>一、凭证金额与应缴一致</b></td><td>凭证金额 471.60 元 = 账单应缴 471.60 元，无差额</td><td><select><option selected>一致</option><option>不一致</option></select></td></tr>
+              <tr><td><b>二、转账备注含账单号</b></td><td>备注「ZD2026-09-00862 王梓涵」含账单号，可核对到人到单</td><td><select><option selected>含账单号</option><option>缺账单号，已人工核对到人</option><option>无法核对到人</option></select></td></tr>
+              <tr><td><b>三、到账已入账</b></td><td>已比对 2026-09-08 建行 4301****8826 流水，15:20 一笔 471.60 元入账</td><td><select><option selected>已入账</option><option>未查到到账</option></select></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="hint">三项核对项须全部通过方可确认核销；任一项不通过的，请改走「金额不一致退回」并注明原因</div>
+      </div>
+      <div class="form-item col-full">
+        <label>确认说明 <span class="req">*</span></label>
+        <textarea id="qrTxt" rows="4" placeholder="必填，不少于 10 字">经核对，承租人王梓涵于 2026-09-08 15:20 通过中国建设银行转账 471.60 元至本机构对公账户 4301****8826，转账备注含账单号 ZD2026-09-00862，金额与账单应缴 471.60 元一致，银行流水已确认入账。核对无误，确认核销。</textarea>
+      </div>
+      <div class="form-item col-full">
+        <label>确认后处理 <span class="req">*</span></label>
+        <select><option selected>账单自动核销并短信通知承租人</option><option>账单自动核销，暂不通知</option></select>
+        <div class="hint">确认时间 2026-09-09 09:18 将作为本笔账单的核销时点写入台账</div>
+      </div>
+    </div>
+    <p class="hint" style="margin-top:12px"><i class="fa-solid fa-circle-info"></i> 确认核销为<b>不可撤销操作</b>；如确认后发现有误，须走对账差错处理流程办理退款或冲抵，全过程留痕。</p>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="doConfirm()"><i class="fa-solid fa-check"></i> 确认核销</button>
+  </div>
+</div>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="thDrawer">
+  <div class="drawer-head">
+    <h3>金额不一致退回</h3>
+    <span class="badge red">退回</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+    <div class="alert alert-danger">
+      <i class="fa-solid fa-circle-exclamation"></i>
+      <div>退回后账单<b>回到「待缴」状态</b>，系统自动短信通知承租人补足差额或补充说明后<b>重新上传凭证</b>。<b>逾期从退回次日起算</b>，退回原因与退回人全过程留痕。</div>
+    </div>
+
+    <div class="form-grid form-align">
+      <div class="form-item">
+        <label>凭证编号 <span class="req">*</span></label>
+        <input type="text" value="PZ2026-09-00296" readonly>
+      </div>
+      <div class="form-item">
+        <label>账单号 <span class="req">*</span></label>
+        <input type="text" value="ZD2026-09-00514" readonly>
+      </div>
+      <div class="form-item">
+        <label>承租人 / 房源 <span class="req">*</span></label>
+        <input type="text" value="谭思远　湘江1958 A3-0806" readonly>
+      </div>
+      <div class="form-item">
+        <label>应缴 / 凭证金额（元） <span class="req">*</span></label>
+        <input type="text" value="471.60　/　400.00（差 71.60）" readonly>
+      </div>
+      <div class="form-item col-full">
+        <label>退回原因 <span class="req">*</span></label>
+        <select><option selected>凭证金额与应缴金额不一致</option><option>转账备注缺账单号且无法核对到人</option><option>银行流水中未查到对应到账</option><option>凭证影像不清晰无法辨认要素</option><option>凭证重复提交</option><option>收款账户非本机构对公账户</option></select>
+      </div>
+      <div class="form-item">
+        <label>差额金额（元） <span class="req">*</span></label>
+        <input type="text" value="71.60" readonly>
+        <div class="hint">少缴的须补足后重传；多缴的可按尾差核销后冲抵下期账单</div>
+      </div>
+      <div class="form-item">
+        <label>处理要求 <span class="req">*</span></label>
+        <select><option selected>补足差额后重新上传凭证</option><option>补充说明后重新上传凭证</option><option>改用线上渠道缴纳</option></select>
+      </div>
+      <div class="form-item col-full">
+        <label>退回说明 <span class="req">*</span></label>
+        <textarea id="thTxt" rows="4" placeholder="必填，不少于 10 字">经核对，承租人谭思远于 2026-09-08 09:02 转账并上传回单，回单金额 400.00 元，银行流水实际到账 400.00 元，与账单 ZD2026-09-00514 应缴 471.60 元相差 71.60 元。现予退回，请补足差额 71.60 元后重新上传完整凭证；已到账的 400.00 元暂挂账，重传确认时一并核销。</textarea>
+      </div>
+      <div class="form-item col-full">
+        <label>通知方式 <span class="req">*</span></label>
+        <select><option selected>短信 + 小程序站内消息</option><option>仅小程序站内消息</option><option>短信 + 电话联系</option></select>
+        <div class="hint">退回后账单回到「待缴」，承租人可在小程序「我的账单」中重新上传凭证或改选线上渠道</div>
+      </div>
+    </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="doReject()"><i class="fa-solid fa-rotate-left"></i> 确认退回</button>
+  </div>
+</div>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="dcDrawer">
+  <div class="drawer-head">
+    <h3>机构代传凭证</h3>
+    <span class="badge cyan">机构代传</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+    <div class="alert alert-info">
+      <i class="fa-solid fa-circle-info"></i>
+      <div>适用于承租人<b>到服务中心交现金</b>或<b>转账到本机构账户但未自行上传凭证</b>的场景，由本机构经办人代为上传收据或回单。<b>代传的凭证同样须走确认核销流程</b>，代传人与确认人<b>不得为同一人</b>，代传与确认分别留痕。</div>
+    </div>
+
+    <div class="form-grid form-align">
+      <div class="form-item col-full">
+        <label>账单号 <span class="req">*</span></label>
+        <input type="text" value="ZD2026-09-00926" placeholder="输入或扫码选择账单">
+        <div class="hint"><span class="link" onclick="PMS.toast('已带出：曾诗涵　湘江1958 A6-0902　2026-09 租金　应缴 315.60 元','success')">按账单号带出信息</span>　只能选择本机构管理房源派生的账单</div>
+      </div>
+      <div class="form-item">
+        <label>承租人 <span class="req">*</span></label>
+        <input type="text" value="曾诗涵" readonly>
+        <div class="hint">按账单号自动带出</div>
+      </div>
+      <div class="form-item">
+        <label>房源 <span class="req">*</span></label>
+        <input type="text" value="湘江1958 A6-0902（一室一厅 52.60 ㎡）" readonly>
+      </div>
+      <div class="form-item">
+        <label>应缴金额（元） <span class="req">*</span></label>
+        <input type="text" value="315.60" readonly>
+        <div class="hint">52.60 ㎡ × 6.00 元/㎡·月（个人承担部分）</div>
+      </div>
+      <div class="form-item">
+        <label>实收金额（元） <span class="req">*</span></label>
+        <input type="text" value="315.60">
+        <div class="hint">与应缴不一致的不允许提交，请先与承租人补足或退还差额</div>
+      </div>
+      <div class="form-item">
+        <label>缴费方式 <span class="req">*</span></label>
+        <select><option selected>现金（服务中心前台收讫）</option><option>银行转账（承租人转入本机构账户）</option><option>POS 刷卡（本机构收单）</option></select>
+      </div>
+      <div class="form-item">
+        <label>收款时间 <span class="req">*</span></label>
+        <input type="text" value="2026-09-08 10:26">
+        <div class="hint">按实际收款时间填写，用于认定是否按期缴纳</div>
+      </div>
+      <div class="form-item">
+        <label>收款人（经办） <span class="req">*</span></label>
+        <input type="text" value="曾敏（前台收银）" readonly>
+        <div class="hint">取当前登录经办人；确认核销须由另一名经办人办理</div>
+      </div>
+      <div class="form-item">
+        <label>入账账户 <span class="req">*</span></label>
+        <select><option selected>中国建设银行株洲天元支行　4301****8826（本机构对公户）</option></select>
+        <div class="hint">现金收讫的须于当日缴存本机构对公账户，缴存回单一并上传</div>
+      </div>
+      <div class="form-item col-full">
+        <label>上传凭证 <span class="req">*</span></label>
+        <input type="text" data-upload="1">
+        <div class="hint">须附：加盖收讫章的现金收据（或银行转账回单）；现金收讫的另附当日缴存银行的回单</div>
+      </div>
+      <div class="form-item col-full">
+        <label>代传说明 <span class="req">*</span></label>
+        <textarea rows="4">承租人曾诗涵于 2026-09-08 10:26 到湘江1958 人才公寓 A6 栋 1 层服务中心以现金方式缴纳 2026 年 9 月租金 315.60 元，由前台曾敏收讫并开具收据（编号 SJ2026-09-00142），现金已于当日 16:40 缴存本机构建行对公账户 4301****8826。现代为上传收据与缴存回单，提请核对确认。</textarea>
+      </div>
+    </div>
+    <p class="hint" style="margin-top:12px"><i class="fa-solid fa-circle-info"></i> 提交后该笔凭证进入<b>待确认</b>列表，来源标记为「机构代传」，由另一名经办人核对确认后账单自动核销。</p>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认代为上传曾诗涵 2026-09 租金 315.60 元的线下缴费凭证？',detail:'提交后进入待确认列表，来源标记为「机构代传」，须由另一名经办人核对确认后账单方可核销。代传人与确认人不得为同一人。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已代传凭证并进入待确认，等待另一名经办人确认核销','success');}})"><i class="fa-solid fa-cloud-arrow-up"></i> 提交代传</button>
+  </div>
+</div>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 86; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+<script>
+function doConfirm() {
+  var t = document.getElementById('qrTxt');
+  if (t && (t.value || '').trim().length < 10) {
+    PMS.toast('确认说明为必填且不少于 10 字', 'error'); t.focus(); return;
+  }
+  PMS.confirm({
+    title: '确认核销',
+    message: '确认核销账单 ZD2026-09-00862（王梓涵 471.60 元）？',
+    detail: '确认后账单自动置为「已缴清」，核销时点以本次确认时间为准，并短信通知承租人。该操作不可撤销，核对人、核对时间与核对项全程留痕。',
+    type: 'warning',
+    okText: '确认核销',
+    onOk: function () { PMS.closeDrawer(); PMS.toast('已确认核销，账单已置为「已缴清」并通知承租人', 'success'); }
+  });
+}
+function doReject() {
+  var t = document.getElementById('thTxt');
+  if (t && (t.value || '').trim().length < 10) {
+    PMS.toast('退回说明为必填且不少于 10 字', 'error'); t.focus(); return;
+  }
+  PMS.confirm({
+    title: '退回确认',
+    message: '确认退回凭证 PZ2026-09-00296（谭思远，差额 71.60 元）？',
+    detail: '退回后账单回到「待缴」状态，系统自动短信通知承租人补足差额后重新上传凭证，逾期从退回次日起算。',
+    type: 'warning',
+    okText: '确认退回',
+    onOk: function () { PMS.closeDrawer(); PMS.toast('已退回并短信通知承租人补足差额后重传', 'success'); }
+  });
+}
+</script>
+</body>
+</html>

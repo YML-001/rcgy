@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="../../assets/css/ext.css">
 </head>
 <body class="m-body" data-mtitle="放弃配租" data-mmod="M7 配租与线上选房" data-mcode="M7-07"
-      data-mdesc="放弃前强制阅读并勾选风险告知——不服从配租且不办理入住视同放弃资格、放弃后不得再次申请，并需电子签确认。" data-mback="alloc-select-confirm.html" data-mtabset="public" data-mtab="me">
+      data-mdesc="放弃前强制阅读并勾选风险告知——不服从配租且不办理入住视同放弃资格、放弃后不得再次申请，并需电子签确认。" data-mback="alloc-select-confirm.html" data-mtabset="public" data-mtab="apply">
 <div class="m-stage">
   <div class="m-phone">
     <div class="m-screen">
@@ -42,7 +42,7 @@
               <div class="bad"><i class="fa-solid fa-circle-xmark"></i><div class="m-chl"><b>失去本次配租机会</b><span>已锁定房源立即释放给下一顺序申请人</span></div></div>
               <div class="bad"><i class="fa-solid fa-circle-xmark"></i><div class="m-chl"><b>不得再次申请人才住房</b><span>放弃标记将写入<b>人才档案</b>，后续提交申请时系统将直接阻断</span></div></div>
               <div class="bad"><i class="fa-solid fa-circle-xmark"></i><div class="m-chl"><b>不再进入轮候库</b><span>放弃不同于「不参与本批次」，放弃后不保留轮候序号</span></div></div>
-              <div class="bad"><i class="fa-solid fa-circle-xmark"></i><div class="m-chl"><b>操作不可撤销</b><span>如需纠错须由业务管理员走配租异常处理流程审批，并非必然获准</span></div></div>
+              <div class="bad"><i class="fa-solid fa-circle-xmark"></i><div class="m-chl"><b>操作不可撤销</b><span>如需纠错须由业务管理员角色走配租异常处理流程审批，并非必然获准</span></div></div>
             </div>
           </div>
         </div>
@@ -69,7 +69,7 @@
           </div>
         </div>
         <div class="m-note warn"><i class="fa-solid fa-triangle-exclamation"></i>
-          <div>确认放弃需<b>电子签确认</b>并留痕。放弃记录将同步至人才档案，由业务管理员审批后写入放弃标记。</div>
+          <div>确认放弃需<b>电子签确认</b>并留痕。放弃记录将同步至人才档案，由业务管理员角色审批后写入放弃标记。</div>
         </div>
       </div>
       <div class="m-actbar">
@@ -87,7 +87,7 @@ function doGiveup() {
   if (!box.classList.contains('on')) { MB.toast('请先勾选已阅读并知晓放弃后果'); return; }
   MB.confirm('<b style="color:var(--danger)">最后确认</b><br>放弃后<b>不得再次申请</b>人才住房，操作不可撤销。是否确认电子签署《放弃承租资格确认书》？',
     '电子签确认放弃', function () {
-      MB.toast('已电子签确认，放弃记录已提交业务管理员审批');
+      MB.toast('已电子签确认，放弃记录已提交业务管理员角色审批');
       setTimeout(function () { location.href = 'record-history.html'; }, 1500);
     });
 }

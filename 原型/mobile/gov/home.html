@@ -9,15 +9,15 @@
 <link rel="stylesheet" href="../../assets/css/mobile.css">
 <link rel="stylesheet" href="../../assets/css/ext.css">
 </head>
-<body class="m-body" data-mtitle="主管单位工作台" data-mmod="G1 移动审批" data-mcode="G1-01"
-      data-mdesc="主管单位在移动端处理待办件，与 PC 端待办共用同一件池，处理结果实时同步；本期待办只保留资格申请受理件、资格申请复审件两类，按剩余时限排序。" data-mtabset="gov" data-mtab="home" data-mtint="1" data-mnav="0">
+<body class="m-body" data-mtitle="政务端工作台" data-mmod="G1 移动审批" data-mcode="G1-01"
+      data-mdesc="运营机构端首页，汇总本机构的现场核查任务、待处理工单与巡检提醒。数据范围限本机构受托房源。" data-mtabset="ops" data-mtab="home" data-mtint="1" data-mnav="0">
 <div class="m-stage">
   <div class="m-phone">
     <div class="m-screen">
       <div class="m-view">
         <div class="m-hero">
           <div class="m-hero-t">上午好，刘志刚</div>
-          <div class="m-hero-s">市保障性住房服务中心资格审核科　·	资格审核员</div>
+          <div class="m-hero-s">市保障性住房服务中心资格审核科　·　审核角色</div>
           <div class="m-hero-row">
             <div class="m-hs"><div class="v">9</div><div class="l">待我审批</div></div>
             <div class="m-hs"><div class="v">3</div><div class="l">临期(黄)</div></div>
@@ -27,14 +27,13 @@
         <div class="m-note danger"><i class="fa-solid fa-circle-exclamation"></i>
           <div><b>1 件已超期</b>：RC2026-0902-0148 不动产核验不一致，已超 3 个工作日法定时限，请立即处理。</div>
         </div>
-        <div class="m-sect">待办事项<span class="m-sect-x">本期只保留两类 · 按剩余时限排序</span></div>
+        <div class="m-sect">待办事项<span class="m-sect-x">与 PC 端共用同一件池</span></div>
         <div class="m-cells">
-          <a class="m-cell" href="approve-list.html"><span class="m-ci red"><i class="fa-solid fa-file-circle-check"></i></span><span class="m-cl"><b>资格申请受理件</b><span class="m-cs">受理初审：核对材料完整性与真实性　·	6 件 · 其中超期 1 件、临期 2 件</span></span><span class="m-cv"><span class="m-tag red">6</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
-          <a class="m-cell" href="approve-list.html"><span class="m-ci orange"><i class="fa-solid fa-stamp"></i></span><span class="m-cl"><b>资格申请复审件</b><span class="m-cs">复审出具结论：由市保障性住房服务中心认定　·	3 件 · 其中临期 1 件</span></span><span class="m-cv"><span class="m-tag orange">3</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
-        </div>
-        <div class="m-note"><i class="fa-solid fa-circle-info"></i>
-          <div>本期待办任务中心<b>只保留上述两类</b>，按剩余时限排序、点击直接进入办理，不做复杂分类与聚合。<b>现场核查与工单处理已移交运营机构</b>，在运营机构移动端办理。</div>
-        </div>
+          <a class="m-cell" href="approve-list.html"><span class="m-ci red"><i class="fa-solid fa-stamp"></i></span><span class="m-cl"><b>资格审核待复核</b><span class="m-cs">9 件 · 其中临期 3 件、超期 1 件</span></span><span class="m-cv"><span class="m-tag red">9</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="check-list.html"><span class="m-ci orange"><i class="fa-solid fa-location-dot"></i></span><span class="m-cl"><b>入户核查任务</b><span class="m-cs">4 户疑似空置不住待现场核查</span></span><span class="m-cv"><span class="m-tag orange">4</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="patrol-scan.html"><span class="m-ci cyan"><i class="fa-solid fa-qrcode"></i></span><span class="m-cl"><b>房源扫码巡检</b><span class="m-cs">本月待巡检 186 间 · 已完成 142 间</span></span><span class="m-cv"><span class="m-tag cyan">44</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          
+          </div>
         <div class="m-sect">审核时限管控<span class="m-sect-x">G1-02</span></div>
         <div class="m-card">
           <div class="m-card-h"><i class="fa-solid fa-clock"></i>时限分档</div>
@@ -57,23 +56,6 @@
               <div><div class="mv warn">6</div><div class="ml">例外件处理</div></div>
             </div>
           </div>
-        </div>
-        <div class="m-sect">申请渠道构成<span class="m-sect-x">在办 9 件</span></div>
-        <div class="m-card">
-          <div class="m-card-h"><i class="fa-solid fa-diagram-project"></i>四类渠道</div>
-          <div class="m-card-b">
-            <div class="m-kv">
-              <div><span>个人申请</span><span class="num">5 件　·	湘易办小程序自主提交</span></div>
-              <div><span>用人单位</span><span class="num">2 件　·	用人单位（移动端申请），按人拆分为独立申请件</span></div>
-              <div><span>运营机构</span><span class="num">1 件　·	运营机构（PC 申请）</span></div>
-              <div><span>政务窗口</span><span class="num">1 件　·	政务窗口（PC 申请），只录身份与资格材料、不在线选房</span></div>
-            </div>
-            <div style="margin-top:10px;font-size:11.5px;color:var(--text-3);line-height:1.6">四类渠道汇入<b>同一件池</b>、走同一流程、同一 3 个工作日时限，<b>不因渠道优先</b>。</div>
-          </div>
-        </div>
-        <div class="m-cells">
-          <a class="m-cell" href="approve-timeout.html"><span class="m-ci orange"><i class="fa-solid fa-clock"></i></span><span class="m-cl"><b>审核时限提醒</b><span class="m-cs">临期与超期件按经办人、承办环节统计</span></span><span class="m-cv">4 件</span><i class="m-ca fa-solid fa-angle-right"></i></a>
-          <a class="m-cell" href="me.html"><span class="m-ci"><i class="fa-solid fa-user"></i></span><span class="m-cl"><b>我的</b><span class="m-cs">账号与权限、办理统计、登录记录</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
         </div>
         <div class="m-note"><i class="fa-solid fa-circle-info"></i>
           <div>移动端处理结果与 <b>PC 端实时同步</b>。复杂例外件建议在 PC 管理端的<a href="../../modules/apply/audit-desk.html" style="color:var(--primary)">人工复核工作台</a>处理，可并排比对材料影像与核验报告。</div>

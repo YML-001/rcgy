@@ -9,119 +9,75 @@
 <link rel="stylesheet" href="../../assets/css/spec.css">
 <link rel="stylesheet" href="../../assets/css/ext.css">
 </head>
-<body data-role="employer" data-active="employer-05">
+<body data-role="employer" data-active="emp-05">
 <main class="app-main">
   <div class="page-head">
     <div class="breadcrumb">
       <i class="fa-solid fa-house bc-home"></i> 株洲市人才住房保障管理平台
       <span class="sep">/</span> 用人单位端
-      <span class="sep">/</span> 单位与申报
       <span class="sep">/</span> <span class="cur">注册进度查询</span>
     </div>
     <div class="page-actions">
-      <a class="btn" href="emp-register.html"><i class="fa-solid fa-file-pen"></i> 返回注册填报</a>
+      <button class="btn" onclick="location.href='emp-register.html'"><i class="fa-solid fa-pen-to-square"></i> 修改注册信息</button>
     </div>
   </div>
-
   <div class="alert alert-info">
     <i class="fa-solid fa-circle-info"></i>
-    <div><b>未登录状态下</b>凭<b>经办人手机号 + 短信验证码</b>即可查询注册申请审核状态；被退回的可查看退回原因，<b>修改后重新提交、不需重复注册</b>，审核时限自重新提交起重新计算。</div>
+    <div>凭<b>经办人手机号</b>与短信验证码查询注册申请的审核状态。被退回的可查看退回原因，修改后重新提交，<b>不需重复注册</b>；审核通过后经办人手机号收到开通短信，即可用该手机号登录。</div>
   </div>
+  <div class="card list-card">
+<div class="filter-bar">
+      <div class="filter-item"><label>经办人手机号</label>
+        <input type="text" value="13800006621"></div>
+      <div class="filter-item"><label>短信验证码</label>
+        <input type="text" placeholder="6 位验证码"></div>
+      <div class="filter-actions">
+        <button class="btn" onclick="PMS.toast('验证码已发送至 138****6621','success')">获取验证码</button>
+        <button class="btn btn-primary" onclick="PMS.toast('已查询','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+      </div>
+    </div>  </div>
 
-  <!-- 查询区 -->
   <div class="card">
-    <div class="card-head"><h3><i class="fa-solid fa-magnifying-glass" style="margin-right:6px;color:var(--primary)"></i> 查询注册进度</h3><span class="sub">凭经办人手机号 + 短信验证码查询，无需登录</span></div>
-    <div class="card-body">
-      <div class="form-grid form-align">
-        <div class="form-item">
-          <label>经办人手机号 <span class="req">*</span></label>
-          <input type="tel" id="qPhone" value="13802456207">
-          <div class="hint">注册时填报的经办人手机号，即登录账号</div>
-        </div>
-        <div class="form-item">
-          <label>短信验证码 <span class="req">*</span></label>
-          <input type="text" id="qSms" value="386204">
-          <div class="hint"><span class="link" onclick="PMS.toast('验证码已发送至 138****6207')">获取验证码</span> · 有效期 5 分钟</div>
-        </div>
-      </div>
-      <div style="margin-top:12px;display:flex;justify-content:flex-end;gap:10px">
-        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
-        <button class="btn btn-primary" onclick="PMS.toast('已查询到该手机号下的注册申请，进度见下方','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- 申请信息摘要 -->
-  <div class="card" style="margin-top:12px">
-    <div class="card-head"><h3><i class="fa-solid fa-file-lines" style="margin-right:6px;color:var(--primary)"></i> 申请信息摘要</h3><span class="sub">申请单号 YQ2026-0187</span></div>
+    <div class="card-head"><h3><i class="fa-solid fa-file-signature"></i>
+      QY2026-0908-0037　中车株洲电力机车有限公司</h3>
+      <span class="badge orange">审核中</span></div>
     <div class="card-body">
       <dl class="desc-list">
-        <div class="desc-item full"><dt>单位名称</dt><dd>中车株洲电力机车研究所</dd></div>
-        <div class="desc-item"><dt>统一社会信用代码</dt><dd><b>91430200MA4L2XXX2K</b></dd></div>
-        <div class="desc-item"><dt>经办人</dt><dd>邹敏</dd></div>
-        <div class="desc-item"><dt>手机号（即账号）</dt><dd>138****6207</dd></div>
-        <div class="desc-item"><dt>提交时间</dt><dd>2026-09-06 15:42</dd></div>
-        <div class="desc-item"><dt>拟申报人数</dt><dd class="num">46 人</dd></div>
-        <div class="desc-item"><dt>当前状态</dt><dd><span class="badge red" data-dict="empRegStatus">已退回</span></dd></div>
+        <div class="desc-item"><dt>统一社会信用代码</dt><dd>914302007123456789</dd></div>
+        <div class="desc-item"><dt>经办人</dt><dd>谭晓芸　138****6621</dd></div>
+        <div class="desc-item"><dt>提交渠道</dt><dd>PC 管理端</dd></div>
+        <div class="desc-item"><dt>提交时间</dt><dd>2026-09-08 10:24</dd></div>
+        <div class="desc-item"><dt>审核单位</dt><dd>市保障性住房服务中心</dd></div>
+        <div class="desc-item"><dt>承诺时限</dt><dd>3 个工作日</dd></div>
       </dl>
-    </div>
-  </div>
-
-  <!-- 申请进度 -->
-  <div class="card" style="margin-top:12px">
-    <div class="card-head"><h3><i class="fa-solid fa-list-check" style="margin-right:6px;color:var(--primary)"></i> 申请进度</h3><span class="sub">提交 → 企业机构管理审核 → 审核通过并开通账号 / 退回补正</span></div>
-    <div class="card-body">
-      <div class="sp-step" style="margin-bottom:14px">
-        <span class="sp">提交注册申请</span><i class="fa-solid fa-arrow-right ar"></i>
-        <span class="sp">企业机构管理审核</span><i class="fa-solid fa-arrow-right ar"></i>
-        <span class="sp key">审核通过并开通账号</span><i class="fa-solid fa-arrow-right ar"></i>
-        <span class="sp todo">或 退回补正 → 修改后重新提交</span>
-      </div>
-      <div class="timeline">
+      <div class="timeline" style="margin-top:18px">
         <div class="tl-item done"><div class="tl-dot"></div>
           <div class="tl-title">提交注册申请</div>
-          <div class="tl-meta">邹敏（中车株洲电力机车研究所人事部）· 2026-09-06 15:42</div>
-          <div class="tl-desc">经 PC 端「单位注册与账号申请」提交五段表单，汇入企业机构管理审核队列，与移动端申请不分渠道。</div></div>
+          <div class="tl-meta">谭晓芸 · 2026-09-08 10:24</div>
+          <div class="tl-desc">申请信息、企业信息、负责人、经办人与佐证材料一次填报完成。</div></div>
         <div class="tl-item done"><div class="tl-dot"></div>
-          <div class="tl-title">企业机构管理审核</div>
-          <div class="tl-meta">徐立（市保障性住房服务中心运营监管科）· 2026-09-07 10:26</div>
-          <div class="tl-desc">核验企业信息、负责人与佐证材料；<b>法人授权委托书影像不清晰</b>，作退回补正处理。</div></div>
+          <div class="tl-title">系统校验通过</div>
+          <div class="tl-meta">系统 · 2026-09-08 10:24</div>
+          <div class="tl-desc">统一社会信用代码与经办人手机号均未重复。</div></div>
         <div class="tl-item"><div class="tl-dot"></div>
-          <div class="tl-title">审核结论：已退回补正</div>
-          <div class="tl-meta">待单位修改后重新提交</div>
-          <div class="tl-desc">退回<b>不需重复注册</b>，凭本手机号在本页修改后重新提交即可，审核时限自重新提交起重新计算。</div></div>
+          <div class="tl-title">企业机构管理角色审核中</div>
+          <div class="tl-meta">市保障性住房服务中心 · 办理中</div>
+          <div class="tl-desc">核对企业信息、负责人、经办人与营业执照、法人授权书。</div></div>
+        <div class="tl-item pending"><div class="tl-dot"></div>
+          <div class="tl-title">开通账号并短信通知</div>
+          <div class="tl-meta">待办理</div>
+          <div class="tl-desc">通过后以经办人手机号 138****6621 开通登录权限。</div></div>
       </div>
     </div>
   </div>
-
-  <!-- 退回原因与整改 -->
-  <div class="card" style="margin-top:12px">
-    <div class="card-head"><h3><i class="fa-solid fa-rotate-left" style="margin-right:6px;color:var(--danger)"></i> 退回原因与整改</h3><span class="badge red">已退回补正</span></div>
-    <div class="card-body">
-      <div class="alert alert-danger">
-        <i class="fa-solid fa-circle-exclamation"></i>
-        <div><b>退回理由</b>：法人授权委托书影像模糊、法定代表人签字页缺失；营业执照统一社会信用代码一处被遮挡无法识别。请重新上传<b>清晰、完整</b>的影像件后重新提交，<b>不需重复注册</b>。</div>
-      </div>
-      <dl class="desc-list" style="margin-top:12px">
-        <div class="desc-item"><dt>退回层级</dt><dd>企业机构管理审核</dd></div>
-        <div class="desc-item"><dt>退回人</dt><dd>徐立</dd></div>
-        <div class="desc-item"><dt>退回时间</dt><dd>2026-09-07 10:26</dd></div>
-        <div class="desc-item full"><dt>需补正材料</dt><dd>① 清晰完整的《法人授权委托书》（含法定代表人签字页）；② 统一社会信用代码无遮挡的营业执照副本</dd></div>
-      </dl>
-      <div style="margin-top:12px;display:flex;justify-content:flex-end;gap:10px">
-        <button class="btn" onclick="PMS.toast('已复制退回原因，可对照补正')"><i class="fa-solid fa-copy"></i> 复制退回原因</button>
-        <button class="btn btn-primary" onclick="location.href='emp-register.html'"><i class="fa-solid fa-pen-to-square"></i> 修改后重新提交</button>
-      </div>
-    </div>
-  </div>
-
   <div class="sp-src">
-    <span><b>依据</b> 2026 年 9 月 7 日汇报讨论会决议：退回可修改后重新提交，不需重复注册</span>
-    <span><b>查询口径</b> 未登录凭经办人手机号 + 短信验证码查询，经办人手机号即登录账号</span>
-    <span><b>状态字典</b> empRegStatus：待审核 / 已开通 / 已退回 / 已停用</span>
-    <span><b>经办人</b> 中车株洲电力机车研究所人事部 · 邹敏 · 138****6207</span>
+    <span><b>免登录查询</b> 未开通账号前凭手机号加短信验证码查询，不需登录</span>
+    <span><b>退回重提</b> 退回的在原申请上修改后重新提交，编号不变</span>
+    <span><b>开通通知</b> 审核通过后短信告知，即可用该手机号登录</span>
   </div>
+
 </main>
+
 
 <script src="../../assets/js/app.js"></script>
 <script src="../../assets/js/spec.js"></script>

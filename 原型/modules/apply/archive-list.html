@@ -19,13 +19,13 @@
       <span class="sep">/</span> <span class="cur">全过程电子档案</span>
     </div>
     <div class="page-actions">
-      <button class="btn btn-primary" onclick="SP.dual('批量导出含身份证号等敏感字段，需授权并全程留痕。导出任务将由系统管理员审批。')"><i class="fa-solid fa-download"></i> 批量导出归档</button>
+      <button class="btn btn-primary" onclick="SP.dual('批量导出含身份证号等敏感字段，需授权并全程留痕。导出任务将由权限配置管理员角色审批。')"><i class="fa-solid fa-download"></i> 批量导出归档</button>
     </div>
   </div>
 
   <div class="alert alert-info">
     <i class="fa-solid fa-circle-info"></i>
-    <div>将<b>每一次提交、修改、驳回、补材料</b>的操作与材料影像、核验报告、审批意见归入电子档案，支持<b>回溯查阅与批量导出归档</b>，满足审计与督查要求。</div>
+    <div>将<b>每一次提交、修改、材料项回退、补材料</b>的操作与材料影像、核验报告、审批意见、真实性承诺书及<b>手写签名影像</b>归入电子档案，支持<b>回溯查阅与批量导出归档</b>，满足审计与督查要求。<b>回退记录</b>按材料项留痕，列表可直接看到回退轮次与项数。</div>
   </div>
 
   <div class="stat-grid">
@@ -67,14 +67,14 @@
     <div class="table-wrap">
       <table class="data-table">
         <thead>
-          <tr><th>档案编号</th><th>申请编号</th><th>申请人</th><th>申请类型</th><th class="num">留痕条数</th><th class="num">材料影像</th><th>核验报告</th><th>审核结论</th><th>归档时间</th><th>操作</th></tr>
+          <tr><th>档案编号</th><th>申请编号</th><th>申请人</th><th>申请类型</th><th class="num">留痕条数</th><th class="num">材料影像</th><th>回退记录</th><th>核验报告</th><th>审核结论</th><th>归档时间</th><th>操作</th></tr>
         </thead>
         <tbody>
-          <tr><td>DZ2026-RC-0162</td><td>RC2026-0903-0162</td><td>王梓涵</td><td><span class="badge blue">就业</span></td><td class="num">12</td><td class="num">2</td><td><span class="badge green">已归入</span></td><td><span class="badge green">审核通过</span></td><td>2026-09-05 09:15</td><td><span class="link" onclick="location.href='archive-detail.html?id=DZ2026-RC-0162'">查阅</span></td></tr>
-          <tr><td>DZ2026-RC-0148</td><td>RC2026-0902-0148</td><td>王志远</td><td><span class="badge blue">就业</span></td><td class="num">14</td><td class="num">5</td><td><span class="badge green">已归入</span></td><td><span class="badge red">不予通过</span></td><td>2026-09-06 09:19</td><td><span class="link" onclick="location.href='archive-detail.html?id=DZ2026-RC-0148'">查阅</span></td></tr>
-          <tr class="row-warn"><td>DZ2026-RC-0171</td><td>RC2026-0903-0171</td><td>周宇轩</td><td><span class="badge blue">就业</span></td><td class="num">9</td><td class="num">3</td><td><span class="badge green">已归入</span></td><td><span class="badge orange">退回补正</span></td><td><span class="muted">在办暂存</span></td><td><span class="link" onclick="location.href='archive-detail.html?id=DZ2026-RC-0171'">查阅</span></td></tr>
-          <tr><td>DZ2026-RC-0086</td><td>RC2026-0812-0086</td><td>彭立军</td><td><span class="badge blue">就业</span></td><td class="num">18</td><td class="num">4</td><td><span class="badge green">已归入</span></td><td><span class="badge green">审核通过</span></td><td>2026-08-18 14:26</td><td><span class="link" onclick="location.href='archive-detail.html?id=DZ2026-RC-0086'">查阅</span></td></tr>
-          <tr class="row-bad"><td>DZ2025-RC-1206</td><td>RC2025-0418-1206</td><td>蒋志远</td><td><span class="badge blue">就业</span></td><td class="num">26</td><td class="num">8</td><td><span class="badge green">已归入</span></td><td><span class="badge red">违规清退</span></td><td>2026-08-16 16:42</td><td><span class="link" onclick="location.href='archive-detail.html?id=DZ2025-RC-1206'">查阅</span></td></tr>
+          <tr><td>DZ2026-RC-0162</td><td>RC2026-0903-0162</td><td>王梓涵</td><td><span class="badge blue">就业</span></td><td class="num">15</td><td class="num">9</td><td><span class="link" onclick="location.href='archive-detail.html?id=DZ2026-RC-0162&amp;tab=trace'">1 轮 · 2 项</span></td><td><span class="badge green">已归入</span></td><td><span class="badge green">审核通过</span></td><td>2026-09-05 09:15</td><td><span class="link" onclick="location.href='archive-detail.html?id=DZ2026-RC-0162'">查阅</span></td></tr>
+          <tr><td>DZ2026-RC-0148</td><td>RC2026-0902-0148</td><td>王志远</td><td><span class="badge blue">就业</span></td><td class="num">14</td><td class="num">5</td><td><span class="muted">—</span><br><span class="muted">整件不予通过</span></td><td><span class="badge green">已归入</span></td><td><span class="badge red">不予通过</span></td><td>2026-09-06 09:19</td><td><span class="link" onclick="location.href='archive-detail.html?id=DZ2026-RC-0148'">查阅</span></td></tr>
+          <tr class="row-warn"><td>DZ2026-RC-0171</td><td>RC2026-0903-0171</td><td>周宇轩</td><td><span class="badge blue">就业</span></td><td class="num">13</td><td class="num">7</td><td><span class="link" onclick="location.href='archive-detail.html?id=DZ2026-RC-0171&amp;tab=trace'">2 轮 · 3 项</span></td><td><span class="badge green">已归入</span></td><td><span class="badge orange">待补正（按材料项）</span></td><td><span class="muted">在办暂存</span></td><td><span class="link" onclick="location.href='archive-detail.html?id=DZ2026-RC-0171'">查阅</span></td></tr>
+          <tr><td>DZ2026-RC-0086</td><td>RC2026-0812-0086</td><td>彭立军</td><td><span class="badge blue">就业</span></td><td class="num">18</td><td class="num">4</td><td><span class="link" onclick="location.href='archive-detail.html?id=DZ2026-RC-0086&amp;tab=trace'">1 轮 · 1 项</span></td><td><span class="badge green">已归入</span></td><td><span class="badge green">审核通过</span></td><td>2026-08-18 14:26</td><td><span class="link" onclick="location.href='archive-detail.html?id=DZ2026-RC-0086'">查阅</span></td></tr>
+          <tr class="row-bad"><td>DZ2025-RC-1206</td><td>RC2025-0418-1206</td><td>蒋志远</td><td><span class="badge blue">就业</span></td><td class="num">26</td><td class="num">8</td><td><span class="link" onclick="location.href='archive-detail.html?id=DZ2025-RC-1206&amp;tab=trace'">1 轮 · 2 项</span></td><td><span class="badge green">已归入</span></td><td><span class="badge red">违规清退</span></td><td>2026-08-16 16:42</td><td><span class="link" onclick="location.href='archive-detail.html?id=DZ2025-RC-1206'">查阅</span></td></tr>
         </tbody>
       </table>
     </div>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>支付渠道与收款账户配置 · 株洲市人才住房保障管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="keeper" data-active="rent-21">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才住房保障管理平台
+      <span class="sep">/</span> 租金收缴与年审退出
+      <span class="sep">/</span> <span class="cur">支付渠道与收款账户配置</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.openDrawer('qdDrawer')"><i class="fa-solid fa-plus"></i> 配置收款账户与渠道</button>
+      <a class="btn" href="pay-recon.html"><i class="fa-solid fa-right-left"></i> 收缴与对账</a>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>按<b>运营机构</b>维护对公收款账户与各渠道商户号。承租人缴费时，系统按<b>房源所属运营机构</b>把收款账户与商户号路由到对应机构，<b>资金直接进入运营机构对公账户，平台不归集资金、不代收</b>。渠道未开通或联调未通过的，该机构房源的承租人只能选择已启用的渠道；<b>线下缴费为兜底渠道，所有机构默认启用</b>。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-building-columns"></i></div>
+      <div><div class="s-label">已备案收款账户</div><div class="s-value">4</div>
+        <div class="s-trend text-2">家运营机构 · 均为对公基本户</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-bolt"></i></div>
+      <div><div class="s-label">翼支付已启用</div><div class="s-value">3</div>
+        <div class="s-trend text-2">1 家联调中</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-comment-dollar"></i></div>
+      <div><div class="s-label">微信支付已启用</div><div class="s-value">2</div>
+        <div class="s-trend ">1 家未开通商户号 · 1 家联调中</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-file-circle-check"></i></div>
+      <div><div class="s-label">线下缴费已启用</div><div class="s-value">4</div>
+        <div class="s-trend text-2">兜底渠道 · 全部启用</div></div>
+    </div>
+  </div>
+
+  <div class="card list-card" data-tabs-scope>
+    <div class="tabs">
+      <div class="tab active" data-tab="pzlb"><i class="fa-solid fa-table-list"></i> 收款账户与渠道配置 <span class="badge blue">4</span></div>
+      <div class="tab" data-tab="qytj"><i class="fa-solid fa-list-check"></i> 渠道启用前置条件 <span class="badge orange">5 项</span></div>
+      <div class="tab" data-tab="zjkj"><i class="fa-solid fa-scale-balanced"></i> 资金与结算口径</div>
+    </div>
+
+    <div class="tab-panel active" data-panel="pzlb">
+    <div class="card-body tight">
+    <div class="filter-bar">
+      <div class="filter-item"><label>运营机构</label><input type="text" placeholder="机构名称"></div>
+      <div class="filter-item"><label>开户银行</label><select><option value="">全部</option><option>中国建设银行</option><option>中国工商银行</option><option>中国银行</option><option>中国农业银行</option></select></div>
+      <div class="filter-item"><label>启用渠道</label><select><option value="">全部</option><option>电信翼支付</option><option>微信支付</option><option>线下缴费</option></select></div>
+      <div class="filter-item"><label>配置状态</label><select><option value="">全部</option><option>正常启用</option><option>部分启用</option><option>联调中</option><option>已停用</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th class="cell-lg">运营机构</th><th class="cell-lg">对公账户开户行</th><th class="cell-lg">账户名</th><th>账号（脱敏）</th><th>翼支付商户号</th><th>微信支付商户号</th><th>启用渠道</th><th>结算周期</th><th>手续费承担</th><th>状态</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>株洲市人才安居服务有限公司</td><td>中国建设银行株洲天元支行</td><td>株洲市人才安居服务有限公司</td><td>4301****8826</td><td>YZF4302****0001</td><td>16853****07</td><td><span class="badge blue">翼支付</span> <span class="badge green">微信</span> <span class="badge orange">线下</span></td><td>T+1 工作日</td><td>运营机构承担 0.20%</td><td><span class="badge green">正常启用</span></td><td><span class="link" onclick="PMS.openDrawer('qdDrawer')">配置</span> <span class="link" onclick="PMS.toast('湘江1958 人才公寓、田心人才公寓共 1,486 间房源的账单收款方路由至本机构账户')">路由房源</span></td></tr>
+          <tr><td>株洲城建人才公寓运营管理有限公司</td><td>中国工商银行株洲芦淞支行</td><td>株洲城建人才公寓运营管理有限公司</td><td>1901****3074</td><td>YZF4302****0002</td><td>16871****42</td><td><span class="badge blue">翼支付</span> <span class="badge green">微信</span> <span class="badge orange">线下</span></td><td>T+1 工作日</td><td>运营机构承担 0.20%</td><td><span class="badge green">正常启用</span></td><td><span class="link" onclick="PMS.openDrawer('qdDrawer')">配置</span> <span class="link" onclick="PMS.toast('栗雨佳苑、董家塅人才公寓共 620 间房源的账单收款方路由至本机构账户')">路由房源</span></td></tr>
+          <tr class="row-warn"><td>株洲清水塘安居服务有限公司</td><td>中国银行株洲石峰支行</td><td>株洲清水塘安居服务有限公司</td><td>5883****2140</td><td>YZF4302****0003</td><td><span class="muted">未开通</span></td><td><span class="badge blue">翼支付</span> <span class="badge orange">线下</span></td><td>T+1 工作日</td><td>运营机构承担 0.20%（翼支付）</td><td><span class="badge orange">部分启用</span></td><td><span class="link" onclick="PMS.openDrawer('qdDrawer')">配置</span> <span class="link" onclick="PMS.toast('本机构尚未完成微信支付商户进件，微信渠道不对本机构房源开放；清水塘·未来社区 380 间房源的承租人缴费页只显示翼支付与线下缴费两项')">未开通说明</span></td></tr>
+          <tr class="row-warn"><td>云龙示范区人才安居服务中心</td><td>中国农业银行株洲云龙支行</td><td>云龙示范区人才安居服务中心</td><td>4302****6619</td><td><span class="muted">联调中</span></td><td><span class="muted">联调中</span></td><td><span class="badge orange">线下</span></td><td><span class="muted">待定</span></td><td><span class="muted">待定</span></td><td><span class="badge cyan">联调中</span></td><td><span class="link" onclick="PMS.openDrawer('qdDrawer')">配置</span> <span class="link" onclick="PMS.toast('翼支付、微信支付商户号均已进件、沙箱联调完成，待生产环境小额实付验证与对账文件对接通过后启用；启用前云龙人才公寓 268 间房源的承租人只能选择线下缴费')">联调进度</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="hint" style="margin-top:8px"><i class="fa-solid fa-circle-info"></i> 商户号与银行账号<b>脱敏展示</b>，完整信息仅在配置抽屉内对有权限的经办人可见；账户变更须先在系统管理中重新备案，变更前后全过程留痕。</p>
+    </div>
+    </div>
+
+    <div class="tab-panel" data-panel="qytj">
+    <div class="card-body tight">
+    <div class="sp-scroll">
+    <div class="sp-block">
+      <div class="sp-h"><i class="fa-solid fa-list-check"></i> 渠道启用前置条件<span class="sub">五项全部通过方可对承租人开放该渠道</span></div>
+      <div class="sp-b">
+      <div class="sp-tw">
+        <table class="data-table compact">
+          <thead><tr><th>序号</th><th>前置条件</th><th class="cell-lg">具体要求</th><th>人才安居</th><th>城建公寓</th><th>清水塘</th><th>云龙中心</th></tr></thead>
+          <tbody>
+            <tr><td><b>一</b></td><td><b>商户进件</b></td><td>运营机构以<b>本机构名义</b>分别在电信翼支付、微信支付完成商户进件并取得商户号，不得使用第三方或个人商户号收款</td><td><span class="badge green">已完成</span></td><td><span class="badge green">已完成</span></td><td><span class="badge red">微信未进件</span></td><td><span class="badge green">已完成</span></td></tr>
+            <tr><td><b>二</b></td><td><b>主体一致</b></td><td><b>商户主体、对公结算账户户名、营业执照（事业单位法人证书）主体三者一致</b>，结算账户须为本机构对公基本户或一般户，不得挂靠或代收</td><td><span class="badge green">已核验</span></td><td><span class="badge green">已核验</span></td><td><span class="badge green">已核验</span></td><td><span class="badge green">已核验</span></td></tr>
+            <tr><td><b>三</b></td><td><b>小程序绑定</b></td><td>微信支付商户号须与<b>湘易办小程序 APPID 完成绑定</b>（同主体或经关联主体授权）；翼支付须完成应用授权与支付权限开通</td><td><span class="badge green">已绑定</span></td><td><span class="badge green">已绑定</span></td><td><span class="badge gray">不适用</span></td><td><span class="badge orange">授权中</span></td></tr>
+            <tr><td><b>四</b></td><td><b>联调与生产验证</b></td><td>完成沙箱联调后，在<b>生产环境做小额实付验证</b>：支付、退款、回调各成功一笔，回调地址与签名校验通过</td><td><span class="badge green">已验证</span></td><td><span class="badge green">已验证</span></td><td><span class="badge green">翼支付已验证</span></td><td><span class="badge orange">待生产验证</span></td></tr>
+            <tr><td><b>五</b></td><td><b>对账文件对接</b></td><td>渠道对账文件（翼支付逐日流水、微信支付对账单）<b>每日自动下载入库</b>，连续 3 日比对一致后方可正式启用</td><td><span class="badge green">已对接</span></td><td><span class="badge green">已对接</span></td><td><span class="badge green">翼支付已对接</span></td><td><span class="badge orange">待对接</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="hint" style="margin-top:8px"><i class="fa-solid fa-triangle-exclamation"></i> 任一项未通过的，该渠道<b>不在该机构房源的缴费页展示</b>；三类渠道全部不可用时至少保留<b>线下缴费</b>，避免承租人无法缴费。</p>
+      </div>
+    </div>
+
+    <div class="sp-block">
+      <div class="sp-h"><i class="fa-solid fa-diagram-project"></i> 渠道启用办理流程<span class="sub">运营机构发起 · 主管单位核验 · 平台配置生效</span></div>
+      <div class="sp-b">
+      <div class="sp-tw">
+        <table class="data-table compact">
+          <thead><tr><th>环节</th><th>办理主体</th><th class="cell-lg">办理内容</th><th>时限</th></tr></thead>
+          <tbody>
+            <tr><td><b>1. 进件申请</b></td><td>运营机构</td><td>向电信翼支付、微信支付提交商户进件资料（营业执照、法人证件、对公账户开户许可、场景说明）</td><td>3—5 个工作日</td></tr>
+            <tr><td><b>2. 账户备案</b></td><td>运营机构 → 市住建局</td><td>提交对公收款账户开户许可与商户号，由市住建局核验主体一致性后备案</td><td>2 个工作日</td></tr>
+            <tr><td><b>3. 平台配置</b></td><td>租金核算岗</td><td>在本页录入收款账户与商户号，配置结算周期、手续费承担与启用渠道</td><td>当日</td></tr>
+            <tr><td><b>4. 联调验证</b></td><td>平台 + 运营机构</td><td>沙箱联调 → 生产小额实付验证 → 对账文件连续 3 日比对一致</td><td>5 个工作日</td></tr>
+            <tr><td><b>5. 正式启用</b></td><td>租金核算岗</td><td>置为「正常启用」，该机构房源的缴费页开始展示该渠道，启用时间与操作人留痕</td><td>即时生效</td></tr>
+          </tbody>
+        </table>
+      </div>
+      </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="tab-panel" data-panel="zjkj">
+    <div class="card-body tight">
+    <div class="sp-scroll">
+    <div class="sp-block">
+      <div class="sp-h"><i class="fa-solid fa-scale-balanced"></i> 资金与结算口径<span class="sub">本期设计口径，最终以业务确认为准</span></div>
+      <div class="sp-b">
+      <div class="alert alert-danger">
+        <i class="fa-solid fa-circle-exclamation"></i>
+        <div><b>平台不归集资金、不代收。</b>三类渠道的租金、押金与代收费用<b>均直接进入房源所属运营机构的对公账户</b>，平台只负责账单生成、渠道路由、核销与对账，不设资金归集户、不做二次清分。</div>
+      </div>
+      <div class="sp-tw">
+        <table class="data-table compact">
+          <thead><tr><th>规则编号</th><th class="cell-lg">口径说明</th></tr></thead>
+          <tbody>
+            <tr><td><b>QD-1</b></td><td><b>按房源归属路由</b>：账单生成时写入房源所属运营机构，缴费时按该机构的收款账户与商户号发起交易，跨机构不串户</td></tr>
+            <tr><td><b>QD-2</b></td><td><b>资金直达</b>：翼支付、微信支付的资金按渠道结算规则直接结算至运营机构对公账户；<b>平台不归集资金、不代收</b></td></tr>
+            <tr><td><b>QD-3</b></td><td><b>结算周期</b>：线上渠道默认 <b>T+1 工作日</b>结算至机构对公账户，具体以各渠道商户协议为准；线下缴费为即时到账，不涉及渠道结算</td></tr>
+            <tr><td><b>QD-4</b></td><td><b>手续费承担</b>：渠道手续费<b>由运营机构承担</b>，不向承租人加收；承租人缴纳金额始终等于账单个人应缴金额</td></tr>
+            <tr><td><b>QD-5</b></td><td><b>渠道可选性</b>：三类渠道并列，由承租人自行选择；某机构未启用某渠道的，该渠道不在其房源的缴费页展示</td></tr>
+            <tr><td><b>QD-6</b></td><td><b>线下兜底</b>：<b>线下缴费为所有机构默认启用的兜底渠道</b>，凭证须经运营机构确认后核销，核销时点以确认时间为准</td></tr>
+            <tr><td><b>QD-7</b></td><td><b>退款原路</b>：重复支付或多缴的按<b>原渠道原路退回</b>，由收款运营机构在其商户后台发起，平台记录退款流水并留痕</td></tr>
+            <tr><td><b>QD-8</b></td><td><b>账户变更</b>：收款账户、商户号变更须重新备案并核验主体一致性，变更生效前的在途交易仍按原账户结算，变更全过程留痕</td></tr>
+            <tr><td><b>QD-9</b></td><td><b>停用处置</b>：渠道停用（商户异常、对账连续不一致、机构合作终止）后，该机构房源的缴费页即时下架该渠道，已发起未支付的订单自动作废</td></tr>
+          </tbody>
+        </table>
+      </div>
+      </div>
+    </div>
+    </div>
+    </div>
+    </div>
+  </div>
+
+  <div class="sp-src">
+    <span><b>配置维度</b> 按运营机构维护对公收款账户、翼支付商户号、微信支付商户号与启用渠道</span>
+    <span><b>路由规则</b> 收款账户按<b>房源所属运营机构</b>路由，账单生成时写入，跨机构不串户</span>
+    <span><b>资金口径</b> 资金直接进入运营机构对公账户，<b>平台不归集资金、不代收</b>（本期设计口径，最终以业务确认为准）</span>
+    <span><b>兜底渠道</b> 线下缴费所有机构默认启用，凭证经运营机构确认后核销</span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="qdDrawer">
+  <div class="drawer-head">
+    <h3>配置收款账户与支付渠道</h3>
+    <span class="badge blue">株洲清水塘安居服务有限公司</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+    <div class="sp-dual">
+      <i class="lead fa-solid fa-user-shield"></i>
+      <div>收款账户与商户号变更属<b>敏感配置</b>，须先完成主体一致性核验与备案；<b>资金直接进入运营机构账户，平台不归集资金、不代收</b>。配置人、配置时间与变更前后值全过程留痕。</div>
+      <div class="who"><span class="muted">配置人</span><b>周欣怡（租金核算岗）</b></div>
+    </div>
+
+    <div class="form-grid form-align">
+      <div class="form-item col-full">
+        <label>运营机构 <span class="req">*</span></label>
+        <select><option selected>株洲清水塘安居服务有限公司（JG-003）</option><option>株洲市人才安居服务有限公司（JG-001）</option><option>株洲城建人才公寓运营管理有限公司（JG-002）</option><option>云龙示范区人才安居服务中心（JG-004）</option></select>
+        <div class="hint">机构档案取自运营机构档案，本页只维护其收款账户与渠道配置</div>
+      </div>
+      <div class="form-item">
+        <label>对公账户开户行 <span class="req">*</span></label>
+        <input type="text" value="中国银行株洲石峰支行">
+      </div>
+      <div class="form-item">
+        <label>账户名 <span class="req">*</span></label>
+        <input type="text" value="株洲清水塘安居服务有限公司">
+        <div class="hint">须与营业执照主体、商户主体三者一致</div>
+      </div>
+      <div class="form-item">
+        <label>银行账号 <span class="req">*</span></label>
+        <input type="text" value="5883****2140">
+        <div class="hint">列表页脱敏展示，完整账号仅对有权限的经办人可见</div>
+      </div>
+      <div class="form-item">
+        <label>账户类型 <span class="req">*</span></label>
+        <select><option selected>对公基本户</option><option>对公一般户</option></select>
+      </div>
+      <div class="form-item">
+        <label>翼支付商户号</label>
+        <input type="text" value="YZF4302****0003">
+        <div class="hint">已进件并完成生产验证与对账对接</div>
+      </div>
+      <div class="form-item">
+        <label>微信支付商户号</label>
+        <input type="text" value="" placeholder="尚未开通，进件取得商户号后填写">
+        <div class="hint bad">本机构尚未完成微信支付商户进件，填写前请先提交进件申请</div>
+      </div>
+      <div class="form-item col-full">
+        <label>启用渠道 <span class="req">*</span></label>
+        <select><option selected>电信翼支付 + 线下缴费</option><option>电信翼支付 + 微信支付 + 线下缴费</option><option>微信支付 + 线下缴费</option><option>仅线下缴费</option></select>
+        <div class="hint">未通过全部五项前置条件的渠道不允许勾选；<b>线下缴费为兜底渠道，不允许停用</b></div>
+      </div>
+      <div class="form-item">
+        <label>结算周期 <span class="req">*</span></label>
+        <select><option selected>T+1 工作日</option><option>T+0 当日</option><option>按周结算</option><option>按月结算</option></select>
+        <div class="hint">以各渠道商户协议约定为准，线下缴费不涉及渠道结算</div>
+      </div>
+      <div class="form-item">
+        <label>手续费承担 <span class="req">*</span></label>
+        <select><option selected>运营机构承担</option><option>财政补助列支</option></select>
+        <div class="hint">不得向承租人加收，承租人缴纳金额始终等于账单个人应缴金额</div>
+      </div>
+      <div class="form-item">
+        <label>渠道费率</label>
+        <input type="text" value="翼支付 0.20%">
+        <div class="hint">按商户协议填写，用于对账时校验实收与到账差额</div>
+      </div>
+      <div class="form-item">
+        <label>配置状态 <span class="req">*</span></label>
+        <select><option selected>部分启用</option><option>正常启用</option><option>联调中</option><option>已停用</option></select>
+      </div>
+      <div class="form-item col-full">
+        <label>对账文件对接 <span class="req">*</span></label>
+        <select><option selected>翼支付逐日流水已对接（每日 03:00）</option><option>翼支付 + 微信对账单均已对接</option><option>未对接</option></select>
+        <div class="hint">连续 3 日比对一致后方可将对应渠道置为「正常启用」</div>
+      </div>
+      <div class="form-item col-full">
+        <label>备案材料 <span class="req">*</span></label>
+        <input type="text" data-upload="1">
+        <div class="hint">须附：营业执照复印件、开户许可证或基本存款账户信息、商户进件回执、生产验证截图</div>
+      </div>
+      <div class="form-item col-full">
+        <label>配置说明 <span class="req">*</span></label>
+        <textarea rows="4">株洲清水塘安居服务有限公司对公收款账户为中国银行株洲石峰支行 5883****2140（对公基本户），户名与营业执照主体一致，已完成备案核验。翼支付商户号 YZF4302****0003 已完成进件、生产小额实付验证与逐日对账文件对接，予以启用；微信支付尚未完成商户进件，暂不启用，本机构管理的清水塘·未来社区 380 间房源的缴费页仅展示电信翼支付与线下缴费两项。渠道手续费由本机构承担，不向承租人加收。</textarea>
+      </div>
+    </div>
+    <p class="hint" style="margin-top:12px"><i class="fa-solid fa-circle-info"></i> 保存后即时生效：该机构房源的账单收款方按新配置路由，<b>在途未支付订单仍按原配置结算</b>；变更前后值全过程留痕。</p>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn" onclick="PMS.toast('已保存配置草稿，未生效')">保存草稿</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'保存确认',message:'确认保存株洲清水塘安居服务有限公司的收款账户与渠道配置？',detail:'保存后即时生效，该机构管理的 380 间房源的账单收款方按新配置路由，缴费页展示电信翼支付与线下缴费两项。资金直接进入该机构对公账户，平台不归集资金、不代收。变更前后值全过程留痕。',type:'warning',okText:'确认保存',onOk:function(){PMS.closeDrawer();PMS.toast('已保存并生效，配置变更已留痕','success');}})"><i class="fa-solid fa-check"></i> 保存并生效</button>
+  </div>
+</div>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 4; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

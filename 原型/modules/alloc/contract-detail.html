@@ -22,13 +22,14 @@
     <div class="page-actions">
       <a class="btn" href="contract-list.html"><i class="fa-solid fa-arrow-left"></i> 返回</a>
       <button class="btn" onclick="PMS.toast('电子合同 PDF 已下载','success')"><i class="fa-solid fa-download"></i> 下载合同</button>
+      <button class="btn" onclick="PMS.toast('已调起打印，纸质合同可交承租人与运营机构各留存一份','success')"><i class="fa-solid fa-print"></i> 打印合同</button>
       <a class="btn btn-primary" href="contract-change.html"><i class="fa-solid fa-file-pen"></i> 办理变更</a>
     </div>
   </div>
 
   <div class="alert alert-info">
     <i class="fa-solid fa-circle-info"></i>
-    <div>本合同<b>已生效</b>，保障期 2026-01-06 至 2028-01-05（剩余 168 天）。合同要素是<b>租金计费与减免核算的唯一数据源</b>，要素变更须走合同变更审批流程。</div>
+    <div>本合同<b>已生效</b>，签约方式为<b>运营方发起电子签约</b>，保障期 2026-01-06 至 2028-01-05（剩余 168 天）。合同要素是<b>租金计费与减免核算的唯一数据源</b>，要素变更须走合同变更审批流程。电子签约与线下上传<b>统一编号归档</b>，均支持下载打印。</div>
   </div>
 
   <div class="card" data-tabs-scope>
@@ -44,17 +45,18 @@
           <div class="desc-item"><dt>合同编号</dt><dd>RZ2026-00862</dd></div>
           <div class="desc-item"><dt>合同状态</dt><dd><span class="badge green">已生效</span></dd></div>
           <div class="desc-item"><dt>归档编号</dt><dd>GD2026-RZ-00862</dd></div>
-          <div class="desc-item"><dt>配租批次</dt><dd>PZ2026-03（2026 年第 3 批）</dd></div>
+          <div class="desc-item"><dt>签约方式</dt><dd><span class="badge blue">运营方发起电子签约</span>　双方签署即完成，无需另行核对确认</dd></div>
+          <div class="desc-item"><dt>配租批次</dt><dd>PZ2026-03（2026 年第 3 批 · 自动配租 ZX2026-03-01）</dd></div>
           <div class="desc-item"><dt>承租人</dt><dd>王梓涵</dd></div>
           <div class="desc-item"><dt>身份证号</dt><dd><span class="sp-mask">430211********2418<span class="mk" onclick="SP.mask(this.parentElement,'430211200103122418')">查看明文</span></span></dd></div>
-          <div class="desc-item full"><dt>出租方</dt><dd>株洲城发高科人才安居服务有限公司</dd></div>
+          <div class="desc-item full"><dt>出租方</dt><dd>株洲市人才安居服务有限公司</dd></div>
           <div class="desc-item full"><dt>租赁房源</dt><dd>湘江1958 人才公寓 A6 栋 1 单元 15 层 1502 室</dd></div>
           <div class="desc-item"><dt>户型 / 管理模式</dt><dd>一室一厅　整套配租（1 人）</dd></div>
           <div class="desc-item"><dt>建筑面积</dt><dd>52.60 ㎡</dd></div>
           <div class="desc-item"><dt>套内面积</dt><dd>41.80 ㎡</dd></div>
           <div class="desc-item"><dt>分摊面积</dt><dd>10.80 ㎡</dd></div>
           <div class="desc-item"><dt><b>计租面积</b></dt><dd><b>52.60 ㎡</b>（整套配租取建筑面积）</dd></div>
-          <div class="desc-item"><dt>租金标准</dt><dd>18.00 元/㎡·月</dd></div>
+          <div class="desc-item"><dt>租金标准</dt><dd>14.00 元/㎡·月</dd></div>
           <div class="desc-item"><dt>入住日期</dt><dd>2026-01-06</dd></div>
           <div class="desc-item"><dt>保障期</dt><dd>2026-01-06 至 2028-01-05（24 个月）</dd></div>
           <div class="desc-item"><dt>押金</dt><dd>1,000.00 元</dd></div>
@@ -64,9 +66,9 @@
           <div class="sp-h"><i class="fa-solid fa-list"></i> 租金与减免核算<span class="sub">R-R1 · 唯一数据源</span></div>
           <div class="sp-b">
       <div class="sp-fx">
-        <b>应缴租金总额</b>　= 计租面积 52.60 ㎡ × 租金标准 18.00 元/㎡·月 × 1 个月 = <b>946.80 元</b><br>
-        <b>财政补助</b>　= 946.80 × 减免比例 70% = <b>662.76 元</b><br>
-        <b>个人实际应缴</b>　= 946.80 − 662.76 = <b>284.04 元</b>
+        <b>应缴租金总额</b>　= 计租面积 52.60 ㎡ × 租金标准 14.00 元/㎡·月 × 1 个月 = <b>736.40 元</b><br>
+        <b>财政补助</b>　= 736.40 × 减免比例 70% = <b>420.80 元</b><br>
+        <b>个人实际应缴</b>　= 736.40 − 420.80 = <b>315.60 元</b>
       </div>
         <div class="sp-kv">
           <div class="kv"><span class="k">减免比例</span><span class="v">70%</span><span class="link" onclick="location.href='../rent/relief-plan.html'">减免方案配置</span></div>
@@ -81,14 +83,41 @@
     <div class="tab-panel" data-panel="sign">
       <div class="card-body">
         <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 本合同签署路径<span class="sub">路径一 · 运营方发起电子签约</span></div>
+          <div class="sp-b">
+        <div class="sp-kv">
+          <div class="kv"><span class="k">签约方式</span><span class="v">运营方发起电子签约（企业电子签章 + 个人手机签章）</span><span class="link" onclick="location.href='seal-manage.html'">签章与发起权限</span></div>
+          <div class="kv"><span class="k">发起方</span><span class="v">株洲市人才安居服务有限公司　彭雪梅　2026-09-20 14:42</span></div>
+          <div class="kv"><span class="k">是否需核对确认</span><span class="v">否——电子签约双方签署即置为签约完成</span></div>
+          <div class="kv"><span class="k">统一归档编号</span><span class="v">GD2026-RZ-00862</span><span class="link" onclick="location.href='contract-archive.html'">归档卷内</span></div>
+          <div class="kv"><span class="k">下载与打印</span><span class="v">支持，可交承租人与运营机构各留存一份纸质</span><span class="link" onclick="PMS.toast('电子合同 PDF 已下载','success')">下载</span></div>
+        </div>
+          </div>
+        </div>
+        <div class="sp-block" style="margin-top:12px">
           <div class="sp-h"><i class="fa-solid fa-list"></i> 双方签署<span class="sub">P8-02</span></div>
           <div class="sp-b">
   <div class="sp-tw">
     <table class="data-table compact">
-      <thead><tr><th class="署">签</th><th class="cell-lg">名称</th><th class="署">签</th><th class="署">签</th><th class="证">存</th><th class="态">状</th></tr></thead>
+      <thead><tr><th>签署方</th><th class="cell-lg">名称</th><th class="cell-lg">签署方式</th><th>签署时间</th><th>存证机构</th><th>状态</th></tr></thead>
       <tbody>
-      <tr><td><span class="badge blue">甲方（出租方）</span></td><td>株洲城发高科人才安居服务有限公司</td><td>企业电子签章（YZ-001）</td><td>2026-09-20 15:08</td><td>第三方 CA 服务机构</td><td><span class="badge green">已签章</span></td></tr>
+      <tr><td><span class="badge blue">甲方（出租方）</span></td><td>株洲市人才安居服务有限公司</td><td>企业电子签章（YZ-001）</td><td>2026-09-20 15:08</td><td>第三方 CA 服务机构</td><td><span class="badge green">已签章</span></td></tr>
       <tr><td><span class="badge green">乙方（承租方）</span></td><td>王梓涵</td><td>个人电子签名 + 人脸核身（相似度 98.6%）</td><td>2026-09-20 15:08</td><td>第三方 CA 服务机构</td><td><span class="badge green">已签署</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+          </div>
+        </div>
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 签署双模式与核对确认口径<span class="sub">P09 · 两条路径统一编号归档</span></div>
+          <div class="sp-b">
+  <div class="sp-tw">
+    <table class="data-table compact">
+      <thead><tr><th>路径</th><th class="cell-lg">签署方式</th><th class="cell-lg">置为“签约完成”的依据</th><th>下载打印</th><th>本合同适用</th></tr></thead>
+      <tbody>
+      <tr><td><b>路径一</b></td><td><b>运营方发起电子签约</b>：甲方企业电子签章 + 乙方个人手机签章与人脸核身，第三方 CA 存证</td><td>双方签署完成即<b>自动置为签约完成</b>并生效归档，无需另行核对</td><td><span class="badge green">支持</span></td><td><span class="badge blue">是</span></td></tr>
+      <tr><td><b>路径二</b></td><td><b>线下签署后上传</b>：到运营机构签署纸质合同，上传已签字盖章的 PDF 或图片版影像</td><td><b>须由运营机构核对确认后</b>才置为签约完成；<b>不以上传动作本身作为完成依据</b>，未确认的显示<b>待运营机构核对确认</b></td><td><span class="badge green">支持</span></td><td><span class="badge gray">否</span></td></tr>
+      <tr class="row-warn"><td><b>入口控制</b></td><td><b>未完成电子签章录入</b>的运营机构，签约环节<b>只显示线下上传入口</b>；录入并授权完成后自动开放电子签约</td><td>由电子签章库的录入状态与发起权限决定</td><td><span class="muted">—</span></td><td><span class="link" onclick="location.href='seal-manage.html'">电子签章库</span></td></tr>
       </tbody>
     </table>
   </div>
@@ -99,9 +128,9 @@
           <div class="sp-b">
   <div class="sp-tw">
     <table class="data-table compact">
-      <thead><tr><th class="章">用</th><th class="章">印</th><th class="cell-lg">用章事由</th><th class="作">操</th><th class="同">合</th></tr></thead>
+      <thead><tr><th>用章时间</th><th>印章</th><th class="cell-lg">用章事由</th><th>操作人</th><th>关联合同</th></tr></thead>
       <tbody>
-      <tr><td>2026-09-20 15:08</td><td>YZ-001 合同专用章</td><td>租赁合同签署</td><td>彭雪梅（株洲城发高科人才安居服务有限公司）</td><td>RZ2026-00862</td></tr>
+      <tr><td>2026-09-20 15:08</td><td>YZ-001 合同专用章</td><td>租赁合同签署</td><td>彭雪梅（株洲市人才安居服务有限公司）</td><td>RZ2026-00862</td></tr>
       </tbody>
     </table>
   </div>
@@ -116,17 +145,21 @@
           <div class="sp-b">
         <div class="timeline">
           <div class="tl-item done"><div class="tl-dot"></div>
-            <div class="tl-title">配租选房锁定</div>
-            <div class="tl-meta">系统 · 2026-09-12 10:32</div>
-            <div class="tl-desc">王梓涵在第 3 批配租中选定 A6-1502 并确认（人脸核身通过）。</div></div>
+            <div class="tl-title">系统自动配租匹配</div>
+            <div class="tl-meta">系统 · 2026-09-15 10:04</div>
+            <div class="tl-desc">第 3 批自动配租执行（ZX2026-03-01），按资格审核通过时间在王梓涵意向范围内匹配到 A6-1502，整套配租不涉及同套同性别校验。</div></div>
+          <div class="tl-item done"><div class="tl-dot"></div>
+            <div class="tl-title">配租结果通知与签约提醒</div>
+            <div class="tl-meta">系统 · 2026-09-15 10:06</div>
+            <div class="tl-desc">短信告知房源、计租面积、租金标准、运营机构联系方式与签约期限 5 个工作日。</div></div>
           <div class="tl-item done"><div class="tl-dot"></div>
             <div class="tl-title">关键条款确认</div>
             <div class="tl-meta">王梓涵 · 2026-09-20 14:56</div>
             <div class="tl-desc">逐项确认租住期限、减免标准、分摊面积计租、费用自理、腾退义务、违规后果 6 项条款。</div></div>
           <div class="tl-item done"><div class="tl-dot"></div>
-            <div class="tl-title">双方电子签署</div>
-            <div class="tl-meta">王梓涵 + 彭雪梅 · 2026-09-20 15:08</div>
-            <div class="tl-desc">个人签名与企业签章同步完成，签署即生效并自动归档。</div></div>
+            <div class="tl-title">运营方发起电子签约并双方签署</div>
+            <div class="tl-meta">彭雪梅 + 王梓涵 · 2026-09-20 15:08</div>
+            <div class="tl-desc">企业签章与个人签名同步完成，签署即生效并按统一编号自动归档，在签约期限内完成。</div></div>
           <div class="tl-item done"><div class="tl-dot"></div>
             <div class="tl-title">交付验收并写入入住日期</div>
             <div class="tl-meta">彭雪梅 · 2026-01-06 10:16</div>
@@ -150,11 +183,11 @@
           <div class="sp-b">
   <div class="sp-tw">
     <table class="data-table compact">
-      <thead><tr><th class="单">账</th><th class="缴">应</th><th class="政">财</th><th class="人">个</th><th class="费">缴</th><th class="态">状</th><th class="作">操</th></tr></thead>
+      <thead><tr><th>账期</th><th class="num">应缴租金</th><th class="num">财政补助</th><th class="num">个人自付</th><th>缴费时间</th><th>状态</th><th>操作</th></tr></thead>
       <tbody>
-      <tr><td>2026-09</td><td class="num">946.80</td><td class="num">662.76</td><td class="num">284.04</td><td>2026-09-05 09:42</td><td><span class="badge green">已缴清</span></td><td><span class="link" onclick="location.href='../rent/bill-list.html'">账单</span></td></tr>
-      <tr><td>2026-08</td><td class="num">946.80</td><td class="num">662.76</td><td class="num">284.04</td><td>2026-08-11 14:22</td><td><span class="badge green">已缴清</span></td><td><span class="link" onclick="location.href='../rent/bill-list.html'">账单</span></td></tr>
-      <tr><td>2026-07</td><td class="num">946.80</td><td class="num">662.76</td><td class="num">284.04</td><td>2026-07-09 10:08</td><td><span class="badge green">已缴清</span></td><td><span class="link" onclick="location.href='../rent/bill-list.html'">账单</span></td></tr>
+      <tr><td>2026-09</td><td class="num">736.40</td><td class="num">420.80</td><td class="num">315.60</td><td>2026-09-05 09:42</td><td><span class="badge green">已缴清</span></td><td><span class="link" onclick="location.href='../rent/bill-list.html'">账单</span></td></tr>
+      <tr><td>2026-08</td><td class="num">736.40</td><td class="num">420.80</td><td class="num">315.60</td><td>2026-08-11 14:22</td><td><span class="badge green">已缴清</span></td><td><span class="link" onclick="location.href='../rent/bill-list.html'">账单</span></td></tr>
+      <tr><td>2026-07</td><td class="num">736.40</td><td class="num">420.80</td><td class="num">315.60</td><td>2026-07-09 10:08</td><td><span class="badge green">已缴清</span></td><td><span class="link" onclick="location.href='../rent/bill-list.html'">账单</span></td></tr>
       <tr><td><b>累计（12 期）</b></td><td class="num">11,361.60</td><td class="num">7,953.12</td><td class="num">3,408.48</td><td><span class="muted">—</span></td><td><span class="badge green">均已缴清</span></td><td><span class="link" onclick="location.href='../rent/split-account.html'">分账核算</span></td></tr>
       </tbody>
     </table>
@@ -165,8 +198,10 @@
     </div>
   </div>
   <div class="sp-src">
+    <span><b>签署双模式</b> <b>运营方发起电子签约</b>与<b>线下签署后上传</b>两条路径并存，<b>统一编号归档</b>、均支持下载打印</span>
+    <span><b>核对确认</b> 线下上传的<b>须由运营机构核对确认后才置为“签约完成”</b>，不以上传动作本身作为完成依据</span>
     <span><b>唯一数据源</b> 合同要素为租金计费与减免核算唯一取值来源</span>
-    <span><b>签署存证</b> 第三方 CA 服务机构提供签署存证，保证法律效力</span>
+    <span><b>签署存证</b> 第三方 CA 服务机构提供签署存证，保证法律效力；<span class="link" onclick="location.href='seal-manage.html'">电子签章库与发起权限</span></span>
   </div>
 </main>
 

@@ -27,7 +27,7 @@
 
   <div class="alert alert-warning">
     <i class="fa-solid fa-triangle-exclamation"></i>
-    <div>登记房源<b>项目名称、所在区、收购主体、房源性质、所属运营机构、物业公司名称、总套数、交付时间与验收状态</b>；<b>所属运营机构决定该项目房源及其派生业务数据的归属范围</b>，项目下房源由该运营机构自行导入与维护。房源须达到<b>拎包入住标准</b>，验收合格后方可纳入配租房源池。<b>每个项目标注入库类型</b>，区分<b>批量导入</b>与<b>接口对接</b>两种来源，<b>便于接口开通后按项目分批切换</b> —— 本期接口<b>暂不对接</b>，全部项目先按<b>批量导入</b>建账；接口开通后按项目逐个改为<b>接口对接</b>，已导入房源保留原入库标记。入库类型与来源渠道<b>分别标注、互不替代</b>。<span class="link" onclick="location.href='intake-type.html'">入库类型标识与切换</span></div>
+    <div>登记房源<b>项目名称、所在区、收购主体、房源性质、总套数、交付时间与验收状态</b>；房源须达到<b>拎包入住标准</b>，验收合格后方可纳入配租房源池。<b>每个项目标注入库类型</b>，区分<b>批量导入</b>与<b>接口对接</b>两种来源，<b>便于接口开通后按项目分批切换</b> —— 本期接口<b>暂不对接</b>，全部项目先按<b>批量导入</b>建账；接口开通后按项目逐个改为<b>接口对接</b>，已导入房源保留原入库标记。入库类型与来源渠道<b>分别标注、互不替代</b>。<span class="link" onclick="location.href='intake-type.html'">入库类型标识与切换</span></div>
   </div>
 
   <div class="stat-grid">
@@ -39,7 +39,7 @@
     <div class="stat-card">
       <div class="s-icon green"><i class="fa-solid fa-building"></i></div>
       <div><div class="s-label">计划总套数</div><div class="s-value">2,486</div>
-        <div class="s-trend text-2">年度计划 3,000 套</div></div>
+        <div class="s-trend text-2">年度计划 3,000 间</div></div>
     </div>
     <div class="stat-card">
       <div class="s-icon cyan"><i class="fa-solid fa-circle-check"></i></div>
@@ -55,15 +55,13 @@
 
   <div class="card list-card">
     <div class="filter-bar">
-      <div class="filter-item"><label>项目名称</label><input type="text" value="湘江1958 人才公寓" placeholder="项目名称或收购主体"></div>
+      <div class="filter-item"><label>项目名称</label><input type="text" placeholder="项目名称或收购主体"></div>
       <div class="filter-item"><label>所在区</label><select data-dict="district" data-ph="全部"></select></div>
       <div class="filter-item"><label>房源性质</label><select data-dict="houseSource" data-ph="全部"></select></div>
-      <div class="filter-item"><label>所属运营机构</label><select data-dict="agencyOrg" data-ph="全部"></select></div>
-      <div class="filter-item"><label>物业公司</label><input type="text" value="株洲城发物业服务有限公司" placeholder="物业公司名称"></div>
       <div class="filter-item"><label>入库类型</label><select data-dict="intakeType" data-ph="全部"></select></div>
       <div class="filter-item"><label>报送单位 / 来源系统</label><select data-dict="reportOrg" data-ph="全部"></select></div>
       <div class="filter-item"><label>验收状态</label><select><option value="">全部</option><option>已验收</option><option>部分验收</option><option>待验收</option><option>在建</option></select></div>
-      <div class="filter-item"><label>交付时间</label><input type="date" value="2026-09-01"></div>
+      <div class="filter-item"><label>交付时间</label><input type="date"></div>
       <div class="filter-actions">
         <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
         <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
@@ -73,15 +71,15 @@
     <div class="table-wrap">
       <table class="data-table">
         <thead>
-          <tr><th>项目编号</th><th class="cell-lg">项目名称</th><th>所在区</th><th class="cell-lg">收购主体</th><th>房源性质</th><th class="cell-lg">所属运营机构</th><th class="cell-lg">物业公司名称</th><th>入库类型</th><th class="cell-lg">报送单位 / 来源系统</th><th class="num">总套数</th><th class="num">已到位</th><th>交付时间</th><th>验收状态</th><th>操作</th></tr>
+          <tr><th>项目编号</th><th class="cell-lg">项目名称</th><th>所在区</th><th class="cell-lg">收购主体</th><th>房源性质</th><th>入库类型</th><th class="cell-lg">报送单位 / 来源系统</th><th class="num">总套数</th><th class="num">已到位</th><th>交付时间</th><th>验收状态</th><th>操作</th></tr>
         </thead>
         <tbody>
-          <tr><td>XM2025-001</td><td>湘江1958 人才公寓（一、二期）</td><td>天元区</td><td>株洲市城市建设发展集团有限公司</td><td><span class="badge blue">收购商品房</span></td><td>株洲城发高科人才安居服务有限公司</td><td>株洲城发物业服务有限公司</td><td><span class="badge blue">批量导入</span></td><td>株洲城发高科集团（报送）</td><td class="num">620</td><td class="num">620</td><td>2025-11-20</td><td><span class="badge green">已验收</span></td><td><span class="link" onclick="location.href='proj-detail.html?id=XM2025-001'">详情</span> <span class="link" onclick="PMS.openDrawer('projDrawer')">编辑</span></td></tr>
-          <tr><td>XM2025-004</td><td>栗雨佳苑人才公寓</td><td>天元区</td><td>株洲市保障性住房建设投资有限公司</td><td><span class="badge green">公租房盘活</span></td><td>株洲城发高科人才安居服务有限公司</td><td>株洲城发物业服务有限公司</td><td><span class="badge blue">批量导入</span></td><td>市保障性住房服务中心（报送）</td><td class="num">366</td><td class="num">366</td><td>2025-12-08</td><td><span class="badge green">已验收</span></td><td><span class="link" onclick="location.href='proj-detail.html?id=XM2025-004'">详情</span> <span class="link" onclick="PMS.openDrawer('projDrawer')">编辑</span></td></tr>
-          <tr><td>XM2026-002</td><td>茨菇塘公寓</td><td>荷塘区</td><td>株洲市荷塘区城市建设投资有限公司</td><td><span class="badge green">公租房盘活</span></td><td>清水塘投资运营服务有限公司</td><td>湘天物业管理有限公司</td><td><span class="badge blue">批量导入</span></td><td>市保障性住房服务中心（报送）</td><td class="num">486</td><td class="num">486</td><td>2026-03-16</td><td><span class="badge green">已验收</span></td><td><span class="link" onclick="location.href='proj-detail.html?id=XM2026-002'">详情</span> <span class="link" onclick="PMS.openDrawer('projDrawer')">编辑</span></td></tr>
-          <tr class="row-warn"><td>XM2026-005</td><td>董家塅安居苑</td><td>芦淞区</td><td>株洲市芦淞城市发展投资有限公司</td><td><span class="badge blue">收购商品房</span></td><td>株洲城发高科人才安居服务有限公司</td><td>芦淞城发物业服务有限公司</td><td><span class="badge blue">批量导入</span></td><td>株洲城发高科集团（报送）</td><td class="num">328</td><td class="num">286</td><td>2026-08-30</td><td><span class="badge orange">部分验收</span></td><td><span class="link" onclick="location.href='proj-detail.html?id=XM2026-005'">详情</span> <span class="link" onclick="location.href='acceptance-list.html'">验收</span></td></tr>
-          <tr class="row-warn"><td>XM2026-008</td><td>清水塘新苑</td><td>石峰区</td><td>株洲市清水塘投资集团有限公司</td><td><span class="badge green">公租房盘活</span></td><td>清水塘投资运营服务有限公司</td><td>清水塘绿地物业服务有限公司</td><td><span class="badge blue">批量导入</span></td><td>清水塘投资集团（报送）</td><td class="num">412</td><td class="num">328</td><td>2026-09-28</td><td><span class="badge orange">待验收</span></td><td><span class="link" onclick="location.href='proj-detail.html?id=XM2026-008'">详情</span> <span class="link" onclick="location.href='acceptance-list.html'">验收</span></td></tr>
-          <tr class="row-bad"><td>XM2026-011</td><td>云龙人才苑</td><td>经开区</td><td>湖南云龙投资开发有限公司</td><td><span class="badge cyan">保租房“一间房”</span></td><td>株洲高新人才公寓运营有限公司</td><td>云龙新城物业服务有限公司</td><td><span class="badge purple">接口对接</span><span class="badge gray">待启用</span></td><td>省保障性租赁住房系统（接口开通后切换）</td><td class="num">274</td><td class="num">0</td><td>2026-12-20</td><td><span class="badge gray">在建</span></td><td><span class="link" onclick="location.href='proj-detail.html?id=XM2026-011'">详情</span> <span class="link" onclick="location.href='intake-type.html'">切换入库</span></td></tr>
+          <tr><td>XM2025-001</td><td>湘江1958 人才公寓（一、二期）</td><td>天元区</td><td>株洲市城市建设发展集团有限公司</td><td><span class="badge blue">收购商品房</span></td><td><span class="badge blue">批量导入</span></td><td>株洲城发高科集团（报送）</td><td class="num">620</td><td class="num">620</td><td>2025-11-20</td><td><span class="badge green">已验收</span></td><td><span class="link" onclick="location.href='proj-detail.html?id=XM2025-001'">详情</span> <span class="link" onclick="PMS.openDrawer('projDrawer')">编辑</span></td></tr>
+          <tr><td>XM2025-004</td><td>栗雨佳苑人才公寓</td><td>天元区</td><td>株洲市保障性住房建设投资有限公司</td><td><span class="badge green">公租房盘活</span></td><td><span class="badge blue">批量导入</span></td><td>市保障性住房服务中心（报送）</td><td class="num">366</td><td class="num">366</td><td>2025-12-08</td><td><span class="badge green">已验收</span></td><td><span class="link" onclick="location.href='proj-detail.html?id=XM2025-004'">详情</span> <span class="link" onclick="PMS.openDrawer('projDrawer')">编辑</span></td></tr>
+          <tr><td>XM2026-002</td><td>茨菇塘公寓</td><td>荷塘区</td><td>株洲市荷塘区城市建设投资有限公司</td><td><span class="badge green">公租房盘活</span></td><td><span class="badge blue">批量导入</span></td><td>市保障性住房服务中心（报送）</td><td class="num">486</td><td class="num">486</td><td>2026-03-16</td><td><span class="badge green">已验收</span></td><td><span class="link" onclick="location.href='proj-detail.html?id=XM2026-002'">详情</span> <span class="link" onclick="PMS.openDrawer('projDrawer')">编辑</span></td></tr>
+          <tr class="row-warn"><td>XM2026-005</td><td>董家塅安居苑</td><td>芦淞区</td><td>株洲市芦淞城市发展投资有限公司</td><td><span class="badge blue">收购商品房</span></td><td><span class="badge blue">批量导入</span></td><td>株洲城发高科集团（报送）</td><td class="num">328</td><td class="num">286</td><td>2026-08-30</td><td><span class="badge orange">部分验收</span></td><td><span class="link" onclick="location.href='proj-detail.html?id=XM2026-005'">详情</span> <span class="link" onclick="location.href='acceptance-list.html'">验收</span></td></tr>
+          <tr class="row-warn"><td>XM2026-008</td><td>清水塘新苑</td><td>石峰区</td><td>株洲市清水塘投资集团有限公司</td><td><span class="badge green">公租房盘活</span></td><td><span class="badge blue">批量导入</span></td><td>清水塘投资集团（报送）</td><td class="num">412</td><td class="num">328</td><td>2026-09-28</td><td><span class="badge orange">待验收</span></td><td><span class="link" onclick="location.href='proj-detail.html?id=XM2026-008'">详情</span> <span class="link" onclick="location.href='acceptance-list.html'">验收</span></td></tr>
+          <tr class="row-bad"><td>XM2026-011</td><td>云龙人才苑</td><td>经开区</td><td>湖南云龙投资开发有限公司</td><td><span class="badge cyan">保租房“一间房”</span></td><td><span class="badge purple">接口对接</span><span class="badge gray">待启用</span></td><td>省保障性租赁住房系统（接口开通后切换）</td><td class="num">274</td><td class="num">0</td><td>2026-12-20</td><td><span class="badge gray">在建</span></td><td><span class="link" onclick="location.href='proj-detail.html?id=XM2026-011'">详情</span> <span class="link" onclick="location.href='intake-type.html'">切换入库</span></td></tr>
         </tbody>
       </table>
     </div>
@@ -89,7 +87,6 @@
   <div class="sp-src">
     <span><b>统计口径</b> 按项目交付验收合格之日归集到位套数</span>
     <span><b>数据来源</b> 收购主体报送 + 拎包入住验收结果</span>
-    <span><b>运营归属</b> 每个项目登记<b>所属运营机构</b>与<b>物业公司名称</b>：运营机构决定房源及其派生的合同、账单、收缴、工单、巡检、补助、考核的数据归属；物业公司与物业服务评价、物业费标准挂钩</span>
     <span><b>入库类型</b> <b>每个项目标注入库类型</b>：<b>批量导入</b>（报送单位 + 导入批次号，本期主要方式）/ <b>接口对接</b>（来源系统 + 同步时间，本期待启用）；项目下房源默认继承项目入库类型</span>
     <span><b>分批切换</b> 接口开通后<b>按项目分批切换</b>，不整体一次性切换；切换须填切换说明与生效时间并经复核，<b>已导入房源保留原入库标记与批次号</b>，与接口来源双轨记录</span>
     <span><b>标注关系</b> 入库类型与<b>房源性质 / 来源渠道分别标注、互不替代</b>；切换台账见 <span class="link" onclick="location.href='intake-type.html'">入库类型标识与切换</span></span>
@@ -107,7 +104,7 @@
   <div class="drawer-body">
   <div class="alert alert-warning">
     <i class="fa-solid fa-triangle-exclamation"></i>
-    <div>项目须完成<b>装饰装修并配置相应的家电家具，达到拎包入住标准</b>，验收合格后方可纳入配租房源池。登记时须填写<b>所属运营机构</b>与<b>物业公司名称</b>：运营机构决定本项目房源及其派生业务数据的归属，房源由其按统一模板<b>自行导入与维护</b>。同时须<b>标注入库类型</b>：本期接口暂不对接，一律选<b>批量导入</b>并填写报送单位；接口开通后再按项目切换为<b>接口对接</b>。</div>
+    <div>项目须完成<b>装饰装修并配置相应的家电家具，达到拎包入住标准</b>，验收合格后方可纳入配租房源池。登记时须<b>标注入库类型</b>：本期接口暂不对接，一律选<b>批量导入</b>并填写报送单位；接口开通后再按项目切换为<b>接口对接</b>。</div>
   </div>
 
       <div class="form-grid form-align">
@@ -118,7 +115,7 @@
         </div>
         <div class="form-item">
           <label>项目名称 <span class="req">*</span></label>
-          <input type="text" value="田心人才公寓（二期）" placeholder="请输入项目名称">
+          <input type="text" placeholder="请输入项目名称">
         </div>
         <div class="form-item">
           <label>所在区 <span class="req">*</span></label>
@@ -127,16 +124,6 @@
         <div class="form-item">
           <label>房源性质 <span class="req">*</span></label>
           <select data-dict="houseSource" data-ph="全部"></select>
-        </div>
-        <div class="form-item">
-          <label>所属运营机构 <span class="req">*</span></label>
-          <select data-dict="agencyOrg" data-selected="株洲城发高科人才安居服务有限公司" data-ph=""></select>
-          <div class="hint">受托运营本项目房源的机构，决定房源及其派生业务数据的归属范围；本项目房源由该机构自行导入与维护</div>
-        </div>
-        <div class="form-item">
-          <label>物业公司名称 <span class="req">*</span></label>
-          <input type="text" value="株洲城发物业服务有限公司">
-          <div class="hint">承担本项目物业服务的公司，与物业服务评价、物业费标准挂钩</div>
         </div>
         <div class="form-item">
           <label>入库类型 <span class="req">*</span></label>
@@ -150,16 +137,15 @@
         </div>
         <div class="form-item col-full">
           <label>收购主体 <span class="req">*</span></label>
-          <input type="text" value="株洲市城市建设发展集团有限公司" placeholder="请输入收购主体全称">
+          <input type="text" placeholder="请输入收购主体全称">
         </div>
         <div class="form-item">
           <label>总套数 <span class="req">*</span></label>
-          <input type="text" value="268">
-          <div class="hint">套。项目下房源按「间」建账，间数在房源导入时按套内间数自动汇总</div>
+          <input type="text" placeholder="套">
         </div>
         <div class="form-item">
           <label>计划交付时间 <span class="req">*</span></label>
-          <input type="date" value="2026-12-28">
+          <input type="date">
         </div>
         <div class="form-item">
           <label>资金来源 <span class="req">*</span></label>
@@ -167,16 +153,16 @@
         </div>
         <div class="form-item col-full">
           <label>房源坐落 <span class="req">*</span></label>
-          <input type="text" value="石峰区田心大道 168 号" placeholder="区 + 路 + 门牌号">
+          <input type="text" placeholder="区 + 路 + 门牌号">
         </div>
         <div class="form-item col-full">
           <label>入库类型切换说明 <span class="req">*</span></label>
-          <textarea rows="3">本期省保障性租赁住房系统、公租房系统接口暂不对接，本项目房源由所属运营机构按主管单位下发的统一模板自行批量导入建账（导入环节不需报送审批），入库类型标注为「批量导入」。接口开通并在系统中打开启用开关后，本项目可单独切换为「接口对接」，已导入房源保留原入库标记与导入批次号，与接口来源双轨记录、不互相覆盖。</textarea>
+          <textarea rows="3">本期省保障性租赁住房系统、公租房系统接口暂不对接，本项目房源先由报送单位按统一模板报送、住建部门审核后批量导入建账，入库类型标注为「批量导入」。接口开通并在系统中打开启用开关后，本项目可单独切换为「接口对接」，已导入房源保留原入库标记与导入批次号，与接口来源双轨记录、不互相覆盖。</textarea>
           <div class="hint">切换须填写生效时间并经复核，按项目分批切换，不整体一次性切换</div>
         </div>
         <div class="form-item col-full">
           <label>项目附件</label>
-          <input type="text" data-upload="1" value="田心人才公寓二期_项目立项与运营委托材料.pdf">
+          <input type="text" data-upload="1">
         </div>
       </div>
   </div>

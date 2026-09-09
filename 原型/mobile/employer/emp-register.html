@@ -9,158 +9,125 @@
 <link rel="stylesheet" href="../../assets/css/mobile.css">
 <link rel="stylesheet" href="../../assets/css/ext.css">
 </head>
-<body class="m-body" data-mtitle="用人单位注册" data-mmod="M3 用人单位注册与账号申请" data-mcode="M3-00"
-      data-mdesc="用人单位移动端自助注册：注册与账号申请合并为一个流程、一次填报，经办人手机号即登录账号。五段表单与 PC 端一致、汇入同一审核队列，企业机构管理审核通过后以经办人手机号开通登录并发短信；退回可修改后重新提交。"
-      data-mtabset="employer" data-mnav="0" data-mrole="0" data-mback="login.html">
+<style>
+.up-box { display: flex; gap: 10px; }
+.up-i { flex: 1; height: 88px; border: 1px dashed var(--border-strong); border-radius: 9px;
+  background: var(--bg-soft); display: flex; flex-direction: column; align-items: center;
+  justify-content: center; gap: 5px; color: var(--text-3); font-size: 11.5px; }
+.up-i i { font-size: 20px; color: var(--primary); }
+.up-i.done { border-style: solid; border-color: var(--success);
+  background: var(--success-light); color: var(--success); }
+.up-i.done i { color: var(--success); }
+.rg-step { display: flex; align-items: center; gap: 6px; padding: 12px 14px;
+  background: var(--bg-card); border-bottom: 1px solid var(--row-line); }
+.rg-step .s { flex: 1; text-align: center; font-size: 11.5px; color: var(--text-3); }
+.rg-step .s b { display: block; width: 21px; height: 21px; margin: 0 auto 4px;
+  border-radius: 50%; background: var(--bg-soft); color: var(--text-3);
+  line-height: 21px; font-size: 11px; }
+.rg-step .s.on { color: var(--primary); font-weight: 700; }
+.rg-step .s.on b { background: var(--primary); color: #fff; }
+.rg-step .s.ok b { background: var(--success); color: #fff; }
+</style>
+<body class="m-body" data-mtitle="用人单位注册" data-mmod="M3 用人单位 · 注册"
+      data-mcode="M3-02" data-mtabset="emp" data-mtab="declare" data-mback="login.html"
+      data-mdesc="单位注册与账号申请合并为一个流程、一次填报完成，提交内容含申请信息、企业信息、负责人与联系电话、经办人信息、佐证材料五部分。经办人手机号即登录账号，不需另行申请账号。与 PC 端注册共用同一套表单字段，提交后汇入同一份审核队列。营业执照与法人授权书支持手机拍照上传。"
+      data-mchan="小程序">
 <div class="m-stage">
   <div class="m-phone">
     <div class="m-screen">
       <div class="m-view">
+        <div class="rg-step">
+          <div class="s on"><b>1</b>填报信息</div>
+          <div class="s"><b>2</b>等待审核</div>
+          <div class="s"><b>3</b>开通登录</div>
+        </div>
 
         <div class="m-note"><i class="fa-solid fa-circle-info"></i>
-          <div>注册与账号申请<b>合并为一个流程、一次填报</b>。与 PC 端<b>共用同一套表单、汇入同一审核队列</b>，由企业机构管理审核；通过后<b>以经办人手机号开通登录并发短信</b>，退回可修改后重新提交，不需重复注册。<b>提交后可凭手机号查询审核进度</b>。</div>
+          <div><b>注册与账号申请一次办理。</b>下方经办人填写的手机号
+            <b>即为登录账号</b>，审核通过后用该手机号直接登录，不需另行申请账号。</div>
         </div>
 
-        <!-- ① 申请信息 -->
-        <div class="m-sect">① 申请信息</div>
-        <div class="m-form">
-          <div class="m-fi col">
-            <label>申请事由 <span class="req">*</span></label>
-            <div class="m-fc"><textarea rows="3">本单位符合条件的青年人才较多，申请开通用人单位代申报权限，统一为职工申报人才住房保障，提高申报效率。</textarea></div>
-          </div>
-          <div class="m-fi">
-            <label>拟申报人数 <span class="req">*</span></label>
-            <div class="m-fc"><input type="number" value="60" min="1"><div class="m-fh">预估符合条件、拟由单位代申报的职工人数</div></div>
-          </div>
-          <div class="m-fi">
-            <label>期望开通时间 <span class="req">*</span></label>
-            <div class="m-fc"><input type="date" value="2026-10-08"><div class="m-fh">审核通过后按此时间前后开通登录权限</div></div>
-          </div>
-        </div>
+        <div class="m-sect">一、申请信息</div>
+        <div class="m-card"><div class="m-card-b"><div class="m-form">
+          <div class="m-fi"><label>申请事由 <span class="req">*</span></label>
+            <div class="m-fc"><select><option>为本单位职工代申报人才公寓</option>
+              <option>本单位人才住房政策咨询与对接</option></select></div></div>
+          <div class="m-fi"><label>拟申报人数 <span class="req">*</span></label>
+            <div class="m-fc"><input type="text" value="46">
+              <div class="m-fh">符合条件的职工大概人数，可后续调整</div></div></div>
+          <div class="m-fi"><label>期望开通时间</label>
+            <div class="m-fc"><input type="date" value="2026-09-15"></div></div>
+        </div></div></div>
 
-        <!-- ② 企业信息 -->
-        <div class="m-sect">② 企业信息</div>
-        <div class="m-form">
-          <div class="m-fi">
-            <label>单位名称 <span class="req">*</span></label>
-            <div class="m-fc"><input type="text" value="中车株洲电力机车研究所"></div>
-          </div>
-          <div class="m-fi">
-            <label>统一社会信用代码 <span class="req">*</span></label>
-            <div class="m-fc"><input type="text" value="91430200MA4L2XXX2K"><div class="m-fh">将与市场监管部门登记信息核验</div></div>
-          </div>
-          <div class="m-fi">
-            <label>单位性质 <span class="req">*</span></label>
-            <div class="m-fc"><select><option selected>国有企业</option><option>民营企业</option><option>外资企业</option><option>事业单位</option><option>机关单位</option><option>社会组织</option><option>其他</option></select></div>
-          </div>
-          <div class="m-fi">
-            <label>所属行业 <span class="req">*</span></label>
-            <div class="m-fc"><input type="text" value="轨道交通装备研发制造"></div>
-          </div>
-          <div class="m-fi col">
-            <label>注册地址 <span class="req">*</span></label>
-            <div class="m-fc"><input type="text" value="株洲市石峰区田心高科园时代路 169 号"></div>
-          </div>
-          <div class="m-fi col">
-            <label>办公地址 <span class="req">*</span></label>
-            <div class="m-fc"><input type="text" value="株洲市石峰区田心高科园时代路 169 号"><div class="m-fh">与注册地址一致可直接沿用</div></div>
-          </div>
-        </div>
+        <div class="m-sect">二、企业信息</div>
+        <div class="m-card"><div class="m-card-b"><div class="m-form">
+          <div class="m-fi col"><label>单位名称 <span class="req">*</span></label>
+            <div class="m-fc"><input type="text" value="中车株洲电力机车有限公司">
+              <div class="m-fh">须与营业执照登记名称完全一致</div></div></div>
+          <div class="m-fi col"><label>统一社会信用代码 <span class="req">*</span></label>
+            <div class="m-fc"><input type="text" value="914302007123456789">
+              <div class="m-fh">系统校验唯一性，已注册的提示改用登录</div></div></div>
+          <div class="m-fi"><label>单位性质 <span class="req">*</span></label>
+            <div class="m-fc"><select><option>规模以上工业企业</option>
+              <option>科技型中小企业</option><option>事业单位</option>
+              <option>国有企业</option><option>其他</option></select></div></div>
+          <div class="m-fi"><label>所属行业 <span class="req">*</span></label>
+            <div class="m-fc"><select><option>轨道交通装备制造</option>
+              <option>新材料</option><option>电子信息</option>
+              <option>教育</option><option>其他</option></select></div></div>
+          <div class="m-fi col"><label>注册地址 <span class="req">*</span></label>
+            <div class="m-fc"><input type="text" value="株洲市石峰区田心高科园"></div></div>
+          <div class="m-fi col"><label>办公地址 <span class="req">*</span></label>
+            <div class="m-fc"><input type="text" value="株洲市石峰区田心高科园 1 号楼"></div></div>
+        </div></div></div>
 
-        <!-- ③ 负责人信息 -->
-        <div class="m-sect">③ 负责人信息</div>
-        <div class="m-form">
-          <div class="m-fi">
-            <label>法定代表人姓名 <span class="req">*</span></label>
-            <div class="m-fc"><input type="text" value="李振华"></div>
-          </div>
-          <div class="m-fi">
-            <label>分管负责人姓名 <span class="req">*</span></label>
-            <div class="m-fc"><input type="text" value="王海涛"><div class="m-fh">分管人才住房代申报工作的单位负责人</div></div>
-          </div>
-          <div class="m-fi">
-            <label>分管负责人联系电话 <span class="req">*</span></label>
-            <div class="m-fc"><input type="tel" value="0731-28681000"></div>
-          </div>
-        </div>
+        <div class="m-sect">三、负责人与联系电话</div>
+        <div class="m-card"><div class="m-card-b"><div class="m-form">
+          <div class="m-fi"><label>法定代表人 <span class="req">*</span></label>
+            <div class="m-fc"><input type="text" value="周清和"></div></div>
+          <div class="m-fi"><label>分管负责人 <span class="req">*</span></label>
+            <div class="m-fc"><input type="text" value="李建军"></div></div>
+          <div class="m-fi"><label>联系电话 <span class="req">*</span></label>
+            <div class="m-fc"><input type="tel" value="0731-2825****"></div></div>
+        </div></div></div>
 
-        <!-- ④ 经办人信息 -->
-        <div class="m-sect">④ 经办人信息</div>
-        <div class="m-note success"><i class="fa-solid fa-key"></i>
-          <div><b>经办人手机号即登录账号</b>：审核通过后以下方手机号开通登录，无需另设账号密码；登录后办业务前须完成本人实名认证。</div>
-        </div>
-        <div class="m-form">
-          <div class="m-fi">
-            <label>经办人姓名 <span class="req">*</span></label>
-            <div class="m-fc"><input type="text" value="邹敏"><div class="m-fh">须与身份证、实名认证信息一致</div></div>
-          </div>
-          <div class="m-fi">
-            <label>身份证号 <span class="req">*</span></label>
-            <div class="m-fc"><input type="text" value="430211199208150028"><div class="m-fh">将用于经办人实名认证核验（姓名、身份证号、手机号需一致）</div></div>
-          </div>
-          <div class="m-fi">
-            <label>手机号 <span class="req">*</span></label>
-            <div class="m-fc"><input type="tel" value="13802456207"><div class="m-fh ok"><i class="fa-solid fa-circle-check"></i> 此手机号即为登录账号，请确保可正常接收短信验证码</div></div>
-          </div>
-        </div>
+        <div class="m-sect">四、经办人信息<span class="m-sect-x">手机号即账号</span></div>
+        <div class="m-card"><div class="m-card-b"><div class="m-form">
+          <div class="m-fi"><label>经办人姓名 <span class="req">*</span></label>
+            <div class="m-fc"><input type="text" value="谭晓芸"></div></div>
+          <div class="m-fi col"><label>身份证号 <span class="req">*</span></label>
+            <div class="m-fc"><input type="text" value="430211********2418">
+              <div class="m-fh">登录后办理业务前须实名认证，须与本栏填报一致</div></div></div>
+          <div class="m-fi col"><label>手机号 <span class="req">*</span></label>
+            <div class="m-fc"><input type="tel" value="13800006621">
+              <div class="m-fh"><b>该手机号即为登录账号</b>，
+                一个手机号对应一个经办人；审核结果也发送至此号码</div></div></div>
+        </div></div></div>
 
-        <!-- ⑤ 佐证材料 -->
-        <div class="m-sect">⑤ 佐证材料<span class="m-sect-x">手机拍照上传</span></div>
-        <div class="m-card">
-          <div class="m-card-h"><i class="fa-solid fa-cloud-arrow-up"></i>拍照上传证明材料</div>
-          <div class="m-card-b">
-            <div class="m-fi col">
-              <label>营业执照 <span class="req">*</span></label>
-              <div class="m-fc">
-                <div class="m-up">
-                  <div class="m-uc ok"><img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&q=80" alt="营业执照.jpg"><span class="m-uc-x"><i class="fa-solid fa-xmark"></i></span><span class="m-uc-n">营业执照.jpg</span></div>
-                  <div class="m-uadd" data-toast="原型演示：调起相机或从相册选择"><i class="fa-solid fa-camera"></i><span>拍照上传</span></div>
-                </div>
-                <div class="m-fh ok"><i class="fa-solid fa-circle-check"></i> 已上传，将与市场监管登记信息核验一致性</div>
-              </div>
-            </div>
-            <div class="m-fi col">
-              <label>法人授权书 <span class="req">*</span></label>
-              <div class="m-fc">
-                <div class="m-up">
-                  <div class="m-uc ok"><img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80" alt="法人授权书.jpg"><span class="m-uc-x"><i class="fa-solid fa-xmark"></i></span><span class="m-uc-n">法人授权书.jpg</span></div>
-                  <div class="m-uadd" data-toast="原型演示：调起相机或从相册选择"><i class="fa-solid fa-camera"></i><span>拍照上传</span></div>
-                </div>
-                <div class="m-fh">授权经办人办理代申报业务，须加盖单位公章</div>
-              </div>
-            </div>
-          </div>
+        <div class="m-sect">五、佐证材料</div>
+        <div class="m-card"><div class="m-card-b"><div class="m-form">
+          <div class="m-fi col"><label>营业执照 <span class="req">*</span></label>
+            <div class="m-fc"><div class="up-box">
+              <div class="up-i done"><i class="fa-solid fa-circle-check"></i>已上传</div>
+              <div class="up-i" onclick="MB.toast('原型演示：调起相机拍照')"><i class="fa-solid fa-camera"></i>拍照上传</div>
+            </div><div class="m-fh">支持手机拍照，须清晰完整、加盖公章</div></div></div>
+          <div class="m-fi col"><label>法人授权书 <span class="req">*</span></label>
+            <div class="m-fc"><div class="up-box">
+              <div class="up-i" onclick="MB.toast('原型演示：调起相机拍照')"><i class="fa-solid fa-camera"></i>拍照上传</div>
+              <div class="up-i" onclick="MB.toast('原型演示：从相册选择')"><i class="fa-solid fa-image"></i>相册选择</div>
+            </div><div class="m-fh">授权本经办人代表单位办理人才住房业务，
+              <a href="javascript:void(0)" onclick="MB.toast('原型演示：下载授权书模板')" style="color:var(--primary)">下载模板</a></div></div></div>
+        </div></div></div>
+
+        <div style="padding:14px">
+          <a class="m-btn primary" href="javascript:void(0)"
+             onclick="MB.confirm({title:'提交注册申请',message:'确认提交单位注册申请？',detail:'提交后由市保障性住房服务中心审核，通过后以经办人手机号 13800006621 开通登录账号，审核结果短信通知。',okText:'确认提交',onOk:function(){MB.toast('已提交，申请编号 QY2026-0908-0037');setTimeout(function(){location.href='emp-reg-status.html';},900);}})">提交注册申请</a>
+          <a class="m-btn" style="margin-top:10px" href="emp-reg-status.html">查询注册进度</a>
         </div>
-
-        <div class="m-note warn"><i class="fa-solid fa-triangle-exclamation"></i>
-          <div>本表<b>与 PC 端共用同一套五段表单、汇入同一审核队列，不分渠道</b>。提交后由企业机构管理（运营监管科）审核，通过即以经办人手机号开通登录；如被退回，可修改后重新提交，无需重复注册。</div>
-        </div>
-
-        <div class="m-cells">
-          <a class="m-cell" href="login.html"><span class="m-ci"><i class="fa-solid fa-magnifying-glass-chart"></i></span><span class="m-cl"><b>已提交？凭手机号查审核进度</b><span class="m-cs">返回登录页，用经办人手机号 + 短信验证码查询</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
-        </div>
-
-      </div>
-
-      <div class="m-actbar">
-        <button class="m-btn w-auto" type="button" onclick="MB.toast('已保存草稿，下次可继续填写')">保存草稿</button>
-        <button class="m-btn primary" type="button" onclick="submitReg()"><i class="fa-solid fa-paper-plane"></i> 提交单位注册申请</button>
       </div>
     </div>
   </div>
 </div>
-
 <script src="../../assets/js/mobile.js"></script>
-<script>
-/* 提交单位注册申请：校验 + 二次确认 + 提示 + 返回登录页（emp-register-ok.html 不存在，避免死链）*/
-function submitReg() {
-  if (!MB.validate('.m-view')) return;
-  MB.confirm('确认提交单位注册申请？<br>提交后由<b>企业机构管理</b>审核，通过后<b>以经办人手机号（138****6207）开通登录</b>并发短信通知；可凭手机号查询审核进度。',
-    '确认提交', function () {
-      MB.toast('已提交单位注册申请，请凭手机号查询审核进度');
-      setTimeout(function () { location.href = 'login.html'; }, 1200);
-    });
-}
-</script>
 </body>
 </html>

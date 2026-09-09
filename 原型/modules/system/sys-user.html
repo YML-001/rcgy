@@ -20,20 +20,20 @@
     </div>
     <div class="page-actions">
       <button class="btn btn-primary" onclick="PMS.openDrawer('usrDrawer')"><i class="fa-solid fa-plus"></i> 新增账号</button>
-      <button class="btn" onclick="PMS.confirm({title:'导出确认',message:'确认导出用户台账？',detail:'台账按单位类型分组导出主管单位、运营机构、用人单位三类账号，含登录账号、姓名、单位类型、所属单位（主管单位取内设科室、用人单位含统一社会信用代码）、岗位角色、数据范围、账号状态与最近登录。手机号按脱敏输出，导出行为写入操作留痕。',type:'warning',okText:'确认导出',onOk:function(){PMS.toast('已提交用户台账导出任务，完成后在顶栏消息区提醒','success');}})"><i class="fa-solid fa-download"></i> 导出用户台账</button>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
     </div>
   </div>
 
   <div class="alert alert-warning">
     <i class="fa-solid fa-triangle-exclamation"></i>
-    <div>新增、修改、停用、启用账号，办理<b>离岗交接与密码重置</b>，账号与<b>组织机构、岗位绑定</b>。管理员创建账号后下发初始密码，用户<b>首次登录必须修改</b>方可使用系统。平台除主管单位内部账号外，还有<b>运营机构、用人单位两类外部用户</b>，列表须能区分归属：<b>主管单位用户显示内设科室</b>（资格审核科、房源管理科、配租管理科、财务科、信息科、综合科、运营监管科），<b>运营机构用户显示所属运营机构名称</b>，<b>用人单位用户显示单位名称与统一社会信用代码</b>。</div>
+    <div>新增、修改、停用、启用账号，办理<b>离岗交接与密码重置</b>，账号与<b>组织机构、岗位绑定</b>。管理员创建账号后下发初始密码，用户<b>首次登录必须修改</b>方可使用系统。</div>
   </div>
 
   <div class="stat-grid">
     <div class="stat-card">
       <div class="s-icon blue"><i class="fa-solid fa-users"></i></div>
       <div><div class="s-label">在册账号</div><div class="s-value">246</div>
-        <div class="s-trend text-2">主管单位 168 / 运营机构 46 / 用人单位 32</div></div>
+        <div class="s-trend text-2">含 3 家运营机构</div></div>
     </div>
     <div class="stat-card">
       <div class="s-icon green"><i class="fa-solid fa-user-check"></i></div>
@@ -43,7 +43,7 @@
     <div class="stat-card dc-alarm">
       <div class="s-icon orange"><i class="fa-solid fa-user-clock"></i></div>
       <div><div class="s-label">待首次改密</div><div class="s-value">4</div>
-        <div class="s-trend ">新建账号，含 3 个外部用户</div></div>
+        <div class="s-trend ">新建账号</div></div>
     </div>
     <div class="stat-card">
       <div class="s-icon red"><i class="fa-solid fa-user-lock"></i></div>
@@ -54,12 +54,13 @@
 
   <div class="card list-card">
     <div class="filter-bar">
-      <div class="filter-item"><label>登录账号</label><input type="text" value="pengjh" placeholder="账号"></div>
-      <div class="filter-item"><label>姓名</label><input type="text" value="彭建华" placeholder="姓名"></div>
-      <div class="filter-item"><label>单位类型</label><select data-dict="orgType" data-ph="全部"></select></div>
-      <div class="filter-item"><label>单位名称</label><input type="text" value="株洲城发高科人才安居服务有限公司" placeholder="内设科室 / 运营机构 / 用人单位名称"></div>
-      <div class="filter-item"><label>岗位角色</label><input type="text" value="运营机构经办" placeholder="角色名称"></div>
+      <div class="filter-item"><label>登录账号</label><input type="text" placeholder="账号"></div>
+      <div class="filter-item"><label>姓名</label><input type="text" placeholder="姓名"></div>
+      <div class="filter-item"><label>所属机构</label><input type="text" placeholder="机构名称"></div>
+      <div class="filter-item"><label>岗位角色</label><input type="text" placeholder="角色名称"></div>
       <div class="filter-item"><label>账号状态</label><select><option value="">全部</option><option>正常</option><option>待首次改密</option><option>已锁定</option><option>已停用</option></select></div>
+      <div class="filter-item"><label>单位类型</label><select><option value="">全部</option><option>主管单位</option><option>运营机构</option><option>用人单位</option></select></div>
+      <div class="filter-item"><label>所属单位</label><input type="text" placeholder="单位名称"></div>
       <div class="filter-actions">
         <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
         <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
@@ -69,45 +70,22 @@
     <div class="table-wrap">
       <table class="data-table">
         <thead>
-          <tr><th>登录账号</th><th>姓名</th><th>单位类型</th><th class="cell-lg">所属单位</th><th>岗位角色</th><th>数据范围</th><th>手机号</th><th>最近登录</th><th>账号状态</th><th>操作</th></tr>
+          <tr><th>登录账号</th><th>姓名</th><th class="cell-lg">所属机构</th><th>岗位角色</th><th>数据范围</th><th>手机号</th><th>最近登录</th><th>账号状态</th><th>操作</th><th>单位类型</th><th class="cell-lg">所属单位</th></tr>
         </thead>
         <tbody>
-          <tr><td>liuzg</td><td>刘志刚</td><td><span class="badge blue">主管单位</span></td><td>市保障性住房服务中心　<span class="muted">资格审核科</span></td><td>受理初审员</td><td><span class="badge blue">全市统一</span></td><td><span class="sp-mask">139****2618<span class="mk" onclick="SP.mask(this.parentElement,'13907312618')">查看明文</span></span></td><td>2026-09-08 08:42</td><td><span class="badge green">正常</span></td><td><span class="link" onclick="PMS.openDrawer('usrDrawer')">编辑</span></td></tr>
-          <tr><td>tangk</td><td>唐凯</td><td><span class="badge blue">主管单位</span></td><td>市保障性住房服务中心　<span class="muted">房源管理科</span></td><td>单位房源管理员</td><td><span class="badge blue">全市统一</span></td><td><span class="sp-mask">138****3164<span class="mk" onclick="SP.mask(this.parentElement,'13873213164')">查看明文</span></span></td><td>2026-09-08 08:26</td><td><span class="badge green">正常</span></td><td><span class="link" onclick="PMS.openDrawer('usrDrawer')">编辑</span></td></tr>
-          <tr><td>luox</td><td>罗湘</td><td><span class="badge blue">主管单位</span></td><td>市保障性住房服务中心　<span class="muted">财务科</span></td><td>租金核算员</td><td><span class="badge blue">全市统一</span></td><td><span class="sp-mask">137****4820<span class="mk" onclick="SP.mask(this.parentElement,'13707314820')">查看明文</span></span></td><td>2026-09-07 17:08</td><td><span class="badge green">正常</span></td><td><span class="link" onclick="PMS.openDrawer('usrDrawer')">编辑</span></td></tr>
-          <tr><td>hejing</td><td>何静</td><td><span class="badge blue">主管单位</span></td><td>市保障性住房服务中心　<span class="muted">综合科</span></td><td>信息公开经办</td><td><span class="badge blue">全市统一</span></td><td><span class="sp-mask">136****2074<span class="mk" onclick="SP.mask(this.parentElement,'13607312074')">查看明文</span></span></td><td>2026-09-08 09:12</td><td><span class="badge green">正常</span></td><td><span class="link" onclick="PMS.openDrawer('usrDrawer')">编辑</span></td></tr>
-          <tr><td>pengjh</td><td>彭建华</td><td><span class="badge green">运营机构</span></td><td>株洲城发高科人才安居服务有限公司</td><td>运营机构经办</td><td><span class="badge green">本机构受托房源</span></td><td><span class="sp-mask">135****6248<span class="mk" onclick="SP.mask(this.parentElement,'13508466248')">查看明文</span></span></td><td>2026-09-08 08:56</td><td><span class="badge green">正常</span></td><td><span class="link" onclick="PMS.openDrawer('usrDrawer')">编辑</span></td></tr>
-          <tr class="row-warn"><td>tangjb</td><td>唐建波</td><td><span class="badge green">运营机构</span></td><td>清水塘投资运营服务有限公司</td><td>运营机构经办</td><td><span class="badge green">本机构受托房源</span></td><td><span class="sp-mask">135****6204<span class="mk" onclick="SP.mask(this.parentElement,'13508466204')">查看明文</span></span></td><td><span class="muted">—</span></td><td><span class="badge orange">待首次改密</span></td><td><span class="link" onclick="PMS.openDrawer('usrDrawer')">编辑</span></td></tr>
-          <tr><td>xiaoyf</td><td>肖跃飞</td><td><span class="badge green">运营机构</span></td><td>株洲高新人才公寓运营有限公司</td><td>运营机构经办</td><td><span class="badge green">本机构受托房源</span></td><td><span class="sp-mask">134****8612<span class="mk" onclick="SP.mask(this.parentElement,'13408628612')">查看明文</span></span></td><td>2026-09-07 15:34</td><td><span class="badge green">正常</span></td><td><span class="link" onclick="PMS.openDrawer('usrDrawer')">编辑</span></td></tr>
-          <tr><td>zoumin</td><td>邹敏</td><td><span class="badge cyan">用人单位</span></td><td>中车株洲电力机车研究所有限公司　<span class="muted">91430200183928476K</span></td><td>用人单位经办</td><td><span class="badge cyan">本单位职工申报件</span></td><td><span class="sp-mask">133****5126<span class="mk" onclick="SP.mask(this.parentElement,'13307315126')">查看明文</span></span></td><td>2026-09-08 09:04</td><td><span class="badge green">正常</span></td><td><span class="link" onclick="PMS.openDrawer('usrDrawer')">编辑</span></td></tr>
-          <tr class="row-bad"><td>yanling</td><td>颜玲</td><td><span class="badge cyan">用人单位</span></td><td>株洲时代新材料科技股份有限公司　<span class="muted">91430200712345678X</span></td><td>用人单位经办</td><td><span class="badge cyan">本单位职工申报件</span></td><td><span class="sp-mask">132****3128<span class="mk" onclick="SP.mask(this.parentElement,'13228463128')">查看明文</span></span></td><td>2026-09-05 16:42</td><td><span class="badge red">已锁定</span></td><td><span class="link" onclick="PMS.openDrawer('usrDrawer')">解锁</span></td></tr>
-          <tr class="row-warn"><td>chenb</td><td>陈斌</td><td><span class="badge cyan">用人单位</span></td><td>株洲中车时代电气股份有限公司　<span class="muted">91430200705678901T</span></td><td>用人单位经办</td><td><span class="badge cyan">本单位职工申报件</span></td><td><span class="sp-mask">131****7042<span class="mk" onclick="SP.mask(this.parentElement,'13107317042')">查看明文</span></span></td><td><span class="muted">—</span></td><td><span class="badge orange">待首次改密</span></td><td><span class="link" onclick="PMS.openDrawer('usrDrawer')">编辑</span></td></tr>
+          <tr><td>liuzg</td><td>刘志刚</td><td>市保障性住房服务中心资格审核科</td><td>审核角色</td><td><span class="badge blue">全市统一</span></td><td><span class="sp-mask">139****2618<span class="mk" onclick="SP.mask(this.parentElement,'13907312618')">查看明文</span></span></td><td>2026-09-05 08:42</td><td><span class="badge green">正常</span></td><td><span class="link" onclick="PMS.openDrawer('usrDrawer')">编辑</span></td></tr>
+          <tr><td>lihm</td><td>李慧敏</td><td>市住建局住房保障科</td><td>业务管理员角色</td><td><span class="badge blue">全市统一</span></td><td><span class="sp-mask">138****4206<span class="mk" onclick="SP.mask(this.parentElement,'13802464206')">查看明文</span></span></td><td>2026-09-05 09:12</td><td><span class="badge green">正常</span></td><td><span class="link" onclick="PMS.openDrawer('usrDrawer')">编辑</span></td></tr>
+          <tr><td>zhoum</td><td>周敏</td><td>市保障性住房服务中心资格审核科</td><td>受理初审角色</td><td><span class="badge blue">全市统一</span></td><td><span class="sp-mask">137****8842<span class="mk" onclick="SP.mask(this.parentElement,'13708368842')">查看明文</span></span></td><td>2026-09-05 08:26</td><td><span class="badge green">正常</span></td><td><span class="link" onclick="PMS.openDrawer('usrDrawer')">编辑</span></td></tr>
+          <tr class="row-warn"><td>tangjb</td><td>唐建波</td><td>株洲清水塘安居服务有限公司</td><td>运营机构角色</td><td><span class="badge green">受托房源</span></td><td><span class="sp-mask">135****6204<span class="mk" onclick="SP.mask(this.parentElement,'13508466204')">查看明文</span></span></td><td><span class="muted">—</span></td><td><span class="badge orange">待首次改密</span></td><td><span class="link" onclick="PMS.openDrawer('usrDrawer')">编辑</span></td></tr>
+          <tr class="row-bad"><td>zengzh</td><td>曾志豪</td><td>市政务服务中心人才住房窗口</td><td>窗口受理角色</td><td><span class="badge gray">仅本人（经办件）</span></td><td><span class="sp-mask">136****3128<span class="mk" onclick="SP.mask(this.parentElement,'13628463128')">查看明文</span></span></td><td>2026-09-03 16:42</td><td><span class="badge red">已锁定</span></td><td><span class="link" onclick="PMS.openDrawer('usrDrawer')">解锁</span></td></tr>
         </tbody>
       </table>
     </div>
   </div>
-  <div class="sp-block" style="margin-top:8px">
-    <div class="sp-h"><i class="fa-solid fa-list"></i> 单位类型与所属单位显示口径<span class="sub">UT-1 至 UT-4　运营机构、用人单位为两类外部用户</span></div>
-    <div class="sp-b">
-      <div class="sp-tw">
-        <table class="data-table compact">
-          <thead><tr><th>规则号</th><th>单位类型</th><th class="cell-lg">「所属单位」列显示内容</th><th>数据范围</th><th class="num">账号数</th></tr></thead>
-          <tbody>
-          <tr><td><b>UT-1</b></td><td><span class="badge blue">主管单位</span></td><td>显示<b>内设科室</b>：资格审核科、房源管理科、配租管理科、财务科、信息科、综合科、运营监管科；市住建局住房保障科账号一并归入本类</td><td><span class="badge blue">全市统一</span></td><td class="num">168</td></tr>
-          <tr><td><b>UT-2</b></td><td><span class="badge green">运营机构</span></td><td>显示<b>所属运营机构名称</b>：株洲城发高科人才安居服务有限公司、清水塘投资运营服务有限公司、株洲高新人才公寓运营有限公司</td><td><span class="badge green">本机构受托房源</span></td><td class="num">46</td></tr>
-          <tr><td><b>UT-3</b></td><td><span class="badge cyan">用人单位</span></td><td>显示<b>单位名称与统一社会信用代码</b>，如「中车株洲电力机车研究所有限公司　91430200183928476K」，代码须与单位注册认证信息一致</td><td><span class="badge cyan">本单位职工申报件</span></td><td class="num">32</td></tr>
-          <tr><td><b>UT-4</b></td><td><span class="badge gray">口径说明</span></td><td><b>房源归属决定业务数据归属</b>：运营机构只看本机构房源及其派生的合同、账单、收缴、工单、巡检、补助与考核；用人单位只看本单位职工申报件，<b>不含收入、住房核验等敏感信息</b>，也不涉及房源与合同；主管单位看全市。单位类型取自数据字典 orgType，<b>不允许手工新增类型</b></td><td><span class="muted">按类型继承</span></td><td class="num">246</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-
   <div class="sp-src">
     <span><b>创建流程</b> 管理员按组织机构分级创建 → 下发初始密码 → 用户首次登录强制改密</span>
     <span><b>离岗交接</b> 停用账号前须办理离岗交接，在办件转办至同岗位其他经办人</span>
-    <span><b>外部用户</b> 运营机构账号由运营监管科审核开通，用人单位账号由单位注册认证通过后开通</span>
-    <span><b>关联页面</b> <span class="link" onclick="location.href='sys-org.html'">组织机构管理</span>　<span class="link" onclick="location.href='sys-user-role.html'">用户角色分配</span>　<span class="link" onclick="location.href='sys-datascope.html'">数据范围配置</span></span>
+    <span><b>岗位设置</b> <span class="link" onclick="PMS.toast('该功能不在本期建设范围')">岗位分设与互斥</span></span>
   </div>
 </main>
 
@@ -121,77 +99,56 @@
   <div class="drawer-body">
   <div class="alert alert-danger">
     <i class="fa-solid fa-circle-exclamation"></i>
-    <div>该账号因<b>连续输错密码达阈值</b>被自动锁定。解锁可由管理员直接操作或通过短信方式。重置密码后用户<b>下次登录须强制修改</b>。本账号为<b>用人单位外部用户</b>，所属单位与统一社会信用代码须与单位注册认证信息一致，<b>数据范围固定为本单位职工申报件</b>，不得放宽。</div>
+    <div>该账号因<b>连续输错密码达阈值</b>被自动锁定。解锁可由管理员直接操作或通过短信方式。重置密码后用户<b>下次登录须强制修改</b>。</div>
   </div>
 
       <div class="form-grid form-align">
         <div class="form-item">
           <label>登录账号 <span class="req">*</span></label>
-          <input type="text" value="yanling" readonly>
+          <input type="text" value="zengzh" readonly>
         </div>
         <div class="form-item">
           <label>姓名 <span class="req">*</span></label>
-          <input type="text" value="颜玲">
-        </div>
-        <div class="form-item">
-          <label>单位类型 <span class="req">*</span></label>
-          <select data-dict="orgType" data-selected="用人单位" data-ph=""></select>
-          <div class="hint">主管单位 / 运营机构 / 用人单位，决定「所属单位」填写口径与数据范围</div>
-        </div>
-        <div class="form-item">
-          <label>内设科室 / 部门 <span class="req">*</span></label>
-          <input type="text" value="人事部">
-          <div class="hint">主管单位账号填内设科室，外部用户填单位内部部门</div>
+          <input type="text" value="曾志豪">
         </div>
         <div class="form-item col-full">
-          <label>所属单位 <span class="req">*</span></label>
-          <input type="text" value="株洲时代新材料科技股份有限公司">
-          <div class="hint">主管单位填内设科室所属单位，运营机构填机构全称，用人单位填单位全称</div>
-        </div>
-        <div class="form-item col-full">
-          <label>统一社会信用代码 <span class="req">*</span></label>
-          <input type="text" value="91430200712345678X">
-          <div class="hint">仅<b>用人单位、运营机构</b>须填，18 位，须与营业执照及单位注册认证信息一致；主管单位账号留空</div>
+          <label>所属机构 <span class="req">*</span></label>
+          <input type="text" value="市政务服务中心人才住房窗口">
         </div>
         <div class="form-item">
           <label>岗位角色 <span class="req">*</span></label>
-          <select><option>受理初审员</option><option>审核员</option><option>单位房源管理员</option><option>企业机构管理员</option><option>配租经办员</option><option>租金核算员</option><option>权限配置管理员</option><option>运营机构经办</option><option selected>用人单位经办</option><option>窗口受理员</option><option>信息公开经办</option><option>业务管理员</option><option>分管领导</option></select>
+          <select><option value="">全部</option><option>窗口受理角色</option><option>受理初审角色</option><option>审核角色</option><option>单位房源管理员角色</option><option>企业机构管理角色</option><option>配租经办角色</option><option>租金核算角色</option><option>信息公开经办角色</option><option>业务管理员角色</option><option>运营机构角色</option><option>用人单位角色</option><option>领导查看角色</option><option>权限配置管理员角色</option></select>
         </div>
         <div class="form-item">
           <label>数据范围 <span class="req">*</span></label>
-          <select><option>全市统一</option><option>本机构受托房源</option><option selected>本单位职工申报件</option><option>本窗口代录件</option></select>
-          <div class="hint">用人单位数据范围不含收入、住房核验等敏感信息，也不涉及房源与合同</div>
+          <select><option value="">全部</option><option>仅本人（经办件）</option><option>全市统一</option><option>本单位</option><option>受托房源</option></select>
         </div>
         <div class="form-item">
           <label>手机号 <span class="req">*</span></label>
-          <input type="tel" value="13228463128">
+          <input type="tel" value="13628463128">
           <div class="hint">用于短信解锁与二次验证</div>
-        </div>
-        <div class="form-item">
-          <label>账号状态 <span class="req">*</span></label>
-          <select><option selected>正常</option><option>已停用</option></select>
         </div>
         <div class="form-item col-full">
           <label>锁定原因 <span class="req">*</span></label>
-          <input type="text" value="连续输错密码 5 次（阈值 5 次），2026-09-05 16:42 自动锁定" readonly>
+          <input type="text" value="连续输错密码 5 次（阈值 5 次），2026-09-03 16:42 自动锁定" readonly>
         </div>
         <div class="form-item">
           <label>处理方式 <span class="req">*</span></label>
-          <select><option>解锁账号</option><option selected>解锁并重置密码</option><option>停用账号</option></select>
+          <select><option value="">全部</option><option>解锁账号</option><option>解锁并重置密码</option><option>停用账号</option></select>
         </div>
         <div class="form-item">
-          <label>单位认证状态 <span class="req">*</span></label>
-          <input type="text" value="已认证（2026-03-18 通过运营监管科审核，有效期至 2027-12-31）" readonly>
+          <label>账号状态 <span class="req">*</span></label>
+          <select><option value="">全部</option><option>正常</option><option>已停用</option></select>
         </div>
         <div class="form-item col-full">
           <label>处理说明 <span class="req">*</span></label>
-          <textarea rows="3">株洲时代新材料科技股份有限公司人事部经办人颜玲于 2026-09-05 连续输错密码 5 次触发自动锁定，本人已电话联系并核验单位名称、统一社会信用代码与预留手机号一致。按解锁并重置密码处理，初始密码短信下发至 132****3128，下次登录强制修改。本账号数据范围仍限本单位职工申报件，不涉及房源与合同数据。</textarea>
+          <textarea rows="3" placeholder="必填，说明处理原因"></textarea>
         </div>
       </div>
   </div>
   <div class="drawer-foot">
     <button class="btn" data-close-drawer>取消</button>
-    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认解锁账号 yanling 并重置密码？重置后用户下次登录须强制修改。',detail:'账号所属单位为株洲时代新材料科技股份有限公司（91430200712345678X），单位类型「用人单位」，数据范围固定为本单位职工申报件。解锁与重置操作写入权限变更留痕。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已解锁并重置密码，用户下次登录须强制改密','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认解锁账号 zengzh 并重置密码？重置后用户下次登录须强制修改。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已解锁并重置密码，用户下次登录须强制改密','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
   </div>
 </div>
 <script>

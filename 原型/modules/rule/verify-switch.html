@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>核验项开关配置 · 株洲市人才住房保障管理平台</title>
+<title>核验项开关与核验模式配置 · 株洲市人才住房保障管理平台</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="../../assets/css/app.css">
 <link rel="stylesheet" href="../../assets/css/spec.css">
@@ -16,7 +16,7 @@
       <i class="fa-solid fa-house bc-home"></i> 株洲市人才住房保障管理平台
       <span class="sep">/</span> 信息公开与规则配置
       <span class="sep">/</span> 政策规则配置
-      <span class="sep">/</span> <span class="cur">核验项开关配置</span>
+      <span class="sep">/</span> <span class="cur">核验项开关与核验模式配置</span>
     </div>
     <div class="page-actions">
       <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
@@ -25,36 +25,73 @@
 
   <div class="alert alert-warning">
     <i class="fa-solid fa-triangle-exclamation"></i>
-    <div>对<b>婚姻、不动产、学历、工商、税务</b>等各项数据核验<b>单独设置启用开关与是否强制</b>，<b>接口未通时可临时切换为人工核验</b>。开关变更即时生效并全程留痕。</div>
+    <div>对各项数据核验<b>按项设置核验模式、适用人才类型与是否强制</b>。核验模式分三种：<span class="badge green">接口直连</span>接口已开通，系统自动取数核验、申请人免于上传；<span class="badge orange">材料佐证</span>接口尚未开通，由申请人上传证明材料、受理初审人工比对认定，可配置该项所需材料名称与份数；<span class="badge red">临时人工</span>接口已开通但成功率低于阈值，临时转人工并标注兜底标记，接口恢复后切回并回溯复核。<b>适用类型</b>决定该项对哪类人才生效，前端申请表的材料上传项据此按类型与模式两个维度自动增减，切换后即时生效、不需改动程序。</div>
   </div>
 
   <div class="stat-grid">
     <div class="stat-card">
-      <div class="s-icon blue"><i class="fa-solid fa-toggle-on"></i></div>
-      <div><div class="s-label">启用核验项</div><div class="s-value">8</div>
-        <div class="s-trend text-2">全部启用</div></div>
+      <div class="s-icon green"><i class="fa-solid fa-plug-circle-check"></i></div>
+      <div><div class="s-label">接口直连</div><div class="s-value">2</div>
+        <div class="s-trend text-2">自动取数，免于上传</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-file-circle-check"></i></div>
+      <div><div class="s-label">材料佐证</div><div class="s-value">10</div>
+        <div class="s-trend">接口未开通，人工认定</div></div>
     </div>
     <div class="stat-card">
       <div class="s-icon red"><i class="fa-solid fa-gavel"></i></div>
-      <div><div class="s-label">一票否决项</div><div class="s-value">4</div>
+      <div><div class="s-label">一票否决项</div><div class="s-value">2</div>
         <div class="s-trend text-2">不可关闭</div></div>
     </div>
-    <div class="stat-card dc-alarm">
-      <div class="s-icon orange"><i class="fa-solid fa-user-shield"></i></div>
-      <div><div class="s-label">临时人工核验</div><div class="s-value">2</div>
-        <div class="s-trend ">学信网 / 企业纳税</div></div>
-    </div>
     <div class="stat-card">
-      <div class="s-icon cyan"><i class="fa-solid fa-clock-rotate-left"></i></div>
-      <div><div class="s-label">本月开关变更</div><div class="s-value">4</div>
-        <div class="s-trend text-2">全部留痕</div></div>
+      <div class="s-icon cyan"><i class="fa-solid fa-users-rectangle"></i></div>
+      <div><div class="s-label">按类型生效</div><div class="s-value">6</div>
+        <div class="s-trend text-2">就业 3 / 创业 3 / 特殊人才 1</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><h3><i class="fa-solid fa-eye"></i> 前端形态预览</h3>
+      <span class="sub">按当前配置，各类人才在申请端看到的材料上传项</span></div>
+    <div class="card-body">
+      <div class="table-wrap">
+        <table class="data-table" id="prevTbl">
+          <thead><tr><th>人才类型</th><th>免于上传（接口直连）</th>
+            <th class="cell-lg">须上传（材料佐证）</th><th>上传项数</th></tr></thead>
+          <tbody>
+            <tr><td>就业青年人才</td>
+              <td>身份与户籍、政策性住房</td>
+              <td>婚姻状况、不动产与住房、学历学位、养老保险、劳动合同、个人所得税</td>
+              <td><span class="badge orange">6 项</span></td></tr>
+            <tr><td>创业青年人才</td>
+              <td>身份与户籍、政策性住房</td>
+              <td>婚姻状况、不动产与住房、学历学位、市场监管（工商）、企业纳税、经营场所</td>
+              <td><span class="badge orange">6 项</span></td></tr>
+            <tr><td>特殊人才（不受毕业年限限制）</td>
+              <td>身份与户籍、政策性住房</td>
+              <td>职称与技能等级，加其所属创业或就业类型的全部材料佐证项</td>
+              <td><span class="badge orange">7 项</span></td></tr>
+            <tr><td>家庭申请（夫妻双方均符合）</td>
+              <td>家庭成员身份与户籍</td>
+              <td>家庭成员的婚姻状况证明与不动产权信息查询证明</td>
+              <td><span class="badge orange">+2 项</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="sp-src" style="margin-top:12px">
+        <span><b>申请端</b> 接口直连项显示「系统自动核验，无需上传」并回填数据；材料佐证项显示上传位并列明材料名称与份数</span>
+        <span><b>审核端</b> 接口直连项显示部门返回数据与取数时间、结论只读；材料佐证项显示材料影像与识别要素，须逐项人工认定</span>
+        <span><b>查看</b> <span class="link" onclick="location.href='../../mobile/public/apply-step3.html'">移动端申请表</span>　<span class="link" onclick="location.href='../apply/audit-desk.html'">受理初审页</span></span>
+      </div>
     </div>
   </div>
 
   <div class="card list-card">
     <div class="filter-bar">
       <div class="filter-item"><label>核验项</label><select data-dict="verifyItem" data-ph="全部"></select></div>
-      <div class="filter-item"><label>启用状态</label><select><option value="">全部</option><option>启用</option><option>停用</option></select></div>
+      <div class="filter-item"><label>核验模式</label><select><option value="">全部</option><option>接口直连</option><option>材料佐证</option><option>临时人工</option></select></div>
+      <div class="filter-item"><label>适用类型</label><select><option value="">全部</option><option>不限</option><option>就业</option><option>创业</option><option>特殊人才</option></select></div>
       <div class="filter-item"><label>是否强制</label><select><option value="">全部</option><option>一票否决</option><option>强制</option><option>非强制（临时人工）</option></select></div>
       <div class="filter-item"><label>数据来源</label><input type="text" placeholder="部门名称"></div>
       <div class="filter-actions">
@@ -66,30 +103,38 @@
     <div class="table-wrap">
       <table class="data-table">
         <thead>
-          <tr><th>核验项</th><th class="cell-lg">数据来源 / 配合单位</th><th>适用类型</th><th>启用</th><th>是否强制</th><th>接口成功率</th><th class="cell-lg">不通过时处理</th><th>最近变更</th><th>操作</th></tr>
+          <tr><th>核验项</th><th class="cell-lg">数据来源 / 配合单位</th><th>适用类型</th><th>核验模式</th><th>是否强制</th><th>接口状态</th><th class="cell-lg">材料佐证所需材料</th><th class="cell-lg">不通过时处理</th><th>最近变更</th><th>操作</th></tr>
         </thead>
         <tbody>
-          <tr><td>婚姻登记</td><td>市民政局婚姻登记信息</td><td>不限</td><td><span class="badge green">启用</span></td><td><span class="badge orange">强制</span></td><td><span class="badge green">99.5%</span></td><td>影响能否以家庭为单位共同申请，不阻断个人申请</td><td>2026-01-15</td><td><span class="link" onclick="PMS.openDrawer('kgDrawer')">配置</span></td></tr>
-          <tr><td>不动产登记</td><td>市自然资源和规划局不动产登记系统</td><td>不限</td><td><span class="badge green">启用</span></td><td><span class="badge red">一票否决</span></td><td><span class="badge green">99.3%</span></td><td>市城区范围内有自有住房的<b>直接不予通过</b></td><td>2026-01-15</td><td><span class="link" onclick="PMS.openDrawer('kgDrawer')">配置</span></td></tr>
-          <tr class="row-warn"><td>学历学位</td><td>学信网 / 教育部留学服务中心（市教育局配合）</td><td>不限</td><td><span class="badge green">启用</span></td><td><span class="badge orange">非强制（临时人工）</span></td><td><span class="badge red">87.6%</span></td><td>接口失败率 12.4% 超阈值，已<b>临时切换为人工核验</b>；凭毕业证书影像经 OCR 识别后人工核验，兜底件标注并回溯复核</td><td>2026-09-02</td><td><span class="link" onclick="PMS.openDrawer('kgDrawer')">配置</span></td></tr>
-          <tr><td>工商登记</td><td>市市场监督管理局营业执照与经营状态</td><td><span class="badge cyan">创业</span></td><td><span class="badge green">启用</span></td><td><span class="badge orange">强制</span></td><td><span class="badge green">100%</span></td><td>仅对创业青年人才强制；经营状态异常的转人工核实</td><td>2026-01-15</td><td><span class="link" onclick="PMS.openDrawer('kgDrawer')">配置</span></td></tr>
-          <tr class="row-warn"><td>企业纳税</td><td>市税务局企业纳税申报与缴税情况</td><td><span class="badge cyan">创业</span></td><td><span class="badge green">启用</span></td><td><span class="badge orange">非强制（临时人工）</span></td><td><span class="badge orange">91.4%</span></td><td>「正常纳税」判定口径待市税务局明确，<b>暂统一转人工核实</b>；不得直接以「无纳税」出具不予通过</td><td>2026-09-05</td><td><span class="link" onclick="PMS.openDrawer('kgDrawer')">配置</span></td></tr>
-          <tr><td>政策性住房</td><td>公租房管理系统承租与租赁补贴记录</td><td>不限</td><td><span class="badge green">启用</span></td><td><span class="badge red">一票否决</span></td><td><span class="badge green">100%</span></td><td>已承租政策性住房或正享受租赁补贴的<b>直接阻断申请</b></td><td>2026-01-15</td><td><span class="link" onclick="PMS.openDrawer('kgDrawer')">配置</span></td></tr>
+          <tr class=""><td>身份与户籍</td><td>市公安局人口基本信息与户籍信息</td><td>不限</td><td><span class="badge green">接口直连</span></td><td><span class="badge orange">强制</span></td><td><span class="badge green">已开通 99.8%</span></td><td>身份证（正反面）；家庭申请另附户口簿本人页</td><td>姓名、身份证号与填报不一致的退回补正</td><td>2026-01-15</td><td><span class="link" onclick="PMS.openDrawer('kgDrawer')">配置</span> <span class="link" onclick="PMS.toast('查看身份与户籍核验的模式变更记录')">变更记录</span></td></tr>
+          <tr class=""><td>政策性住房</td><td>公租房管理系统承租与租赁补贴记录</td><td>不限</td><td><span class="badge green">接口直连</span></td><td><span class="badge red">一票否决</span></td><td><span class="badge green">已开通 100%</span></td><td>无（系统内部数据）</td><td>已承租政策性住房或正享受租赁补贴的<b>直接阻断申请</b></td><td>2026-01-15</td><td><span class="link" onclick="PMS.openDrawer('kgDrawer')">配置</span> <span class="link" onclick="PMS.toast('查看政策性住房核验的模式变更记录')">变更记录</span></td></tr>
+          <tr class="row-warn"><td>婚姻状况</td><td>市民政局婚姻登记信息</td><td>不限</td><td><span class="badge orange">材料佐证</span></td><td><span class="badge orange">强制</span></td><td><span class="badge orange">未开通</span></td><td>结婚证或户口簿（能体现婚姻状况的页面）　1 份</td><td>影响能否以家庭为单位共同申请，不阻断个人申请</td><td>2026-09-08</td><td><span class="link" onclick="PMS.openDrawer('kgDrawer')">配置</span> <span class="link" onclick="PMS.toast('查看婚姻状况核验的模式变更记录')">变更记录</span></td></tr>
+          <tr class="row-warn"><td>不动产与住房</td><td>市自然资源和规划局不动产登记系统</td><td>不限</td><td><span class="badge orange">材料佐证</span></td><td><span class="badge red">一票否决</span></td><td><span class="badge orange">未开通</span></td><td>不动产权信息查询证明（无房证明）　1 份　建议近 3 个月内开具</td><td>市城区范围内有自有住房的<b>直接不予通过</b>；地域口径待市住建局明确</td><td>2026-09-08</td><td><span class="link" onclick="PMS.openDrawer('kgDrawer')">配置</span> <span class="link" onclick="PMS.toast('查看不动产与住房核验的模式变更记录')">变更记录</span></td></tr>
+          <tr class="row-warn"><td>学历学位</td><td>学信网 / 教育部留学服务中心（市教育局配合）</td><td>不限</td><td><span class="badge orange">材料佐证</span></td><td><span class="badge orange">强制</span></td><td><span class="badge orange">未开通</span></td><td>毕业证书　1 份；国（境）外学习的另附留服中心学历学位认证书</td><td>学历不达全日制大专或超出毕业 2 年的不予通过；缺国（境）外学历认证书的不予受理</td><td>2026-09-08</td><td><span class="link" onclick="PMS.openDrawer('kgDrawer')">配置</span> <span class="link" onclick="PMS.toast('查看学历学位核验的模式变更记录')">变更记录</span></td></tr>
+          <tr class="row-warn"><td>养老保险</td><td>市人社局养老保险参保缴费信息</td><td><span class="badge blue">就业</span></td><td><span class="badge orange">材料佐证</span></td><td><span class="badge orange">强制</span></td><td><span class="badge orange">未开通</span></td><td>养老保险缴纳证明（参保缴费明细）　1 份</td><td>已签劳动合同但查不到缴纳记录的，凭<b>单位承诺书按容缺受理</b>先行通过，登记待补核期限</td><td>2026-09-08</td><td><span class="link" onclick="PMS.openDrawer('kgDrawer')">配置</span> <span class="link" onclick="PMS.toast('查看养老保险核验的模式变更记录')">变更记录</span></td></tr>
+          <tr class=""><td>劳动合同</td><td>用人单位提供（市住建局核验）</td><td><span class="badge blue">就业</span></td><td><span class="badge orange">材料佐证</span></td><td><span class="badge orange">强制</span></td><td><span class="badge gray">无对应接口</span></td><td>劳动合同　1 份　须有双方签章与合同起止期限</td><td>未与市城区用人单位签订劳动合同的不予通过。<b>无政府部门接口，始终为材料佐证</b></td><td>2026-09-08</td><td><span class="link" onclick="PMS.openDrawer('kgDrawer')">配置</span> <span class="link" onclick="PMS.toast('查看劳动合同核验的模式变更记录')">变更记录</span></td></tr>
+          <tr class="row-warn"><td>个人所得税</td><td>市税务局个人所得税缴纳记录</td><td><span class="badge blue">就业</span></td><td><span class="badge orange">材料佐证</span></td><td><span class="badge gray">非强制（转人工核实）</span></td><td><span class="badge orange">未开通</span></td><td>个人所得税纳税记录　1 份　可由个税 APP 自行开具</td><td>个税月数与社保月数不一致的<b>转人工核实</b>，不直接否决</td><td>2026-09-08</td><td><span class="link" onclick="PMS.openDrawer('kgDrawer')">配置</span> <span class="link" onclick="PMS.toast('查看个人所得税核验的模式变更记录')">变更记录</span></td></tr>
+          <tr class="row-warn"><td>市场监管（工商）</td><td>市市场监督管理局营业执照与经营状态</td><td><span class="badge cyan">创业</span></td><td><span class="badge orange">材料佐证</span></td><td><span class="badge orange">强制</span></td><td><span class="badge orange">未开通</span></td><td>营业执照　1 份　须体现统一社会信用代码与法定代表人</td><td>仅对创业青年人才强制；非本人为法定代表人或经营者的不予通过</td><td>2026-09-08</td><td><span class="link" onclick="PMS.openDrawer('kgDrawer')">配置</span> <span class="link" onclick="PMS.toast('查看市场监管（工商）核验的模式变更记录')">变更记录</span></td></tr>
+          <tr class="row-warn"><td>企业纳税</td><td>市税务局企业纳税申报与缴税情况</td><td><span class="badge cyan">创业</span></td><td><span class="badge orange">材料佐证</span></td><td><span class="badge gray">非强制（转人工核实）</span></td><td><span class="badge orange">未开通</span></td><td>企业纳税申报表或完税证明　1 份</td><td>「正常纳税」判定口径待市税务局明确，<b>暂统一转人工核实</b>；不得直接以「无纳税」出具不予通过</td><td>2026-09-08</td><td><span class="link" onclick="PMS.openDrawer('kgDrawer')">配置</span> <span class="link" onclick="PMS.toast('查看企业纳税核验的模式变更记录')">变更记录</span></td></tr>
+          <tr class="row-warn"><td>经营场所</td><td>市自然资源和规划局 / 申请人提供</td><td><span class="badge cyan">创业</span></td><td><span class="badge orange">材料佐证</span></td><td><span class="badge orange">强制</span></td><td><span class="badge orange">未开通</span></td><td>经营场所不动产权证；租赁经营的提供租赁合同复印件并附租赁房源不动产权证复印件　各 1 份</td><td>租赁经营两份材料缺一的退回补正</td><td>2026-09-08</td><td><span class="link" onclick="PMS.openDrawer('kgDrawer')">配置</span> <span class="link" onclick="PMS.toast('查看经营场所核验的模式变更记录')">变更记录</span></td></tr>
+          <tr class="row-warn"><td>职称与技能等级</td><td>市人社局职称与技能等级信息</td><td><span class="badge purple">特殊人才</span></td><td><span class="badge orange">材料佐证</span></td><td><span class="badge cyan">条件强制</span></td><td><span class="badge orange">未开通</span></td><td>职称证书、技能等级证书或中层以上管理职务任职文件　1 份</td><td>仅主张<b>不受毕业年限限制</b>时核验；不符合的按普通类型继续判定毕业年限</td><td>2026-09-08</td><td><span class="link" onclick="PMS.openDrawer('kgDrawer')">配置</span> <span class="link" onclick="PMS.toast('查看职称与技能等级核验的模式变更记录')">变更记录</span></td></tr>
         </tbody>
       </table>
     </div>
   </div>
   <div class="sp-src">
-    <span><b>配置目的</b> 接口未通时可临时切换为人工核验，保障业务不中断</span>
+    <span><b>两个维度</b> 适用类型决定对哪类人才生效，核验模式决定是否需要上传材料</span>
+    <span><b>按项切换</b> 接口开通一项即切换一项，不必等全部到位；切换后申请表与审核台即时生效</span>
+    <span><b>模式区分</b> 材料佐证是接口尚未开通的常态过渡，临时人工是已开通接口故障的应急，分别标识、分别统计</span>
     <span><b>硬约束</b> 一票否决项不可关闭；任何情况下不得跳过核验直接办结</span>
-    <span><b>兜底落点</b> <span class="link" onclick="location.href='../apply/manual-fallback.html'">接口异常人工兜底</span></span>
+    <span><b>关联页面</b> <span class="link" onclick="location.href='form-config.html'">表单与材料清单配置</span>　<span class="link" onclick="location.href='../apply/manual-fallback.html'">接口异常人工兜底</span></span>
   </div>
 </main>
 
 <div class="drawer-mask"></div>
 <div class="drawer" id="kgDrawer">
   <div class="drawer-head">
-    <h3>核验项开关配置</h3>
+    <h3>核验项开关与核验模式配置</h3>
     <span class="badge orange">临时人工</span>
     <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
   </div>
@@ -113,8 +158,21 @@
           <input type="text" value="市教育局、市住建局" readonly>
         </div>
         <div class="form-item">
+          <label>适用人才类型 <span class="req">*</span></label>
+          <select><option>不限</option><option>就业青年人才</option>
+            <option>创业青年人才</option><option>特殊人才（不受毕业年限限制）</option></select>
+          <div class="hint">决定该项对哪类人才生效，申请表据此增减上传项</div>
+        </div>
+        <div class="form-item">
+          <label>核验模式 <span class="req">*</span></label>
+          <select><option>接口直连（接口已开通，自动取数）</option>
+            <option selected>材料佐证（接口未开通，人工认定）</option>
+            <option>临时人工（接口故障，临时兜底）</option></select>
+          <div class="hint">切换后申请表与审核台即时生效，不需改动程序</div>
+        </div>
+        <div class="form-item">
           <label>启用开关 <span class="req">*</span></label>
-          <select><option value="">全部</option><option>启用</option><option>停用</option></select>
+          <select><option>启用</option><option>停用</option></select>
           <div class="hint">一票否决项不可停用</div>
         </div>
         <div class="form-item">
@@ -128,6 +186,24 @@
         <div class="form-item">
           <label>自动重试次数 <span class="req">*</span></label>
           <input type="text" value="3">
+        </div>
+        <div class="form-item col-full">
+          <label>材料佐证所需材料 <span class="req">*</span></label>
+          <input type="text" value="毕业证书；国（境）外学习的另附留服中心学历学位认证书">
+          <div class="hint">该名称与份数会显示在移动端申请表的上传位提示中</div>
+        </div>
+        <div class="form-item">
+          <label>份数 <span class="req">*</span></label>
+          <input type="text" value="1">
+        </div>
+        <div class="form-item">
+          <label>文字识别要素</label>
+          <input type="text" value="院校、学历层次、学习形式、毕业时间">
+          <div class="hint">OCR 提取后与填报比对，不一致的高亮提示经办人</div>
+        </div>
+        <div class="form-item col-full">
+          <label>材料式样要求</label>
+          <textarea rows="2">须清晰体现学校、学历层次、学习形式与毕业时间；手机拍照或扫描件均可。</textarea>
         </div>
         <div class="form-item col-full">
           <label>替代核验方式 <span class="req">*</span></label>
@@ -151,8 +227,13 @@
 </div>
 <script>
 (function () {
-  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
-  if (t) { t._total = 8; }
+  /* 前端形态预览固定 4 行；核验项主表 12 项 */
+  var pv = document.getElementById('prevTbl');
+  if (pv) { pv._total = 4; }
+  document.querySelectorAll('main.app-main .table-wrap > table.data-table')
+    .forEach(function (t) {
+      if (t !== pv && t._total == null) { t._total = 12; }
+    });
 })();
 </script>
 

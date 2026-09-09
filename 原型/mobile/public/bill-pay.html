@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>翼支付在线缴费 · 株洲市人才住房保障管理平台</title>
+<title>租金在线缴费 · 株洲市人才住房保障管理平台</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="../../assets/css/app.css">
 <link rel="stylesheet" href="../../assets/css/mobile.css">
 <link rel="stylesheet" href="../../assets/css/ext.css">
 </head>
-<body class="m-body" data-mtitle="翼支付缴费" data-mmod="M9 租金缴纳与账单" data-mcode="M9-02"
-      data-mdesc="通过电信翼支付完成租金、押金及水电燃气物业费的线上缴纳，支持账单合并支付与分笔支付；支付结果实时回写账单核销状态。" data-mback="bill-detail.html" data-mtabset="public" data-mtab="home">
+<body class="m-body" data-mtitle="租金缴费" data-mmod="M9 租金缴纳与账单" data-mcode="M9-02"
+      data-mdesc="缴费方式由承租人自行选择：电信翼支付、微信支付、线下缴费。收款账户按房源所属运营机构路由，平台不归集资金、不代收。线上渠道实时到账并实时核销；线下缴费上传凭证后由运营机构核对确认，确认后账单自动核销。" data-mback="bill-detail.html" data-mtabset="public" data-mtab="home">
 <div class="m-stage">
   <div class="m-phone">
     <div class="m-screen">
@@ -19,8 +19,8 @@
           <div class="m-card-h"><i class="fa-solid fa-mobile-screen-button"></i>确认支付</div>
           <div class="m-card-b">
             <div class="m-amt">
-              <div class="a1"><small>¥</small>424.44</div>
-              <div class="a2">本次支付金额</div>
+              <div class="a1"><small>¥</small>471.60</div>
+              <div class="a2">本次支付金额　·　2026 年 9 月租金个人应缴</div>
             </div>
           </div>
         </div>
@@ -29,46 +29,178 @@
           <div class="m-card-h"><i class="fa-solid fa-list-check"></i>选择账单（可多选合并支付）</div>
           <div class="m-card-b">
           <div class="m-opts multi">
-            <div class="m-opt on"><span class="m-ok"><i class="fa-solid fa-check"></i></span><span class="m-ol"><b>2026 年 9 月 租金　424.44 元</b><span>账单号 ZD2026-09-00862　·	截止 2026-09-15</span></span></div>
+            <div class="m-opt on"><span class="m-ok"><i class="fa-solid fa-check"></i></span><span class="m-ol"><b>2026 年 9 月 租金　471.60 元</b><span>账单号 ZD2026-09-00862　·	截止 2026-09-15　·	78.60 ㎡ × 6.00 元/㎡·月</span></span></div>
             <div class="m-opt sq"><span class="m-ok"><i class="fa-solid fa-check"></i></span><span class="m-ol"><b>2026 年 9 月 水电燃气物业　预估 360.00 元</b><span>待抄表结算，可下期合并支付</span></span></div>
           </div>
           </div>
         </div>
-        <div class="m-sect">支付方式</div>
+        <div class="m-sect">支付方式<span class="m-sect-x">三种方式自行选择</span></div>
         <div class="m-card">
           <div class="m-card-h"><i class="fa-solid fa-credit-card"></i>选择支付方式</div>
           <div class="m-card-b">
           <div class="m-opts">
-            <div class="m-opt on"><span class="m-ok"><i class="fa-solid fa-check"></i></span><span class="m-ol"><b>电信翼支付</b><span>实时到账，支付流水号与缴费凭证同步归档</span></span></div>
-            <div class="m-opt"><span class="m-ok"><i class="fa-solid fa-check"></i></span><span class="m-ol"><b>翼支付绑定银行卡</b><span>中国建设银行（尾号 6208）</span></span></div>
+            <div class="m-opt on" onclick="pmSel(1)"><span class="m-ok"><i class="fa-solid fa-check"></i></span><span class="m-ol"><b>电信翼支付</b><span>实时到账　·	支付成功后账单实时核销，流水号同步归档</span></span></div>
+            <div class="m-opt" onclick="pmSel(2)"><span class="m-ok"><i class="fa-solid fa-check"></i></span><span class="m-ol"><b>微信支付</b><span>实时到账　·	小程序内直接调起微信支付，支付后实时核销</span></span></div>
+            <div class="m-opt" onclick="pmSel(3)"><span class="m-ok"><i class="fa-solid fa-check"></i></span><span class="m-ol"><b>线下缴费</b><span>银行转账或现金　·	需上传缴费凭证，经运营机构确认后核销</span></span></div>
+          </div>
+          <div class="m-note" style="margin-top:10px"><i class="fa-solid fa-building-columns"></i>
+            <div>收款账户按<b>房源所属运营机构</b>路由，本房源收款方为<b>株洲市人才安居服务有限公司</b>，资金直接进入该机构对公账户，<b>平台不归集资金、不代收</b>。</div>
           </div>
           </div>
         </div>
-        <div class="m-sect">支付说明</div>
-        <div class="m-card">
-          <div class="m-card-h"><i class="fa-solid fa-circle-info"></i>口径说明</div>
-          <div class="m-card-b">
-          <div class="m-kv">
-            <div><span>支付通道</span><span>电信翼支付平台</span></div>
-            <div><span>到账方式</span><span>实时到账，支付结果<b>实时回写账单核销状态</b></span></div>
-            <div><span>对账机制</span><span>系统与翼支付<b>逐日对账</b>并生成差错清单</span></div>
-            <div><span>凭证归档</span><span>支付流水号与缴费凭证同步归档，可申领电子票据</span></div>
-            <div><span>支持范围</span><span>租金、押金及水电燃气物业费</span></div>
-          </div>
+
+        <!-- ========== 方式一：电信翼支付 ========== -->
+        <div id="pmYzf">
+          <div class="m-sect">支付说明<span class="m-sect-x">电信翼支付</span></div>
+          <div class="m-card">
+            <div class="m-card-h"><i class="fa-solid fa-circle-info"></i>口径说明</div>
+            <div class="m-card-b">
+            <div class="m-kv">
+              <div><span>支付通道</span><span>电信翼支付平台（湘易办小程序内调起）</span></div>
+              <div><span>到账时效</span><span><b>实时到账</b>，支付结果<b>实时回写账单核销状态</b></span></div>
+              <div><span>核销方式</span><span><span class="m-tag green">实时核销</span> 支付成功即核销，无需人工确认</span></div>
+              <div><span>收款账户</span><span>株洲市人才安居服务有限公司　翼支付商户号 YZF4302****0001</span></div>
+              <div><span>对账机制</span><span>系统与翼支付<b>逐日对账</b>（每日 03:00）并生成差错清单</span></div>
+              <div><span>凭证归档</span><span>支付流水号与缴费凭证同步归档，可申领电子票据</span></div>
+              <div><span>支持范围</span><span>租金、押金及水电燃气物业费</span></div>
+            </div>
+            </div>
           </div>
         </div>
+
+        <!-- ========== 方式二：微信支付 ========== -->
+        <div id="pmWx" style="display:none">
+          <div class="m-sect">支付说明<span class="m-sect-x">微信支付</span></div>
+          <div class="m-card">
+            <div class="m-card-h"><i class="fa-solid fa-circle-info"></i>口径说明</div>
+            <div class="m-card-b">
+            <div class="m-kv">
+              <div><span>支付通道</span><span>微信支付（小程序 JSAPI 支付）</span></div>
+              <div><span>到账时效</span><span><b>实时到账</b>，支付结果<b>实时回写账单核销状态</b></span></div>
+              <div><span>核销方式</span><span><span class="m-tag green">实时核销</span> 支付成功即核销，无需人工确认</span></div>
+              <div><span>收款账户</span><span>株洲市人才安居服务有限公司　微信商户号 16853****07</span></div>
+              <div><span>对账机制</span><span>系统<b>逐日拉取微信对账单</b>（每日 03:30）自动比对，不一致的转差错清单</span></div>
+              <div><span>凭证归档</span><span>微信支付单号与缴费凭证同步归档，可申领电子票据</span></div>
+              <div><span>退款说明</span><span>重复支付的按<b>原路退回</b>至付款微信账户，一般 1—3 个工作日到账</span></div>
+            </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========== 方式三：线下缴费 ========== -->
+        <div id="pmOff" style="display:none">
+          <div class="m-sect">收款账户信息<span class="m-sect-x">按房源所属运营机构路由</span></div>
+          <div class="m-card">
+            <div class="m-card-h"><i class="fa-solid fa-building-columns"></i>转账收款账户</div>
+            <div class="m-card-b">
+            <div class="m-kv">
+              <div><span>收款机构</span><span><b>株洲市人才安居服务有限公司</b>（湘江1958 人才公寓运营机构）</span></div>
+              <div><span>开户银行</span><span>中国建设银行株洲天元支行</span></div>
+              <div><span>账户名称</span><span>株洲市人才安居服务有限公司</span></div>
+              <div><span>银行账号</span><span><b>4301 **** **** 8826</b>（脱敏展示，尾号 8826）</span></div>
+              <div><span>账户用途</span><span>本机构管理房源的<b>租金及押金专用收款账户</b>，不接收其他款项</span></div>
+              <div><span>现金缴纳</span><span>可至天元区泰山路 199 号 A6 栋 1 层服务中心现场缴纳（工作日 9:00—17:30）</span></div>
+              <div><span>资金口径</span><span>资金<b>直接进入运营机构账户</b>，平台不归集资金、不代收</span></div>
+            </div>
+              <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+                <button class="m-btn sm ghost" type="button" onclick="MB.toast('已复制账号：4301 **** **** 8826（原型演示，实际复制完整账号）')"><i class="fa-solid fa-copy"></i> 复制账号</button>
+                <button class="m-btn sm" type="button" onclick="MB.toast('已复制转账备注：ZD2026-09-00862 王梓涵')"><i class="fa-solid fa-copy"></i> 复制转账备注</button>
+              </div>
+            </div>
+          </div>
+          <div class="m-sect">转账备注要求<span class="m-sect-x">关系到能否自动核销</span></div>
+          <div class="m-card">
+            <div class="m-card-h"><i class="fa-solid fa-pen-to-square"></i>三项要求</div>
+            <div class="m-card-b">
+              <div class="m-check">
+                <div class="bad"><i class="fa-solid fa-circle-exclamation"></i><div class="m-chl"><b>备注须填写账单号 ZD2026-09-00862</b><span>账单号是运营机构核对与账单核销的唯一依据，未填写的须人工查找，确认时间会延长</span></div></div>
+                <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>转账金额须与个人应缴 471.60 元一致</b><span>金额不一致的运营机构将退回，须补足差额后重新上传凭证</span></div></div>
+                <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>建议使用承租人本人账户转账</b><span>他人代付的须在备注中注明「代 王梓涵 缴纳」，便于核对到人</span></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="m-sect">上传缴费凭证<span class="m-sect-x">必传</span></div>
+          <div class="m-card">
+            <div class="m-card-h"><i class="fa-solid fa-camera"></i>转账回单 / 收据照片</div>
+            <div class="m-card-b">
+              <div class="m-fi col">
+                <label>缴费凭证 <span class="req">*</span></label>
+                <div class="m-fc">
+                  <div class="m-up">
+                    <div class="m-uc ok"><img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&q=80" alt="银行转账回单"><span class="m-uc-x" data-toast="原型演示：删除该张凭证"><i class="fa-solid fa-xmark"></i></span><span class="m-uc-n">银行转账回单.jpg</span></div>
+                    <div class="m-uadd" data-toast="原型演示：调起相机拍照或从相册选择，可多张"><i class="fa-solid fa-camera"></i><span>添加</span></div>
+                  </div>
+                  <div class="m-fh">支持拍照或从相册选择，最多 6 张。请确保回单上的<b>付款时间、金额、收款账户、转账备注</b>清晰可辨。</div>
+                </div>
+              </div>
+              <div class="m-fi col" style="margin-top:10px">
+                <label>转账信息 <span class="req">*</span></label>
+                <div class="m-fc"><input type="text" value="2026-09-08　471.60 元　中国建设银行" readonly><div class="m-fh">系统从凭证中识别，可手工修正</div></div>
+              </div>
+              <div class="m-fi col">
+                <label>补充说明</label>
+                <div class="m-fc"><textarea rows="3" placeholder="如「本人于 9 月 8 日转账，备注已填账单号」">本人已于 2026-09-08 15:20 通过建行手机银行转账 471.60 元至贵司账户，转账备注已填写账单号 ZD2026-09-00862，请核对确认。</textarea></div>
+              </div>
+            </div>
+          </div>
+          <div class="m-sect">核销说明</div>
+          <div class="m-card">
+            <div class="m-card-h"><i class="fa-solid fa-circle-info"></i>口径说明</div>
+            <div class="m-card-b">
+            <div class="m-kv">
+              <div><span>缴费方式</span><span>银行转账或到运营机构服务中心现金缴纳</span></div>
+              <div><span>凭证来源</span><span>承租人自行上传；<b>现金缴纳的也可由运营机构代传凭证</b></span></div>
+              <div><span>核销方式</span><span><span class="m-tag orange">运营机构确认核销</span> 提交后由运营机构核对确认，<b>确认后账单自动核销</b></span></div>
+              <div><span>核销时点</span><span>以<b>运营机构确认时间</b>为准，不以转账时间为准</span></div>
+              <div><span>确认时长</span><span>一般 <b>1 个工作日内</b>完成核对，确认结果推送通知</span></div>
+              <div><span>逾期认定</span><span>凭证已提交待确认的账单状态为<span class="m-tag orange">待确认</span>，<b>不计逾期、不纳入欠租统计</b></span></div>
+              <div><span>退回情形</span><span>凭证与到账金额不一致、备注缺账单号无法核对到人的，退回并说明原因</span></div>
+            </div>
+            </div>
+          </div>
+        </div>
+
         <div class="m-note"><i class="fa-solid fa-circle-info"></i>
-          <div>支付成功后可在<a href="bill-invoice.html" style="color:var(--primary)">电子票据申领</a>中开具票据。如支付后账单未核销，请在 2 小时后刷新或提交<a href="me-feedback.html" style="color:var(--primary)">意见反馈</a>。</div>
+          <div>缴费完成后可在<a href="bill-invoice.html" style="color:var(--primary)">电子票据申领</a>中开具票据。如线上支付后账单未核销，请在 2 小时后刷新或提交<a href="me-feedback.html" style="color:var(--primary)">意见反馈</a>。</div>
         </div>
       </div>
       <div class="m-actbar">
         <a class="m-btn w-auto" href="bill-detail.html">取消</a>
-        <button class="m-btn primary" type="button" onclick="MB.confirm('确认通过<b>电信翼支付</b>支付 <b>424.44 元</b>？<br>支付结果将实时回写账单核销状态。','确认支付',function(){MB.toast('正在跳转翼支付…');setTimeout(function(){location.href='bill-pay-ok.html'},1200)})"><i class="fa-solid fa-lock"></i> 确认支付 424.44 元</button>
+        <button class="m-btn primary" id="pmBtn" type="button" onclick="pmGo()"><i class="fa-solid fa-lock"></i> 确认支付 471.60 元</button>
       </div>
     </div>
   </div>
 </div>
 
 <script src="../../assets/js/mobile.js"></script>
+<script>
+var pmCur = 1;
+function pmSel(n) {
+  pmCur = n;
+  document.getElementById('pmYzf').style.display = n === 1 ? '' : 'none';
+  document.getElementById('pmWx').style.display = n === 2 ? '' : 'none';
+  document.getElementById('pmOff').style.display = n === 3 ? '' : 'none';
+  var btn = document.getElementById('pmBtn');
+  if (n === 3) {
+    btn.innerHTML = '<i class="fa-solid fa-cloud-arrow-up"></i> 提交缴费凭证';
+  } else {
+    btn.innerHTML = '<i class="fa-solid fa-lock"></i> 确认支付 471.60 元';
+  }
+}
+function pmGo() {
+  if (pmCur === 3) {
+    MB.confirm('确认提交<b>线下缴费凭证</b>？<br>提交后由<b>株洲市人才安居服务有限公司</b>核对确认，确认后账单自动核销。确认前账单状态为「待确认」，不计逾期。', '确认提交', function () {
+      MB.toast('凭证已提交，等待运营机构确认…');
+      setTimeout(function () { location.href = 'bill-pay-ok.html?way=offline'; }, 1200);
+    });
+    return;
+  }
+  var way = pmCur === 1 ? '电信翼支付' : '微信支付';
+  MB.confirm('确认通过<b>' + way + '</b>支付 <b>471.60 元</b>？<br>款项直接进入运营机构对公账户，支付结果将实时回写账单核销状态。', '确认支付', function () {
+    MB.toast('正在跳转' + way + '…');
+    setTimeout(function () { location.href = 'bill-pay-ok.html'; }, 1200);
+  });
+}
+</script>
 </body>
 </html>

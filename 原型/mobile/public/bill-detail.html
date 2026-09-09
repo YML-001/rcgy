@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="../../assets/css/ext.css">
 </head>
 <body class="m-body" data-mtitle="账单明细" data-mmod="M9 租金缴纳与账单" data-mcode="M9-01"
-      data-mdesc="账单明确区分应缴租金总额、财政补助（减免）金额、个人实际应缴金额，并列明计算依据。" data-mback="bill-list.html" data-mtabset="public" data-mtab="home">
+      data-mdesc="账单明确区分应缴租金总额、财政补助（减免）金额、个人实际应缴金额，并列明计算依据；同时展示支付渠道与核销方式，线下缴费的须经运营机构确认后核销。" data-mback="bill-list.html" data-mtabset="public" data-mtab="home">
 <div class="m-stage">
   <div class="m-phone">
     <div class="m-screen">
@@ -19,7 +19,7 @@
           <div class="m-card-h"><i class="fa-solid fa-receipt"></i>2026 年 9 月租金账单</div>
           <div class="m-card-b">
             <div class="m-amt">
-              <div class="a1"><small>¥</small>424.44</div>
+              <div class="a1"><small>¥</small>471.60</div>
               <div class="a2">个人实际应缴　·	缴费截止 2026-09-15</div>
             </div>
           </div>
@@ -29,16 +29,16 @@
           <div class="m-card-h"><i class="fa-solid fa-calculator"></i>账单构成</div>
           <div class="m-card-b">
           <div class="m-kv">
-            <div><span>① 应缴租金总额</span><span><b>1,414.80 元</b></span></div>
-            <div><span>② 财政补助（减免）</span><span><b style="color:var(--success)">-990.36 元</b></span></div>
-            <div><span>③ 个人实际应缴</span><span><b style="color:var(--danger)">424.44 元</b></span></div>
+            <div><span>① 应缴租金总额</span><span><b>1,100.40 元</b></span></div>
+            <div><span>② 财政补助（减免）</span><span><b style="color:var(--success)">-628.80 元</b></span></div>
+            <div><span>③ 个人实际应缴</span><span><b style="color:var(--danger)">471.60 元</b></span></div>
           </div>
             <div style="margin-top:12px;padding-top:12px;border-top:1px dashed var(--border)">
               <div style="font-size:12.5px;font-weight:700;color:var(--text-1)">计算依据</div>
               <div style="margin-top:6px;font-size:12.5px;line-height:1.9;color:var(--text-2)">
-                应缴租金总额 = 计租面积 <b>78.60 ㎡</b> × 租金标准 <b>18.00 元/㎡·月</b> × 计费 <b>1 个月</b> = <b>1,414.80 元</b><br>
-                财政补助 = 1,414.80 × 减免比例 <b>70%</b> = <b>990.36 元</b><br>
-                个人应缴 = 1,414.80 − 990.36 = <b>424.44 元</b>
+                应缴租金总额 = 计租面积 <b>78.60 ㎡</b> × 人才租金标准 <b>14.00 元/㎡·月</b> × 计费 <b>1 个月</b> = <b>1,100.40 元</b><br>
+                财政补助 = 计租面积 <b>78.60 ㎡</b> × 财政补贴 <b>8.00 元/㎡·月</b> = <b>628.80 元</b><br>
+                个人应缴 = 计租面积 <b>78.60 ㎡</b> × 个人承担 <b>6.00 元/㎡·月</b> = <b>471.60 元</b>
               </div>
             </div>
           </div>
@@ -55,9 +55,34 @@
             <div><span>合同编号</span><span>RZ2026-00862</span></div>
             <div><span>房源</span><span>湘江1958 A6-1502</span></div>
             <div><span>计租面积</span><span>78.60 ㎡（整套配租）</span></div>
-            <div><span>减免依据</span><span>一事一议审定 · 二室一厅减免 70%</span></div>
+            <div><span>减免依据</span><span>一事一议审定 · 二室一厅减免 57%</span></div>
             <div><span>账单状态</span><span><span class="m-tag red">待缴</span></span></div>
           </div>
+          </div>
+        </div>
+        <div class="m-sect">支付渠道与核销<span class="m-sect-x">三种方式自行选择</span></div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-credit-card"></i>缴费与核销口径</div>
+          <div class="m-card-b">
+          <div class="m-kv">
+            <div><span>支付渠道</span><span><span class="m-tag blue">电信翼支付</span> <span class="m-tag green">微信支付</span> <span class="m-tag orange">线下缴费</span>　缴费时自行选择</span></div>
+            <div><span>核销方式</span><span>线上渠道<b>实时核销</b>；线下缴费<b>由运营机构确认后核销</b></span></div>
+            <div><span>收款机构</span><span><b>株洲市人才安居服务有限公司</b>（按房源所属运营机构路由）</span></div>
+            <div><span>收款账户</span><span>中国建设银行株洲天元支行　4301 **** **** 8826</span></div>
+            <div><span>资金口径</span><span>资金直接进入运营机构对公账户，<b>平台不归集资金、不代收</b></span></div>
+            <div><span>待确认口径</span><span>线下凭证已提交未确认的，状态为<span class="m-tag orange">待确认</span>，<b>不计逾期</b></span></div>
+          </div>
+          </div>
+        </div>
+        <div class="m-sect">历史缴费与核销<span class="m-sect-x">近 3 期</span></div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-clock-rotate-left"></i>核销记录</div>
+          <div class="m-card-b">
+            <div class="m-check">
+              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>2026 年 8 月 租金 471.60 元　线下缴费</b><span>2026-08-11 15:42 银行转账并上传回单　·	<b>运营机构确认核销</b>　·	确认人 彭雪梅（株洲市人才安居服务有限公司）　·	确认时间 2026-08-12 10:26</span></div></div>
+              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>2026 年 7 月 租金 471.60 元　微信支付</b><span>2026-07-09 20:14 支付成功　·	<b>实时核销</b>　·	微信支付单号 4200002186202607091428</span></div></div>
+              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>2026 年 6 月 租金 471.60 元　电信翼支付</b><span>2026-06-08 09:26 支付成功　·	<b>实时核销</b>　·	流水号 YZF20260608092612</span></div></div>
+            </div>
           </div>
         </div>
         <div class="m-note"><i class="fa-solid fa-circle-info"></i>
@@ -70,7 +95,7 @@
       </div>
       <div class="m-actbar">
         <button class="m-btn w-auto is-off" type="button" onclick="MB.toast('本账单尚未缴费，缴费后方可申领电子票据')">申领票据</button>
-        <a class="m-btn primary" href="bill-pay.html"><i class="fa-solid fa-mobile-screen-button"></i> 立即缴纳 424.44 元</a>
+        <a class="m-btn primary" href="bill-pay.html"><i class="fa-solid fa-mobile-screen-button"></i> 立即缴纳 471.60 元</a>
       </div>
     </div>
   </div>

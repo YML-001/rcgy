@@ -3,140 +3,104 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>我的预约 · 株洲市人才住房保障管理平台</title>
+<title>我的意向登记 · 株洲市人才住房保障管理平台</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="../../assets/css/app.css">
 <link rel="stylesheet" href="../../assets/css/mobile.css">
 <link rel="stylesheet" href="../../assets/css/ext.css">
 </head>
-<body class="m-body" data-mtitle="我的预约" data-mmod="N1 房源预约与预定" data-mcode="N1-02"
-      data-mdesc="查询预约状态、该房间预约人数与楼盘轮候人数，支持改约、取消与「转正式申请」；转正式申请跳过选房步骤，直接带入已选房间进入申请表单。" data-mback="me.html" data-mtabset="public" data-mtab="me">
+<body class="m-body" data-mtitle="我的意向登记" data-mmod="N1 房源意向登记" data-mcode="N1-02"
+      data-mdesc="查询本人全部意向登记记录，展示所登记的楼盘、户型与有效期倒计时，支持在有效期内变更、取消或转为正式申请。意向登记不占用房源、不进入轮候库、不产生配租权利。" data-mback="me.html" data-mtabset="public" data-mtab="me">
 <div class="m-stage">
   <div class="m-phone">
     <div class="m-screen">
       <div class="m-view">
         <div class="m-seg">
-          <button class="on">全部 4</button><button>预约中 2</button><button>已转申请 1</button><button>已取消 1</button>
+          <button class="on">全部 3</button><button>生效中 1</button><button>已转申请 1</button><button>已取消 1</button>
         </div>
         <div class="m-note"><i class="fa-solid fa-circle-info"></i>
-          <div>预约<b>为意向登记，不占用轮候名额、不锁定房源</b>；配租时<b>已预约本批次房源的优先于普通轮候</b>。点「<b>转正式申请</b>」可<b>跳过选房步骤</b>，直接带入已选房间填表。</div>
+          <div>意向登记<b>仅作需求摸底统计</b>：不占用房源、不进入轮候库、不收取任何费用，也<b>不产生任何配租权利</b>。每条登记<b>有效期 6 个月</b>，到期自动失效，有效期内可变更或取消。</div>
         </div>
-        <div class="m-sect">预约中<span class="m-sect-x">可转正式申请</span></div>
+        <div class="m-sect">生效中<span class="m-sect-x">1 条</span></div>
         <div class="m-card">
-          <div class="m-card-h"><i class="fa-solid fa-calendar-check"></i>湘江1958　A6-1502A 间<span class="m-tag orange" style="margin-left:auto">预约中</span></div>
+          <div class="m-card-h"><i class="fa-solid fa-clipboard-check"></i>湘江1958 人才公寓 · 二室一厅<span class="m-tag green" style="margin-left:auto">生效中</span></div>
           <div class="m-card-b">
-          <div class="m-kv">
-            <div><span>预约号</span><span>YY2026-0906-0428</span></div>
-            <div><span>房间与计租面积</span><span>三室两厅拆间 · 1502A 间　计租 27.80 ㎡（套内 22.40 ＋ 公摊 5.40）</span></div>
-            <div><span>人才租金</span><span><b style="color:var(--danger)">166.80 元/月</b>（6.00 元/㎡·月）　原市场租金 500.40 元/月</span></div>
-            <div><span>该房间预约人数</span><span><b style="color:var(--primary)">3 人</b>（含本人，按预约时间排序，本人第 3 位）</span></div>
-            <div><span>所在楼盘轮候人数</span><span>58 人（普通轮候，<b>预约不占用轮候名额</b>）</span></div>
-            <div><span>预计入住时间</span><span>2026-10-08</span></div>
-            <div><span>预约有效期</span><span>2026-10-06 23:59（30 个自然日，到期可重新预约）</span></div>
-            <div><span>预约时间</span><span>2026-09-06 21:14</span></div>
+          <div class="m-count"><i class="fa-solid fa-hourglass-half"></i>有效期倒计时<span class="m-cn">剩余 180 天</span></div>
+          <div class="m-kv" style="margin-top:10px">
+            <div><span>登记编号</span><span>DJ2026-0909-0428</span></div>
+            <div><span>意向楼盘</span><span>湘江1958 人才公寓（天元区泰山路 1958 号）</span></div>
+            <div><span>意向户型</span><span>二室一厅　78.60 ㎡　·　按间配租 2 人</span></div>
+            <div><span>租金参考</span><span>整套个人自付 471.60 元/月（减免 57% 后）</span></div>
+            <div><span>期望入住时间</span><span>2026-11-01（仅作需求摸底参考）</span></div>
+            <div><span>登记时间</span><span>2026-09-09 21:14</span></div>
+            <div><span>有效期至</span><span><b style="color:var(--danger)">2027-03-08 23:59</b></span></div>
+            <div><span>条款确认</span><span>已确认管理办法　<span class="m-tag blue">V2026.09</span>　2026-09-09 21:14</span></div>
           </div>
             <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
-              <button class="m-btn sm primary" type="button" onclick="toApply('湘江1958 A6-1502A 间','27.80','166.80','3','58')"><i class="fa-solid fa-file-arrow-up"></i> 转正式申请</button>
-              <a class="m-btn sm ghost" href="book-change.html">改约</a>
-              <a class="m-btn sm" href="house-list.html">改选房源</a>
-              <button class="m-btn sm" type="button" onclick="MB.confirm('确认取消该预约？取消后本条意向登记作废，<b>本人轮候资格与轮候序号不受影响</b>，可随时重新预约其他房间。','确认取消',function(){MB.toast('已取消预约，意向登记已作废')})">取消预约</button>
+              <a class="m-btn sm ghost" href="book-change.html">变更登记</a>
+              <button class="m-btn sm" type="button" onclick="MB.confirm('确认取消该条意向登记？取消后本条不再计入需求统计，<b>不影响</b>您的申请资格，有需要可随时重新登记。','确认取消',function(){MB.toast('已取消该条意向登记')})">取消登记</button>
+              <a class="m-btn sm" href="book-to-apply.html">转正式申请</a>
+              <a class="m-btn sm" href="house-detail.html">查看楼盘</a>
             </div>
           </div>
         </div>
+        <div class="m-sect">已转申请<span class="m-sect-x">1 条</span></div>
         <div class="m-card">
-          <div class="m-card-h"><i class="fa-solid fa-calendar-check"></i>栗雨佳苑　B2-0902B 间<span class="m-tag orange" style="margin-left:auto">预约中</span></div>
+          <div class="m-card-h"><i class="fa-solid fa-file-circle-check"></i>云龙人才苑 · 一室一厅<span class="m-tag blue" style="margin-left:auto">已转申请</span></div>
           <div class="m-card-b">
           <div class="m-kv">
-            <div><span>预约号</span><span>YY2026-0903-0311</span></div>
-            <div><span>房间与计租面积</span><span>二室一厅拆间 · 0902B 间　计租 26.40 ㎡（套内 21.30 ＋ 公摊 5.10）</span></div>
-            <div><span>人才租金</span><span><b style="color:var(--danger)">158.40 元/月</b>（6.00 元/㎡·月）　原市场租金 475.20 元/月</span></div>
-            <div><span>该房间预约人数</span><span><b style="color:var(--primary)">2 人</b>（含本人，本人第 2 位）</span></div>
-            <div><span>所在楼盘轮候人数</span><span>41 人（普通轮候）</span></div>
-            <div><span>预计入住时间</span><span>2026-11-01</span></div>
-            <div><span>预约有效期</span><span>2026-10-03 23:59（30 个自然日）</span></div>
-            <div><span>预约时间</span><span>2026-09-03 09:52</span></div>
-          </div>
-            <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
-              <button class="m-btn sm primary" type="button" onclick="toApply('栗雨佳苑 B2-0902B 间','26.40','158.40','2','41')"><i class="fa-solid fa-file-arrow-up"></i> 转正式申请</button>
-              <a class="m-btn sm ghost" href="book-change.html">改约</a>
-              <a class="m-btn sm" href="house-list.html">改选房源</a>
-              <button class="m-btn sm" type="button" onclick="MB.confirm('确认取消该预约？取消后本条意向登记作废，<b>本人轮候资格与轮候序号不受影响</b>。','确认取消',function(){MB.toast('已取消预约，意向登记已作废')})">取消预约</button>
-            </div>
-          </div>
-        </div>
-        <div class="m-sect">已转申请</div>
-        <div class="m-card">
-          <div class="m-card-h"><i class="fa-solid fa-file-circle-check"></i>云龙人才苑　B3-0806A 间<span class="m-tag green" style="margin-left:auto">已转申请</span></div>
-          <div class="m-card-b">
-          <div class="m-kv">
-            <div><span>预约号</span><span>YY2026-0821-0316</span></div>
-            <div><span>房间与计租面积</span><span>二室一厅拆间 · 0806A 间　计租 24.20 ㎡（套内 19.40 ＋ 公摊 4.80）</span></div>
-            <div><span>人才租金</span><span>145.20 元/月（6.00 元/㎡·月）</span></div>
-            <div><span>该房间预约人数</span><span>1 人（本人）</span></div>
-            <div><span>所在楼盘轮候人数</span><span>55 人（普通轮候）</span></div>
+            <div><span>登记编号</span><span>DJ2026-0821-0316</span></div>
+            <div><span>意向楼盘</span><span>云龙人才苑（经开区云龙大道）</span></div>
+            <div><span>意向户型</span><span>一室一厅　52.00 ㎡　·　配租 1 人</span></div>
+            <div><span>租金参考</span><span>个人自付 312.00 元/月（减免 57% 后）</span></div>
+            <div><span>登记时间</span><span>2026-08-21 09:42</span></div>
+            <div><span>有效期至</span><span>2027-02-20 23:59（剩余 164 天）</span></div>
             <div><span>转申请时间</span><span>2026-08-28 10:36</span></div>
-            <div><span>关联申请编号</span><span>RC2026-0828-0147　<span class="m-tag blue">预约优先</span></span></div>
+            <div><span>关联申请编号</span><span>RC2026-0828-0147　<span class="m-tag orange">复审中</span></span></div>
           </div>
             <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
-              <button class="m-btn sm is-off" type="button" data-why="该预约已于 2026-08-28 转为正式申请 RC2026-0828-0147，无需重复办理">转正式申请</button>
               <a class="m-btn sm ghost" href="me-apply-list.html">查看申请</a>
-              <a class="m-btn sm" href="alloc-queue.html">配租排序</a>
+              <a class="m-btn sm" href="apply-trace.html">办理进度</a>
+            </div>
+            <div class="m-note" style="margin-top:10px"><i class="fa-solid fa-circle-info"></i>
+              <div>已转正式申请的，<b>以正式申请的审核结论为准</b>。意向登记不改变审核顺序，审核通过后由系统按配租公告设定的时间自动配租。</div>
             </div>
           </div>
         </div>
-        <div class="m-sect">已取消</div>
+        <div class="m-sect">已取消<span class="m-sect-x">1 条</span></div>
         <div class="m-card">
-          <div class="m-card-h"><i class="fa-solid fa-circle-xmark"></i>董家塅安居苑　C1-0402A 间<span class="m-tag dark" style="margin-left:auto">已取消</span></div>
+          <div class="m-card-h"><i class="fa-solid fa-circle-xmark"></i>董家塅安居苑 · 单间配套<span class="m-tag dark" style="margin-left:auto">已取消</span></div>
           <div class="m-card-b">
           <div class="m-kv">
-            <div><span>预约号</span><span>YY2026-0715-0208</span></div>
-            <div><span>房间与计租面积</span><span>单间配套 · 0402A 间　计租 23.80 ㎡（不拆间，无套内共用分摊）</span></div>
-            <div><span>人才租金</span><span>142.80 元/月（6.00 元/㎡·月）</span></div>
-            <div><span>该房间预约人数</span><span>—</span></div>
-            <div><span>所在楼盘轮候人数</span><span>29 人（普通轮候）</span></div>
+            <div><span>登记编号</span><span>DJ2026-0715-0208</span></div>
+            <div><span>意向楼盘</span><span>董家塅安居苑（芦淞区董家塅）</span></div>
+            <div><span>意向户型</span><span>单间配套　40.00 ㎡　·　配租 1 人</span></div>
+            <div><span>登记时间</span><span>2026-07-15 15:28</span></div>
             <div><span>取消时间</span><span>2026-07-22 16:09</span></div>
-            <div><span>取消原因</span><span>通勤距离较远，改约至天元区房源</span></div>
+            <div><span>取消原因</span><span>通勤距离较远，改为登记天元区房源</span></div>
           </div>
             <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
-              <button class="m-btn sm is-off" type="button" data-why="该预约已取消，请先重新预约房间后再转正式申请">转正式申请</button>
-              <a class="m-btn sm ghost" href="house-book.html">重新预约</a>
-              <a class="m-btn sm" href="house-list.html">看其他房源</a>
+              <a class="m-btn sm ghost" href="house-list.html">重新登记</a>
+              <a class="m-btn sm" href="house-map.html">地图找房</a>
             </div>
           </div>
         </div>
         <div class="m-sect">相关设置</div>
         <div class="m-cells">
-          <a class="m-cell" href="book-remind.html"><span class="m-ci orange"><i class="fa-solid fa-bell"></i></span><span class="m-cl"><b>到位提醒设置</b><span class="m-cs">预约房间可配租、意向楼盘新增房间时主动推送</span></span><span class="m-cv"><span class="m-tag green">已开启</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
-          <a class="m-cell" href="house-favorite.html"><span class="m-ci"><i class="fa-solid fa-star"></i></span><span class="m-cl"><b>我的收藏楼盘</b><span class="m-cs">收藏楼盘出现可选房间时同步提醒</span></span><span class="m-cv">3 个</span><i class="m-ca fa-solid fa-angle-right"></i></a>
-          <a class="m-cell" href="alloc-rule.html"><span class="m-ci cyan"><i class="fa-solid fa-scale-balanced"></i></span><span class="m-cl"><b>配租排序规则</b><span class="m-cs">不摇号，按受理时间排定，预约记录优先</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="book-remind.html"><span class="m-ci orange"><i class="fa-solid fa-bell"></i></span><span class="m-cl"><b>到期提醒设置</b><span class="m-cs">有效期届满前 30 天、15 天、3 天主动推送</span></span><span class="m-cv"><span class="m-tag green">已开启</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="policy-detail.html"><span class="m-ci cyan"><i class="fa-solid fa-scale-balanced"></i></span><span class="m-cl"><b>管理办法条款</b><span class="m-cs">申请条件、配租方式、租金减免与放弃资格的后果</span></span><span class="m-cv"><span class="m-tag blue">V2026.09</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
         </div>
         <div class="m-note warn"><i class="fa-solid fa-triangle-exclamation"></i>
-          <div>预约<b>有效期届满未转正式申请</b>的，系统自动作废该条意向登记，<b>本人轮候资格不受影响</b>，可重新预约其他房间。已被他人签约的房间将<b>即时置为已租</b>并提醒改选。</div>
+          <div>有效期届满未处理的，本条登记<b>自动失效</b>，仅从需求统计中移除，<b>不影响本人申请资格</b>，可随时重新登记。房源不由申请人自行选定，资格审核通过后由系统<b>按配租公告设定的时间自动配租</b>。</div>
         </div>
       </div>
       <div class="m-actbar">
-        <a class="m-btn w-auto" href="house-list.html">改选房源</a>
-        <a class="m-btn primary" href="house-book.html"><i class="fa-solid fa-plus"></i> 预约新房间</a>
+        <a class="m-btn primary block" href="house-list.html"><i class="fa-solid fa-plus"></i> 浏览房源，新增意向登记</a>
       </div>
     </div>
   </div>
 </div>
 
 <script src="../../assets/js/mobile.js"></script>
-<script>
-/* 转正式申请：跳过选房步骤，直接带入已选房间进入申请表单；
-   确认文案带出该房源当前的预约人数与轮候人数，并给出「改选房源」备选入口。 */
-function toApply(room, area, rent, books, queue) {
-  MB.confirm(
-    '将把 <b>' + room + '</b>（计租 ' + area + ' ㎡ · 人才租金 ' + rent + ' 元/月）作为已选房源，' +
-    '<b>跳过选房步骤直达申请表单</b>。<br>' +
-    '该房源当前<b>预约人数 ' + books + ' 人</b>、所在楼盘<b>轮候人数 ' + queue + ' 人</b>；' +
-    '预约<b>不占用轮候名额</b>，配租时已预约本批次房源的优先于普通轮候。<br>' +
-    '如想换个房源，可先<a href="house-list.html">改选房源 ›</a>再申请。',
-    '确认转申请',
-    function () { location.href = 'apply-step1.html'; }
-  );
-}
-</script>
 </body>
 </html>

@@ -32,23 +32,24 @@
   <div class="stat-grid">
     <div class="stat-card">
       <div class="s-icon blue"><i class="fa-solid fa-list-check"></i></div>
-      <div><div class="s-label">表单字段</div><div class="s-value">20</div>
-        <div class="s-trend text-2">含 11 项自动回填</div></div>
+      <div><div class="s-label">表单字段</div><div class="s-value">6</div>
+        <div class="s-trend text-2">含 1 项自动回填</div></div>
     </div>
     <div class="stat-card">
       <div class="s-icon green"><i class="fa-solid fa-shield-halved"></i></div>
-      <div><div class="s-label">免上传材料</div><div class="s-value">5</div>
-        <div class="s-trend text-2">接口核验替代</div></div>
+      <div><div class="s-label">材料清单</div><div class="s-value">16</div>
+        <div class="s-trend text-2">按人才类型差异生效</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+      <div><div class="s-label">须上传并人工认定</div>
+        <div class="s-value">11</div>
+        <div class="s-trend">接口未开通，开通后自动收起</div></div>
     </div>
     <div class="stat-card">
-      <div class="s-icon cyan"><i class="fa-solid fa-cloud-arrow-up"></i></div>
-      <div><div class="s-label">需上传材料</div><div class="s-value">6</div>
-        <div class="s-trend text-2">按类型差异</div></div>
-    </div>
-    <div class="stat-card">
-      <div class="s-icon orange"><i class="fa-solid fa-code-branch"></i></div>
+      <div class="s-icon cyan"><i class="fa-solid fa-code-branch"></i></div>
       <div><div class="s-label">当前版本</div><div class="s-value">V2026-09</div>
-        <div class="s-trend text-2">2026-09-01 生效</div></div>
+        <div class="s-trend text-2">2026-09-08 生效</div></div>
     </div>
   </div>
 
@@ -68,25 +69,43 @@
     <div class="table-wrap">
       <table class="data-table">
         <thead>
-          <tr><th>编号</th><th>配置类型</th><th class="cell-lg">名称</th><th>适用类型</th><th>是否必填</th><th>取值方式</th><th class="cell-lg">口径说明</th><th>状态</th><th>操作</th></tr>
+          <tr><th>编号</th><th>配置类型</th><th class="cell-lg">名称</th><th>适用类型</th><th>是否必填</th><th>取值方式</th><th class="cell-lg">口径说明与政策依据</th><th>操作</th></tr>
         </thead>
         <tbody>
-          <tr><td>BD-01</td><td><span class="badge blue">表单字段</span></td><td>申请人姓名 / 身份证号 / 性别 / 出生日期</td><td>不限</td><td><span class="badge red">必填</span></td><td><span class="badge cyan">自动回填</span></td><td>湘易办实名信息 + 公安人口信息带入，<b>不可修改</b></td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('bdDrawer')">编辑</span></td></tr>
-          <tr><td>BD-06</td><td><span class="badge blue">表单字段</span></td><td>最高学历 / 毕业院校 / 专业 / 毕业时间</td><td>不限</td><td><span class="badge red">必填</span></td><td><span class="badge cyan">自动回填</span></td><td>学信网学历学位信息核验带入；毕业时间用于毕业 2 年内判定</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('bdDrawer')">编辑</span></td></tr>
-          <tr><td>CL-02</td><td><span class="badge orange">材料清单</span></td><td>身份证明</td><td>不限</td><td><span class="badge red">必需</span></td><td><span class="badge green">免上传</span></td><td>湘易办实名信息 + 公安人口信息核验替代，无需上传纸质材料</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('bdDrawer')">编辑</span></td></tr>
-          <tr><td>CL-10</td><td><span class="badge orange">材料清单</span></td><td>劳动合同</td><td><span class="badge blue">就业</span></td><td><span class="badge red">必需</span></td><td><span class="badge cyan">智能识别</span></td><td>上传后 OCR 提取单位名称、签订日期、期限、工作地点，与社保缴纳单位比对</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('bdDrawer')">编辑</span></td></tr>
-          <tr><td>CL-07</td><td><span class="badge orange">材料清单</span></td><td>营业执照</td><td><span class="badge cyan">创业</span></td><td><span class="badge red">必需</span></td><td><span class="badge green">免上传</span></td><td>市场监管系统核验注册信息、经营状态与法定代表人一致性</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('bdDrawer')">编辑</span></td></tr>
-          <tr class="row-warn"><td>CL-13</td><td><span class="badge orange">材料清单</span></td><td>中层以上管理职务证明</td><td><span class="badge orange">特殊人才</span></td><td><span class="badge orange">条件必需</span></td><td><span class="badge blue">手工填报</span></td><td>由用人单位出具并加盖公章；须核对企业是否为高企或大中型企业</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('bdDrawer')">编辑</span></td></tr>
+          <tr class=""><td>BD-01</td><td><span class="badge blue">表单字段</span></td><td>申请人姓名 / 身份证号 / 性别 / 出生日期</td><td>不限</td><td><span class="badge red">必填</span></td><td><span class="badge cyan">自动回填</span></td><td>湘易办实名信息 + 公安人口信息带入，<b>不可修改</b><br><span class="muted" style="font-size:12px">依据：《管理办法》第八条（一）附表</span></td><td><span class="link" onclick="PMS.openDrawer('bdDrawer')">编辑</span></td></tr>
+          <tr class=""><td>BD-06</td><td><span class="badge blue">表单字段</span></td><td>最高学历 / 毕业院校 / 专业 / 毕业时间</td><td>不限</td><td><span class="badge red">必填</span></td><td><span class="badge gray">手工填报</span></td><td>学信网接口未开通，暂由申请人填报并上传毕业证佐证；毕业时间用于毕业 2 年内判定，接口开通后转自动回填<br><span class="muted" style="font-size:12px">依据：《管理办法》第三条、第十条</span></td><td><span class="link" onclick="PMS.openDrawer('bdDrawer')">编辑</span></td></tr>
+          <tr class=""><td>BD-09</td><td><span class="badge blue">表单字段</span></td><td>婚姻状况 / 家庭成员</td><td>不限</td><td><span class="badge red">必填</span></td><td><span class="badge gray">手工填报</span></td><td>民政接口未开通，暂由申请人填报并上传结婚证或户口簿佐证；已婚且双方均符合条件的可合并为家庭申请，只占一套指标<br><span class="muted" style="font-size:12px">依据：《管理办法》第八条（二）、第十一条</span></td><td><span class="link" onclick="PMS.openDrawer('bdDrawer')">编辑</span></td></tr>
+          <tr class=""><td>BD-12</td><td><span class="badge blue">表单字段</span></td><td>创业企业或就业单位 / 联系电话</td><td>不限</td><td><span class="badge red">必填</span></td><td><span class="badge gray">手工填报</span></td><td>创业人才填企业或个体户名称，就业人才填用人单位名称；与营业执照或劳动合同比对<br><span class="muted" style="font-size:12px">依据：《管理办法》第八条（一）附表</span></td><td><span class="link" onclick="PMS.openDrawer('bdDrawer')">编辑</span></td></tr>
+          <tr class=""><td>BD-15</td><td><span class="badge blue">表单字段</span></td><td>申请类型</td><td>不限</td><td><span class="badge red">必填</span></td><td><span class="badge gray">手工填报</span></td><td>创业青年人才 / 就业青年人才 / 特殊人才（不受毕业年限限制）三选一，<b>决定后续材料清单</b><br><span class="muted" style="font-size:12px">依据：《管理办法》第三条、第七条（一）</span></td><td><span class="link" onclick="PMS.openDrawer('bdDrawer')">编辑</span></td></tr>
+          <tr class=""><td>BD-18</td><td><span class="badge blue">表单字段</span></td><td>意向片区</td><td>不限</td><td><span class="badge gray">选填</span></td><td><span class="badge gray">手工填报</span></td><td>仅作意向登记，<b>不锁定房源</b>；资格审核通过后按批次统一组织选房<br><span class="muted" style="font-size:12px">依据：会议决议（资格与房源分离）</span></td><td><span class="link" onclick="PMS.openDrawer('bdDrawer')">编辑</span></td></tr>
+          <tr class=""><td>CL-01</td><td><span class="badge orange">材料清单</span></td><td>《株洲市创业就业青年人才住房资格审核表》</td><td>不限</td><td><span class="badge red">必需</span></td><td><span class="badge cyan">系统生成</span></td><td>线上填报后按原表格式生成并可打印，受理意见与审核意见分栏由两级经办人签署，不需另交纸质件<br><span class="muted" style="font-size:12px">依据：《管理办法》第八条（一）及附件</span></td><td><span class="link" onclick="PMS.openDrawer('bdDrawer')">编辑</span></td></tr>
+          <tr class=""><td>CL-02</td><td><span class="badge orange">材料清单</span></td><td>身份证明（身份证正反面）</td><td>不限</td><td><span class="badge red">必需</span></td><td><span class="badge green">免上传</span></td><td>公安人口信息接口<b>已开通</b>，自动核验替代，无需上传；家庭申请须提供全部家庭成员身份证明<br><span class="muted" style="font-size:12px">依据：《管理办法》第八条（二）</span></td><td><span class="link" onclick="PMS.openDrawer('bdDrawer')">编辑</span></td></tr>
+          <tr class="row-warn"><td>CL-03</td><td><span class="badge orange">材料清单</span></td><td>婚姻状况证明（结婚证或户口簿）</td><td>不限</td><td><span class="badge red">必需</span></td><td><span class="badge orange">上传并识别</span></td><td>民政接口<b>未开通</b>，须上传后 OCR 提取婚姻状况、登记日期、签发机关，由受理初审人工比对认定。1 份<br><span class="muted" style="font-size:12px">依据：《管理办法》第八条（二）；《工作思路》三</span></td><td><span class="link" onclick="PMS.openDrawer('bdDrawer')">编辑</span></td></tr>
+          <tr class="row-warn"><td>CL-04</td><td><span class="badge orange">材料清单</span></td><td>不动产权信息查询证明（无房证明）</td><td>不限</td><td><span class="badge red">必需</span></td><td><span class="badge orange">上传并识别</span></td><td>不动产接口<b>未开通</b>，须上传后人工比对。1 份，建议近 3 个月内开具；<b>地域口径待市住建局明确</b>（市城区 / 天元区两种表述不一致）<br><span class="muted" style="font-size:12px">依据：《管理办法》第七条（二）、第八条（二）</span></td><td><span class="link" onclick="PMS.openDrawer('bdDrawer')">编辑</span></td></tr>
+          <tr class="row-warn"><td>CL-05</td><td><span class="badge orange">材料清单</span></td><td>毕业证书</td><td>不限</td><td><span class="badge red">必需</span></td><td><span class="badge orange">上传并识别</span></td><td>学信网接口<b>未开通</b>，须上传后 OCR 提取院校、学历层次、学习形式与毕业时间。1 份<br><span class="muted" style="font-size:12px">依据：《管理办法》第八条（三）</span></td><td><span class="link" onclick="PMS.openDrawer('bdDrawer')">编辑</span></td></tr>
+          <tr class="row-warn"><td>CL-06</td><td><span class="badge orange">材料清单</span></td><td>国（境）外学历学位认证书</td><td>不限</td><td><span class="badge orange">条件必需</span></td><td><span class="badge orange">上传并识别</span></td><td>仅国（境）外学习的毕业大学生需要，由教育部留学服务中心出具；<b>缺认证书的不予受理</b>。1 份<br><span class="muted" style="font-size:12px">依据：《管理办法》第八条（三）</span></td><td><span class="link" onclick="PMS.openDrawer('bdDrawer')">编辑</span></td></tr>
+          <tr class="row-warn"><td>CL-07</td><td><span class="badge orange">材料清单</span></td><td>营业执照</td><td><span class="badge cyan">创业</span></td><td><span class="badge red">必需</span></td><td><span class="badge orange">上传并识别</span></td><td>市场监管接口<b>未开通</b>，须上传后 OCR 提取统一社会信用代码、法定代表人或经营者、登记机关与成立日期。1 份<br><span class="muted" style="font-size:12px">依据：《管理办法》第八条（四）；《工作思路》三</span></td><td><span class="link" onclick="PMS.openDrawer('bdDrawer')">编辑</span></td></tr>
+          <tr class="row-warn"><td>CL-08</td><td><span class="badge orange">材料清单</span></td><td>企业纳税申报表或完税证明</td><td><span class="badge cyan">创业</span></td><td><span class="badge red">必需</span></td><td><span class="badge orange">上传并识别</span></td><td>税务接口<b>未开通</b>，用于筛除只注册但无实际经营纳税的空壳企业。1 份；「正常纳税」判定口径待市税务局明确<br><span class="muted" style="font-size:12px">依据：《工作思路》三</span></td><td><span class="link" onclick="PMS.openDrawer('bdDrawer')">编辑</span></td></tr>
+          <tr class=""><td>CL-09</td><td><span class="badge orange">材料清单</span></td><td>经营场所不动产权证 / 租赁合同及房源产权证</td><td><span class="badge cyan">创业</span></td><td><span class="badge red">必需</span></td><td><span class="badge gray">手工填报</span></td><td>自有场所交产权证；<b>租赁经营的须同时提供租赁合同复印件与租赁房源不动产权证复印件，缺一不可</b>。各 1 份<br><span class="muted" style="font-size:12px">依据：《管理办法》第八条（四）</span></td><td><span class="link" onclick="PMS.openDrawer('bdDrawer')">编辑</span></td></tr>
+          <tr class="row-warn"><td>CL-10</td><td><span class="badge orange">材料清单</span></td><td>劳动合同</td><td><span class="badge blue">就业</span></td><td><span class="badge red">必需</span></td><td><span class="badge orange">上传并识别</span></td><td><b>无对应政府部门接口，始终需要提供</b>。上传后 OCR 提取单位名称、签订日期、期限、工作地点，与社保缴纳单位比对。1 份；单位代申报的建议由单位统一收集盖章<br><span class="muted" style="font-size:12px">依据：《管理办法》第三条、第八条（四）</span></td><td><span class="link" onclick="PMS.openDrawer('bdDrawer')">编辑</span></td></tr>
+          <tr class="row-warn"><td>CL-11</td><td><span class="badge orange">材料清单</span></td><td>养老保险缴纳证明</td><td><span class="badge blue">就业</span></td><td><span class="badge red">必需</span></td><td><span class="badge orange">上传并识别</span></td><td>人社接口<b>未开通</b>，须上传参保缴费明细，体现缴纳单位与连续缴纳月数。1 份；已签合同但查不到记录的凭<b>单位承诺书容缺受理</b><br><span class="muted" style="font-size:12px">依据：《管理办法》第三条、第八条（四）；《工作思路》三</span></td><td><span class="link" onclick="PMS.openDrawer('bdDrawer')">编辑</span></td></tr>
+          <tr class="row-warn"><td>CL-12</td><td><span class="badge orange">材料清单</span></td><td>个人所得税纳税记录</td><td><span class="badge blue">就业</span></td><td><span class="badge red">必需</span></td><td><span class="badge orange">上传并识别</span></td><td>税务接口<b>未开通</b>，用于核实在本地实际从业、防止挂靠社保。1 份，可由个税 APP 自行开具；与社保月数不符的转人工核实<br><span class="muted" style="font-size:12px">依据：《工作思路》三</span></td><td><span class="link" onclick="PMS.openDrawer('bdDrawer')">编辑</span></td></tr>
+          <tr class=""><td>CL-13</td><td><span class="badge orange">材料清单</span></td><td>职称证书 / 技能等级证书 / 中层以上管理职务证明</td><td><span class="badge purple">特殊人才</span></td><td><span class="badge orange">条件必需</span></td><td><span class="badge gray">手工填报</span></td><td>仅主张<b>不受毕业年限限制</b>时需要，人社接口未开通须上传；普通创业、就业人才不需提供。1 份<br><span class="muted" style="font-size:12px">依据：《管理办法》第七条（一）</span></td><td><span class="link" onclick="PMS.openDrawer('bdDrawer')">编辑</span></td></tr>
+          <tr class=""><td>CL-14</td><td><span class="badge orange">材料清单</span></td><td>真实性承诺书</td><td>不限</td><td><span class="badge red">必需</span></td><td><span class="badge cyan">线上签署</span></td><td>线上勾选并电子签，不需纸质件；虚假材料的取消资格并标记失信、禁止再次申请<br><span class="muted" style="font-size:12px">依据：《工作思路》三（全过程留痕）</span></td><td><span class="link" onclick="PMS.openDrawer('bdDrawer')">编辑</span></td></tr>
+          <tr class=""><td>CL-15</td><td><span class="badge orange">材料清单</span></td><td>用人单位承诺书（容缺受理用）</td><td><span class="badge blue">就业</span></td><td><span class="badge orange">条件必需</span></td><td><span class="badge gray">手工填报</span></td><td>已签劳动合同但社保查不到缴纳记录时提交，先行通过并登记待补核期限。1 份，须加盖单位公章；<b>出具主体与格式待确认</b><br><span class="muted" style="font-size:12px">依据：会议决议（社保容缺受理机制）</span></td><td><span class="link" onclick="PMS.openDrawer('bdDrawer')">编辑</span></td></tr>
+          <tr class="row-warn"><td>CL-16</td><td><span class="badge orange">材料清单</span></td><td>家庭成员身份及无房证明</td><td><span class="badge green">家庭申请</span></td><td><span class="badge orange">条件必需</span></td><td><span class="badge orange">上传并识别</span></td><td>夫妻双方均符合条件、以家庭为单位申请时需为家庭成员另交；<b>家庭成员范围待市住建局明确</b><br><span class="muted" style="font-size:12px">依据：《管理办法》第七条（二）、第八条（二）</span></td><td><span class="link" onclick="PMS.openDrawer('bdDrawer')">编辑</span></td></tr>
         </tbody>
       </table>
     </div>
   </div>
   <div class="sp-src">
-    <span><b>配置原则</b> 凡可通过部门接口核验的材料配置为免上传，减少申请人负担</span>
-    <span><b>生效口径</b> 材料增减不影响已受理在办件</span>
-    <span><b>表单来源</b> 《株洲市创业就业青年人才住房资格审核表》（管理办法附件）</span>
+    <span><b>两个维度</b> 适用类型决定对哪类人才生效，取值方式决定是否需要上传</span>
+    <span><b>当前状态</b> 材料清单 16 项，其中 10 项因接口未开通须上传并人工认定</span>
+    <span><b>联动生效</b> 配置保存后移动端申请表与审核台即时生效，不需改动程序</span>
+    <span><b>政策依据</b> 每项均标注出处，正式印发的管理办法发布后须据此复核</span>
   </div>
-</main>
+
+  </main>
 
 <div class="drawer-mask"></div>
 <div class="drawer" id="bdDrawer">
@@ -98,7 +117,16 @@
   <div class="drawer-body">
   <div class="alert alert-info">
     <i class="fa-solid fa-circle-info"></i>
-    <div><b>材料增减不影响已受理在办件</b>。配置为「免上传」的材料须确认对应<b>部门接口已开通且稳定</b>；接口不稳定的应保留上传通道作为兜底。</div>
+    <div>配置资格审核表的<b>表单字段</b>与<b>申请材料清单</b>。
+      <b>适用类型</b>决定该项对哪类人才生效（不限、就业、创业、特殊人才、家庭申请），
+      申请人在移动端选定申请类型后，申请表的字段与上传项据此自动增减；
+      <b>取值方式</b>决定是否需要申请人上传：
+      <span class="badge green">免上传</span>接口已开通、自动核验替代；
+      <span class="badge orange">上传并识别</span>接口未开通、须上传后 OCR 识别再人工认定；
+      <span class="badge cyan">自动回填</span>由部门共享数据带入且不可修改。
+      各项的核验模式在
+      <span class="link" onclick="location.href='verify-switch.html'">核验项开关与核验模式配置</span>
+      中维护，两处口径联动。</div>
   </div>
 
       <div class="form-grid form-align">
@@ -156,7 +184,7 @@
 <script>
 (function () {
   var t = document.querySelector('main.app-main .table-wrap > table.data-table');
-  if (t) { t._total = 26; }
+  if (t) { t._total = 22; }
 })();
 </script>
 

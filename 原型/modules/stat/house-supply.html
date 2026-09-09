@@ -23,128 +23,86 @@
     </div>
   </div>
 
-  <div class="alert alert-warning">
-    <i class="fa-solid fa-triangle-exclamation"></i>
-    <div>房源颗粒度已细化到<b>「间」</b>：一套三室两厅拆为三间单独计租，每间配租 1 人。供需匹配<b>按套与按间两个口径并存展示</b>——全市 <b>2,486 套 / 4,286 间</b>（平均每套约 1.72 间）；<b>匹配度、缺口一律按间口径计算</b>（可配租间数 ÷ 意向需求人份），按套口径保留供对比。<b>空置情况在房态图与发布情况监控中体现</b>，本页只呈现可配租余量与意向需求的匹配关系。</div>
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>房源类指标同时按「套」与「间」两个口径统计并展示。颗粒度改为间后，一套三室两厅计 3 间，房源规模、上架率、空置率、配租率等指标按间重算，按套口径保留用于与既有台账衔接。</div>
+  </div>
+  <div class="alert alert-danger">
+    <i class="fa-solid fa-circle-exclamation"></i>
+    <div>将<b>房源结构与申请人意向片区、意向房型对比</b>，识别供需错配并输出调整建议。匹配度低的区域需优先筹集或引导跨区选房。</div>
   </div>
 
   <div class="stat-grid">
     <div class="stat-card">
       <div class="s-icon blue"><i class="fa-solid fa-code-compare"></i></div>
-      <div><div class="s-label">匹配度（按间）</div><div class="s-value">52.9%</div>
-        <div class="s-trend text-2">可配租 956 间 ÷ 意向需求 1,806 间</div></div>
+      <div><div class="s-label">匹配度</div><div class="s-value">68.4%</div>
+        <div class="s-trend text-2">意向可满足比例</div></div>
     </div>
     <div class="stat-card dc-alarm">
       <div class="s-icon red"><i class="fa-solid fa-arrow-trend-down"></i></div>
-      <div><div class="s-label">总缺口</div><div class="s-value">-850 间</div>
-        <div class="s-trend ">折合约 494 套</div></div>
+      <div><div class="s-label">总缺口</div><div class="s-value">-268</div>
+        <div class="s-trend ">人份</div></div>
     </div>
     <div class="stat-card">
       <div class="s-icon orange"><i class="fa-solid fa-location-dot"></i></div>
       <div><div class="s-label">错配最严重</div><div class="s-value">经开区</div>
-        <div class="s-trend text-2">匹配度 23.3%　缺口 -342 间</div></div>
+        <div class="s-trend text-2">缺口 -178</div></div>
     </div>
     <div class="stat-card">
       <div class="s-icon green"><i class="fa-solid fa-thumbs-up"></i></div>
       <div><div class="s-label">匹配最好</div><div class="s-value">石峰区</div>
-        <div class="s-trend text-2">匹配度 169.8%　盈余 +176 间</div></div>
+        <div class="s-trend text-2">盈余 +40</div></div>
     </div>
   </div>
 
-  <div class="card list-card" data-tabs-scope>
-    <div class="tabs" style="margin-bottom:0;padding:8px 12px 0">
-      <div class="tab active" data-tab="area">按意向片区 <span class="badge blue">6</span></div>
-      <div class="tab" data-tab="chart">匹配度对比图</div>
+  <div class="card">
+    <div class="card-head">
+      <h3><i class="fa-solid fa-code-compare"></i> 供需匹配</h3>
+      <span class="sub">S2-05 · 按意向片区归集</span>
     </div>
-
-    <div class="tab-panel active" data-panel="area">
-      <div class="card-body" style="padding:0">
-        <div class="filter-bar">
-          <div class="filter-item"><label>意向片区</label><select data-dict="district" data-ph="全部"></select></div>
-          <div class="filter-item"><label>室厅结构</label><select data-dict="roomStruct" data-ph="全部"></select></div>
-          <div class="filter-item"><label>统计口径</label><select><option>按间与按套并存</option><option>仅按间口径</option><option>仅按套口径</option></select></div>
-          <div class="filter-actions">
-            <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
-            <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
-          </div>
-        </div>
-        <div class="table-wrap">
-          <table class="data-table">
-            <thead>
-              <tr><th>意向片区</th><th class="num">房源套数</th><th class="num">房源间数</th><th class="num">已上架间数</th><th class="num">已配租间数</th><th class="num">可配租间数</th><th class="num">意向需求（间）</th><th class="num">匹配度</th><th class="num">缺口/盈余（间）</th><th class="cell-lg">调整建议</th><th>下钻</th></tr>
-            </thead>
-            <tbody>
-              <tr class="row-bad"><td>经开区</td><td class="num">274</td><td class="num">468</td><td class="num">434</td><td class="num">330</td><td class="num">104</td><td class="num">446</td><td class="num">23.3%</td><td class="num">-342</td><td class="cell-lg"><b>错配最严重</b>：云龙片区产业人才集中但房源最少。建议优先筹集 200 间，一室一厅与二室一厅合计不低于 70%</td><td><span class="link" onclick="location.href='../house/house-forecast.html'">供需测算</span></td></tr>
-              <tr class="row-bad"><td>天元区</td><td class="num">986</td><td class="num">1,712</td><td class="num">1,586</td><td class="num">1,400</td><td class="num">186</td><td class="num">648</td><td class="num">28.7%</td><td class="num">-462</td><td class="cell-lg"><b>缺口绝对值最大</b>：房源总量最多但已配租 1,400 间、可配租余量仅 186 间。建议筹集 260 间，同时引导部分申请人跨区选择石峰区</td><td><span class="link" onclick="location.href='house-struct.html'">房源结构</span></td></tr>
-              <tr class="row-warn"><td>荷塘区</td><td class="num">486</td><td class="num">826</td><td class="num">762</td><td class="num">666</td><td class="num">96</td><td class="num">208</td><td class="num">46.2%</td><td class="num">-112</td><td class="cell-lg">户型匹配较好但可配租余量不足，建议筹集 100 间，可从园区公租房纳管渠道解决</td><td><span class="link" onclick="location.href='house-struct.html'">房源结构</span></td></tr>
-              <tr class="row-warn"><td>芦淞区</td><td class="num">412</td><td class="num">702</td><td class="num">618</td><td class="num">476</td><td class="num">142</td><td class="num">216</td><td class="num">65.7%</td><td class="num">-74</td><td class="cell-lg">先推进董家塅 42 间整改验收上架即可缓解，再视情筹集 40 间</td><td><span class="link" onclick="location.href='../house/acceptance-list.html'">去验收</span></td></tr>
-              <tr><td>石峰区</td><td class="num">328</td><td class="num">578</td><td class="num">542</td><td class="num">114</td><td class="num">428</td><td class="num">252</td><td class="num">169.8%</td><td class="num">+176</td><td class="cell-lg"><b>可配租余量最大但去化慢</b>。建议补齐 VR 全景与实景照片素材、加强片区配套宣传，引导跨区选房消化余量，暂缓新增筹集</td><td><span class="link" onclick="location.href='../house/house-status-map.html'">房态图</span></td></tr>
-              <tr class="row-warn"><td>渌口区</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">36</td><td class="num">0.0%</td><td class="num">-36</td><td class="cell-lg">本期无房源，意向登记量小且分散，暂缓投放，引导跨区选择天元区、石峰区房源</td><td><span class="link" onclick="location.href='book-demand.html'">预约热度</span></td></tr>
-              <tr><td><span class="badge green">合计</span> <b>全市城区</b></td><td class="num">2,486</td><td class="num">4,286</td><td class="num">3,942</td><td class="num">2,986</td><td class="num">956</td><td class="num">1,806</td><td class="num">52.9%</td><td class="num">-850</td><td class="cell-lg">区域间冷热不均是主要矛盾：经开区与天元区缺口大，石峰区可配租余量占全市 44.8% 却难消化，跨区引导是短期最有效手段</td><td><span class="link" onclick="location.href='map-overview.html'">保障全景一张图</span></td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-
-    <div class="tab-panel" data-panel="chart">
-      <div class="dc-scroll">
-        <div class="section-title" data-icon="fa-chart-simple">各区供需匹配度（按间口径 · 主口径）</div>
-        <div class="dc-bars wide">
-          <div class="b-item"><span class="b-label">经开区　需求 446 间 / 可配租 104 间</span><span class="b-track"><span class="b-fill bad" style="width:23.3%"></span></span><span class="b-val">23.3% · 缺口 -342</span></div>
-          <div class="b-item"><span class="b-label">天元区　需求 648 间 / 可配租 186 间</span><span class="b-track"><span class="b-fill bad" style="width:28.7%"></span></span><span class="b-val">28.7% · 缺口 -462</span></div>
-          <div class="b-item"><span class="b-label">荷塘区　需求 208 间 / 可配租 96 间</span><span class="b-track"><span class="b-fill warn" style="width:46.2%"></span></span><span class="b-val">46.2% · 缺口 -112</span></div>
-          <div class="b-item"><span class="b-label">芦淞区　需求 216 间 / 可配租 142 间</span><span class="b-track"><span class="b-fill warn" style="width:65.7%"></span></span><span class="b-val">65.7% · 缺口 -74</span></div>
-          <div class="b-item"><span class="b-label">石峰区　需求 252 间 / 可配租 428 间</span><span class="b-track"><span class="b-fill" style="width:100%"></span></span><span class="b-val">169.8% · 盈余 +176</span></div>
-          <div class="b-item"><span class="b-label">渌口区　需求 36 间 / 可配租 0 间</span><span class="b-track"><span class="b-fill bad" style="width:0%"></span></span><span class="b-val">0.0% · 缺口 -36</span></div>
-        </div>
-        <div class="section-title" data-icon="fa-chart-simple" style="margin-top:14px">各区房源规模（按套口径 · 对比）</div>
-        <div class="dc-bars wide">
-          <div class="b-item"><span class="b-label">天元区　986 套 / 1,712 间</span><span class="b-track"><span class="b-fill" style="width:100%"></span></span><span class="b-val">占全市 39.7%</span></div>
-          <div class="b-item"><span class="b-label">荷塘区　486 套 / 826 间</span><span class="b-track"><span class="b-fill" style="width:49.3%"></span></span><span class="b-val">占全市 19.5%</span></div>
-          <div class="b-item"><span class="b-label">芦淞区　412 套 / 702 间</span><span class="b-track"><span class="b-fill" style="width:41.8%"></span></span><span class="b-val">占全市 16.6%</span></div>
-          <div class="b-item"><span class="b-label">石峰区　328 套 / 578 间</span><span class="b-track"><span class="b-fill" style="width:33.3%"></span></span><span class="b-val">占全市 13.2%</span></div>
-          <div class="b-item"><span class="b-label">经开区　274 套 / 468 间</span><span class="b-track"><span class="b-fill" style="width:27.8%"></span></span><span class="b-val">占全市 11.0%</span></div>
-          <div class="b-item"><span class="b-label">渌口区　0 套 / 0 间</span><span class="b-track"><span class="b-fill" style="width:0%"></span></span><span class="b-val">占全市 0.0%</span></div>
-        </div>
-        <p class="hint" style="margin-top:10px">
-          <i class="fa-solid fa-circle-info"></i>
-          按套口径只能看出各区房源<b>规模</b>大小，无法反映实际可配租的<b>人份</b>：天元区套数最多但每套多间已被拆分配租，可配租余量反而紧张；石峰区套数不多但空置间集中，按间口径才暴露出「余量大、去化慢」的真实问题。因此<b>匹配度与缺口一律以按间口径为准</b>。
-        </p>
+    <div class="card-body">
+      <div class="section-title" data-icon="fa-chart-simple">各区意向需求与供给匹配度</div>
+      <div class="dc-bars">
+        <div class="b-item warn"><span class="b-label">经开区　需求 202 / 供给 24</span><span class="b-track"><span class="b-fill" style="width:11.9%"></span></span><span class="b-val">匹配度 11.9% · 缺口 -178</span></div>
+        <div class="b-item warn"><span class="b-label">天元区　需求 300 / 供给 186</span><span class="b-track"><span class="b-fill" style="width:62.0%"></span></span><span class="b-val">匹配度 62.0% · 缺口 -114</span></div>
+        <div class="b-item warn"><span class="b-label">荷塘区　需求 134 / 供给 62</span><span class="b-track"><span class="b-fill" style="width:46.3%"></span></span><span class="b-val">匹配度 46.3% · 缺口 -72</span></div>
+        <div class="b-item warn"><span class="b-label">芦淞区　需求 104 / 供给 42</span><span class="b-track"><span class="b-fill" style="width:40.4%"></span></span><span class="b-val">匹配度 40.4% · 缺口 -62</span></div>
+        <div class="b-item"><span class="b-label">石峰区　需求 58 / 供给 98</span><span class="b-track"><span class="b-fill" style="width:100%"></span></span><span class="b-val">匹配度 169% · 盈余 +40</span></div>
       </div>
     </div>
   </div>
-
-  <div class="sp-block" style="margin-top:12px">
-    <div class="sp-h"><i class="fa-solid fa-scale-balanced"></i> 按套与按间双口径对照<span class="sub">房源颗粒度细化到「间」后的指标口径调整</span></div>
-    <div class="sp-b">
-      <div class="sp-tw">
-        <table class="data-table compact">
-          <thead><tr><th>指标</th><th class="num">按套口径</th><th class="num">按间口径</th><th class="cell-lg">口径说明</th></tr></thead>
-          <tbody>
-            <tr><td><b>房源规模</b></td><td class="num">2,486 套</td><td class="num">4,286 间</td><td class="cell-lg">一套三室两厅拆为 A、B、C 三间单独计租；全市平均每套约 <b>1.72 间</b></td></tr>
-            <tr><td><b>已上架</b></td><td class="num">2,286 套</td><td class="num">3,942 间</td><td class="cell-lg"><b>上架率</b>：按套 91.9%、<b>按间 92.0%</b>。审核发布后移动端方可见</td></tr>
-            <tr><td><b>已配租</b></td><td class="num">1,842 套</td><td class="num">2,986 间</td><td class="cell-lg"><b>配租率</b>：按套 80.6%（套内至少一间在租即计入）、<b>按间 75.7%</b>（在租间数 ÷ 已上架间数）</td></tr>
-            <tr><td><b>空置 / 可配租</b></td><td class="num">444 套</td><td class="num">956 间</td><td class="cell-lg"><b>空置率</b>：按套 19.4%（整套无人在租）、<b>按间 24.3%</b>。按间口径的 956 间即本页的可配租余量，按套口径会低估余量</td></tr>
-            <tr><td><b>匹配度</b></td><td class="num">不适用</td><td class="num">52.9%</td><td class="cell-lg"><b>匹配度 ＝ 可配租间数 ÷ 意向需求间数</b>。每间配租 1 人，需求侧按「间（人份）」核算，按套口径无法与人份对齐，故只保留按间口径</td></tr>
-            <tr><td><b>并存展示</b></td><td class="num">保留供对比</td><td class="num">主口径</td><td class="cell-lg">上架率、空置率、配租率<b>均按间口径计算</b>；按套口径保留用于与历史数据、上级报表口径对比，两个口径同表并列展示</td></tr>
-          </tbody>
-        </table>
-      </div>
+  <div class="card list-card">
+    <div class="card-head">
+      <h3><i class="fa-solid fa-table-list"></i> 明细下钻</h3>
+      <span class="sub">可逐级下钻至明细清单</span>
+    </div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>意向片区</th><th>意向需求人数</th><th>可配租供给</th><th>匹配度</th><th>缺口/盈余</th><th>需求最集中房型</th><th>供给最充足房型</th><th class="cell-lg">调整建议</th><th>下钻</th></tr>
+        </thead>
+        <tbody>
+          <tr class="row-bad"><td>经开区</td><td class="num">202</td><td class="num">24</td><td><span class="badge red">11.9%</span></td><td class="num">-178</td><td>一室一厅（62%）</td><td>单间配套（33%）</td><td><b>优先筹集 140 间</b>，其中一室一厅不低于 60%。可考虑在云龙片区新增收购或盘活</td><td><span class="link" onclick="location.href='../house/house-forecast.html'">供需测算</span></td></tr>
+          <tr class="row-warn"><td>天元区</td><td class="num">300</td><td class="num">186</td><td><span class="badge orange">62.0%</span></td><td class="num">-114</td><td>一室一厅（58%）</td><td>一室一厅（33%）</td><td>建议筹集 120 间；同时引导部分申请人跨区选择石峰区盈余房源</td><td><span class="link" onclick="location.href='house-struct.html'">房源结构</span></td></tr>
+          <tr class="row-warn"><td>荷塘区</td><td class="num">134</td><td class="num">62</td><td><span class="badge orange">46.3%</span></td><td class="num">-72</td><td>一室一厅（54%）</td><td>一室一厅（65%）</td><td>户型匹配较好但总量不足，建议筹集 60 间</td><td><span class="link" onclick="location.href='house-struct.html'">房源结构</span></td></tr>
+          <tr class="row-warn"><td>芦淞区</td><td class="num">104</td><td class="num">42</td><td><span class="badge orange">40.4%</span></td><td class="num">-62</td><td>一室一厅（56%）</td><td>一室一厅（57%）</td><td>先推进董家塅 42 间整改验收即可缓解，再筹集 40 间</td><td><span class="link" onclick="location.href='../house/acceptance-list.html'">去验收</span></td></tr>
+          <tr><td>石峰区</td><td class="num">58</td><td class="num">98</td><td><span class="badge green">169.0%</span></td><td class="num">+40</td><td>一室一厅（52%）</td><td>一室一厅（61%）</td><td><b>供给盈余但空置偏高</b>。建议补齐 VR 与户型图素材、加强片区配套宣传、引导跨区选房消化空置</td><td><span class="link" onclick="PMS.toast('该功能不在本期建设范围')">空置分析</span></td></tr>
+          <tr><td><span class="badge green">合计</span></td><td class="num">798</td><td class="num">412</td><td><span class="badge orange">51.6%</span></td><td class="num">-386</td><td>一室一厅（57%）</td><td>一室一厅（45%）</td><td>区域间冷热不均是主要矛盾：经开区与天元区缺口大，石峰区盈余但难消化</td><td><span class="link" onclick="location.href='map-overview.html'">保障全景一张图</span></td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
-
   <div class="sp-src">
-    <span><b>匹配度口径</b> 该片区可配租间数 ÷ 该片区意向需求间数（人份），一律按间计算</span>
-    <span><b>需求来源</b> 轮候库意向片区 + 近 12 个月申请意向 + 移动端预约意向登记，折算为人份</span>
-    <span><b>关联页面</b> <span class="link" onclick="location.href='book-demand.html'">预约热度与需求分析</span>　<span class="link" onclick="location.href='../house/publish-stat.html'">房源发布状态统计</span></span>
+    <span><b>匹配度口径</b> 意向片区可配租供给 ÷ 该片区意向需求人数</span>
+    <span><b>需求来源</b> 轮候库意向片区 + 应届生房源预约意向片区 + 近 12 个月申请意向</span>
+    <span><b>建议依据</b> <span class="link" onclick="location.href='../house/house-forecast.html'">房源供需测算</span></span>
   </div>
 </main>
 
 <script>
 (function () {
   var t = document.querySelector('main.app-main .table-wrap > table.data-table');
-  if (t) { t._total = 7; }
+  if (t) { t._total = 6; }
 })();
 </script>
 

@@ -10,38 +10,41 @@
 <link rel="stylesheet" href="../../assets/css/ext.css">
 </head>
 <body class="m-body" data-mtitle="待办审批" data-mmod="G1 移动审批" data-mcode="G1-01"
-      data-mdesc="在移动端处理待办件，查看申请材料影像与多部门数据核验报告，一键通过或驳回并选择驳回理由模板，处理结果与 PC 端实时同步。本期待办只保留资格申请受理件、资格申请复审件两类，按剩余时限排序。" data-mback="home.html" data-mtabset="gov" data-mtab="home">
+      data-mdesc="在移动端处理待办件，查看申请材料影像与多部门数据核验报告，一键通过或驳回并选择驳回理由模板，处理结果与 PC 端实时同步。" data-mback="home.html" data-mtabset="gov" data-mtab="home">
 <div class="m-stage">
   <div class="m-phone">
     <div class="m-screen">
       <div class="m-view">
         <div class="m-seg">
-          <button class="on">全部 9</button><button>受理件 6</button><button>复审件 3</button>
+          <button class="on">全部 9</button><button>超期 1</button><button>临期 3</button><button>例外件 6</button>
         </div>
         <div class="m-note"><i class="fa-solid fa-circle-info"></i>
-          <div>本期待办<b>只保留资格申请受理件、资格申请复审件两类</b>，按<b>剩余时限升序排列</b>，点击直接进入办理，不做复杂分类与聚合。与 PC 端待办<b>共用同一件池</b>，处理结果实时同步。</div>
+          <div>与 PC 端待办<b>共用同一件池</b>，处理结果实时同步。人工只处理<b>例外件</b>（核验不一致或数据缺失），正常件支持批量通过。</div>
         </div>
-        <div class="m-sect">资格申请受理件<span class="m-sect-x">6 件 · 受理初审</span></div>
+        <div class="m-sect">超期件<span class="m-sect-x">1 件</span></div>
         <div class="m-cells">
-          <a class="m-cell" href="approve-detail.html"><span class="m-ci red"><i class="fa-solid fa-circle-exclamation"></i></span><span class="m-cl"><b>RC2026-0902-0148　王××</b><span class="m-cs">个人申请 · 就业青年人才 · 不动产核验不一致 · 受理 2026-09-02</span></span><span class="m-cv"><span class="m-tag red">超期 1 天</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
-          <a class="m-cell" href="approve-detail.html"><span class="m-ci orange"><i class="fa-solid fa-clock"></i></span><span class="m-cl"><b>RC2026-0903-0162　王××</b><span class="m-cs">个人申请 · 就业青年人才 · 个税期数与社保不匹配 · 受理 2026-09-03</span></span><span class="m-cv"><span class="m-tag orange">剩 1 天</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
-          <a class="m-cell" href="approve-detail.html"><span class="m-ci orange"><i class="fa-solid fa-clock"></i></span><span class="m-cl"><b>RC2026-0903-0166　邓××</b><span class="m-cs">政务窗口（PC 申请）· 创业青年人才 · 企业纳税申报期数不足 · 受理 2026-09-03</span></span><span class="m-cv"><span class="m-tag orange">剩 1 天</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
-          <a class="m-cell" href="approve-detail.html"><span class="m-ci green"><i class="fa-solid fa-circle-check"></i></span><span class="m-cl"><b>RC2026-0904-0177　唐××</b><span class="m-cs">用人单位（移动端申请）· 就业青年人才 · 社保容缺受理待补核 · 受理 2026-09-04</span></span><span class="m-cv">剩 2 天</span><i class="m-ca fa-solid fa-angle-right"></i></a>
-          <a class="m-cell" href="approve-detail.html"><span class="m-ci green"><i class="fa-solid fa-circle-check"></i></span><span class="m-cl"><b>RC2026-0905-0192　罗××</b><span class="m-cs">个人申请 · 创业青年人才 · 8 项核验全部一致 · 受理 2026-09-05</span></span><span class="m-cv">剩 3 天</span><i class="m-ca fa-solid fa-angle-right"></i></a>
-          <a class="m-cell" href="approve-detail.html"><span class="m-ci green"><i class="fa-solid fa-circle-check"></i></span><span class="m-cl"><b>RC2026-0905-0196　彭××</b><span class="m-cs">运营机构（PC 申请）· 就业青年人才 · 8 项核验全部一致 · 受理 2026-09-05</span></span><span class="m-cv">剩 3 天</span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="approve-detail.html"><span class="m-ci red"><i class="fa-solid fa-circle-exclamation"></i></span><span class="m-cl"><b>RC2026-0902-0148　王××</b><span class="m-cs">就业青年人才 · 不动产核验不一致 · 受理 2026-09-02</span></span><span class="m-cv"><span class="m-tag red">超期 1 天</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
         </div>
-        <div class="m-sect">资格申请复审件<span class="m-sect-x">3 件 · 复审出具结论</span></div>
+        <div class="m-sect">临期件<span class="m-sect-x">3 件 · 剩 1 个工作日</span></div>
         <div class="m-cells">
-          <a class="m-cell" href="approve-detail.html"><span class="m-ci orange"><i class="fa-solid fa-stamp"></i></span><span class="m-cl"><b>RC2026-0903-0171　周××</b><span class="m-cs">个人申请 · 就业青年人才 · 缺境外学历认证书 · 初审 2026-09-04</span></span><span class="m-cv"><span class="m-tag orange">剩 1 天</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
-          <a class="m-cell" href="approve-detail.html"><span class="m-ci green"><i class="fa-solid fa-stamp"></i></span><span class="m-cl"><b>RC2026-0904-0182　贺××</b><span class="m-cs">用人单位（移动端申请）· 特殊人才（免年限）· 中级职称待核 · 初审 2026-09-04</span></span><span class="m-cv">剩 2 天</span><i class="m-ca fa-solid fa-angle-right"></i></a>
-          <a class="m-cell" href="approve-detail.html"><span class="m-ci green"><i class="fa-solid fa-stamp"></i></span><span class="m-cl"><b>RC2026-0904-0186　谭××</b><span class="m-cs">个人申请 · 就业青年人才 · 初审通过待出具结论 · 初审 2026-09-05</span></span><span class="m-cv">剩 2 天</span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="approve-detail.html"><span class="m-ci orange"><i class="fa-solid fa-clock"></i></span><span class="m-cl"><b>RC2026-0903-0162　王××</b><span class="m-cs">就业青年人才 · 个税期数与社保不匹配 · 受理 2026-09-03</span></span><span class="m-cv"><span class="m-tag orange">剩 1 天</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="approve-detail.html"><span class="m-ci orange"><i class="fa-solid fa-clock"></i></span><span class="m-cl"><b>RC2026-0903-0166　邓××</b><span class="m-cs">创业青年人才 · 企业纳税申报期数不足 · 受理 2026-09-03</span></span><span class="m-cv"><span class="m-tag orange">剩 1 天</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="approve-detail.html"><span class="m-ci orange"><i class="fa-solid fa-clock"></i></span><span class="m-cl"><b>RC2026-0903-0171　周××</b><span class="m-cs">就业青年人才 · 缺境外学历认证书 · 受理 2026-09-03</span></span><span class="m-cv"><span class="m-tag orange">剩 1 天</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+        </div>
+        <div class="m-sect">正常件<span class="m-sect-x">5 件 · 剩 2 个工作日以上</span></div>
+        <div class="m-cells">
+          <a class="m-cell" href="approve-detail.html"><span class="m-ci green"><i class="fa-solid fa-circle-check"></i></span><span class="m-cl"><b>RC2026-0904-0177　唐××</b><span class="m-cs">就业青年人才 · 学信网接口超时已转人工 · 受理 2026-09-04</span></span><span class="m-cv">剩 2 天</span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="approve-detail.html"><span class="m-ci green"><i class="fa-solid fa-circle-check"></i></span><span class="m-cl"><b>RC2026-0904-0182　贺××</b><span class="m-cs">特殊人才（免年限）· 中级职称待核 · 受理 2026-09-04</span></span><span class="m-cv">剩 2 天</span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="approve-detail.html"><span class="m-ci green"><i class="fa-solid fa-circle-check"></i></span><span class="m-cl"><b>RC2026-0904-0186　谭××</b><span class="m-cs">就业青年人才 · 8 项核验全部一致 · 受理 2026-09-04</span></span><span class="m-cv">剩 2 天</span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="approve-detail.html"><span class="m-ci green"><i class="fa-solid fa-circle-check"></i></span><span class="m-cl"><b>RC2026-0905-0192　罗××</b><span class="m-cs">创业青年人才 · 8 项核验全部一致 · 受理 2026-09-05</span></span><span class="m-cv">剩 3 天</span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="approve-detail.html"><span class="m-ci green"><i class="fa-solid fa-circle-check"></i></span><span class="m-cl"><b>RC2026-0905-0196　彭××</b><span class="m-cs">就业青年人才 · 8 项核验全部一致 · 受理 2026-09-05</span></span><span class="m-cv">剩 3 天</span><i class="m-ca fa-solid fa-angle-right"></i></a>
         </div>
         <div class="m-note warn"><i class="fa-solid fa-triangle-exclamation"></i>
-          <div>资格审核<b>两级办理</b>：受理初审核对材料完整性与真实性，复审由市保障性住房服务中心<b>出具结论</b>；<b>两级意见分别留痕</b>，退回补正须注明<b>退回层级与具体理由</b>。两级均由市保障性住房服务中心承担，不下放运营机构。</div>
+          <div>按不相容岗位控制，<b>初审人与复核人不得为同一自然人</b>。命中互斥时按钮置灰并说明原因。</div>
         </div>
       </div>
       <div class="m-actbar">
-        <button class="m-btn w-auto" type="button" onclick="MB.confirm('确认批量通过 <b>3 件</b>核验全部一致的受理件？<br>批量操作将逐件写入办件流水并转入复审环节。','确认批量通过',function(){MB.toast('已批量通过 3 件受理件，已转复审环节')})">批量通过受理件</button>
+        <button class="m-btn w-auto" type="button" onclick="MB.confirm('确认批量通过 <b>3 件</b>核验全部一致的正常件？<br>批量操作将逐件写入办件流水并电子送达。','确认批量通过',function(){MB.toast('已批量通过 3 件，结论已电子送达')})">批量通过正常件</button>
         <a class="m-btn primary" href="approve-detail.html"><i class="fa-solid fa-angle-right"></i> 处理超期件</a>
       </div>
     </div>

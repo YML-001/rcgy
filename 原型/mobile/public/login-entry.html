@@ -3,98 +3,98 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>登录 · 株洲市人才住房保障管理平台</title>
+<title>手机号登录 · 株洲市人才住房保障管理平台</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="../../assets/css/app.css">
 <link rel="stylesheet" href="../../assets/css/mobile.css">
 <link rel="stylesheet" href="../../assets/css/ext.css">
 </head>
-<body class="m-body" data-mtitle="登录" data-mmod="M1 用户登录与身份认证" data-mcode="M1-01"
-      data-mdesc="个人用户由小程序拉起手机号一键登录（湘易办对接完成后改为实名信息自动授权登录，本入口作为并行方式保留）。手机号是登录与接收通知的必备信息，未取号不能办理业务。"
-      data-mtabset="public" data-mtab="me" data-mtint="1" data-mback="me.html" data-mchan="湘易办">
+<style>
+.lgm-top { padding: 46px 22px 26px; text-align: center;
+  background: linear-gradient(150deg, #17386f 0%, #1a5cb8 100%); color: #fff; }
+.lgm-logo { width: 62px; height: 62px; margin: 0 auto 14px; border-radius: 16px;
+  background: rgba(255,255,255,.18); display: flex; align-items: center;
+  justify-content: center; font-size: 28px; }
+.lgm-t { font-size: 19px; font-weight: 700; letter-spacing: .5px; }
+.lgm-s { margin-top: 7px; font-size: 12.5px; color: rgba(255,255,255,.82); line-height: 1.7; }
+.lgm-body { padding: 20px 16px 16px; }
+.lgm-auth { padding: 16px; border: 1px solid var(--border); border-radius: 12px;
+  background: var(--bg-card); }
+.lgm-auth .ah { display: flex; align-items: center; gap: 9px; font-size: 14px;
+  font-weight: 700; }
+.lgm-auth .ah i { color: #07c160; font-size: 17px; }
+.lgm-auth .ad { margin-top: 9px; font-size: 12px; color: var(--text-3); line-height: 1.8; }
+.lgm-phone { margin-top: 13px; padding: 11px 13px; border-radius: 9px;
+  background: var(--bg-soft); display: flex; align-items: center;
+  justify-content: space-between; }
+.lgm-phone .p { font-size: 16px; font-weight: 700; letter-spacing: 1px; }
+.lgm-phone .x { font-size: 11.5px; color: var(--text-3); }
+.lgm-btn { margin-top: 14px; width: 100%; height: 44px; border: 0; border-radius: 9px;
+  background: #07c160; color: #fff; font-family: var(--font); font-size: 15px;
+  font-weight: 700; display: flex; align-items: center; justify-content: center;
+  gap: 7px; cursor: pointer; }
+.lgm-btn.blue { background: linear-gradient(135deg, #1a5cb8, #2f7de1); }
+.lgm-alt { margin-top: 15px; text-align: center; font-size: 12.5px; }
+.lgm-alt a { color: var(--primary); font-weight: 700; }
+.lgm-hr { margin: 17px 0 13px; display: flex; align-items: center; gap: 10px;
+  font-size: 11.5px; color: var(--text-3); }
+.lgm-hr::before, .lgm-hr::after { content: ''; flex: 1; height: 1px;
+  background: var(--border); }
+.lgm-ag { margin-top: 15px; font-size: 11px; color: var(--text-3); line-height: 1.8;
+  text-align: center; }
+.lgm-ag a { color: var(--primary); }
+</style>
+<body class="m-body" data-mtitle="手机号一键登录" data-mmod="M1 个人用户 · 登录"
+      data-mcode="M1-01" data-mtabset="public" data-mtab="me" data-mback="me.html"
+      data-mdesc="本期由小程序拉起手机号授权登录：用户点击授权后小程序返回手机号，取号即完成登录，不需填写账号密码。手机号是登录与接收通知的必备信息，未取到号的不能办理业务。湘易办入口对接完成后，个人用户改为由湘易办实名信息自动授权登录直达首页，本入口作为并行方式保留。页面底部设「用人单位注册」入口。"
+      data-mchan="小程序">
 <div class="m-stage">
   <div class="m-phone">
     <div class="m-screen">
-      <div class="m-view">
-        <div class="m-hero">
-          <div class="m-hero-t">建宁安居</div>
-          <div class="m-hero-s">才聚株洲　安居建宁　·	株洲市人才公寓系统</div>
-          <div class="m-hero-row">
-            <div class="m-hs"><div class="v">一键</div><div class="l">手机号登录</div></div>
-            <div class="m-hs"><div class="v">免注册</div><div class="l">免设密码</div></div>
-            <div class="m-hs"><div class="v">412</div><div class="l">可租房源(间)</div></div>
-          </div>
+      <div class="m-view" style="padding:0">
+        <div class="lgm-top">
+          <div class="lgm-logo"><i class="fa-solid fa-house-chimney-window"></i></div>
+          <div class="lgm-t">株洲市人才住房保障管理平台</div>
+          <div class="lgm-s">建宁安居　·　人才住房一站式线上办理</div>
         </div>
-
-        <div class="m-note"><i class="fa-solid fa-circle-info"></i>
-          <div><b>手机号是登录与接收通知的必备信息</b>，未取号不能办理业务。点击下方按钮由<b>微信 / 小程序</b>拉起手机号授权，取号后即可登录。</div>
-        </div>
-
-        <div class="m-sect">手机号一键登录</div>
-        <div class="m-card">
-          <div class="m-card-b">
-            <div style="text-align:center;padding:8px 4px 2px">
-              <div style="font-size:15px;color:var(--text-1);font-weight:700">建宁安居 · 株洲市人才公寓系统</div>
-              <div style="margin-top:8px;font-size:12.5px;color:var(--text-3);line-height:1.8">浏览房源与政策无需登录<br>办理业务时通过微信 / 小程序授权手机号完成登录</div>
+        <div class="lgm-body">
+          <div class="lgm-auth">
+            <div class="ah"><i class="fa-brands fa-weixin"></i>申请获取你的手机号</div>
+            <div class="ad">平台需要获取你的手机号，用于登录、接收审核结论与配租通知。
+              手机号是办理业务的必备信息。</div>
+            <div class="lgm-phone">
+              <span class="p">138****6621</span>
+              <span class="x">微信绑定号码</span>
             </div>
-            <button class="m-btn primary block" type="button" style="margin-top:14px" onclick="MB.sheet('authSheet')"><i class="fa-brands fa-weixin"></i> 微信手机号一键登录</button>
-            <div style="margin-top:12px;text-align:center;font-size:11.5px;color:var(--text-3);line-height:1.7">登录即代表同意
-              <span data-toast="原型演示：查看《用户服务协议》" style="color:var(--primary)">《用户服务协议》</span>
-              与 <span data-toast="原型演示：查看《隐私政策》" style="color:var(--primary)">《隐私政策》</span>
-            </div>
+            <button class="lgm-btn" onclick="MB.confirm({title:'授权手机号',message:'允许平台获取你的手机号？',detail:'手机号用于登录与接收通知，不会对外提供。取号后即完成登录，不需设置账号密码。',okText:'允许',onOk:function(){MB.toast('登录成功');setTimeout(function(){location.href='home.html';},700);}})">
+              <i class="fa-solid fa-mobile-screen-button"></i> 手机号快捷登录
+            </button>
+            <div class="lgm-alt"><a href="javascript:void(0)"
+               onclick="MB.toast('原型演示：改用短信验证码登录')">使用其他手机号登录</a></div>
           </div>
-        </div>
 
-        <div class="m-note"><i class="fa-solid fa-circle-info"></i>
-          <div><b>湘易办对接完成后</b>，个人用户将改为由湘易办<b>实名信息自动授权登录</b>，无需手动取号；本手机号登录入口作为<b>并行方式</b>保留。</div>
-        </div>
-
-        <div class="m-sect">其他身份登录 / 注册</div>
-        <div class="m-cells">
-          <a class="m-cell" href="../employer/emp-register.html"><span class="m-ci green"><i class="fa-solid fa-building-circle-check"></i></span><span class="m-cl"><b>用人单位注册</b><span class="m-cs">在线自助注册，一次填报，经办人手机号即登录账号</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
-          <a class="m-cell" href="../employer/login.html"><span class="m-ci"><i class="fa-solid fa-right-to-bracket"></i></span><span class="m-cl"><b>用人单位 / 运营机构登录</b><span class="m-cs">经办人手机号 + 短信验证码登录，不走湘易办</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
-        </div>
-
-        <div class="m-sect">登录与渠道<span class="m-sect-x">19 项对接之一</span></div>
-        <div class="m-card">
-          <div class="m-card-h"><i class="fa-solid fa-plug"></i>渠道信息</div>
-          <div class="m-card-b">
-          <div class="m-kv">
-            <div><span>入口渠道</span><span>微信小程序 / 湘易办小程序 · APP</span></div>
-            <div><span>当前登录方式</span><span>小程序拉起<b>手机号一键登录</b></span></div>
-            <div><span>取号手机号</span><span><b>138****6207</b>（授权后自动带入）</span></div>
-            <div><span>后续演进</span><span>湘易办对接后改为实名信息自动授权登录</span></div>
-            <div><span>未登录可做</span><span>浏览房源、查看政策与办事指南不受限制</span></div>
+          <div class="m-note" style="margin-top:15px"><i class="fa-solid fa-circle-info"></i>
+            <div><b>湘易办对接完成后</b>，从湘易办「人才住房」事项进入的用户
+              由实名信息自动授权登录直达首页，不再需要本页取号；
+              本入口作为并行方式保留。</div>
           </div>
-          </div>
-        </div>
 
-        <div class="m-note warn"><i class="fa-solid fa-triangle-exclamation"></i>
-          <div>其他入口：<b>「株洲人才」微信公众号</b>可查看政策与配租公告；<b>政务服务窗口</b>保留兜底代办，可携带材料现场办理。</div>
-        </div>
-      </div>
-
-      <!-- 授权取号弹窗（模拟微信 / 小程序拉起手机号授权）-->
-      <div class="m-sheet" id="authSheet">
-        <div class="m-sh-h"><i class="fa-brands fa-weixin" style="color:var(--success)"></i> 微信授权登录<button class="m-sh-x" type="button"><i class="fa-solid fa-xmark"></i></button></div>
-        <div class="m-sh-b">
-          <div class="m-note"><i class="fa-solid fa-circle-info"></i><div><b>建宁安居</b> 申请获取你的手机号，用于登录与接收办理进度、缴费提醒通知。</div></div>
-          <div class="m-kv">
-            <div><span>申请方</span><span>建宁安居 · 株洲市人才公寓系统</span></div>
-            <div><span>申请获取</span><span>你的手机号 <b>138****6207</b></span></div>
-            <div><span>用于</span><span>账号登录与业务通知</span></div>
+          <div class="lgm-hr">其他身份</div>
+          <div class="m-cells">
+            <a class="m-cell" href="../employer/login.html"><span class="m-ci orange"><i class="fa-solid fa-building-user"></i></span><span class="m-cl"><b>用人单位登录 / 注册</b><span class="m-cs">单位经办人代本单位职工申报</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+            <a class="m-cell" href="../gov/ops-login.html"><span class="m-ci cyan"><i class="fa-solid fa-screwdriver-wrench"></i></span><span class="m-cl"><b>运营机构登录</b><span class="m-cs">现场核查与工单处理，账号由主管单位开通</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+            <a class="m-cell" href="../gov/login.html"><span class="m-ci"><i class="fa-solid fa-user-shield"></i></span><span class="m-cl"><b>工作人员登录</b><span class="m-cs">政务网统一身份认证</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
           </div>
-          <div class="m-note warn"><i class="fa-solid fa-triangle-exclamation"></i><div>拒绝授权将无法取号，可继续浏览房源与政策，但<b>不能办理业务</b>。</div></div>
-        </div>
-        <div class="m-sh-f">
-          <button class="m-btn" type="button" onclick="MB.closeSheet();MB.toast('已拒绝授权，未取号不能办理业务')">拒绝</button>
-          <button class="m-btn primary" type="button" onclick="MB.closeSheet();MB.toast('登录成功');setTimeout(function(){location.href='home.html';},800)"><i class="fa-solid fa-mobile-screen-button"></i> 允许</button>
+
+          <div class="lgm-ag">登录即表示同意
+            <a href="javascript:void(0)" onclick="MB.toast('原型演示：用户服务协议')">《用户服务协议》</a>与
+            <a href="javascript:void(0)" onclick="MB.toast('原型演示：隐私政策')">《隐私政策》</a>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
 <script src="../../assets/js/mobile.js"></script>
 </body>
 </html>

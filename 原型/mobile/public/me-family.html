@@ -32,7 +32,7 @@
         <div class="m-empty">
           <i class="fa-solid fa-user-plus"></i>
           <p>暂无家庭成员记录<br>婚姻状况为未婚，无需录入配偶信息</p>
-          <button class="m-btn ghost" type="button" data-sheet="famListSheet"><i class="fa-solid fa-plus"></i> 添加家庭成员</button>
+          <button class="m-btn ghost" type="button" data-sheet="addFamily"><i class="fa-solid fa-plus"></i> 添加家庭成员</button>
         </div>
         <div class="m-sect">家庭申请规则<span class="m-sect-x">R-C9 / 管理办法第十一条</span></div>
         <div class="m-card">
@@ -48,27 +48,27 @@
         </div>
       </div>
       <div class="m-actbar">
-        <button class="m-btn primary block" type="button" onclick="MB.sheet('famListSheet')"><i class="fa-solid fa-plus"></i> 添加家庭成员</button>
+        <button class="m-btn primary block" type="button" onclick="MB.sheet('addFamily')"><i class="fa-solid fa-plus"></i> 添加家庭成员</button>
       </div>
-      <div class="m-sheet" id="famListSheet">
+      <div class="m-sheet" id="addFamily">
         <div class="m-sh-h"><i class="fa-solid fa-user-plus" style="color:var(--primary)"></i> 添加家庭成员<button class="m-sh-x" type="button"><i class="fa-solid fa-xmark"></i></button></div>
         <div class="m-sh-b">
         <div class="m-form">
           <div class="m-fi">
             <label>与本人关系 <span class="req">*</span></label>
-            <div class="m-fc"><select><option selected>配偶</option><option>子女</option><option>其他</option></select></div>
+            <div class="m-fc"><select><option value="">请选择</option><option>配偶</option><option>子女</option><option>其他</option></select></div>
           </div>
           <div class="m-fi">
             <label>姓名 <span class="req">*</span></label>
-            <div class="m-fc"><input type="text" value="周芷若"></div>
+            <div class="m-fc"><input type="text" placeholder="请输入姓名"></div>
           </div>
           <div class="m-fi">
             <label>身份证号 <span class="req">*</span></label>
-            <div class="m-fc"><input type="text" value="430203********0286"><div class="m-fh">将用于核查该成员名下不动产与保障历史</div></div>
+            <div class="m-fc"><input type="text" placeholder="请输入身份证号"><div class="m-fh">将用于核查该成员名下不动产与保障历史</div></div>
           </div>
           <div class="m-fi">
             <label>联系电话</label>
-            <div class="m-fc"><input type="tel" value="13907330218"></div>
+            <div class="m-fc"><input type="tel" placeholder="请输入手机号"></div>
           </div>
         </div>
         <div class="m-note warn"><i class="fa-solid fa-triangle-exclamation"></i>
@@ -77,7 +77,7 @@
         </div>
         <div class="m-sh-f">
         <button class="m-btn" type="button" onclick="MB.closeSheet()">取消</button>
-        <button class="m-btn primary" type="button" onclick="MB.validate('#famListSheet')&&(MB.closeSheet(),MB.toast('已保存，系统正在核查该成员房产情况'))"><i class="fa-solid fa-check"></i> 保存</button>
+        <button class="m-btn primary" type="button" onclick="MB.validate('#addFamily')&&(MB.closeSheet(),MB.toast('已保存，系统正在核查该成员房产情况'))"><i class="fa-solid fa-check"></i> 保存</button>
         </div>
       </div>
     </div>

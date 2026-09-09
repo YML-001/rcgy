@@ -20,7 +20,7 @@
     </div>
     <div class="page-actions">
       <button class="btn btn-primary" onclick="PMS.openDrawer('shelfDrawer')"><i class="fa-solid fa-plus"></i> 新建上架任务</button>
-      <a class="btn" href="house-archive.html"><i class="fa-solid fa-user-check"></i> 房源查询与审核发布</a>
+      <a class="btn" href="org-report.html"><i class="fa-solid fa-user-check"></i> 报送与审核</a>
       <a class="btn" href="house-display.html"><i class="fa-solid fa-images"></i> 对外展示效果</a>
       <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出任务台账</button>
     </div>
@@ -75,12 +75,12 @@
         <tbody>
           <tr><td>SX2026-09-001</td><td><span class="badge green">批量上架</span></td><td>湘江1958 人才公寓（一、二期）／ BS2026-09-01</td><td class="num">2,000</td><td>2026-09-08 09:00</td><td><span class="badge green">已完成</span></td><td>唐凯</td><td><span class="link" onclick="PMS.openDrawer('shelfDrawer')">查看</span></td></tr>
           <tr><td>SX2026-09-002</td><td><span class="badge green">批量上架</span></td><td>清水塘·未来社区（一期）／ BS2026-09-02</td><td class="num">1,800</td><td>2026-09-08 09:00</td><td><span class="badge green">已完成</span></td><td>唐凯</td><td><span class="link" onclick="PMS.openDrawer('shelfDrawer')">查看</span></td></tr>
-          <tr><td>SX2026-09-003</td><td><span class="badge blue">定时发布</span></td><td>云龙人才公寓／ BS2026-09-03</td><td class="num">1,400</td><td>2026-09-15 08:00</td><td><span class="badge orange">待执行</span></td><td>彭雪梅</td><td><span class="link" onclick="PMS.confirm({title:'立即执行确认',message:'确认将定时任务 SX2026-09-003 提前立即执行？',detail:'涉及云龙人才公寓 1,400 套房源，执行后立即对外发布，原定时时间 2026-09-15 08:00 作废。',type:'warning',okText:'确认执行',onOk:function(){PMS.toast('已立即执行，1,400 套房源已对外发布','success');}})">执行</span> <span class="link" onclick="PMS.confirm({title:'取消确认',message:'确认取消定时任务 SX2026-09-003？',detail:'取消后 1,400 套房源仍保持待上架状态，需重新创建任务方可发布。',type:'warning',okText:'确认取消',onOk:function(){PMS.toast('定时任务已取消','success');}})">取消</span></td></tr>
-          <tr><td>SX2026-09-004</td><td><span class="badge blue">定时发布</span></td><td>董家塅人才公寓／ BS2026-09-04</td><td class="num">1,200</td><td>2026-09-20 08:00</td><td><span class="badge orange">待执行</span></td><td>彭雪梅</td><td><span class="link" onclick="PMS.confirm({title:'立即执行确认',message:'确认将定时任务 SX2026-09-004 提前立即执行？',detail:'涉及董家塅人才公寓 1,200 套房源，执行后立即对外发布。',type:'warning',okText:'确认执行',onOk:function(){PMS.toast('已立即执行，1,200 套房源已对外发布','success');}})">执行</span> <span class="link" onclick="PMS.confirm({title:'取消确认',message:'确认取消定时任务 SX2026-09-004？',detail:'取消后 1,200 套房源仍保持待上架状态。',type:'warning',okText:'确认取消',onOk:function(){PMS.toast('定时任务已取消','success');}})">取消</span></td></tr>
+          <tr><td>SX2026-09-003</td><td><span class="badge blue">定时发布</span></td><td>云龙人才公寓／ BS2026-09-03</td><td class="num">1,400</td><td>2026-09-15 08:00</td><td><span class="badge orange">待执行</span></td><td>彭雪梅</td><td><span class="link" onclick="PMS.confirm({title:'立即执行确认',message:'确认将定时任务 SX2026-09-003 提前立即执行？',detail:'涉及云龙人才公寓 1,400 间房源，执行后立即对外发布，原定时时间 2026-09-15 08:00 作废。',type:'warning',okText:'确认执行',onOk:function(){PMS.toast('已立即执行，1,400 间房源已对外发布','success');}})">执行</span> <span class="link" onclick="PMS.confirm({title:'取消确认',message:'确认取消定时任务 SX2026-09-003？',detail:'取消后 1,400 间房源仍保持待上架状态，需重新创建任务方可发布。',type:'warning',okText:'确认取消',onOk:function(){PMS.toast('定时任务已取消','success');}})">取消</span></td></tr>
+          <tr><td>SX2026-09-004</td><td><span class="badge blue">定时发布</span></td><td>董家塅人才公寓／ BS2026-09-04</td><td class="num">1,200</td><td>2026-09-20 08:00</td><td><span class="badge orange">待执行</span></td><td>彭雪梅</td><td><span class="link" onclick="PMS.confirm({title:'立即执行确认',message:'确认将定时任务 SX2026-09-004 提前立即执行？',detail:'涉及董家塅人才公寓 1,200 间房源，执行后立即对外发布。',type:'warning',okText:'确认执行',onOk:function(){PMS.toast('已立即执行，1,200 间房源已对外发布','success');}})">执行</span> <span class="link" onclick="PMS.confirm({title:'取消确认',message:'确认取消定时任务 SX2026-09-004？',detail:'取消后 1,200 间房源仍保持待上架状态。',type:'warning',okText:'确认取消',onOk:function(){PMS.toast('定时任务已取消','success');}})">取消</span></td></tr>
           <tr><td>SX2026-09-005</td><td><span class="badge blue">定时发布</span></td><td>田心人才公寓／ BS2026-09-05</td><td class="num">1,000</td><td>2026-09-25 08:00</td><td><span class="badge gray">已取消</span></td><td>唐凯</td><td><span class="link" onclick="PMS.openDrawer('shelfDrawer')">查看</span></td></tr>
-          <tr><td>SX2026-09-006</td><td><span class="badge blue">定时发布</span></td><td>栗雨佳苑人才公寓／ BS2026-09-06-R</td><td class="num">486</td><td>2026-09-28 08:00</td><td><span class="badge orange">待执行</span></td><td>唐凯</td><td><span class="link" onclick="PMS.confirm({title:'立即执行确认',message:'确认将定时任务 SX2026-09-006 提前立即执行？',detail:'涉及栗雨佳苑人才公寓 486 套房源，该批次为补正后重新报送批次。',type:'warning',okText:'确认执行',onOk:function(){PMS.toast('已立即执行，486 套房源已对外发布','success');}})">执行</span> <span class="link" onclick="PMS.confirm({title:'取消确认',message:'确认取消定时任务 SX2026-09-006？',detail:'取消后 486 套房源仍保持待上架状态。',type:'warning',okText:'确认取消',onOk:function(){PMS.toast('定时任务已取消','success');}})">取消</span></td></tr>
+          <tr><td>SX2026-09-006</td><td><span class="badge blue">定时发布</span></td><td>栗雨佳苑人才公寓／ BS2026-09-06-R</td><td class="num">486</td><td>2026-09-28 08:00</td><td><span class="badge orange">待执行</span></td><td>唐凯</td><td><span class="link" onclick="PMS.confirm({title:'立即执行确认',message:'确认将定时任务 SX2026-09-006 提前立即执行？',detail:'涉及栗雨佳苑人才公寓 486 间房源，该批次为补正后重新报送批次。',type:'warning',okText:'确认执行',onOk:function(){PMS.toast('已立即执行，486 间房源已对外发布','success');}})">执行</span> <span class="link" onclick="PMS.confirm({title:'取消确认',message:'确认取消定时任务 SX2026-09-006？',detail:'取消后 486 间房源仍保持待上架状态。',type:'warning',okText:'确认取消',onOk:function(){PMS.toast('定时任务已取消','success');}})">取消</span></td></tr>
           <tr><td>SX2026-09-007</td><td><span class="badge orange">批量下架</span></td><td>茨菇塘公寓 B 栋（整栋维修）</td><td class="num">86</td><td>2026-09-10 18:00</td><td><span class="badge green">已完成</span></td><td>彭雪梅</td><td><span class="link" onclick="PMS.openDrawer('shelfDrawer')">查看</span></td></tr>
-          <tr class="row-warn"><td>SX2026-09-008</td><td><span class="badge orange">批量下架</span></td><td>湘江1958 人才公寓 A6 栋（用途转换）</td><td class="num">40</td><td>2026-09-12 18:00</td><td><span class="badge red">执行失败</span></td><td>唐凯</td><td><span class="link" onclick="PMS.toast('12 套已预约、6 套已签约，须先解除业务关联后重试')">查看</span></td></tr>
+          <tr class="row-warn"><td>SX2026-09-008</td><td><span class="badge orange">批量下架</span></td><td>湘江1958 人才公寓 A6 栋（用途转换）</td><td class="num">40</td><td>2026-09-12 18:00</td><td><span class="badge red">执行失败</span></td><td>唐凯</td><td><span class="link" onclick="PMS.toast('12 间已预约、6 间已签约，须先解除业务关联后重试')">查看</span></td></tr>
         </tbody>
       </table>
     </div>
@@ -106,7 +106,7 @@
           <table class="data-table compact">
             <thead><tr><th>限制号</th><th>受限情形</th><th class="cell-lg">解除方式</th></tr></thead>
             <tbody>
-            <tr><td><b>XJ-1</b></td><td>已预约房源</td><td>先取消预约或改约至其他房源，见<span class="link" onclick="location.href='book-manage.html'">预约名单管理</span></td></tr>
+            <tr><td><b>XJ-1</b></td><td>已配租或已签约房源</td><td>须先解除配租关系或终止合同方可下架；意向登记不占用房源、不阻断下架，可在<span class="link" onclick="location.href='book-manage.html'">意向登记管理</span>中查看</td></tr>
             <tr><td><b>XJ-2</b></td><td>已锁定房源</td><td>先解除选房锁定并释放房源，见<span class="link" onclick="location.href='../alloc/slot-plan.html'">选房编排</span></td></tr>
             <tr><td><b>XJ-3</b></td><td>已签约在租房源</td><td>先办理合同解除或到期腾退，见<span class="link" onclick="location.href='../alloc/contract-list.html'">合同台账</span></td></tr>
             <tr><td><b>XJ-4</b></td><td>已进入配租批次</td><td>先移出批次投放清单，见<span class="link" onclick="location.href='../alloc/batch-list.html'">配租批次管理</span></td></tr>
@@ -162,7 +162,7 @@
       </div>
       <div class="form-item">
         <label>涉及套数 <span class="req">*</span></label>
-        <input type="text" value="502 套（校验后可上架 486 套，剔除 16 套）" readonly>
+        <input type="text" value="502 间（校验后可上架 486 间，剔除 16 间）" readonly>
         <div class="hint">按所选范围自动统计，不可手工修改</div>
       </div>
       <div class="form-item">
@@ -176,11 +176,11 @@
       <div class="form-item col-full">
         <label>前置条件校验结果 <span class="req">*</span></label>
         <textarea rows="5" readonly>SJ-1 已通过报送审核　通过（BS2026-09-08 审核通过，审核人 唐凯）
-SJ-2 要素齐全　　　　通过 486 套 / 不通过 10 套（缺 VR 全景链接）
-SJ-3 无重复登记　　　通过 496 套 / 命中重复 6 套（已自动锁定）
-SJ-4 房态为可配租　　通过 502 套
-SJ-5 租金标准已核定　通过 502 套（13.00 元/㎡·月）
-校验结论：可上架 486 套，剔除 16 套并生成剔除清单</textarea>
+SJ-2 要素齐全　　　　通过 486 间 / 不通过 10 间（缺 VR 全景链接）
+SJ-3 无重复登记　　　通过 496 间 / 命中重复 6 间（已自动锁定）
+SJ-4 房态为可配租　　通过 502 间
+SJ-5 租金标准已核定　通过 502 间（13.00 元/㎡·月）
+校验结论：可上架 486 间，剔除 16 间并生成剔除清单</textarea>
       </div>
       <div class="form-item col-full">
         <label>剔除清单附件</label>
@@ -188,14 +188,14 @@ SJ-5 租金标准已核定　通过 502 套（13.00 元/㎡·月）
       </div>
       <div class="form-item col-full">
         <label>备注 <span class="req">*</span></label>
-        <textarea rows="3">清水塘·未来社区（二期）502 套房源经报送审核通过，按前置条件校验可上架 486 套，剔除缺 VR 全景链接 10 套与重复登记 6 套。定时于 2026-09-30 08:00 统一对外发布，剔除房源已退回清水塘投资集团补正。</textarea>
+        <textarea rows="3">清水塘·未来社区（二期）502 间房源经报送审核通过，按前置条件校验可上架 486 间，剔除缺 VR 全景链接 10 间与重复登记 6 间。定时于 2026-09-30 08:00 统一对外发布，剔除房源已退回清水塘投资集团补正。</textarea>
       </div>
     </div>
   </div>
   <div class="drawer-foot">
     <button class="btn" data-close-drawer>取消</button>
     <button class="btn" onclick="PMS.toast('已保存为草稿，未创建定时任务','success')">存草稿</button>
-    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认创建定时上架任务 SX2026-09-009？',detail:'任务将于 2026-09-30 08:00 自动执行，上架清水塘·未来社区（二期）486 套房源，剔除 16 套不达标房源并退回补正。执行结果通过站内消息告知。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('定时上架任务已创建，将于 2026-09-30 08:00 自动执行','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认创建定时上架任务 SX2026-09-009？',detail:'任务将于 2026-09-30 08:00 自动执行，上架清水塘·未来社区（二期）486 间房源，剔除 16 间不达标房源并退回补正。执行结果通过站内消息告知。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('定时上架任务已创建，将于 2026-09-30 08:00 自动执行','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
   </div>
 </div>
 

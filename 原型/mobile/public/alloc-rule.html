@@ -3,92 +3,124 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>配租人数规则提示 · 株洲市人才住房保障管理平台</title>
+<title>自动配租规则说明 · 株洲市人才住房保障管理平台</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="../../assets/css/app.css">
 <link rel="stylesheet" href="../../assets/css/mobile.css">
 <link rel="stylesheet" href="../../assets/css/ext.css">
 </head>
-<body class="m-body" data-mtitle="配租人数规则" data-mmod="M7 配租与线上选房" data-mcode="M7-05"
-      data-mdesc="配租不采用摇号方式，按申请顺序排定、已预约本批次房源的优先于普通轮候；选房限 1 个工作日内确认，逾期顺延且轮候资格不取消；并按房源大小提示可配租人数。" data-mback="alloc-order.html" data-mtabset="public" data-mtab="house">
+<body class="m-body" data-mtitle="自动配租规则" data-mmod="M7 自动配租与结果查询" data-mcode="M7-06"
+      data-mdesc="配租方式为系统自动配租：配租经办发布公告并设定执行时间，到点系统按资格审核通过顺序、在申请人选定的意向楼盘与户型范围内自动匹配房间，满足同套同性别，组团整套预留、整组匹配同一套房。申请人无需报名，也不自行选房。" data-mback="alloc-order.html" data-mtabset="public" data-mtab="apply">
 <div class="m-stage">
   <div class="m-phone">
     <div class="m-screen">
       <div class="m-view">
-        <div class="m-note"><i class="fa-solid fa-circle-info"></i>
-          <div>配租房源<b>原则上按房源大小予以配租</b>（管理办法第九条）。选房时系统将按您的申请人数<b>限定可选房型范围</b>。</div>
+        <div class="m-note"><i class="fa-solid fa-robot"></i>
+          <div>本市人才公寓配租采用<b>系统自动配租</b>：配租经办发布配租公告并设定<b>自动配租执行时间</b>，
+            到点由系统自动匹配房间。<b>申请人不需要报名，也不自行选房</b>。</div>
         </div>
-        <div class="m-sect">配租排序与确认规则<span class="m-sect-x">不摇号</span></div>
-        <div class="m-note warn"><i class="fa-solid fa-scale-balanced"></i>
-          <div>配租<b>不采用摇号方式</b>，按<b>申请受理顺序</b>排定位次；<b>已预约本批次房源的，位次优先于普通轮候</b>。</div>
-        </div>
+
+        <div class="m-sect">四条核心规则</div>
         <div class="m-card">
-          <div class="m-card-h"><i class="fa-solid fa-list-check"></i>四条核心规则</div>
+          <div class="m-card-h"><i class="fa-solid fa-list-check"></i>系统匹配口径</div>
           <div class="m-card-b">
             <div class="m-check">
-              <div class="ok"><i class="fa-solid fa-ban"></i><div class="m-chl"><b>不摇号，按申请顺序排定</b><span>按申请受理时间先后自动生成配租顺序名单，<b>不采用摇号方式</b>，不支持人工调序，名单可导出公示</span></div></div>
-              <div class="ok"><i class="fa-solid fa-star"></i><div class="m-chl"><b>预约优先于普通轮候　<span class="m-tag orange">预约优先</span></b><span>已预约本批次房源的，<b>位次优先于普通轮候</b>；多人预约同一房源的按<b>预约时间先后</b>确定序位</span></div></div>
-              <div class="ok"><i class="fa-solid fa-comment-sms"></i><div class="m-chl"><b>短信通知，限 1 个工作日内确认</b><span>按配租顺序分时放号并<b>短信通知当事人</b>，<b>收到通知后限 1 个工作日内</b>上线确认选房</span></div></div>
-              <div class="ok"><i class="fa-solid fa-shield-halved"></i><div class="m-chl"><b>逾期顺延，轮候资格不取消</b><span><b>逾期未确认自动顺延至下一顺序人</b>，<b>本人轮候资格不取消、自动排入下一轮</b>，原受理时间与预约优先标记保留</span></div></div>
+              <div class="ok"><i class="fa-solid fa-clock-rotate-left"></i><div class="m-chl"><b>规则一　排序按资格审核通过时间</b><span>以<b>资格审核通过时间</b>先后自动排定配租位次，<b>不摇号、不报名、不支持人工调序</b>；时间相同的依次比较特殊人才 → 家庭申请 → 学历层次 → 申请编号</span></div></div>
+              <div class="ok"><i class="fa-solid fa-filter"></i><div class="m-chl"><b>规则二　只在意向楼盘与户型范围内匹配</b><span>仅在申请人<b>已选定的意向楼盘与意向户型</b>范围内匹配房间；范围外的房源即使有空余也不予匹配，范围内无可匹配房源的转入轮候</span></div></div>
+              <div class="ok"><i class="fa-solid fa-venus-mars"></i><div class="m-chl"><b>规则三　同套同性别</b><span>按间配租时<b>同一套房内配租对象性别一致</b>，不同性别不混住同一套；系统在匹配时自动校验，无法满足的跳过该套继续匹配下一套</span></div></div>
+              <div class="ok"><i class="fa-solid fa-people-group"></i><div class="m-chl"><b>规则四　组团整套预留、整组匹配同一套房</b><span>已填报组团并成团的<b>整套预留、整组锁定</b>同一套房，锁定期间该套其余房间不参与单人匹配；组团位次<b>按组内最靠后一位的位次</b>参与排序；<b>无整套可整组匹配的拆开按单人配租</b>，各自位次不变</span></div></div>
             </div>
           </div>
         </div>
+
+        <div class="m-sect">自动配租执行过程</div>
         <div class="m-card">
-          <div class="m-card-h"><i class="fa-solid fa-lock"></i>锁定名额类型仅一类</div>
+          <div class="m-card-h"><i class="fa-solid fa-diagram-project"></i>系统怎么跑</div>
           <div class="m-card-b">
-          <div class="m-kv">
-            <div><span>锁定名额类型</span><span>只保留<b>「房源预约」一类</b></span></div>
-            <div><span>房源预约</span><span>预约<b>为意向登记、不占用轮候名额</b>，但<b>配租时位次优先于普通轮候</b>；多人预约同一房间的按预约时间先后确定序位</span></div>
-            <div><span>轮候库维护内容</span><span>只维护<b>轮候序号与轮候有效期</b>，不再设置其他名额锁定或转正环节</span></div>
-            <div><span>组织选房方式</span><span>按<b>轮候排名</b>组织选房，<b>不摇号</b></span></div>
-            <div><span>预约失效</span><span>预约有效期届满未转正式申请的自动作废，<b>本人轮候资格不受影响</b></span></div>
-          </div>
-          </div>
-        </div>
-        <div class="m-sect">按房源大小配租<span class="m-sect-x">我的可选范围</span></div>
-        <div class="m-card">
-          <div class="m-card-h"><i class="fa-solid fa-user-check"></i>我的可选范围</div>
-          <div class="m-card-b">
-          <div class="m-kv">
-            <div><span>我的申请方式</span><span>个人申请（1 人）</span></div>
-            <div><span>可选房型</span><span><b style="color:var(--primary)">单间配套 / 一室一厅</b></span></div>
-            <div><span>不可选房型</span><span>二室一厅（需 2 人配租）、三室一厅（需 3 人配租）</span></div>
-            <div><span>如需二室一厅</span><span>须为已婚且夫妻双方均符合条件的<b>家庭申请</b>，或与另一名符合条件人才<b>按间配租</b></span></div>
-          </div>
-          </div>
-        </div>
-        <div class="m-sect">房型与配租人数对应关系</div>
-        <div class="m-card">
-          <div class="m-card-h"><i class="fa-solid fa-table-list"></i>配租人数规则</div>
-          <div class="m-card-b">
-            <div class="m-check">
-              <div class="ok"><i class="fa-solid fa-door-closed"></i><div class="m-chl"><b>单间配套　配租 1 人</b><span>约 38—42 ㎡　·	整套配租　·	适合单身青年人才</span></div></div>
-              <div class="ok"><i class="fa-solid fa-door-open"></i><div class="m-chl"><b>一室一厅　配租 1 人</b><span>约 48—56 ㎡　·	整套配租　·	适合单身青年人才</span></div></div>
-              <div class="na"><i class="fa-solid fa-people-roof"></i><div class="m-chl"><b>二室一厅　配租 2 人</b><span>约 68—80 ㎡　·	整套配租（家庭）或按间配租（2 名单身人才）</span></div></div>
-              <div class="na"><i class="fa-solid fa-users"></i><div class="m-chl"><b>三室一厅　配租 3 人</b><span>约 96—120 ㎡　·	按间配租　·	<b>按分摊面积计算租赁面积</b></span></div></div>
+            <div class="m-tl">
+              <div class="m-ti done"><div class="m-tt">① 发布公告并设定执行时间</div>
+                <div class="m-td">配租经办在管理端发布配租公告，锁定房源范围与可安置人数，并设定<b>自动配租执行时间</b>；系统同步向全部资格审核通过的申请人发送短信</div></div>
+              <div class="m-ti done"><div class="m-tt">② 执行前 1 小时锁定名单与位次</div>
+                <div class="m-td">按资格审核通过时间生成位次名单并锁定，之后新通过的申请人纳入下一批次</div></div>
+              <div class="m-ti on"><div class="m-tt">③ 到点自动匹配</div>
+                <div class="m-td">系统从第 1 位起依次匹配：先判断组团 → 再取意向范围内可用房源 → 校验同套同性别 → 落位到具体房间；单人匹配失败的顺延至下一位，其本人转入轮候</div></div>
+              <div class="m-ti"><div class="m-tt">④ 生成结果并短信告知</div>
+                <div class="m-td">生成配租结果与配租单号，短信告知分配到的楼盘、房间与签约安排；未匹配到房源的告知轮候位次</div></div>
+              <div class="m-ti"><div class="m-tt">⑤ 结果公示与签约</div>
+                <div class="m-td">结果在平台公开可查，申请人在 <b>5 个工作日</b>内与运营机构完成签约</div></div>
             </div>
           </div>
         </div>
-        <div class="m-sect">按间配租说明<span class="m-sect-x">P4-08</span></div>
+
+        <div class="m-sect">组团配租说明</div>
         <div class="m-card">
-          <div class="m-card-h"><i class="fa-solid fa-ruler-combined"></i>按套与按间</div>
+          <div class="m-card-h"><i class="fa-solid fa-people-group"></i>组团口径</div>
           <div class="m-card-b">
           <div class="m-kv">
-            <div><span>管理模式</span><span>同一房源可按整套配租，或拆分为间、床位配租</span></div>
+            <div><span>组团条件</span><span>2—3 名<b>资格审核均已通过</b>且性别相同的青年人才，可在意向登记时自愿组团</span></div>
+            <div><span>组团位次</span><span>按<b>组内最靠后一位</b>的位次参与排序，不按最靠前位次，避免加塞</span></div>
+            <div><span>匹配方式</span><span><b>优先整组匹配同一套房</b>，房间在组内按位次先后分配</span></div>
+            <div><span>拆分处理</span><span>意向范围内无整套可容纳全组时，按位次拆分至同楼盘相邻套，仍满足同套同性别</span></div>
+            <div><span>解散与退出</span><span>配租执行时间前可自行解散或退出组团，退出后按个人位次参与匹配</span></div>
+          </div>
+          </div>
+        </div>
+
+        <div class="m-sect">意向登记与位次<span class="m-sect-x">不占位次</span></div>
+        <div class="m-note warn"><i class="fa-solid fa-circle-exclamation"></i>
+          <div>意向登记（含应届生意向登记、房源意向登记）<b>只用于确定系统的匹配范围，不占位次、不加分、不优先</b>。
+            位次一律按<b>资格审核通过时间</b>排定。</div>
+        </div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-calendar-check"></i>意向登记的作用</div>
+          <div class="m-card-b">
+            <div class="m-check">
+              <div class="ok"><i class="fa-solid fa-filter"></i><div class="m-chl"><b>确定匹配范围</b><span>系统只在您登记的<b>意向楼盘与意向户型</b>内匹配房间，范围越窄匹配概率越低</span></div></div>
+              <div class="ok"><i class="fa-solid fa-pen-to-square"></i><div class="m-chl"><b>可随时调整</b><span>自动配租执行时间前均可调整意向范围，以执行时刻的登记内容为准</span></div></div>
+              <div class="na"><i class="fa-solid fa-ban"></i><div class="m-chl"><b>不影响排序</b><span>登记时间早晚<b>不改变配租位次</b>，也不形成任何优先权</span></div></div>
+              <div class="na"><i class="fa-solid fa-ban"></i><div class="m-chl"><b>不需要报名确认</b><span>公告发布后无需再做任何确认动作，系统自动纳入本批次</span></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="m-sect">房型与配租人数</div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-table-list"></i>按房源大小配租</div>
+          <div class="m-card-b">
+            <div class="m-check">
+              <div class="ok"><i class="fa-solid fa-door-closed"></i><div class="m-chl"><b>单间配套　整套配租 1 人</b><span>约 38—42 ㎡　·	适合单身青年人才</span></div></div>
+              <div class="ok"><i class="fa-solid fa-door-open"></i><div class="m-chl"><b>一室一厅　整套配租 1 人</b><span>约 48—56 ㎡　·	适合单身青年人才</span></div></div>
+              <div class="ok"><i class="fa-solid fa-people-roof"></i><div class="m-chl"><b>二室一厅　整套 2 人 / 按间 2 人</b><span>约 68—80 ㎡　·	家庭申请可整套配租，单身人才按间配租、同套同性别</span></div></div>
+              <div class="ok"><i class="fa-solid fa-users"></i><div class="m-chl"><b>三室一厅　按间配租 3 人</b><span>约 96—120 ㎡　·	<b>按分摊面积计算租赁面积</b>，同套同性别</span></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="m-sect">按间配租计租口径</div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-ruler-combined"></i>计租面积怎么算</div>
+          <div class="m-card-b">
+          <div class="m-kv">
+            <div><span>管理模式</span><span>同一房源可按整套配租，或拆分为间配租</span></div>
             <div><span>计租面积</span><span>按间配租时按<b>分摊面积</b>计算租赁面积</span></div>
-            <div><span>分摊口径</span><span>所租房间套内面积 + 公共区域按房间数分摊面积</span></div>
-            <div><span>示例</span><span>三室一厅 118.60 ㎡ 配租 3 人，某房间套内 14.20 ㎡ + 分摊 12.80 ㎡ = <b>27.00 ㎡</b></span></div>
-            <div><span>适用场景</span><span>满足单身与家庭的差异化需求</span></div>
+            <div><span>分摊口径</span><span><b>计租面积 = 所租房间套内面积 + 公共区域按房间数分摊面积</b></span></div>
+            <div><span>示例</span><span>三室一厅 118.60 ㎡ 按间配租 3 人，某房间套内 14.20 ㎡ + 公摊 12.50 ㎡ = <b>26.70 ㎡</b></span></div>
+            <div><span>租金计算</span><span>计租面积 × 人才租金标准。人才租金标准 <b>14.00 元/㎡·月</b>，其中个人承担 <b>6.00 元</b>、财政补贴 <b>8.00 元</b>；物业费、水电气由承租人自理</span></div>
+            <div><span>公共费用</span><span>水、电、燃气与物业费按规定标准自理，公共部分由同套住户均摊</span></div>
           </div>
           </div>
         </div>
-        <div class="m-note warn"><i class="fa-solid fa-triangle-exclamation"></i>
-          <div>选房时系统将<b>自动过滤</b>不符合配租人数规则的房源，您只能在可选范围内选择。如需扩大可选范围，请先办理家庭申请合并。</div>
+
+        <div class="m-note"><i class="fa-solid fa-circle-info"></i>
+          <div>配租位次名单与配租结果<b>全过程公开、可回溯</b>；系统匹配日志留痕，
+            接受市住建部门与社会监督。</div>
         </div>
+
         <div class="m-cells">
-          <a class="m-cell" href="apply-step2.html"><span class="m-ci green"><i class="fa-solid fa-people-roof"></i></span><span class="m-cl"><b>办理家庭申请合并</b><span class="m-cs">已婚且双方均符合条件时可申请二室一厅</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
-          <a class="m-cell" href="book-list.html"><span class="m-ci"><i class="fa-solid fa-calendar-check"></i></span><span class="m-cl"><b>我的房源预约</b><span class="m-cs">预约本批次房源可获得预约优先位次</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
-          <a class="m-cell" href="alloc-select.html"><span class="m-ci orange"><i class="fa-solid fa-key"></i></span><span class="m-cl"><b>进入选房</b><span class="m-cs">2026-09-15 10:00—10:30 · 限 1 个工作日内确认</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="alloc-order.html"><span class="m-ci"><i class="fa-solid fa-list-ol"></i></span><span class="m-cl"><b>查询我的配租位次</b><span class="m-cs">按资格审核通过时间排定</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="book-list.html"><span class="m-ci orange"><i class="fa-solid fa-calendar-check"></i></span><span class="m-cl"><b>我的意向登记</b><span class="m-cs">调整意向楼盘与户型范围</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="apply-step2.html"><span class="m-ci green"><i class="fa-solid fa-people-roof"></i></span><span class="m-cl"><b>办理家庭申请合并</b><span class="m-cs">已婚且双方均符合条件时可整套配租二室一厅</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="alloc-select.html"><span class="m-ci cyan"><i class="fa-solid fa-house-circle-check"></i></span><span class="m-cl"><b>查看我的配租结果</b><span class="m-cs">分配到的房间、面积与签约安排</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
         </div>
       </div>
     </div>

@@ -9,44 +9,102 @@
 <link rel="stylesheet" href="../../assets/css/mobile.css">
 <link rel="stylesheet" href="../../assets/css/ext.css">
 </head>
-<body class="m-body" data-mtitle="我的电子合同" data-mmod="M8 电子签约" data-mcode="M8-03"
-      data-mdesc="随时查看并下载已签署的电子合同文本，展示签署时间与归档编号。" data-mback="me-house-contract.html" data-mtabset="public" data-mtab="me">
+<body class="m-body" data-mtitle="我的租赁合同" data-mmod="M8 合同签署" data-mcode="M8-03"
+      data-mdesc="查看已签署的租赁合同文本与结构化要素，支持下载与打印。线上电子签约签署完成即生效；线下签约上传合同影像后需经运营机构核对确认，确认通过才是签约完成。" data-mback="me-house-contract.html" data-mtabset="public" data-mtab="apply">
 <div class="m-stage">
   <div class="m-phone">
     <div class="m-screen">
       <div class="m-view">
-        <div class="m-result">
-          <div class="m-ri"><i class="fa-solid fa-file-circle-check"></i></div>
-          <div class="m-rt">合同已签署生效</div>
-          <div class="m-rd">合同编号 <b>RZ2026-00862</b><br>双方签署完成，已自动归档</div>
+        <div class="m-seg">
+          <button class="on" type="button" onclick="sw(1)">线上电子签约</button>
+          <button type="button" onclick="sw(2)">线下签约上传</button>
         </div>
-        <div class="m-card">
-          <div class="m-card-h"><i class="fa-solid fa-stamp"></i>签署信息</div>
-          <div class="m-card-b">
-          <div class="m-kv">
-            <div><span>合同编号</span><span>RZ2026-00862</span></div>
-            <div><span>合同状态</span><span><span class="m-tag green">已生效</span></span></div>
-            <div><span>承租人签署</span><span>王梓涵　2026-09-20 15:08（人脸核身相似度 98.6%）</span></div>
-            <div><span>出租方签章</span><span>株洲城发高科人才安居服务有限公司　2026-09-20 15:08</span></div>
-            <div><span>签署方式</span><span>个人电子签名 + 企业电子签章</span></div>
-            <div><span>存证机构</span><span>第三方 CA 服务机构</span></div>
-            <div><span>归档编号</span><span>GD2026-RZ-00862</span></div>
-            <div><span>归档时间</span><span>2026-09-20 15:09</span></div>
+
+        <!-- ========== 线上电子签约：签署完成即生效 ========== -->
+        <div id="pnOn" style="margin-top:12px">
+          <div class="m-result" style="padding-top:16px">
+            <div class="m-ri"><i class="fa-solid fa-file-circle-check"></i></div>
+            <div class="m-rt">合同已签署生效</div>
+            <div class="m-rd">合同编号 <b>RZ2026-00862</b><br>双方线上签署完成，已自动归档</div>
           </div>
+          <div class="m-card">
+            <div class="m-card-h"><i class="fa-solid fa-stamp"></i>签署信息</div>
+            <div class="m-card-b">
+            <div class="m-kv">
+              <div><span>合同编号</span><span>RZ2026-00862</span></div>
+              <div><span>合同状态</span><span><span class="m-tag green">已生效</span></span></div>
+              <div><span>签约方式</span><span><b>线上电子签约</b>（运营方发起 · 本人手机签章）</span></div>
+              <div><span>运营方发起</span><span>株洲市人才安居服务有限公司　2026-09-16 09:20</span></div>
+              <div><span>承租人签署</span><span>王梓涵　2026-09-16 15:08（人脸核身相似度 98.6%）</span></div>
+              <div><span>出租方签章</span><span>株洲市人才安居服务有限公司　2026-09-16 15:08</span></div>
+              <div><span>存证机构</span><span>第三方 CA 服务机构</span></div>
+              <div><span>归档编号</span><span>GD2026-RZ-00862</span></div>
+              <div><span>归档时间</span><span>2026-09-16 15:09</span></div>
+            </div>
+            </div>
           </div>
         </div>
+
+        <!-- ========== 线下签约上传：待核对 → 确认后完成 ========== -->
+        <div id="pnOff" style="display:none;margin-top:12px">
+          <div class="m-result" style="padding-top:16px">
+            <div class="m-ri wait"><i class="fa-solid fa-hourglass-half"></i></div>
+            <div class="m-rt">合同影像已上传</div>
+            <div class="m-rd">合同编号 <b>RZ2026-00862</b><br>
+              当前状态：<b style="color:var(--on-warning)">待运营机构核对确认</b>，确认通过后才是签约完成</div>
+          </div>
+          <div class="m-card">
+            <div class="m-card-h"><i class="fa-solid fa-list-check"></i>核对确认进度</div>
+            <div class="m-card-b">
+              <div class="m-tl">
+                <div class="m-ti done"><div class="m-tt">现场签署纸质合同</div>
+                  <div class="m-td">2026-09-17 10:12　·	株洲市人才安居服务有限公司客服中心</div></div>
+                <div class="m-ti done"><div class="m-tt">上传合同影像（2 张）</div>
+                  <div class="m-td">2026-09-17 11:05　·	合同首页、双方签署与盖章页</div></div>
+                <div class="m-ti on"><div class="m-tt">运营机构核对确认　<span class="m-tag orange">进行中</span></div>
+                  <div class="m-td">承诺 <b>1 个工作日</b>内核对合同编号、承租人、房间、面积与租金要素；不一致的退回并说明原因</div></div>
+                <div class="m-ti"><div class="m-tt">签约完成并归档</div>
+                  <div class="m-td">核对确认通过后合同状态转为<b>已生效</b>，合同要素入库，可下载与打印</div></div>
+              </div>
+            </div>
+          </div>
+          <div class="m-card">
+            <div class="m-card-h"><i class="fa-solid fa-building-user"></i>核对机构</div>
+            <div class="m-card-b">
+            <div class="m-kv">
+              <div><span>机构名称</span><span><b>株洲市人才安居服务有限公司</b></span></div>
+              <div><span>办理地址</span><span>株洲市天元区泰山路 199 号　湘江1958 人才公寓 A6 栋 1 层客服中心</span></div>
+              <div><span>联系电话</span><span><b>0731-28301958</b>　工作日 9:00—17:30</span></div>
+              <div><span>合同状态</span><span><span class="m-tag orange">待运营机构核对确认</span></span></div>
+              <div><span>签约期限</span><span>2026-09-22 18:00 前完成核对确认，被退回的须在期限内重新上传</span></div>
+            </div>
+              <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+                <button class="m-btn sm ghost" type="button" onclick="MB.toast('已拨号 0731-28301958（原型演示）')"><i class="fa-solid fa-phone"></i> 联系运营机构</button>
+                <a class="m-btn sm" href="sign-contract.html">重新上传影像</a>
+              </div>
+            </div>
+          </div>
+          <div class="m-note warn"><i class="fa-solid fa-triangle-exclamation"></i>
+            <div>上传成功<b>不等于签约完成</b>。核对确认通过后，本页状态自动转为<b>已生效</b>，
+              并短信告知本人；届时可办理入住与缴纳押金。</div>
+          </div>
+        </div>
+
         <div class="m-sect">合同要素</div>
         <div class="m-card">
           <div class="m-card-h"><i class="fa-solid fa-list-check"></i>结构化要素</div>
           <div class="m-card-b">
           <div class="m-kv">
-            <div><span>租赁房源</span><span>湘江1958 人才公寓 A6 栋 1502</span></div>
-            <div><span>计租面积</span><span>52.60 ㎡（整套配租）</span></div>
+            <div><span>楼盘</span><span>湘江1958 人才公寓（天元区泰山路 199 号）</span></div>
+            <div><span>房屋（套）</span><span>A6 栋 1502 室　三室一厅　建筑面积 118.60 ㎡　按间配租 3 人</span></div>
+            <div><span>房间（间）</span><span>1502-02 号房间（次卧 · 朝南）</span></div>
+            <div><span>套内 / 公摊</span><span>14.20 ㎡ / 12.50 ㎡</span></div>
+            <div><span>计租面积</span><span><b>26.70 ㎡</b>（按分摊面积计租）</span></div>
             <div><span>租赁期限</span><span>2 年（自入住之日起算）</span></div>
-            <div><span>租金标准</span><span>18.00 元/㎡·月</span></div>
-            <div><span>应缴租金总额</span><span>946.80 元/月</span></div>
-            <div><span>财政补助</span><span>662.76 元/月（减免 70%）</span></div>
-            <div><span>个人实际应缴</span><span><b style="color:var(--danger)">284.04 元/月</b></span></div>
+            <div><span>人才租金标准</span><span>14.00 元/㎡·月</span></div>
+            <div><span>应缴租金总额</span><span>373.80 元/月</span></div>
+            <div><span>财政补助</span><span>213.60 元/月（减免 57%）</span></div>
+            <div><span>个人实际应缴</span><span><b style="color:var(--danger)">160.20 元/月</b></span></div>
             <div><span>押金</span><span>1,000.00 元</span></div>
           </div>
           </div>
@@ -54,6 +112,14 @@
         <div class="m-note"><i class="fa-solid fa-circle-info"></i>
           <div>合同要素结构化记录，是<b>租金计费与减免核算的唯一数据源</b>。保障期届满前系统将分级预警并自动联动续租资格复核。</div>
         </div>
+
+        <div class="m-sect">合同文本获取<span class="m-sect-x">下载与打印</span></div>
+        <div class="m-cells">
+          <a class="m-cell" href="javascript:void(0)" onclick="MB.toast('租赁合同 PDF 已下载至本机')"><span class="m-ci"><i class="fa-solid fa-download"></i></span><span class="m-cl"><b>下载合同 PDF</b><span class="m-cs">带电子签章版本，可作为办事凭证</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="javascript:void(0)" onclick="MB.toast('已调起打印，可选择无线打印机或到服务窗口打印')"><span class="m-ci cyan"><i class="fa-solid fa-print"></i></span><span class="m-cl"><b>打印合同</b><span class="m-cs">支持无线打印，也可到运营机构窗口打印纸质件</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="javascript:void(0)" onclick="MB.toast('合同文本已发送至本人手机号绑定的邮箱')"><span class="m-ci green"><i class="fa-solid fa-envelope"></i></span><span class="m-cl"><b>发送到邮箱</b><span class="m-cs">发送带存证编号的合同文本</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+        </div>
+
         <div class="m-sect">下一步办理</div>
         <div class="m-cells">
           <a class="m-cell" href="checkin-book.html"><span class="m-ci green"><i class="fa-solid fa-house-chimney"></i></span><span class="m-cl"><b>在线办理入住</b><span class="m-cs">预约入住时间并确认房源交付</span></span><span class="m-cv"><span class="m-tag orange">待办理</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
@@ -67,7 +133,8 @@
         </div>
       </div>
       <div class="m-actbar">
-        <button class="m-btn w-auto" type="button" onclick="MB.toast('电子租赁合同 PDF 已下载')"><i class="fa-solid fa-download"></i> 下载合同 PDF</button>
+        <button class="m-btn w-auto" type="button" onclick="MB.toast('租赁合同 PDF 已下载')"><i class="fa-solid fa-download"></i> 下载</button>
+        <button class="m-btn w-auto" type="button" onclick="MB.toast('已调起打印（原型演示）')"><i class="fa-solid fa-print"></i> 打印</button>
         <a class="m-btn primary" href="checkin-book.html"><i class="fa-solid fa-arrow-right"></i> 去办理入住</a>
       </div>
     </div>
@@ -75,5 +142,17 @@
 </div>
 
 <script src="../../assets/js/mobile.js"></script>
+<script>
+function sw(n) {
+  var on = n === 1;
+  document.getElementById('pnOn').style.display = on ? '' : 'none';
+  document.getElementById('pnOff').style.display = on ? 'none' : '';
+}
+if (location.search.indexOf('m=off') > -1) {
+  sw(2);
+  var bs = document.querySelectorAll('.m-seg button');
+  if (bs.length === 2) { bs[0].classList.remove('on'); bs[1].classList.add('on'); }
+}
+</script>
 </body>
 </html>

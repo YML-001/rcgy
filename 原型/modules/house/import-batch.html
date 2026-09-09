@@ -148,9 +148,9 @@
         <div class="form-item col-full">
           <label>入库结果 <span class="req">*</span></label>
           <textarea rows="4" readonly>总行数：486 行
-成功入库：474 套（已生成一房一码，纳入统一楼盘表）
+成功入库：474 间（已生成一房一码，纳入统一楼盘表）
 失败：12 行（面积校验不通过 8 行、房号重复 3 行、户型字典值错误 1 行）
-下游业务：已配租 62 套、已签约 58 套、已生成账单 58 套</textarea>
+下游业务：已配租 62 间、已签约 58 间、已生成账单 58 间</textarea>
         </div>
         <div class="form-item col-full">
           <label>失败明细 <span class="req">*</span></label>
@@ -160,21 +160,21 @@
         </div>
         <div class="form-item col-full">
           <label>可否回滚 <span class="req">*</span></label>
-          <input type="text" value="不可整批回滚（本批次 62 套已配租、58 套已签约）" readonly>
+          <input type="text" value="不可整批回滚（本批次 62 间已配租、58 间已签约）" readonly>
         </div>
         <div class="form-item col-full">
           <label>处置方式 <span class="req">*</span></label>
-          <select><option value="">全部</option><option>仅回滚未产生业务的 412 套</option><option>不回滚，逐条走档案变更流程</option><option>导出失败明细后重传差错行</option></select>
+          <select><option value="">全部</option><option>仅回滚未产生业务的 412 间</option><option>不回滚，逐条走档案变更流程</option><option>导出失败明细后重传差错行</option></select>
         </div>
         <div class="form-item col-full">
           <label>处置说明 <span class="req">*</span></label>
-          <textarea rows="3" placeholder="必填，说明回滚或处置原因">本批次 486 行中 412 套未产生下游业务，先行回滚以清除面积校验不通过、房号重复等差错数据；已配租 62 套、已签约 58 套予以保留，另行逐条走档案变更流程，失败明细已导出待重传差错行。</textarea>
+          <textarea rows="3" placeholder="必填，说明回滚或处置原因">本批次 486 行中 412 间未产生下游业务，先行回滚以清除面积校验不通过、房号重复等差错数据；已配租 62 间、已签约 58 间予以保留，另行逐条走档案变更流程，失败明细已导出待重传差错行。</textarea>
         </div>
       </div>
   </div>
   <div class="drawer-foot">
     <button class="btn" data-close-drawer>取消</button>
-    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认回滚本批次中未产生业务的 412 套房源？已配租与已签约房源将保留。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已回滚 412 套未产生业务的房源，批次状态更新为部分回滚','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认回滚本批次中未产生业务的 412 间房源？已配租与已签约房源将保留。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已回滚 412 间未产生业务的房源，批次状态更新为部分回滚','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
   </div>
 </div>
 <script>

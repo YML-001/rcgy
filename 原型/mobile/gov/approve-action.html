@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="../../assets/css/ext.css">
 </head>
 <body class="m-body" data-mtitle="出具结论" data-mmod="G1 移动审批" data-mcode="G1-01"
-      data-mdesc="复审出具结论：一键通过或驳回并选择驳回理由模板，退回补正须注明退回层级与理由，处理结果与 PC 端实时同步。" data-mback="approve-detail.html" data-mtabset="gov" data-mtab="home">
+      data-mdesc="一键通过或驳回并选择驳回理由模板，处理结果与 PC 端实时同步。" data-mback="approve-detail.html" data-mtabset="gov" data-mtab="home">
 <div class="m-stage">
   <div class="m-phone">
     <div class="m-screen">
@@ -24,8 +24,6 @@
           <div class="m-kv">
             <div><span>申请编号</span><span>RC2026-0902-0148</span></div>
             <div><span>申请人</span><span>王××</span></div>
-            <div><span>申请渠道</span><span>个人申请（湘易办小程序）</span></div>
-            <div><span>办理环节</span><span>复审出具结论（第 2 级）　·	受理初审 陈婕</span></div>
             <div><span>超期情况</span><span><b style="color:var(--danger)">超期 1 天</b></span></div>
           </div>
           </div>
@@ -37,7 +35,7 @@
           <div class="m-opts">
             <div class="m-opt"><span class="m-ok"><i class="fa-solid fa-check"></i></span><span class="m-ol"><b>通过</b><span>进入配租轮候，按申请受理时间排定配租顺序</span></span></div>
             <div class="m-opt on"><span class="m-ok"><i class="fa-solid fa-check"></i></span><span class="m-ol"><b>不予通过</b><span>线上写明原因并电子送达，申请人条件变化后可重新申请</span></span></div>
-            <div class="m-opt"><span class="m-ok"><i class="fa-solid fa-check"></i></span><span class="m-ol"><b>退回补正</b><span>一次性告知缺件项，须注明<b>退回层级（复审）与具体理由</b>，补齐后自动回到原审核环节</span></span></div>
+            <div class="m-opt"><span class="m-ok"><i class="fa-solid fa-check"></i></span><span class="m-ol"><b>退回补正</b><span>一次性告知缺件项，补齐后自动回到原审核环节</span></span></div>
           </div>
           </div>
         </div>
@@ -62,7 +60,7 @@
           </div>
           <div class="m-fi">
             <label>超期原因 <span class="req">*</span></label>
-            <div class="m-fc"><select><option selected>例外件需人工核实</option><option>核验数据返回延迟</option><option>申请人补充说明等待</option><option>经办人工作量集中</option><option>其他</option></select><div class="m-fh">超期件必须记录原因，供审计核查</div></div>
+            <div class="m-fc"><select><option value="">请选择</option><option>核验数据返回延迟</option><option>例外件需人工核实</option><option>申请人补充说明等待</option><option>经办人工作量集中</option><option>其他</option></select><div class="m-fh">超期件必须记录原因，供审计核查</div></div>
           </div>
         </div>
         <div class="m-sect">留痕说明</div>
@@ -70,7 +68,7 @@
           <div class="m-card-h"><i class="fa-solid fa-clock-rotate-left"></i>提交后系统动作</div>
           <div class="m-card-b">
           <div class="m-kv">
-            <div><span>写入内容</span><span>操作人、时间、IP、终端、前后状态值；<b>受理初审与复审意见分别留痕</b></span></div>
+            <div><span>写入内容</span><span>操作人、时间、IP、终端、前后状态值</span></div>
             <div><span>电子送达</span><span>湘易办站内消息 + 微信模板消息 + 短信</span></div>
             <div><span>自动生成</span><span>资格审核表审核意见 + 不予通过告知书</span></div>
             <div><span>归档</span><span>归入电子档案 DZ2026-RC-0148，支持回溯查阅</span></div>

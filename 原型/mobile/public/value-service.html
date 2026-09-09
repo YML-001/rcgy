@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>增值服务 · 株洲市人才住房保障管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/mobile.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+<style>
+/* —— 增值服务专用样式 —— */
+.vs-hd{background:linear-gradient(135deg,#17B6A6,#0F766E);color:#fff;
+  padding:15px 14px 16px;border-radius:12px}
+.vs-hd .t{font-size:16.5px;font-weight:800}
+.vs-hd .s{font-size:11.5px;opacity:.92;margin-top:5px;line-height:1.65}
+.vs-hd .tg{display:inline-block;margin-top:10px;font-size:10.5px;
+  background:rgba(255,255,255,.22);border-radius:9px;padding:3px 10px}
+.vs-i{padding:12px 14px;border-bottom:1px solid var(--row-line);background:var(--bg-card)}
+.vs-i:last-child{border-bottom:0}
+.vs-i .hd{display:flex;align-items:flex-start;gap:10px}
+.vs-i .ic{width:38px;height:38px;flex:none;border-radius:10px;display:flex;
+  align-items:center;justify-content:center;font-size:16px}
+.vs-i .c1{background:var(--info-light);color:var(--info)}
+.vs-i .c2{background:var(--success-light);color:var(--success)}
+.vs-i .c3{background:var(--primary-light);color:var(--primary)}
+.vs-i .c4{background:var(--warning-light);color:var(--on-warning)}
+.vs-i .c5{background:var(--purple-light);color:var(--purple)}
+.vs-i .nm{flex:1;min-width:0}
+.vs-i .nm b{display:block;font-size:14.5px;font-weight:700;color:var(--text-1)}
+.vs-i .nm span{display:block;font-size:11.5px;color:var(--text-3);margin-top:3px}
+.vs-i .bd{margin-top:9px;font-size:12.5px;line-height:1.75;color:var(--text-2)}
+.vs-i .pr{margin-top:9px;padding:8px 10px;border-radius:8px;background:var(--bg-soft);
+  font-size:12.5px;line-height:1.8;color:var(--text-2)}
+.vs-i .pr b{color:var(--danger);font-variant-numeric:tabular-nums}
+.vs-i .ft{margin-top:10px;display:flex;align-items:center;gap:8px}
+.vs-i .ft .og{flex:1;min-width:0;font-size:11.5px;color:var(--text-3);line-height:1.5}
+</style>
+</head>
+<body class="m-body" data-mtitle="增值服务" data-mmod="M15 增值服务" data-mcode="M15-01"
+      data-mdesc="展示运营机构发布的衣物洗涤、入室清扫、家政等增值服务，含服务名称、服务内容、价格与提供机构。服务由运营机构自有平台办理，本平台仅作信息展示、不做系统对接；属于房屋维修范畴的仍走报修工单。" data-mback="rent-apply.html" data-mtabset="public" data-mtab="home">
+<div class="m-stage">
+  <div class="m-phone">
+    <div class="m-screen">
+      <div class="m-view">
+        <div class="vs-hd">
+          <div class="t">运营机构增值服务</div>
+          <div class="s">住得舒心，还能顺手把生活琐事解决掉。以下服务由运营机构及其合作单位提供，
+            按需自愿选购，与人才住房保障资格无关。</div>
+          <div class="tg"><i class="fa-solid fa-circle-info"></i> 本平台仅展示信息，不做系统对接</div>
+        </div>
+
+        <div class="m-note warn" style="margin-top:12px"><i class="fa-solid fa-triangle-exclamation"></i>
+          <div><b>办理方式说明</b>：增值服务一律在<b>运营机构自有平台</b>下单、支付与售后，
+            本平台<b>不做系统对接</b>、不代收费用、不参与结算。点击「前往办理」将跳转至运营机构自有平台。</div>
+        </div>
+
+        <div class="m-sect">在售服务<span class="m-sect-x">5 项 · 湘江1958 人才公寓</span></div>
+        <div class="m-cells">
+
+          <div class="vs-i">
+            <div class="hd">
+              <span class="ic c1"><i class="fa-solid fa-shirt"></i></span>
+              <span class="nm"><b>衣物洗涤</b><span>楼下智能洗衣柜自助投放 · 也可客服中心代收</span></span>
+              <span class="m-tag green">热门</span>
+            </div>
+            <div class="bd"><b>服务内容</b>：衬衫、外套、羽绒服、大衣干洗与水洗，床品四件套清洗消毒；
+              自助投放后 48 小时内可取，客服中心代收的次日取件；提供去渍与熨烫增项。</div>
+            <div class="pr"><b>价格</b>：衬衫 8 元/件　·	外套 18 元/件　·	羽绒服 35 元/件　·	大衣 28 元/件　·	床品四件套 45 元/套　·	熨烫增项 5 元/件</div>
+            <div class="ft">
+              <span class="og"><i class="fa-solid fa-building-user"></i> 提供机构：株洲净衣坊洗涤服务有限公司<br>
+                <i class="fa-solid fa-phone"></i> 0731-28306688</span>
+              <button class="m-btn sm ghost" type="button" onclick="goOut('衣物洗涤','株洲净衣坊洗涤服务有限公司')">前往办理 <i class="fa-solid fa-arrow-up-right-from-square"></i></button>
+            </div>
+          </div>
+
+          <div class="vs-i">
+            <div class="hd">
+              <span class="ic c2"><i class="fa-solid fa-broom"></i></span>
+              <span class="nm"><b>入室清扫</b><span>深度保洁 · 标准 4 小时工时</span></span>
+              <span class="m-tag cyan">可分摊</span>
+            </div>
+            <div class="bd"><b>服务内容</b>：厨房油污清理、卫生间除垢除霉、地面与门窗玻璃清洁、家具家电表面除尘、
+              垃圾清运；按间配租的可由同套住户共同预约，费用自行分摊。</div>
+            <div class="pr"><b>价格</b>：单间配套 128 元/次　·	一室一厅 168 元/次　·	三室一厅整套 268 元/次　·	加钟 45 元/小时</div>
+            <div class="ft">
+              <span class="og"><i class="fa-solid fa-building-user"></i> 提供机构：湘家帮家政服务有限公司<br>
+                <i class="fa-solid fa-phone"></i> 0731-28309900</span>
+              <button class="m-btn sm ghost" type="button" onclick="goOut('入室清扫','湘家帮家政服务有限公司')">前往办理 <i class="fa-solid fa-arrow-up-right-from-square"></i></button>
+            </div>
+          </div>
+
+          <div class="vs-i">
+            <div class="hd">
+              <span class="ic c3"><i class="fa-solid fa-hands-bubbles"></i></span>
+              <span class="nm"><b>日常家政（钟点工）</b><span>按小时计费 · 2 小时起做</span></span>
+            </div>
+            <div class="bd"><b>服务内容</b>：日常打扫、衣物整理与收纳、厨房餐后清理、代取快递与垃圾清运；
+              可预约固定阿姨与固定时间，支持包月。</div>
+            <div class="pr"><b>价格</b>：45 元/小时（2 小时起）　·	包月 8 次 320 元　·	节假日上浮 20%</div>
+            <div class="ft">
+              <span class="og"><i class="fa-solid fa-building-user"></i> 提供机构：湘家帮家政服务有限公司<br>
+                <i class="fa-solid fa-phone"></i> 0731-28309900</span>
+              <button class="m-btn sm ghost" type="button" onclick="goOut('日常家政（钟点工）','湘家帮家政服务有限公司')">前往办理 <i class="fa-solid fa-arrow-up-right-from-square"></i></button>
+            </div>
+          </div>
+
+          <div class="vs-i">
+            <div class="hd">
+              <span class="ic c4"><i class="fa-solid fa-fan"></i></span>
+              <span class="nm"><b>家电清洗</b><span>空调 · 洗衣机 · 抽油烟机拆洗消毒</span></span>
+            </div>
+            <div class="bd"><b>服务内容</b>：空调内机拆洗与滤网消毒、洗衣机内桶拆洗、抽油烟机拆洗除油；
+              上门前电话确认机型，清洗后提供 30 天服务保障。</div>
+            <div class="pr"><b>价格</b>：空调挂机 80 元/台　·	空调柜机 140 元/台　·	洗衣机 120 元/台　·	抽油烟机 150 元/台</div>
+            <div class="ft">
+              <span class="og"><i class="fa-solid fa-building-user"></i> 提供机构：株洲蓝天家电清洗服务中心<br>
+                <i class="fa-solid fa-phone"></i> 0731-28307733</span>
+              <button class="m-btn sm ghost" type="button" onclick="goOut('家电清洗','株洲蓝天家电清洗服务中心')">前往办理 <i class="fa-solid fa-arrow-up-right-from-square"></i></button>
+            </div>
+          </div>
+
+          <div class="vs-i">
+            <div class="hd">
+              <span class="ic c5"><i class="fa-solid fa-truck-ramp-box"></i></span>
+              <span class="nm"><b>搬家与行李暂存</b><span>市内小型搬家 · 公寓仓储间暂存</span></span>
+            </div>
+            <div class="bd"><b>服务内容</b>：市内小型搬家（含 2 名搬运工与面包车）、入住与退租时的行李打包，
+              以及公寓一层仓储间的行李短期暂存。</div>
+            <div class="pr"><b>价格</b>：市内小型搬家 180 元起（超 10 公里加收 4 元/公里）　·	行李暂存 5 元/件·天　·	打包耗材按实收取</div>
+            <div class="ft">
+              <span class="og"><i class="fa-solid fa-building-user"></i> 提供机构：株洲顺行搬家服务部<br>
+                <i class="fa-solid fa-phone"></i> 0731-28305566</span>
+              <button class="m-btn sm ghost" type="button" onclick="goOut('搬家与行李暂存','株洲顺行搬家服务部')">前往办理 <i class="fa-solid fa-arrow-up-right-from-square"></i></button>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="m-sect">这些不算增值服务<span class="m-sect-x">走报修工单</span></div>
+        <div class="m-note danger"><i class="fa-solid fa-screwdriver-wrench"></i>
+          <div>属于<b>房屋维修范畴</b>的事项<b>不属于增值服务、不另行收费</b>，请走<b>报修工单</b>：
+            水暖管道漏水、电路照明故障、门窗锁具损坏、墙面地面破损，以及配置家电家具的正常损坏维修。</div>
+        </div>
+        <div class="m-cells">
+          <a class="m-cell" href="repair-new.html"><span class="m-ci red"><i class="fa-solid fa-screwdriver-wrench"></i></span><span class="m-cl"><b>我要报修</b><span class="m-cs">拍照描述后提交，运营机构派单上门</span></span><span class="m-cv"><span class="m-tag green">免费</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="repair-list.html"><span class="m-ci"><i class="fa-solid fa-list-check"></i></span><span class="m-cl"><b>我的报修工单</b><span class="m-cs">派单、上门、完工进度与评价</span></span><span class="m-cv">1 处理中</span><i class="m-ca fa-solid fa-angle-right"></i></a>
+        </div>
+
+        <div class="m-sect">办理与权责说明</div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-circle-question"></i>需要知道的几件事</div>
+          <div class="m-card-b">
+            <div class="m-check">
+              <div class="ok"><i class="fa-solid fa-arrow-up-right-from-square"></i><div class="m-chl"><b>在运营机构自有平台办理</b><span>下单、支付、改约、退款与售后<b>全部在运营机构自有平台完成</b>；本平台<b>不做系统对接</b>，不同步订单状态</span></div></div>
+              <div class="ok"><i class="fa-solid fa-hand-holding-dollar"></i><div class="m-chl"><b>费用与租金账单相互独立</b><span>增值服务费用<b>不进入人才住房租金账单</b>，不影响租金减免与年度资格审查</span></div></div>
+              <div class="ok"><i class="fa-solid fa-user-check"></i><div class="m-chl"><b>自愿选购、不得搭售</b><span>增值服务<b>完全自愿</b>，与配租、签约、入住、续租等事项<b>不挂钩</b>；运营机构不得以任何形式搭售</span></div></div>
+              <div class="ok"><i class="fa-solid fa-tags"></i><div class="m-chl"><b>价格以运营机构公示为准</b><span>本页价格由运营机构报送并公示，如遇调整以其自有平台<b>实时价格</b>为准</span></div></div>
+              <div class="bad"><i class="fa-solid fa-comment-dots"></i><div class="m-chl"><b>服务纠纷的处理</b><span>先与提供机构协商；协商不成的可在本平台提交<b>投诉建议</b>，由运营机构限期答复并纳入服务考核</span></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="m-sect">发布与监督</div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-building-user"></i>发布单位</div>
+          <div class="m-card-b">
+          <div class="m-kv">
+            <div><span>发布单位</span><span><b>株洲市人才安居服务有限公司</b>（湘江1958 人才公寓运营机构）</span></div>
+            <div><span>服务地址</span><span>株洲市天元区泰山路 199 号　湘江1958 人才公寓 A6 栋 1 层客服中心</span></div>
+            <div><span>咨询电话</span><span><b>0731-28301958</b>　工作日 9:00—17:30</span></div>
+            <div><span>公示更新</span><span>2026-09-01　服务项目与价格每季度报送更新一次</span></div>
+            <div><span>监督渠道</span><span>市保障性住房服务中心监督电话 0731-28680000；也可在本平台提交投诉建议</span></div>
+          </div>
+          </div>
+        </div>
+
+        <div class="m-cells">
+          <a class="m-cell" href="complaint-new.html"><span class="m-ci orange"><i class="fa-solid fa-comment-dots"></i></span><span class="m-cl"><b>投诉建议</b><span class="m-cs">对增值服务与运营机构服务提交投诉</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="eval-service.html"><span class="m-ci cyan"><i class="fa-solid fa-star"></i></span><span class="m-cl"><b>服务评价</b><span class="m-cs">物业服务、运营单位服务在线打分</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="guide-list.html"><span class="m-ci"><i class="fa-solid fa-circle-play"></i></span><span class="m-cl"><b>系统使用指南</b><span class="m-cs">操作视频与政策解读图文</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../../assets/js/mobile.js"></script>
+<script>
+function goOut(name, org) {
+  MB.confirm('即将前往 <b>' + org + '</b> 的自有服务平台办理「<b>' + name + '</b>」。<br>' +
+    '下单、支付与售后均在该平台完成，<b>本平台不做系统对接</b>、不代收费用。',
+    '继续前往', function () {
+      MB.toast('原型演示：已跳转至 ' + org + ' 自有服务平台');
+    });
+}
+</script>
+</body>
+</html>

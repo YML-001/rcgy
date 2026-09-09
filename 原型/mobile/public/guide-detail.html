@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>指南详情 · 株洲市人才住房保障管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/mobile.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+<style>
+/* —— 指南详情专用样式 —— */
+.gd-play{position:relative;height:196px;border-radius:12px;overflow:hidden;
+  background:linear-gradient(140deg,#33507E 0%,#1B2A41 60%,#101720 100%);
+  display:flex;flex-direction:column;align-items:center;justify-content:center}
+.gd-play .btn{width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,.24);
+  border:1.5px solid rgba(255,255,255,.68);color:#fff;font-size:20px;
+  display:flex;align-items:center;justify-content:center;cursor:pointer}
+.gd-play .ph{margin-top:10px;font-size:11.5px;color:rgba(255,255,255,.78)}
+.gd-play .du{position:absolute;right:10px;bottom:10px;font-size:11px;color:#fff;
+  background:rgba(16,21,29,.62);border-radius:4px;padding:2px 7px}
+.gd-play .qa{position:absolute;left:10px;bottom:10px;display:flex;gap:6px}
+.gd-play .qa span{font-size:10.5px;color:#fff;background:rgba(16,21,29,.62);
+  border-radius:4px;padding:2px 7px}
+.gd-bar{margin-top:10px;height:4px;border-radius:3px;background:rgba(255,255,255,.24);
+  width:78%;position:relative}
+.gd-bar span{position:absolute;left:0;top:0;bottom:0;width:0%;border-radius:3px;background:#8FBBFF}
+/* 图文正文 */
+.gd-doc .h{font-size:14.5px;font-weight:800;color:var(--text-1);
+  padding-left:9px;border-left:3px solid var(--primary);line-height:1.4}
+.gd-doc .p{margin-top:8px;font-size:13.5px;line-height:1.95;color:var(--text-2)}
+.gd-doc .p b{color:var(--text-1)}
+.gd-doc .fig{margin-top:10px;border-radius:8px;background:var(--primary-light-2);
+  border:1px dashed var(--primary-soft);padding:14px 12px;text-align:center;
+  color:var(--text-3);font-size:12px}
+.gd-doc .fig i{font-size:22px;color:var(--primary-soft);display:block;margin-bottom:6px}
+.gd-tsp{font-size:11px;font-weight:700;color:var(--primary);background:var(--primary-light);
+  border-radius:4px;padding:1px 6px;margin-right:6px;font-variant-numeric:tabular-nums}
+</style>
+</head>
+<body class="m-body" data-mtitle="指南详情" data-mmod="M13 系统使用指南" data-mcode="M13-02"
+      data-mdesc="指南详情页。视频条目展示播放器占位与分步要点，可按时间点跳转；图文条目按分段正文呈现，附政策依据与相关办理入口。" data-mback="guide-list.html" data-mtabset="public" data-mtab="home">
+<div class="m-stage">
+  <div class="m-phone">
+    <div class="m-screen">
+      <div class="m-view">
+        <div class="m-seg">
+          <button class="on" type="button" onclick="sw(1)"><i class="fa-solid fa-circle-play"></i> 视频指南</button>
+          <button type="button" onclick="sw(2)"><i class="fa-solid fa-book-open"></i> 图文解读</button>
+        </div>
+
+        <!-- ========== 视频条目 ========== -->
+        <div id="pnVi" style="margin-top:12px">
+          <div class="gd-play">
+            <button class="btn" type="button" onclick="MB.toast('原型演示：此处为视频播放器占位')"><i class="fa-solid fa-play"></i></button>
+            <div class="ph">点击播放　·	视频播放器占位</div>
+            <div class="gd-bar"><span></span></div>
+            <div class="qa"><span>高清</span><span>1.0×</span><span>字幕</span></div>
+            <div class="du">04:38</div>
+          </div>
+          <div class="m-card" style="margin-top:12px">
+            <div class="m-card-h"><i class="fa-solid fa-circle-play"></i>怎么查配租结果与签约</div>
+            <div class="m-card-b">
+            <div class="m-kv">
+              <div><span>指南分类</span><span><span class="m-tag blue">系统操作</span>　申请与配租</span></div>
+              <div><span>视频时长</span><span>04:38（共 6 个步骤）</span></div>
+              <div><span>适用对象</span><span>资格审核已通过、已纳入自动配租范围的申请人</span></div>
+              <div><span>制作单位</span><span>株洲市保障性住房服务中心</span></div>
+              <div><span>更新时间</span><span>2026-09-15</span></div>
+            </div>
+            </div>
+          </div>
+          <div class="m-sect">步骤要点<span class="m-sect-x">点时间点可跳转</span></div>
+          <div class="m-card">
+            <div class="m-card-h"><i class="fa-solid fa-list-ol"></i>6 个步骤</div>
+            <div class="m-card-b">
+              <div class="m-check">
+                <div class="ok"><i class="fa-solid fa-1"></i><div class="m-chl"><b><span class="gd-tsp">00:12</span>先弄清：不用报名，系统自动配租</b><span>公告发布后无需任何操作，到公告写明的<b>自动配租执行时间</b>，系统按资格审核通过顺序自动匹配房间</span></div></div>
+                <div class="ok"><i class="fa-solid fa-2"></i><div class="m-chl"><b><span class="gd-tsp">00:48</span>在哪看结果</b><span>首页「人才租房申请」→ 配租公告 →「查看我的配租结果」；也可从短信中的链接直接进入</span></div></div>
+                <div class="ok"><i class="fa-solid fa-3"></i><div class="m-chl"><b><span class="gd-tsp">01:35</span>结果页要看清哪几项</b><span>楼盘、房屋（套）、房间（间）、<b>套内面积 + 公摊面积 = 计租面积</b>、人才租金标准与个人实际应缴</span></div></div>
+                <div class="ok"><i class="fa-solid fa-4"></i><div class="m-chl"><b><span class="gd-tsp">02:20</span>签约期限只有 5 个工作日</b><span>自结果公布次日起算，逾期未签约<b>视同放弃</b>，房源顺延给下一位申请人</span></div></div>
+                <div class="ok"><i class="fa-solid fa-5"></i><div class="m-chl"><b><span class="gd-tsp">03:02</span>线上电子签约怎么签</b><span>运营方在平台发起后，本人完成人脸核身，在手机上手写签名或使用电子签名，<b>签署完成即生效</b></span></div></div>
+                <div class="ok"><i class="fa-solid fa-6"></i><div class="m-chl"><b><span class="gd-tsp">03:50</span>线下签约怎么办</b><span>到运营机构现场签纸质合同后，在平台上传合同影像；状态先是<b>待运营机构核对确认</b>，<b>确认通过才算签约完成</b></span></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="m-note"><i class="fa-solid fa-circle-info"></i>
+            <div>本轮<b>未匹配到房源</b>的，结果页会显示<b>当前轮候位次</b>与<b>等待下一次配租</b>的提示，
+              资格与位次全部保留，下一批次仍由系统自动配租。</div>
+          </div>
+          <div class="m-sect">跟着做</div>
+          <div class="m-cells">
+            <a class="m-cell" href="alloc-select.html"><span class="m-ci green"><i class="fa-solid fa-house-circle-check"></i></span><span class="m-cl"><b>去查我的配租结果</b><span class="m-cs">分配到的房间、面积与签约安排</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+            <a class="m-cell" href="sign-contract.html"><span class="m-ci orange"><i class="fa-solid fa-file-signature"></i></span><span class="m-cl"><b>去签约</b><span class="m-cs">线上电子签约 / 线下签约上传</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+            <a class="m-cell" href="alloc-rule.html"><span class="m-ci cyan"><i class="fa-solid fa-scale-balanced"></i></span><span class="m-cl"><b>自动配租规则说明</b><span class="m-cs">四条规则与按间计租口径</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          </div>
+          <div class="m-sect">相关视频</div>
+          <div class="m-cells">
+            <a class="m-cell" href="guide-detail.html"><span class="m-ci"><i class="fa-solid fa-circle-play"></i></span><span class="m-cl"><b>从看房到申请的完整步骤</b><span class="m-cs">06:12 · 看房、意向登记、提交申请、查进度</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+            <a class="m-cell" href="guide-detail.html"><span class="m-ci"><i class="fa-solid fa-circle-play"></i></span><span class="m-cl"><b>意向登记怎么填才容易配到房</b><span class="m-cs">03:20 · 意向范围决定匹配结果</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          </div>
+        </div>
+
+        <!-- ========== 图文条目 ========== -->
+        <div id="pnDo" style="display:none;margin-top:12px">
+          <div class="m-card">
+            <div class="m-card-b">
+              <div style="font-size:17px;font-weight:800;color:var(--text-1);line-height:1.45">自动配租规则一图读懂</div>
+              <div style="margin-top:8px;font-size:11.5px;color:var(--text-3);line-height:1.7">
+                <span class="m-tag green">政策解读</span>　<span class="m-tag dark">租房保障</span><br>
+                来源：株洲市保障性住房服务中心　·	2026-09-01 发布　·	图文 5 段，约 3 分钟读完</div>
+            </div>
+          </div>
+          <div class="m-card gd-doc">
+            <div class="m-card-b">
+              <div class="h">一、一句话说清：不用报名，系统到点自动配租</div>
+              <div class="p">配租方式已调整为<b>系统自动配租</b>。配租经办发布配租公告时，会一并设定<b>自动配租执行时间</b>；
+                到点后系统自动为符合条件的申请人匹配房间。<b>申请人不需要报名、不需要抢名额、也不自行选房</b>，
+                公告发布后保持手机畅通、等结果短信即可。</div>
+              <div class="fig"><i class="fa-solid fa-robot"></i>图示：公告发布 → 名单锁定 → 到点自动匹配 → 结果短信告知 → 5 个工作日内签约</div>
+            </div>
+          </div>
+          <div class="m-card gd-doc">
+            <div class="m-card-b">
+              <div class="h">二、位次怎么排：按资格审核通过时间</div>
+              <div class="p">系统<b>按资格审核通过时间的先后</b>排定配租位次，<b>不摇号、不支持人工调序</b>。
+                审核通过时间相同的，依次比较特殊人才、家庭申请、学历层次、申请编号。
+                位次名单在配租执行前 1 小时锁定并公开，姓名按「姓 + ××」脱敏。</div>
+              <div class="p">需要特别说明的是：<b>意向登记不占位次</b>。无论是房源意向登记还是应届生意向登记，
+                都只决定系统在哪些房源里给你匹配，<b>不加分、不提前、不形成优先权</b>。</div>
+            </div>
+          </div>
+          <div class="m-card gd-doc">
+            <div class="m-card-b">
+              <div class="h">三、在哪些房源里匹配：你登记的意向范围</div>
+              <div class="p">系统<b>只在申请人已选定的意向楼盘与意向户型范围内</b>匹配房间。
+                范围之外的房源，即使还有空余也不会分配给你；范围之内没有可匹配房源的，
+                本轮不配租，自动转入轮候等待下一次。</div>
+              <div class="p">因此<b>意向范围越窄，本轮匹配到房源的概率越低</b>。想早点住上，可以在配租执行时间前
+                适当增加意向楼盘或放宽户型范围。</div>
+              <div class="fig"><i class="fa-solid fa-filter"></i>图示：意向楼盘 × 意向户型 = 系统的匹配池</div>
+            </div>
+          </div>
+          <div class="m-card gd-doc">
+            <div class="m-card-b">
+              <div class="h">四、同套同性别与组团整套预留</div>
+              <div class="p"><b>同套同性别</b>：按间配租时，同一套房内的配租对象<b>性别一致</b>，不会出现异性混住同一套的情况。
+                系统在落位时自动校验，不满足的直接跳过该套，继续匹配下一套。</div>
+              <div class="p"><b>组团整套预留、整组同套</b>：2—3 名资格审核均已通过、性别相同的青年人才可以线下自愿组团，在申请表里填报同住人员的姓名与手机号即可，系统不向对方发邀请、也不需要对方点确认，
+                配租时系统<b>为整组预留一整套、并对该组锁定</b>，锁定期间这套房的其余房间不参与单人匹配。组团的位次<b>按组内最靠后一位的位次</b>参与排序，
+                不会因为组内有人位次靠前就整体加塞。成团人数上限就是该户型的间数（三室 3 人、二室 2 人）；意向范围内没有整套可以整组匹配时，本组拆开按单人配租，各自位次不变。</div>
+              <div class="fig"><i class="fa-solid fa-people-group"></i>图示：三室一厅一套 3 间，整组 3 人同套；组内按位次先后分房间</div>
+            </div>
+          </div>
+          <div class="m-card gd-doc">
+            <div class="m-card-b">
+              <div class="h">五、配到房之后与没配到怎么办</div>
+              <div class="p"><b>配到房源的</b>：结果页会显示楼盘、房屋（套）、房间（间）、套内面积、公摊面积、计租面积与人才租金标准，
+                以及运营机构名称、地址、联系电话。请在<b>5 个工作日</b>内完成签约，可选<b>线上电子签约</b>
+                或<b>线下签约后上传合同影像</b>；逾期未签约视同放弃，房源顺延给下一位申请人。</div>
+              <div class="p"><b>本轮没配到房源的</b>：结果页会显示<b>当前轮候位次</b>与<b>等待下一次配租</b>的提示。
+                资格、位次与意向登记全部保留，系统自动排入下一批次，同样<b>不需要报名</b>。</div>
+              <div class="p" style="margin-top:12px;font-size:12px;color:var(--text-3)">
+                政策依据：《株洲市青年人才住房保障管理办法》第九条；本批次配租公告（株洲市保障性住房服务中心，2026-09-01）。
+                指南与政策原文不一致的，以政策原文为准。</div>
+            </div>
+          </div>
+          <div class="m-sect">相关办理</div>
+          <div class="m-cells">
+            <a class="m-cell" href="alloc-notice.html"><span class="m-ci orange"><i class="fa-solid fa-bullhorn"></i></span><span class="m-cl"><b>查看配租公告</b><span class="m-cs">房源范围、可安置人数与自动配租执行时间</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+            <a class="m-cell" href="alloc-order.html"><span class="m-ci"><i class="fa-solid fa-list-ol"></i></span><span class="m-cl"><b>查询我的配租位次</b><span class="m-cs">按资格审核通过时间排定</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+            <a class="m-cell" href="book-list.html"><span class="m-ci green"><i class="fa-solid fa-calendar-check"></i></span><span class="m-cl"><b>调整我的意向登记</b><span class="m-cs">意向范围决定系统的匹配池</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+            <a class="m-cell" href="policy-detail.html"><span class="m-ci cyan"><i class="fa-solid fa-scroll"></i></span><span class="m-cl"><b>查看政策原文</b><span class="m-cs">青年人才住房保障管理办法</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          </div>
+        </div>
+
+        <div class="m-note"><i class="fa-solid fa-circle-info"></i>
+          <div>指南内容随政策与系统功能调整同步更新。看完仍有疑问的，可用
+            <a href="ai-search.html">AI 智能问答</a>提问，或在<a href="me-feedback.html">意见反馈</a>中告诉我们。</div>
+        </div>
+      </div>
+      <div class="m-actbar">
+        
+        <button class="m-btn w-auto" type="button" onclick="MB.toast('已生成分享卡片，可转发给同事')"><i class="fa-solid fa-share-nodes"></i> 分享</button>
+        <a class="m-btn primary" href="guide-list.html"><i class="fa-solid fa-list"></i> 返回指南列表</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../../assets/js/mobile.js"></script>
+<script>
+function sw(n) {
+  var vi = n === 1;
+  document.getElementById('pnVi').style.display = vi ? '' : 'none';
+  document.getElementById('pnDo').style.display = vi ? 'none' : '';
+}
+if (location.search.indexOf('t=doc') > -1) {
+  sw(2);
+  var bs = document.querySelectorAll('.m-seg button');
+  if (bs.length === 2) { bs[0].classList.remove('on'); bs[1].classList.add('on'); }
+}
+</script>
+</body>
+</html>

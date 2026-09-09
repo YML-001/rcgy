@@ -7,7 +7,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="../../assets/css/app.css">
 <link rel="stylesheet" href="../../assets/css/spec.css">
-<link rel="stylesheet" href="../../assets/css/ext.css">
 </head>
 <body data-role="admin" data-active="system-22">
 <main class="app-main">
@@ -20,20 +19,20 @@
     </div>
     <div class="page-actions">
       <button class="btn btn-primary" onclick="PMS.openDrawer('urDrawer')"><i class="fa-solid fa-layer-group"></i> 按岗位批量授权</button>
-      <button class="btn" onclick="PMS.confirm({title:'导出确认',message:'确认导出用户角色分配台账？',detail:'台账按单位类型分组导出主管单位、运营机构、用人单位三类账号的角色授权情况，含所属单位（主管单位取内设科室、用人单位含统一社会信用代码）、岗位、已分配角色、权限来源、有效期与授权人。导出行为写入权限变更留痕。',type:'warning',okText:'确认导出',onOk:function(){PMS.toast('已提交角色分配台账导出任务，完成后在顶栏消息区提醒','success');}})"><i class="fa-solid fa-download"></i> 导出授权台账</button>
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
     </div>
   </div>
 
   <div class="alert alert-warning">
     <i class="fa-solid fa-triangle-exclamation"></i>
-    <div>为用户分配一个或多个角色，<b>用户最终权限为其全部角色权限的并集</b>；支持按<b>组织机构、岗位批量授权与批量回收</b>，支持设定<b>角色有效期</b>，到期自动解除并通知管理员。授权时须区分归属：<b>主管单位用户按内设科室</b>授权，<b>运营机构、用人单位两类外部用户</b>分别按<b>运营机构名称</b>与<b>单位名称及统一社会信用代码</b>授权，<b>数据范围随单位类型继承、不得放宽</b>。</div>
+    <div>为用户分配一个或多个角色，<b>用户最终权限为其全部角色权限的并集</b>；支持按<b>组织机构、岗位批量授权与批量回收</b>，支持设定<b>角色有效期</b>，到期自动解除并通知管理员。</div>
   </div>
 
   <div class="stat-grid">
     <div class="stat-card">
       <div class="s-icon blue"><i class="fa-solid fa-users"></i></div>
       <div><div class="s-label">已分配账号</div><div class="s-value">246</div>
-        <div class="s-trend text-2">主管单位 168 / 运营机构 46 / 用人单位 32</div></div>
+        <div class="s-trend text-2">覆盖 26 家机构</div></div>
     </div>
     <div class="stat-card">
       <div class="s-icon green"><i class="fa-solid fa-user-tag"></i></div>
@@ -54,12 +53,11 @@
 
   <div class="card list-card">
     <div class="filter-bar">
-      <div class="filter-item"><label>登录账号</label><input type="text" value="chenxl" placeholder="账号"></div>
-      <div class="filter-item"><label>姓名</label><input type="text" value="陈晓琳" placeholder="姓名"></div>
-      <div class="filter-item"><label>单位类型</label><select data-dict="orgType" data-ph="全部"></select></div>
-      <div class="filter-item"><label>单位名称</label><input type="text" value="市保障性住房服务中心配租管理科" placeholder="内设科室 / 运营机构 / 用人单位名称"></div>
-      <div class="filter-item"><label>岗位</label><input type="text" value="配租经办岗" placeholder="岗位名称"></div>
-      <div class="filter-item"><label>角色</label><input type="text" value="配租经办员" placeholder="角色名称"></div>
+      <div class="filter-item"><label>登录账号</label><input type="text" placeholder="账号"></div>
+      <div class="filter-item"><label>姓名</label><input type="text" placeholder="姓名"></div>
+      <div class="filter-item"><label>所属机构</label><input type="text" placeholder="机构名称"></div>
+      <div class="filter-item"><label>岗位</label><input type="text" placeholder="岗位名称"></div>
+      <div class="filter-item"><label>角色</label><input type="text" placeholder="角色名称"></div>
       <div class="filter-item"><label>有效期</label><select><option value="">全部</option><option>长期有效</option><option>限期（未到期）</option><option>限期（7 日内到期）</option><option>已到期自动解除</option></select></div>
       <div class="filter-actions">
         <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
@@ -70,45 +68,24 @@
     <div class="table-wrap">
       <table class="data-table">
         <thead>
-          <tr><th>登录账号</th><th>姓名</th><th>单位类型</th><th class="cell-lg">所属单位</th><th class="cell-lg">岗位</th><th class="cell-lg">已分配角色</th><th>权限来源</th><th>有效期</th><th>授权人</th><th>状态</th><th>操作</th></tr>
+          <tr><th>登录账号</th><th>姓名</th><th class="cell-lg">所属机构 / 岗位</th><th class="cell-lg">已分配角色</th><th>权限来源</th><th>有效期</th><th>授权人</th><th>状态</th><th>操作</th></tr>
         </thead>
         <tbody>
-          <tr><td>liuzg</td><td>刘志刚</td><td><span class="badge blue">主管单位</span></td><td>市保障性住房服务中心　<span class="muted">资格审核科</span></td><td>资格受理岗（初审）</td><td><span class="badge blue">受理初审员</span></td><td><span class="badge cyan">岗位继承</span></td><td>长期有效</td><td>龙志宏</td><td><span class="badge green">正常</span></td><td><span class="link" onclick="PMS.openDrawer('urDrawer')">分配角色</span></td></tr>
-          <tr><td>zhouh</td><td>周慧</td><td><span class="badge blue">主管单位</span></td><td>市保障性住房服务中心　<span class="muted">资格审核科</span></td><td>资格审核岗（复审）</td><td><span class="badge blue">审核员</span></td><td><span class="badge cyan">岗位继承</span></td><td>长期有效</td><td>龙志宏</td><td><span class="badge green">正常</span></td><td><span class="link" onclick="PMS.openDrawer('urDrawer')">分配角色</span></td></tr>
-          <tr><td>lihm</td><td>李慧敏</td><td><span class="badge blue">主管单位</span></td><td>市住建局　<span class="muted">住房保障科</span></td><td>业务管理岗</td><td><span class="badge blue">业务管理员</span>　<span class="badge purple">信息公开经办</span></td><td><span class="badge blue">直接授予</span></td><td>长期有效</td><td>龙志宏</td><td><span class="badge green">正常</span></td><td><span class="link" onclick="PMS.openDrawer('urDrawer')">分配角色</span></td></tr>
-          <tr class="row-warn"><td>chenxl</td><td>陈晓琳</td><td><span class="badge blue">主管单位</span></td><td>市保障性住房服务中心　<span class="muted">配租管理科</span></td><td>配租经办岗</td><td><span class="badge blue">配租经办员</span>　<span class="badge orange">租金核算员（限期）</span></td><td><span class="badge orange">临时授权</span></td><td>2026-09-12 到期（剩 4 天）</td><td>龙志宏</td><td><span class="badge orange">限期</span></td><td><span class="link" onclick="PMS.openDrawer('urDrawer')">分配角色</span></td></tr>
-          <tr><td>pengjh</td><td>彭建华</td><td><span class="badge green">运营机构</span></td><td>株洲城发高科人才安居服务有限公司</td><td>运营机构经办岗</td><td><span class="badge green">运营机构经办</span></td><td><span class="badge cyan">岗位继承</span></td><td>2027-06-30（协议期）</td><td>徐立</td><td><span class="badge green">正常</span></td><td><span class="link" onclick="PMS.openDrawer('urDrawer')">分配角色</span></td></tr>
-          <tr><td>tangjb</td><td>唐建波</td><td><span class="badge green">运营机构</span></td><td>清水塘投资运营服务有限公司</td><td>运营机构经办岗</td><td><span class="badge green">运营机构经办</span></td><td><span class="badge cyan">岗位继承</span></td><td>2027-06-30（协议期）</td><td>徐立</td><td><span class="badge green">正常</span></td><td><span class="link" onclick="PMS.openDrawer('urDrawer')">分配角色</span></td></tr>
-          <tr><td>zoumin</td><td>邹敏</td><td><span class="badge cyan">用人单位</span></td><td>中车株洲电力机车研究所有限公司　<span class="muted">91430200183928476K</span></td><td>单位经办岗</td><td><span class="badge cyan">用人单位经办</span></td><td><span class="badge cyan">岗位继承</span></td><td>2027-12-31（单位认证有效期）</td><td>徐立</td><td><span class="badge green">正常</span></td><td><span class="link" onclick="PMS.openDrawer('urDrawer')">分配角色</span></td></tr>
-          <tr><td>tanjj</td><td>谭建军</td><td><span class="badge blue">主管单位</span></td><td>市政务服务中心　<span class="muted">人才住房窗口</span></td><td>窗口受理岗</td><td><span class="badge orange">窗口受理员</span></td><td><span class="badge cyan">岗位继承</span></td><td>长期有效</td><td>龙志宏</td><td><span class="badge green">正常</span></td><td><span class="link" onclick="PMS.openDrawer('urDrawer')">分配角色</span></td></tr>
-          <tr class="row-bad"><td>yanling</td><td>颜玲</td><td><span class="badge cyan">用人单位</span></td><td>株洲时代新材料科技股份有限公司　<span class="muted">91430200712345678X</span></td><td>单位经办岗</td><td><span class="badge gray">已自动解除</span></td><td><span class="badge orange">临时授权</span></td><td>2026-08-31 已到期</td><td>徐立</td><td><span class="badge red">已解除</span></td><td><span class="link" onclick="PMS.toast('临时授权「用人单位经办」于 2026-08-31 到期，系统自动解除并向授权人徐立与本人推送通知，解除记录已写入权限变更留痕；单位注册认证仍有效，需要恢复请重新授权')">自动解除记录</span></td></tr>
+          <tr><td>liuzg</td><td>刘志刚</td><td>市住保中心资格审核科 / 资格审核岗（复核）</td><td><span class="badge blue">审核角色</span></td><td><span class="badge cyan">岗位继承</span></td><td>长期有效</td><td>李慧敏</td><td><span class="badge green">正常</span></td><td><span class="link" onclick="PMS.openDrawer('urDrawer')">分配角色</span></td></tr>
+          <tr><td>zhoum</td><td>周敏</td><td>市住保中心资格审核科 / 资格受理岗（初审）</td><td><span class="badge blue">受理初审角色</span></td><td><span class="badge cyan">岗位继承</span></td><td>长期有效</td><td>李慧敏</td><td><span class="badge green">正常</span></td><td><span class="link" onclick="PMS.openDrawer('urDrawer')">分配角色</span></td></tr>
+          <tr><td>lihm</td><td>李慧敏</td><td>市住建局住房保障科 / 业务管理岗</td><td><span class="badge blue">业务管理员角色</span></td><td><span class="badge blue">直接授予</span></td><td>长期有效</td><td>龙志宏</td><td><span class="badge green">正常</span></td><td><span class="link" onclick="PMS.openDrawer('urDrawer')">分配角色</span></td></tr>
+          <tr class="row-warn"><td>chenxl</td><td>陈晓琳</td><td>市住保中心配租管理科 / 配租经办岗</td><td><span class="badge blue">配租经办角色</span>　<span class="badge orange">租金核算角色（限期）</span></td><td><span class="badge orange">临时授权</span></td><td>2026-09-12 到期（剩 7 天）</td><td>龙志宏</td><td><span class="badge orange">限期</span></td><td><span class="link" onclick="PMS.openDrawer('urDrawer')">分配角色</span></td></tr>
+          <tr><td>pengxm</td><td>彭雪梅</td><td>株洲市人才安居服务有限公司 / 运营机构经办岗</td><td><span class="badge green">运营机构角色</span></td><td><span class="badge cyan">岗位继承</span></td><td>2027-06-30（协议期）</td><td>李慧敏</td><td><span class="badge green">正常</span></td><td><span class="link" onclick="PMS.openDrawer('urDrawer')">分配角色</span></td></tr>
+          <tr class="row-bad"><td>wangq</td><td>王强</td><td>市政务服务中心人才住房窗口 / 窗口受理岗</td><td><span class="badge gray">已自动解除</span></td><td><span class="badge orange">临时授权</span></td><td>2026-08-31 已到期</td><td>李慧敏</td><td><span class="badge red">已解除</span></td><td><span class="link" onclick="PMS.toast('临时授权「受理初审角色」于 2026-08-31 到期，系统自动解除并向授权人李慧敏与本人推送通知，解除记录已写入权限变更留痕')">自动解除记录</span></td></tr>
         </tbody>
       </table>
     </div>
   </div>
-  <div class="sp-block" style="margin-top:8px">
-    <div class="sp-h"><i class="fa-solid fa-list"></i> 按单位类型的授权与数据范围口径<span class="sub">UR-1 至 UR-4　13 个角色按单位类型分属</span></div>
-    <div class="sp-b">
-      <div class="sp-tw">
-        <table class="data-table compact">
-          <thead><tr><th>规则号</th><th>单位类型</th><th class="cell-lg">「所属单位」列显示内容</th><th class="cell-lg">可授予角色</th><th>数据范围</th></tr></thead>
-          <tbody>
-          <tr><td><b>UR-1</b></td><td><span class="badge blue">主管单位</span></td><td>显示<b>内设科室</b>：资格审核科、房源管理科、配租管理科、财务科、信息科、综合科、运营监管科；市住建局住房保障科与市政务服务中心人才住房窗口一并归入本类</td><td>受理初审员、审核员、单位房源管理员、企业机构管理员、配租经办员、租金核算员、权限配置管理员、窗口受理员、信息公开经办、业务管理员、分管领导</td><td><span class="badge blue">全市统一</span></td></tr>
-          <tr><td><b>UR-2</b></td><td><span class="badge green">运营机构</span></td><td>显示<b>所属运营机构名称</b>：株洲城发高科人才安居服务有限公司、清水塘投资运营服务有限公司、株洲高新人才公寓运营有限公司</td><td>运营机构经办</td><td><span class="badge green">本机构受托房源及其派生数据</span></td></tr>
-          <tr><td><b>UR-3</b></td><td><span class="badge cyan">用人单位</span></td><td>显示<b>单位名称与统一社会信用代码</b>，代码 18 位，须与单位注册认证信息一致；有效期默认取单位认证有效期</td><td>用人单位经办</td><td><span class="badge cyan">本单位职工申报件</span></td></tr>
-          <tr><td><b>UR-4</b></td><td><span class="badge gray">口径说明</span></td><td><b>房源归属决定业务数据归属</b>。外部用户角色<b>不得跨单位授予</b>：运营机构账号只能授运营机构经办、用人单位账号只能授用人单位经办；<b>数据范围随单位类型继承、不得放宽</b>，用人单位数据范围不含收入、住房核验等敏感信息，也不涉及房源与合同</td><td>权限并集仅在<b>同一单位类型内</b>取并集，跨类型授权由系统拦截</td><td><span class="muted">按类型继承</span></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-
   <div class="sp-src">
-    <span><b>权限并集</b> 用户最终权限 = 全部角色权限的并集；数据范围按单位类型继承，不取更宽档位</span>
+    <span><b>权限并集</b> 用户最终权限 = 全部角色权限的并集；数据范围取最宽档位</span>
     <span><b>两种来源</b> 岗位继承（推荐，随岗位变动自动调整）与直接授予（个案，须说明理由）</span>
     <span><b>批量授权</b> 可按组织机构或岗位批量授权与批量回收，一次最多 200 个账号</span>
     <span><b>到期处理</b> 角色有效期到期自动解除并通知授权人与本人，解除记录写入变更留痕</span>
-    <span><b>关联页面</b> <span class="link" onclick="location.href='sys-user.html'">用户账号管理</span>　<span class="link" onclick="location.href='sys-post-manage.html'">岗位管理</span>　<span class="link" onclick="location.href='sys-datascope.html'">数据范围配置</span></span>
   </div>
 </main>
 
@@ -122,7 +99,7 @@
   <div class="drawer-body">
   <div class="alert alert-warning">
     <i class="fa-solid fa-triangle-exclamation"></i>
-    <div>推荐通过<b>岗位继承</b>授权，随岗位变动自动调整；直接授予须说明理由。<b>限期角色到期自动解除</b>，不需人工回收。授权须与<b>单位类型</b>匹配：主管单位账号按内设科室授内部角色，<b>运营机构、用人单位账号只能授本类型对应角色，不得跨单位类型授予</b>；数据范围随单位类型继承、不得放宽。</div>
+    <div>推荐通过<b>岗位继承</b>授权，随岗位变动自动调整；直接授予须说明理由。<b>限期角色到期自动解除</b>，不需人工回收。</div>
   </div>
 
       <div class="form-grid form-align">
@@ -134,48 +111,35 @@
           <label>姓名 <span class="req">*</span></label>
           <input type="text" value="陈晓琳" readonly>
         </div>
-        <div class="form-item">
-          <label>单位类型 <span class="req">*</span></label>
-          <select data-dict="orgType" data-selected="主管单位" data-ph=""></select>
-          <div class="hint">决定可授予角色范围与数据范围继承口径</div>
-        </div>
-        <div class="form-item">
-          <label>岗位 <span class="req">*</span></label>
-          <input type="text" value="配租经办岗" readonly>
-        </div>
         <div class="form-item col-full">
-          <label>所属单位 <span class="req">*</span></label>
-          <input type="text" value="市保障性住房服务中心　配租管理科" readonly>
-          <div class="hint">主管单位账号显示<b>内设科室</b>；运营机构显示机构全称；用人单位显示单位全称与统一社会信用代码</div>
+          <label>所属机构 / 岗位 <span class="req">*</span></label>
+          <input type="text" value="市住保中心配租管理科 / 配租经办岗" readonly>
         </div>
         <div class="form-item col-full">
           <label>授权方式 <span class="req">*</span></label>
-          <select><option selected>岗位继承（推荐）</option><option>直接授予</option><option>按机构批量</option><option>按岗位批量</option></select>
+          <select><option value="">全部</option><option>岗位继承（推荐）</option><option>直接授予</option><option>按机构批量</option><option>按岗位批量</option></select>
         </div>
         <div class="form-item col-full">
           <label>分配角色 <span class="req">*</span></label>
-          <textarea rows="7">☑ 配租经办员　　　（岗位继承 · 长期有效）
-☑ 租金核算员　　　（临时授权 · 2026-09-01 至 2026-09-12，顶岗）
-☐ 受理初审员　　　（可授予，属主管单位角色）
-☐ 审核员　　　　　（可授予，属主管单位角色）
-☐ 业务管理员　　　（高敏角色，须龙志宏审批）
-☐ 权限配置管理员　（高敏角色，须龙志宏审批）
-☐ 运营机构经办 / 用人单位经办　（单位类型不匹配：本账号为主管单位账号，不得授予外部用户角色）</textarea>
-          <div class="hint">共 13 个角色，按单位类型过滤后展示；本账号最终权限取已勾选角色权限的并集</div>
+          <textarea rows="5">☑ 配租经办角色　（岗位继承 · 长期有效）
+☑ 租金核算角色　（临时授权 · 2026-09-01 至 2026-09-12，顶岗）
+☐ 受理初审角色　（岗位设置：资格审核岗第 1 组与配租处置岗第 3 组不相容，不可同时授予）
+☐ 审核角色　（岗位设置：资格审核岗第 1 组与配租处置岗第 3 组不相容，不可同时授予）
+☐ 业务管理员角色　（高敏角色，须龙志宏审批）
+☐ 权限配置管理员角色　（岗位设置：权限管理岗不得兼业务办理岗）</textarea>
         </div>
         <div class="form-item">
           <label>有效期起 <span class="req">*</span></label>
-          <input type="date" value="2026-09-01">
+          <input type="date">
         </div>
         <div class="form-item">
           <label>有效期止 <span class="req">*</span></label>
-          <input type="date" value="2026-09-12">
-          <div class="hint">留空为长期有效；外部用户默认取单位认证或协议有效期</div>
+          <input type="date">
+          <div class="hint">留空为长期有效</div>
         </div>
         <div class="form-item col-full">
           <label>最终数据范围 <span class="req">*</span></label>
-          <input type="text" value="全市统一（主管单位账号，按单位类型继承）" readonly>
-          <div class="hint">运营机构账号固定为本机构受托房源，用人单位账号固定为本单位职工申报件，<b>不随角色叠加而放宽</b></div>
+          <input type="text" value="全部（取两个角色中最宽档位）" readonly>
         </div>
         <div class="form-item col-full">
           <label>到期处理 <span class="req">*</span></label>
@@ -183,13 +147,13 @@
         </div>
         <div class="form-item col-full">
           <label>授权理由 <span class="req">*</span></label>
-          <textarea rows="3">租金核算员罗湘 2026-09-01 至 09-12 休假，由市保障性住房服务中心配租管理科陈晓琳顶岗办理账单核算。两个角色均属主管单位角色，单位类型匹配；顶岗期间数据范围仍为全市统一，不涉及运营机构与用人单位账号的授权变更。限期到 2026-09-12 自动解除，不需人工回收。</textarea>
+          <textarea rows="3">租金核算岗张伟 2026-09-01 至 09-12 休产假，由陈晓琳顶岗办理账单核算。顶岗期间不办理资金复核与拨付审批环节，符合不相容岗位控制要求。</textarea>
         </div>
       </div>
   </div>
   <div class="drawer-foot">
     <button class="btn" data-close-drawer>取消</button>
-    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认为 chenxl 分配角色？限期角色到期后系统将自动解除并通知。',detail:'本账号单位类型为「主管单位」，所属单位 市保障性住房服务中心 配租管理科，只能授予主管单位类角色；数据范围按单位类型继承为全市统一，不随角色叠加放宽。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已分配，限期角色将于 2026-09-12 自动解除','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认为 chenxl 分配角色？限期角色到期后系统将自动解除并通知。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已分配，限期角色将于 2026-09-12 自动解除','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
   </div>
 </div>
 <script>

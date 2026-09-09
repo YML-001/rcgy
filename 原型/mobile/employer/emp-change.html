@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>在职状态变更上报 · 株洲市人才住房保障管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/mobile.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body class="m-body" data-mtitle="在职状态变更上报" data-mmod="M3 用人单位 · 在职状态变更上报" data-mcode="M3-03"
+      data-mdesc="上报职工离职、调岗、社保停缴等变更，触发承租资格复核。变更发生后 10 个工作日内上报。" data-mback="emp-declare.html" data-mtabset="emp" data-mtab="declare" data-mchan="湘易办">
+<div class="m-stage">
+  <div class="m-phone">
+    <div class="m-screen">
+      <div class="m-view">
+        <div class="m-note warn"><i class="fa-solid fa-triangle-exclamation"></i>
+          <div>职工<b>离职、调岗、社保停缴</b>的，应当在 <b>10 个工作日内</b>上报。
+            已承租人才公寓的职工离职后，由住建部门启动资格复核，
+            不再符合条件的按规定退出。瞒报、迟报将影响本单位后续代申报。</div>
+        </div>
+        <div class="m-cells">
+          <a class="m-cell" href="javascript:void(0)" onclick="MB.confirm({title:'上报确认',message:'确认上报该职工在职状态变更？',detail:'上报后由住建部门启动资格复核。',okText:'确认上报',onOk:function(){MB.toast('已上报');}})"><span class="m-ci"><i class="fa-solid fa-user-xmark"></i></span><span class="m-cl"><b>孙浩宇　供应链部</b><span class="m-cs">社保已停缴 · 湘江1958 / A6-1208B</span></span><span class="m-cv"><span class="m-tag red">待上报</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="javascript:void(0)"><span class="m-ci green"><i class="fa-solid fa-circle-check"></i></span><span class="m-cl"><b>刘一鸣　工艺部</b><span class="m-cs">已离职 · 2026-09-03 已上报</span></span><span class="m-cv"><span class="m-tag green">已上报</span></span></a>
+          <a class="m-cell" href="javascript:void(0)"><span class="m-ci green"><i class="fa-solid fa-circle-check"></i></span><span class="m-cl"><b>赵敏行　制造部</b><span class="m-cs">调岗外派 · 2026-09-02 已上报</span></span><span class="m-cv"><span class="m-tag green">已上报</span></span></a>
+        </div>
+        <div style="padding:14px">
+          <a class="m-btn primary" href="javascript:void(0)" onclick="MB.toast('原型演示：选择职工并填写变更信息')">新增变更上报</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="../../assets/js/mobile.js"></script>
+</body>
+</html>

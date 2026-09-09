@@ -3,24 +3,33 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>房源筛选与排序 · 株洲市人才住房保障管理平台</title>
+<title>筛选与排序 · 株洲市人才住房保障管理平台</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="../../assets/css/app.css">
 <link rel="stylesheet" href="../../assets/css/mobile.css">
 <link rel="stylesheet" href="../../assets/css/ext.css">
 </head>
-<body class="m-body" data-mtitle="筛选与排序" data-mmod="M4 房源展示与看房选房" data-mcode="M4-06"
-      data-mdesc="按区域、人才租金、计租面积、房间配套、剩余可选间数等条件筛选与排序。" data-mback="house-list.html" data-mtabset="public" data-mtab="house">
+<body class="m-body" data-mtitle="筛选与排序" data-mmod="M4 房源展示与租住情况公开" data-mcode="M4-06"
+      data-mdesc="按区域、户型、面积段、个人自付租金、房源来源与剩余可选等条件筛选与排序，筛选结果为楼盘。选定楼盘后进入楼盘详情选择户型，再分别进入意向登记或正式申请。" data-mback="house-list.html" data-mtabset="public" data-mtab="house">
 <div class="m-stage">
   <div class="m-phone">
     <div class="m-screen">
       <div class="m-view">
+        <div class="m-pills">
+          <a href="house-list.html"><i class="fa-solid fa-list"></i> 列表</a>
+          <a href="house-map.html"><i class="fa-solid fa-map-location-dot"></i> 地图找房</a>
+          <a class="on" href="house-filter.html"><i class="fa-solid fa-filter"></i> 筛选</a>
+          <a href="ai-search.html"><i class="fa-solid fa-wand-magic-sparkles"></i> 一句话检索</a>
+        </div>
+        <div class="m-note success" style="margin-top:10px"><i class="fa-solid fa-route"></i>
+          <div>筛选结果为<b>楼盘</b>。选定楼盘后进入楼盘详情<b>选择户型</b>，再分别进入意向登记或正式申请，<b>不选具体房屋与房间</b>。</div>
+        </div>
         <div class="m-sect">区域<span class="m-sect-x">可多选</span></div>
         <div class="m-pills" style="margin-bottom:12px">
           <button class="on">全部</button><button>天元区</button><button>荷塘区</button>
           <button>芦淞区</button><button>石峰区</button><button>经开区</button>
         </div>
-        <div class="m-sect">户型</div>
+        <div class="m-sect">户型<span class="m-sect-x">申请填报到此为止</span></div>
         <div class="m-pills" style="margin-bottom:12px">
           <button class="on">全部</button><button>单间配套</button><button>一室一厅</button>
           <button>二室一厅</button><button>三室一厅</button>
@@ -41,7 +50,7 @@
           <div class="m-card-b">
           <div class="m-opts">
             <div class="m-opt on"><span class="m-ok"><i class="fa-solid fa-check"></i></span><span class="m-ol"><b>不限来源</b><span>三类渠道房源全部展示</span></span></div>
-            <div class="m-opt"><span class="m-ok"><i class="fa-solid fa-check"></i></span><span class="m-ol"><b>收购存量商品房</b><span>本系统直接管理，装修与家电配置标准统一</span></span></div>
+            <div class="m-opt"><span class="m-ok"><i class="fa-solid fa-check"></i></span><span class="m-ol"><b>收购商品房转化</b><span>本系统直接管理，装修与家电配置标准统一</span></span></div>
             <div class="m-opt"><span class="m-ok"><i class="fa-solid fa-check"></i></span><span class="m-ol"><b>公租房盘活</b><span>公租房闲置房源盘活，保留原属性可追溯</span></span></div>
             <div class="m-opt"><span class="m-ok"><i class="fa-solid fa-check"></i></span><span class="m-ol"><b>保租房「一间房」</b><span>省保租房系统面向人才引进的房源</span></span></div>
           </div>
@@ -49,27 +58,32 @@
         </div>
         <div class="m-sect">其他条件</div>
         <div class="m-cells">
-          <div class="m-cell"><span class="m-ci green"><i class="fa-solid fa-check"></i></span><span class="m-cl"><b>仅看有剩余房源</b><span class="m-cs">剩余可选间数为 0 的楼盘不展示</span></span><span class="m-cv"><span class="m-sw on"></span></span></div>
-          <div class="m-cell"><span class="m-ci cyan"><i class="fa-solid fa-vr-cardboard"></i></span><span class="m-cl"><b>仅看支持 VR 的房源</b><span class="m-cs">可在线 360° 环视</span></span><span class="m-cv"><span class="m-sw"></span></span></div>
+          <div class="m-cell"><span class="m-ci green"><i class="fa-solid fa-check"></i></span><span class="m-cl"><b>仅看有剩余可选的楼盘</b><span class="m-cs">剩余可选为 0 的楼盘不展示</span></span><span class="m-cv"><span class="m-sw on"></span></span></div>
+          <div class="m-cell"><span class="m-ci cyan"><i class="fa-solid fa-vr-cardboard"></i></span><span class="m-cl"><b>仅看支持 VR 的楼盘</b><span class="m-cs">可在线 360° 环视</span></span><span class="m-cv"><span class="m-sw"></span></span></div>
           <div class="m-cell"><span class="m-ci"><i class="fa-solid fa-couch"></i></span><span class="m-cl"><b>仅看家电家具齐全</b><span class="m-cs">达到拎包入住标准</span></span><span class="m-cv"><span class="m-sw on"></span></span></div>
           <div class="m-cell"><span class="m-ci orange"><i class="fa-solid fa-train-subway"></i></span><span class="m-cl"><b>仅看近地铁（1 km 内）</b><span class="m-cs">步行 15 分钟内可达地铁站</span></span><span class="m-cv"><span class="m-sw"></span></span></div>
+          <div class="m-cell"><span class="m-ci"><i class="fa-solid fa-clipboard-check"></i></span><span class="m-cl"><b>仅看我已登记意向的楼盘</b><span class="m-cs">按「我的意向登记」中生效中的记录过滤</span></span><span class="m-cv"><span class="m-sw"></span></span></div>
         </div>
         <div class="m-sect">排序方式</div>
         <div class="m-card">
           <div class="m-card-h"><i class="fa-solid fa-arrow-down-a-z"></i>排序</div>
           <div class="m-card-b">
           <div class="m-opts">
-            <div class="m-opt on"><span class="m-ok"><i class="fa-solid fa-check"></i></span><span class="m-ol"><b>剩余可选间数从多到少</b><span>选中概率更高</span></span></div>
+            <div class="m-opt on"><span class="m-ok"><i class="fa-solid fa-check"></i></span><span class="m-ol"><b>剩余可选从多到少</b><span>可配租房源更充足的楼盘排在前面</span></span></div>
             <div class="m-opt"><span class="m-ok"><i class="fa-solid fa-check"></i></span><span class="m-ol"><b>个人自付租金从低到高</b><span>减免后自付金额</span></span></div>
             <div class="m-opt"><span class="m-ok"><i class="fa-solid fa-check"></i></span><span class="m-ol"><b>建筑面积从大到小</b></span></div>
+            <div class="m-opt"><span class="m-ok"><i class="fa-solid fa-check"></i></span><span class="m-ol"><b>意向登记数从少到多</b><span>需求登记较少的楼盘，供需相对宽松</span></span></div>
             <div class="m-opt"><span class="m-ok"><i class="fa-solid fa-check"></i></span><span class="m-ol"><b>距就业单位距离从近到远</b><span>按您填报的单位地址计算</span></span></div>
           </div>
           </div>
         </div>
+        <div class="m-note"><i class="fa-solid fa-circle-info"></i>
+          <div>筛选与排序<b>不影响配租结果</b>。房源不由申请人自行选定，资格审核通过后由系统<b>按配租公告设定的时间自动配租</b>；意向登记数仅供了解供需热度。</div>
+        </div>
       </div>
       <div class="m-actbar">
         <button class="m-btn w-auto" type="button" onclick="MB.toast('已重置全部筛选条件')">重置</button>
-        <a class="m-btn primary" href="house-list.html"><i class="fa-solid fa-magnifying-glass"></i> 查看 71 间结果</a>
+        <a class="m-btn primary" href="house-list.html"><i class="fa-solid fa-magnifying-glass"></i> 查看 6 个楼盘 · 299 间</a>
       </div>
     </div>
   </div>

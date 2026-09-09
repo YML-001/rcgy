@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>房源周转分析 · 株洲市人才住房保障管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="housing" data-active="stat-10">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才住房保障管理平台
+      <span class="sep">/</span> 统计分析
+      <span class="sep">/</span> 房源分析
+      <span class="sep">/</span> <span class="cur">房源周转分析</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>统计房源<b>从投放到配租、从退出到再投放</b>的周转时长，评估<b>房源使用效率</b>。周转时长越短，房源利用效率越高。</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-rotate"></i></div>
+      <div><div class="s-label">平均投放到配租</div><div class="s-value">42.6 天</div>
+        <div class="s-trend text-success">↓ 缩短 8.4 天</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-recycle"></i></div>
+      <div><div class="s-label">平均退出到再投放</div><div class="s-value">12.6 天</div>
+        <div class="s-trend text-success">↓ 缩短 4.2 天</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-percent"></i></div>
+      <div><div class="s-label">年周转率</div><div class="s-value">2.86 次</div>
+        <div class="s-trend text-2">房源使用效率</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-hourglass-half"></i></div>
+      <div><div class="s-label">周转超期房源</div><div class="s-value">36</div>
+        <div class="s-trend ">投放超 90 天未配租</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <h3><i class="fa-solid fa-rotate"></i> 周转时长分解</h3>
+      <span class="sub">S2-06 · 房源使用效率</span>
+    </div>
+    <div class="card-body">
+      <div class="section-title" data-icon="fa-chart-simple">各环节平均周转时长</div>
+      <div class="dc-bars">
+        <div class="b-item"><span class="b-label">投放 → 上架展示　平均 2.4 天</span><span class="b-track"><span class="b-fill" style="width:12%"></span></span><span class="b-val">素材齐备的当日可上架</span></div>
+        <div class="b-item"><span class="b-label">上架 → 纳入配租批次　平均 16.8 天</span><span class="b-track"><span class="b-fill" style="width:39%"></span></span><span class="b-val">受批次周期影响</span></div>
+        <div class="b-item"><span class="b-label">纳入批次 → 选房锁定　平均 18.2 天</span><span class="b-track"><span class="b-fill" style="width:43%"></span></span><span class="b-val">含报名、公示、选房各环节</span></div>
+        <div class="b-item"><span class="b-label">选房锁定 → 签约　平均 3.6 天</span><span class="b-track"><span class="b-fill" style="width:8%"></span></span><span class="b-val">签约期限 6 日</span></div>
+        <div class="b-item"><span class="b-label">签约 → 交付入住　平均 8.4 天</span><span class="b-track"><span class="b-fill" style="width:20%"></span></span><span class="b-val">预约办理</span></div>
+        <div class="b-item"><span class="b-label">退出 → 验收结算　平均 4.2 天</span><span class="b-track"><span class="b-fill" style="width:10%"></span></span><span class="b-val">现场验收 + 结算</span></div>
+        <div class="b-item warn"><span class="b-label">验收 → 修复复验　平均 6.8 天</span><span class="b-track"><span class="b-fill" style="width:16%"></span></span><span class="b-val">需修复的房源</span></div>
+        <div class="b-item"><span class="b-label">复验 → 再投放　平均 1.6 天</span><span class="b-track"><span class="b-fill" style="width:8%"></span></span><span class="b-val">转可配租即可投放</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="card list-card">
+    <div class="card-head">
+      <h3><i class="fa-solid fa-table-list"></i> 明细下钻</h3>
+      <span class="sub">可逐级下钻至明细清单</span>
+    </div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>周转环节</th><th>平均时长</th><th>去年同期</th><th>变化</th><th>涉及房源</th><th class="cell-lg">主要耗时原因</th><th>优化建议</th></tr>
+        </thead>
+        <tbody>
+          <tr class="row-warn"><td>纳入批次 → 选房锁定</td><td>18.2 天</td><td>22.6 天</td><td><span class="badge green">↓ 4.4 天</span></td><td class="num">1,842</td><td>受配租批次周期约束：报名 8 天 + 名单公示 2 天 + 选房 5 天，加上批次间隔等待</td><td><span class="link" onclick="PMS.toast('可考虑缩短报名期至 5 天，或增加批次频次至每季度 1 次以上')">优化建议</span></td></tr>
+          <tr class="row-warn"><td>上架 → 纳入配租批次</td><td>16.8 天</td><td>26.4 天</td><td><span class="badge green">↓ 9.6 天</span></td><td class="num">2,486</td><td>房源验收合格后需等待下一配租批次；批次间隔约 3 个月</td><td><span class="link" onclick="PMS.toast('对轮候库有匹配需求的房源，可按轮候序号即时通知配租，不必等批次')">优化建议</span></td></tr>
+          <tr><td>签约 → 交付入住</td><td>8.4 天</td><td>12.2 天</td><td><span class="badge green">↓ 3.8 天</span></td><td class="num">1,286</td><td>承租人预约时间与运营机构办理档期匹配</td><td><span class="link" onclick="PMS.toast('增加周末交付档期，提高预约灵活度')">优化建议</span></td></tr>
+          <tr class="row-warn"><td>验收 → 修复复验</td><td>6.8 天</td><td>9.4 天</td><td><span class="badge green">↓ 2.6 天</span></td><td class="num">24</td><td>需保洁、墙面修补、家电检修的房源占退出房源 27.9%</td><td><span class="link" onclick="PMS.toast('要求运营机构在腾退验收当日启动修复，缩短并行等待')">优化建议</span></td></tr>
+          <tr><td>退出 → 验收结算</td><td>4.2 天</td><td>6.8 天</td><td><span class="badge green">↓ 2.6 天</span></td><td class="num">86</td><td>现场验收 + 抄表结算 + 双方电子签</td><td><span class="link" onclick="PMS.toast('移动端现场办理已显著提速，维持现状')">优化建议</span></td></tr>
+          <tr><td><span class="badge green">合计（投放到配租）</span></td><td>42.6 天</td><td>51.0 天</td><td><span class="badge green">↓ 8.4 天</span></td><td class="num">2,486</td><td>主要耗时在批次等待与选房环节，合计占 82%</td><td><span class="link" onclick="location.href='alloc-queue.html'">配租与轮候分析</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>周转口径</b> 投放到配租 = 验收合格之日至签约之日；退出到再投放 = 腾退完成至转可配租</span>
+    <span><b>年周转率</b> 当年配租次数 ÷ 房源总量，反映房源使用效率</span>
+    <span><b>超期阈值</b> 投放超 90 天未配租的纳入空置重点治理</span>
+  </div>
+</main>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 6; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

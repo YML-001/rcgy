@@ -71,7 +71,7 @@
         <tbody>
           <tr><td>YJ2026-00862</td><td>王梓涵</td><td>RZ2026-00862</td><td class="num">1,000.00</td><td class="num">0.00</td><td class="num">0.00</td><td class="num">0.00</td><td class="num">1,000.00</td><td><span class="badge green">已缴纳在管</span></td><td><span class="link" onclick="PMS.toast('2026-01-06 缴纳 1,000.00 元（翼支付流水 YZF20260106102618），票据号 CZP20260106000012')">押金记录</span></td></tr>
           <tr class="row-warn"><td>YJ2024-00206</td><td>谭建国</td><td>RZ2024-00206</td><td class="num">1,000.00</td><td class="num">0.00</td><td class="num">364.20</td><td class="num">0.00</td><td class="num">635.80</td><td><span class="badge orange">待退还</span></td><td><span class="link" onclick="PMS.openDrawer('yjDrawer')">办理退还</span></td></tr>
-          <tr class="row-warn"><td>YJ2026-00518</td><td>周宇轩</td><td>RZ2026-00518</td><td class="num">1,000.00</td><td class="num">260.28</td><td class="num">286.40</td><td class="num">120.00</td><td class="num">333.32</td><td><span class="badge orange">待退还</span></td><td><span class="link" onclick="PMS.openDrawer('yjDrawer')">办理退还</span></td></tr>
+          <tr class="row-warn"><td>YJ2026-00518</td><td>周宇轩</td><td>RZ2026-00518</td><td class="num">1,000.00</td><td class="num">289.20</td><td class="num">286.40</td><td class="num">120.00</td><td class="num">333.32</td><td><span class="badge orange">待退还</span></td><td><span class="link" onclick="PMS.openDrawer('yjDrawer')">办理退还</span></td></tr>
           <tr class="row-bad"><td>YJ2025-00286</td><td>蒋××</td><td>RZ2025-00286</td><td class="num">1,000.00</td><td class="num">1,301.40</td><td class="num">428.60</td><td class="num">0.00</td><td class="num">0.00</td><td><span class="badge red">已全额抵扣</span></td><td><span class="link" onclick="PMS.toast('欠费与水电燃气费合计 1,730.00 元，超出押金 1,000.00 元，押金全额抵扣，仍欠 730.00 元须追缴')">抵扣说明</span></td></tr>
         </tbody>
       </table>
@@ -80,7 +80,7 @@
   <div class="sp-src">
     <span><b>退还口径</b> 退租时按《退租结算单》抵扣相关费用后退还余额至原支付账户</span>
     <span><b>抵扣顺序</b> 待缴租金 → 水电燃气物业费 → 房屋及家电损坏赔偿 → 清洁费</span>
-    <span><b>岗位控制</b> 经办（租金核算员）与复核（财政审核员）岗位分设</span>
+    <span><b>岗位控制</b> 经办（租金核算角色）与复核（财政部门 · 外部协同）岗位分设</span>
   </div>
 </main>
 
@@ -149,7 +149,7 @@
   </div>
   <div class="drawer-foot">
     <button class="btn" data-close-drawer>取消</button>
-    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认提交押金退还办理？应退还 635.80 元，转财政审核员复核。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已提交，待财政审核员复核后退还','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认提交押金退还办理？应退还 635.80 元，转市财政局复核。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已提交，待市财政局复核后退还','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
   </div>
 </div>
 <script>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>员工批量代申报 · 株洲市人才住房保障管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/mobile.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body class="m-body" data-mtitle="员工批量代申报" data-mmod="M3 用人单位 · 员工批量代申报" data-mcode="M3-01"
+      data-mdesc="一次提交多名职工的申请信息与资料，系统按人拆分为独立申请件。单位只报人员与资格材料，不需选房；职工须在湘易办本人确认授权，确认时可补填意向片区。" data-mback="emp-declare.html" data-mtabset="emp" data-mtab="declare" data-mchan="湘易办">
+<div class="m-stage">
+  <div class="m-phone">
+    <div class="m-screen">
+      <div class="m-view">
+        <div class="m-note"><i class="fa-solid fa-circle-info"></i>
+          <div>一次可提交多名职工的申请信息与资料。提交后系统<b>按人拆分</b>为
+            独立申请件，审批端逐件办理。<b>单位只报人不选房</b>，职工确认时可补填意向片区。申请渠道显示为
+            <b>「用人单位（移动端申请）」</b>。</div>
+        </div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-file-import"></i>本批申报　48 人</div>
+          <div class="m-card-b">
+            <div class="m-kv">
+              <div><span>提交时间</span><span>2026-09-06 09:40</span></div>
+              <div><span>已确认</span><span><b style="color:var(--success)">36 人</b></span></div>
+              <div><span>待职工确认</span><span><b style="color:var(--warning)">10 人</b>（超 3 日自动作废）</span></div>
+              <div><span>校验不通过</span><span><b style="color:var(--danger)">2 人</b>（证件号格式错误）</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="m-sect">职工名单</div>
+        <div class="m-cells">
+          <a class="m-cell" href="emp-progress.html"><span class="m-ci green"><i class="fa-solid fa-user-check"></i></span><span class="m-cl"><b>李文博　研发中心</b><span class="m-cs">全日制硕士 · D 类 · 已确认</span></span><span class="m-cv"><span class="m-tag green">已确认</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="emp-progress.html"><span class="m-ci green"><i class="fa-solid fa-user-check"></i></span><span class="m-cl"><b>陈思远　工艺部</b><span class="m-cs">全日制本科 · E 类 · 已确认</span></span><span class="m-cv"><span class="m-tag green">已确认</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="javascript:void(0)" onclick="MB.toast('已通过湘易办发送确认提醒')"><span class="m-ci orange"><i class="fa-solid fa-user-clock"></i></span><span class="m-cl"><b>周雨桐　质量部</b><span class="m-cs">全日制硕士 · D 类 · 剩 2 天</span></span><span class="m-cv"><span class="m-tag orange">催办</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="javascript:void(0)" onclick="MB.toast('原型演示：修正证件号后重新提交')"><span class="m-ci"><i class="fa-solid fa-user-xmark"></i></span><span class="m-cl"><b>郑一凡　供应链部</b><span class="m-cs">证件号格式错误</span></span><span class="m-cv"><span class="m-tag red">需修正</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+        </div>
+        <div style="padding:14px">
+          <a class="m-btn primary" href="javascript:void(0)" onclick="MB.toast('原型演示：选择名单文件上传')">上传新一批申报名单</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="../../assets/js/mobile.js"></script>
+</body>
+</html>

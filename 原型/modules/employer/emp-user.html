@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>经办人管理 · 株洲市人才住房保障管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="employer" data-active="emp-06">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才住房保障管理平台
+      <span class="sep">/</span> 用人单位端
+      <span class="sep">/</span> <span class="cur">经办人管理</span>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" onclick="PMS.openDrawer('addDrawer')"><i class="fa-solid fa-user-plus"></i> 新增经办人申请</button>
+      <button class="btn" onclick="PMS.openDrawer('stopDrawer')"><i class="fa-solid fa-user-slash"></i> 停用经办人申请</button>
+    </div>
+  </div>
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>管理本单位（中车株洲电力机车有限公司）的经办人账号。<b>新增经办人须由企业机构管理角色审核通过后，方可用手机号登录</b>，一个手机号对应一名经办人，不另设用户名；<b>停用通过后账号即时失效</b>，该经办人无法再登录，未提交的代申报草稿由本单位其他经办人接管。本页<b>只能提交与查看申请</b>，审核开通由市保障性住房服务中心办理，本单位无审核权限。</div>
+  </div>
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-user-check"></i></div>
+      <div><div class="s-label">在用经办人</div><div class="s-value">4</div>
+        <div class="s-trend text-2">名 · 均已完成实名认证</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-hourglass-half"></i></div>
+      <div><div class="s-label">待审核</div><div class="s-value">2</div>
+        <div class="s-trend">件 · 新增 1 / 停用 1</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon red"><i class="fa-solid fa-user-slash"></i></div>
+      <div><div class="s-label">已停用</div><div class="s-value">1</div>
+        <div class="s-trend text-2">名 · 离职停用</div></div>
+    </div>
+  </div>
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>申请编号</label><input type="text" placeholder="如 JBR2026-0908-0016"></div>
+      <div class="filter-item"><label>经办人姓名</label><input type="text" placeholder="姓名或手机号"></div>
+      <div class="filter-item"><label>申请类型</label><select><option value="">全部</option><option>新增</option><option>停用</option></select></div>
+      <div class="filter-item"><label>部门</label><select><option value="">全部</option><option>人力资源部</option><option>综合管理部</option><option>财务部</option><option>生产制造部</option></select></div>
+      <div class="filter-item"><label>状态</label><select><option value="">全部</option><option>待审核</option><option>已开通</option><option>已停用</option><option>已退回</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>申请编号</th><th>申请类型</th><th>经办人姓名</th><th>手机号</th><th>部门</th><th>提交时间</th><th>状态</th><th class="cell-lg">审核意见</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr class="row-warn"><td>JBR2026-0908-0016</td><td><span class="badge blue">新增</span></td><td>周浩然</td><td>152****4073</td><td>生产制造部</td><td>2026-09-08 09:30</td><td><span class="badge orange">待审核</span></td><td><span class="muted">审核中，承诺 3 个工作日内办结</span></td><td><span class="link" onclick="PMS.openDrawer('addDrawer')">查看</span> <span class="link danger" onclick="PMS.confirm({title:'撤回申请',message:'确认撤回周浩然的新增经办人申请？',detail:'撤回后本申请作废，如仍需开通请重新提交，申请编号将重新生成。',type:'warning',okText:'确认撤回',onOk:function(){PMS.toast('已撤回该申请','success');}})">撤回申请</span></td></tr>
+          <tr class="row-warn"><td>JBR2026-0906-0014</td><td><span class="badge orange">停用</span></td><td>赵芳</td><td>136****9037</td><td>人力资源部</td><td>2026-09-06 15:22</td><td><span class="badge orange">待审核</span></td><td><span class="muted">审核中，通过后账号即时失效</span></td><td><span class="link" onclick="PMS.openDrawer('stopDrawer')">查看</span> <span class="link danger" onclick="PMS.confirm({title:'撤回申请',message:'确认撤回赵芳的停用经办人申请？',detail:'撤回后该经办人账号维持正常状态，可继续办理业务。',type:'warning',okText:'确认撤回',onOk:function(){PMS.toast('已撤回该申请','success');}})">撤回申请</span></td></tr>
+          <tr><td>JBR2026-0902-0011</td><td><span class="badge blue">新增</span></td><td>刘伟</td><td>135****7712</td><td>人力资源部</td><td>2026-09-02 10:18</td><td><span class="badge green">已开通</span></td><td>身份证与授权书齐全，手机号未被占用，同意开通</td><td><span class="link" onclick="PMS.openDrawer('addDrawer')">查看</span></td></tr>
+          <tr><td>JBR2026-0828-0008</td><td><span class="badge blue">新增</span></td><td>谭晓芸</td><td>138****6621</td><td>人力资源部</td><td>2026-08-28 09:05</td><td><span class="badge green">已开通</span></td><td>随单位注册审核一并开通，为本单位首个经办人</td><td><span class="link" onclick="PMS.openDrawer('addDrawer')">查看</span></td></tr>
+          <tr><td>JBR2026-0812-0001</td><td><span class="badge blue">新增</span></td><td>赵芳</td><td>136****9037</td><td>人力资源部</td><td>2026-08-12 10:05</td><td><span class="badge green">已开通</span></td><td>材料齐全，同意开通</td><td><span class="link" onclick="PMS.openDrawer('addDrawer')">查看</span></td></tr>
+          <tr><td>JBR2026-0815-0002</td><td><span class="badge blue">新增</span></td><td>李慧</td><td>133****2109</td><td>财务部</td><td>2026-08-15 16:28</td><td><span class="badge green">已开通</span></td><td>材料齐全，同意开通</td><td><span class="link" onclick="PMS.openDrawer('addDrawer')">查看</span></td></tr>
+          <tr class="row-bad"><td>JBR2026-0826-0006</td><td><span class="badge blue">新增</span></td><td>陈立新</td><td>189****5240</td><td>综合管理部</td><td>2026-08-26 14:40</td><td><span class="badge red">已退回</span></td><td>法人授权书未加盖单位公章，且授权对象姓名与身份证不一致，请补正后重新提交</td><td><span class="link" onclick="PMS.openDrawer('addDrawer')">查看</span> <span class="link" onclick="PMS.openDrawer('addDrawer')">修改后重新提交</span></td></tr>
+          <tr><td>JBR2026-0820-0003</td><td><span class="badge orange">停用</span></td><td>吴子健</td><td>137****8815</td><td>人力资源部</td><td>2026-08-20 11:12</td><td><span class="badge gray">已停用</span></td><td>已办理离职手续，同意停用，账号 2026-08-21 09:00 起失效</td><td><span class="link" onclick="PMS.openDrawer('stopDrawer')">查看</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>手机号即账号</b> 一名经办人对应一个手机号，不另设用户名；手机号变更须先停用原账号再申请新增</span>
+    <span><b>审核归属</b> 新增与停用均由市保障性住房服务中心企业机构管理角色审核，本单位只提交与查看</span>
+    <span><b>实名前置</b> 开通后经办人首次登录须完成实名认证，未认证的只能查看单位信息，不能提交代申报</span>
+    <span><b>停用效力</b> 停用通过后账号即时失效；单位账号被停用的，名下经办人账号一并失效</span>
+    <span><b>关联页面</b> <span class="link" onclick="location.href='emp-reg-status.html'">注册进度查询</span> · <span class="link" onclick="location.href='emp-batch.html'">员工批量代申报</span></span>
+  </div>
+</main>
+
+<div class="drawer-mask"></div>
+<div class="drawer" id="addDrawer">
+  <div class="drawer-head">
+    <h3>新增经办人申请</h3>
+    <span class="badge orange">待提交</span>
+    <span class="badge blue">手机号即登录账号</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+    <div class="alert alert-warning">
+      <i class="fa-solid fa-triangle-exclamation"></i>
+      <div>提交后由<b>市保障性住房服务中心企业机构管理角色审核</b>，承诺 3 个工作日内办结。<b>审核通过后系统自动开通以该手机号为账号的登录权限并发送开通短信</b>；本单位不能自行开通。请确认手机号为经办人<b>本人实名手机号</b>，开通后首次登录须完成实名认证。</div>
+    </div>
+
+    <div style="margin:18px 0 9px;font-size:14px;font-weight:700;color:var(--primary);display:flex;align-items:center;gap:7px"><i class="fa-solid fa-building"></i> 所属单位（自动带出）</div>
+    <dl class="desc-list">
+      <div class="desc-item full"><dt>单位名称</dt><dd>中车株洲电力机车有限公司</dd></div>
+      <div class="desc-item"><dt>统一社会信用代码</dt><dd>914302007123456789</dd></div>
+      <div class="desc-item"><dt>账号状态</dt><dd><span class="badge green">正常</span></dd></div>
+      <div class="desc-item"><dt>现有经办人</dt><dd>4 名</dd></div>
+    </dl>
+
+    <div style="margin:18px 0 9px;font-size:14px;font-weight:700;color:var(--primary);display:flex;align-items:center;gap:7px"><i class="fa-solid fa-user-plus"></i> 经办人信息</div>
+    <div class="form-grid form-align">
+      <div class="form-item">
+        <label>经办人姓名 <span class="req">*</span></label>
+        <input type="text" placeholder="按身份证填写">
+      </div>
+      <div class="form-item">
+        <label>身份证号 <span class="req">*</span></label>
+        <input type="text" placeholder="18 位">
+        <div class="hint">须与手机号实名信息一致，否则登录后无法通过实名认证</div>
+      </div>
+      <div class="form-item">
+        <label>手机号 <span class="req">*</span></label>
+        <input type="text" placeholder="11 位手机号">
+        <div class="hint">开通后即为登录账号，列表与导出中按 152****4073 脱敏展示</div>
+      </div>
+      <div class="form-item">
+        <label>所在部门 <span class="req">*</span></label>
+        <select><option>人力资源部</option><option>综合管理部</option><option>财务部</option><option>生产制造部</option><option>其他</option></select>
+      </div>
+      <div class="form-item">
+        <label>职务 <span class="req">*</span></label>
+        <input type="text" placeholder="如 人事专员、部门主管">
+      </div>
+      <div class="form-item">
+        <label>办公电话</label>
+        <input type="text" placeholder="如 0731-2825****">
+      </div>
+      <div class="form-item col-full">
+        <label>法人授权书 <span class="req">*</span></label>
+        <input type="text" data-upload="1">
+        <div class="hint">须加盖单位公章，写明授权对象姓名与身份证号，授权其代本单位办理人才住房申报业务</div>
+      </div>
+      <div class="form-item col-full">
+        <label>经办人身份证扫描件 <span class="req">*</span></label>
+        <input type="text" data-upload="1">
+        <div class="hint">人像面与国徽面，图片清晰、四角完整</div>
+      </div>
+      <div class="form-item col-full">
+        <label>申请说明 <span class="req">*</span></label>
+        <textarea rows="3" placeholder="必填，说明新增经办人的原因与拟办理的业务范围，如：因人力资源部人员调整，新增周浩然负责生产制造部职工的人才公寓代申报"></textarea>
+      </div>
+    </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn" onclick="PMS.toast('已保存为草稿，未提交审核','success')"><i class="fa-solid fa-floppy-disk"></i> 保存草稿</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认提交新增经办人申请？',detail:'提交后由市保障性住房服务中心企业机构管理角色审核，承诺 3 个工作日内办结。审核通过后系统自动开通以该手机号为账号的登录权限并发送开通短信；退回的可在原申请上补正后重新提交，编号不变。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已提交，申请编号 JBR2026-0908-0017','success');}})"><i class="fa-solid fa-paper-plane"></i> 提交申请</button>
+  </div>
+</div>
+
+<div class="drawer" id="stopDrawer">
+  <div class="drawer-head">
+    <h3>停用经办人申请</h3>
+    <span class="badge orange">待提交</span>
+    <span class="badge red">通过后账号即时失效</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <div class="drawer-body">
+    <div class="alert alert-warning">
+      <i class="fa-solid fa-triangle-exclamation"></i>
+      <div>停用申请经<b>市保障性住房服务中心企业机构管理角色审核通过后，该经办人账号即时失效</b>，无法再登录移动端与 PC 管理端。<b>已提交的代申报件不受影响</b>，继续按原流程审核；<b>未提交的草稿须先指定接管人</b>，否则将随账号一并冻结。经办人离职或岗位调整的，请及时提交停用申请。</div>
+    </div>
+
+    <div style="margin:18px 0 9px;font-size:14px;font-weight:700;color:var(--primary);display:flex;align-items:center;gap:7px"><i class="fa-solid fa-user-slash"></i> 停用对象</div>
+    <div class="form-grid form-align">
+      <div class="form-item">
+        <label>选择经办人 <span class="req">*</span></label>
+        <select><option>赵芳　136****9037　人力资源部</option><option>刘伟　135****7712　人力资源部</option><option>李慧　133****2109　财务部</option><option>谭晓芸　138****6621　人力资源部</option></select>
+      </div>
+      <div class="form-item">
+        <label>当前账号状态</label>
+        <input type="text" value="正常 · 已实名 · 2026-08-12 开通" readonly>
+      </div>
+      <div class="form-item">
+        <label>停用原因 <span class="req">*</span></label>
+        <select><option>离职</option><option>岗位调整，不再承担申报业务</option><option>长期借调或休假</option><option>手机号变更（需另行申请新增）</option><option>其他</option></select>
+      </div>
+      <div class="form-item">
+        <label>期望停用时间 <span class="req">*</span></label>
+        <input type="date" value="2026-09-10">
+        <div class="hint">审核通过后按此时间失效；早于审核完成时间的，以审核通过时间为准</div>
+      </div>
+      <div class="form-item col-full">
+        <label>在办事项与草稿接管人 <span class="req">*</span></label>
+        <select><option>刘伟　135****7712　人力资源部</option><option>李慧　133****2109　财务部</option><option>谭晓芸　138****6621　人力资源部</option><option>暂不指定（未提交草稿将随账号冻结）</option></select>
+        <div class="hint">该经办人名下未提交的代申报草稿 3 件、在办申报件 12 件将转由接管人查看与续办</div>
+      </div>
+      <div class="form-item col-full">
+        <label>停用原因说明 <span class="req">*</span></label>
+        <textarea rows="4" placeholder="必填，说明停用的具体原因与时间节点，如：赵芳已于 2026-09-05 办理离职手续，不再承担本单位人才住房申报业务，申请停用其账号，名下在办事项转由刘伟接管"></textarea>
+      </div>
+      <div class="form-item col-full">
+        <label>佐证材料</label>
+        <input type="text" data-upload="1">
+        <div class="hint">离职证明、岗位调整通知等，加盖单位公章；非离职情形可不上传</div>
+      </div>
+    </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认提交停用经办人申请？',detail:'审核通过后该经办人账号即时失效，无法再登录办理业务。已提交的代申报件继续按原流程审核，未提交的草稿转由指定接管人续办。如需恢复，须重新提交新增经办人申请。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已提交，申请编号 JBR2026-0908-0018','success');}})"><i class="fa-solid fa-paper-plane"></i> 提交申请</button>
+  </div>
+</div>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 8; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

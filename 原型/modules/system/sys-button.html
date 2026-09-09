@@ -83,7 +83,7 @@
   <div class="sp-src">
     <span><b>标识规则</b> 模块:对象:动作，如 apply:audit:submit，全系统唯一</span>
     <span><b>双端鉴权</b> 未授权按钮界面不渲染；后端接口按同一权限标识独立鉴权</span>
-    <span><b>高敏联动</b> 高敏按钮须同时满足角色授权、岗位互斥校验与二次验证三项条件</span>
+    <span><b>高敏联动</b> 高敏按钮须同时满足角色授权、岗位设置校验与二次验证三项条件</span>
     <span><b>越权处置</b> <span class="link" onclick="location.href='audit-log.html'">操作日志与审计</span></span>
   </div>
 </main>
@@ -98,7 +98,7 @@
   <div class="drawer-body">
   <div class="alert alert-danger">
     <i class="fa-solid fa-circle-exclamation"></i>
-    <div>高敏按钮为<b>不可逆或一票否决类操作</b>，除角色授权外还须通过<b>岗位互斥校验与二次验证</b>。不得将高敏按钮下调为一般等级。</div>
+    <div>高敏按钮为<b>不可逆或一票否决类操作</b>，除角色授权外还须通过<b>岗位设置校验与二次验证</b>。不得将高敏按钮下调为一般等级。</div>
   </div>
 
       <div class="form-grid form-align">
@@ -140,7 +140,7 @@
         </div>
         <div class="form-item col-full">
           <label>拦截提示模板 <span class="req">*</span></label>
-          <textarea rows="2">您当前角色不具备「取消保障资格」权限。该操作须由业务管理员在双人授权下办理，请联系李慧敏（市住建局住房保障科）。</textarea>
+          <textarea rows="2">您当前角色不具备「取消保障资格」权限。该操作须由业务管理员角色在双人授权下办理，请联系李慧敏（市住建局住房保障科）。</textarea>
         </div>
         <div class="form-item col-full">
           <label>变更说明 <span class="req">*</span></label>

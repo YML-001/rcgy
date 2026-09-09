@@ -72,7 +72,7 @@
         </thead>
         <tbody>
           <tr class="row-bad"><td>MB-01</td><td>资格审核结论送达</td><td>三通道</td><td><span class="badge orange">重要</span></td><td>审核结论出具后即时触发</td><td class="num">1,286</td><td><span class="badge green">99.7%</span></td><td><span class="badge red">不可停用</span></td><td><span class="link" onclick="PMS.openDrawer('mbDrawer')">编辑</span></td></tr>
-          <tr class="row-bad"><td>MB-04</td><td>选房时段提醒</td><td>三通道</td><td><span class="badge red">紧急</span></td><td>选房时段开始前 1 天 + 1 小时</td><td class="num">486</td><td><span class="badge green">99.8%</span></td><td><span class="badge red">不可停用</span></td><td><span class="link" onclick="PMS.openDrawer('mbDrawer')">编辑</span></td></tr>
+          <tr class="row-bad"><td>MB-04</td><td>配租结果与签约提醒</td><td>三通道</td><td><span class="badge red">紧急</span></td><td>自动配租完成后即时 + 签约期限届满前 1 天</td><td class="num">486</td><td><span class="badge green">99.8%</span></td><td><span class="badge red">不可停用</span></td><td><span class="link" onclick="PMS.openDrawer('mbDrawer')">编辑</span></td></tr>
           <tr class="row-bad"><td>MB-06</td><td>锁房确认倒计时提醒</td><td>三通道</td><td><span class="badge red">紧急</span></td><td>房源锁定后 20 分钟（确认时限 30 分钟）</td><td class="num">274</td><td><span class="badge green">99.6%</span></td><td><span class="badge red">不可停用</span></td><td><span class="link" onclick="PMS.openDrawer('mbDrawer')">编辑</span></td></tr>
           <tr class="row-bad"><td>MB-09</td><td>缴费到期与逾期催缴</td><td>三通道</td><td><span class="badge red">紧急</span></td><td>账单生成 / 到期前 5 天 / 到期前 1 天 / 逾期 1 天 / 逾期 15 天 / 逾期 90 天（六级）</td><td class="num">8,462</td><td><span class="badge green">99.5%</span></td><td><span class="badge red">不可停用</span></td><td><span class="link" onclick="PMS.openDrawer('mbDrawer')">编辑</span></td></tr>
           <tr><td>MB-16</td><td>政策变更提醒</td><td>站内 + 微信</td><td><span class="badge blue">一般</span></td><td>政策文件或口径调整发布后触发</td><td class="num">6,420</td><td><span class="badge green">96.8%</span></td><td><span class="badge green">可停用</span></td><td><span class="link" onclick="PMS.openDrawer('mbDrawer')">编辑</span></td></tr>
@@ -131,7 +131,7 @@
         </div>
         <div class="form-item col-full">
           <label>短信模板内容 <span class="req">*</span></label>
-          <textarea rows="4">【建宁安居】{承租人姓名}您好：您承租的{房源}（合同号{合同编号}）{账单周期}租金账单个人应缴{个人应缴}元，请于{缴费截止日}前通过湘易办完成缴纳。欠费将影响年度资格审查与续租审核。</textarea>
+          <textarea rows="4">【株洲人才安居】{承租人姓名}您好：您承租的{房源}（合同号{合同编号}）{账单周期}租金账单个人应缴{个人应缴}元，请于{缴费截止日}前通过湘易办完成缴纳。欠费将影响年度资格审查与续租审核。</textarea>
         </div>
         <div class="form-item col-full">
           <label>免打扰限制 <span class="req">*</span></label>

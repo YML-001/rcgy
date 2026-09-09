@@ -20,7 +20,7 @@
     </div>
     <div class="page-actions">
       <button class="btn btn-primary" onclick="PMS.openDrawer('sqDrawer')"><i class="fa-solid fa-paper-plane"></i> 发起补助申请</button>
-      <a class="btn" href="publish-submit.html"><i class="fa-solid fa-house-circle-check"></i> 房源提交发布</a>
+      <a class="btn" href="javascript:void(0)"><i class="fa-solid fa-clipboard-check"></i> 房源报送与维护</a>
       <a class="btn" href="../ops/eval-stat.html"><i class="fa-solid fa-star-half-stroke"></i> 服务评价结果</a>
       <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出申报明细</button>
     </div>
@@ -66,17 +66,17 @@
     <div class="sp-scroll">
     <div class="sp-block">
       <div class="sp-h"><i class="fa-solid fa-layer-group"></i> 本期可申报房源汇总
-        <span class="sub">2026-09 · 数据由房源档案与合同台账自动带出，不支持手工填报套数 · <span class="link" onclick="PMS.toast('已重新取数：在租 1,192 套，计租面积 78,420.00 ㎡','success')">重新取数</span></span>
+        <span class="sub">2026-09 · 数据由房源档案与合同台账自动带出，不支持手工填报套数 · <span class="link" onclick="PMS.toast('已重新取数：在租 1,192 间，计租面积 78,420.00 ㎡','success')">重新取数</span></span>
       </div>
       <div class="sp-b">
       <div class="sp-tw">
         <table class="data-table compact">
           <thead><tr><th class="cell-lg">楼盘</th><th class="num">在租套数</th><th class="num">计租面积（㎡）</th><th class="num">补助单价</th><th class="num">服务月数</th><th class="num">预计应补金额</th><th class="num">评价得分</th><th>状态</th><th>操作</th></tr></thead>
           <tbody>
-            <tr class="row-warn"><td>湘江1958 人才公寓</td><td class="num">386</td><td class="num">25,662.00</td><td class="num">7.00</td><td class="num">1</td><td class="num">179,634.00</td><td class="num"><span class="badge red">78.2</span></td><td><span class="badge orange">资格异常 12 套</span></td><td><span class="link" onclick="PMS.toast('12 套承租人资格状态异常（含已购房 5 套、社保停缴 4 套、腾退未销账 3 套），本次按 386 套全量申报，由市住建局核验时据实核减')">异常说明</span></td></tr>
-            <tr><td>云龙人才公寓</td><td class="num">268</td><td class="num">17,822.00</td><td class="num">7.00</td><td class="num">1</td><td class="num">124,754.00</td><td class="num"><span class="badge green">91.6</span></td><td><span class="badge green">可申报</span></td><td><span class="link" onclick="PMS.toast('268 套在租房源均已签约且在服务期间内，17,822.00 ㎡ × 7.00 元/㎡·月 × 1 个月 = 124,754.00 元')">明细</span></td></tr>
-            <tr><td>清水塘·未来社区</td><td class="num">172</td><td class="num">11,146.00</td><td class="num">7.00</td><td class="num">1</td><td class="num">78,022.00</td><td class="num"><span class="badge green">92.3</span></td><td><span class="badge green">可申报</span></td><td><span class="link" onclick="PMS.toast('172 套在租房源均已签约且在服务期间内，11,146.00 ㎡ × 7.00 元/㎡·月 × 1 个月 = 78,022.00 元')">明细</span></td></tr>
-            <tr><td>董家塅人才公寓</td><td class="num">214</td><td class="num">13,910.00</td><td class="num">7.00</td><td class="num">1</td><td class="num">97,370.00</td><td class="num"><span class="badge orange">84.6</span></td><td><span class="badge green">可申报</span></td><td><span class="link" onclick="PMS.toast('214 套在租房源均已签约且在服务期间内；评价 84.6 分落 80—84.9 档，住建核定时按 5% 扣减')">明细</span></td></tr>
+            <tr class="row-warn"><td>湘江1958 人才公寓</td><td class="num">386</td><td class="num">25,662.00</td><td class="num">7.00</td><td class="num">1</td><td class="num">179,634.00</td><td class="num"><span class="badge red">78.2</span></td><td><span class="badge orange">资格异常 12 间</span></td><td><span class="link" onclick="PMS.toast('12 间承租人资格状态异常（含已购房 5 套、社保停缴 4 套、腾退未销账 3 套），本次按 386 间全量申报，由市住建局核验时据实核减')">异常说明</span></td></tr>
+            <tr><td>云龙人才公寓</td><td class="num">268</td><td class="num">17,822.00</td><td class="num">7.00</td><td class="num">1</td><td class="num">124,754.00</td><td class="num"><span class="badge green">91.6</span></td><td><span class="badge green">可申报</span></td><td><span class="link" onclick="PMS.toast('268 间在租房源均已签约且在服务期间内，17,822.00 ㎡ × 7.00 元/㎡·月 × 1 个月 = 124,754.00 元')">明细</span></td></tr>
+            <tr><td>清水塘·未来社区</td><td class="num">172</td><td class="num">11,146.00</td><td class="num">7.00</td><td class="num">1</td><td class="num">78,022.00</td><td class="num"><span class="badge green">92.3</span></td><td><span class="badge green">可申报</span></td><td><span class="link" onclick="PMS.toast('172 间在租房源均已签约且在服务期间内，11,146.00 ㎡ × 7.00 元/㎡·月 × 1 个月 = 78,022.00 元')">明细</span></td></tr>
+            <tr><td>董家塅人才公寓</td><td class="num">214</td><td class="num">13,910.00</td><td class="num">7.00</td><td class="num">1</td><td class="num">97,370.00</td><td class="num"><span class="badge orange">84.6</span></td><td><span class="badge green">可申报</span></td><td><span class="link" onclick="PMS.toast('214 间在租房源均已签约且在服务期间内；评价 84.6 分落 80—84.9 档，住建核定时按 5% 扣减')">明细</span></td></tr>
             <tr class="row-warn"><td>田心人才公寓</td><td class="num">152</td><td class="num">9,880.00</td><td class="num">7.00</td><td class="num">1</td><td class="num">69,160.00</td><td class="num"><span class="muted">评价中</span></td><td><span class="badge cyan">评价待出</span></td><td><span class="link" onclick="PMS.toast('2026 年 9 月服务评价结果 2026-09-05 出具（实际得分 88.4 分）。评价未出不影响本期按应补金额申报，住建核定时据实扣减')">评价说明</span></td></tr>
             <tr><td><span class="badge green">合计</span></td><td class="num"><b>1,192</b></td><td class="num"><b>78,420.00</b></td><td class="num">7.00</td><td class="num">1</td><td class="num"><b>548,940.00</b></td><td class="num"><span class="muted">—</span></td><td><span class="badge blue">待发起</span></td><td><span class="link" onclick="PMS.openDrawer('sqDrawer')">发起申请</span></td></tr>
           </tbody>
@@ -108,8 +108,8 @@
           <tr><th>申报单号</th><th>申报期间</th><th class="num">申报套数</th><th class="num">申报金额</th><th>提交时间</th><th>住建核验状态</th><th class="num">核定金额</th><th>支付状态</th><th>操作</th></tr>
         </thead>
         <tbody>
-          <tr class="row-warn"><td>SB2026-09-02</td><td>2026-09</td><td class="num">8</td><td class="num">3,920.00</td><td>2026-09-06 11:02</td><td><span class="badge orange">待核验</span></td><td class="num"><span class="muted">—</span></td><td><span class="badge gray">待发起</span></td><td><span class="link" onclick="PMS.toast('9 月新增交付并起租房源 8 套，计租面积 560.00 ㎡，与 SB2026-09-01 房源不重复')">查看</span> <span class="link" onclick="PMS.confirm({title:'撤回确认',message:'确认撤回 SB2026-09-02 补助申请？',detail:'撤回后申报单回到草稿状态，可修改申报范围后重新提交。已进入核验或核定环节的申报单不允许撤回。',type:'warning',okText:'确认撤回',onOk:function(){PMS.toast('已撤回，申报单回到草稿状态','success');}})">撤回</span></td></tr>
-          <tr><td>SB2026-09-01</td><td>2026-09</td><td class="num">1,192</td><td class="num">548,940.00</td><td>2026-09-03 09:26</td><td><span class="badge green">核验完成</span></td><td class="num">524,724.90</td><td><span class="badge orange">部分待复核</span></td><td><span class="link" onclick="PMS.toast('核验通过 1,148 套，资格异常 26 套、评价不达标 18 套单独处置；核定 524,724.90 元，其中 78,022.00 元在途、67,776.80 元退回补充材料')">查看</span> <span class="link is-off" onclick="PMS.toast('已进入核定环节的申报单不允许撤回','error')">撤回</span></td></tr>
+          <tr class="row-warn"><td>SB2026-09-02</td><td>2026-09</td><td class="num">8</td><td class="num">3,920.00</td><td>2026-09-06 11:02</td><td><span class="badge orange">待核验</span></td><td class="num"><span class="muted">—</span></td><td><span class="badge gray">待发起</span></td><td><span class="link" onclick="PMS.toast('9 月新增交付并起租房源 8 间，计租面积 560.00 ㎡，与 SB2026-09-01 房源不重复')">查看</span> <span class="link" onclick="PMS.confirm({title:'撤回确认',message:'确认撤回 SB2026-09-02 补助申请？',detail:'撤回后申报单回到草稿状态，可修改申报范围后重新提交。已进入核验或核定环节的申报单不允许撤回。',type:'warning',okText:'确认撤回',onOk:function(){PMS.toast('已撤回，申报单回到草稿状态','success');}})">撤回</span></td></tr>
+          <tr><td>SB2026-09-01</td><td>2026-09</td><td class="num">1,192</td><td class="num">548,940.00</td><td>2026-09-03 09:26</td><td><span class="badge green">核验完成</span></td><td class="num">524,724.90</td><td><span class="badge orange">部分待复核</span></td><td><span class="link" onclick="PMS.toast('核验通过 1,148 间，资格异常 26 间、评价不达标 18 间单独处置；核定 524,724.90 元，其中 78,022.00 元在途、67,776.80 元退回补充材料')">查看</span> <span class="link is-off" onclick="PMS.toast('已进入核定环节的申报单不允许撤回','error')">撤回</span></td></tr>
           <tr><td>SB2026-08-01</td><td>2026-08</td><td class="num">1,178</td><td class="num">842,760.00</td><td>2026-08-03 10:12</td><td><span class="badge green">核验完成</span></td><td class="num">842,760.00</td><td><span class="badge green">已拨付</span></td><td><span class="link" onclick="PMS.toast('2026-09-04 14:05 到账 842,760.00 元，支付凭证号 ZFPZ2026090400218（原租金减免口径结转）')">查看</span> <span class="link is-off" onclick="PMS.toast('已拨付的申报单不允许撤回','error')">撤回</span></td></tr>
           <tr><td>SB2026-07-01</td><td>2026-07</td><td class="num">1,146</td><td class="num">814,062.00</td><td>2026-07-03 09:48</td><td><span class="badge green">核验完成</span></td><td class="num">814,062.00</td><td><span class="badge green">已拨付</span></td><td><span class="link" onclick="PMS.toast('2026-08-12 14:05 到账 814,062.00 元，支付凭证号 ZFPZ2026081200164（原租金减免口径结转）')">查看</span> <span class="link is-off" onclick="PMS.toast('已拨付的申报单不允许撤回','error')">撤回</span></td></tr>
           <tr><td>SB2026-06-01</td><td>2026-06</td><td class="num">1,118</td><td class="num">796,428.00</td><td>2026-06-03 10:06</td><td><span class="badge green">核验完成</span></td><td class="num">796,428.00</td><td><span class="badge green">已拨付</span></td><td><span class="link" onclick="PMS.toast('2026-07-11 15:22 到账 796,428.00 元，支付凭证号 ZFPZ2026071100132（原租金减免口径结转）')">查看</span> <span class="link is-off" onclick="PMS.toast('已拨付的申报单不允许撤回','error')">撤回</span></td></tr>
@@ -223,19 +223,19 @@
       </div>
       <div class="form-item col-full">
         <label>申报说明 <span class="req">*</span></label>
-        <textarea rows="4">株洲城发高科人才安居服务有限公司就 2026 年 9 月已提供服务的人才公寓房源发起租房补助申请。本期在租房源 1,192 套，计租面积 78,420.00 ㎡，涉及湘江1958 人才公寓、云龙人才公寓、清水塘·未来社区、董家塅人才公寓、田心人才公寓 5 个楼盘，服务期间 2026-09-01 至 2026-09-30，按补助单价 7.00 元/㎡·月核算预计应补金额 548,940.00 元。其中湘江1958 人才公寓 12 套承租人资格状态异常，已随附异常清单提请市住建局核验时据实核减；田心人才公寓 9 月服务评价结果尚在出具中，按应补金额如实申报，核定时据实扣减。以上数据由房源档案与合同台账自动带出，本单位确认真实无误。</textarea>
+        <textarea rows="4">株洲市人才安居服务有限公司就 2026 年 9 月已提供服务的人才公寓房源发起租房补助申请。本期在租房源 1,192 间，计租面积 78,420.00 ㎡，涉及湘江1958 人才公寓、云龙人才公寓、清水塘·未来社区、董家塅人才公寓、田心人才公寓 5 个楼盘，服务期间 2026-09-01 至 2026-09-30，按补助单价 7.00 元/㎡·月核算预计应补金额 548,940.00 元。其中湘江1958 人才公寓 12 间承租人资格状态异常，已随附异常清单提请市住建局核验时据实核减；田心人才公寓 9 月服务评价结果尚在出具中，按应补金额如实申报，核定时据实扣减。以上数据由房源档案与合同台账自动带出，本单位确认真实无误。</textarea>
       </div>
       <div class="form-item col-full">
         <label>附件说明 <span class="req">*</span></label>
         <input type="text" data-upload="1">
-        <div class="hint">须附：逐套在租房源清单、政府购买服务合同复印件、资格异常房源清单、上期整改落实情况说明</div>
+        <div class="hint">须附：逐间在租房源清单、政府购买服务合同复印件、资格异常房源清单、上期整改落实情况说明</div>
       </div>
     </div>
   </div>
   <div class="drawer-foot">
     <button class="btn" data-close-drawer>取消</button>
     <button class="btn" onclick="PMS.toast('已保存申报草稿，可在历史申报记录中继续编辑')">保存草稿</button>
-    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认发起 2026-09 租房补助申请，申报 1,192 套、预计应补 548,940.00 元？',detail:'提交后由市住建局核验资格与服务评价结果，核定后报财政复核拨付。进入核验环节后申报单不可撤回，需更正的由市住建局退回后重新提交。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已提交补助申请，待市住建局核验','success');}})"><i class="fa-solid fa-paper-plane"></i> 提交申请</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认发起 2026-09 租房补助申请，申报 1,192 间、预计应补 548,940.00 元？',detail:'提交后由市住建局核验资格与服务评价结果，核定后报财政复核拨付。进入核验环节后申报单不可撤回，需更正的由市住建局退回后重新提交。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已提交补助申请，待市住建局核验','success');}})"><i class="fa-solid fa-paper-plane"></i> 提交申请</button>
   </div>
 </div>
 

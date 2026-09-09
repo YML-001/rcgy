@@ -9,238 +9,85 @@
 <link rel="stylesheet" href="../../assets/css/spec.css">
 <link rel="stylesheet" href="../../assets/css/ext.css">
 </head>
-<body data-role="admin" data-active="system-25">
+<body data-role="admin" data-active="system-30">
 <main class="app-main">
   <div class="page-head">
     <div class="breadcrumb">
       <i class="fa-solid fa-house bc-home"></i> 株洲市人才住房保障管理平台
       <span class="sep">/</span> 权限与系统管理
-      <span class="sep">/</span> 用户与权限
       <span class="sep">/</span> <span class="cur">小程序菜单绑定</span>
     </div>
     <div class="page-actions">
-      <button class="btn btn-primary" onclick="PMS.openDrawer('mpDrawer')"><i class="fa-solid fa-plus"></i> 新增菜单绑定</button>
-      <a class="btn" href="sys-menu.html"><i class="fa-solid fa-bars"></i> PC 端菜单与路由</a>
-      <a class="btn" href="sys-user-role.html"><i class="fa-solid fa-user-tag"></i> 用户角色分配</a>
-      <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
+      <button class="btn btn-primary" onclick="PMS.openDrawer('mpDrawer')"><i class="fa-solid fa-mobile-screen"></i> 新增菜单配置</button>
     </div>
   </div>
-
-  <div class="alert alert-warning">
-    <i class="fa-solid fa-triangle-exclamation"></i>
-    <div>配置<b>移动端各角色的底部菜单与功能入口，支持按角色差异化绑定</b>。移动端共 4 类角色：<b>个人用户、运营机构、用人单位、主管单位</b>，各角色底部菜单相互独立；<b>同一账号具备多重身份的可在端内切换</b>，切换后底部菜单随之变化。菜单变更后<b>移动端下次进入即生效</b>，变更全程留痕。</div>
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>配置移动端各角色的<b>底部菜单与功能入口</b>，支持按角色差异化绑定。个人用户、运营机构、用人单位、主管单位四类角色的菜单可分别配置，调整后小程序端即时生效，不需发版。</div>
   </div>
-
-  <div class="stat-grid">
-    <div class="stat-card">
-      <div class="s-icon blue"><i class="fa-solid fa-users-gear"></i></div>
-      <div><div class="s-label">移动端角色</div><div class="s-value">4</div>
-        <div class="s-trend text-2">个人用户 / 运营机构 / 用人单位 / 主管单位</div></div>
-    </div>
-    <div class="stat-card">
-      <div class="s-icon green"><i class="fa-solid fa-table-columns"></i></div>
-      <div><div class="s-label">已绑定菜单</div><div class="s-value">11</div>
-        <div class="s-trend text-2">项 · 个人用户 4 / 运营机构 3 / 用人单位 2 / 主管单位 2</div></div>
-    </div>
-    <div class="stat-card">
-      <div class="s-icon cyan"><i class="fa-solid fa-grip"></i></div>
-      <div><div class="s-label">功能入口</div><div class="s-value">46</div>
-        <div class="s-trend text-2">个 · 显示 43 / 隐藏 3（本期暂不开放）</div></div>
-    </div>
-    <div class="stat-card">
-      <div class="s-icon orange"><i class="fa-solid fa-clock-rotate-left"></i></div>
-      <div><div class="s-label">最近变更</div><div class="s-value">2026-09-07</div>
-        <div class="s-trend text-2">个人用户「办理」页签下线，底部菜单由 5 项调整为 4 项</div></div>
-    </div>
-  </div>
-
-  <div class="card list-card" data-tabs-scope>
+  <div class="card list-card">
     <div class="filter-bar">
-      <div class="filter-item"><label>移动端角色</label><select><option value="">全部</option><option>个人用户</option><option>运营机构</option><option>用人单位</option><option>主管单位</option></select></div>
-      <div class="filter-item"><label>菜单名称</label><input type="text" value="首页" placeholder="菜单或入口名称"></div>
-      <div class="filter-item"><label>页面地址</label><input type="text" value="mobile/public/home.html" placeholder="页面地址"></div>
-      <div class="filter-item"><label>角标类型</label><select><option value="">全部</option><option>无角标</option><option>未读数</option><option>待办数</option><option>红点</option></select></div>
-      <div class="filter-item"><label>是否显示</label><select data-dict="yesNo" data-ph="全部"></select></div>
+      <div class="filter-item"><label>角色</label><select><option value="">全部</option><option>个人用户</option><option>运营机构</option><option>用人单位</option><option>主管单位</option></select></div>
+      <div class="filter-item"><label>状态</label><select><option value="">全部</option><option>已启用</option><option>已停用</option></select></div>
       <div class="filter-actions">
         <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
         <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
       </div>
     </div>
-
-    <div class="tabs">
-      <div class="tab active" data-tab="db"><i class="fa-solid fa-table-columns"></i> 底部菜单绑定 <span class="badge blue">11</span></div>
-      <div class="tab" data-tab="rk"><i class="fa-solid fa-grip"></i> 功能入口绑定 <span class="badge cyan">46</span></div>
-    </div>
-
-    <div class="tab-panel active" data-panel="db">
-    <div class="card-body tight">
-    <p class="hint">每个角色底部菜单 2—5 项，超出的不予保存 · 菜单序号即底部从左至右的显示顺序 · 角标数值由业务数据实时计算，不在此维护</p>
     <div class="table-wrap">
       <table class="data-table">
         <thead>
-          <tr><th class="cell-lg">移动端角色</th><th class="num">菜单序号</th><th>菜单名称</th><th>图标</th><th class="cell-lg">页面地址</th><th>角标</th><th>是否显示</th><th>操作</th></tr>
+          <tr><th class="cell-lg">角色</th><th>菜单数</th><th class="cell-lg">底部菜单</th><th>状态</th><th>最近调整</th><th>操作</th></tr>
         </thead>
         <tbody>
-          <tr><td><span class="badge blue">个人用户</span> 王梓涵 · 青年人才</td><td class="num">1</td><td>首页</td><td>fa-house</td><td>mobile/public/home.html</td><td><span class="muted">无角标</span></td><td><select data-dict="yesNo" data-selected="1" data-ph=""></select></td><td><span class="link" onclick="PMS.openDrawer('mpDrawer')">编辑</span></td></tr>
-          <tr><td><span class="badge blue">个人用户</span> 王梓涵 · 青年人才</td><td class="num">2</td><td>房源</td><td>fa-building</td><td>mobile/public/house-list.html</td><td><span class="muted">无角标</span></td><td><select data-dict="yesNo" data-selected="1" data-ph=""></select></td><td><span class="link" onclick="PMS.openDrawer('mpDrawer')">编辑</span></td></tr>
-          <tr><td><span class="badge blue">个人用户</span> 王梓涵 · 青年人才</td><td class="num">3</td><td>消息</td><td>fa-comment-dots</td><td>mobile/public/msg-center.html</td><td><span class="badge red">未读数 3</span></td><td><select data-dict="yesNo" data-selected="1" data-ph=""></select></td><td><span class="link" onclick="PMS.openDrawer('mpDrawer')">编辑</span></td></tr>
-          <tr><td><span class="badge blue">个人用户</span> 王梓涵 · 青年人才</td><td class="num">4</td><td>我的</td><td>fa-user</td><td>mobile/public/me.html</td><td><span class="muted">无角标</span></td><td><select data-dict="yesNo" data-selected="1" data-ph=""></select></td><td><span class="link" onclick="PMS.openDrawer('mpDrawer')">编辑</span></td></tr>
-          <tr><td><span class="badge cyan">运营机构</span> 黄卫兵 · 株洲城发高科人才安居服务有限公司</td><td class="num">1</td><td>核查</td><td>fa-location-dot</td><td>mobile/gov/check-list.html</td><td><span class="muted">无角标</span></td><td><select data-dict="yesNo" data-selected="1" data-ph=""></select></td><td><span class="link" onclick="PMS.openDrawer('mpDrawer')">编辑</span></td></tr>
-          <tr><td><span class="badge cyan">运营机构</span> 黄卫兵 · 株洲城发高科人才安居服务有限公司</td><td class="num">2</td><td>工单</td><td>fa-screwdriver-wrench</td><td>mobile/gov/wo-list.html</td><td><span class="badge red">待办数 5</span></td><td><select data-dict="yesNo" data-selected="1" data-ph=""></select></td><td><span class="link" onclick="PMS.openDrawer('mpDrawer')">编辑</span></td></tr>
-          <tr><td><span class="badge cyan">运营机构</span> 黄卫兵 · 株洲城发高科人才安居服务有限公司</td><td class="num">3</td><td>我的</td><td>fa-user</td><td>mobile/gov/me.html</td><td><span class="muted">无角标</span></td><td><select data-dict="yesNo" data-selected="1" data-ph=""></select></td><td><span class="link" onclick="PMS.openDrawer('mpDrawer')">编辑</span></td></tr>
-          <tr><td><span class="badge purple">用人单位</span> 邹敏 · 中车株洲电力机车研究所</td><td class="num">1</td><td>业务申报</td><td>fa-file-import</td><td>mobile/employer/home.html</td><td><span class="badge red">待办数 2</span></td><td><select data-dict="yesNo" data-selected="1" data-ph=""></select></td><td><span class="link" onclick="PMS.openDrawer('mpDrawer')">编辑</span></td></tr>
-          <tr><td><span class="badge purple">用人单位</span> 邹敏 · 中车株洲电力机车研究所</td><td class="num">2</td><td>单位信息</td><td>fa-building-user</td><td>mobile/employer/org-info.html</td><td><span class="muted">无角标</span></td><td><select data-dict="yesNo" data-selected="1" data-ph=""></select></td><td><span class="link" onclick="PMS.openDrawer('mpDrawer')">编辑</span></td></tr>
-          <tr><td><span class="badge green">主管单位</span> 刘志刚 · 市保障性住房服务中心</td><td class="num">1</td><td>待办</td><td>fa-list-check</td><td>mobile/gov/home.html</td><td><span class="badge red">待办数 9</span></td><td><select data-dict="yesNo" data-selected="1" data-ph=""></select></td><td><span class="link" onclick="PMS.openDrawer('mpDrawer')">编辑</span></td></tr>
-          <tr><td><span class="badge green">主管单位</span> 刘志刚 · 市保障性住房服务中心</td><td class="num">2</td><td>我的</td><td>fa-user</td><td>mobile/gov/me.html</td><td><span class="muted">无角标</span></td><td><select data-dict="yesNo" data-selected="1" data-ph=""></select></td><td><span class="link" onclick="PMS.openDrawer('mpDrawer')">编辑</span></td></tr>
+          <tr><td>个人用户</td><td>4</td><td>首页、房源、消息、我的</td><td><span class="badge green">已启用</span></td><td>2026-09-07</td><td><span class="link" onclick="PMS.openDrawer('mpDrawer')">配置</span></td></tr>
+          <tr><td>运营机构</td><td>3</td><td>核查、工单、我的</td><td><span class="badge green">已启用</span></td><td>2026-09-07</td><td><span class="link" onclick="PMS.openDrawer('mpDrawer')">配置</span></td></tr>
+          <tr><td>用人单位</td><td>2</td><td>业务申报、单位信息</td><td><span class="badge green">已启用</span></td><td>2026-09-07</td><td><span class="link" onclick="PMS.openDrawer('mpDrawer')">配置</span></td></tr>
+          <tr><td>主管单位</td><td>2</td><td>待办、我的</td><td><span class="badge green">已启用</span></td><td>2026-09-07</td><td><span class="link" onclick="PMS.openDrawer('mpDrawer')">配置</span></td></tr>
         </tbody>
       </table>
     </div>
-    </div>
-    </div>
-
-    <div class="tab-panel" data-panel="rk">
-    <div class="card-body tight">
-    <p class="hint">功能入口挂在底部菜单之下，以宫格、服务大卡或列表项呈现 · 共 46 个入口，本页展示 10 个 · 隐藏的入口不渲染，但后端接口仍按权限标识同步鉴权</p>
-    <div class="table-wrap">
-      <table class="data-table">
-        <thead>
-          <tr><th>角色</th><th>所属菜单</th><th class="cell-lg">功能入口名称</th><th class="cell-lg">页面地址</th><th class="num">排序</th><th>是否显示</th><th class="cell-lg">说明</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><span class="badge blue">个人用户</span></td><td>首页</td><td>人才公寓申请</td><td>mobile/public/apply-guide.html</td><td class="num">10</td><td><span class="badge green">显示</span></td><td>申请指南入口，逐步引导至资格申请填报，四类渠道中的「个人申请」</td></tr>
-          <tr><td><span class="badge blue">个人用户</span></td><td>首页</td><td>房源预约</td><td>mobile/public/house-book.html</td><td class="num">20</td><td><span class="badge green">显示</span></td><td>预约记录在配租时优先于普通轮候排序，仅对已审核发布的房源开放</td></tr>
-          <tr><td><span class="badge blue">个人用户</span></td><td>首页</td><td>政策资讯</td><td>mobile/public/policy-list.html</td><td class="num">30</td><td><span class="badge green">显示</span></td><td>政策文件、申请条件与常见问答，与 PC 端信息公开同源</td></tr>
-          <tr><td><span class="badge blue">个人用户</span></td><td>首页</td><td>购房补贴</td><td>mobile/public/buy-subsidy-jump.html</td><td class="num">40</td><td><span class="badge green">显示</span></td><td><b>接口跳转市委组织部现有系统</b>，传递已实名信息免重复登录；本平台只公开政策、不承载办理环节</td></tr>
-          <tr><td><span class="badge blue">个人用户</span></td><td>房源</td><td>VR 看房</td><td>mobile/public/house-vr.html</td><td class="num">10</td><td><span class="badge green">显示</span></td><td>VR 全景按套上传，同一套房各间共用一份</td></tr>
-          <tr class="row-warn"><td><span class="badge blue">个人用户</span></td><td>我的</td><td>家庭成员维护</td><td>mobile/public/me-family.html</td><td class="num">30</td><td><span class="badge orange">隐藏</span></td><td>本期暂不开放，<b>隐藏但保留路由</b>；后端接口仍按权限标识鉴权，不可绕过</td></tr>
-          <tr><td><span class="badge cyan">运营机构</span></td><td>核查</td><td>巡检打卡</td><td>mobile/gov/patrol-scan.html</td><td class="num">10</td><td><span class="badge green">显示</span></td><td>扫码打卡 + 定位校验，数据范围限本机构受托房源</td></tr>
-          <tr><td><span class="badge cyan">运营机构</span></td><td>工单</td><td>工单处理</td><td>mobile/gov/wo-handle.html</td><td class="num">10</td><td><span class="badge green">显示</span></td><td>接单、上门、完工回填，处理时效计入本机构考核报修及时率</td></tr>
-          <tr><td><span class="badge purple">用人单位</span></td><td>业务申报</td><td>员工批量代申报</td><td>mobile/employer/batch-apply.html</td><td class="num">10</td><td><span class="badge green">显示</span></td><td>单位只报人不选房；按人拆分为独立申请件，职工须在 3 个自然日内确认授权</td></tr>
-          <tr><td><span class="badge green">主管单位</span></td><td>待办</td><td>资格复审</td><td>mobile/gov/approve-list.html</td><td class="num">10</td><td><span class="badge green">显示</span></td><td>本期待办只保留资格申请受理件与复审件两类，按剩余时限排序</td></tr>
-        </tbody>
-      </table>
-    </div>
-    </div>
-    </div>
   </div>
-
-  <div class="sp-block" style="margin-top:8px">
-    <div class="sp-h"><i class="fa-solid fa-list"></i> 绑定规则<span class="sub">D05 · BD-1 至 BD-6</span></div>
-    <div class="sp-b">
-      <div class="sp-tw">
-        <table class="data-table compact">
-          <thead><tr><th>规则编号</th><th>规则要点</th><th class="cell-lg">口径说明</th></tr></thead>
-          <tbody>
-            <tr><td><b>BD-1</b></td><td>底部菜单 2—5 项</td><td>每个移动端角色的底部菜单<b>不少于 2 项、不超过 5 项</b>；少于 2 项或多于 5 项的不予保存。当前个人用户 4 项、运营机构 3 项、用人单位 2 项、主管单位 2 项</td></tr>
-            <tr><td><b>BD-2</b></td><td>按角色差异化绑定</td><td>四类角色的底部菜单与功能入口<b>相互独立</b>，同一页面地址可绑定给多个角色但排序与角标可各自配置</td></tr>
-            <tr><td><b>BD-3</b></td><td>多重身份端内切换</td><td><b>同一账号具备多重身份的可在端内切换</b>，切换后底部菜单与功能入口随当前身份整体切换；页面上写 <code>data-mrole="0"</code> 可隐藏切换入口</td></tr>
-            <tr><td><b>BD-4</b></td><td>角标由业务数据计算</td><td>角标类型分<b>无角标、未读数、待办数、红点</b>四种；<b>数值由业务数据实时计算</b>，不在本页维护，仅配置是否展示与展示形态</td></tr>
-            <tr><td><b>BD-5</b></td><td>隐藏不等于取消鉴权</td><td>是否显示为「否」的菜单与入口<b>在移动端不渲染</b>，但<b>后端接口仍按权限标识同步鉴权</b>，不可通过直接输入地址绕过</td></tr>
-            <tr><td><b>BD-6</b></td><td>变更留痕与生效</td><td>菜单与入口的新增、修改、显隐调整、排序调整<b>全部留痕</b>（操作人、操作时间、变更前后值）；<b>变更后移动端下次进入即生效</b>，无须发版</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-
   <div class="sp-src">
-    <span><b>依据</b> 2026 年 9 月 7 日汇报讨论会决议：移动端按四类角色差异化绑定底部菜单与功能入口</span>
-    <span><b>角色口径</b> 个人用户（首页/房源/消息/我的）、运营机构（核查/工单/我的）、用人单位（业务申报/单位信息）、主管单位（待办/我的）</span>
-    <span><b>最近变更</b> 2026-09-07 个人用户「办理」页签下线，底部菜单由 5 项调整为 4 项，办理入口收敛至首页宫格</span>
-    <span><b>关联</b> <span class="link" onclick="location.href='sys-menu.html'">PC 端菜单与路由管理</span>　<span class="link" onclick="location.href='sys-role.html'">角色管理</span></span>
+    <span><b>生效方式</b> 配置保存后小程序端即时生效，不需重新发版</span>
+    <span><b>角色来源</b> 角色由后台授予，用户在移动端「我的」中切换</span>
+    <span><b>菜单上限</b> 底部菜单最多 5 项，超出的功能放入二级聚合页</span>
   </div>
-</main>
 
+</main>
 <div class="drawer-mask"></div>
 <div class="drawer" id="mpDrawer">
-  <div class="drawer-head">
-    <h3>移动端菜单绑定维护</h3>
-    <span class="badge blue">个人用户 · 消息</span>
-    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
-  </div>
+  <div class="drawer-head"><h3>小程序菜单配置</h3>
+    <span class="badge blue">个人用户</span>
+    <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div></div>
   <div class="drawer-body">
-    <div class="alert alert-warning">
-      <i class="fa-solid fa-triangle-exclamation"></i>
-      <div>底部菜单<b>每个角色不少于 2 项、不超过 5 项</b>，超限的不予保存。<b>角标数值由业务数据实时计算</b>，此处仅配置角标类型。保存后<b>移动端下次进入即生效</b>，无须发版；变更前后值、操作人与操作时间全程留痕。</div>
-    </div>
-
-    <div class="form-grid form-align">
-      <div class="form-item">
-        <label>移动端角色 <span class="req">*</span></label>
-        <select>
-          <option selected>个人用户（底部页签组 public · 现 4 项）</option>
-          <option>运营机构（底部页签组 agency · 现 3 项）</option>
-          <option>用人单位（底部页签组 employer · 现 2 项）</option>
-          <option>主管单位（底部页签组 gov · 现 2 项）</option>
-        </select>
+  <div class="alert alert-warning"><i class="fa-solid fa-triangle-exclamation"></i>
+    <div>底部菜单最多 <b>5 项</b>，建议不超过 4 项。
+      调整后小程序端即时生效，请确认无误后再保存。</div></div>
+      <div class="form-grid form-align">
+        <div class="form-item"><label>适用角色 <span class="req">*</span></label>
+          <select><option>个人用户</option><option>运营机构</option><option>用人单位</option><option>主管单位</option></select></div>
+        <div class="form-item"><label>菜单项数</label>
+          <input type="text" value="4" readonly></div>
+        <div class="form-item col-full"><label>菜单 1 <span class="req">*</span></label>
+          <input type="text" value="首页　→　home.html"></div>
+        <div class="form-item col-full"><label>菜单 2 <span class="req">*</span></label>
+          <input type="text" value="房源　→　house-list.html"></div>
+        <div class="form-item col-full"><label>菜单 3 <span class="req">*</span></label>
+          <input type="text" value="消息　→　msg-center.html"></div>
+        <div class="form-item col-full"><label>菜单 4 <span class="req">*</span></label>
+          <input type="text" value="我的　→　me.html"></div>
+        <div class="form-item col-full"><label>说明</label>
+          <div class="hint">原「办理」菜单已取消，租房申请的六项功能收入首页的「人才租房申请」二级聚合页</div></div>
       </div>
-      <div class="form-item">
-        <label>菜单标识 <span class="req">*</span></label>
-        <input type="text" value="msg" readonly>
-        <div class="hint">与移动端页面 data-mtab 取值一致，权限鉴权的唯一标识</div>
-      </div>
-      <div class="form-item">
-        <label>菜单名称 <span class="req">*</span></label>
-        <input type="text" value="消息">
-        <div class="hint">建议 2—4 个汉字，过长在底部会折行</div>
-      </div>
-      <div class="form-item">
-        <label>图标类名 <span class="req">*</span></label>
-        <input type="text" value="fa-comment-dots">
-        <div class="hint">Font Awesome 6 实心图标类名，不含 fa-solid 前缀</div>
-      </div>
-      <div class="form-item col-full">
-        <label>页面地址 <span class="req">*</span></label>
-        <input type="text" value="mobile/public/msg-center.html">
-        <div class="hint">须为已存在的移动端页面；地址错误的保存时校验拦截</div>
-      </div>
-      <div class="form-item">
-        <label>排序 <span class="req">*</span></label>
-        <input type="text" value="3">
-        <div class="hint">即底部从左至右的显示顺序，同角色内升序排列且不得重复</div>
-      </div>
-      <div class="form-item">
-        <label>角标类型 <span class="req">*</span></label>
-        <select>
-          <option selected>未读数（取消息中心未读条数）</option>
-          <option>无角标</option>
-          <option>待办数（取待办任务条数）</option>
-          <option>红点（仅提示不显示数值）</option>
-        </select>
-      </div>
-      <div class="form-item">
-        <label>是否显示 <span class="req">*</span></label>
-        <select data-dict="yesNo" data-selected="1" data-ph=""></select>
-        <div class="hint">选「否」的在移动端不渲染，但后端接口仍按权限标识鉴权</div>
-      </div>
-      <div class="form-item">
-        <label>角标上限显示 <span class="req">*</span></label>
-        <input type="text" value="99+">
-        <div class="hint">超过 99 时统一显示为 99+</div>
-      </div>
-      <div class="form-item">
-        <label>是否支持端内身份切换 <span class="req">*</span></label>
-        <select data-dict="yesNo" data-selected="1" data-ph=""></select>
-        <div class="hint">同一账号具备多重身份时，导航栏显示「切换角色」按钮</div>
-      </div>
-      <div class="form-item col-full">
-        <label>变更说明 <span class="req">*</span></label>
-        <textarea rows="3">依 2026 年 9 月 7 日汇报讨论会决议调整个人用户底部菜单：下线原「办理」页签，办理入口收敛至首页宫格，底部菜单由 5 项调整为 4 项（首页 / 房源 / 消息 / 我的）。本次维护「消息」页签，排序由 4 调整为 3，角标类型保持「未读数」，上限显示 99+。保存后移动端下次进入即生效。</textarea>
-      </div>
-    </div>
   </div>
-  <div class="drawer-foot">
-    <button class="btn" data-close-drawer>取消</button>
-    <button class="btn" onclick="PMS.toast('已在移动端原型中预览：个人用户底部菜单 首页 / 房源 / 消息（角标 3）/ 我的','success')">预览效果</button>
-    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认保存个人用户「消息」页签的菜单绑定配置？',detail:'保存后移动端下次进入即生效，无须发版。个人用户底部菜单保持 4 项（首页 / 房源 / 消息 / 我的），符合每角色 2—5 项的限制。变更前后值、操作人与操作时间全程留痕，可在操作日志与审计中反查。',type:'warning',okText:'确认保存',onOk:function(){PMS.closeDrawer();PMS.toast('已保存，移动端下次进入即生效','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
-  </div>
+  <div class="drawer-foot"><button class="btn" data-close-drawer>取消</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'保存确认',message:'确认保存菜单配置？',detail:'保存后小程序端即时生效，所有该角色用户的底部菜单将同步变化。',type:'warning',okText:'确认保存',onOk:function(){PMS.closeDrawer();PMS.toast('已保存，小程序端已生效','success');}})"><i class="fa-solid fa-check"></i> 保存并生效</button></div>
 </div>
-
 <script>
 (function () {
-  var ts = document.querySelectorAll('main.app-main .table-wrap > table.data-table');
-  if (ts[0]) { ts[0]._total = 11; }
-  if (ts[1]) { ts[1]._total = 46; }
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 4; }
 })();
 </script>
 

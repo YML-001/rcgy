@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>角色切换 · 株洲市人才住房保障管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../assets/css/app.css">
+<link rel="stylesheet" href="../assets/css/mobile.css">
+<link rel="stylesheet" href="../assets/css/ext.css">
+<style>
+.rs-hd{background:linear-gradient(135deg,#4B93F0,#2C6FD6);color:#fff;
+  padding:18px 14px 20px;border-radius:0 0 14px 14px}
+.rs-hd .t{font-size:18px;font-weight:800}
+.rs-hd .s{font-size:11.5px;opacity:.9;margin-top:6px;line-height:1.6}
+.rs-li{display:flex;align-items:center;gap:12px;background:#fff;
+  border-radius:12px;padding:14px 13px;margin:11px 14px;text-decoration:none}
+.rs-li .ic{width:44px;height:44px;border-radius:12px;display:flex;
+  align-items:center;justify-content:center;font-size:19px;flex:none}
+.rs-li .tx{flex:1}
+.rs-li .n{font-size:15px;font-weight:700;color:#1B2A41}
+.rs-li .d{font-size:11.5px;color:#8C9AAC;margin-top:4px;line-height:1.5}
+.rs-li .go{color:#C3CCD8;font-size:15px}
+.i1{background:#EAF2FE;color:#2C6FD6}.i2{background:#E8F7F0;color:#22A06B}
+.i3{background:#FEF3E6;color:#E08A2B}.i4{background:#F3EDFC;color:#7B54C8}
+</style>
+</head>
+<body class="m-body" data-mtitle="角色切换" data-mmod="移动端 · 角色切换"
+      data-mdesc="同一账号具备多重身份时可在此切换。移动端支持个人用户、运营机构、用人单位、主管单位四类角色，切换后底部菜单随之变化，数据范围按角色收敛。"
+      data-mtint="1" data-mnav="0" data-mchan="湘易办">
+<div class="m-stage">
+  <div class="m-phone">
+    <div class="m-screen">
+      <div class="m-view" style="background:#F3F6FA">
+        <div class="rs-hd">
+          <div class="t">选择使用角色</div>
+          <div class="s">同一湘易办账号可具备多重身份<br>
+            切换后底部菜单与可见数据随角色变化</div>
+        </div>
+        <a class="rs-li" href="public/home.html">
+          <span class="ic i1"><i class="fa-solid fa-user"></i></span>
+          <span class="tx"><span class="n">个人用户</span>
+            <span class="d">看房预约、资格申请、合同账单、续租年审、报修服务</span></span>
+          <i class="fa-solid fa-angle-right go"></i></a>
+        <a class="rs-li" href="gov/home.html">
+          <span class="ic i2"><i class="fa-solid fa-building-user"></i></span>
+          <span class="tx"><span class="n">运营机构</span>
+            <span class="d">现场核查与巡检、工单处理　·　仅本机构受托房源</span></span>
+          <i class="fa-solid fa-angle-right go"></i></a>
+        <a class="rs-li" href="employer/emp-declare.html">
+          <span class="ic i3"><i class="fa-solid fa-briefcase"></i></span>
+          <span class="tx"><span class="n">用人单位</span>
+            <span class="d">员工批量代申报、在职变更上报　·　仅本单位职工</span></span>
+          <i class="fa-solid fa-angle-right go"></i></a>
+        <a class="rs-li" href="gov/approve-list.html">
+          <span class="ic i4"><i class="fa-solid fa-list-check"></i></span>
+          <span class="tx"><span class="n">主管单位</span>
+            <span class="d">待办审批　·　可查看全市数据</span></span>
+          <i class="fa-solid fa-angle-right go"></i></a>
+          <a class="m-cell" href="employer/login.html"><span class="m-ci orange"><i class="fa-solid fa-building-user"></i></span><span class="m-cl"><b>用人单位登录页</b><span class="m-cs">手机号登录，可自助注册</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="gov/ops-login.html"><span class="m-ci cyan"><i class="fa-solid fa-screwdriver-wrench"></i></span><span class="m-cl"><b>运营机构登录页</b><span class="m-cs">账号由主管单位统一开通</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+        <div class="m-note" style="margin:14px"><i class="fa-solid fa-circle-info"></i>
+          <div>角色由后台按账号授予。运营机构与用人单位账号由市保障性住房服务中心
+            审核开通后方可使用；数据范围按角色自动收敛，越权数据不可见。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="../assets/js/mobile.js"></script>
+</body>
+</html>

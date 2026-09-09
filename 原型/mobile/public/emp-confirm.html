@@ -3,128 +3,79 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>单位代申报确认授权 · 株洲市人才住房保障管理平台</title>
+<title>单位代申报确认 · 株洲市人才住房保障管理平台</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="../../assets/css/app.css">
 <link rel="stylesheet" href="../../assets/css/mobile.css">
 <link rel="stylesheet" href="../../assets/css/ext.css">
-<style>
-/* 确认倒计时 */
-.m-cd { display: flex; align-items: baseline; justify-content: center; gap: 4px; padding: 4px 0 2px; }
-.m-cd .n {
-  min-width: 40px; padding: 4px 8px; border-radius: var(--m-radius-sm);
-  background: var(--danger-light); color: var(--danger);
-  font-size: 22px; font-weight: 700; line-height: 1.2; text-align: center;
-  font-variant-numeric: tabular-nums;
-}
-.m-cd .u { font-size: 12.5px; color: var(--text-3); }
-</style>
 </head>
-<body class="m-body" data-mtitle="代申报确认授权" data-mmod="M5 人才公寓资格申请" data-mcode="M5-12"
-      data-mdesc="用人单位代申报后由职工本人在移动端确认授权并补填联系方式、婚姻状况与意向片区；受理时间以本人确认时间为准，3 个自然日内未确认自动作废；单位只报人不选房，意向片区仅作登记、不锁定房源。"
-      data-mback="msg-center.html" data-mtabset="public" data-mtab="me" data-mchan="湘易办">
+<body class="m-body" data-mtitle="单位代申报确认" data-mmod="M1 个人用户 · 资格申请"
+      data-mcode="M1-12" data-mback="home.html"
+      data-mdesc="用人单位代为提交申请后，职工本人在此确认授权并补充个人信息。单位不得代为确认。确认后申请件进入统一件池，受理时间以本次确认时间为准，与个人自行申请同一排序口径。意向片区为选填，仅作登记不锁定房源。"
+      data-mtabset="public" data-mtab="home" data-mchan="湘易办">
 <div class="m-stage">
   <div class="m-phone">
     <div class="m-screen">
       <div class="m-view">
         <div class="m-note warn"><i class="fa-solid fa-triangle-exclamation"></i>
-          <div><b>受理时间以本人确认时间为准</b>：单位代申报件<b>须由您本人确认授权</b>后才进入受理，<b>自单位申报之日起 3 个自然日内未确认的自动作废</b>（作废后可请单位重新申报，不影响您另行提交个人申请）。</div>
+          <div><b>中车株洲电力机车有限公司</b>已为您提交人才公寓申请，
+            请核对信息并确认授权。<b>确认后</b>申请正式受理，
+            受理时间以您本次确认的时间为准。
+            <b>3 个自然日内未确认</b>的自动作废。</div>
         </div>
+
         <div class="m-card">
-          <div class="m-card-h"><i class="fa-solid fa-hourglass-half"></i>确认剩余时间<span class="m-tag red" style="margin-left:auto">待本人确认</span></div>
-          <div class="m-card-b">
-            <div class="m-cd">
-              <span class="n">2</span><span class="u">天</span>
-              <span class="n">6</span><span class="u">小时</span>
-            </div>
-            <div class="m-bar" style="margin-top:10px"><span class="red" style="width:23%"></span></div>
-            <div style="margin-top:6px;font-size:11.5px;color:var(--text-3);text-align:center">
-              单位申报 2026-09-07 15:20　·	<b style="color:var(--danger)">确认截止 2026-09-10 15:20</b>　·	逾期自动作废
-            </div>
-          </div>
-        </div>
-        <div class="m-sect">单位填报的信息<span class="m-sect-x">只读 · 由用人单位代填</span></div>
-        <div class="m-card">
-          <div class="m-card-h"><i class="fa-solid fa-building-user"></i>申报信息核对</div>
+          <div class="m-card-h"><i class="fa-solid fa-user"></i>单位填报信息</div>
           <div class="m-card-b">
           <div class="m-kv">
-            <div><span>申报单位</span><span>中车株洲电力机车研究所</span></div>
-            <div><span>统一社会信用代码</span><span>91430200183781965Y　<span class="m-tag green">已认证</span></span></div>
-            <div><span>单位经办人</span><span>邹敏（人事部）　0731-28681066</span></div>
-            <div><span>申报时间</span><span>2026-09-07 15:20</span></div>
-            <div><span>申报件编号</span><span>RC2026-0907-0233　·	渠道 <b>用人单位（移动端申请）</b></span></div>
-            <div><span>姓名</span><span>王梓涵</span></div>
-            <div><span>身份证号</span><span>430211********2418（脱敏）</span></div>
-            <div><span>学历</span><span>全日制本科　·	湖南工业大学　·	2025-07-01 毕业</span></div>
-            <div><span>入职时间</span><span>2025-07-15　·	岗位 电气工程师</span></div>
-            <div><span>劳动合同起止</span><span>2025-07-15 至 2028-07-14（3 年期）</span></div>
-            <div><span>社保缴纳情况</span><span>单位申报：已连续缴纳 <b>13 个月</b>　<span class="m-tag orange">待人社数据核验</span></span></div>
-            <div><span>信息有误怎么办</span><span>请联系单位经办人<b>修改后重新申报</b>，本页信息不可自行修改</span></div>
+            <div><span>姓名</span><span>李文博</span></div>
+            <div><span>身份证号</span><span>4302**********0518</span></div>
+            <div><span>所在单位</span><span>中车株洲电力机车有限公司</span></div>
+            <div><span>所在部门</span><span>研发中心</span></div>
+            <div><span>最高学历</span><span>全日制硕士研究生</span></div>
+            <div><span>申请类型</span><span>就业青年人才</span></div>
           </div>
           </div>
         </div>
-        <div class="m-sect">请您补填<span class="m-sect-x">3 项 · 确认前必填 2 项</span></div>
-        <div class="m-form">
-          <div class="m-fi">
-            <label>联系方式 <span class="req">*</span></label>
-            <div class="m-fc"><input type="tel" value="13802456207"><div class="m-fh">用于接收受理结论、选房通知与缴费提醒，单位不代收</div></div>
-          </div>
-          <div class="m-fi">
-            <label>婚姻状况 <span class="req">*</span></label>
-            <div class="m-fc"><select data-dict="marriage" data-selected="1"></select><div class="m-fh"><i class="fa-solid fa-database"></i> 将与民政数据核验；<b>已婚的自动切换为家庭申请</b>，夫妻双方合并为一份、只占一套指标</div></div>
-          </div>
-          <div class="m-fi">
-            <label>意向片区</label>
-            <div class="m-fc"><select data-dict="district" data-selected="01"></select><div class="m-fh"><b>选填。仅作登记、不锁定房源</b>，资格审核通过后按批次统一组织选房</div></div>
-          </div>
-          <div class="m-fi">
-            <label>补充说明</label>
-            <div class="m-fc"><textarea rows="3">本人确认单位填报的身份、学历与劳动合同信息无误，愿意授权平台核验相关数据；通勤考虑优先希望配租天元区片区房间。</textarea><div class="m-fh">选填，将随申请件一并留痕</div></div>
-          </div>
-        </div>
-        <div class="m-sect">单位只报人不选房<span class="m-sect-x">代申报口径</span></div>
+
+        <div class="m-sect">补充信息<span class="m-sect-x">由本人填写</span></div>
         <div class="m-card">
-          <div class="m-card-h"><i class="fa-solid fa-circle-info"></i>五条必读</div>
           <div class="m-card-b">
-            <div class="m-check">
-              <div class="ok"><i class="fa-solid fa-user-group"></i><div class="m-chl"><b>单位只报人、不选房</b><span>用人单位只负责收集并申报职工的身份与资格材料，<b>不代为选房、不锁定房源</b>；选房与签约由<b>职工本人</b>办理并需人脸核身</span></div></div>
-              <div class="ok"><i class="fa-solid fa-scissors"></i><div class="m-chl"><b>按人拆分为独立申请件</b><span>单位批量申报后<b>按人拆分</b>为独立申请件，与个人申请汇入<b>同一件池、同一流程、同一时限</b>，不因渠道优先</span></div></div>
-              <div class="ok"><i class="fa-solid fa-clock"></i><div class="m-chl"><b>受理时间以本人确认时间为准</b><span>配租顺序按受理时间排定，<b>您确认的时间即受理时间</b>，越早确认越有利</span></div></div>
-              <div class="ok"><i class="fa-solid fa-location-dot"></i><div class="m-chl"><b>意向片区仅作登记</b><span>意向片区<b>不锁定房源、不保留房间</b>，仅用于房源到位通知与供需测算；资格审核通过后<b>按批次统一组织选房</b></span></div></div>
-              <div class="bad"><i class="fa-solid fa-triangle-exclamation"></i><div class="m-chl"><b>3 个自然日内未确认自动作废</b><span>逾期未确认的申报件<b>自动作废</b>并通知单位经办人；作废不影响本人重新申报或自行提交个人申请，<b>每人限 1 间（套）</b>，如已有在办申请将提示择一保留</span></div></div>
-            </div>
-          </div>
-        </div>
-        <div class="m-sect">确认后的办理流程</div>
-        <div class="m-card">
-          <div class="m-card-h"><i class="fa-solid fa-diagram-project"></i>环节与时限</div>
-          <div class="m-card-b">
-          <div class="m-tl">
-            <div class="m-ti done"><div class="m-tt">单位代申报</div><div class="m-td">中车株洲电力机车研究所　邹敏　2026-09-07 15:20 提交，按人拆分为独立申请件</div></div>
-            <div class="m-ti on"><div class="m-tt">本人确认授权（当前环节）</div><div class="m-td">确认单位填报信息、补填联系方式与婚姻状况；<b>确认时间即受理时间</b></div></div>
-            <div class="m-ti"><div class="m-tt">受理初审</div><div class="m-td">市保障性住房服务中心资格审核科核对材料完整性与真实性</div></div>
-            <div class="m-ti"><div class="m-tt">复审出具结论</div><div class="m-td">市保障性住房服务中心出具审核结论，材料齐备后 3 个工作日内完成；两级意见分别留痕</div></div>
-            <div class="m-ti"><div class="m-tt">按批次统一组织选房</div><div class="m-td">审核通过后进入配租，按受理时间顺序排定、不摇号；选房通知后限 1 个工作日内确认</div></div>
+          <div class="m-form">
+            <div class="m-fi"><label>联系电话 <span class="req">*</span></label>
+              <div class="m-fc"><input type="text" value="138****6621"></div></div>
+            <div class="m-fi"><label>婚姻状况 <span class="req">*</span></label>
+              <div class="m-fc"><select><option>未婚</option><option>已婚</option></select>
+                <div class="m-fh">已婚且配偶符合条件的，可改为家庭申请</div></div></div>
+            <div class="m-fi col"><label>意向片区（选填）</label>
+              <div class="m-fc"><select><option>暂不指定，服从配租</option>
+                <option>天元区</option><option>荷塘区</option><option>芦淞区</option>
+                <option>石峰区</option><option>渌口区</option></select>
+                <div class="m-fh">仅作意向登记，<b>不锁定房源</b>；
+                  资格审核通过后按批次统一组织选房，届时由本人线上选房</div></div></div>
+            <div class="m-fi col"><label>无房承诺 <span class="req">*</span></label>
+              <div class="m-fc">
+                <div class="m-chl"><span class="m-tag blue">本人及家庭成员在市城区无自有住房</span></div>
+                <div class="m-fh">系统将通过不动产登记数据自动核验</div></div></div>
           </div>
           </div>
         </div>
-        <div class="m-cells">
-          <a class="m-cell" href="apply-by-org.html"><span class="m-ci cyan"><i class="fa-solid fa-users-gear"></i></span><span class="m-cl"><b>查看单位代报的申请</b><span class="m-cs">代申报件进度与单位经办人信息</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
-          <a class="m-cell" href="apply-guide.html"><span class="m-ci"><i class="fa-solid fa-book-open"></i></span><span class="m-cl"><b>办事指南</b><span class="m-cs">申请条件、材料清单、办理流程与时限</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
-          <a class="m-cell" href="house-list.html"><span class="m-ci green"><i class="fa-solid fa-city"></i></span><span class="m-cl"><b>先看看房源</b><span class="m-cs">按间发布，剩余可选 412 间；也可先预约登记意向</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
-        </div>
+
         <div class="m-note"><i class="fa-solid fa-circle-info"></i>
-          <div>确认授权即同意平台通过部门接口核验本人的<b>婚姻、不动产、学历、社保、税务</b>等信息，用于资格审核；核验记录全程留痕，可在<a href="apply-trace.html" style="color:var(--primary)">全过程留痕</a>中查看。</div>
+          <div>身份、婚姻、学历、社保、不动产等信息由系统自动核验，无需上传。
+            劳动合同由单位统一提供，您无需重复提交。</div>
         </div>
-      </div>
-      <div class="m-actbar">
-        <button class="m-btn w-auto" type="button" onclick="MB.toast('已记录「暂不确认」，请在 2026-09-10 15:20 前完成确认，逾期自动作废')">暂不确认</button>
-        <button class="m-btn primary" type="button" onclick="MB.submit('.m-view','确认授权本单位代为申报的人才住房资格申请（RC2026-0907-0233）？<br><b>本次受理时间以本人确认时间为准</b>，确认后立即进入受理初审并按该时间排定配租顺序；<b>单位只报人不选房</b>，意向片区仅作登记、不锁定房源。','确认授权','apply-submit-ok.html')"><i class="fa-solid fa-user-shield"></i> 确认授权并提交</button>
+
+        <div style="padding:14px">
+          <a class="m-btn primary" href="javascript:void(0)"
+             onclick="MB.confirm({title:'确认授权',message:'确认授权并提交申请？',detail:'确认后申请正式受理，受理时间以本次确认时间为准，与个人自行申请同一排序口径。',okText:'确认提交',onOk:function(){MB.toast('已确认，申请编号 RC2026-0908-0231');}})">确认授权并提交</a>
+          <a class="m-btn" style="margin-top:10px" href="javascript:void(0)"
+             onclick="MB.confirm({title:'放弃确认',message:'确认放弃本次代申报？',detail:'放弃后本次申请作废，您仍可自行在平台提交申请。',okText:'确认放弃',onOk:function(){MB.toast('已放弃');}})">放弃本次代申报</a>
+        </div>
       </div>
     </div>
   </div>
 </div>
-
 <script src="../../assets/js/mobile.js"></script>
 </body>
 </html>

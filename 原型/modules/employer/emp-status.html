@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>在职状态变更上报 · 株洲市人才住房保障管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="employer" data-active="emp-03">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才住房保障管理平台
+      <span class="sep">/</span> 用人单位端
+      <span class="sep">/</span> <span class="cur">在职状态变更上报</span>
+    </div>
+  </div>
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>职工<b>离职、调岗、社保停缴</b>的，用人单位应当在 <b>10 个工作日内</b>上报。已承租人才公寓的职工离职后，由住建部门启动资格复核，不再符合条件的按规定退出。</div>
+  </div>
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-user-check"></i></div>
+      <div><div class="s-label">在租职工</div><div class="s-value">126</div>
+        <div class="s-trend">本单位承租人才公寓</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-user-minus"></i></div>
+      <div><div class="s-label">本月上报</div><div class="s-value">4</div>
+        <div class="s-trend">离职 3 / 调岗 1</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon red"><i class="fa-solid fa-clock"></i></div>
+      <div><div class="s-label">待上报</div><div class="s-value">2</div>
+        <div class="s-trend">社保已停缴超 5 个工作日</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-shield-halved"></i></div>
+      <div><div class="s-label">上报及时率</div><div class="s-value">94.7%</div>
+        <div class="s-trend">近 12 个月</div></div>
+    </div>
+  </div>
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>姓名</label><input type="text" placeholder="职工姓名"></div>
+      <div class="filter-item"><label>部门</label><input type="text" placeholder="所在部门"></div>
+      <div class="filter-item"><label>在职状态</label><select><option value="">全部</option><option>在职</option><option>已离职</option><option>调岗外派</option><option>社保停缴</option></select></div>
+      <div class="filter-item"><label>上报状态</label><select><option value="">全部</option><option>正常</option><option>已上报</option><option>待上报</option></select></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>姓名</th><th>所在部门</th><th class="cell-lg">承租房源</th><th>入职时间</th><th>在职状态</th><th>变更时间</th><th>上报状态</th><th>上报时间</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>王梓涵</td><td>研发中心</td><td>湘江1958 / A6-1502A</td><td>2024-07-01</td><td><span class="badge green">在职</span></td><td>—</td><td><span class="badge green">正常</span></td><td>—</td></tr>
+          <tr><td>刘一鸣</td><td>工艺部</td><td>栗雨佳苑 / 3-0902B</td><td>2023-09-01</td><td><span class="badge red">已离职</span></td><td>2026-09-01</td><td><span class="badge green">已上报</span></td><td>2026-09-03</td></tr>
+          <tr><td>赵敏行</td><td>制造部</td><td>茨菇塘 / 5-0602A</td><td>2024-03-15</td><td><span class="badge orange">调岗外派</span></td><td>2026-08-28</td><td><span class="badge green">已上报</span></td><td>2026-09-02</td></tr>
+          <tr class="row-bad"><td>孙浩宇</td><td>供应链部</td><td>湘江1958 / A6-1208B</td><td>2024-11-01</td><td><span class="badge red">社保停缴</span></td><td>2026-08-25</td><td><span class="badge red">待上报</span></td><td><span class="link" onclick="PMS.confirm({title:'上报确认',message:'确认上报该职工在职状态变更？',detail:'上报后由住建部门启动资格复核，不再符合条件的按规定办理退出。',type:'warning',okText:'确认上报',onOk:function(){PMS.toast('已上报，住建部门将启动资格复核','success');}})">立即上报</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>上报时限</b> 变更发生后 <b>10 个工作日</b>内上报</span>
+    <span><b>自动预警</b> 平台同时比对社保数据，停缴超 2 个月自动预警</span>
+  </div>
+
+</main>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 4; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

@@ -3,89 +3,40 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>房源预约 · 株洲市人才住房保障管理平台</title>
+<title>意向登记 · 株洲市人才住房保障管理平台</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="../../assets/css/app.css">
 <link rel="stylesheet" href="../../assets/css/mobile.css">
 <link rel="stylesheet" href="../../assets/css/ext.css">
 </head>
-<body class="m-body" data-mtitle="房源预约" data-mmod="N1 房源预约与预定" data-mcode="N1-01"
-      data-mdesc="按区域 → 楼盘小区 → 房源（套）→ 房间（A/B/C）四级选定预约对象，再填联系方式、预计入住时间与同住人数。预约为意向登记，不占用轮候名额、不锁定房源。" data-mback="house-detail.html" data-mtabset="public" data-mtab="house" data-mchan="湘易办">
+<body class="m-body" data-mtitle="意向登记" data-mmod="N1 房源意向登记" data-mcode="N1-01"
+      data-mdesc="对已审核发布的房源登记租住意向。只选到「楼盘＋户型」两级，不选具体房屋与房间。意向登记仅作需求摸底统计，不占用房源、不进入轮候库、不收取任何费用，也不产生任何配租权利，登记有效期半年。提交前须勾选确认《株洲市城区创业就业青年人才住房保障管理办法》条款。" data-mback="house-detail.html" data-mtabset="public" data-mtab="house" data-mchan="湘易办">
 <div class="m-stage">
   <div class="m-phone">
     <div class="m-screen">
       <div class="m-view">
         <div class="m-note warn"><i class="fa-solid fa-triangle-exclamation"></i>
-          <div><b>预约为意向登记，不占用轮候名额、不锁定房源。</b>预约只是把您的看房与入住意向登记到楼盘表，<b>不影响、不占用您的轮候序号</b>，同一房间可被多人预约；配租时<b>已预约本批次房源的优先于普通轮候</b>，多人预约同一房间的按预约时间先后排定。</div>
+          <div>意向登记<b>仅作需求摸底统计</b>：<b>不占用房源、不进入轮候库、不收取任何费用，也不产生任何配租权利</b>。房源不由申请人自行选定，资格审核通过后由系统<b>按配租公告设定的时间自动配租</b>。</div>
         </div>
-        <div class="m-sect">四级选定预约对象<span class="m-sect-x">区域 → 楼盘 → 套 → 间</span></div>
-        <div class="m-form">
-          <div class="m-fi">
-            <label>① 区域 <span class="req">*</span></label>
-            <div class="m-fc"><select data-dict="district" data-selected="01"></select><div class="m-fh">市城区范围（不含渌口区）</div></div>
-          </div>
-          <div class="m-fi">
-            <label>② 楼盘小区 <span class="req">*</span></label>
-            <div class="m-fc">
-              <select>
-                <option selected>湘江1958 人才公寓（天元区泰山路 · 剩 26 间）</option>
-                <option>栗雨佳苑人才公寓（天元区栗雨路 · 剩 45 间）</option>
-                <option>茨菇塘公寓（荷塘区茨菇塘路 · 剩 84 间）</option>
-                <option>董家塅安居苑（芦淞区董家塅 · 剩 52 间）</option>
-                <option>清水塘新苑（石峰区清水塘 · 剩 137 间）</option>
-                <option>云龙人才苑（经开区云龙大道 · 剩 68 间）</option>
-              </select>
-              <div class="m-fh">只显示<b>已审核发布</b>的楼盘，剩余可选间数与后台房态实时同步</div>
-            </div>
-          </div>
-          <div class="m-fi">
-            <label>③ 房源（套） <span class="req">*</span></label>
-            <div class="m-fc">
-              <select>
-                <option selected>A6 栋 1502 室（三室两厅 · 拆 A/B/C 三间 · 1 间可选）</option>
-                <option>A6 栋 1602 室（三室两厅 · 拆 A/B/C 三间 · 2 间可选）</option>
-                <option>A7 栋 0803 室（二室一厅 · 拆 A/B 两间 · 2 间可选）</option>
-                <option>A7 栋 1105 室（单间配套 · 不拆间 · 1 间可选）</option>
-              </select>
-              <div class="m-fh">套级登记房屋总面积与总公摊，<b>配租与计租均按间</b></div>
-            </div>
-          </div>
-          <div class="m-fi">
-            <label>④ 房间 <span class="req">*</span></label>
-            <div class="m-fc">
-              <select>
-                <option selected>1502A 间（可选 · 朝南主卧 · 计租 27.80 ㎡ · 166.80 元/月）</option>
-                <option>1502B 间（已预约 2 人 · 仍可登记 · 计租 26.00 ㎡ · 156.00 元/月）</option>
-                <option>1502C 间（已租 · 不可预约 · 计租 24.80 ㎡ · 148.80 元/月）</option>
-              </select>
-              <div class="m-fh"><i class="fa-solid fa-database"></i> 由<a href="house-detail.html" style="color:var(--primary)">房源详情页</a>选定带入，可在此改选</div>
-            </div>
-          </div>
-        </div>
-        <div class="m-sect">已选房间<span class="m-sect-x">计租面积＝套内＋公摊</span></div>
+        <div class="m-sect">登记的楼盘与户型<span class="m-sect-x">由楼盘详情带入</span></div>
         <div class="m-card" style="padding:0;overflow:hidden">
           <div class="m-hc-img" style="height:150px;position:relative"><img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80" alt="湘江1958 人才公寓">
             <div class="m-hc-badge" style="position:absolute;left:10px;top:10px;display:flex;gap:5px">
-              <span class="m-tag blue">收购商品房</span><span class="m-tag green">拎包入住</span><span class="m-tag dark">按间配租</span>
+              <span class="m-tag blue">收购商品房</span><span class="m-tag green">拎包入住</span>
             </div>
           </div>
           <div class="m-card-b">
-            <div style="font-size:16px;font-weight:700">湘江1958 人才公寓　A6-1502A 间</div>
+            <div style="font-size:16px;font-weight:700">湘江1958 人才公寓　·　二室一厅</div>
             <div style="margin-top:5px;font-size:12.5px;color:var(--text-3)">
-              <i class="fa-solid fa-location-dot"></i> 天元区泰山路 1958 号　·　朝南主卧　·　精装
+              <i class="fa-solid fa-location-dot"></i> 天元区泰山路 1958 号　·　78.60 ㎡　·　按间配租 2 人
             </div>
-          <div class="m-kv">
-            <div><span>套内面积</span><span>22.40 ㎡</span></div>
-            <div><span>公摊面积</span><span>5.40 ㎡（本套共用 16.20 ㎡ ÷ 3 间）</span></div>
-            <div><span>计租面积</span><span><b>27.80 ㎡</b>（套内 ＋ 公摊，<b>公摊计入租金</b>）</span></div>
-            <div><span>人才租金</span><span><b style="color:var(--danger)">166.80 元/月</b>（6.00 元/㎡·月）</span></div>
-            <div><span>原（市场）租金</span><span>500.40 元/月（18.00 元/㎡·月）</span></div>
-            <div><span>房间配套</span><span>独立卫生间 · 空调 · 阳台 · 衣柜 · 书桌</span></div>
-            <div><span>房间状态</span><span><span class="m-tag green">可选</span>　本套剩余可选 1 间</span></div>
-          </div>
+            <div class="m-hc-f" style="margin-top:9px">
+              <div class="m-hc-p"><div class="p1">471.60 <small>元/月　整套减免后个人自付</small></div><div class="p2">市场租金 1,414.80 元/月</div></div>
+              <span class="m-hc-left">剩余可选 46 间</span>
+            </div>
           </div>
         </div>
-        <div class="m-sect">预约人信息<span class="m-sect-x">实名带入</span></div>
+        <div class="m-sect">登记人信息<span class="m-sect-x">实名带入</span></div>
         <div class="m-form">
           <div class="m-fi">
             <label>姓名 <span class="req">*</span></label>
@@ -93,66 +44,95 @@
           </div>
           <div class="m-fi">
             <label>联系电话 <span class="req">*</span></label>
-            <div class="m-fc"><input type="tel" value="15873012408"><div class="m-fh">用于接收预约确认、到位提醒与配租通知</div></div>
-          </div>
-          <div class="m-fi">
-            <label>当前身份 <span class="req">*</span></label>
-            <div class="m-fc"><input type="text" value="就业青年人才（全日制本科 · 2025-07-01 毕业）" readonly><div class="m-fh"><i class="fa-solid fa-database"></i> 未取得毕业证的应届毕业生同样可用预约登记意向</div></div>
+            <div class="m-fc"><input type="tel" value="15873012408"><div class="m-fh">用于接收登记确认、有效期到期提醒与房源公告</div></div>
           </div>
         </div>
-        <div class="m-sect">预约意向</div>
+        <div class="m-sect">登记意向<span class="m-sect-x">只选楼盘与户型</span></div>
         <div class="m-form">
           <div class="m-fi">
-            <label>预计入住时间 <span class="req">*</span></label>
-            <div class="m-fc"><input type="date" value="2026-10-08"><div class="m-fh">用于运营机构安排看房与交付时序</div></div>
-          </div>
-          <div class="m-fi">
-            <label>同住人数 <span class="req">*</span></label>
-            <div class="m-fc"><input type="number" value="1" min="1" max="3"><div class="m-fh">按间配租，<b>1 间配租 1 人</b>；已婚家庭需整套承租的请在申请环节选择家庭申请</div></div>
-          </div>
-          <div class="m-fi">
-            <label>看房时间偏好</label>
+            <label>意向楼盘 <span class="req">*</span></label>
             <div class="m-fc">
               <select>
-                <option selected>工作日 18:00 后</option>
-                <option>周六上午</option>
-                <option>周六下午</option>
-                <option>周日全天</option>
-                <option>随时可安排</option>
+                <option selected>湘江1958 人才公寓（天元区 · 剩余可选 126 间）</option>
+                <option>栗雨佳苑人才公寓（天元区 · 剩余可选 57 间）</option>
+                <option>云龙人才苑（经开区 · 剩余可选 24 间）</option>
+                <option>茨菇塘公寓（荷塘区 · 剩余可选 32 间）</option>
+                <option>董家塅安居苑（芦淞区 · 剩余可选 18 间）</option>
+                <option>清水塘新苑（石峰区 · 剩余可选 42 间）</option>
               </select>
-              <div class="m-fh">选填，运营机构据此联系带看</div>
+              <div class="m-fh"><i class="fa-solid fa-database"></i> 由楼盘详情带入，如需更换可直接在此调整</div>
             </div>
+          </div>
+          <div class="m-fi">
+            <label>意向户型 <span class="req">*</span></label>
+            <div class="m-fc">
+              <select>
+                <option>单间配套　42.00 ㎡　·　自付 252.00 元/月</option>
+                <option>一室一厅　56.80 ㎡　·　自付 340.80 元/月</option>
+                <option selected>二室一厅　78.60 ㎡　·　整套自付 471.60 元/月</option>
+              </select>
+              <div class="m-fh"><b>登记只到户型一级</b>：不需要、也不能指定具体楼栋、房号与房间</div>
+            </div>
+          </div>
+          <div class="m-fi">
+            <label>期望入住时间 <span class="req">*</span></label>
+            <div class="m-fc"><input type="date" value="2026-11-01"><div class="m-fh">仅作需求摸底参考，不构成交房承诺，也不影响配租时序</div></div>
+          </div>
+          <div class="m-fi">
+            <label>入住人数 <span class="req">*</span></label>
+            <div class="m-fc"><input type="number" value="1" min="1" max="2"><div class="m-fh">二室一厅按间配租，每间配租 1 人；已婚且夫妻双方均符合条件的可以家庭为单位申请</div></div>
           </div>
           <div class="m-fi">
             <label>备注</label>
-            <div class="m-fc"><textarea rows="3">希望优先安排朝南、带独立卫生间的房间；本人 10 月初到岗，可配合运营机构安排看房与交付时间。</textarea><div class="m-fh">选填，将同步至运营机构作为交付安排参考</div></div>
+            <div class="m-fc"><textarea rows="3">本人 11 月初到岗，希望登记天元区栗雨片区一带的二室一厅需求，便于统计供需。</textarea><div class="m-fh">选填，将汇总至房源筹集与配租批次测算</div></div>
           </div>
         </div>
-        <div class="m-sect">预约须知<span class="m-sect-x">提交前请阅读</span></div>
+        <div class="m-sect">办法条款确认<span class="m-sect-x">已在选择楼盘户型时确认</span></div>
         <div class="m-card">
-          <div class="m-card-h"><i class="fa-solid fa-triangle-exclamation"></i>必读</div>
+          <div class="m-card-h"><i class="fa-solid fa-circle-check" style="color:var(--success)"></i>已确认<a class="m-more" href="policy-detail.html">查看办法全文 <i class="fa-solid fa-angle-right"></i></a></div>
+          <div class="m-card-b">
+          <div class="m-kv">
+            <div><span>确认内容</span><span>已阅读并同意《株洲市城区创业就业青年人才住房保障管理办法》的条款</span></div>
+            <div><span>办法版本</span><span>V2026.09</span></div>
+            <div><span>确认时间</span><span>2026-09-09 08:42（选择楼盘与户型时确认）</span></div>
+            <div><span>关键后果</span><span>不服从配租房源且不办理入住的视同放弃；放弃资格的不得再次申请</span></div>
+          </div>
+          <div class="m-note" style="margin-top:10px"><i class="fa-solid fa-circle-info"></i>
+            <div>本次确认已随办件留痕，<b>本页不再重复勾选</b>。如需重新确认，可返回选择楼盘与户型的页面。</div>
+          </div>
+          </div>
+        </div>
+        <div class="m-sect">登记须知<span class="m-sect-x">提交前请阅读</span></div>
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-circle-info"></i>必读</div>
           <div class="m-card-b">
             <div class="m-check">
-              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>预约只是意向登记</b><span>提交成功后生成预约号，<b>不占用轮候名额、不锁定房源</b>，该房间仍向其他人才展示为可选</span></div></div>
-              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>配租时优先于普通轮候</b><span>已预约本批次房源的，<b>排序优先于普通轮候人员</b>；多人预约同一房间的按预约时间先后排定</span></div></div>
-              <div class="ok"><i class="fa-solid fa-graduation-cap"></i><div class="m-chl"><b>未毕业也可预约</b><span>尚未取得毕业证的应届毕业生<b>可先用预约登记意向</b>，取得毕业证后再提交正式资格申请</span></div></div>
-              <div class="bad"><i class="fa-solid fa-circle-exclamation"></i><div class="m-chl"><b>预约不等于取得配租资格</b><span>仍须提交正式资格申请，经受理初审与复审通过后方可参与配租；同一批次<b>限约 1 间、限改约 1 次</b></span></div></div>
+              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>有效期半年</b><span>意向登记自提交之日起<b>有效期 6 个月</b>，到期自动失效，可在有效期内变更或取消，也可到期后重新登记</span></div></div>
+              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>全程不收取任何费用</b><span>意向登记<b>不收取任何费用</b>，不存在预付款、保证金、排号费等名目，谨防冒名收费</span></div></div>
+              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>登记后可直接转正式申请</b><span>在有效期内可一键将已登记的<b>楼盘与户型带入正式申请</b>，带入后仍可更换</span></div></div>
+              <div class="na"><i class="fa-solid fa-circle-info"></i><div class="m-chl"><b>不占用房源、不影响他人</b><span>登记数只用于统计需求热度，<b>不锁定任何房源</b>，也不改变其他申请人的配租顺序</span></div></div>
             </div>
           </div>
         </div>
-        <div class="m-cells">
-          <a class="m-cell" href="book-list.html"><span class="m-ci orange"><i class="fa-solid fa-calendar-days"></i></span><span class="m-cl"><b>我的预约</b><span class="m-cs">查看预约状态、改约、取消或转正式申请</span></span><span class="m-cv"><span class="m-tag orange">1 条预约中</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
-          <a class="m-cell" href="apply-type.html"><span class="m-ci green"><i class="fa-solid fa-file-pen"></i></span><span class="m-cl"><b>直接提交资格申请</b><span class="m-cs">已选定房间的可跳过选房步骤直达申请表单</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+        <div class="m-note"><i class="fa-solid fa-circle-info"></i>
+          <div>意向登记<b>不等于取得配租资格</b>。取得保障资格须另行提交<b>正式申请</b>，经运营单位初审、市保障性住房服务中心复审通过后，由系统按配租公告设定的时间自动配租。</div>
         </div>
       </div>
       <div class="m-actbar">
-        <button class="m-btn w-auto" type="button" onclick="MB.toast('已保存预约草稿')">保存草稿</button>
-        <button class="m-btn primary" type="button" onclick="MB.submit('.m-view','确认提交预约？<b>预约为意向登记、不占用轮候名额</b>，配租时已预约本批次房源的优先于普通轮候。','确认预约','house-book-ok.html')"><i class="fa-solid fa-calendar-check"></i> 提交预约</button>
+        <button class="m-btn w-auto" type="button" onclick="MB.toast('已保存意向登记草稿，可在「我的意向登记」继续填报')">保存草稿</button>
+        <button class="m-btn primary" type="button" onclick="submitBook()"><i class="fa-solid fa-clipboard-check"></i> 提交意向登记</button>
       </div>
     </div>
   </div>
 </div>
 
 <script src="../../assets/js/mobile.js"></script>
+<script>
+function submitBook() {
+  MB.submit('.m-view',
+    '确认提交意向登记？本次登记仅作需求摸底统计，不占用房源、不进入轮候库、不收取任何费用，也不产生配租权利，有效期 6 个月。',
+    '确认登记', 'house-book-ok.html');
+}
+</script>
 </body>
 </html>

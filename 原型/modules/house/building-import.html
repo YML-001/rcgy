@@ -29,191 +29,146 @@
 
   <div class="alert alert-warning">
     <i class="fa-solid fa-triangle-exclamation"></i>
-    <div>按<b>项目—楼栋—单元—楼层—房号—间号</b>六级层级批量导入房源，<b>一行一间</b>：同步导入间级的<b>室厅结构、房间配套、套内面积、公摊比例、公摊面积、计租面积、人才租金标准、原（市场）租金标准</b>，以及套级的<b>房屋总面积、总公摊面积与水费、电费、天然气、物业费标准</b>，导入后<b>自动生成一间一码</b>（房号 + 间号，如 1502A）。<b>本期为房源建账的主要方式，由各运营机构自行导入</b>（<b>导入环节不需报送审批</b>），须支撑全市约一万套、约 1.7 万间规模的分批导入（省保租房系统、公租房系统接口暂不对接）。<b>导入模板由主管单位统一下发</b>，运营机构按模板整理后批量导入；<b>主管单位只做查看、监管与审核发布</b>，不介入房源日常维护。</div>
+    <div>按<b>项目—楼栋—单元—楼层—房号</b>五级层级批量导入房源，同步导入<b>建筑面积、套内面积、户型、朝向、装修标准、家电家具配置、租金标准</b>，以及按间的<b>当前状态（空置／已入住／已锁定）与在住人性别（男／女）</b>等字段，导入后<b>自动生成一房一码</b>。<b>本期为房源建账的主要方式，需支撑一万套规模的分批导入</b>（省保租房系统、公租房系统接口暂不对接）。</div>
   </div>
 
   <div class="alert alert-info">
     <i class="fa-solid fa-circle-info"></i>
-    <div>本次导入 842 行（间），<b>校验差错 12 行</b>（含<b>重复登记 2 行</b>）。差错行不入库，须修正后重新校验，<b>差错不影响本批已校验通过行与已入库房源</b>。<b>公摊比例、公摊面积与计租面积三项按套联动校验</b>：同一套内各间公摊比例合计须等于 1、各间公摊面积合计须等于套级总公摊面积、每间计租面积须等于套内面积 ＋ 公摊面积。命中<b>多源重复校验</b>的房源已自动锁定，须人工核实后方可提交发布。</div>
+    <div>本次导入 486 行，<b>校验差错 14 行</b>（含<b>重复登记 2 行</b>、<b>同套性别冲突 2 行</b>）。差错行不入库，须修正后重新校验，<b>差错不影响本批已校验通过行与已入库房源</b>。命中<b>多源重复校验</b>的房源已自动锁定，须人工核实后方可上架。</div>
+  </div>
+
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div>模板已同步增加<b>当前状态</b>与<b>在住人性别</b>两列，用于建立按间的房态与在住性别底账，供<b>移动端房源展示</b>与<b>系统自动配租的同套同性别校验</b>取值。校验口径：状态为<b>已入住</b>的行性别必填；<b>同一套房内已入住人员须同性别</b>，同套出现男、女并存的<b>整批拦截并回显冲突行号</b>；状态为空置或已锁定的行性别须留空。<span class="link" onclick="location.href='import-rule.html'">JY-13 / JY-14 校验规则</span></div>
   </div>
 
   <div class="stat-grid">
     <div class="stat-card">
       <div class="s-icon blue"><i class="fa-solid fa-file-excel"></i></div>
-      <div><div class="s-label">本次导入行数</div><div class="s-value">842</div>
-        <div class="s-trend text-2">间 · 清水塘·未来社区第 6 批 / 累计建账 4,286 间（2,486 套）</div></div>
+      <div><div class="s-label">本次导入行数</div><div class="s-value">486</div>
+        <div class="s-trend text-2">清水塘新苑 · 第 6 批 / 累计建账 2,486 间（全市约 1 万套）</div></div>
     </div>
     <div class="stat-card">
       <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
-      <div><div class="s-label">校验通过</div><div class="s-value">830</div>
-        <div class="s-trend text-2">间 · 占 98.6%</div></div>
+      <div><div class="s-label">校验通过</div><div class="s-value">472</div>
+        <div class="s-trend text-2">占 97.1%</div></div>
     </div>
     <div class="stat-card dc-alarm">
       <div class="s-icon red"><i class="fa-solid fa-circle-xmark"></i></div>
-      <div><div class="s-label">校验差错</div><div class="s-value">12</div>
-        <div class="s-trend ">含公摊类差错 5 行、重复登记 2 行</div></div>
+      <div><div class="s-label">校验差错</div><div class="s-value">14</div>
+        <div class="s-trend ">含重复登记 2 行、同套性别冲突 2 行</div></div>
     </div>
-    <div class="stat-card">
-      <div class="s-icon orange"><i class="fa-solid fa-lock"></i></div>
-      <div><div class="s-label">重复登记锁定</div><div class="s-value">2</div>
-        <div class="s-trend text-2">待人工核实</div></div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon orange"><i class="fa-solid fa-venus-mars"></i></div>
+      <div><div class="s-label">同套性别冲突</div><div class="s-value">2</div>
+        <div class="s-trend ">同套已入住人员性别不一致，整批拦截</div></div>
     </div>
   </div>
 
   <div class="card" data-tabs-scope>
     <div class="tabs">
       <div class="tab active" data-tab="upload">导入房源数据</div>
-      <div class="tab" data-tab="field">模板字段清单</div>
-      <div class="tab" data-tab="rule">校验规则 <span class="badge blue">10</span></div>
       <div class="tab" data-tab="result">校验结果 <span class="badge red">12</span></div>
       <div class="tab" data-tab="log">导入历史</div>
     </div>
-
     <div class="tab-panel active" data-panel="upload">
       <div class="card-body">
         <div class="import-drop" onclick="PMS.toast('原型演示：选择 Excel 文件上传')">
           <i class="fa-solid fa-cloud-arrow-up"></i>
-          <div class="t">将按间房源表 Excel 文件拖放到此处，或点击选择文件</div>
-          <div class="d">支持 .xlsx / .xls，<b>一行一间</b>，<b>单批最多 5,000 行</b>，文件大小不超过 20 MB。全市约 1 万套、约 <b>1.7 万间</b>房源<b>按项目分批导入</b>，约需 4 批</div>
+          <div class="t">将楼盘表 Excel 文件拖放到此处，或点击选择文件</div>
+          <div class="d">支持 .xlsx / .xls，<b>单批最多 5,000 行</b>，文件大小不超过 20 MB。全市约 1 万套房源<b>按项目分批导入</b>，一万套约需 2—3 批</div>
         </div>
         <div class="sp-block" style="margin-top:12px">
-          <div class="sp-h"><i class="fa-solid fa-list"></i> 分批导入与自行导入口径<span class="sub">本期建账主方式 · 运营机构自行导入 · 不需报送审批</span></div>
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 导入模板字段清单<span class="sub">由市住保中心提供 · 项目—楼栋—单元—楼层—房号五级层级</span></div>
+          <div class="sp-b">
+  <div class="sp-tw">
+    <table class="data-table compact">
+      <thead>
+          <tr><th>列名</th><th>是否必填</th><th>格式要求</th><th class="cell-lg">校验规则</th></tr>
+        </thead>
+      <tbody>
+          <tr><td><b>房号</b></td><td><span class="badge orange">是</span></td><td>文本</td><td>同一楼栋单元内不得重复</td></tr>
+          <tr><td><b>间号</b></td><td><span class="badge orange">是</span></td><td>A / B / C / D</td><td>房号加间号须全项目唯一，整套一间的填 A</td></tr>
+          <tr><td><b>房屋总面积</b></td><td><span class="badge orange">是</span></td><td>数值 2 位小数</td><td>整套建筑面积，同一套房各行填相同值</td></tr>
+          <tr class="row-warn"><td><b>总公摊面积</b></td><td><span class="badge orange">是</span></td><td>数值 2 位小数</td><td>整套公共部分面积，同一套房各行相同</td></tr>
+          <tr><td><b>本间套内面积</b></td><td><span class="badge orange">是</span></td><td>数值 2 位小数</td><td>取值 8～60 ㎡</td></tr>
+          <tr class="row-warn"><td><b>本间公摊比例</b></td><td><span class="badge orange">是</span></td><td>百分数</td><td>按套内间数均分：拆三间填 33.33（末间 33.34），拆两间填 50，整套一间填 100；同套各间之和＝100</td></tr>
+          <tr class="row-warn"><td><b>本间公摊面积</b></td><td><span class="badge orange">是</span></td><td>数值 2 位小数</td><td>＝总公摊面积 × 本间公摊比例，系统复核</td></tr>
+          <tr class="row-warn"><td><b>本间计租面积</b></td><td><span class="badge orange">是</span></td><td>数值 2 位小数</td><td>＝本间套内面积 ＋ 本间公摊面积，系统复核</td></tr>
+          <tr><td><b>人才租金标准</b></td><td><span class="badge orange">是</span></td><td>元/㎡·月</td><td>保障期内执行，取值 3～30</td></tr>
+          <tr><td><b>原租金标准</b></td><td><span class="badge orange">是</span></td><td>元/㎡·月</td><td>市场租金，保障期满按此计费，取值 5～60</td></tr>
+          <tr class="row-warn"><td><b>当前状态</b></td><td><span class="badge orange">是</span></td><td>空置 / 已入住 / 已锁定</td><td><b>按间填写</b>，字典外取值报错。空置间才进入自动配租；维修、冻结、待腾退、待签约统一填「已锁定」</td></tr>
+          <tr class="row-warn"><td><b>在住人性别</b></td><td><span class="badge blue">条件必填</span></td><td>男 / 女</td><td>当前状态为<b>已入住</b>时必填；为空置或已锁定时<b>须留空</b>。<b>同一套房内已入住人员须同性别</b>，同套出现男、女并存的报错并回显冲突行号</td></tr>
+          <tr class="row-warn"><td><b>在住人姓名</b></td><td><span class="badge blue">条件必填</span></td><td>文本</td><td>当前状态为已入住时必填，与人才档案比对；性别以档案身份证信息为准，不一致的报错</td></tr>
+        </tbody>
+    </table>
+  </div>
+          </div>
+        </div>
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 分批导入口径<span class="sub">本期建账主方式 · 支撑一万套规模</span></div>
           <div class="sp-b">
   <div class="sp-tw">
     <table class="data-table compact">
       <thead><tr><th>项</th><th class="cell-lg">说明</th></tr></thead>
       <tbody>
-      <tr><td><b>R-1 本期定位</b></td><td>省保租房系统、公租房系统接口<b>暂不对接</b>，批量导入是<b>本期房源建账的主要方式</b>；<b>导入模板由主管单位统一下发</b>，各<b>运营机构按模板整理后自行批量导入</b>建账，<b>导入环节不需报送审批</b>，保证平台按期上线可用</td></tr>
-      <tr><td><b>R-2 职责边界</b></td><td><b>房源数据由各运营机构自行导入与维护</b>（含面积、租金标准、配套、素材）；<b>主管单位只做查看、监管与审核发布</b>，不介入房源日常维护。导入完成并维护素材后由运营机构<b>提交发布</b>，主管单位在<span class="link" onclick="location.href='house-archive.html'">房源查询列表</span>按统一发布标准审核发布或退回</td></tr>
-      <tr><td><b>R-3 规模要求</b></td><td>须支撑<b>全市约一万套、约 1.7 万间</b>房源的分批导入：<b>一行一间</b>，单批上限 <b>5,000 行</b>、单文件不超过 20 MB，约需 4 批；导入按<b>项目</b>组织，每个项目一至多批，互不影响</td></tr>
-      <tr><td><b>R-4 分批策略</b></td><td>按<b>项目 → 楼栋</b>拆批，<b>同一套房的各间必须放在同一批</b>：公摊比例合计、各间公摊面积合计与套级总公摊三项为<b>按套联动校验</b>，跨批会导致同一套的间不完整而整套报错</td></tr>
-      <tr><td><b>R-5 失败隔离</b></td><td><b>差错不影响已入库房源</b>：差错行不入库，同批已校验通过行正常建账；<b>同一套内任一间报错时整套暂不入库</b>，避免公摊分摊不完整；本批失败不影响前序批次。修正后仅需<b>重新导入差错所在套</b></td></tr>
-      <tr><td><b>R-6 断点续传</b></td><td>大批量导入按 500 行为一段落库，<b>按套对齐分段边界</b>，中断后<b>从最后成功段续传</b>，不产生重复房间。<span class="link" onclick="location.href='import-load.html'">分批导入与断点续传</span></td></tr>
-      <tr><td><b>R-7 一间一码</b></td><td>六级层级齐全且校验通过后<b>自动生成一间一码</b>（区代码 + 项目代码 + 楼栋 + 房号 + 间号，如 FY-TY-XJ-A6-1502A）并写入统一楼盘表，同时写入入库类型「批量导入」、本批导入批次号与所属运营机构，发布状态初始为<b>待提交</b></td></tr>
+      <tr><td><b>R-1 本期定位</b></td><td>省保租房系统、公租房系统接口<b>暂不对接</b>，批量导入是<b>本期房源建账的主要方式</b>；房源先由各提供单位按统一模板报送、住建部门审核后导入建账，保证平台按期上线可用</td></tr>
+      <tr><td><b>R-2 规模要求</b></td><td>须支撑<b>全市约一万套房源的分批导入</b>：单批上限 <b>5,000 行</b>、单文件不超过 20 MB，一万套约需 2—3 批；导入按<b>项目</b>组织，每个项目一至多批，互不影响</td></tr>
+      <tr><td><b>R-3 分批策略</b></td><td>按<b>项目 → 楼栋</b>拆批：同一楼栋的房源尽量放在同一批，避免跨批出现同楼栋房号重复的误判；每批生成独立<b>导入批次号</b>（如 DR2026-09-118），可<b>按批次整批回滚</b></td></tr>
+      <tr><td><b>R-4 失败隔离</b></td><td><b>差错不影响已入库房源</b>：差错行不入库，同批已校验通过行正常建账；<b>本批失败不影响前序批次</b>，也不阻塞其他项目的导入。修正差错后仅需<b>重新导入差错行</b>，无需整批重传</td></tr>
+      <tr><td><b>R-5 断点续传</b></td><td>大批量导入按 500 行为一段落库，中断后<b>从最后成功段续传</b>，不产生重复房源。<span class="link" onclick="location.href='import-load.html'">分批导入与断点续传</span></td></tr>
+      <tr><td><b>R-6 校验规则</b></td><td>必填缺失、字典值非法、数值越界、面积一致性、房号重复、多源重复登记，以及<b>房态字典校验（JY-13）</b>与<b>同套同性别校验（JY-14）</b>共八类校验，容差与开关可配置。<span class="link" onclick="location.href='import-rule.html'">导入校验规则配置</span></td></tr>
+      <tr><td><b>R-7 一房一码</b></td><td>五级层级齐全且校验通过后<b>自动生成一房一码</b>并写入统一楼盘表，同时写入入库类型「批量导入」与本批导入批次号</td></tr>
+      <tr class="row-warn"><td><b>R-8 房态与性别建账</b></td><td>导入的<b>当前状态</b>与<b>在住人性别</b>按间落库，落库后<b>按套自动汇总在住性别</b>（如「本套现住 2 人，均为女生」）并写入房源档案；汇总结果供<b>移动端房源展示</b>与<b>自动配租同套同性别校验</b>取值，<b>人工不可改</b>。存量男女混住的套导入时标记为<b>存量例外</b>，腾退后按同性别重新投放</td></tr>
       </tbody>
     </table>
   </div>
           </div>
         </div>
         <div class="btn-row" style="margin-top:14px">
-          <button class="btn" onclick="PMS.toast('按间导入模板已下载（含间号、公摊比例、公摊面积、计租面积与套级费用标准字段）','success')"><i class="fa-solid fa-download"></i> 下载导入模板</button>
-          <a class="btn" href="import-batch.html"><i class="fa-solid fa-table-list"></i> 导入模板与批次台账</a>
+          <button class="btn" onclick="PMS.toast('导入模板已下载','success')"><i class="fa-solid fa-download"></i> 下载导入模板</button>
+          <a class="btn" href="import-load.html"><i class="fa-solid fa-layer-group"></i> 分批导入与断点续传</a>
           <a class="btn" href="import-rule.html"><i class="fa-solid fa-sliders"></i> 导入校验规则配置</a>
           <button class="btn btn-primary" onclick="PMS.toast('已开始校验，请在「校验结果」页签查看')"><i class="fa-solid fa-check"></i> 开始校验</button>
         </div>
       </div>
     </div>
-
-    <div class="tab-panel" data-panel="field">
-      <div class="card-body">
-        <div class="sp-block" style="margin-top:12px">
-          <div class="sp-h"><i class="fa-solid fa-list"></i> 导入模板字段清单<span class="sub">由主管单位下发 · 项目—楼栋—单元—楼层—房号—间号六级层级 · 一行一间</span></div>
-          <div class="sp-b">
-  <div class="sp-tw">
-    <table class="data-table compact">
-      <thead><tr><th>层级 / 字段组</th><th>列名</th><th>是否必填</th><th>格式要求</th><th class="cell-lg">校验规则与示例</th></tr></thead>
-      <tbody>
-      <tr><td><span class="badge blue">层级 ①</span> 项目</td><td>项目名称</td><td><span class="badge red">必填</span></td><td>文本</td><td>须与项目台账中已登记项目一致，否则报错。示例「湘江1958 人才公寓」</td></tr>
-      <tr><td><span class="badge blue">层级 ②</span> 楼栋</td><td>楼栋</td><td><span class="badge red">必填</span></td><td>文本</td><td>如「A6 栋」，同一项目内唯一</td></tr>
-      <tr><td><span class="badge blue">层级 ③</span> 单元</td><td>单元</td><td><span class="badge red">必填</span></td><td>文本</td><td>如「1 单元」，同一楼栋内唯一</td></tr>
-      <tr><td><span class="badge blue">层级 ④</span> 楼层</td><td>楼层</td><td><span class="badge red">必填</span></td><td>整数</td><td>1—99。示例「15」</td></tr>
-      <tr><td><span class="badge blue">层级 ⑤</span> 房号</td><td>房号</td><td><span class="badge red">必填</span></td><td>文本</td><td>同一楼栋单元内不可重复，标识<b>一套房</b>。示例「1502」</td></tr>
-      <tr><td><span class="badge blue">层级 ⑥</span> 间号</td><td>间号</td><td><span class="badge red">必填</span></td><td>单个大写字母</td><td><b>A / B / C / D</b>，<b>同一套内唯一</b>；房号 + 间号构成对外房号与一间一码，示例「1502」+「A」＝ <b>1502A</b>。未拆分的单间配套与一室一厅填 <b>A</b></td></tr>
-      <tr><td><span class="badge blue">间级</span> 房间属性</td><td>室厅结构</td><td><span class="badge red">必填</span></td><td>字典值</td><td>单间配套 / 一室一厅 / 二室一厅 / 三室一厅 / 三室两厅，取<b>所属套</b>的结构。示例「三室两厅」</td></tr>
-      <tr><td><span class="badge blue">间级</span> 房间属性</td><td>本间类型</td><td><span class="badge red">必填</span></td><td>字典值</td><td>主卧 / 次卧 / 整间；未拆分的填「整间」</td></tr>
-      <tr><td><span class="badge blue">间级</span> 房间属性</td><td>房间配套</td><td><span class="badge red">必填</span></td><td>文本（顿号分隔）</td><td>取值范围：独立卫生间 / 空调 / 阳台 / 衣柜 / 书桌 / 飘窗，<b>按间分别填写</b>。示例 1502A「独立卫生间、空调、阳台、衣柜」</td></tr>
-      <tr><td><span class="badge blue">间级</span> 房间属性</td><td>朝向</td><td><span class="badge red">必填</span></td><td>字典值</td><td>南 / 北 / 东 / 西 / 南北通透 / 东南 / 西南，用于移动端房源展示与筛选</td></tr>
-      <tr><td><span class="badge blue">间级</span> 面积</td><td>套内面积</td><td><span class="badge red">必填</span></td><td>两位小数</td><td>本间自用面积（不含公共部分与公摊），大于 0 且小于 200，单位 ㎡。示例 1502A「22.40」。<b>同一套内各间套内面积合计 + 公共部分面积 = 套级套内合计面积</b></td></tr>
-      <tr><td><span class="badge blue">间级</span> 面积</td><td>公摊比例</td><td><span class="badge red">必填</span></td><td>分数或两位小数</td><td><b>按套内间数均分</b>：拆三间填 <b>1/3</b>、拆两间填 <b>1/2</b>、未拆分填 <b>1/1</b>。<b>同一套内各间公摊比例合计须等于 1</b>（校验 JY-5）</td></tr>
-      <tr><td><span class="badge blue">间级</span> 面积</td><td>公摊面积</td><td><span class="badge red">必填</span></td><td>两位小数</td><td>＝ 套级总公摊面积 × 本间公摊比例，单位 ㎡。示例 16.20 × 1/3 ＝ <b>5.40</b>。<b>同一套内各间公摊面积合计须等于套级总公摊面积</b>，误差不超过 0.10 ㎡（校验 JY-6）</td></tr>
-      <tr><td><span class="badge blue">间级</span> 面积</td><td>计租面积</td><td><span class="badge red">必填</span></td><td>两位小数</td><td><b>＝ 本间套内面积 ＋ 本间公摊面积</b>，<b>公摊计入租金</b>。示例 22.40 ＋ 5.40 ＝ <b>27.80</b>。误差不超过 0.10 ㎡（校验 JY-7）；租金计费一律取本列</td></tr>
-      <tr><td><span class="badge orange">间级</span> 租金标准</td><td>人才租金标准</td><td><span class="badge red">必填</span></td><td>两位小数</td><td>元/㎡·月，减免后向人才收取的标准，落在 <b>3.00—12.00</b> 区间。示例 1502 三间均为「6.00」；与租金减免、政府购买服务补助核算联动</td></tr>
-      <tr><td><span class="badge orange">间级</span> 租金标准</td><td>原（市场）租金标准</td><td><span class="badge red">必填</span></td><td>两位小数</td><td>元/㎡·月，同地段同品质市场租金，落在 <b>8.00—30.00</b> 区间且<b>不得低于人才租金标准</b>。示例 1502 三间均为「18.00」；用于测算减免额</td></tr>
-      <tr><td><span class="badge cyan">套级</span> 面积</td><td>房屋总面积</td><td><span class="badge red">必填</span></td><td>两位小数</td><td>＝ 套级套内合计面积 ＋ 总公摊面积，单位 ㎡。示例 1502 室 78.60 ＋ 16.20 ＝ <b>94.80</b>。<b>同一套各行填写须一致</b>（校验 JY-8）</td></tr>
-      <tr><td><span class="badge cyan">套级</span> 面积</td><td>套内合计面积</td><td><span class="badge red">必填</span></td><td>两位小数</td><td>全套套内面积合计（含客厅、厨房、卫生间等公共部分），单位 ㎡。示例 1502 室<b>78.60</b>（三间卧室套内 53.40 ＋ 公共部分 25.20）</td></tr>
-      <tr><td><span class="badge cyan">套级</span> 面积</td><td>总公摊面积</td><td><span class="badge red">必填</span></td><td>两位小数</td><td>全套公摊面积合计，单位 ㎡，<b>按套内间数均分至各间</b>。示例 1502 室<b>16.20</b>，÷ 3 间 ＝ 每间 5.40</td></tr>
-      <tr><td><span class="badge cyan">套级</span> 费用标准</td><td>水费标准</td><td><span class="badge red">必填</span></td><td>两位小数</td><td>元/吨，本套各间共用同一标准。示例「3.58」</td></tr>
-      <tr><td><span class="badge cyan">套级</span> 费用标准</td><td>电费标准</td><td><span class="badge red">必填</span></td><td>两位小数</td><td>元/度，本套各间共用同一标准。示例「0.68」</td></tr>
-      <tr><td><span class="badge cyan">套级</span> 费用标准</td><td>天然气标准</td><td><span class="badge red">必填</span></td><td>两位小数</td><td>元/立方米，本套各间共用同一标准。示例「2.98」</td></tr>
-      <tr><td><span class="badge cyan">套级</span> 费用标准</td><td>物业费标准</td><td><span class="badge red">必填</span></td><td>两位小数</td><td>元/㎡·月，本套各间共用同一标准，<b>按各间计租面积分摊到间</b>。示例「1.20」，1502A 为 27.80 × 1.20 ＝ 33.36 元/月</td></tr>
-      <tr><td><span class="badge gray">来源与管理</span></td><td>所属运营机构</td><td><span class="badge red">必填</span></td><td>字典值</td><td>株洲城发高科人才安居服务有限公司 / 清水塘投资运营服务有限公司 / 株洲高新人才公寓运营有限公司；<b>决定房源及其派生业务数据的归属</b>，须与导入账号所属机构一致</td></tr>
-      <tr><td><span class="badge gray">来源与管理</span></td><td>物业公司名称</td><td><span class="badge red">必填</span></td><td>文本</td><td>与物业服务评价、物业费标准挂钩。示例「株洲城发物业服务有限公司」</td></tr>
-      <tr><td><span class="badge gray">来源与管理</span></td><td>来源渠道</td><td><span class="badge red">必填</span></td><td>字典值</td><td>市本级存量 / 收购商品房转化 / 收购保租房转化 / 园区公租房纳管</td></tr>
-      <tr><td><span class="badge gray">来源与管理</span></td><td>入库类型</td><td><span class="badge red">必填</span></td><td>字典值</td><td><b>批量导入 / 接口对接</b>；本模板导入的一律为<b>批量导入</b>，系统自动写入本批导入批次号，与来源渠道分别标注</td></tr>
-      <tr><td><span class="badge gray">来源与管理</span></td><td>装修标准</td><td><span class="badge red">必填</span></td><td>字典值</td><td>精装 · 拎包入住 / 简装 / 毛坯；非精装的须在验收环节说明整改计划</td></tr>
-      <tr><td><span class="badge gray">来源与管理</span></td><td>家电家具配置</td><td><span class="badge red">必填</span></td><td>文本（分项计数）</td><td><b>按间填写本间项数</b>，如 1502A「卧室 7 项、配套卫生间 5 项、阳台 1 项，共 13 项」；套级公共区域另行填写。达到<b>拎包入住标准</b>方可提交发布</td></tr>
-      <tr><td><span class="badge gray">来源与管理</span></td><td>产权信息</td><td><span class="badge orange">选填</span></td><td>文本</td><td>产权人全称，按套填写，同一套各行须一致</td></tr>
-      </tbody>
-    </table>
-  </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="tab-panel" data-panel="rule">
-      <div class="card-body">
-        <div class="sp-block" style="margin-top:12px">
-          <div class="sp-h"><i class="fa-solid fa-shield-halved"></i> 导入校验规则<span class="sub">JY-1 至 JY-10 · JY-4 至 JY-8 为按「间」颗粒度新增的按套联动校验</span></div>
-          <div class="sp-b">
-  <div class="sp-tw">
-    <table class="data-table compact">
-      <thead><tr><th>规则号</th><th>校验项</th><th>校验层级</th><th class="cell-lg">校验逻辑与差错示例</th><th>容差</th><th>处理</th></tr></thead>
-      <tbody>
-      <tr><td><b>JY-1</b></td><td>必填缺失</td><td><span class="badge blue">行</span></td><td>模板中标注必填的列不得为空，人才租金标准、原租金标准、公摊比例、公摊面积、计租面积均为必填。示例：第 302 行「人才租金标准」为空</td><td><span class="muted">不适用</span></td><td><span class="badge red">阻断</span></td></tr>
-      <tr><td><b>JY-2</b></td><td>字典值非法</td><td><span class="badge blue">行</span></td><td>室厅结构、本间类型、房间配套、来源渠道、入库类型、所属运营机构须取字典值。示例：第 390 行室厅结构填「两室一厅」，字典值应为「二室一厅」</td><td><span class="muted">不适用</span></td><td><span class="badge red">阻断</span></td></tr>
-      <tr><td><b>JY-3</b></td><td>数值越界</td><td><span class="badge blue">行</span></td><td>套内面积 0—200 ㎡、人才租金标准 3.00—12.00 元/㎡·月、原租金标准 8.00—30.00 元/㎡·月且不低于人才租金标准。示例：第 348 行套内面积 320.00 ㎡ 超上限</td><td><span class="muted">不适用</span></td><td><span class="badge red">阻断</span></td></tr>
-      <tr class="row-warn"><td><b>JY-4</b></td><td><b>间号在同一套内唯一</b></td><td><span class="badge cyan">套</span></td><td><b>新增</b>。同一「项目 + 楼栋 + 单元 + 楼层 + 房号」下，间号不得重复；间号须为连续大写字母 A、B、C…，不得跳号。示例：第 88 行与第 132 行同为 1204B，间号重复</td><td><span class="muted">不适用</span></td><td><span class="badge red">阻断</span></td></tr>
-      <tr class="row-warn"><td><b>JY-5</b></td><td><b>公摊比例合计须等于 1</b></td><td><span class="badge cyan">套</span></td><td><b>新增</b>。同一套内各间公摊比例累加须等于 <b>1</b>；系统同时校验是否<b>按套内间数均分</b>（拆三间应为 1/3、拆两间应为 1/2、未拆分应为 1/1）。示例：1204 室拆 2 间却各填 1/3，合计 2/3 ≠ 1</td><td>0.01</td><td><span class="badge red">阻断</span></td></tr>
-      <tr class="row-warn"><td><b>JY-6</b></td><td><b>各间公摊面积合计须等于套级总公摊面积</b></td><td><span class="badge cyan">套</span></td><td><b>新增</b>。同一套内各间公摊面积累加须等于该套<b>总公摊面积</b>。示例：0708 室三间填 4.00 ＋ 4.00 ＋ 3.60 ＝ 11.60 ㎡，套级总公摊 12.00 ㎡，差 0.40 ㎡ 超容差</td><td>0.10 ㎡</td><td><span class="badge red">阻断</span></td></tr>
-      <tr class="row-warn"><td><b>JY-7</b></td><td><b>计租面积须等于套内面积 ＋ 公摊面积</b></td><td><span class="badge blue">行</span></td><td><b>新增</b>。逐行校验 <b>计租面积 ＝ 套内面积 ＋ 公摊面积</b>（公摊计入租金）。示例：第 186 行 0906A 计租面积填 20.00 ㎡，套内 16.80 ＋ 公摊 5.40 ＝ 22.20 ㎡，差 2.20 ㎡</td><td>0.10 ㎡</td><td><span class="badge red">阻断</span></td></tr>
-      <tr class="row-warn"><td><b>JY-8</b></td><td><b>套级字段一致性</b></td><td><span class="badge cyan">套</span></td><td><b>新增</b>。同一套各行的套级字段（房屋总面积、套内合计面积、总公摊面积、水费、电费、天然气、物业费标准、产权信息）填写须完全一致；同时校验 <b>房屋总面积 ＝ 套内合计 ＋ 总公摊</b>。示例：第 428 行与第 430 行同为 0502 室，总公摊分别填 14.40 与 16.20</td><td>0.10 ㎡</td><td><span class="badge red">阻断</span></td></tr>
-      <tr><td><b>JY-9</b></td><td>房号重复登记</td><td><span class="badge cyan">套</span></td><td>按一间一码校验「房号 + 间号」在全库唯一，防止同一间重复建账</td><td><span class="muted">不适用</span></td><td><span class="badge red">阻断</span></td></tr>
-      <tr><td><b>JY-10</b></td><td>多源重复登记</td><td><span class="badge purple">跨系统</span></td><td>与省保租房系统、公租房管理系统已登记房源比对，命中的<b>自动锁定</b>，须人工核实后方可提交发布。示例：第 214 行 1502A 在公租房管理系统已登记为在租</td><td><span class="muted">不适用</span></td><td><span class="badge orange">锁定</span></td></tr>
-      <tr><td colspan="2"><b>套内不完整处理</b></td><td colspan="4">同一套内<b>任一间命中阻断类差错时，整套暂不入库</b>，避免公摊分摊不完整；已校验通过的其他套正常建账。容差与开关可配置，见 <span class="link" onclick="location.href='import-rule.html'">导入校验规则配置</span></td></tr>
-      </tbody>
-    </table>
-  </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="tab-panel" data-panel="result">
       <div class="card-body">
         <div class="sp-block" style="margin-top:12px">
-          <div class="sp-h"><i class="fa-solid fa-list"></i> 本次导入校验<span class="sub">共 842 行（间） / 差错 12 行</span></div>
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 本次导入校验<span class="sub">共 486 行 / 差错 14 行</span></div>
           <div class="sp-b">
         <div class="sp-kv">
-          <div class="kv"><span class="k">导入文件</span><span class="v">清水塘未来社区_按间房源表_20260905.xlsx</span></div>
-          <div class="kv"><span class="k">导入机构</span><span class="v">清水塘投资运营服务有限公司（自行导入，不需报送审批）</span></div>
-          <div class="kv"><span class="k">导入行数</span><span class="v">842 行（间） / 涉及 486 套</span></div>
-          <div class="kv"><span class="k">校验通过</span><span class="v ok">830 行</span></div>
-          <div class="kv"><span class="k">校验差错</span><span class="v bad">12 行</span><span class="muted">其中公摊类差错 5 行（JY-5 / JY-6 / JY-7 / JY-8）</span></div>
+          <div class="kv"><span class="k">导入文件</span><span class="v">清水塘新苑楼盘表_20260905.xlsx</span></div>
+          <div class="kv"><span class="k">导入行数</span><span class="v">486 行</span></div>
+          <div class="kv"><span class="k">校验通过</span><span class="v ok">472 行</span></div>
+          <div class="kv"><span class="k">校验差错</span><span class="v bad">14 行</span></div>
           <div class="kv"><span class="k">重复登记预警</span><span class="v bad">2 行</span><span class="link" onclick="location.href='src-dup.html'">去处理</span></div>
+          <div class="kv"><span class="k">同套性别冲突</span><span class="v bad">2 行</span><span class="link" onclick="location.href='import-rule.html'">看校验规则</span></div>
+          <div class="kv"><span class="k">房态与性别落库</span><span class="v">通过行按间写入当前状态与在住人性别，并按套自动汇总在住性别</span></div>
           <div class="kv"><span class="k">校验时间</span><span class="v">2026-09-05 09:26</span></div>
         </div>
           </div>
         </div>
         <div class="sp-block" style="margin-top:12px">
-          <div class="sp-h"><i class="fa-solid fa-list"></i> 差错明细<span class="sub">12 行需修正 · 同一套内任一间报错时整套暂不入库</span></div>
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 差错明细<span class="sub">14 行需修正 · 列示前 10 行</span></div>
           <div class="sp-b">
   <div class="sp-tw">
     <table class="data-table compact">
-      <thead><tr><th class="num">行号</th><th>房号 + 间号</th><th>规则号</th><th>差错类型</th><th class="cell-lg">差错说明</th><th>处理</th></tr></thead>
+      <thead><tr><th class="num">行号</th><th>房号</th><th>差错类型</th><th class="cell-lg">差错说明</th><th>处理</th></tr></thead>
       <tbody>
-      <tr class="row-bad"><td class="num">46</td><td>1 栋 0708C</td><td><b>JY-6</b></td><td><span class="badge red">公摊面积合计不符</span></td><td>0708 室三间公摊面积填 4.00 ＋ 4.00 ＋ <b>3.60</b> ＝ 11.60 ㎡，与套级总公摊面积 12.00 ㎡ 差 0.40 ㎡，超出 0.10 ㎡ 容差。总公摊 12.00 应按套内 3 间均分为每间 <b>4.00 ㎡</b></td><td><span class="link" onclick="PMS.toast('已定位至该行，请将 0708C 公摊面积修正为 4.00 ㎡ 后重新校验')">修正</span></td></tr>
-      <tr class="row-bad"><td class="num">88</td><td>1 栋 1204B</td><td><b>JY-5</b></td><td><span class="badge red">公摊比例合计不等于 1</span></td><td>1204 室拆 <b>2 间</b>，两间公摊比例均填 <b>1/3</b>，合计 2/3 ≠ 1。公摊比例应<b>按套内间数均分</b>，拆 2 间应为每间 <b>1/2</b></td><td><span class="link" onclick="PMS.toast('已定位至该行，请将 1204 室两间公摊比例修正为 1/2 后重新校验')">修正</span></td></tr>
-      <tr class="row-bad"><td class="num">132</td><td>1 栋 1204B</td><td><b>JY-4</b></td><td><span class="badge red">间号重复</span></td><td>同一套 1204 室内间号 <b>B</b> 出现 2 次（第 88 行与第 132 行），间号在同一套内须唯一，应改为 <b>1204A</b> 与 <b>1204B</b></td><td><span class="link" onclick="PMS.toast('已定位至该行，请修正间号后重新校验')">修正</span></td></tr>
-      <tr class="row-bad"><td class="num">186</td><td>2 栋 0906A</td><td><b>JY-7</b></td><td><span class="badge red">计租面积不符</span></td><td>计租面积填 <b>20.00</b> ㎡，套内面积 16.80 ＋ 公摊面积 5.40 ＝ <b>22.20</b> ㎡，差 2.20 ㎡。<b>计租面积 ＝ 套内面积 ＋ 公摊面积，公摊计入租金</b></td><td><span class="link" onclick="PMS.toast('已定位至该行，请将计租面积修正为 22.20 ㎡ 后重新校验')">修正</span></td></tr>
-      <tr class="row-bad"><td class="num">214</td><td>2 栋 1502A</td><td><b>JY-10</b></td><td><span class="badge red">重复登记</span></td><td>该房间在<b>公租房管理系统</b>中已登记为在租状态，命中多源重复校验，已锁定待人工核实</td><td><span class="link" onclick="location.href='src-dup.html'">去核实</span></td></tr>
-      <tr class="row-bad"><td class="num">256</td><td>3 栋 0602A</td><td><b>JY-10</b></td><td><span class="badge red">重复登记</span></td><td>该房间在<b>省保租房系统</b>中已登记，命中多源重复校验，已锁定待人工核实</td><td><span class="link" onclick="location.href='src-dup.html'">去核实</span></td></tr>
-      <tr class="row-bad"><td class="num">302</td><td>3 栋 1108B</td><td><b>JY-1</b></td><td><span class="badge red">必填缺失</span></td><td><b>人才租金标准</b>为空。人才租金标准与原（市场）租金标准均为间级必填项</td><td><span class="link" onclick="PMS.toast('已定位至该行，请补填人才租金标准后重新校验')">修正</span></td></tr>
-      <tr class="row-bad"><td class="num">348</td><td>4 栋 0804A</td><td><b>JY-3</b></td><td><span class="badge red">数值越界</span></td><td>套内面积 320.00 ㎡ 超出合理上限 200 ㎡；疑将套级房屋总面积误填入间级套内面积列</td><td><span class="link" onclick="PMS.toast('已定位至该行，请修正套内面积后重新校验')">修正</span></td></tr>
-      <tr class="row-bad"><td class="num">390</td><td>4 栋 1006A</td><td><b>JY-2</b></td><td><span class="badge red">字典值非法</span></td><td>室厅结构填写「两室一厅」，字典值应为「<b>二室一厅</b>」</td><td><span class="link" onclick="PMS.toast('已定位至该行，请修正室厅结构后重新校验')">修正</span></td></tr>
-      <tr class="row-bad"><td class="num">428</td><td>5 栋 0502A</td><td><b>JY-8</b></td><td><span class="badge red">套级字段不一致</span></td><td>0502 室两行的<b>总公摊面积</b>分别填 <b>14.40</b> 与 <b>16.20</b> ㎡，同一套各行套级字段须完全一致；且房屋总面积 72.00 ≠ 套内合计 57.60 ＋ 总公摊 16.20</td><td><span class="link" onclick="PMS.toast('已定位至该行，请统一 0502 室套级字段后重新校验')">修正</span></td></tr>
-      <tr class="row-bad"><td class="num">430</td><td>5 栋 0502B</td><td><b>JY-8</b></td><td><span class="badge red">套级字段不一致</span></td><td>同上，与第 428 行套级字段冲突；本套两间整套暂不入库</td><td><span class="link" onclick="PMS.toast('已定位至该行，请统一 0502 室套级字段后重新校验')">修正</span></td></tr>
-      <tr class="row-bad"><td class="num">486</td><td>6 栋 0806B</td><td><b>JY-1</b></td><td><span class="badge red">必填缺失</span></td><td><b>房间配套</b>为空。房间配套按间填写，取值范围为独立卫生间 / 空调 / 阳台 / 衣柜 / 书桌 / 飘窗</td><td><span class="link" onclick="PMS.toast('已定位至该行，请补填房间配套后重新校验')">修正</span></td></tr>
+      <tr class="row-bad"><td class="num">46</td><td>1 栋 0708</td><td><span class="badge red">面积不一致</span></td><td>分摊面积 12.00 ㎡ 与「建筑面积 − 套内面积 = 11.20 ㎡」不符，误差 0.80 ㎡ 超出 0.10 ㎡ 容差</td><td><span class="link" onclick="PMS.toast('已定位至该行，请修正后重新校验')">修正</span></td></tr>
+      <tr class="row-bad"><td class="num">88</td><td>1 栋 1204</td><td><span class="badge red">房号重复</span></td><td>同一楼栋单元内房号 1204 出现 2 次（第 88 行与第 132 行）</td><td><span class="link" onclick="PMS.toast('已定位至该行，请修正后重新校验')">修正</span></td></tr>
+      <tr class="row-bad"><td class="num">132</td><td>1 栋 1204</td><td><span class="badge red">房号重复</span></td><td>同上</td><td><span class="link" onclick="PMS.toast('已定位至该行，请修正后重新校验')">修正</span></td></tr>
+      <tr class="row-bad"><td class="num">186</td><td>2 栋 0906</td><td><span class="badge red">字典值非法</span></td><td>户型填写「两室一厅」，字典值应为「二室一厅」</td><td><span class="link" onclick="PMS.toast('已定位至该行，请修正后重新校验')">修正</span></td></tr>
+      <tr class="row-bad"><td class="num">214</td><td>2 栋 1502</td><td><span class="badge red">重复登记</span></td><td>该房源在<b>公租房管理系统</b>中已登记为在租状态，命中多源重复校验，已锁定待人工核实</td><td><span class="link" onclick="location.href='src-dup.html'">去核实</span></td></tr>
+      <tr class="row-bad"><td class="num">256</td><td>3 栋 0602</td><td><span class="badge red">重复登记</span></td><td>该房源在<b>省保租房系统</b>中已登记，命中多源重复校验，已锁定待人工核实</td><td><span class="link" onclick="location.href='src-dup.html'">去核实</span></td></tr>
+      <tr class="row-bad"><td class="num">302</td><td>3 栋 1108</td><td><span class="badge red">必填缺失</span></td><td>租金标准为空</td><td><span class="link" onclick="PMS.toast('已定位至该行，请修正后重新校验')">修正</span></td></tr>
+      <tr class="row-bad"><td class="num">348</td><td>4 栋 0804</td><td><span class="badge red">数值越界</span></td><td>建筑面积 320.00 ㎡ 超出合理上限 300 ㎡</td><td><span class="link" onclick="PMS.toast('已定位至该行，请修正后重新校验')">修正</span></td></tr>
+      <tr class="row-bad"><td class="num">396</td><td>4 栋 1206-B</td><td><span class="badge red">同套性别冲突</span></td><td>同一套房 <b>4 栋 1206</b> 内已入住人员性别不一致：1206-A 填「男」（第 395 行）、<b>1206-B 填「女」</b>，违反同套同性别规则（JY-14），整批拦截。属 2025 年前存量混住的须由报送单位在<b>存量例外</b>列标注后重新报送</td><td><span class="link" onclick="PMS.toast('已定位至第 395、396 行，请核实两间在住人性别后重新校验')">修正</span></td></tr>
+      <tr class="row-bad"><td class="num">412</td><td>5 栋 0902-A</td><td><span class="badge red">同套性别冲突</span></td><td>同一套房 <b>5 栋 0902</b> 内已入住人员性别不一致：0902-A 填「女」、0902-C 填「男」（第 414 行），违反同套同性别规则（JY-14）</td><td><span class="link" onclick="PMS.toast('已定位至第 412、414 行，请核实两间在住人性别后重新校验')">修正</span></td></tr>
+      <tr class="row-bad"><td class="num">428</td><td>5 栋 1104-B</td><td><span class="badge red">必填缺失</span></td><td>当前状态填「已入住」但<b>在住人性别为空</b>，已入住的间性别必填（JY-14）</td><td><span class="link" onclick="PMS.toast('已定位至该行，请补填在住人性别后重新校验')">修正</span></td></tr>
+      <tr class="row-bad"><td class="num">452</td><td>6 栋 0703-A</td><td><span class="badge red">字典值非法</span></td><td>当前状态填「可配租」，按间房态字典应填<b>空置 / 已入住 / 已锁定</b>（JY-13）</td><td><span class="link" onclick="PMS.toast('已定位至该行，请按字典取值后重新校验')">修正</span></td></tr>
       </tbody>
     </table>
   </div>
@@ -221,21 +176,20 @@
         </div>
       </div>
     </div>
-
     <div class="tab-panel" data-panel="log">
       <div class="card-body">
         <div class="sp-block" style="margin-top:12px">
-          <div class="sp-h"><i class="fa-solid fa-list"></i> 历史导入记录<span class="sub">近 5 次 · 由运营机构自行导入</span></div>
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 历史导入记录<span class="sub">近 5 次</span></div>
           <div class="sp-b">
   <div class="sp-tw">
     <table class="data-table compact">
-      <thead><tr><th>导入批次</th><th class="cell-lg">文件名</th><th class="cell-lg">导入机构</th><th class="num">行数（间）</th><th class="num">涉及套数</th><th class="num">成功</th><th class="num">差错</th><th>导入人</th><th>导入时间</th><th>状态</th></tr></thead>
+      <thead><tr><th>导入批次</th><th class="cell-lg">文件名</th><th class="num">行数</th><th class="num">成功</th><th class="num">差错</th><th>导入人</th><th>导入时间</th><th>状态</th></tr></thead>
       <tbody>
-      <tr class="row-warn"><td>DR2026-09-006</td><td>清水塘未来社区_按间房源表_20260905.xlsx</td><td>清水塘投资运营服务有限公司</td><td class="num">842</td><td class="num">486</td><td class="num">830</td><td class="num">12</td><td>彭建华</td><td>2026-09-05 09:26</td><td><span class="badge orange">待修正</span></td></tr>
-      <tr><td>DR2026-09-118</td><td>湘江1958_按间房源表_20260828.xlsx</td><td>株洲城发高科人才安居服务有限公司</td><td class="num">1,086</td><td class="num">620</td><td class="num">1,086</td><td class="num">0</td><td>彭建华</td><td>2026-08-28 15:08</td><td><span class="badge green">已完成</span></td></tr>
-      <tr><td>DR2026-08-005</td><td>董家塅人才公寓_按间房源表_20260812.xlsx</td><td>株洲城发高科人才安居服务有限公司</td><td class="num">568</td><td class="num">328</td><td class="num">568</td><td class="num">0</td><td>彭建华</td><td>2026-08-12 15:08</td><td><span class="badge green">已完成</span></td></tr>
-      <tr><td>DR2026-03-004</td><td>田心人才公寓_按间房源表_20260316.xlsx</td><td>清水塘投资运营服务有限公司</td><td class="num">468</td><td class="num">274</td><td class="num">468</td><td class="num">0</td><td>肖玉兰</td><td>2026-03-16 10:42</td><td><span class="badge green">已完成</span></td></tr>
-      <tr><td>DR2025-12-003</td><td>栗雨佳苑_按间房源表_20251208.xlsx</td><td>株洲城发高科人才安居服务有限公司</td><td class="num">626</td><td class="num">366</td><td class="num">626</td><td class="num">0</td><td>彭建华</td><td>2025-12-08 14:20</td><td><span class="badge green">已完成</span></td></tr>
+      <tr class="row-warn"><td>DR2026-09-006</td><td>清水塘新苑楼盘表_20260905.xlsx</td><td class="num">486</td><td class="num">472</td><td class="num">14</td><td>唐凯</td><td>2026-09-05 09:26</td><td><span class="badge orange">待修正</span></td></tr>
+      <tr><td>DR2026-08-005</td><td>董家塅安居苑楼盘表_20260812.xlsx</td><td class="num">328</td><td class="num">328</td><td class="num">0</td><td>唐凯</td><td>2026-08-12 15:08</td><td><span class="badge green">已完成</span></td></tr>
+      <tr><td>DR2026-03-004</td><td>茨菇塘公寓楼盘表_20260316.xlsx</td><td class="num">486</td><td class="num">486</td><td class="num">0</td><td>唐凯</td><td>2026-03-16 10:42</td><td><span class="badge green">已完成</span></td></tr>
+      <tr><td>DR2025-12-003</td><td>栗雨佳苑楼盘表_20251208.xlsx</td><td class="num">366</td><td class="num">366</td><td class="num">0</td><td>唐凯</td><td>2025-12-08 14:20</td><td><span class="badge green">已完成</span></td></tr>
+      <tr><td>DR2025-11-002</td><td>湘江1958二期楼盘表_20251120.xlsx</td><td class="num">300</td><td class="num">300</td><td class="num">0</td><td>唐凯</td><td>2025-11-20 09:18</td><td><span class="badge green">已完成</span></td></tr>
       </tbody>
     </table>
   </div>
@@ -245,21 +199,15 @@
     </div>
   </div>
   <div class="sp-src">
-    <span><b>导入层级</b> 项目—楼栋—单元—楼层—房号—<b>间号</b>六级，<b>一行一间</b>，齐全后自动生成一间一码（如 FY-TY-XJ-A6-1502A）</span>
-    <span><b>间级字段</b> 室厅结构、房间配套、套内面积、<b>公摊比例</b>、<b>公摊面积</b>、计租面积、人才租金标准、原（市场）租金标准</span>
-    <span><b>套级字段</b> 房屋总面积、总公摊面积，以及水费、电费、天然气、物业费标准</span>
-    <span><b>新增校验</b> JY-4 间号同套内唯一｜JY-5 公摊比例合计＝1｜JY-6 各间公摊面积合计＝套级总公摊｜JY-7 计租面积＝套内＋公摊｜JY-8 套级字段一致</span>
-    <span><b>本期定位</b> <b>房源建账的主要方式，由运营机构自行导入、导入环节不需报送审批</b>；模板由主管单位下发，<b>主管单位只做查看、监管与审核发布</b>，不介入房源日常维护</span>
-    <span><b>关联页面</b> <span class="link" onclick="location.href='house-archive.html'">房源查询与审核发布</span>　<span class="link" onclick="location.href='import-load.html'">分批导入与断点续传</span>　<span class="link" onclick="location.href='import-rule.html'">导入校验规则配置</span></span>
+    <span><b>导入层级</b> 项目—楼栋—单元—楼层—房号五级，齐全后自动生成一房一码</span>
+    <span><b>同步字段</b> 建筑面积、套内面积、户型、朝向、装修标准、家电家具配置、租金标准，以及按间的<b>当前状态与在住人性别</b>等</span>
+    <span><b>房态与性别校验</b> 状态取<b>空置／已入住／已锁定</b>（JY-13）；已入住的间<b>性别必填</b>，<b>同一套房内已入住人员须同性别</b>，冲突的<b>整批拦截并回显行号</b>（JY-14）；落库后按套自动汇总在住性别，供移动端房源展示与自动配租同套同性别校验使用</span>
+    <span><b>本期定位</b> <b>房源建账的主要方式</b>，须支撑全市约<b>一万套规模的分批导入</b>（单批上限 5,000 行，按项目分批）</span>
+    <span><b>差错处理</b> 差错行不入库，修正后重新导入；<b>失败不影响已入库房源与前序批次</b>；重复登记行自动锁定待核实</span>
+    <span><b>关联页面</b> <span class="link" onclick="location.href='import-load.html'">分批导入与断点续传</span>　<span class="link" onclick="location.href='import-rule.html'">导入校验规则配置</span></span>
   </div>
 </main>
 
-<script>
-(function () {
-  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
-  if (t) { t._total = 842; }
-})();
-</script>
 
 <script src="../../assets/js/app.js"></script>
 <script src="../../assets/js/spec.js"></script>

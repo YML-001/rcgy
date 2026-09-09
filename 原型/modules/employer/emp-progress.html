@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>申报进度与数据查看 · 株洲市人才住房保障管理平台</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/app.css">
+<link rel="stylesheet" href="../../assets/css/spec.css">
+<link rel="stylesheet" href="../../assets/css/ext.css">
+</head>
+<body data-role="employer" data-active="emp-04">
+<main class="app-main">
+  <div class="page-head">
+    <div class="breadcrumb">
+      <i class="fa-solid fa-house bc-home"></i> 株洲市人才住房保障管理平台
+      <span class="sep">/</span> 用人单位端
+      <span class="sep">/</span> <span class="cur">申报进度与数据查看</span>
+    </div>
+  </div>
+  <div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>查看本单位职工的<b>申报进度、配租结果与在租情况</b>。仅展示<b>办理状态与结论</b>，不展示职工的家庭收入、住房核验等个人敏感信息。</div>
+  </div>
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-icon blue"><i class="fa-solid fa-file-lines"></i></div>
+      <div><div class="s-label">累计申报</div><div class="s-value">312</div>
+        <div class="s-trend">2024 年以来</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
+      <div><div class="s-label">审核通过</div><div class="s-value">268</div>
+        <div class="s-trend">通过率 85.9%</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-key"></i></div>
+      <div><div class="s-label">已配租入住</div><div class="s-value">126</div>
+        <div class="s-trend">在租</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="s-icon orange"><i class="fa-solid fa-hourglass-half"></i></div>
+      <div><div class="s-label">在办件</div><div class="s-value">18</div>
+        <div class="s-trend">含 12 件待复审</div></div>
+    </div>
+  </div>
+  <div class="card list-card">
+    <div class="filter-bar">
+      <div class="filter-item"><label>申请编号</label><input type="text" placeholder="申请编号"></div>
+      <div class="filter-item"><label>姓名</label><input type="text" placeholder="职工姓名"></div>
+      <div class="filter-item"><label>状态</label><select><option value="">全部</option><option>待复审</option><option>审核通过</option><option>已配租</option><option>不予通过</option></select></div>
+      <div class="filter-item"><label>申报时间</label><input type="text" placeholder="YYYY-MM"></div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
+        <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
+        <button class="btn" onclick="PMS.toast('已提交导出任务，仅含办理状态，不含敏感信息','success')"><i class="fa-solid fa-download"></i> 导出台账</button>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>申请编号</th><th>姓名</th><th>所在部门</th><th>申报时间</th><th>当前状态</th><th class="cell-lg">办理说明</th><th>轮候位次</th><th class="cell-lg">承租房源</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>RC2026-0906-0203</td><td>李文博</td><td>研发中心</td><td>2026-09-06</td><td><span class="badge orange">待复审</span></td><td>初审通过（市住保中心）</td><td>—</td><td>—</td></tr>
+          <tr><td>RC2026-0905-0198</td><td>王梓涵</td><td>研发中心</td><td>2026-09-05</td><td><span class="badge green">审核通过</span></td><td>已进入配租轮候</td><td>第 18 位</td><td>—</td></tr>
+          <tr><td>RC2026-0812-0087</td><td>陈思远</td><td>工艺部</td><td>2026-08-12</td><td><span class="badge blue">已配租</span></td><td>已选房并签约</td><td>—</td><td>湘江1958 / A6-1502B</td></tr>
+          <tr class="row-warn"><td>RC2026-0730-0042</td><td>周雨桐</td><td>质量部</td><td>2026-07-30</td><td><span class="badge red">不予通过</span></td><td>名下有住房，不符合无房条件</td><td>—</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sp-src">
+    <span><b>信息范围</b> 仅展示办理状态与结论，<b>不展示收入、住房核验等敏感信息</b></span>
+    <span><b>异议处理</b> 对审核结论有异议的由职工本人在湘易办提出，单位不代为申诉</span>
+  </div>
+
+</main>
+
+<script>
+(function () {
+  var t = document.querySelector('main.app-main .table-wrap > table.data-table');
+  if (t) { t._total = 4; }
+})();
+</script>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/spec.js"></script>
+</body>
+</html>

@@ -20,14 +20,20 @@
     </div>
     <div class="page-actions">
       <button class="btn btn-primary" onclick="PMS.openDrawer('exDrawer')"><i class="fa-solid fa-plus"></i> 新增异常件</button>
-      <a class="btn" href="auto-alloc.html"><i class="fa-solid fa-wand-magic-sparkles"></i> 自动配租执行</a>
+      <a class="btn" href="queue-list.html"><i class="fa-solid fa-hourglass-half"></i> 意向轮候库</a>
+      <a class="btn" href="giveup-list.html"><i class="fa-solid fa-user-slash"></i> 放弃与资格处置</a>
       <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
     </div>
   </div>
 
+  <div class="alert alert-info">
+    <i class="fa-solid fa-pen-to-square"></i>
+    <div><span class="proto-t chg">0909 改</span>本页原按<b>自动配租异常</b>组织异常类型：房间已被占用、同套性别冲突、<b>组团拆分（整组匹配失败）</b>，并用「<b>未匹配原因</b>」记录匹配算法的执行结果。9 月 9 日改回<b>按轮候顺序依次通知、申请人在可选范围内自选房间</b>后，匹配算法不再存在，异常类型已<b>按新口径重排</b>为四类：<b>同套同性别校验不通过</b>（异性占用的房间在可选列表中直接排除）、<b>选房超时未选</b>（顺序号排至当前队列末位、不认定为放弃）、<b>本批次意向范围内无房源</b>（未推送通知、顺序号不变）、<b>已选定房间后逾期未签约</b>（按放弃处理）。原「组团拆分」类型<b>整体删除</b>（组团改为只影响审批排序，不再有整组匹配与拆组），并新增「<b>顺序号处置</b>」列区分三种情形。对应《系统原型调整计划（0909 会议）》<b>C03、C08</b>，并联动 <b>C06</b>。</div>
+  </div>
+
   <div class="alert alert-warning">
     <i class="fa-solid fa-triangle-exclamation"></i>
-    <div>办理<b>自动配租异常</b>（房间已被占用、性别冲突、组团拆分）与<b>换房申请、特殊情形优先配租、配租结果纠错回滚</b>，<b>变更须审批并留痕</b>。<b>人工干预配租的同样执行同套同性别校验</b>，校验不通过的不允许提交。纠错回滚涉及已签约的须同步办理合同解除。</div>
+    <div>办理<b>选房与校验异常</b>（同套同性别校验不通过、选房超时未选、本批次意向范围内无房源、已选定后逾期未签约、房间已被占用）与<b>换房申请、特殊情形优先配租、配租结果纠错回滚</b>，<b>变更须审批并留痕</b>。<b>人工干预配租的同样执行同套同性别校验</b>，校验不通过的不允许提交。逐件记录<b>通知时间、确认时限、选房结果、顺序号变动与处置结果</b>；纠错回滚涉及已签约的须同步办理合同解除。</div>
   </div>
 
   <div class="stat-grid">
@@ -37,9 +43,9 @@
         <div class="s-trend text-2">含换房 26 件</div></div>
     </div>
     <div class="stat-card">
-      <div class="s-icon cyan"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
-      <div><div class="s-label">自动配租异常</div><div class="s-value">12</div>
-        <div class="s-trend text-2">占用 4 · 性别冲突 6 · 组团拆分 2</div></div>
+      <div class="s-icon cyan"><i class="fa-solid fa-hand-pointer"></i></div>
+      <div><div class="s-label">选房与校验异常</div><div class="s-value">12</div>
+        <div class="s-trend text-2">同套同性别 5 · 超时未选 4 · 无房源 3</div></div>
     </div>
     <div class="stat-card dc-alarm">
       <div class="s-icon orange"><i class="fa-solid fa-hourglass-half"></i></div>
@@ -57,8 +63,9 @@
     <div class="filter-bar">
       <div class="filter-item"><label>异常编号</label><input type="text" placeholder="异常编号"></div>
       <div class="filter-item"><label>申请人</label><input type="text" placeholder="姓名"></div>
-      <div class="filter-item"><label>异常类型</label><select><option value="">全部</option><option>房间已被占用</option><option>同套性别冲突</option><option>组团拆分</option><option>换房申请</option><option>特殊情形优先配租</option><option>配租结果纠错回滚</option><option>其他</option></select></div>
-      <div class="filter-item"><label>发现环节</label><select><option value="">全部</option><option>自动配租执行</option><option>结果公示</option><option>签约办理</option><option>入住交付</option><option>申请人反映</option></select></div>
+      <div class="filter-item"><label>异常类型</label><select><option value="">全部</option><option>同套同性别校验不通过</option><option>选房超时未选</option><option>本批次意向范围内无房源</option><option>已选定后逾期未签约</option><option>房间已被占用</option><option>换房申请</option><option>特殊情形优先配租</option><option>配租结果纠错回滚</option><option>其他</option></select></div>
+      <div class="filter-item"><label>顺序号处置</label><select><option value="">全部</option><option>顺序号不变</option><option>顺序号排至当前队列末位</option><option>按放弃处理并出库</option><option>回滚并恢复原顺序号</option><option>不涉及顺序号</option></select></div>
+      <div class="filter-item"><label>发现环节</label><select><option value="">全部</option><option>选房通知推送</option><option>申请人选房</option><option>选房确认时限届满</option><option>签约办理</option><option>入住交付</option><option>结果公示</option><option>申请人反映</option></select></div>
       <div class="filter-item"><label>处理状态</label><select><option value="">全部</option><option>待审批</option><option>在办</option><option>已办结</option><option>不予同意</option></select></div>
       <div class="filter-actions">
         <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
@@ -69,42 +76,44 @@
     <div class="table-wrap">
       <table class="data-table">
         <thead>
-          <tr><th>异常编号</th><th>申请人</th><th>异常类型</th><th>发现环节</th><th class="cell-lg">事由</th><th>原房源</th><th class="cell-lg">处置结果</th><th>审批人</th><th>处理状态</th><th>操作</th></tr>
+          <tr><th>异常编号</th><th>申请人</th><th><span class="proto-t chg">0909 改</span>异常类型</th><th>发现环节</th><th class="cell-lg">事由</th><th>原房间或选房范围</th><th><span class="proto-t chg">0909 改</span>顺序号处置</th><th class="cell-lg">处置结果</th><th>审批人</th><th>处理状态</th><th>操作</th></tr>
         </thead>
         <tbody>
-          <tr class="row-bad"><td>YC2026-09-0032</td><td>肖××</td><td><span class="badge red">同套性别冲突</span></td><td>自动配租执行</td><td>意向范围内仅剩清水塘新苑 1-0708 次卧，该套在住人为女性，本人性别男（身份证号自动识别），<b>同套同性别校验不通过，房间已直接排除</b></td><td><span class="muted">本轮未匹配</span></td><td>保留位次 132 等下一批次，已短信告知原因并提示可调整意向楼盘与户型；<b>本期强制同性别、不设开关</b>，不予人工放行</td><td>李慧敏</td><td><span class="badge green">已办结</span></td><td><span class="link" onclick="PMS.toast('同套同性别为强制校验，异性占用房间一律排除，人工干预配租同样执行；本件已按保留位次处置并留痕')">办理记录</span></td></tr>
-          <tr class="row-bad"><td>YC2026-09-0034</td><td>曾××</td><td><span class="badge orange">组团拆分</span></td><td>自动配租执行</td><td>三人组 ZT2026-0042 意向楼盘湘江1958 无可整组匹配的三室一厅整套房源，<b>整组匹配失败</b></td><td><span class="muted">三人组 ZT2026-0042</span></td><td>按规则<b>拆开按单人配租</b>：曾×× 匹配 A6-0808 次卧一，其余 2 人本轮未匹配、<b>各自位次不变</b>；已逐人短信告知拆组原因</td><td>李慧敏</td><td><span class="badge green">已办结</span></td><td><span class="link" onclick="PMS.toast('组团匹配不到整套的按规则拆开单人配租，组内各人位次不变；拆组结果已写入自动配租执行记录')">办理记录</span></td></tr>
-          <tr class="row-warn"><td>YC2026-09-0036</td><td>邓××</td><td><span class="badge red">房间已被占用</span></td><td>签约办理</td><td>自动配租匹配到栗雨佳苑 3-0904 次卧，签约时发现该房间已由运营机构安排过渡人员入住，<b>房态未及时回传导致重复占用</b></td><td>栗雨佳苑 3-0904 次卧</td><td>拟在同楼盘同户型内改匹配 3-1006 次卧（校验通过：同套在住均为男性），并督促运营机构当日回传房态</td><td><span class="muted">—</span></td><td><span class="badge orange">待审批</span></td><td><span class="link" onclick="PMS.openDrawer('exDrawer')">办理</span></td></tr>
-          <tr class="row-warn"><td>YC2026-09-0026</td><td>谭××</td><td><span class="badge blue">换房申请</span></td><td>入住交付</td><td>配租房源在 18 楼，申请人配偶孕期不便，申请换至低楼层</td><td>湘江1958 A6-1806</td><td>拟换至湘江1958 A6-0606（整套配租，不涉及同套同性别校验）</td><td>李慧敏</td><td><span class="badge orange">待审批</span></td><td><span class="link" onclick="PMS.openDrawer('exDrawer')">办理</span></td></tr>
-          <tr class="row-warn"><td>YC2026-09-0028</td><td>贺××</td><td><span class="badge cyan">特殊情形优先配租</span></td><td>申请人反映</td><td>申请人为高新技术企业引进的中级职称专业技术人才，单位申请优先配租以保障项目攻关</td><td><span class="muted">轮候中（位次 96）</span></td><td>拟优先匹配湘江1958 A6-1802（整套配租）；<b>人工干预配租同样执行同套同性别校验</b></td><td><span class="muted">—</span></td><td><span class="badge orange">待审批</span></td><td><span class="link" onclick="PMS.openDrawer('exDrawer')">办理</span></td></tr>
-          <tr><td>YC2026-08-0018</td><td>周××</td><td><span class="badge red">配租结果纠错回滚</span></td><td>结果公示</td><td>系统展示的房源面积有误（实际 50.00 ㎡ 展示为 52.00 ㎡），申请人据此配租后要求纠错</td><td>清水塘新苑 1-0708</td><td>已回滚配租结果、解除合同、撤销放弃标记并恢复轮候位次；面积已按对账结果更正，安排补充执行重新匹配</td><td>李慧敏</td><td><span class="badge green">已办结</span></td><td><span class="link" onclick="location.href='slot-plan.html'">补充执行</span></td></tr>
-          <tr><td>YC2026-07-0012</td><td>肖××</td><td><span class="badge blue">换房申请</span></td><td>入住交付</td><td>工作单位由天元区调至荷塘区，通勤距离过远，申请跨片区换房</td><td>湘江1958 A6-1502</td><td>已换至茨菇塘公寓 5-1204 并办理合同变更，保障期起算点不变（仍自原入住之日起算）</td><td>李慧敏</td><td><span class="badge green">已办结</span></td><td><span class="link" onclick="PMS.toast('已换房并办理合同变更，保障期起算点不变（仍自原入住之日起算）')">办理记录</span></td></tr>
+          <tr class="row-bad"><td>YC2026-09-0032</td><td>肖××</td><td><span class="badge red">同套同性别校验不通过</span></td><td>申请人选房</td><td>意向范围内仅剩清水塘新苑 1-0708 次卧，该套在住人为女性，本人性别男（身份证号自动识别），该间<b>在可选列表中直接排除、不予展示</b></td><td>清水塘新苑 · 二室一厅<br><span class="muted">排除后无可选房间</span></td><td><span class="badge blue">顺序号 42 不变</span></td><td>异性房间排除后本批次意向范围内<b>已无可选房间、未推送选房通知</b>，<b>顺序号不变</b>等下一批次；已短信告知原因并提示可调整意向楼盘与户型。<b>本期强制同性别、不设开关</b>，不予人工放行</td><td>李慧敏</td><td><span class="badge green">已办结</span></td><td><span class="link" onclick="PMS.toast('同套同性别为强制校验，异性占用的房间一律不进入可选列表，人工干预配租同样执行；本件按「本批次无可选房源」处置，顺序号不变并留痕')">办理记录</span></td></tr>
+          <tr class="row-warn"><td>YC2026-09-0038</td><td>罗××</td><td><span class="badge orange">选房超时未选</span></td><td>选房确认时限届满</td><td>2026-09-15 14:06 推送选房通知，确认时限 2026-09-16 14:06；期间<b>未登录、未完成选房</b>，运营机构 2 次电话联系未接、短信告知 1 次</td><td>湘江1958 · 三室一厅<br><span class="muted">通知时可选 5 间</span></td><td><span class="badge orange">顺序号 26 → 排至队列末位 402</span></td><td>由<b>下一顺序人（顺序号 27）接着选</b>，本人<b>轮候顺序号重排至当前队列末位</b>、资格不作废；<b>仅超时未操作不构成放弃</b>（须同时满足「不服从配租房源」与「不办理入住」），<b>不认定为放弃、不进放弃名单</b>，等下一批房源</td><td><span class="muted">系统自动</span></td><td><span class="badge green">已办结</span></td><td><span class="link" onclick="PMS.toast('已记录通知时间 2026-09-15 14:06、确认时限 2026-09-16 14:06、选房结果「未选」与顺序号由 26 变更为 402；本人资格不作废、不认定为放弃')">办理记录</span></td></tr>
+          <tr class="row-warn"><td>YC2026-09-0040</td><td>邓××</td><td><span class="badge cyan">本批次意向范围内无房源</span></td><td>选房通知推送</td><td>申请时选定「清水塘新苑 · 三室一厅」，本批次该楼盘<b>无三室一厅投放</b>，本人<b>未进入选房、未收到选房通知</b></td><td>清水塘新苑 · 三室一厅<br><span class="muted">本批次无投放</span></td><td><span class="badge blue">顺序号 36 不变</span></td><td>本轮跳过、<b>顺序号不变</b>等下一批次；已短信提醒可在下一批次公告发布前调整意向楼盘与户型，调整<b>不改变审核通过时间与顺序号</b>。<b>本期不跨楼盘调剂</b></td><td>李慧敏</td><td><span class="badge green">已办结</span></td><td><span class="link" onclick="location.href='queue-list.html'">轮候记录</span></td></tr>
+          <tr class="row-bad"><td>YC2026-09-0044</td><td>曾××</td><td><span class="badge red">已选定后逾期未签约</span></td><td>签约办理</td><td>2026-09-15 15:20 自选栗雨佳苑 3-0806 并锁定，签约截止 2026-09-22 18:00，<b>逾期 6 个工作日未签约</b>，3 次电话联系与 2 次短信告知均无回应</td><td>栗雨佳苑 3-0806<br><span class="muted">一室一厅 整套 · 已选定</span></td><td><span class="badge purple">按放弃处理并出库</span></td><td><b>已选定房间后逾期未签约</b>，构成不服从配租房源且不办理入住，<b>按放弃处理</b>；认定前已完成告知与本人确认并留痕，<b>记入放弃名单并拦截再次申请</b>，房间即时释放回本批次可选房源</td><td>李慧敏</td><td><span class="badge green">已办结</span></td><td><span class="link" onclick="location.href='giveup-list.html'">放弃处置</span></td></tr>
+          <tr class="row-warn"><td>YC2026-09-0036</td><td>廖××</td><td><span class="badge red">房间已被占用</span></td><td>签约办理</td><td>申请人 2026-09-15 自选栗雨佳苑 3-0904 次卧，签约时发现该房间已由运营机构安排过渡人员入住，<b>房态未及时回传导致重复占用</b></td><td>栗雨佳苑 3-0904 次卧</td><td><span class="badge blue">顺序号不变</span></td><td>拟在同楼盘同户型内改为 3-1006 次卧（校验通过：同套在住均为男性），<b>顺序号不变、选房关系平移至新房间</b>，并督促运营机构当日回传房态</td><td><span class="muted">—</span></td><td><span class="badge orange">待审批</span></td><td><span class="link" onclick="PMS.openDrawer('exDrawer')">办理</span></td></tr>
+          <tr class="row-warn"><td>YC2026-09-0028</td><td>贺××</td><td><span class="badge cyan">特殊情形优先配租</span></td><td>申请人反映</td><td>申请人为高新技术企业引进的中级职称专业技术人才，单位申请优先配租以保障项目攻关</td><td><span class="muted">轮候中（顺序号 96）</span></td><td><span class="badge blue">顺序号 96 不变，仅提前通知</span></td><td>拟<b>提前推送选房通知</b>，由本人在意向范围内自选，不改写顺序号、不占用他人已通知的选房权利；<b>人工干预同样执行同套同性别校验</b>。<span class="proto-t pend">待确认</span>是否允许提前通知选房、优先情形的认定口径待业务部门明确</td><td><span class="muted">—</span></td><td><span class="badge orange">待审批</span></td><td><span class="link" onclick="PMS.openDrawer('exDrawer')">办理</span></td></tr>
+          <tr><td>YC2026-08-0018</td><td>周××</td><td><span class="badge red">配租结果纠错回滚</span></td><td>结果公示</td><td>系统展示的房源面积有误（实际 50.00 ㎡ 展示为 52.00 ㎡），申请人据此选房后要求纠错</td><td>清水塘新苑 1-0708</td><td><span class="badge green">回滚并恢复原顺序号</span></td><td>已回滚选房结果、解除合同、撤销放弃标记并<b>恢复原轮候顺序号</b>；面积已按对账结果更正，已重新推送选房通知由本人在更正后的范围内自选</td><td>李慧敏</td><td><span class="badge green">已办结</span></td><td><span class="link" onclick="location.href='slot-plan.html'">批次时间设定</span></td></tr>
+          <tr><td>YC2026-07-0012</td><td>肖××</td><td><span class="badge blue">换房申请</span></td><td>入住交付</td><td>工作单位由天元区调至荷塘区，通勤距离过远，申请跨片区换房</td><td>湘江1958 A6-1502</td><td><span class="muted">不涉及顺序号</span></td><td>已换至茨菇塘公寓 5-1204 并办理合同变更，保障期起算点不变（仍自原入住之日起算）</td><td>李慧敏</td><td><span class="badge green">已办结</span></td><td><span class="link" onclick="PMS.toast('已换房并办理合同变更，保障期起算点不变（仍自原入住之日起算）')">办理记录</span></td></tr>
         </tbody>
       </table>
     </div>
   </div>
         <div class="sp-block" style="margin-top:12px">
-          <div class="sp-h"><i class="fa-solid fa-list"></i> 自动配租异常与处置口径<span class="sub">R-E1 至 R-E5 · 均须审批并留痕</span></div>
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 选房异常与处置口径<span class="sub">R-E1 至 R-E6 · 三种情形区分处置 · 均须审批并留痕</span></div>
           <div class="sp-b">
   <div class="sp-tw">
-    <table class="data-table compact">
+      <table class="data-table compact">
       <thead><tr><th>规则</th><th class="cell-lg">异常情形</th><th class="cell-lg">处置口径</th></tr></thead>
       <tbody>
-      <tr><td><b>R-E1</b></td><td><b>房间已被占用</b><br><span class="muted">房态回传不及时</span></td><td>匹配结果与实际房态不一致的，<b>由经办人在同楼盘同户型内改匹配</b>并经审批；改匹配须<b>重新执行同套同性别校验</b>，校验不通过的不允许提交。同时督促运营机构当日回传房态，纳入运营考核。<span class="link" onclick="location.href='../house/house-status-map.html'">房态图</span></td></tr>
-      <tr><td><b>R-E2</b></td><td><b>同套性别冲突</b><br><span class="muted">P08 · 强制校验</span></td><td>目标房间所在套房<b>在住人性别与本人不一致</b>的，该房间在匹配时<b>直接排除</b>，不进入候选；性别由<b>身份证号自动识别</b>，不需人工录入、不允许人工修改。<b>本期强制执行、不设开关</b>，<b>不予人工放行</b>；本人本轮未匹配的<b>保留位次等下一批次</b>并短信告知原因</td></tr>
-      <tr><td><b>R-E3</b></td><td><b>组团拆分</b><br><span class="muted">整组匹配失败</span></td><td>成团后<b>意向范围内无可整组匹配的整套房源</b>的，按规则<b>拆开按单人配租</b>，组内<b>各自位次不变</b>；拆组结果写入执行记录并<b>逐人短信告知</b>。组内成员须均已通过资格审核且<b>同性别</b>，出现异性成员的不予成团。<span class="link" onclick="location.href='auto-alloc.html'">组团整套预留规则</span></td></tr>
-      <tr><td><b>R-E4</b></td><td>人工干预配租<br><span class="muted">换房 / 特殊情形优先</span></td><td>换房、特殊情形优先配租等<b>人工干预配租的同样执行同套同性别校验</b>与意向范围校验；须经业务管理员角色审批，<b>经办人与复核人不得为同一自然人</b>，全程留痕。换房<b>不改变 2 年保障期起算点</b></td></tr>
-      <tr><td><b>R-E5</b></td><td>结果纠错与回滚</td><td>因系统展示错误、房态错误等导致配租结果需更正的，<b>回滚配租结果并恢复原位次</b>；涉及已签约的<b>同步办理合同解除</b>，涉及放弃标记的<b>撤销标记并恢复申请资格</b>。回滚后可安排<b>补充执行</b>重新匹配。<span class="link" onclick="location.href='slot-plan.html'">补充执行安排</span></td></tr>
+      <tr><td><b>R-E1</b> <span class="proto-t chg">0909 改</span></td><td><b>同套同性别校验不通过</b><br><span class="muted">P08 · 异性占用房间直接排除</span></td><td>整套空置的<b>男女都可选</b>；套内<b>已有在住人或已被他人选定房间</b>的，其余房间<b>只对同性别开放</b>，<b>异性房间在可选列表中直接排除、不予展示</b>。性别由<b>身份证号自动识别</b>，不需人工录入、不允许人工修改。<b>本期强制执行、不设开关</b>，<b>不予人工放行</b>；排除后本批次范围内已无可选房间的，按 R-E3 处理（<b>顺序号不变</b>）。<span class="link" onclick="location.href='../house/building-table.html'">楼盘表在住性别汇总</span></td></tr>
+      <tr class="row-warn"><td><b>R-E2</b> <span class="proto-t chg">0909 改</span></td><td><b>选房超时未选</b><br><span class="muted">情形① 已推送通知、确认时限内未完成选房</span></td><td><b>由下一顺序人接着选</b>，本人<b>轮候顺序号重排至当前队列末位</b>、<b>资格不作废</b>。<b>不认定为放弃</b>——《管理办法》所指放弃须<b>同时满足「不服从配租房源」与「不办理入住」两个条件</b>，仅超时未操作不构成放弃，<b>不进放弃名单、不拦截再次申请</b>，但<b>队列位置要让出来</b>。台账记录<b>通知时间、确认时限、选房结果与顺序号变动</b>。<span class="proto-t pend">待确认</span>确认时限定多长、<b>是否限制排至末位的次数</b>及多次超时后如何处置，待业务部门明确（<b>Q12</b>），本页按 24 小时呈现。<span class="link" onclick="location.href='giveup-list.html'">与放弃的区别</span></td></tr>
+      <tr><td><b>R-E3</b> <span class="proto-t chg">0909 改</span></td><td><b>本批次意向范围内无房源</b><br><span class="muted">情形② 未推送选房通知</span></td><td>本人选定的<b>楼盘与户型在本批次没有可选房源</b>的，<b>不推送选房通知</b>、不进入选房环节，<b>顺序号不变</b>，等下一批次；本期<b>不跨楼盘调剂</b>。已短信提醒可在下一批次公告发布前调整意向楼盘与户型，<b>调整不改变资格审核通过时间与顺序号</b>。<span class="link" onclick="location.href='queue-list.html'">意向轮候库</span></td></tr>
+      <tr class="row-bad"><td><b>R-E4</b> <span class="proto-t chg">0909 改</span></td><td><b>已选定房间后逾期未签约或不办理入住</b><br><span class="muted">情形③ 按放弃处理</span></td><td><b>只有已选定房间后</b>逾期未签约、或签约后不办理入住的，才<b>按放弃处理</b>：记入<b>放弃名单</b>并<b>拦截其再次申请</b>，房间即时释放回本批次可选房源。认定前须<b>完成告知与本人确认并留痕</b>，有正当理由的先走<b>特批保留资格</b>通道。<span class="link" onclick="location.href='giveup-list.html'">放弃与资格处置</span></td></tr>
+      <tr><td><b>R-E5</b></td><td><b>房间已被占用</b><br><span class="muted">房态回传不及时</span></td><td>申请人已选定的房间与实际房态不一致的，<b>由经办人在同楼盘同户型内改为其他可选房间</b>并经审批，<b>顺序号不变、选房关系平移</b>；改房须<b>重新执行同套同性别校验</b>，校验不通过的不允许提交。同时督促运营机构当日回传房态，纳入运营考核。<span class="link" onclick="location.href='../house/house-status-map.html'">房态图</span></td></tr>
+      <tr><td><b>R-E6</b></td><td>人工干预与结果纠错回滚<br><span class="muted">换房 / 特殊情形优先 / 纠错</span></td><td>换房、特殊情形优先配租等<b>人工干预的同样执行同套同性别校验</b>与意向范围校验；须经业务管理员角色审批，<b>经办人与复核人不得为同一自然人</b>，全程留痕，换房<b>不改变 2 年保障期起算点</b>。因系统展示错误、房态错误等需更正的，<b>回滚选房结果并恢复原顺序号</b>，涉及已签约的<b>同步办理合同解除</b>，涉及放弃标记的<b>撤销标记并恢复申请资格</b>，并重新推送选房通知。<span class="link" onclick="location.href='slot-plan.html'">批次时间设定</span></td></tr>
       </tbody>
     </table>
   </div>
           </div>
         </div>
   <div class="sp-src">
-    <span><b>审批要求</b> 配租异常变更须经业务管理员角色审批并全程留痕，经办人与复核人不得为同一自然人</span>
-    <span><b>同套同性别</b> <b>人工干预配租同样执行强制校验</b>，异性占用的房间一律排除，<b>不设开关、不予人工放行</b></span>
-    <span><b>合同联动</b> 涉及已签约的须同步办理合同变更或解除</span>
-    <span><b>保障期口径</b> 换房不改变 2 年保障期起算点，仍自原入住之日起算</span>
+    <span><b>三种情形区分</b> <b>超时未选</b>→顺序号排至队尾、不认定放弃；<b>范围内无房源</b>→未推送通知、顺序号不变；<b>已选定后逾期未签约或不办理入住</b>→按放弃处理并拦截再次申请</span>
+    <span><b>台账留痕</b> 逐件记录<b>通知时间、确认时限、选房结果、顺序号变动与处置结果</b>，放弃认定前须完成告知与本人确认并留痕</span>
+    <span><b>同套同性别</b> 整套空置男女均可选；套内已有在住人或已被他人选定的，其余房间<b>只对同性别开放</b>，异性房间直接排除，<b>不设开关、不予人工放行</b></span>
+    <span><b>审批要求</b> 异常变更须经业务管理员角色审批并全程留痕，经办人与复核人不得为同一自然人；涉及已签约的须同步办理合同变更或解除</span>
   </div>
 </main>
 
@@ -123,7 +132,7 @@
     </div>
   <div class="alert alert-warning">
     <i class="fa-solid fa-triangle-exclamation"></i>
-    <div>人工改匹配房源的，系统在提交时<b>自动执行同套同性别校验与意向范围校验</b>：目标房间所在套房存在<b>异性在住人</b>的，<b>不允许提交</b>；目标房间不在申请人<b>意向楼盘与户型范围</b>内的，须在说明中写明理由并经审批。</div>
+    <div>人工改房间的，系统在提交时<b>自动执行同套同性别校验与意向范围校验</b>：目标房间所在套房存在<b>异性在住人或已被异性选定</b>的，<b>不允许提交</b>；目标房间不在申请人<b>意向楼盘与户型范围</b>内的，须在说明中写明理由并经审批。</div>
   </div>
       <div class="form-grid form-align">
         <div class="form-item">
@@ -132,16 +141,17 @@
         </div>
         <div class="form-item">
           <label>异常类型 <span class="req">*</span></label>
-          <select><option>房间已被占用</option><option>同套性别冲突</option><option>组团拆分</option><option>换房申请</option><option>特殊情形优先配租</option><option>配租结果纠错回滚</option></select>
+          <select><option>房间已被占用</option><option>同套同性别校验不通过</option><option>选房超时未选</option><option>本批次意向范围内无房源</option><option>已选定后逾期未签约</option><option>换房申请</option><option>特殊情形优先配租</option><option>配租结果纠错回滚</option></select>
+          <div class="hint proto chg"><span class="proto-t chg">0909 改</span>原「组团拆分」类型已删除（组团改为只影响审批排序，不再有整组匹配与拆组）；新增<b>选房超时未选、本批次意向范围内无房源、已选定后逾期未签约</b>三类，对应放弃认定的三种情形</div>
         </div>
         <div class="form-item">
-          <label>原匹配房间 <span class="req">*</span></label>
-          <input type="text" value="栗雨佳苑 3-0904 次卧" readonly>
+          <label>申请人已选定房间 <span class="req">*</span></label>
+          <input type="text" value="栗雨佳苑 3-0904 次卧（2026-09-15 15:42 自选并锁定）" readonly>
         </div>
         <div class="form-item">
-          <label>拟改匹配房间 <span class="req">*</span></label>
+          <label>拟改为房间 <span class="req">*</span></label>
           <input type="text" value="栗雨佳苑 3-1006 次卧">
-          <div class="hint">须在申请人意向楼盘与户型范围内</div>
+          <div class="hint">须在申请人意向楼盘与户型范围内，且为当前可选房间</div>
         </div>
         <div class="form-item">
           <label>同套同性别校验 <span class="req">*</span></label>
@@ -149,8 +159,9 @@
           <div class="hint">性别由身份证号自动识别；<b>校验不通过的不允许提交</b></div>
         </div>
         <div class="form-item">
-          <label>位次与轮候影响 <span class="req">*</span></label>
-          <select><option>位次不变，配租关系平移至新房间</option><option>回滚本轮配租，保留位次等下一批次</option><option>回滚本轮配租并恢复轮候位次</option></select>
+          <label>顺序号处置 <span class="req">*</span></label>
+          <select><option>顺序号不变，选房关系平移至新房间</option><option>顺序号排至当前队列末位（超时未选，不认定放弃）</option><option>顺序号不变，本批次无可选房源等下一批次</option><option>按放弃处理并出库（已选定后逾期未签约或不办理入住）</option><option>回滚本次选房并恢复原顺序号</option></select>
+          <div class="hint proto chg"><span class="proto-t chg">0909 改</span>原为「位次与轮候影响」，只区分「位次不变」与「回滚」。现按<b>三种情形</b>区分：<b>超时未选</b>排至队尾且不认定放弃、<b>范围内无房源</b>顺序号不变、<b>已选定后逾期未签约</b>才按放弃处理</div>
         </div>
         <div class="form-item col-full">
           <label>审核结论 <span class="req">*</span></label>
@@ -158,7 +169,7 @@
         </div>
         <div class="form-item col-full">
           <label>结论说明 <span class="req">*</span></label>
-          <textarea id="exDrawerTxt" rows="4" placeholder="必填，不少于 10 字。说明对申请人完整可见">经核实，栗雨佳苑 3-0904 次卧已由运营机构安排过渡人员入住，系房态未及时回传导致自动配租重复占用。拟在同楼盘同户型内改匹配 3-1006 次卧，该套在住人 1 名、性别男，同套同性别校验通过，且在申请人意向范围内。申请人位次不变，配租关系平移至新房间，已督促运营机构当日回传房态并纳入本月运营考核。</textarea>
+          <textarea id="exDrawerTxt" rows="4" placeholder="必填，不少于 10 字。说明对申请人完整可见">经核实，栗雨佳苑 3-0904 次卧已由运营机构安排过渡人员入住，系房态未及时回传，导致申请人自选时该房间仍显示为可选并被选定。拟在同楼盘同户型内改为 3-1006 次卧，该套在住人 1 名、性别男，同套同性别校验通过，且在申请人意向范围内。申请人轮候顺序号不变，选房关系平移至新房间，签约期限自本次改房通知之日重新起算，已督促运营机构当日回传房态并纳入本月运营考核。</textarea>
         </div>
       </div>
     <p class="hint" style="margin-top:12px"><i class="fa-solid fa-circle-info"></i> 结论提交后写入办件状态流水（含操作人、时间、IP 与前后值），可被审计追溯。</p>

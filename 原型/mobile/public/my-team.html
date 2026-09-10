@@ -10,17 +10,25 @@
 <link rel="stylesheet" href="../../assets/css/ext.css">
 </head>
 <body class="m-body" data-mtitle="我的组团" data-mmod="M2 个人中心" data-mcode="M2-08"
-      data-mdesc="查看本人参与的组团同住信息：组编号、发起人、意向楼盘与户型、成团状态、成员清单及各自的申请与审核状态、性别一致性校验结果。组团为<b>线下自愿组合</b>，系统<b>不发邀请、不需对方确认</b>，成员的有效性由<b>各自的申请与审核状态</b>决定；成员须均已通过资格审核且同性别，配租时才按整组处理——<b>整套预留、整组锁定</b>，整组按<b>组内最靠后的位次</b>参与排序，无整套可匹配的拆开按单人配租、各自位次不变。发起人可解散组团，非发起人可退出组团，退出或解散均不影响各成员的申请与位次。" data-mback="me.html" data-mtabset="public" data-mtab="me">
+      data-mdesc="查看本人参与的组团同住信息：组编号、发起人、意向楼盘与户型、成团状态、各成员的<b>轮候顺序号</b>与资格审核通过时间、组内最靠后顺序号、性别一致性校验结果。组团为<b>线下自愿组合</b>，系统<b>不发邀请、不需对方确认</b>，成员的有效性由<b>各自的申请与审核状态</b>决定；成员须均已通过资格审核且同性别，组内人数上限按户型间数。组团<b>只影响审批排序</b>——同一组一并提交、集中在同一批次审核，使各成员的资格审核通过时间连续、<b>轮候顺序号相邻</b>，轮到时可依次在同一套房内挑到相邻房间；<b>系统不预留、不锁定房源</b>，不影响其他申请人的可选范围，也<b>不保证一定能住进同一套</b>。发起人可解散组团，非发起人可退出组团，退出或解散均不改变各成员的申请与轮候顺序号。" data-mback="me.html" data-mtabset="public" data-mtab="me">
 <div class="m-stage">
   <div class="m-phone">
     <div class="m-screen">
       <div class="m-view">
+        <div class="m-note proto chg"><i class="fa-solid fa-pen-to-square"></i>
+          <div><span class="proto-t chg">0909 改</span>本页原按<b>整套预留、整组匹配同一套房、无整套则拆组</b>呈现，
+            那是为系统自动配租设计的匹配算法。9 月 9 日配租改回<b>按轮候顺序依次通知、申请人自选房间</b>后不再适用，
+            本页改为展示各成员的<b>轮候顺序号</b>与相邻情况：组团<b>只影响审批排序</b>，
+            系统<b>不预留、不锁定房源</b>，也<b>不保证一定能住进同一套</b>。
+            「已拆组」状态与「组内最靠后位次参与整组排序」的表述一并去掉。
+            对应《系统原型调整计划（0909 会议）》<b>C06、C07、C09</b>。</div>
+        </div>
         <div class="m-note"><i class="fa-solid fa-people-group"></i>
           <div><b>组团是线下沟通好的自愿组合，系统不发邀请、不需对方点确认。</b>成员的有效性由<b>各自的申请与审核状态</b>决定——
-            系统按填报的姓名与手机号匹配其申请件；成员须<b>均已通过资格审核且同性别</b>，配租时才按整组处理。</div>
+            系统按填报的姓名与手机号匹配其申请件；成员须<b>均已通过资格审核且同性别</b>，才计入本组。</div>
         </div>
         <div class="m-card">
-          <div class="m-card-h"><i class="fa-solid fa-user-group"></i>组团基本信息<span class="m-more"><span class="m-tag orange">已拆组</span></span></div>
+          <div class="m-card-h"><i class="fa-solid fa-user-group"></i>组团基本信息<span class="m-more"><span class="m-tag green">已成团</span></span></div>
           <div class="m-card-b">
           <div class="m-kv">
             <div><span>组编号</span><span class="num">ZT2026-0042</span></div>
@@ -29,35 +37,41 @@
             <div><span>意向楼盘</span><span>湘江1958 人才公寓</span></div>
             <div><span>意向户型</span><span>三室一厅（3 间）　<span class="m-tag dark">上限 3 人</span></span></div>
             <div><span>成团人数</span><span>3 人（本人 + 填报 2 人）<span class="m-tag green">未超上限</span></span></div>
-            <div><span>成团时间</span><span>2026-09-06 10:44（三人均审核通过后自动成团）</span></div>
-            <div><span>成团状态</span><span><span class="m-tag orange">已拆组</span> 本批次无整套三室一厅，已拆开按单人配租</span></div>
-            <div><span>所属批次</span><span>PZ2026-03（2026 年第 3 批）· 执行 2026-09-15 10:00</span></div>
-            <div><span>组内最靠后位次</span><span class="num"><b>168</b>　整组按 168 位参与排序</span></div>
+            <div><span>成团时间</span><span>2026-09-05 09:17（三人均审核通过后自动成团）</span></div>
+            <div><span>成团状态</span><span><span class="m-tag green">已成团</span> 三人均已入轮候库，正按顺序号依次通知选房</span></div>
+            <div><span>各成员顺序号</span><span><span class="proto-t chg">0909 改</span><b>11 · 12 · 13</b>　三人<b>连号相邻</b>，轮到时可接连挑同一套内的房间</span></div>
+            <div><span>组内最靠后顺序号</span><span><span class="proto-t chg">0909 改</span><b>13</b>（曾昊然）　仅表示本组预计在第 13 位轮完，<b>不再作为整组排序依据</b></span></div>
+            <div><span>房源是否预留</span><span><span class="proto-t chg">0909 改</span><b style="color:var(--danger)">不预留、不锁定</b>　本组不占用任何房源，不影响其他申请人的可选范围</span></div>
+            <div><span>选房安排</span><span><span class="proto-t chg">0909 改</span>2026 年第 3 批（PZ2026-03）· <b>按轮候顺序依次通知</b>，不设统一执行时点</span></div>
           </div>
           </div>
         </div>
-        <div class="m-sect">成团状态<span class="m-sect-x">组建中／已成团／已配租／已拆组／已解散</span></div>
+        <div class="m-sect">成团状态<span class="m-sect-x">组建中／已成团／选房进行中／已解散</span></div>
         <div class="m-card">
           <div class="m-card-h"><i class="fa-solid fa-timeline"></i>本组状态流转</div>
           <div class="m-card-b">
             <div class="m-check">
-              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>组建中　<span class="m-tag dark">2026-09-03</span></b><span>随申请表填报同住人员 3 人（含本人），等待各成员自行提交申请并通过审核</span></div></div>
-              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>已成团　<span class="m-tag green">2026-09-06</span></b><span>成员李方舟不予通过后<b>自动退出该组</b>，本人补填曾昊然；现有 3 人<b>均已通过资格审核且同为男性</b>，自动成团</span></div></div>
-              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>已配租　<span class="m-tag green">2026-09-15</span></b><span>本批次自动配租执行完成，3 人<b>均已配到房间</b>，详见下方成员清单</span></div></div>
-              <div class="bad"><i class="fa-solid fa-circle-exclamation"></i><div class="m-chl"><b>已拆组　<span class="m-tag orange">当前状态</span></b><span>整组按位次 168 参与排序时，意向楼盘<b>无可整组匹配的整套三室一厅</b>，按规则<b>拆开按单人配租</b>，<b>各自位次不变</b></span></div></div>
-              <div class="na"><i class="fa-regular fa-circle"></i><div class="m-chl"><b>已解散　<span class="m-tag dark">未发生</span></b><span>发起人解散或成员全部退出后转为该状态，各成员的申请与位次不受影响</span></div></div>
+              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>组建中　<span class="m-tag dark">2026-09-03</span></b><span>随申请表填报同住人员 3 人（含本人）；成员李方舟 09-03 不予通过后<b>自动退出该组</b>，本人当日改填曾昊然，三人<b>在当日一并提交</b>申请</span></div></div>
+              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b><span class="proto-t chg">0909 改</span>集中同批次审核　<span class="m-tag green">2026-09-05</span></b><span>三份申请件在待办列表中<b>相邻排列、同一批次办理</b>，09:12、09:15、09:17 先后审核通过，资格审核通过时间连续</span></div></div>
+              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>已成团　<span class="m-tag green">2026-09-05 09:17</span></b><span>三人<b>均已通过资格审核且同为男性</b>，自动成团；同时入轮候库，取得<b>相邻顺序号 11 / 12 / 13</b></span></div></div>
+              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b><span class="proto-t chg">0909 改</span>选房进行中　<span class="m-tag orange">当前状态</span></b><span>按顺序号依次通知：11 号陈思远已选定 A6 栋 1502-01 主卧；<b>现轮到本人（12 号）</b>，确认时限 2026-09-16 10:06 前；13 号曾昊然排在本人之后</span></div></div>
+              <div class="na"><i class="fa-regular fa-circle"></i><div class="m-chl"><b>已解散　<span class="m-tag dark">未发生</span></b><span>发起人解散或成员全部退出后转为该状态，各成员的申请与<b>轮候顺序号均不受影响</b></span></div></div>
             </div>
           </div>
         </div>
         <div class="m-sect">成员清单<span class="m-sect-x">3 人在组 · 1 人已退出</span></div>
         <div class="m-card">
-          <div class="m-card-h"><i class="fa-solid fa-users"></i>成员与各自审核状态</div>
+          <div class="m-card-h"><i class="fa-solid fa-users"></i>成员、轮候顺序号与选房进度</div>
           <div class="m-card-b">
             <div class="m-check">
-              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>王梓涵（本人）　<span class="m-tag blue">发起人</span> <span class="m-tag green">审核通过</span></b><span>手机号 138****6621　·　与本人关系 本人　·　男<br>申请编号 RC2026-0903-0162　·　审核通过 2026-09-05 09:14　·　位次 92<br>已配租 湘江1958 A6 栋 1502-02（三室一厅中的 1 间）</span></div></div>
-              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>陈思远　<span class="m-tag green">审核通过</span></b><span>手机号 138****6042　·　与本人关系 同事　·　男<br>申请编号 RC2026-0902-0141　·　审核通过 2026-09-02 16:20　·　位次 10<br>已配租 湘江1958 A3 栋 0705 主卧（拆组后按单人配租）</span></div></div>
-              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>曾昊然　<span class="m-tag green">审核通过</span></b><span>手机号 189****5521　·　与本人关系 同事　·　男<br>申请编号 RC2026-0903-0158　·　审核通过 2026-09-06 10:44　·　位次 168　<span class="m-tag orange">组内最靠后</span><br>已配租 湘江1958 A6 栋 0808 次卧一（拆组后按单人配租）</span></div></div>
-              <div class="bad"><i class="fa-solid fa-circle-xmark"></i><div class="m-chl"><b>李方舟　<span class="m-tag red">未通过 · 已自动退出</span></b><span>手机号 151****3387　·　与本人关系 同学　·　男<br>申请编号 RC2026-0902-0136　·　2026-09-04 不予通过（市城区名下有自有住房）<br><b>已自动退出该组</b>并通知其余成员，本人与其余成员的申请与位次不受影响</span></div></div>
+              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>陈思远　<span class="m-tag green">审核通过</span> <span class="m-tag blue">已选房</span></b><span>手机号 138****6042　·　与本人关系 同事　·　男<br>申请编号 RC2026-0903-0141　·　资格审核通过 2026-09-05 09:12<br><span class="proto-t chg">0909 改</span>轮候编号 <b>LH2026-0011</b>　·　<b>轮候顺序号 11</b>　·　已选定 A6 栋 1502-01 主卧</span></div></div>
+              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>王梓涵（本人）　<span class="m-tag blue">发起人</span> <span class="m-tag green">审核通过</span> <span class="m-tag orange">轮到选房</span></b><span>手机号 138****6621　·　与本人关系 本人　·　男<br>申请编号 RC2026-0903-0162　·　资格审核通过 2026-09-05 09:15<br><span class="proto-t chg">0909 改</span>轮候编号 <b>LH2026-0012</b>　·　<b>轮候顺序号 12</b>　·　现轮到本人，1502 室尚余 1502-02、1502-03 两间可选</span></div></div>
+              <div class="na"><i class="fa-solid fa-hourglass-half"></i><div class="m-chl"><b>曾昊然　<span class="m-tag green">审核通过</span> <span class="m-tag dark">待轮到</span></b><span>手机号 189****5521　·　与本人关系 同事　·　男<br>申请编号 RC2026-0903-0158　·　资格审核通过 2026-09-05 09:17<br><span class="proto-t chg">0909 改</span>轮候编号 <b>LH2026-0013</b>　·　<b>轮候顺序号 13</b>　<span class="m-tag orange">组内最靠后</span>　·　排在本人之后，本人选定后即轮到</span></div></div>
+              <div class="bad"><i class="fa-solid fa-circle-xmark"></i><div class="m-chl"><b>李方舟　<span class="m-tag red">未通过 · 已自动退出</span></b><span>手机号 151****3387　·　与本人关系 同学　·　男<br>申请编号 RC2026-0902-0136　·　2026-09-03 09:05 不予通过（市城区名下有自有住房）<br><b>未进入轮候库、无轮候顺序号</b>，已自动退出该组并通知其余成员，其余成员的申请与顺序号不受影响</span></div></div>
+            </div>
+            <div class="m-note success" style="margin-top:10px"><i class="fa-solid fa-arrow-down-1-9"></i>
+              <div><span class="proto-t chg">0909 改</span>三人顺序号 <b>11 → 12 → 13 连号</b>，是<b>一并提交、集中同批次审核</b>的结果：
+                资格审核通过时间只差几分钟，按通过时间排定的顺序号自然相邻，轮到时能<b>接连挑同一套内的房间</b>。</div>
             </div>
           </div>
         </div>
@@ -68,30 +82,43 @@
             <div><span>本人性别</span><span>男 <span class="m-tag dark">身份证号自动识别</span></span></div>
             <div><span>成员性别</span><span>陈思远 男　·　曾昊然 男</span></div>
             <div><span>校验结果</span><span><span class="m-tag green">一致</span> 在组 3 人同为男性，符合成团条件</span></div>
-            <div><span>口径说明</span><span><b>同套同性别</b>是配租硬约束：性别不一致的<b>不予成团</b>，各自按单人配租、位次不变</span></div>
+            <div><span>口径说明</span><span><span class="proto-t chg">0909 改</span><b>同套同性别</b>是选房时的硬约束：套内已有在住人或已被他人选定房间的，其余房间只对同性别开放。组团成员<b>必须同性别</b>，否则顺序号即使相邻也挑不到同一套内的房间，系统<b>不予成团</b>，各自按自己的顺序号单独轮候</span></div>
+            <div><span>是否可关闭</span><span>本期<b>强制执行、不设开关</b>，性别由身份证号自动识别，不需人工录入</span></div>
           </div>
           </div>
         </div>
-        <div class="m-sect">组团怎么影响配租<span class="m-sect-x">整套预留 · 整组锁定</span></div>
+        <div class="m-sect">组团怎么影响审批与选房<span class="m-sect-x">只影响审批排序 · 不预留房源</span></div>
         <div class="m-card">
           <div class="m-card-h"><i class="fa-solid fa-scale-balanced"></i>规则说明</div>
           <div class="m-card-b">
             <div class="m-check">
-              <div class="ok"><i class="fa-solid fa-house-circle-check"></i><div class="m-chl"><b>整套预留、整组锁定</b><span>成团的在匹配阶段<b>按整套预留</b>（间数不少于成团人数），预留期间该套其余房间<b>不参与单人匹配</b>，避免两个组各拿到同一套房的不同间</span></div></div>
-              <div class="ok"><i class="fa-solid fa-list-ol"></i><div class="m-chl"><b>整组按最靠后位次参与</b><span>整组按<b>组内最靠后的位次</b>（本组为 168）参与排序，位次靠前的成员不因组团提前配租，位次靠后的也不搭车插队</span></div></div>
-              <div class="bad"><i class="fa-solid fa-scissors"></i><div class="m-chl"><b>无整套可匹配的拆组</b><span>意向楼盘与户型范围内<b>无可整组匹配的整套房源</b>时，按规则<b>拆开按单人配租</b>，<b>各自位次不变</b>；仍无房源的保留位次等下一批次</span></div></div>
-              <div class="bad"><i class="fa-solid fa-user-minus"></i><div class="m-chl"><b>成员资格变动自动退组</b><span>成员被<b>不予通过、撤回申请或认定放弃</b>的<b>自动退出该组</b>并通知其余成员，剩余成员<b>重新计算组内最靠后位次</b>后继续参与</span></div></div>
+              <div class="ok"><i class="fa-solid fa-layer-group"></i><div class="m-chl"><b><span class="proto-t chg">0909 改</span>一并提交、集中同批次审核</b><span>同一组的申请件在受理初审与资格审核的待办列表中<b>相邻排列</b>，由审批人员在相近时间办完，使各成员的<b>资格审核通过时间连续</b></span></div></div>
+              <div class="ok"><i class="fa-solid fa-arrow-down-1-9"></i><div class="m-chl"><b><span class="proto-t chg">0909 改</span>顺序号相邻，轮到时接连挑房</b><span>轮候顺序号按<b>资格审核通过时间</b>排定，通过时间连续则顺序号相邻（本组 11 / 12 / 13）；轮到时按顺序依次通知，前一位选定后即轮到下一位，可在同一套内挑到相邻房间</span></div></div>
+              <div class="ok"><i class="fa-solid fa-venus-mars"></i><div class="m-chl"><b>成员须同性别、人数不超户型间数</b><span>同套同性别是选房硬约束，组内<b>必须同性别</b>；组内人数上限<b>等于户型间数</b>（三室一厅 3 人、二室一厅 2 人），超出的无法成团</span></div></div>
+              <div class="bad"><i class="fa-solid fa-house-lock"></i><div class="m-chl"><b><span class="proto-t chg">0909 改</span>系统不预留、不锁定房源</b><span>不再为成团<b>整套预留</b>：本组不占用任何房源，<b>不影响其他申请人的可选范围</b>；房间在各自轮到时才由本人挑选并锁定</span></div></div>
+              <div class="bad"><i class="fa-solid fa-user-minus"></i><div class="m-chl"><b>成员资格变动自动退组</b><span>成员被<b>不予通过、撤回申请或认定放弃</b>的<b>自动退出该组</b>并通知其余成员；其余成员的<b>轮候顺序号不变</b>，不重新排队</span></div></div>
+            </div>
+            <div class="m-note warn" style="margin-top:10px"><i class="fa-solid fa-triangle-exclamation"></i>
+              <div><span class="proto-t chg">0909 改</span><b>系统不保证一定能住进同一套。</b>顺序号相邻只是让各位<b>接连轮到</b>；
+                轮到时同一套内还有没有空房、够不够本组人数，取决于当时的实际房源。
+                剩余房间不足的，各位仍<b>各自在可选范围内挑选</b>，系统<b>不调整他人已选定的结果</b>，
+                也不改变任何人的顺序号。</div>
+            </div>
+            <div class="m-note proto pend" style="margin-top:8px"><i class="fa-solid fa-circle-question"></i>
+              <div><span class="proto-t pend">待确认</span>组团<b>能否跨单位</b>、成团是否需要<b>书面承诺</b>（如同住约定、退租连带责任），
+                待业务部门明确（对应待确认事项 Q15）。本页按<b>可跨单位、不需书面承诺</b>呈现。</div>
             </div>
           </div>
         </div>
         <div class="m-cells">
           <a class="m-cell" href="me-apply-detail.html"><span class="m-ci"><i class="fa-solid fa-file-pen"></i></span><span class="m-cl"><b>我的申请办理详情</b><span class="m-cs">申请编号 RC2026-0903-0162 · 含组团信息</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
-          <a class="m-cell" href="alloc-order.html"><span class="m-ci orange"><i class="fa-solid fa-list-ol"></i></span><span class="m-cl"><b>我的配租位次</b><span class="m-cs">本人位次 92 · 组内最靠后位次 168</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
-          <a class="m-cell" href="alloc-rule.html"><span class="m-ci cyan"><i class="fa-solid fa-scale-balanced"></i></span><span class="m-cl"><b>配租规则说明</b><span class="m-cs">排序口径、同套同性别与组团整套预留</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="alloc-order.html"><span class="m-ci orange"><i class="fa-solid fa-list-ol"></i></span><span class="m-cl"><b>我的轮候顺序号</b><span class="m-cs">本人第 12 位 · 组内最靠后第 13 位</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="alloc-select.html"><span class="m-ci green"><i class="fa-solid fa-hand-pointer"></i></span><span class="m-cl"><b>按轮候顺序选房</b><span class="m-cs">现轮到本人 · 1502 室尚余 2 间可选</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="alloc-rule.html"><span class="m-ci cyan"><i class="fa-solid fa-scale-balanced"></i></span><span class="m-cl"><b>选房规则说明</b><span class="m-cs">顺序、范围与同套同性别三条规则</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
         </div>
         <div class="m-note"><i class="fa-solid fa-circle-info"></i>
           <div><b>本人为本组发起人</b>，页面提供<b>解散组团</b>；<b>非发起人</b>进入本页显示的是<b>退出组团</b>。
-            无论退出还是解散，<b>各成员的申请与配租位次均不受影响</b>，系统不向任何人发送邀请或确认请求。</div>
+            无论退出还是解散，<b>各成员的申请与轮候顺序号均不受影响</b>，系统不向任何人发送邀请或确认请求。</div>
         </div>
       </div>
       <div class="m-actbar">
@@ -105,8 +132,11 @@
 <script src="../../assets/js/mobile.js"></script>
 <script>
 /* 我的组团（M17）：组团为线下自愿组合，系统不发邀请、不需对方确认；
-   成员有效性由各自的申请与审核状态决定，须均通过资格审核且同性别方按整组处理。
-   退出组团仅非发起人可用，发起人退出即视为解散；两者均不影响各成员的申请与位次。 */
+   成员有效性由各自的申请与审核状态决定，须均通过资格审核且同性别方计入本组。
+   0909 改：组团只影响审批排序——同一组一并提交、集中同批次审核，使各成员的资格审核
+   通过时间连续、轮候顺序号相邻，轮到时可接连挑同一套内的房间；系统不预留、不锁定房源，
+   也不保证一定能住进同一套。原「整套预留、整组锁定、无整套则拆组」的逻辑已废止。
+   退出组团仅非发起人可用，发起人退出即视为解散；两者均不改变各成员的申请与顺序号。 */
 var TEAM_NO = 'ZT2026-0042';
 var IS_OWNER = true;
 
@@ -115,23 +145,24 @@ function exitTeam() {
     MB.toast('本人为本组发起人，退出请改用「解散组团」');
     return;
   }
-  MB.confirm('退出后本人不再参与 <b>' + TEAM_NO + '</b> 的整组匹配，'
-    + '其余成员<b>重新计算组内最靠后位次</b>后继续参与，系统同时通知其余成员。<br>'
-    + '本人与其余成员的<b>申请状态、受理时间与配租位次均不受影响</b>，'
-    + '本人此后按<b>单人配租</b>参与匹配。确认退出组团？',
+  MB.confirm('退出后本人不再计入 <b>' + TEAM_NO + '</b>，系统同时通知其余成员。<br>'
+    + '组团<b>只影响审批排序</b>，三人的审核早已办结、<b>顺序号已经排定</b>，'
+    + '退出<b>不改变任何人的轮候顺序号</b>，本人此后按自己的顺序号<b>单独轮候、单独选房</b>。<br>'
+    + '确认退出组团？',
     '确认退出', function () {
-    MB.toast('已退出 ' + TEAM_NO + '，本人转为单人配租，位次不变');
+    MB.toast('已退出 ' + TEAM_NO + '，本人轮候顺序号仍为 12，不受影响');
   });
 }
 
 function dismissTeam() {
-  MB.confirm('解散后 <b>' + TEAM_NO + '</b> 不再作为一个组参与配租，'
-    + '<b>不再整套预留、不再整组锁定</b>，3 名成员此后<b>各自按单人配租</b>。<br>'
-    + '各成员的<b>申请状态、受理时间与配租位次均不受影响</b>（本人仍为 92 位），'
-    + '已配租并签约的房源也不受影响。解散结果将<b>通知其余成员</b>，操作留痕。<br>'
-    + '解散后如需重新组团，须在<b>下一次申请或申请变更</b>时重新填报。确认解散组团？',
+  MB.confirm('解散后 <b>' + TEAM_NO + '</b> 不再作为一个组存在。'
+    + '组团<b>只影响审批排序</b>，系统<b>本就不为本组预留房源</b>，'
+    + '三人的顺序号已按各自的资格审核通过时间排定，解散<b>不改变任何人的顺序号</b>'
+    + '（本人仍为第 12 位），已选定的房间也不受影响。<br>'
+    + '解散结果将<b>通知其余成员</b>，操作留痕；如需重新组团，'
+    + '须在<b>下一次申请或申请变更</b>时重新填报。确认解散组团？',
     '确认解散', function () {
-    MB.toast('已解散 ' + TEAM_NO + '，已通知其余成员；各成员申请与位次不变');
+    MB.toast('已解散 ' + TEAM_NO + '，已通知其余成员；各成员顺序号不变');
   });
 }
 </script>

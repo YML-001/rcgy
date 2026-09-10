@@ -22,6 +22,8 @@
       <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
     </div>
   </div>
+  <div class="alert alert-info"><i class="fa-solid fa-pen-to-square"></i><div><span class="proto-t chg">0909 改</span>本页处理去向表中「继续容缺」一行的「正常参与自动配租」，已按 9 月 9 日结论改为<b>正常按轮候顺序号接收选房通知并自选房间</b>。</div></div>
+
   <div class="alert alert-info">
     <i class="fa-solid fa-circle-info"></i>
     <div>统计<b>容缺受理件量、按期补齐率、到期未达标件量与处理去向</b>（继续容缺／暂停办理／取消资格），并按<b>月趋势</b>与<b>按单位分布</b>两个视角呈现，反映<b>社保数据延迟对办理的实际影响</b>。社保查不到缴纳记录或劳动合同已签尚未参保的，接收单位承诺书后可按容缺受理通过，系统登记补核期限、到期自动复核社保缴纳情况。</div>
@@ -113,7 +115,7 @@
         <table class="data-table compact">
           <thead><tr><th>处理去向</th><th class="num">件量</th><th>占到期未达标</th><th class="cell-lg">判定情形</th><th class="cell-lg">后续影响</th></tr></thead>
           <tbody>
-          <tr><td><span class="badge blue">继续容缺</span></td><td class="num">10</td><td>41.7%</td><td>已实际参保但<b>缴纳月数未达要求</b>，或跨市社保转移接续在办，单位出具补充承诺并说明预计完成时间</td><td>延长补核期限<b>一次</b>，最长再延 3 个月；期间<b>保留资格与在住状态</b>，正常参与自动配租</td></tr>
+          <tr><td><span class="badge blue">继续容缺</span></td><td class="num">10</td><td>41.7%</td><td>已实际参保但<b>缴纳月数未达要求</b>，或跨市社保转移接续在办，单位出具补充承诺并说明预计完成时间</td><td>延长补核期限<b>一次</b>，最长再延 3 个月；期间<b>保留资格与在住状态</b>，<span class="proto-t chg">0909 改</span>正常<b>按轮候顺序号接收选房通知并自选房间</b></td></tr>
           <tr class="row-warn"><td><span class="badge orange">暂停办理</span></td><td class="num">8</td><td>33.3%</td><td>到期仍<b>无参保记录</b>，单位反映参保手续在办、材料尚在补，暂无法判定是否符合条件</td><td><b>暂停后续办理与配租匹配</b>，补齐后恢复；暂停期<b>不计入办理时限</b>，已入住的暂不腾退</td></tr>
           <tr class="row-bad"><td><span class="badge red">取消资格</span></td><td class="num">6</td><td>25.0%</td><td>到期无参保记录且核实<b>不符合条件</b>，或经核实<b>劳动关系不实、企业无实际经营</b></td><td><b>取消本次申请资格</b>；已入住的按规定腾退并结清费用，纳入诚信记录，<b>2 年内不得再次申请</b></td></tr>
           <tr><td><b>合计</b></td><td class="num"><b>24</b></td><td><b>100%</b></td><td>已到期 140 件中 24 件未达标，占 <b>17.1%</b></td><td>三类处置均由<b>系统到期自动复核后提请人工确认</b>，处置结果全程留痕</td></tr>

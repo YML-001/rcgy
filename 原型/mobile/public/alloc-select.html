@@ -3,125 +3,166 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>我的配租结果 · 株洲市人才住房保障管理平台</title>
+<title>按轮候顺序选房 · 株洲市人才住房保障管理平台</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="../../assets/css/app.css">
 <link rel="stylesheet" href="../../assets/css/mobile.css">
 <link rel="stylesheet" href="../../assets/css/ext.css">
 </head>
-<body class="m-body" data-mtitle="我的配租结果" data-mmod="M7 自动配租与结果查询" data-mcode="M7-04"
-      data-mdesc="系统按资格审核通过顺序自动配租后，本人查看分配到的楼盘、房屋、房间、面积构成与人才租金标准，并按签约安排在 5 个工作日内与运营机构签约。本轮未匹配到房源的展示轮候位次与下一次配租提示。" data-mback="alloc-order.html" data-mtabset="public" data-mtab="apply">
+<body class="m-body" data-mtitle="按轮候顺序选房" data-mmod="M7 轮候选房与结果查询" data-mcode="M7-04"
+      data-mdesc="轮到本人时收到选房通知，在确认时限内进入本页，从当前仍可选的房间中自行挑选并锁定，系统不做指定分配。可选范围限于申请时选定的楼盘与户型；同一套房内已有在住人或已被他人选定的，其余房间只对同性别开放。确认时限内未完成选房的，由下一顺序人接着选，本人的轮候顺序号排至队列末位。" data-mback="alloc-order.html" data-mtabset="public" data-mtab="apply">
 <div class="m-stage">
   <div class="m-phone">
     <div class="m-screen">
       <div class="m-view">
-        <div class="m-seg">
-          <button class="on" type="button" onclick="sw(1)">已配租（本人）</button>
-          <button type="button" onclick="sw(2)">未配租（示例）</button>
+        <div class="m-note proto chg"><i class="fa-solid fa-pen-to-square"></i>
+          <div><span class="proto-t chg">0909 改</span>本页原为「我的配租结果」，按系统自动分配的结果呈现。
+            9 月 9 日配租逻辑讨论后改回<b>按轮候顺序自选</b>：轮到本人时由本人从可选房间中挑选并锁定，
+            系统不做指定分配。对应《系统原型调整计划（0909 会议）》<b>C01、C03、C09</b>。</div>
         </div>
 
-        <!-- ========== 状态一：已匹配到房源 ========== -->
-        <div id="pnOk" style="margin-top:12px">
-          <div class="m-note success"><i class="fa-solid fa-circle-check"></i>
-            <div>2026-09-15 10:00 系统自动配租已执行完毕，您<b>已匹配到房源</b>。
-              结果已于 10:06 短信告知（138****6621），请在<b>签约期限内</b>与运营机构完成签约。</div>
+        <div class="m-seg">
+          <button class="on" type="button" onclick="sw(1)">轮到我选房</button>
+          <button type="button" onclick="sw(2)">尚未轮到（示例）</button>
+        </div>
+
+        <!-- ========== 状态一：轮到本人，可选房间 ========== -->
+        <div id="pnPick" style="margin-top:12px">
+          <div class="m-note success"><i class="fa-solid fa-hand-pointer"></i>
+            <div>2026-09-15 10:06 已通过短信通知您（138****6621），<b>现在轮到您选房</b>。
+              请在<b>确认时限内</b>从下方可选房间中挑选一间并提交，逾期由下一顺序人接着选。</div>
           </div>
 
           <div class="m-card">
-            <div class="m-card-h"><i class="fa-solid fa-house-circle-check"></i>配租结果<a class="m-more" href="alloc-select-confirm.html">结果详情 <i class="fa-solid fa-angle-right"></i></a></div>
+            <div class="m-card-h"><i class="fa-solid fa-hourglass-half"></i>本人轮候与选房时限</div>
             <div class="m-card-b">
-            <div class="m-kv">
-              <div><span>楼盘</span><span><b>湘江1958 人才公寓</b>（天元区泰山路 199 号）</span></div>
-              <div><span>房屋（套）</span><span>A6 栋 1502 室　三室一厅　建筑面积 118.60 ㎡　<b>按间配租 3 人</b></span></div>
-              <div><span>房间（间）</span><span><b style="color:var(--primary)">1502-02 号房间</b>（次卧 · 朝南 · 15/26 层）</span></div>
-              <div><span>套内面积</span><span>14.20 ㎡</span></div>
-              <div><span>公摊面积</span><span>12.50 ㎡（客厅、厨房、卫生间等公共区域按 3 间分摊）</span></div>
-              <div><span>计租面积</span><span><b>26.70 ㎡</b>（套内 14.20 ㎡ + 公摊 12.50 ㎡）</span></div>
-              <div><span>人才租金标准</span><span><b>14.00 元/㎡·月</b>　个人承担 6.00 元、财政补贴 8.00 元</span></div>
-              <div><span>应缴租金总额</span><span>373.80 元/月（26.70 ㎡ × 14.00 元/㎡·月）</span></div>
-              <div><span>个人实际应缴</span><span><b style="color:var(--danger)">160.20 元/月</b>（财政补助减免 57%，补助 213.60 元/月）</span></div>
-              <div><span>配租依据</span><span>意向范围位次第 12 位　·	同套同性别（全套 3 人均为男性）</span></div>
-            </div>
-            </div>
-          </div>
-
-          <div class="m-sect">下一步：签约<span class="m-sect-x">5 个工作日</span></div>
-          <div class="m-card">
-            <div class="m-card-h"><i class="fa-solid fa-file-signature"></i>签约安排</div>
-            <div class="m-card-b">
-            <div class="m-kv">
-              <div><span>运营机构</span><span><b>株洲市人才安居服务有限公司</b></span></div>
-              <div><span>办理地址</span><span>株洲市天元区泰山路 199 号　湘江1958 人才公寓 A6 栋 1 层客服中心</span></div>
-              <div><span>联系电话</span><span><b>0731-28301958</b>（工作日 9:00—17:30）</span></div>
-              <div><span>签约期限</span><span><b style="color:var(--danger)">5 个工作日</b>　2026-09-16 至 2026-09-22 18:00</span></div>
-              <div><span>签约方式</span><span>① <b>线上电子签约</b>（运营方发起、本人手机签章）；② <b>线下签约后上传合同影像</b></span></div>
-              <div><span>逾期后果</span><span>逾期未签约视同放弃本次配租，房源顺延给下一位申请人</span></div>
-            </div>
-              <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
-                <button class="m-btn sm ghost" type="button" onclick="MB.toast('已拨号 0731-28301958（原型演示）')"><i class="fa-solid fa-phone"></i> 联系运营机构</button>
-                <button class="m-btn sm" type="button" onclick="MB.toast('已复制地址：株洲市天元区泰山路 199 号 湘江1958 人才公寓 A6 栋 1 层客服中心')"><i class="fa-solid fa-location-dot"></i> 复制地址</button>
+              <div class="m-mini">
+                <div><div class="mv">12</div><div class="ml">轮候顺序号</div></div>
+                <div><div class="mv warn">23:41:08</div><div class="ml">剩余确认时限</div></div>
+                <div><div class="mv">6</div><div class="ml">当前可选房间</div></div>
+              </div>
+              <div class="m-kv" style="margin-top:10px">
+                <div><span>轮候编号</span><span><b>LH2026-0012</b>　<span class="proto-t chg">0909 改</span>资格审核通过时即生成，个人端与经办端一致</span></div>
+                <div><span>排序依据</span><span>资格审核通过时间 2026-09-05 09:15（本期只按这一个维度排序）</span></div>
+                <div><span>确认时限</span><span><b style="color:var(--danger)">2026-09-16 10:06 前</b>　逾期由下一顺序人接着选</span></div>
+                <div><span>可选范围</span><span>申请时选定的楼盘与户型：湘江1958 人才公寓 · 三室一厅按间</span></div>
               </div>
             </div>
           </div>
 
-          <div class="m-sect">同套配租情况<span class="m-sect-x">同套同性别</span></div>
+          <div class="m-sect">可选房间<span class="m-sect-x">点选一间后提交</span></div>
           <div class="m-card">
-            <div class="m-card-h"><i class="fa-solid fa-venus-mars"></i>A6 栋 1502 室（3 间）</div>
+            <div class="m-card-h"><i class="fa-solid fa-door-open"></i>A6 栋 1502 室　三室一厅　可安置 3 人</div>
             <div class="m-card-b">
-              <div class="m-check">
-                <div class="ok"><i class="fa-solid fa-door-closed"></i><div class="m-chl"><b>1502-01 号房间　主卧　套内 16.40 ㎡</b><span>陈××（男）　·	意向范围位次第 9 位　·	计租面积 28.90 ㎡</span></div></div>
-                <div class="on" style="border-left:3px solid var(--primary);background:var(--primary-light-2);padding-left:9px"><i class="fa-solid fa-door-open" style="color:var(--primary)"></i><div class="m-chl"><b style="color:var(--primary)">1502-02 号房间　次卧　套内 14.20 ㎡（本人）</b><span>王梓涵（男）　·	意向范围位次第 12 位　·	计租面积 26.70 ㎡</span></div></div>
-                <div class="ok"><i class="fa-solid fa-door-closed"></i><div class="m-chl"><b>1502-03 号房间　次卧　套内 12.80 ㎡</b><span>彭××（男）　·	意向范围位次第 11 位　·	计租面积 25.30 ㎡</span></div></div>
+              <div class="m-check" id="lst1">
+                <div class="ok" onclick="pick(this,'1502-02 号房间（次卧 · 朝南 · 15/26 层）',26.70,160.20)">
+                  <i class="fa-solid fa-square-check"></i>
+                  <div class="m-chl"><b>1502-02 号房间　次卧　套内 14.20 ㎡</b>
+                    <span>公摊 12.50 ㎡　·	计租面积 26.70 ㎡　·	个人应缴 160.20 元/月</span></div>
+                </div>
+                <div class="ok" onclick="pick(this,'1502-03 号房间（次卧 · 朝东 · 15/26 层）',25.30,151.80)">
+                  <i class="fa-solid fa-square-check"></i>
+                  <div class="m-chl"><b>1502-03 号房间　次卧　套内 12.80 ㎡</b>
+                    <span>公摊 12.50 ㎡　·	计租面积 25.30 ㎡　·	个人应缴 151.80 元/月</span></div>
+                </div>
+                <div class="na"><i class="fa-solid fa-lock"></i>
+                  <div class="m-chl"><b>1502-01 号房间　主卧　套内 16.40 ㎡</b>
+                    <span>已由陈××（男）选定，不可选</span></div>
+                </div>
+              </div>
+              <div class="m-note" style="margin-top:10px"><i class="fa-solid fa-venus-mars"></i>
+                <div><b>同套同性别</b>：本套已有男性入住，其余房间只对<b>男性</b>开放。您为男性，可选。</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="m-card">
+            <div class="m-card-h"><i class="fa-solid fa-door-open"></i>A6 栋 1806 室　三室一厅　可安置 3 人</div>
+            <div class="m-card-b">
+              <div class="m-check" id="lst2">
+                <div class="ok" onclick="pick(this,'1806-01 号房间（主卧 · 朝南 · 18/26 层）',28.90,173.40)">
+                  <i class="fa-solid fa-square-check"></i>
+                  <div class="m-chl"><b>1806-01 号房间　主卧　套内 16.40 ㎡</b>
+                    <span>公摊 12.50 ㎡　·	计租面积 28.90 ㎡　·	个人应缴 173.40 元/月</span></div>
+                </div>
+                <div class="ok" onclick="pick(this,'1806-02 号房间（次卧 · 朝南 · 18/26 层）',26.70,160.20)">
+                  <i class="fa-solid fa-square-check"></i>
+                  <div class="m-chl"><b>1806-02 号房间　次卧　套内 14.20 ㎡</b>
+                    <span>公摊 12.50 ㎡　·	计租面积 26.70 ㎡　·	个人应缴 160.20 元/月</span></div>
+                </div>
+                <div class="ok" onclick="pick(this,'1806-03 号房间（次卧 · 朝东 · 18/26 层）',25.30,151.80)">
+                  <i class="fa-solid fa-square-check"></i>
+                  <div class="m-chl"><b>1806-03 号房间　次卧　套内 12.80 ㎡</b>
+                    <span>公摊 12.50 ㎡　·	计租面积 25.30 ㎡　·	个人应缴 151.80 元/月</span></div>
+                </div>
               </div>
               <div class="m-note" style="margin-top:10px"><i class="fa-solid fa-circle-info"></i>
-                <div>同一套房内配租对象<b>性别一致</b>；本套 3 间均为<b>男性</b>。公共区域面积按房间数分摊计入各自计租面积。</div>
+                <div>整套空置，男女均可选。您选定后，本套其余房间将<b>只对男性开放</b>。</div>
               </div>
             </div>
           </div>
 
-          <div class="m-sect">配租结果说明</div>
           <div class="m-card">
-            <div class="m-card-h"><i class="fa-solid fa-robot"></i>系统如何为您匹配</div>
+            <div class="m-card-h"><i class="fa-solid fa-door-closed"></i>A6 栋 2003 室　三室一厅　可安置 3 人</div>
             <div class="m-card-b">
               <div class="m-check">
-                <div class="ok"><i class="fa-solid fa-clock-rotate-left"></i><div class="m-chl"><b>按资格审核通过时间排位</b><span>您的资格审核通过时间为 2026-09-05 09:15，意向范围内排第 12 位</span></div></div>
-                <div class="ok"><i class="fa-solid fa-filter"></i><div class="m-chl"><b>只在您选定的意向范围内匹配</b><span>意向楼盘：湘江1958 人才公寓 / 栗雨佳苑；意向户型：单间配套 / 一室一厅 / 三室一厅按间</span></div></div>
-                <div class="ok"><i class="fa-solid fa-venus-mars"></i><div class="m-chl"><b>满足同套同性别</b><span>系统将您匹配至已有男性配租对象的 1502 室</span></div></div>
-                <div class="na"><i class="fa-solid fa-people-group"></i><div class="m-chl"><b>未参与组团</b><span>您本批次未填报组团，按个人位次匹配；已成团的整套预留、整组匹配同一套房</span></div></div>
+                <div class="na"><i class="fa-solid fa-lock"></i>
+                  <div class="m-chl"><b>2003-02 号房间　次卧　套内 14.20 ㎡</b>
+                    <span>本套在住人为<b>女性</b>，按同套同性别规则对您不开放</span></div>
+                </div>
+                <div class="na"><i class="fa-solid fa-lock"></i>
+                  <div class="m-chl"><b>2003-03 号房间　次卧　套内 12.80 ㎡</b>
+                    <span>本套在住人为<b>女性</b>，按同套同性别规则对您不开放</span></div>
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="m-note warn"><i class="fa-solid fa-triangle-exclamation"></i>
-            <div>配租结果由系统自动生成，<b>不支持自行更换房间</b>。确需放弃的可提交放弃申请，
-              放弃后本批次不再另行安排房源。</div>
+          <div class="m-sect">选房规则</div>
+          <div class="m-card">
+            <div class="m-card-h"><i class="fa-solid fa-scale-balanced"></i>三条规则</div>
+            <div class="m-card-b">
+              <div class="m-check">
+                <div class="ok"><i class="fa-solid fa-list-ol"></i><div class="m-chl"><b>顺序：按轮候顺序依次通知</b><span>排序依据为资格审核通过时间，轮到谁通知谁；前一位选定后才轮到下一位</span></div></div>
+                <div class="ok"><i class="fa-solid fa-filter"></i><div class="m-chl"><b>范围：只在申请时选定的楼盘与户型内挑</b><span>本期不跨楼盘调剂；本批次范围内无房源的不推送通知，顺序号不变</span></div></div>
+                <div class="ok"><i class="fa-solid fa-venus-mars"></i><div class="m-chl"><b>同套同性别</b><span>整套空置的男女都可选；套内已有在住人或已被他人选定的，其余房间只对同性别开放</span></div></div>
+              </div>
+              <div class="m-note warn" style="margin-top:10px"><i class="fa-solid fa-triangle-exclamation"></i>
+                <div><span class="proto-t chg">0909 改</span><b>确认时限内未完成选房的</b>，由下一顺序人接着选，
+                  您的<b>轮候顺序号排至当前队列末位</b>，资格不作废、<b>不认定为放弃</b>，等下一批房源。
+                  只有<b>已选定房间后逾期未签约或不办理入住</b>的，才按放弃处理。</div>
+              </div>
+              <div class="m-note proto pend" style="margin-top:8px"><i class="fa-solid fa-circle-question"></i>
+                <div><span class="proto-t pend">待确认</span>确认时限定多长、是否限制排至末位的次数、
+                  多次超时后如何处置，待业务部门明确（对应待确认事项 Q12）。本页按 24 小时呈现。</div>
+              </div>
+            </div>
           </div>
 
           <div class="m-cells">
-            <a class="m-cell" href="alloc-select-confirm.html"><span class="m-ci"><i class="fa-solid fa-file-lines"></i></span><span class="m-cl"><b>配租结果确认书</b><span class="m-cs">完整面积构成、租金测算与签约须知</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
-            <a class="m-cell" href="house-vr.html"><span class="m-ci cyan"><i class="fa-solid fa-vr-cardboard"></i></span><span class="m-cl"><b>VR 全景看房</b><span class="m-cs">签约前可先在线环视本套户型</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
-            <a class="m-cell" href="alloc-rule.html"><span class="m-ci"><i class="fa-solid fa-scale-balanced"></i></span><span class="m-cl"><b>自动配租规则说明</b><span class="m-cs">四条规则与按间计租口径</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
-            <a class="m-cell" href="alloc-giveup.html"><span class="m-ci red"><i class="fa-solid fa-ban"></i></span><span class="m-cl"><b>我要放弃本次配租房源</b><span class="m-cs">放弃后本批次不再另行安排，请慎重</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+            <a class="m-cell" href="house-vr.html"><span class="m-ci cyan"><i class="fa-solid fa-vr-cardboard"></i></span><span class="m-cl"><b>VR 全景看房</b><span class="m-cs">选定前可先在线环视本套户型</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+            <a class="m-cell" href="alloc-rule.html"><span class="m-ci"><i class="fa-solid fa-scale-balanced"></i></span><span class="m-cl"><b>选房规则说明</b><span class="m-cs">顺序、范围与同套同性别三条规则</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+            <a class="m-cell" href="alloc-order.html"><span class="m-ci orange"><i class="fa-solid fa-hourglass-half"></i></span><span class="m-cl"><b>我的轮候顺序号</b><span class="m-cs">当前位次、前方人数与预计轮到时间</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
           </div>
         </div>
 
-        <!-- ========== 状态二：本轮未匹配到房源 ========== -->
-        <div id="pnNo" style="display:none;margin-top:12px">
+        <!-- ========== 状态二：尚未轮到本人 ========== -->
+        <div id="pnWait" style="display:none;margin-top:12px">
           <div class="m-note warn"><i class="fa-solid fa-hourglass-half"></i>
-            <div>2026-09-15 10:00 自动配租已执行完毕，<b>本轮房源已分配完毕，您暂未匹配到房源</b>。
-              您的资格与位次<b>全部保留</b>，已自动转入轮候，<b>等待下一次配租</b>。</div>
+            <div>2026 年第 3 批配租公告已发布，正在<b>按轮候顺序依次通知选房</b>。
+              <b>尚未轮到您</b>，轮到时会单独短信通知，<b>不需要在线报名</b>。</div>
           </div>
 
           <div class="m-card">
-            <div class="m-card-h"><i class="fa-solid fa-hourglass-half"></i>我的轮候位次</div>
+            <div class="m-card-h"><i class="fa-solid fa-list-ol"></i>我的轮候顺序号</div>
             <div class="m-card-b">
               <div class="m-mini">
-                <div><div class="mv warn">28</div><div class="ml">意向范围轮候位次</div></div>
-                <div><div class="mv">92</div><div class="ml">同意向轮候人数</div></div>
-                <div><div class="mv">2026-11</div><div class="ml">预计可配租</div></div>
+                <div><div class="mv warn">28</div><div class="ml">轮候顺序号</div></div>
+                <div><div class="mv">27</div><div class="ml">前方待选人数</div></div>
+                <div><div class="mv">2026-11</div><div class="ml">预计轮到</div></div>
               </div>
               <div class="m-bar" style="margin-top:12px"><span class="orange" style="width:30%"></span></div>
-              <div style="margin-top:6px;font-size:11.5px;color:var(--text-3);text-align:center">前方 27 人　·	下一批次房源到位后按同一规则自动配租</div>
+              <div style="margin-top:6px;font-size:11.5px;color:var(--text-3);text-align:center">本批次可安置 386 人　·	按轮候顺序依次通知选房</div>
             </div>
           </div>
 
@@ -129,35 +170,36 @@
             <div class="m-card-h"><i class="fa-solid fa-circle-info"></i>轮候信息</div>
             <div class="m-card-b">
             <div class="m-kv">
-              <div><span>轮候编号</span><span>LH2026-TY-00028</span></div>
-              <div><span>进入轮候时间</span><span>2026-09-15 10:06（自动配租执行后系统自动转入）</span></div>
-              <div><span>排序依据</span><span>资格审核通过时间 2026-09-05 09:15（<b>不摇号、不报名</b>）</span></div>
+              <div><span>轮候编号</span><span><b>LH2026-0028</b></span></div>
+              <div><span>进入轮候时间</span><span>2026-09-05 11:20（资格审核通过时即入库并排定顺序号）</span></div>
+              <div><span>排序依据</span><span>资格审核通过时间（<b>不摇号、不报名</b>）</span></div>
               <div><span>意向范围</span><span>天元区 · 湘江1958 人才公寓 / 栗雨佳苑 · 单间配套 / 一室一厅 / 三室一厅按间</span></div>
-              <div><span>下一次配租</span><span>第 4 批配租公告预计 <b>2026-11 月</b>发布，届时短信通知</span></div>
-              <div><span>本人是否需操作</span><span><b style="color:var(--success)">不需要</b>，下一次仍由系统自动配租</span></div>
+              <div><span>轮到时如何通知</span><span>短信 + 站内消息单独推送，告知顺序号与确认时限</span></div>
+              <div><span>本人是否需操作</span><span><b style="color:var(--success)">现在不需要</b>，轮到时再进入本页选房</span></div>
             </div>
             </div>
           </div>
 
-          <div class="m-note"><i class="fa-solid fa-comment-sms"></i>
-            <div>下一批次配租公告发布与自动配租结果，<b>均以短信告知</b>并推送湘易办站内消息。
-              如需缩短等待时间，可在意向登记中<b>增加意向楼盘或户型范围</b>。</div>
+          <div class="m-note proto chg"><i class="fa-solid fa-pen-to-square"></i>
+            <div><span class="proto-t chg">0909 改</span>本状态原为「本轮未匹配到房源」，
+              是自动配租执行完毕后的结果呈现。改为自选后，未轮到的申请人在选房过程中<b>随时可查看自己排第几</b>，
+              不再有「执行完毕才知道结果」的时点。</div>
           </div>
 
           <div class="m-cells">
-            <a class="m-cell" href="alloc-queue.html"><span class="m-ci orange"><i class="fa-solid fa-hourglass-half"></i></span><span class="m-cl"><b>轮候排位查询</b><span class="m-cs">各片区轮候人数与预计等待周期</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
-            <a class="m-cell" href="book-list.html"><span class="m-ci"><i class="fa-solid fa-calendar-check"></i></span><span class="m-cl"><b>调整我的意向登记</b><span class="m-cs">扩大意向楼盘与户型范围可提高匹配概率</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
-            <a class="m-cell" href="alloc-rule.html"><span class="m-ci cyan"><i class="fa-solid fa-scale-balanced"></i></span><span class="m-cl"><b>自动配租规则说明</b><span class="m-cs">了解位次与匹配口径</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+            <a class="m-cell" href="alloc-queue.html"><span class="m-ci orange"><i class="fa-solid fa-hourglass-half"></i></span><span class="m-cl"><b>轮候顺序查询</b><span class="m-cs">各片区轮候人数与预计等待周期</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+            <a class="m-cell" href="book-list.html"><span class="m-ci"><i class="fa-solid fa-calendar-check"></i></span><span class="m-cl"><b>调整我的意向登记</b><span class="m-cs">扩大楼盘与户型范围可更早轮到</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+            <a class="m-cell" href="alloc-rule.html"><span class="m-ci cyan"><i class="fa-solid fa-scale-balanced"></i></span><span class="m-cl"><b>选房规则说明</b><span class="m-cs">了解顺序号与选房口径</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
           </div>
         </div>
       </div>
-      <div class="m-actbar" id="barOk">
-        <a class="m-btn w-auto" href="alloc-select-confirm.html">结果详情</a>
-        <a class="m-btn primary" href="sign-contract.html"><i class="fa-solid fa-file-signature"></i> 去签约（剩 5 个工作日）</a>
+      <div class="m-actbar" id="barPick">
+        <a class="m-btn w-auto" href="alloc-rule.html">选房规则</a>
+        <button class="m-btn primary" type="button" id="btnGo" onclick="go()"><i class="fa-solid fa-square-check"></i> 请先选择一间房</button>
       </div>
-      <div class="m-actbar" id="barNo" style="display:none">
+      <div class="m-actbar" id="barWait" style="display:none">
         <a class="m-btn w-auto" href="book-list.html">调整意向</a>
-        <button class="m-btn primary" type="button" onclick="MB.toast('已开启下一批次配租提醒，公告发布时将短信通知')"><i class="fa-solid fa-bell"></i> 等待下一次配租</button>
+        <button class="m-btn primary" type="button" onclick="MB.toast('已开启轮到提醒，轮到您时将短信通知')"><i class="fa-solid fa-bell"></i> 等待轮到我</button>
       </div>
     </div>
   </div>
@@ -165,12 +207,37 @@
 
 <script src="../../assets/js/mobile.js"></script>
 <script>
+var picked = null;
 function sw(n) {
-  var ok = n === 1;
-  document.getElementById('pnOk').style.display = ok ? '' : 'none';
-  document.getElementById('pnNo').style.display = ok ? 'none' : '';
-  document.getElementById('barOk').style.display = ok ? '' : 'none';
-  document.getElementById('barNo').style.display = ok ? 'none' : '';
+  var p = n === 1;
+  document.getElementById('pnPick').style.display = p ? '' : 'none';
+  document.getElementById('pnWait').style.display = p ? 'none' : '';
+  document.getElementById('barPick').style.display = p ? '' : 'none';
+  document.getElementById('barWait').style.display = p ? 'none' : '';
+}
+function pick(el, name, area, fee) {
+  var all = document.querySelectorAll('#pnPick .m-check > div.ok');
+  for (var i = 0; i < all.length; i++) {
+    all[i].style.background = '';
+    all[i].style.borderLeft = '';
+    all[i].style.paddingLeft = '';
+    var ic = all[i].querySelector('i');
+    if (ic) { ic.className = 'fa-solid fa-square-check'; ic.style.color = ''; }
+  }
+  el.style.background = 'var(--primary-light-2)';
+  el.style.borderLeft = '3px solid var(--primary)';
+  el.style.paddingLeft = '9px';
+  var i2 = el.querySelector('i');
+  if (i2) { i2.className = 'fa-solid fa-circle-check'; i2.style.color = 'var(--primary)'; }
+  picked = { name: name, area: area, fee: fee };
+  document.getElementById('btnGo').innerHTML =
+    '<i class="fa-solid fa-square-check"></i> 提交选房（' + name.split('（')[0] + '）';
+}
+function go() {
+  if (!picked) { MB.toast('请先从可选房间中选择一间'); return; }
+  MB.toast('已锁定 ' + picked.name + '，计租面积 ' + picked.area.toFixed(2) +
+           ' ㎡、个人应缴 ' + picked.fee.toFixed(2) + ' 元/月');
+  setTimeout(function () { location.href = 'alloc-select-confirm.html'; }, 900);
 }
 </script>
 </body>

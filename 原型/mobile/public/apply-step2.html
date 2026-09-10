@@ -10,11 +10,20 @@
 <link rel="stylesheet" href="../../assets/css/ext.css">
 </head>
 <body class="m-body" data-mtitle="家庭成员（2/5）" data-mmod="M5 人才公寓资格申请" data-mcode="M5-05"
-      data-mdesc="录入配偶及家庭成员信息用于无房核查；已婚且夫妻双方均符合条件的可合并为一份家庭申请，只占用一套房源指标。本步同时承载<b>组团同住</b>填报：组团为<b>线下自愿组合</b>，申请人在申请表里直接填报同住人员的姓名与手机号，<b>系统不向对方发邀请、不要求对方点确认</b>；系统按姓名与手机号匹配对方的申请件，显示未提交申请／待审核／审核通过／未通过。<b>成团人数上限＝户型间数</b>（三室一厅共 3 人、二室一厅共 2 人），成员须均已通过资格审核且同性别，配租时才按整组处理——<b>整套预留、整组匹配同一套房</b>，无整套可匹配的拆开按单人配租、各自位次不变。填报过程可随时保存草稿，在「我的申请—草稿」中继续办理。" data-mback="apply-step1.html" data-mtabset="public" data-mtab="apply">
+      data-mdesc="录入配偶及家庭成员信息用于无房核查；已婚且夫妻双方均符合条件的可合并为一份家庭申请，只占用一套房源指标。本步同时承载<b>组团同住</b>填报：组团为<b>线下自愿组合</b>，申请人在申请表里直接填报同住人员的姓名与手机号，<b>系统不向对方发邀请、不要求对方点确认</b>；系统按姓名与手机号匹配对方的申请件，显示未提交申请／待审核／审核通过／未通过。<b>填报人数上限＝最大户型间数减本人</b>（三室一厅填 2 人、二室一厅填 1 人），成员须<b>与本人同性别</b>且均通过资格审核。组团<b>只影响审批排序</b>——同一组<b>一并提交</b>、集中在<b>同一批次审核</b>，使各成员的资格审核通过时间连续、<b>轮候顺序号相邻</b>，轮到时可接连挑同一套内的房间；<b>系统不预留、不锁定房源</b>，也不保证一定能住进同一套。填报过程可随时保存草稿，在「我的申请—草稿」中继续办理。" data-mback="apply-step1.html" data-mtabset="public" data-mtab="apply">
 <div class="m-stage">
   <div class="m-phone">
     <div class="m-screen">
       <div class="m-view">
+        <div class="m-note proto chg"><i class="fa-solid fa-pen-to-square"></i>
+          <div><span class="proto-t chg">0909 改</span>本页的<b>组团同住</b>填报原写的是「配租时<b>整套预留、整组匹配同一套房</b>，
+            无整套可匹配的拆开按单人配租」，那是为系统自动配租设计的匹配算法。
+            9 月 9 日配租改回<b>按轮候顺序依次通知、申请人自选房间</b>后不再适用，本页改为：
+            组团<b>只影响审批排序</b>——一并提交、集中同批次审核，使各成员的<b>轮候顺序号相邻</b>，
+            轮到时接连挑同一套内的房间；<b>系统不预留、不锁定房源</b>。
+            同时明确<b>填报人数上限</b>（三室填 2 人、二室填 1 人）与<b>成员须同性别</b>。
+            对应《系统原型调整计划（0909 会议）》<b>C06、C07</b>。</div>
+        </div>
         <div class="m-steps">
           <div class="m-sp done"><div class="n"><i class="fa-solid fa-check"></i></div><div class="t">基本信息</div></div>
           <div class="m-sp on"><div class="n">2</div><div class="t">家庭成员</div></div>
@@ -59,15 +68,20 @@
           <div><b>组团是线下沟通好的，系统不发邀请、不需对方点确认。</b>在这里直接填报希望一起合住的人员，
             系统按<b>姓名与手机号</b>匹配对方的申请件并显示其审核状态，成员的有效性由<b>各自的申请与审核状态</b>决定。</div>
         </div>
+        <div class="m-note success"><i class="fa-solid fa-arrow-down-1-9"></i>
+          <div><span class="proto-t chg">0909 改</span><b>组团只影响审批排序。</b>填报后，各位的申请件<b>一并提交</b>并集中在<b>同一批次审核</b>，
+            资格审核通过时间连续，按通过时间排定的<b>轮候顺序号自然相邻</b>；轮到时按顺序依次通知，
+            可接连挑同一套房内的房间。<b>系统不预留、不锁定房源</b>，也不影响其他申请人的可选范围。</div>
+        </div>
         <div class="m-card">
-          <div class="m-card-h"><i class="fa-solid fa-door-open"></i>意向户型与成团人数上限</div>
+          <div class="m-card-h"><i class="fa-solid fa-door-open"></i>意向户型与填报人数上限</div>
           <div class="m-card-b">
             <div class="m-seg" id="mtSeg">
-              <button class="on" type="button" onclick="setRoom('r3')">三室一厅 · 共 3 人</button>
-              <button type="button" onclick="setRoom('r2')">二室一厅 · 共 2 人</button>
+              <button class="on" type="button" onclick="setRoom('r3')">三室一厅 · 填 2 人</button>
+              <button type="button" onclick="setRoom('r2')">二室一厅 · 填 1 人</button>
             </div>
             <div class="m-note" id="mtLimit" style="margin-top:10px"><i class="fa-solid fa-circle-info"></i>
-              <div id="mtLimitTxt">成团人数上限<b>等于该户型的间数</b>：意向户型为<b>三室一厅（3 间）</b>，含本人共 <b>3 人</b>，除本人外最多再填 <b>2 人</b>；当前已填 <b>2 人</b>（审核未通过的不占名额）。</div>
+              <div id="mtLimitTxt"><span class="proto-t chg">0909 改</span>填报人数上限<b>按最大户型的间数</b>折算：意向户型为<b>三室一厅（3 间）</b>，含本人共 <b>3 人</b>，除本人外最多再填 <b>2 人</b>；当前已填 <b>2 人</b>（审核未通过的不占名额）。</div>
             </div>
           </div>
         </div>
@@ -75,9 +89,9 @@
           <div class="m-card-h"><i class="fa-solid fa-user-group"></i>填报的同住人员<span class="m-more" id="mtCnt">2 / 2 人</span></div>
           <div class="m-card-b">
             <div class="m-check" id="mtList">
-              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>陈思远　<span class="m-tag green">审核通过</span></b><span>手机号 138****6042　·　同事　·　中车株洲电力机车研究所有限公司<br>男 · 就业青年人才 · 申请编号 RC2026-0902-0141　·　审核通过 2026-09-02 16:20</span></div></div>
-              <div class="na"><i class="fa-solid fa-hourglass-half"></i><div class="m-chl"><b>曾昊然　<span class="m-tag orange">待审核</span></b><span>手机号 189****5521　·　同事　·　株洲中车时代电气股份有限公司<br>男 · 申请编号 RC2026-0903-0158　·　受理 2026-09-03 09:26，<b>审核通过后方可成团</b></span></div></div>
-              <div class="bad"><i class="fa-solid fa-circle-xmark"></i><div class="m-chl"><b>李方舟　<span class="m-tag red">未通过</span></b><span>手机号 151****3387　·　同学　·　株洲时代新材料科技股份有限公司<br>申请编号 RC2026-0902-0136　·　2026-09-04 不予通过（市城区名下有自有住房）<br><b>将自动退出该组、不占名额</b>，本人与其余成员的申请与位次不受影响</span></div></div>
+              <div class="na"><i class="fa-solid fa-hourglass-half"></i><div class="m-chl"><b>陈思远　<span class="m-tag orange">待审核</span></b><span>手机号 138****6042　·　同事　·　中车株洲电力机车研究所有限公司<br><b>男</b> · 就业青年人才 · 申请编号 RC2026-0903-0141　·　受理 2026-09-03 09:40<br><span class="proto-t chg">0909 改</span>与本人<b>同日提交</b>，将与本人的申请件<b>排在同一批次相邻办理</b></span></div></div>
+              <div class="na"><i class="fa-solid fa-hourglass-half"></i><div class="m-chl"><b>曾昊然　<span class="m-tag orange">待审核</span></b><span>手机号 189****5521　·　同事　·　株洲中车时代电气股份有限公司<br><b>男</b> · 申请编号 RC2026-0903-0158　·　受理 2026-09-03 09:52<br><span class="proto-t chg">0909 改</span>与本人<b>同日提交</b>，审核通过后与本人取得<b>相邻的轮候顺序号</b></span></div></div>
+              <div class="bad"><i class="fa-solid fa-circle-xmark"></i><div class="m-chl"><b>李方舟　<span class="m-tag red">未通过</span></b><span>手机号 151****3387　·　同学　·　株洲时代新材料科技股份有限公司<br><b>男</b> · 申请编号 RC2026-0902-0136　·　2026-09-03 09:05 不予通过（市城区名下有自有住房）<br><span class="proto-t chg">0909 改</span><b>将自动退出该组、不占名额</b>；其未进入轮候库、无轮候顺序号，本人与其余成员的申请与顺序号不受影响</span></div></div>
             </div>
             <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
               <button class="m-btn sm ghost" type="button" data-sheet="addMate"><i class="fa-solid fa-plus"></i> 添加同住人员</button>
@@ -88,14 +102,23 @@
                 <b>待审核</b>：已提交、资格审核中；<b>审核通过</b>：可计入成团；
                 <b>未通过</b>：自动退出该组、不占名额。状态由系统自动刷新，不需本人操作。</div>
             </div>
+            <div class="m-note warn" style="margin-top:8px"><i class="fa-solid fa-clock"></i>
+              <div><span class="proto-t chg">0909 改</span><b>请各位尽量在同一天内提交。</b>只有一并提交、落在同一批次集中审核，
+                各位的<b>资格审核通过时间才会连续</b>，轮候顺序号才会相邻；间隔太久的仍会被其他申请人插在中间，
+                轮到时未必还挑得到同一套。</div>
+            </div>
           </div>
         </div>
         <div class="m-note warn"><i class="fa-solid fa-circle-info"></i>
-          <div><b>组团怎么影响配租</b>　①组团为<b>线下自愿组合</b>，系统<b>不发邀请、不需对方确认</b>；
-            ②成员须<b>均已通过资格审核且与本人同性别</b>，才按整组处理；
-            ③成团人数上限<b>等于户型间数</b>（三室 3 人、二室 2 人）；
-            ④配租时对成团的<b>整套预留、整组匹配同一套房</b>，整组按<b>组内最靠后的位次</b>参与排序；
-            ⑤无整套可匹配的<b>拆开按单人配租，各自位次不变</b>。房源由系统按规则自动配租，不需本人挑选。</div>
+          <div><span class="proto-t chg">0909 改</span><b>组团怎么影响审批与选房</b>　①组团为<b>线下自愿组合</b>，系统<b>不发邀请、不需对方确认</b>；
+            ②成员须<b>与本人同性别</b>且<b>均已通过资格审核</b>，才计入本组；
+            ③填报人数上限<b>按最大户型的间数</b>——三室一厅填 <b>2 人</b>、二室一厅填 <b>1 人</b>（含本人共 3 人／2 人）；
+            ④组团<b>只影响审批排序</b>：一并提交、集中同批次审核，使各成员的<b>轮候顺序号相邻</b>，轮到时接连挑同一套内的房间；
+            ⑤<b>系统不预留、不锁定房源</b>，不影响其他申请人的可选范围，也<b>不保证一定能住进同一套</b>。</div>
+        </div>
+        <div class="m-note proto pend"><i class="fa-solid fa-circle-question"></i>
+          <div><span class="proto-t pend">待确认</span>组团<b>能否跨单位</b>、成团是否需要<b>书面承诺</b>（如同住约定、退租连带责任），
+            待业务部门明确（对应待确认事项 Q15）。本页按<b>可跨单位、不需书面承诺</b>呈现。</div>
         </div>
         <div class="m-sect">规则提示<span class="m-sect-x">管理办法第十一条</span></div>
         <div class="m-card">
@@ -146,7 +169,8 @@
         <div class="m-sh-b">
         <div class="m-note"><i class="fa-solid fa-circle-info"></i>
           <div>请填报<b>线下已沟通好</b>的同住人员。系统<b>不向对方发送邀请、不需要对方点确认</b>，
-            只按<b>姓名与手机号</b>匹配对方的申请件并显示其审核状态；对方须<b>已通过资格审核且与本人同性别</b>，配租时才按整组处理。</div>
+            只按<b>姓名与手机号</b>匹配对方的申请件并显示其审核状态；对方须<b>已通过资格审核且与本人同性别</b>，才计入本组。
+            <span class="proto-t chg">0909 改</span>性别由<b>身份证号自动识别</b>，不需填写；性别不一致的<b>不予成团</b>。</div>
         </div>
         <div class="m-form" style="margin-top:12px">
           <div class="m-fi">
@@ -159,12 +183,12 @@
           </div>
           <div class="m-fi">
             <label>与本人关系</label>
-            <div class="m-fc"><input type="text" placeholder="选填，如同事、同学"><div class="m-fh">仅供审核与配租时参考，不作为资格条件</div></div>
+            <div class="m-fc"><input type="text" placeholder="选填，如同事、同学"><div class="m-fh">仅供审核参考，不作为资格条件</div></div>
           </div>
         </div>
         <div class="m-note warn" style="margin-top:12px"><i class="fa-solid fa-triangle-exclamation"></i>
-          <div>成团人数上限<b>等于户型间数</b>：三室一厅含本人共 <b>3 人</b>（除本人外 2 人）、二室一厅含本人共 <b>2 人</b>（除本人外 1 人）。
-            审核未通过的不占名额；<b>超出上限将无法提交</b>。</div>
+          <div><span class="proto-t chg">0909 改</span>填报人数上限<b>按最大户型的间数</b>：三室一厅除本人外填 <b>2 人</b>（含本人共 3 人）、
+            二室一厅除本人外填 <b>1 人</b>（含本人共 2 人）。审核未通过的不占名额；<b>超出上限将无法提交</b>。</div>
         </div>
         </div>
         <div class="m-sh-f">
@@ -180,9 +204,11 @@
 <script>
 /* 组团同住（M17）：组团是线下沟通好的自愿组合，系统「不发邀请、不要求对方点确认」。
    填报后按姓名 + 手机号匹配对方的申请件，显示未提交申请／待审核／审核通过／未通过；
-   成员须均已通过资格审核且与本人同性别，配租时才按整组处理——整套预留、整组匹配同一套房，
-   无整套可匹配的拆开按单人配租、各自位次不变。
-   成团人数上限＝该户型的间数：三室一厅含本人共 3 人、二室一厅含本人共 2 人；
+   成员须均已通过资格审核且与本人同性别，才计入本组。
+   0909 改：组团只影响审批排序——一并提交、集中同批次审核，使各成员的资格审核通过时间
+   连续、轮候顺序号相邻，轮到时接连挑同一套内的房间；系统不预留、不锁定房源，也不保证
+   一定能住进同一套。原「整套预留、整组匹配同一套房、无整套则拆组」的逻辑已废止。
+   填报人数上限＝该户型的间数减本人：三室一厅填 2 人、二室一厅填 1 人；
    审核未通过的成员自动退出该组、不占名额。 */
 var MT_ROOMS = { r3: { nm: '三室一厅', rooms: 3 }, r2: { nm: '二室一厅', rooms: 2 } };
 var MT_ROOM = 'r3';
@@ -205,12 +231,13 @@ function renderMate() {
   var over = MT_USED > max;
   document.getElementById('mtCnt').textContent = MT_USED + ' / ' + max + ' 人';
   document.getElementById('mtLimit').className = 'm-note' + (over ? ' warn' : '');
+  var tag = '<span class="proto-t chg">0909 改</span>';
   document.getElementById('mtLimitTxt').innerHTML = over
-    ? '成团人数上限<b>等于该户型的间数</b>：意向户型为<b>' + r.nm + '（' + r.rooms
+    ? tag + '填报人数上限<b>按最大户型的间数</b>折算：意向户型为<b>' + r.nm + '（' + r.rooms
       + ' 间）</b>，含本人共 <b>' + r.rooms + ' 人</b>，除本人外最多再填 <b>' + max
       + ' 人</b>；当前已填 <b>' + MT_USED + ' 人</b>，请<b>移除 ' + (MT_USED - max)
       + ' 人</b>或改选三室一厅后再提交。'
-    : '成团人数上限<b>等于该户型的间数</b>：意向户型为<b>' + r.nm + '（' + r.rooms
+    : tag + '填报人数上限<b>按最大户型的间数</b>折算：意向户型为<b>' + r.nm + '（' + r.rooms
       + ' 间）</b>，含本人共 <b>' + r.rooms + ' 人</b>，除本人外最多再填 <b>' + max
       + ' 人</b>；当前已填 <b>' + MT_USED + ' 人</b>（审核未通过的不占名额）。';
 }
@@ -233,13 +260,13 @@ function addMate() {
     + '<b>' + nm + '　<span class="m-tag dark">未提交申请</span></b>'
     + '<span>手机号 ' + ph.slice(0, 3) + '****' + ph.slice(7)
     + (rel ? '　·　' + rel : '') + '<br>按姓名与手机号<b>未匹配到该人员的申请件</b>，'
-    + '请提醒其自行提交申请；对方提交并通过审核后状态自动更新，'
+    + '请提醒其<b>尽量与本人同日提交</b>；对方提交并通过审核后状态自动更新，'
     + '<b>系统不向对方发送邀请、不需对方确认</b></span></div>';
   document.getElementById('mtList').appendChild(row);
   MT_USED++;
   renderMate();
   MB.closeSheet();
-  MB.toast('已填报' + nm + '，当前状态：未提交申请');
+  MB.toast('已填报' + nm + '，当前状态：未提交申请，请提醒其同日提交');
 }
 
 function delMate() {
@@ -249,7 +276,8 @@ function delMate() {
   var nm = (last.querySelector('b').textContent || '').split('　')[0];
   var noQuota = last.className === 'bad';
   MB.confirm('移除后该人员不再计入本申请的组团同住，<b>系统不会向其发送任何通知</b>；'
-    + '其本人的申请与配租位次<b>不受影响</b>。确认移除<b>' + nm + '</b>？',
+    + '组团只影响审批排序，其本人的申请与<b>轮候顺序号不受影响</b>，'
+    + '仍按自己的顺序号单独轮候、单独选房。确认移除<b>' + nm + '</b>？',
     '确认移除', function () {
     list.removeChild(last);
     if (!noQuota) MT_USED--;

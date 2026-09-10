@@ -10,32 +10,44 @@
 <link rel="stylesheet" href="../../assets/css/ext.css">
 </head>
 <body class="m-body" data-mtitle="消息设置" data-mmod="M12 消息与办理提醒" data-mcode="M12-03"
-      data-mdesc="管理接收的消息类型与提醒方式。配租公告通知、配租结果与签约提醒等必达消息不可关闭，短信强制触达；短信模板文案待确认后在管理端配置。" data-mback="msg-center.html" data-mtabset="public" data-mtab="msg">
+      data-mdesc="管理接收的消息类型与提醒方式。配租公告、轮到本人的选房通知、确认时限临近提醒、签约提醒四类为必达消息，不可关闭、短信强制触达；短信模板文案待确认后在管理端配置。" data-mback="msg-center.html" data-mtabset="public" data-mtab="msg">
 <div class="m-stage">
   <div class="m-phone">
     <div class="m-screen">
       <div class="m-view">
+        <div class="m-note proto chg"><i class="fa-solid fa-pen-to-square"></i>
+          <div><span class="proto-t chg">0909 改</span>本页必达消息原按自动配租列两行：「配租公告通知（含<b>自动配租执行时间</b>）」与
+            「配租结果与签约提醒（<b>自动配租结果</b>、轮候位次）」。
+            9 月 9 日配租逻辑讨论后改为<b>四类</b>：<b>配租公告</b>、<b>轮到本人的选房通知</b>、
+            <b>确认时限临近提醒</b>、<b>签约提醒</b>，去掉「自动配租结果通知」。
+            对应《系统原型调整计划（0909 会议）》<b>C01、C08、C09</b>。</div>
+        </div>
         <div class="m-note warn"><i class="fa-solid fa-triangle-exclamation"></i>
           <div>带<i class="fa-solid fa-lock"></i>标记的为<b>必达消息，不可关闭</b>，以免错过硬性时限导致资格失效。</div>
         </div>
         <div class="m-sect">必达消息<span class="m-sect-x">短信强制触达 · 不可关闭</span></div>
         <div class="m-cells">
-          <div class="m-cell"><span class="m-ci red"><i class="fa-solid fa-lock"></i></span><span class="m-cl"><b>配租公告通知</b><span class="m-cs">公告发布、房源范围、可安置人数、自动配租执行时间</span></span><span class="m-cv"><span class="m-tag red">必达</span></span></div>
-          <div class="m-cell"><span class="m-ci red"><i class="fa-solid fa-lock"></i></span><span class="m-cl"><b>配租结果与签约提醒</b><span class="m-cs">自动配租结果、轮候位次、签约期限（5 个工作日）、线下合同核对结果</span></span><span class="m-cv"><span class="m-tag red">必达</span></span></div>
+          <div class="m-cell"><span class="m-ci red"><i class="fa-solid fa-lock"></i></span><span class="m-cl"><b>配租公告通知</b><span class="m-cs"><span class="proto-t chg">0909 改</span>公告发布、房源范围、按户型折算的可安置人数</span></span><span class="m-cv"><span class="m-tag red">必达</span></span></div>
+          <div class="m-cell"><span class="m-ci red"><i class="fa-solid fa-lock"></i></span><span class="m-cl"><b><span class="proto-t chg">0909 改</span>轮到本人的选房通知</b><span class="m-cs">按轮候顺序号逐位单独推送，含顺序号、可选范围、确认时限与超时后果</span></span><span class="m-cv"><span class="m-tag red">必达</span></span></div>
+          <div class="m-cell"><span class="m-ci red"><i class="fa-solid fa-lock"></i></span><span class="m-cl"><b><span class="proto-t chg">0909 改</span>确认时限临近提醒</b><span class="m-cs">确认时限届满前再提醒一次；超时未选由下一顺序人接着选，顺序号排至队列末位</span></span><span class="m-cv"><span class="m-tag red">必达</span></span></div>
+          <div class="m-cell"><span class="m-ci red"><i class="fa-solid fa-lock"></i></span><span class="m-cl"><b><span class="proto-t chg">0909 改</span>签约提醒</b><span class="m-cs">选定房间后的签约安排、签约期限（5 个工作日）、线下合同核对结果</span></span><span class="m-cv"><span class="m-tag red">必达</span></span></div>
           <div class="m-cell"><span class="m-ci red"><i class="fa-solid fa-lock"></i></span><span class="m-cl"><b>审核结论与材料补正</b><span class="m-cs">审核结论、<b>材料单项回退</b>、<b>容缺补核到期</b></span></span><span class="m-cv"><span class="m-tag dark">必开</span></span></div>
           <div class="m-cell"><span class="m-ci red"><i class="fa-solid fa-lock"></i></span><span class="m-cl"><b>意向登记到期</b><span class="m-cs">到期前分级提醒，到期未转正式申请自动失效</span></span><span class="m-cv"><span class="m-tag dark">必开</span></span></div>
           <div class="m-cell"><span class="m-ci red"><i class="fa-solid fa-lock"></i></span><span class="m-cl"><b>入住与缴费期限</b><span class="m-cs">入住办理、账单生成、到期提醒、逾期催缴六级推送</span></span><span class="m-cv"><span class="m-tag dark">必开</span></span></div>
           <div class="m-cell"><span class="m-ci red"><i class="fa-solid fa-lock"></i></span><span class="m-cl"><b>年审与腾退期限</b><span class="m-cs">年审批次、续租复核结论、腾退期限</span></span><span class="m-cv"><span class="m-tag dark">必开</span></span></div>
         </div>
         <div class="m-note proto pend"><i class="fa-solid fa-pen-ruler"></i>
-          <div><span class="proto-t pend">待确认 · 定稿后替换</span><b>短信模板待定</b>：配租公告通知、配租结果与签约提醒、材料单项回退、容缺补核到期、
-            意向登记到期五类短信的<b>模板文案待市保障性住房服务中心会同运营机构确认</b>，
-            确认后在管理端「消息模板管理」中配置并留痕，本页开关不影响其发送。</div>
+          <div><span class="proto-t pend">待确认 · 定稿后替换</span><b>短信模板待定</b>：<span class="proto-t chg">0909 改</span>配租公告、
+            <b>轮到本人的选房通知</b>、<b>确认时限临近提醒</b>、签约提醒、材料单项回退、容缺补核到期、
+            意向登记到期<b>七类</b>短信的<b>模板文案待市保障性住房服务中心会同运营机构确认</b>，
+            确认后在管理端「消息模板管理」中配置并留痕，本页开关不影响其发送。
+            其中<b>选房通知</b>须写明本人顺序号、可选范围、确认时限与超时后果；
+            <b>确认时限的时长与提醒提前量</b>另待明确（对应待确认事项 <b>Q12</b>）。</div>
         </div>
         <div class="m-sect">可选消息<span class="m-sect-x">可自行开关</span></div>
         <div class="m-cells">
           <div class="m-cell"><span class="m-ci"><i class="fa-solid fa-scroll"></i></span><span class="m-cl"><b>政策变更提醒</b><span class="m-cs">申请条件、减免标准、流程调整</span></span><span class="m-cv"><span class="m-sw on"></span></span></div>
-          <div class="m-cell"><span class="m-ci green"><i class="fa-solid fa-building"></i></span><span class="m-cl"><b>房源到位提醒</b><span class="m-cs">意向楼盘或意向片区新增可配租房源</span></span><span class="m-cv"><span class="m-sw on"></span></span></div>
+          <div class="m-cell"><span class="m-ci green"><i class="fa-solid fa-building"></i></span><span class="m-cl"><b>房源到位提醒</b><span class="m-cs">意向楼盘或意向片区新增可选房源</span></span><span class="m-cv"><span class="m-sw on"></span></span></div>
           <div class="m-cell"><span class="m-ci cyan"><i class="fa-solid fa-circle-play"></i></span><span class="m-cl"><b>使用指南更新</b><span class="m-cs">操作视频与政策解读图文新增时提醒</span></span><span class="m-cv"><span class="m-sw on"></span></span></div>
           <div class="m-cell"><span class="m-ci orange"><i class="fa-solid fa-hand-sparkles"></i></span><span class="m-cl"><b>增值服务活动</b><span class="m-cs">运营机构发布的洗涤、清扫、家政等服务优惠</span></span><span class="m-cv"><span class="m-sw"></span></span></div>
           <div class="m-cell"><span class="m-ci"><i class="fa-solid fa-screwdriver-wrench"></i></span><span class="m-cl"><b>工单进度提醒</b><span class="m-cs">报修派单、上门、完工通知</span></span><span class="m-cv"><span class="m-sw on"></span></span></div>
@@ -52,11 +64,12 @@
           <div class="m-cell"><span class="m-ci"><i class="fa-solid fa-moon"></i></span><span class="m-cl"><b>夜间免打扰</b><span class="m-cs">22:00—08:00 不推送非紧急消息</span></span><span class="m-cv"><span class="m-sw on"></span></span></div>
         </div>
         <div class="m-note"><i class="fa-solid fa-circle-info"></i>
-          <div>必达消息（配租公告、配租结果与签约、材料单项回退、容缺补核到期、意向登记到期、缴费逾期、腾退临期）
-            <b>不受免打扰限制</b>。</div>
+          <div>必达消息（<span class="proto-t chg">0909 改</span>配租公告、<b>选房通知</b>、<b>确认时限临近</b>、签约提醒、
+            材料单项回退、容缺补核到期、意向登记到期、缴费逾期、腾退临期）<b>不受免打扰限制</b>。
+            <span class="proto-t chg">0909 改</span>选房通知与确认时限临近提醒<b>随轮到本人的时点推送</b>，可能在夜间送达，请留意。</div>
         </div>
         <div class="m-cells">
-          <a class="m-cell" href="me-profile.html"><span class="m-ci"><i class="fa-solid fa-mobile-screen-button"></i></span><span class="m-cl"><b>修改接收短信的手机号</b><span class="m-cs">配租与签约短信按此号码发送，请保持畅通</span></span><span class="m-cv">138****6621</span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="me-profile.html"><span class="m-ci"><i class="fa-solid fa-mobile-screen-button"></i></span><span class="m-cl"><b>修改接收短信的手机号</b><span class="m-cs"><span class="proto-t chg">0909 改</span>选房通知与签约短信按此号码发送，请务必保持畅通</span></span><span class="m-cv">138****6621</span><i class="m-ca fa-solid fa-angle-right"></i></a>
         </div>
       </div>
       <div class="m-actbar">

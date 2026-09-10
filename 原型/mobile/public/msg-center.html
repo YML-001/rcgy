@@ -10,23 +10,37 @@
 <link rel="stylesheet" href="../../assets/css/ext.css">
 </head>
 <body class="m-body" data-mtitle="消息中心" data-mmod="M12 消息与办理提醒" data-mcode="M12-03"
-      data-mdesc="集中查看历史消息与办理提醒，支持已读标记与分类筛选。配租公告通知、配租结果与签约提醒为必达消息，通过短信强制触达。" data-mback="home.html" data-mtabset="public" data-mtab="msg" data-mact="fa-check-double">
+      data-mdesc="集中查看历史消息与办理提醒，支持已读标记与分类筛选。与配租相关的必达消息为四类：配租公告、轮到本人的选房通知（含轮候顺序号与确认时限）、确认时限临近提醒、签约提醒；均通过短信强制触达。" data-mback="home.html" data-mtabset="public" data-mtab="msg" data-mact="fa-check-double">
 <div class="m-stage">
   <div class="m-phone">
     <div class="m-screen">
       <div class="m-view">
+        <div class="m-note proto chg"><i class="fa-solid fa-pen-to-square"></i>
+          <div><span class="proto-t chg">0909 改</span>本页必达消息原为三条：配租公告（含<b>自动配租执行 09-15 10:00</b>）、
+            <b>自动配租结果通知</b>、签约提醒。9 月 9 日配租逻辑讨论后，与配租相关的消息补齐为<b>四类</b>——
+            配租公告、<b>轮到本人的选房通知</b>（含轮候顺序号与确认时限）、<b>确认时限临近提醒</b>、签约提醒，
+            并去掉「自动配租结果通知」与自动配租执行时间的表述。
+            对应《系统原型调整计划（0909 会议）》<b>C02</b>，短信模板范围变化见待确认事项 <b>Q17</b>。</div>
+        </div>
         <div class="m-seg">
-          <button class="on">全部 24</button><button>未读 3</button><button>必达 8</button><button>政策公告 6</button>
+          <button class="on">全部 25</button><button>未读 2</button><button>必达 9</button><button>政策公告 6</button>
         </div>
         <div class="m-sect" style="margin-top:12px">必达消息<span class="m-sect-x">短信强制触达 · 不可关闭</span></div>
         <div class="m-cells">
-          <a class="m-cell" href="alloc-select.html"><span class="m-ci green"><i class="fa-solid fa-house-circle-check"></i></span><span class="m-cl"><b>【配租结果】您已配租湘江1958 A6 栋 1502-02</b><span class="m-cs">2026-09-15 10:06 · 计租面积 26.70 ㎡ · 请在 5 个工作日内签约 · <span class="m-tag red">必达</span></span></span><span class="m-cv"><span class="m-tag red">未读</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
           <a class="m-cell" href="sign-contract.html"><span class="m-ci orange"><i class="fa-solid fa-file-signature"></i></span><span class="m-cl"><b>【签约提醒】请于 09-22 18:00 前完成签约</b><span class="m-cs">2026-09-16 09:20 · 运营方已发起线上电子签约，也可线下签约后上传影像 · <span class="m-tag red">必达</span></span></span><span class="m-cv"><span class="m-tag red">未读</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
-          <a class="m-cell" href="alloc-notice.html"><span class="m-ci orange"><i class="fa-solid fa-bullhorn"></i></span><span class="m-cl"><b>【配租公告】2026 年第 3 批投放 320 间</b><span class="m-cs">2026-09-01 09:00 · 自动配租执行 09-15 10:00，系统自动匹配，无需操作 · <span class="m-tag red">必达</span></span></span><span class="m-cv"><span class="m-tag red">未读</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="alloc-select.html"><span class="m-ci red"><i class="fa-solid fa-hourglass-end"></i></span><span class="m-cl"><b><span class="proto-t chg">0909 改</span>【确认时限临近】距选房确认时限剩余 16 小时</b><span class="m-cs">2026-09-15 18:06 · 轮候顺序号 12 · 请在 09-16 10:06 前完成选房，超时由下一顺序人接着选 · <span class="m-tag red">必达</span></span></span><span class="m-cv"><span class="m-tag red">未读</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="alloc-select.html"><span class="m-ci green"><i class="fa-solid fa-hand-pointer"></i></span><span class="m-cl"><b><span class="proto-t chg">0909 改</span>【选房通知】轮到您选房，请在确认时限内自行挑选</b><span class="m-cs">2026-09-15 10:06 · 轮候顺序号 12 · 可选范围：湘江1958 三室一厅按间，共 6 间可选 · 确认时限 09-16 10:06 · <span class="m-tag red">必达</span></span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="alloc-notice.html"><span class="m-ci orange"><i class="fa-solid fa-bullhorn"></i></span><span class="m-cl"><b><span class="proto-t chg">0909 改</span>【配租公告】2026 年第 3 批投放 320 套 · 可安置 386 人</b><span class="m-cs">2026-09-01 09:00 · 按轮候顺序依次通知选房，无需报名，轮到您时单独推送 · <span class="m-tag red">必达</span></span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
         </div>
         <div class="m-note"><i class="fa-solid fa-comment-sms"></i>
-          <div><b>配租公告通知</b>与<b>配租结果与签约提醒</b>为必达消息：向全部资格审核通过的申请人
-            <b>逐条短信触达</b>，并同步湘易办站内消息与微信模板消息，<b>不受消息设置与免打扰限制</b>。</div>
+          <div><span class="proto-t chg">0909 改</span>与配租相关的必达消息为<b>四类</b>：<b>配租公告</b>（向轮候库内申请人推送）、
+            <b>轮到本人的选房通知</b>（含轮候顺序号、可选范围、确认时限与超时后果，<b>按顺序依次推送、不群发</b>）、
+            <b>确认时限临近提醒</b>、<b>签约提醒</b>。四类均<b>逐条短信触达</b>，并同步湘易办站内消息与微信模板消息，
+            <b>不受消息设置与免打扰限制</b>。</div>
+        </div>
+        <div class="m-note proto pend"><i class="fa-solid fa-circle-question"></i>
+          <div><span class="proto-t pend">待确认</span>四类必达消息的<b>短信模板文案</b>待业务部门确定（对应待确认事项 Q17）；
+            确认时限定多长、临近提醒提前多久推送，随 Q12 一并明确。本页按<b>确认时限 24 小时、临近提醒提前 16 小时</b>呈现。</div>
         </div>
         <div class="m-sect">办理提醒</div>
         <div class="m-cells">
@@ -37,21 +51,21 @@
           <a class="m-cell" href="msg-detail.html"><span class="m-ci red"><i class="fa-solid fa-triangle-exclamation"></i></span><span class="m-cl"><b>【缴费提醒】9 月账单待缴 471.60 元</b><span class="m-cs">2026-09-05 09:00 · 缴费截止 2026-09-15，逾期影响年审与续租</span></span><span class="m-cv"><span class="m-tag orange">待缴</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
           <a class="m-cell" href="repair-detail.html"><span class="m-ci cyan"><i class="fa-solid fa-screwdriver-wrench"></i></span><span class="m-cl"><b>【工单提醒】您的报修工单已派单</b><span class="m-cs">2026-09-04 20:38 · 维修人员黄卫兵将于 09-05 15:00 上门</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
           <a class="m-cell" href="book-remind.html"><span class="m-ci green"><i class="fa-solid fa-bell"></i></span><span class="m-cl"><b>【到位提醒】您意向登记的湘江1958 三室一厅已到位</b><span class="m-cs">2026-09-06 21:40 · 意向登记只决定匹配范围，不占位次</span></span><span class="m-cv"><span class="m-tag green">已到位</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
-          <a class="m-cell" href="me-apply-detail.html"><span class="m-ci green"><i class="fa-solid fa-circle-check"></i></span><span class="m-cl"><b>【审核结论】资格审核通过</b><span class="m-cs">2026-09-05 09:15 · 已纳入自动配租范围，配租位次按审核通过时间排定</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="me-apply-detail.html"><span class="m-ci green"><i class="fa-solid fa-circle-check"></i></span><span class="m-cl"><b>【审核结论】资格审核通过</b><span class="m-cs">2026-09-05 09:15 · <span class="proto-t chg">0909 改</span>已纳入轮候库，轮候编号 LH2026-0012、轮候顺序号 12（按审核通过时间排定）</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
           <a class="m-cell" href="bill-pay-ok.html"><span class="m-ci green"><i class="fa-solid fa-receipt"></i></span><span class="m-cl"><b>【缴费成功】8 月租金 471.60 元已核销</b><span class="m-cs">2026-08-11 14:22 · 可在线申领电子票据</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
           <a class="m-cell" href="review-notice.html"><span class="m-ci orange"><i class="fa-solid fa-rotate"></i></span><span class="m-cl"><b>【年审通知】2027 年度资格年审已发起</b><span class="m-cs">2027-01-06 09:00 · 请于 2027-01-20 前完成在线确认</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
         </div>
         <div class="m-sect">政策公告</div>
         <div class="m-cells">
           <a class="m-cell" href="policy-detail.html"><span class="m-ci"><i class="fa-solid fa-scroll"></i></span><span class="m-cl"><b>【政策公告】青年人才住房保障管理办法</b><span class="m-cs">2026-08-28 15:30 · 政策原文与办理口径已同步公开</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
-          <a class="m-cell" href="guide-list.html"><span class="m-ci cyan"><i class="fa-solid fa-circle-play"></i></span><span class="m-cl"><b>【使用指南】新增「怎么查配租结果与签约」视频</b><span class="m-cs">2026-09-15 14:00 · 系统操作类指南已更新</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="guide-list.html"><span class="m-ci cyan"><i class="fa-solid fa-circle-play"></i></span><span class="m-cl"><b>【使用指南】新增「怎么按轮候顺序选房与签约」视频</b><span class="m-cs">2026-09-15 14:00 · 系统操作类指南已更新</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
         </div>
         <div class="m-note"><i class="fa-solid fa-circle-info"></i>
           <div>同一消息按优先级经<b>短信、湘易办站内消息、微信模板消息</b>多通道触达，避免错过硬性时限。
             必达消息的<b>短信模板文案待定</b>，由市保障性住房服务中心与运营机构确认后配置。</div>
         </div>
         <div class="m-cells">
-          <a class="m-cell" href="msg-remind.html"><span class="m-ci orange"><i class="fa-solid fa-clock"></i></span><span class="m-cl"><b>关键节点提醒规则</b><span class="m-cs">配租公告、配租结果、签约、材料回退、容缺补核、意向登记、缴费、年审、腾退</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="msg-remind.html"><span class="m-ci orange"><i class="fa-solid fa-clock"></i></span><span class="m-cl"><b>关键节点提醒规则</b><span class="m-cs"><span class="proto-t chg">0909 改</span>配租公告、选房通知、确认时限临近、签约、材料回退、容缺补核、意向登记、缴费、年审、腾退</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
           <a class="m-cell" href="msg-push.html"><span class="m-ci cyan"><i class="fa-solid fa-tower-broadcast"></i></span><span class="m-cl"><b>多通道推送说明</b><span class="m-cs">三通道触达机制与优先级</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
           <a class="m-cell" href="msg-setting.html"><span class="m-ci"><i class="fa-solid fa-gear"></i></span><span class="m-cl"><b>消息设置</b><span class="m-cs">管理接收的消息类型与方式</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
         </div>

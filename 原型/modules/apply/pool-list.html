@@ -25,9 +25,14 @@
     </div>
   </div>
 
+  <div class="alert alert-info">
+    <i class="fa-solid fa-pen-to-square"></i>
+    <div><span class="proto-t chg">0909 改</span>本页原<b>只按受理时间单条排序</b>，办件之间互不关联，审核通过后按资格审核通过时间排定配租位次<b>由系统自动配租</b>。9 月 9 日改回<b>按轮候顺序依次通知、申请人自选房间</b>并确定<b>组团只影响审批排序</b>后，本页新增「<b>是否组团</b>」列（显示组编号或「否」）与<b>按是否组团筛选</b>，并把<b>同一组团的办件相邻排列</b>。<b>这是组团能落地的关键——审批时间接近，轮候顺序号才会相邻</b>：系统<b>不预留、不锁定房源</b>，成员能否在同一套房内挑到相邻房间，完全取决于各自的轮候顺序号是否挨在一起；顺序号由资格审核通过时间生成，所以必须让同组办件在件池里紧挨着、由审批人员在相近时间集中办完。排序规则：<b>单人办件按提交时间由早到晚排</b>；<b>组团办件整组相邻</b>，并以<b>组内最后一名成员的提交时间</b>参与整个列表排序，避免组团搭车插队。对应《系统原型调整计划（0909 会议）》<b>C07</b>，并联动 <b>C06</b>。</div>
+  </div>
+
   <div class="alert alert-warning">
     <i class="fa-solid fa-triangle-exclamation"></i>
-    <div>湘易办、公众号、小程序、<b>政务窗口兜底代办</b>、单位批量申报的申请件统一汇入<b>同一件池，编号规则一致</b>，不因渠道不同而优先。件池<b>按身份证号做一人一次校验</b>：已享受过本项住房保障或已有在办申请的（含以其他人才类型口径申请），标记<b>重复申请拦截</b>并向申请人提示原因，不进入受理初审；确需放行的走<b>人工特批</b>并留痕。审核通过后按<b>资格审核通过时间</b>排定配租位次，由系统自动配租。</div>
+    <div>湘易办、公众号、小程序、<b>政务窗口兜底代办</b>、单位批量申报的申请件统一汇入<b>同一件池，编号规则一致</b>，不因渠道不同而优先。件池<b>按身份证号做一人一次校验</b>：已享受过本项住房保障或已有在办申请的（含以其他人才类型口径申请），标记<b>重复申请拦截</b>并向申请人提示原因，不进入受理初审；确需放行的走<b>人工特批</b>并留痕。审核通过后按<b>资格审核通过时间</b>生成<b>轮候顺序号</b>，配租时按轮候顺序依次通知、由申请人在可选范围内自选房间。</div>
   </div>
 
   <div class="stat-grid">
@@ -66,6 +71,8 @@
       <div class="filter-item"><label>受理渠道</label><select data-dict="channel" data-ph="全部"></select></div>
       <div class="filter-item"><label>办件状态</label><select data-dict="applyStatus" data-ph="全部"></select></div>
       <div class="filter-item"><label>一人一次校验</label><select><option value="">全部</option><option>通过</option><option>重复申请拦截</option><option>已人工特批放行</option></select></div>
+      <div class="filter-item"><label>是否组团</label><select><option value="">全部</option><option>组团办件（整组相邻）</option><option>单人办件</option><option>组团办件 · 已成团</option><option>组团办件 · 未成团</option></select></div>
+      <div class="filter-item"><label>组编号</label><input type="text" placeholder="如 ZT2026-0042"></div>
       <div class="filter-item"><label>受理日期</label><input type="date"></div>
       <div class="filter-actions">
         <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
@@ -76,24 +83,47 @@
     <div class="table-wrap">
       <table class="data-table">
         <thead>
-          <tr><th>申请编号</th><th>申请人</th><th>申请类型</th><th>受理渠道</th><th class="cell-lg">所在单位</th><th>受理时间</th><th>应办结</th><th>剩余时限</th><th>一人一次校验</th><th>办件状态</th><th>操作</th></tr>
+          <tr><th>申请编号</th><th>申请人</th><th>申请类型</th><th class="cell-lg"><span class="proto-t chg">0909 改</span>是否组团</th><th>受理渠道</th><th class="cell-lg">所在单位</th><th><span class="proto-t chg">0909 改</span>受理时间（提交时间 · 排序依据）</th><th>应办结</th><th>剩余时限</th><th>一人一次校验</th><th>办件状态</th><th>操作</th></tr>
         </thead>
         <tbody>
-          <tr class="row-bad"><td>RC2026-0902-0148</td><td>王志远</td><td><span class="badge blue">就业</span></td><td><span class="badge blue">湘易办小程序</span></td><td>株洲硬质合金集团有限公司</td><td>2026-09-02 14:18</td><td>2026-09-05</td><td><div class="sp-days dx"><span class="dv">超期 1 天</span><span class="db"><span style="width:100%"></span></span></div></td><td><span class="badge green">通过</span></td><td><span class="sp-st wait">待复核</span></td><td><span class="link" onclick="location.href='audit-desk.html'">复核</span> <span class="link" onclick="location.href='verify-report.html'">核验报告</span></td></tr>
-          <tr class="row-warn"><td>RC2026-0903-0162</td><td>王梓涵</td><td><span class="badge blue">就业</span></td><td><span class="badge blue">湘易办 APP</span></td><td>中车株洲电力机车研究所有限公司</td><td>2026-09-03 10:26</td><td>2026-09-08</td><td><div class="sp-days d60"><span class="dv">剩 1 天</span><span class="db"><span style="width:66%"></span></span></div></td><td><span class="badge green">通过</span></td><td><span class="sp-st wait">待复核</span></td><td><span class="link" onclick="location.href='audit-desk.html'">复核</span> <span class="link" onclick="location.href='verify-report.html'">核验报告</span></td></tr>
-          <tr class="row-warn"><td>RC2026-0903-0171</td><td>周宇轩</td><td><span class="badge blue">就业</span></td><td><span class="badge cyan">株洲人才公众号</span></td><td>株洲南方阀门股份有限公司</td><td>2026-09-03 11:04</td><td>2026-09-08</td><td><div class="sp-days d60"><span class="dv">剩 1 天</span><span class="db"><span style="width:66%"></span></span></div></td><td><span class="badge green">通过</span></td><td><span class="sp-st bad">待补正</span></td><td><span class="link" onclick="location.href='reject-list.html'">驳回补正</span></td></tr>
-          <tr><td>RC2026-0904-0186</td><td>谭雅丽</td><td><span class="badge blue">就业</span></td><td><span class="badge orange">政务窗口代办</span></td><td>株洲市中心医院</td><td>2026-09-04 09:26</td><td>2026-09-09</td><td><div class="sp-days"><span class="dv">剩 2 天</span><span class="db"><span style="width:33%"></span></span></div></td><td><span class="badge green">通过</span></td><td><span class="sp-st doing">联审中</span></td><td><span class="link" onclick="location.href='verify-report.html'">核验报告</span></td></tr>
-          <tr class="row-bad"><td>RC2026-0906-0219</td><td>谭建国</td><td><span class="badge blue">就业</span></td><td><span class="badge blue">湘易办 APP</span></td><td>中车株洲电力机车研究所有限公司</td><td>2026-09-06 10:12</td><td><span class="muted">—</span></td><td><span class="muted">未进入受理</span></td><td><span class="badge red">重复申请拦截</span><br><span class="muted">已享受过本项住房保障</span></td><td><span class="sp-st bad">已拦截</span></td><td><span class="link" onclick="PMS.openDrawer('blockDrawer')">拦截详情</span> <span class="link" onclick="location.href='talent-history.html'">保障历史</span></td></tr>
-          <tr class="row-warn"><td>RC2026-0905-0201</td><td>廖思远</td><td><span class="badge blue">就业</span></td><td><span class="badge cyan">株洲人才公众号</span></td><td>株洲联诚集团控股有限公司</td><td>2026-09-05 10:36</td><td>2026-09-10</td><td><div class="sp-days"><span class="dv">剩 3 天</span><span class="db"><span style="width:20%"></span></span></div></td><td><span class="badge orange">校验命中</span><br><span class="muted">已人工特批放行</span></td><td><span class="sp-st doing">联审中</span></td><td><span class="link" onclick="PMS.toast('特批留痕：申请人 2025 年承租茨菇塘公寓 4 个月，因用人单位整体搬迁提前退租、未实际享受满 6 个月；经市住保中心负责人 张卫东 2026-09-05 14:20 特批放行，事由与审批意见已写入办件流水与电子档案')">特批留痕</span> <span class="link" onclick="location.href='verify-report.html'">核验报告</span></td></tr>
-          <tr><td>RC2026-0905-0192</td><td>罗建军</td><td><span class="badge cyan">创业</span></td><td><span class="badge purple">单位批量申报</span></td><td>株洲智远智能科技有限公司</td><td>2026-09-05 09:12</td><td>2026-09-10</td><td><div class="sp-days"><span class="dv">剩 3 天</span><span class="db"><span style="width:20%"></span></span></div></td><td><span class="badge green">通过</span></td><td><span class="sp-st doing">联审中</span></td><td><span class="link" onclick="location.href='verify-report.html'">核验报告</span></td></tr>
+          <tr class="row-bad"><td>RC2026-0902-0148</td><td>王志远</td><td><span class="badge blue">就业</span></td><td class="cell-lg"><span class="muted">否</span></td><td><span class="badge blue">湘易办小程序</span></td><td class="cell-lg">株洲硬质合金集团有限公司</td><td>2026-09-02 14:18</td><td>2026-09-05</td><td><div class="sp-days dx"><span class="dv">超期 1 天</span><span class="db"><span style="width:100%"></span></span></div></td><td><span class="badge green">通过</span></td><td><span class="sp-st wait">待复核</span></td><td><span class="link" onclick="location.href='audit-desk.html'">复核</span> <span class="link" onclick="location.href='verify-report.html'">核验报告</span></td></tr>
+          <tr class="row-warn"><td>RC2026-0903-0171</td><td>周宇轩</td><td><span class="badge blue">就业</span></td><td class="cell-lg"><span class="muted">否</span></td><td><span class="badge cyan">株洲人才公众号</span></td><td class="cell-lg">株洲南方阀门股份有限公司</td><td>2026-09-03 11:04</td><td>2026-09-08</td><td><div class="sp-days d60"><span class="dv">剩 1 天</span><span class="db"><span style="width:66%"></span></span></div></td><td><span class="badge green">通过</span></td><td><span class="sp-st bad">待补正</span></td><td><span class="link" onclick="location.href='reject-list.html'">驳回补正</span></td></tr>
+          <tr><td>RC2026-0904-0186</td><td>谭雅丽</td><td><span class="badge blue">就业</span></td><td class="cell-lg"><span class="badge gray">ZT2026-0047</span> <span class="muted">3 人 · 未成团</span><br><span class="muted">2 人未通过审核，暂不整组相邻，按本人提交时间排</span></td><td><span class="badge orange">政务窗口代办</span></td><td class="cell-lg">株洲市中心医院</td><td>2026-09-04 09:26</td><td>2026-09-09</td><td><div class="sp-days"><span class="dv">剩 2 天</span><span class="db"><span style="width:33%"></span></span></div></td><td><span class="badge green">通过</span></td><td><span class="sp-st doing">联审中</span></td><td><span class="link" onclick="location.href='verify-report.html'">核验报告</span></td></tr>
+          <tr class="row-warn"><td>RC2026-0903-0141</td><td>陈思远</td><td><span class="badge blue">就业</span></td><td class="cell-lg"><span class="badge purple">ZT2026-0042</span> <span class="muted">第 1 / 3 人 · 已成团 · 男</span><br><span class="muted">整组按组内最后一名成员提交时间 09-04 16:40 排序</span></td><td><span class="badge blue">湘易办 APP</span></td><td class="cell-lg">中车株洲电力机车研究所有限公司</td><td>2026-09-03 09:50</td><td>2026-09-08</td><td><div class="sp-days d60"><span class="dv">剩 1 天</span><span class="db"><span style="width:66%"></span></span></div></td><td><span class="badge green">通过</span></td><td><span class="sp-st wait">待复核</span></td><td><span class="link" onclick="location.href='audit-desk.html'">复核</span> <span class="link" onclick="location.href='../alloc/team-list.html'">组团台账</span></td></tr>
+          <tr class="row-warn"><td>RC2026-0903-0162</td><td>王梓涵</td><td><span class="badge blue">就业</span></td><td class="cell-lg"><span class="badge purple">ZT2026-0042</span> <span class="muted">第 2 / 3 人 · 发起人 · 男</span><br><span class="muted">与上下行同组，相邻办理</span></td><td><span class="badge blue">湘易办 APP</span></td><td class="cell-lg">中车株洲电力机车研究所有限公司</td><td>2026-09-03 10:26</td><td>2026-09-08</td><td><div class="sp-days d60"><span class="dv">剩 1 天</span><span class="db"><span style="width:66%"></span></span></div></td><td><span class="badge green">通过</span></td><td><span class="sp-st wait">待复核</span></td><td><span class="link" onclick="location.href='audit-desk.html'">复核</span> <span class="link" onclick="location.href='verify-report.html'">核验报告</span></td></tr>
+          <tr class="row-warn"><td>RC2026-0904-0181</td><td>曾志豪</td><td><span class="badge blue">就业</span></td><td class="cell-lg"><span class="badge purple">ZT2026-0042</span> <span class="muted">第 3 / 3 人 · 组内最后一名 · 男</span><br><span class="muted">本人提交时间 09-04 16:40 即本组排序依据（补填成员）</span></td><td><span class="badge blue">湘易办 APP</span></td><td class="cell-lg">中车株洲电力机车研究所有限公司</td><td>2026-09-04 16:40</td><td>2026-09-09</td><td><div class="sp-days"><span class="dv">剩 2 天</span><span class="db"><span style="width:33%"></span></span></div></td><td><span class="badge green">通过</span></td><td><span class="sp-st wait">待复核</span></td><td><span class="link" onclick="location.href='audit-desk.html'">复核</span> <span class="link" onclick="location.href='../alloc/team-list.html'">组团台账</span></td></tr>
+          <tr><td>RC2026-0905-0192</td><td>罗建军</td><td><span class="badge cyan">创业</span></td><td class="cell-lg"><span class="muted">否</span></td><td><span class="badge purple">单位批量申报</span></td><td class="cell-lg">株洲智远智能科技有限公司</td><td>2026-09-05 09:12</td><td>2026-09-10</td><td><div class="sp-days"><span class="dv">剩 3 天</span><span class="db"><span style="width:20%"></span></span></div></td><td><span class="badge green">通过</span></td><td><span class="sp-st doing">联审中</span></td><td><span class="link" onclick="location.href='verify-report.html'">核验报告</span></td></tr>
+          <tr class="row-warn"><td>RC2026-0905-0201</td><td>廖思远</td><td><span class="badge blue">就业</span></td><td class="cell-lg"><span class="muted">否</span></td><td><span class="badge cyan">株洲人才公众号</span></td><td class="cell-lg">株洲联诚集团控股有限公司</td><td>2026-09-05 10:36</td><td>2026-09-10</td><td><div class="sp-days"><span class="dv">剩 3 天</span><span class="db"><span style="width:20%"></span></span></div></td><td><span class="badge orange">校验命中</span><br><span class="muted">已人工特批放行</span></td><td><span class="sp-st doing">联审中</span></td><td><span class="link" onclick="PMS.toast('特批留痕：申请人 2025 年承租茨菇塘公寓 4 个月，因用人单位整体搬迁提前退租、未实际享受满 6 个月；经市住保中心负责人 张卫东 2026-09-05 14:20 特批放行，事由与审批意见已写入办件流水与电子档案')">特批留痕</span> <span class="link" onclick="location.href='verify-report.html'">核验报告</span></td></tr>
+          <tr class="row-bad"><td>RC2026-0906-0219</td><td>谭建国</td><td><span class="badge blue">就业</span></td><td class="cell-lg"><span class="muted">否</span></td><td><span class="badge blue">湘易办 APP</span></td><td class="cell-lg">中车株洲电力机车研究所有限公司</td><td>2026-09-06 10:12</td><td><span class="muted">—</span></td><td><span class="muted">未进入受理</span></td><td><span class="badge red">重复申请拦截</span><br><span class="muted">已享受过本项住房保障</span></td><td><span class="sp-st bad">已拦截</span></td><td><span class="link" onclick="PMS.openDrawer('blockDrawer')">拦截详情</span> <span class="link" onclick="location.href='talent-history.html'">保障历史</span></td></tr>
         </tbody>
       </table>
+    </div>
+  </div>
+  <div class="sp-block" style="margin-top:12px">
+    <div class="sp-h"><i class="fa-solid fa-list-ol"></i> 件池排序与组团相邻规则<span class="sub">P-S1 至 P-S4 · 这是组团能落地的关键</span></div>
+    <div class="sp-b">
+      <p class="hint proto chg"><i class="fa-solid fa-key"></i> <span class="proto-t chg">0909 改</span><b>为什么件池要把同组办件排在一起</b>：系统<b>不预留、不锁定任何房源</b>，组团成员能否在同一套房内挑到相邻房间，完全取决于各自的<b>轮候顺序号是否挨在一起</b>；顺序号由<b>资格审核通过时间</b>生成，因此只有让同组办件在件池与待办列表里<b>紧挨着、由审批人员在相近时间集中办完</b>，审核通过时间才连续、顺序号才相邻。<b>审批时间接近，轮候顺序号才会相邻</b>——件池排序是组团机制唯一的落地抓手。</p>
+      <div class="sp-tw">
+        <table class="data-table compact">
+          <thead><tr><th>规则</th><th class="cell-lg">规则项</th><th class="cell-lg">口径说明</th></tr></thead>
+          <tbody>
+          <tr><td><b>P-S1</b> <span class="proto-t chg">0909 改</span></td><td><b>单人办件按提交时间排</b><br><span class="muted">由早到晚</span></td><td>不属于任何组团的办件按<b>提交时间（即受理时间）由早到晚</b>排列，先提交先办理；<b>不因渠道不同而优先</b>。超期件置顶标红，重复申请拦截件<b>不进入受理初审、不参与排序</b>。</td></tr>
+          <tr class="row-warn"><td><b>P-S2</b> <span class="proto-t chg">0909 改</span></td><td><b>同一组团的办件相邻排列</b><br><span class="muted">整组连续、不被插入</span></td><td>同一组编号的全部成员办件<b>在件池中连续排列</b>，不被其他办件插入，供受理初审与复核<b>集中在同一批次办完</b>；组内每行显示<b>组编号、组内第几人、成团状态与性别</b>。例：ZT2026-0042 三名成员（陈思远、王梓涵、曾志豪）连续三行，2026-09-05 上午集中复核通过，顺序号连号生成 11 / 12 / 13。<span class="link" onclick="location.href='../alloc/team-list.html'">组团台账</span></td></tr>
+          <tr class="row-warn"><td><b>P-S3</b> <span class="proto-t chg">0909 改</span></td><td><b>整组以最后一名成员的提交时间排序</b><br><span class="muted">避免组团搭车插队</span></td><td>组团作为一个整体参与列表排序，排序键取<b>组内最后一名成员的提交时间</b>（含补填成员）：提交在前的成员<b>不因组团被提前办理</b>，提交在后的成员<b>也不搭车插队</b>。例：ZT2026-0042 排序键为曾志豪的 2026-09-04 16:40，因此整组排在谭雅丽（09-04 09:26）之后、罗建军（09-05 09:12）之前。成员退组、补填或撤回后<b>即时重算排序键</b>并调整整组位置。</td></tr>
+          <tr><td><b>P-S4</b></td><td>未成团与个别情形</td><td><b>未成团的组团办件暂不整组相邻</b>（成员未全部通过审核或性别不一致），按本人提交时间与单人办件一同排列，成员全部通过且同性别后自动转为整组相邻；<b>性别不一致的不予成团</b>，各自按单人排序，顺序号不保证相邻。<span class="link" onclick="location.href='../workbench/todo-center.html'">待办中心同口径</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="hint proto pend" style="margin-top:10px"><i class="fa-solid fa-circle-question"></i>
+        <span class="proto-t pend">待确认</span>组团成员<b>是否允许跨用人单位</b>、组团<b>是否需要成员本人书面承诺</b>，将决定受理初审是否需要增加核对环节，待业务部门明确，对应待确认事项 <b>Q15</b>。</p>
     </div>
   </div>
   <div class="sp-src">
     <span><b>编号规则</b> RC + 年月日 + 4 位流水，各渠道统一</span>
     <span><b>时限起算</b> 受理时间为审核时限起算与件池排序依据，自收到申请资料之日起 3 个工作日</span>
-    <span><b>配租位次</b> 审核通过后按<b>资格审核通过时间</b>排定配租位次，由系统自动配租（口径待业务部门最终确认，已做成后台参数）</span>
+    <span><b>排序规则</b> <b>单人办件按提交时间由早到晚排</b>；<b>组团办件整组相邻</b>，以<b>组内最后一名成员的提交时间</b>参与列表排序；超期件置顶，拦截件不参与排序</span>
+    <span><b>组团标识</b> 「是否组团」列显示<b>组编号</b>（含组内第几人与成团状态）或「<b>否</b>」，可按是否组团与组编号筛选</span>
+    <span><b>轮候顺序号</b> 审核通过后按<b>资格审核通过时间</b>生成轮候顺序号，配租时<b>按轮候顺序依次通知、申请人自选房间</b>；同组集中办完 → 审核通过时间连续 → <b>顺序号相邻</b>（口径待业务部门最终确认，已做成后台参数）</span>
     <span><b>一人一次</b> 按身份证号校验历史享受记录，命中即拦截并提示原因；确需放行的走人工特批并留痕</span>
   </div>
 </main>
@@ -164,7 +194,7 @@
   </div>
   <div class="drawer-foot">
     <button class="btn" data-close-drawer>取消</button>
-    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认录入本条窗口代办申请？',detail:'受理时间以窗口录入时间为准，作为审核时限起算依据；提交后先做一人一次校验，命中的不进入受理初审。审核通过后按资格审核通过时间排定配租位次。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已录入并汇入件池，一人一次校验通过，待系统自动联审','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认录入本条窗口代办申请？',detail:'受理时间以窗口录入时间为准，作为审核时限起算与件池排序依据；填报了同住人员的按组编号归组、整组相邻排列。提交后先做一人一次校验，命中的不进入受理初审。审核通过后按资格审核通过时间生成轮候顺序号。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('已录入并汇入件池，一人一次校验通过，待系统自动联审','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
   </div>
 </div>
 

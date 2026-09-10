@@ -24,6 +24,8 @@
     </div>
   </div>
 
+  <div class="alert alert-info"><i class="fa-solid fa-pen-to-square"></i><div><span class="proto-t chg">0909 改</span>本页与配租相关的模板已按 9 月 9 日结论重新划分为<b>配租公告发布通知、轮到本人的选房通知、确认时限临近提醒、签约提醒</b>四类，触发条件由「自动配租完成后」改为<b>按轮候顺序号轮到本人时单独推送</b>。</div></div>
+
   <div class="alert alert-warning">
     <i class="fa-solid fa-triangle-exclamation"></i>
     <div>配置<b>短信、微信模板消息、站内消息</b>的模板内容、<b>变量与触发条件</b>。关键节点提醒模板不允许停用，以免错过硬性时限。</div>
@@ -72,8 +74,10 @@
         </thead>
         <tbody>
           <tr class="row-bad"><td>MB-01</td><td>资格审核结论送达</td><td>三通道</td><td><span class="badge orange">重要</span></td><td>审核结论出具后即时触发</td><td class="num">1,286</td><td><span class="badge green">99.7%</span></td><td><span class="badge red">不可停用</span></td><td><span class="link" onclick="PMS.openDrawer('mbDrawer')">编辑</span></td></tr>
-          <tr class="row-bad"><td>MB-04</td><td>配租结果与签约提醒</td><td>三通道</td><td><span class="badge red">紧急</span></td><td>自动配租完成后即时 + 签约期限届满前 1 天</td><td class="num">486</td><td><span class="badge green">99.8%</span></td><td><span class="badge red">不可停用</span></td><td><span class="link" onclick="PMS.openDrawer('mbDrawer')">编辑</span></td></tr>
-          <tr class="row-bad"><td>MB-06</td><td>锁房确认倒计时提醒</td><td>三通道</td><td><span class="badge red">紧急</span></td><td>房源锁定后 20 分钟（确认时限 30 分钟）</td><td class="num">274</td><td><span class="badge green">99.6%</span></td><td><span class="badge red">不可停用</span></td><td><span class="link" onclick="PMS.openDrawer('mbDrawer')">编辑</span></td></tr>
+          <tr><td>MB-03</td><td><span class="proto-t chg">0909 改</span>配租公告发布通知</td><td>三通道</td><td><span class="badge orange">重要</span></td><td>配租批次公告发布后向轮候库在库人员推送一次，只告知本批次投放房源与本人轮候顺序号，<b>不含选房入口、无需报名</b></td><td class="num">612</td><td><span class="badge green">99.5%</span></td><td><span class="badge green">可停用</span></td><td><span class="link" onclick="PMS.openDrawer('mbDrawer')">编辑</span></td></tr>
+          <tr class="row-bad"><td>MB-04</td><td><span class="proto-t chg">0909 改</span>轮到本人的选房通知</td><td>三通道</td><td><span class="badge red">紧急</span></td><td>按轮候顺序号<b>轮到本人时单独推送</b>，轮到谁通知谁、<b>不群发</b></td><td class="num">274</td><td><span class="badge green">99.8%</span></td><td><span class="badge red">不可停用</span></td><td><span class="link" onclick="PMS.openDrawer('mbDrawer')">编辑</span></td></tr>
+          <tr class="row-bad"><td>MB-06</td><td><span class="proto-t chg">0909 改</span>确认时限临近提醒</td><td>三通道</td><td><span class="badge red">紧急</span></td><td>选房通知送达后、<b>确认时限（24 小时，后台参数）届满前 2 小时</b>提醒；超时未选的顺序号排至队尾，<b>不认定为放弃</b></td><td class="num">92</td><td><span class="badge green">99.6%</span></td><td><span class="badge red">不可停用</span></td><td><span class="link" onclick="PMS.openDrawer('mbDrawer')">编辑</span></td></tr>
+          <tr class="row-bad"><td>MB-07</td><td><span class="proto-t chg">0909 改</span>签约提醒</td><td>三通道</td><td><span class="badge red">紧急</span></td><td><b>本人选定并锁定房间后即时</b> + 签约期限（5 个工作日）届满前 1 天</td><td class="num">256</td><td><span class="badge green">99.8%</span></td><td><span class="badge red">不可停用</span></td><td><span class="link" onclick="PMS.openDrawer('mbDrawer')">编辑</span></td></tr>
           <tr class="row-bad"><td>MB-09</td><td>缴费到期与逾期催缴</td><td>三通道</td><td><span class="badge red">紧急</span></td><td>账单生成 / 到期前 5 天 / 到期前 1 天 / 逾期 1 天 / 逾期 15 天 / 逾期 90 天（六级）</td><td class="num">8,462</td><td><span class="badge green">99.5%</span></td><td><span class="badge red">不可停用</span></td><td><span class="link" onclick="PMS.openDrawer('mbDrawer')">编辑</span></td></tr>
           <tr><td>MB-16</td><td>政策变更提醒</td><td>站内 + 微信</td><td><span class="badge blue">一般</span></td><td>政策文件或口径调整发布后触发</td><td class="num">6,420</td><td><span class="badge green">96.8%</span></td><td><span class="badge green">可停用</span></td><td><span class="link" onclick="PMS.openDrawer('mbDrawer')">编辑</span></td></tr>
           <tr><td>MB-22</td><td>满意度调查邀请</td><td>站内消息</td><td><span class="badge blue">一般</span></td><td>每季度末向在租承租人发送</td><td class="num">1,286</td><td><span class="badge green">100%</span></td><td><span class="badge green">可停用</span></td><td><span class="link" onclick="PMS.openDrawer('mbDrawer')">编辑</span></td></tr>
@@ -85,6 +89,7 @@
     <span><b>三通道</b> 湘易办站内消息（必达）+ 微信模板消息（需关注公众号）+ 短信</span>
     <span><b>优先级</b> 紧急三通道同时 / 重要站内 + 微信 / 一般仅站内</span>
     <span><b>硬约束</b> 关键节点提醒模板不允许停用，以免错过硬性时限导致资格失效</span>
+    <span><b>配租相关模板</b> <span class="proto-t chg">0909 改</span>分<b>配租公告发布通知（MB-03）、轮到本人的选房通知（MB-04）、确认时限临近提醒（MB-06）、签约提醒（MB-07）</b>四类；选房通知<b>按轮候顺序号逐位推送、不群发不报名</b></span>
   </div>
 </main>
 

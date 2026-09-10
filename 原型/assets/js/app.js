@@ -91,7 +91,7 @@
         'ops-07', 'ops-08', 'ops-09',
         'ops-11', 'ops-12', 'ops-13', 'ops-14'
         ],
-      /* R5 配租经办：批次与公告、顺序名单、自动配租执行、轮候、放弃处置与合同全周期 */
+      /* R5 配租经办：批次与公告、轮候顺序名单、选房组织、轮候库、放弃处置与合同全周期 */
       allocator: ['home', 'wb-01', 'wb-02', 'wb-04',
         'alloc-01', 'alloc-02', 'alloc-03', 'alloc-04', 'alloc-06', 'alloc-07',
         'alloc-08', 'alloc-09', 'alloc-10', 'alloc-11', 'alloc-12', 'alloc-13',
@@ -291,10 +291,10 @@
             label: '配租管理', icon: 'fa-list-ol',
             children: [
               { key: 'alloc-01', label: '配租批次管理', href: 'modules/alloc/batch-list.html' },
-              { key: 'alloc-02', label: '顺序配租名单', href: 'modules/alloc/order-list.html' },
-              { key: 'alloc-03', label: '自动配租执行时间设定', href: 'modules/alloc/slot-plan.html' },
-              { key: 'alloc-14', label: '自动配租执行与匹配规则', href: 'modules/alloc/auto-alloc.html' },
-              { key: 'alloc-15', label: '组团台账与整套预留', href: 'modules/alloc/team-list.html' },
+              { key: 'alloc-02', label: '轮候顺序名单', href: 'modules/alloc/order-list.html' },
+              { key: 'alloc-03', label: '选房时段编排', href: 'modules/alloc/slot-plan.html' },
+              { key: 'alloc-14', label: '选房组织与顺序规则', href: 'modules/alloc/auto-alloc.html' },
+              { key: 'alloc-15', label: '组团台账', href: 'modules/alloc/team-list.html' },
               { key: 'alloc-04', label: '意向轮候库管理', href: 'modules/alloc/queue-list.html' },
               { key: 'alloc-06', label: '放弃与资格处置', href: 'modules/alloc/giveup-list.html' },
               { key: 'alloc-07', label: '配租异常处理', href: 'modules/alloc/exception.html' }
@@ -851,8 +851,8 @@
         ],
         shortcuts: [
           { c: 'blue', i: 'fa-layer-group', l: '配租批次', h: 'modules/alloc/batch-list.html' },
-          { c: 'green', i: 'fa-list-ol', l: '顺序名单', h: 'modules/alloc/order-list.html' },
-          { c: 'cyan', i: 'fa-robot', l: '自动配租执行', h: 'modules/alloc/auto-alloc.html' },
+          { c: 'green', i: 'fa-list-ol', l: '轮候顺序名单', h: 'modules/alloc/order-list.html' },
+          { c: 'cyan', i: 'fa-hand-pointer', l: '选房组织', h: 'modules/alloc/auto-alloc.html' },
           { c: 'orange', i: 'fa-hourglass-half', l: '意向轮候库', h: 'modules/alloc/queue-list.html' },
           { c: 'purple', i: 'fa-file-contract', l: '合同要素台账', h: 'modules/alloc/contract-list.html' },
           { c: 'red', i: 'fa-triangle-exclamation', l: '配租异常处理', h: 'modules/alloc/exception.html' }

@@ -27,6 +27,8 @@
     </div>
   </div>
 
+  <div class="alert alert-info"><i class="fa-solid fa-pen-to-square"></i><div><span class="proto-t chg">0909 改</span>本页模板说明、字段释义与 R-8 建账规则中「供自动配租同套同性别校验取值」的表述，已按 9 月 9 日结论改为<b>供申请人按轮候顺序自选房间时的同套同性别校验取值</b>。</div></div>
+
   <div class="alert alert-warning">
     <i class="fa-solid fa-triangle-exclamation"></i>
     <div>按<b>项目—楼栋—单元—楼层—房号</b>五级层级批量导入房源，同步导入<b>建筑面积、套内面积、户型、朝向、装修标准、家电家具配置、租金标准</b>，以及按间的<b>当前状态（空置／已入住／已锁定）与在住人性别（男／女）</b>等字段，导入后<b>自动生成一房一码</b>。<b>本期为房源建账的主要方式，需支撑一万套规模的分批导入</b>（省保租房系统、公租房系统接口暂不对接）。</div>
@@ -39,7 +41,7 @@
 
   <div class="alert alert-warning">
     <i class="fa-solid fa-triangle-exclamation"></i>
-    <div>模板已同步增加<b>当前状态</b>与<b>在住人性别</b>两列，用于建立按间的房态与在住性别底账，供<b>移动端房源展示</b>与<b>系统自动配租的同套同性别校验</b>取值。校验口径：状态为<b>已入住</b>的行性别必填；<b>同一套房内已入住人员须同性别</b>，同套出现男、女并存的<b>整批拦截并回显冲突行号</b>；状态为空置或已锁定的行性别须留空。<span class="link" onclick="location.href='import-rule.html'">JY-13 / JY-14 校验规则</span></div>
+    <div>模板已同步增加<b>当前状态</b>与<b>在住人性别</b>两列，用于建立按间的房态与在住性别底账，<span class="proto-t chg">0909 改</span>供<b>移动端房源展示</b>与<b>申请人自选房间时的同套同性别校验</b>取值。校验口径：状态为<b>已入住</b>的行性别必填；<b>同一套房内已入住人员须同性别</b>，同套出现男、女并存的<b>整批拦截并回显冲突行号</b>；状态为空置或已锁定的行性别须留空。<span class="link" onclick="location.href='import-rule.html'">JY-13 / JY-14 校验规则</span></div>
   </div>
 
   <div class="stat-grid">
@@ -97,7 +99,7 @@
           <tr class="row-warn"><td><b>本间计租面积</b></td><td><span class="badge orange">是</span></td><td>数值 2 位小数</td><td>＝本间套内面积 ＋ 本间公摊面积，系统复核</td></tr>
           <tr><td><b>人才租金标准</b></td><td><span class="badge orange">是</span></td><td>元/㎡·月</td><td>保障期内执行，取值 3～30</td></tr>
           <tr><td><b>原租金标准</b></td><td><span class="badge orange">是</span></td><td>元/㎡·月</td><td>市场租金，保障期满按此计费，取值 5～60</td></tr>
-          <tr class="row-warn"><td><b>当前状态</b></td><td><span class="badge orange">是</span></td><td>空置 / 已入住 / 已锁定</td><td><b>按间填写</b>，字典外取值报错。空置间才进入自动配租；维修、冻结、待腾退、待签约统一填「已锁定」</td></tr>
+          <tr class="row-warn"><td><b>当前状态</b></td><td><span class="badge orange">是</span></td><td>空置 / 已入住 / 已锁定</td><td><b>按间填写</b>，字典外取值报错。<span class="proto-t chg">0909 改</span>空置间才进入本批次<b>可选房间范围</b>；维修、冻结、待腾退、待签约统一填「已锁定」</td></tr>
           <tr class="row-warn"><td><b>在住人性别</b></td><td><span class="badge blue">条件必填</span></td><td>男 / 女</td><td>当前状态为<b>已入住</b>时必填；为空置或已锁定时<b>须留空</b>。<b>同一套房内已入住人员须同性别</b>，同套出现男、女并存的报错并回显冲突行号</td></tr>
           <tr class="row-warn"><td><b>在住人姓名</b></td><td><span class="badge blue">条件必填</span></td><td>文本</td><td>当前状态为已入住时必填，与人才档案比对；性别以档案身份证信息为准，不一致的报错</td></tr>
         </tbody>
@@ -119,7 +121,7 @@
       <tr><td><b>R-5 断点续传</b></td><td>大批量导入按 500 行为一段落库，中断后<b>从最后成功段续传</b>，不产生重复房源。<span class="link" onclick="location.href='import-load.html'">分批导入与断点续传</span></td></tr>
       <tr><td><b>R-6 校验规则</b></td><td>必填缺失、字典值非法、数值越界、面积一致性、房号重复、多源重复登记，以及<b>房态字典校验（JY-13）</b>与<b>同套同性别校验（JY-14）</b>共八类校验，容差与开关可配置。<span class="link" onclick="location.href='import-rule.html'">导入校验规则配置</span></td></tr>
       <tr><td><b>R-7 一房一码</b></td><td>五级层级齐全且校验通过后<b>自动生成一房一码</b>并写入统一楼盘表，同时写入入库类型「批量导入」与本批导入批次号</td></tr>
-      <tr class="row-warn"><td><b>R-8 房态与性别建账</b></td><td>导入的<b>当前状态</b>与<b>在住人性别</b>按间落库，落库后<b>按套自动汇总在住性别</b>（如「本套现住 2 人，均为女生」）并写入房源档案；汇总结果供<b>移动端房源展示</b>与<b>自动配租同套同性别校验</b>取值，<b>人工不可改</b>。存量男女混住的套导入时标记为<b>存量例外</b>，腾退后按同性别重新投放</td></tr>
+      <tr class="row-warn"><td><b>R-8 房态与性别建账</b></td><td>导入的<b>当前状态</b>与<b>在住人性别</b>按间落库，落库后<b>按套自动汇总在住性别</b>（如「本套现住 2 人，均为女生」）并写入房源档案；<span class="proto-t chg">0909 改</span>汇总结果供<b>移动端房源展示</b>与<b>申请人自选房间时的同套同性别校验</b>取值，<b>人工不可改</b>。存量男女混住的套导入时标记为<b>存量例外</b>，腾退后按同性别重新投放</td></tr>
       </tbody>
     </table>
   </div>
@@ -201,7 +203,7 @@
   <div class="sp-src">
     <span><b>导入层级</b> 项目—楼栋—单元—楼层—房号五级，齐全后自动生成一房一码</span>
     <span><b>同步字段</b> 建筑面积、套内面积、户型、朝向、装修标准、家电家具配置、租金标准，以及按间的<b>当前状态与在住人性别</b>等</span>
-    <span><b>房态与性别校验</b> 状态取<b>空置／已入住／已锁定</b>（JY-13）；已入住的间<b>性别必填</b>，<b>同一套房内已入住人员须同性别</b>，冲突的<b>整批拦截并回显行号</b>（JY-14）；落库后按套自动汇总在住性别，供移动端房源展示与自动配租同套同性别校验使用</span>
+    <span><b>房态与性别校验</b> 状态取<b>空置／已入住／已锁定</b>（JY-13）；已入住的间<b>性别必填</b>，<b>同一套房内已入住人员须同性别</b>，冲突的<b>整批拦截并回显行号</b>（JY-14）；落库后按套自动汇总在住性别，<span class="proto-t chg">0909 改</span>供移动端房源展示与<b>申请人自选房间时的同套同性别校验</b>使用</span>
     <span><b>本期定位</b> <b>房源建账的主要方式</b>，须支撑全市约<b>一万套规模的分批导入</b>（单批上限 5,000 行，按项目分批）</span>
     <span><b>差错处理</b> 差错行不入库，修正后重新导入；<b>失败不影响已入库房源与前序批次</b>；重复登记行自动锁定待核实</span>
     <span><b>关联页面</b> <span class="link" onclick="location.href='import-load.html'">分批导入与断点续传</span>　<span class="link" onclick="location.href='import-rule.html'">导入校验规则配置</span></span>

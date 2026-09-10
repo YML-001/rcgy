@@ -24,6 +24,11 @@
     </div>
   </div>
 
+  <div class="alert alert-info">
+    <i class="fa-solid fa-pen-to-square"></i>
+    <div><span class="proto-t chg">0909 改</span><b>LC-002 配租选房流程</b>原按<b>系统自动配租</b>编排环节：<b>「发布公告并设定执行时间」→ 群发短信通知 → 生成顺序名单并公示 →「系统自动配租」（按审核通过时间、意向范围内匹配、同套同性别、组团整套预留）→ 配租结果通知与签约</b>。9 月 9 日晚配租逻辑讨论后改为<b>按轮候顺序依次通知、申请人在可选范围内自选房间</b>，本流程相应改造：公告环节改为<b>「发布公告并给出选房安排」</b>（首批通知推送时间与确认时限），原自动配租环节改为<b>「按轮候顺序号依次推送选房通知、本人自选房间」</b>并新增<b>确认时限 24 小时</b>为限时环节，签约改为<b>自选定房间次日起 5 个工作日</b>；环节数由 7 增至 <b>8</b>、限时环节由 3 增至 <b>4</b>，全流程<b>办理环节 43 个、限时环节 13 个</b>。<b>组团整套预留不再作为环节内的匹配条件</b>，改为在受理与审批环节使同组办件相邻排列。对应《系统原型调整计划（0909 会议）》<b>C01、C05、C06、C07、C08</b>。</div>
+  </div>
+
   <div class="alert alert-warning">
     <i class="fa-solid fa-triangle-exclamation"></i>
     <div>配置<b>办理环节、承办角色、办理时限、流转与回退条件</b>，<b>适应联审环节和责任分工的调整</b>。流程变更对新受理件生效，在办件按原流程执行。</div>
@@ -37,13 +42,13 @@
     </div>
     <div class="stat-card">
       <div class="s-icon green"><i class="fa-solid fa-list-ol"></i></div>
-      <div><div class="s-label">办理环节</div><div class="s-value">42</div>
-        <div class="s-trend text-2">跨 6 个流程</div></div>
+      <div><div class="s-label">办理环节</div><div class="s-value">43</div>
+        <div class="s-trend text-2">跨 6 个流程 · <span class="proto-t chg">0909 改</span>配租选房流程 +1</div></div>
     </div>
     <div class="stat-card">
       <div class="s-icon cyan"><i class="fa-solid fa-clock"></i></div>
-      <div><div class="s-label">限时环节</div><div class="s-value">12</div>
-        <div class="s-trend text-2">含 3 个法定时限</div></div>
+      <div><div class="s-label">限时环节</div><div class="s-value">13</div>
+        <div class="s-trend text-2">含 3 个法定时限 · <span class="proto-t chg">0909 改</span>新增选房确认时限</div></div>
     </div>
     <div class="stat-card dc-alarm">
       <div class="s-icon orange"><i class="fa-solid fa-code-branch"></i></div>
@@ -67,11 +72,11 @@
     <div class="table-wrap">
       <table class="data-table">
         <thead>
-          <tr><th>流程编号</th><th class="cell-lg">流程名称</th><th>环节数</th><th>限时环节</th><th class="cell-lg">关键环节与承办角色</th><th>版本</th><th>生效日期</th><th>状态</th><th>操作</th></tr>
+          <tr><th>流程编号</th><th class="cell-lg">流程名称</th><th>环节数</th><th>限时环节</th><th class="cell-lg"><span class="proto-t chg">0909 改</span>关键环节与承办角色</th><th>版本</th><th>生效日期</th><th>状态</th><th>操作</th></tr>
         </thead>
         <tbody>
           <tr><td>LC-001</td><td>人才公寓资格审核流程</td><td class="num">7</td><td class="num">2</td><td>多渠道受理（系统/窗口）→ 系统自动联审 → 生成核验报告 → 受理初审（受理初审角色，1 工作日）→ <b>复核审定（审核角色，3 工作日法定）</b> → 结论电子送达 → 归入电子档案</td><td><span class="sp-vt cur">V2026-09</span></td><td>2026-09-01</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('lcDrawer')">编排</span></td></tr>
-          <tr><td>LC-002</td><td>配租选房流程</td><td class="num">7</td><td class="num">3</td><td>拟定批次 → <b>业务管理员角色审批</b> → 发布公告并设定执行时间 → 群发短信通知 → 生成顺序名单并公示（2 天）→ <b>系统自动配租</b>（按审核通过时间、意向范围内匹配、同套同性别、组团整套预留）→ 配租结果通知与签约 → 配租结果公开</td><td><span class="sp-vt cur">V2026-09</span></td><td>2026-09-01</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('lcDrawer')">编排</span></td></tr>
+          <tr class="row-warn"><td>LC-002</td><td><span class="proto-t chg">0909 改</span>配租选房流程</td><td class="num">8</td><td class="num">4</td><td>拟定批次并勾选投放房源（按<b>户型折算可安置人数</b>）→ <b>业务管理员角色审批</b> → <b>发布公告并给出选房安排</b>（首批通知推送时间 + 确认时限）→ 群发短信告知房源范围、套数与可安置人数 → 生成<b>轮候顺序名单</b>并公示（2 天）→ <b>按轮候顺序号依次推送选房通知、本人在可选范围内自选房间</b>（<b>确认时限 24 小时</b>，超时由下一顺序人接着选、本人顺序号排至队尾、<b>不认定为放弃</b>）→ 选定房间后签约（<b>5 个工作日</b>）→ 配租结果公开</td><td><span class="sp-vt cur">V2026-09</span></td><td>2026-09-01</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('lcDrawer')">编排</span></td></tr>
           <tr><td>LC-003</td><td>年度资格年审流程</td><td class="num">6</td><td class="num">2</td><td>发起批次 → 自动生成待审名单 → 四项数据自动复核 → 承租人在线确认（限期）→ 异常件人工核查（审核角色）→ 结论处置并电子送达</td><td><span class="sp-vt cur">V2026-09</span></td><td>2026-09-01</td><td><span class="badge green">在用</span></td><td><span class="link" onclick="PMS.openDrawer('lcDrawer')">编排</span></td></tr>
           <tr class="row-warn"><td>LC-001-N</td><td>人才公寓资格审核流程（拟调整）</td><td class="num">8</td><td class="num">3</td><td>拟在受理初审后<b>增加「税务例外件专项复核」环节</b>（承办角色：审核角色，时限 1 工作日），以应对企业纳税判定口径未明确期间的人工核实需要</td><td><span class="sp-vt">V2026-10（待审批）</span></td><td>2026-10-01</td><td><span class="badge orange">待审批</span></td><td><span class="link" onclick="PMS.openDrawer('lcDrawer')">编排</span></td></tr>
         </tbody>
@@ -82,6 +87,8 @@
     <span><b>配置目的</b> 适应联审环节和责任分工的调整，不需修改代码</span>
     <span><b>生效口径</b> 流程变更对新受理件生效，在办件按原流程执行</span>
     <span><b>法定时限</b> 资格审核 3 个工作日为法定时限，不允许在流程中放宽</span>
+    <span><b>配租选房流程</b> <span class="proto-t chg">0909 改</span>配租环节改为<b>按轮候顺序号依次推送选房通知、本人自选房间</b>，新增<b>确认时限</b>限时环节；<span class="proto-t pend">待确认</span>确认时限定多长、是否限制排至末位的次数待业务部门明确（<b>Q12</b>）<span class="link" onclick="location.href='../alloc/auto-alloc.html'">选房组织与选房规则</span></span>
+    <span><b>组团影响</b> <span class="proto-t chg">0909 改</span>组团<b>只影响审批排序</b>——同组办件在受理与审批环节相邻排列、以组内最后一名成员的提交时间参与排序，使顺序号相邻；流程中<b>不再有整套预留与整组匹配环节</b>（<b>C06</b>、<b>C07</b>）<span class="link" onclick="location.href='../workbench/todo-center.html'">待办中心</span></span>
   </div>
 </main>
 

@@ -62,6 +62,8 @@
     </div>
   </div>
 
+  <div class="alert alert-info"><i class="fa-solid fa-pen-to-square"></i><div><span class="proto-t chg">0909 改</span>本页房态说明、图例与同套同性别校验规则中提及的配租方式，已按 9 月 9 日结论由「系统自动配租匹配」改为<b>按轮候顺序号依次推送选房通知、本人在可选范围内自选并锁定房间</b>。</div></div>
+
   <div class="alert alert-info">
     <i class="fa-solid fa-circle-info"></i>
     <div>以<b>楼层平面图与列表</b>两种视图展示房态，<b>按「间」着色并标注在住人性别</b>：空置、在住（女）、在住（男）、已锁定、维修中、已冻结分色显示，套级自动汇总在住性别。<b>变更全程留痕</b>。当前展示：湘江1958 人才公寓 A6 栋。</div>
@@ -69,7 +71,7 @@
 
   <div class="alert alert-warning">
     <i class="fa-solid fa-triangle-exclamation"></i>
-    <div>空置间的<b>可投放性别＝本套在住性别</b>：本套已有女生在住的空置间只能配给女生，已有男生在住的只能配给男生，整套无人在住的<b>不限性别</b>。同套在住人性别不一致的<b>存量混住</b>套以红框标注，保障期满腾退后按同性别重新投放，<b>不再新增混住</b>。上述两个字段供<b>移动端房源展示</b>与<b>系统自动配租的同套同性别校验</b>取值，本期按强制同性别执行、不设开关。</div>
+    <div>空置间的<b>可投放性别＝本套在住性别</b>：本套已有女生在住的空置间只能配给女生，已有男生在住的只能配给男生，整套无人在住的<b>不限性别</b>。同套在住人性别不一致的<b>存量混住</b>套以红框标注，保障期满腾退后按同性别重新投放，<b>不再新增混住</b>。<span class="proto-t chg">0909 改</span>上述两个字段供<b>移动端房源展示</b>与<b>申请人自选房间时的同套同性别校验</b>取值，本期按强制同性别执行、不设开关。</div>
   </div>
 
   <div class="stat-grid">
@@ -86,7 +88,7 @@
     <div class="stat-card">
       <div class="s-icon orange"><i class="fa-solid fa-lock"></i></div>
       <div><div class="s-label">已锁定间</div><div class="s-value">88</div>
-        <div class="s-trend text-2">自动配租待签约、维修、冻结、待腾退</div></div>
+        <div class="s-trend text-2"><span class="proto-t chg">0909 改</span>已被选定待签约、维修、冻结、待腾退</div></div>
     </div>
     <div class="stat-card dc-alarm">
       <div class="s-icon red"><i class="fa-solid fa-venus-mars"></i></div>
@@ -111,7 +113,7 @@
           <span><i style="background:var(--success-light);border:1px solid var(--line-success)"></i> 空置（可配租）</span>
           <span><i style="background:#fdf2f8;border:1px solid #f9a8d4"></i> 在住 · 女</span>
           <span><i style="background:var(--primary-light);border:1px solid var(--primary-soft)"></i> 在住 · 男</span>
-          <span><i style="background:var(--warning-light);border:1px solid var(--line-warning)"></i> 已锁定（自动配租待签约）</span>
+          <span><i style="background:var(--warning-light);border:1px solid var(--line-warning)"></i> <span class="proto-t chg">0909 改</span>已锁定（已被选定待签约）</span>
           <span><i style="background:var(--danger-light);border:1px solid var(--line-danger)"></i> 空置 · 暂无同性别人选</span>
           <span><i style="background:var(--fill-gray);border:1px solid var(--border-strong)"></i> 维修中</span>
           <span><i style="background:var(--fill-gray-2);border:1px solid var(--line-gray)"></i> 已冻结</span>
@@ -121,12 +123,12 @@
           <span class="hs-suite"><span class="st"><b>1801</b> 三室两厅 · 3 间 <span class="badge purple">现住 2 人，均为女生</span></span><span class="hs-cells"><span class="hs-cell girl" onclick="PMS.toast('1801-A 已入住 · 谭×× 女 · 保障期至 2028-03-14')"><b>1801-A</b>在住 · 女</span><span class="hs-cell girl" onclick="PMS.toast('1801-B 已入住 · 刘×× 女 · 保障期至 2028-04-02')"><b>1801-B</b>在住 · 女</span><span class="hs-cell free" onclick="PMS.toast('1801-C 空置 · 计租面积 22.50 ㎡ · 本套现住均为女生，仅可配给女生')"><b>1801-C</b>空置 · 限女</span></span></span>
           <span class="hs-suite"><span class="st"><b>1802</b> 二室一厅 · 2 间 <span class="badge blue">现住 1 人，男生</span></span><span class="hs-cells"><span class="hs-cell boy" onclick="PMS.toast('1802-A 已入住 · 罗×× 男 · 保障期至 2027-11-08')"><b>1802-A</b>在住 · 男</span><span class="hs-cell free" onclick="PMS.toast('1802-B 空置 · 计租面积 28.40 ㎡ · 本套现住男生，仅可配给男生')"><b>1802-B</b>空置 · 限男</span></span></span>
           <span class="hs-suite"><span class="st"><b>1803</b> 二室一厅 · 2 间 <span class="badge gray">暂无在住人</span></span><span class="hs-cells"><span class="hs-cell free" onclick="PMS.toast('1803-A 空置 · 整套无人在住，不限性别，由首位入住人确定本套性别')"><b>1803-A</b>空置 · 不限</span><span class="hs-cell free" onclick="PMS.toast('1803-B 空置 · 整套无人在住，不限性别')"><b>1803-B</b>空置 · 不限</span></span></span>
-          <span class="hs-suite"><span class="st"><b>1804</b> 三室两厅 · 3 间 <span class="badge blue">现住 1 人，男生</span></span><span class="hs-cells"><span class="hs-cell boy" onclick="PMS.toast('1804-A 已入住 · 彭×× 男 · 保障期至 2028-05-20')"><b>1804-A</b>在住 · 男</span><span class="hs-cell lock" onclick="PMS.toast('1804-B 已锁定 · 2026 年第 4 批自动配租匹配到 曾×× 男 · 待签约，签约期限 2026-09-16')"><b>1804-B</b>已锁定 · 男</span><span class="hs-cell free" onclick="PMS.toast('1804-C 空置 · 本套现住及已锁定均为男生，仅可配给男生')"><b>1804-C</b>空置 · 限男</span></span></span>
+          <span class="hs-suite"><span class="st"><b>1804</b> 三室两厅 · 3 间 <span class="badge blue">现住 1 人，男生</span></span><span class="hs-cells"><span class="hs-cell boy" onclick="PMS.toast('1804-A 已入住 · 彭×× 男 · 保障期至 2028-05-20')"><b>1804-A</b>在住 · 男</span><span class="hs-cell lock" onclick="PMS.toast('1804-B 已锁定 · 2026 年第 4 批轮到 曾×× 男 时由本人自选并锁定 · 待签约，签约期限 2026-09-16')"><b>1804-B</b>已锁定 · 男</span><span class="hs-cell free" onclick="PMS.toast('1804-C 空置 · 本套现住及已锁定均为男生，仅可配给男生')"><b>1804-C</b>空置 · 限男</span></span></span>
         </span></div>
 
         <div class="hs-floor"><span class="hs-fno">17 层</span><span class="hs-suites">
           <span class="hs-suite"><span class="st"><b>1701</b> 三室两厅 · 3 间 <span class="badge purple">现住 3 人，均为女生</span></span><span class="hs-cells"><span class="hs-cell girl" onclick="PMS.toast('1701-A 已入住 · 女')"><b>1701-A</b>在住 · 女</span><span class="hs-cell girl" onclick="PMS.toast('1701-B 已入住 · 女')"><b>1701-B</b>在住 · 女</span><span class="hs-cell girl" onclick="PMS.toast('1701-C 已入住 · 女 · 本套已住满')"><b>1701-C</b>在住 · 女</span></span></span>
-          <span class="hs-suite"><span class="st"><b>1702</b> 二室一厅 · 2 间 <span class="badge blue">现住 1 人，男生</span></span><span class="hs-cells"><span class="hs-cell boy" onclick="PMS.toast('1702-A 已入住 · 男')"><b>1702-A</b>在住 · 男</span><span class="hs-cell blocked" onclick="PMS.toast('1702-B 空置 · 仅可配给男生，当前待配租顺序名单中该楼盘暂无男性人选，本轮不可分配')"><b>1702-B</b>空置 · 暂无人选</span></span></span>
+          <span class="hs-suite"><span class="st"><b>1702</b> 二室一厅 · 2 间 <span class="badge blue">现住 1 人，男生</span></span><span class="hs-cells"><span class="hs-cell boy" onclick="PMS.toast('1702-A 已入住 · 男')"><b>1702-A</b>在住 · 男</span><span class="hs-cell blocked" onclick="PMS.toast('1702-B 空置 · 仅可配给男生，当前轮候顺序名单中该楼盘暂无男性申请人，本批次无人可选，转下一批次')"><b>1702-B</b>空置 · 暂无人选</span></span></span>
           <span class="hs-suite"><span class="st"><b>1703</b> 二室一厅 · 2 间 <span class="badge gray">暂无在住人</span></span><span class="hs-cells"><span class="hs-cell fix" onclick="PMS.toast('1703-A 维修中 · 卫生间漏水施工 · 预计 2026-09-18 完工')"><b>1703-A</b>维修中</span><span class="hs-cell fix" onclick="PMS.toast('1703-B 维修中 · 同套施工，暂不投放')"><b>1703-B</b>维修中</span></span></span>
           <span class="hs-suite"><span class="st"><b>1704</b> 单间配套 · 1 间 <span class="badge gray">整套配租</span></span><span class="hs-cells"><span class="hs-cell free" onclick="PMS.toast('1704 空置 · 单间配套整套配租，不涉及合住，不限性别')"><b>1704</b>空置 · 不限</span></span></span>
         </span></div>
@@ -147,7 +149,7 @@
 
         <p class="hint" style="margin-top:10px">
           <i class="fa-solid fa-circle-info"></i>
-          点击任一间可查看房源档案、在住人与在住性别。房态与在住性别变更<b>全程留痕</b>，剩余可配租间数与移动端<b>实时同步</b>，已锁定或已入住的间即时扣减。空置间标注的<b>限女 / 限男 / 不限</b>由本套在住性别自动推导，是<b>系统自动配租同套同性别校验</b>的判定依据；<b>暂无人选</b>指本轮待配租顺序名单中该楼盘无同性别申请人，房间本轮不可分配，转入下一轮。
+          点击任一间可查看房源档案、在住人与在住性别。房态与在住性别变更<b>全程留痕</b>，剩余可配租间数与移动端<b>实时同步</b>，已锁定或已入住的间即时扣减。<span class="proto-t chg">0909 改</span>空置间标注的<b>限女 / 限男 / 不限</b>由本套在住性别自动推导，是<b>申请人自选房间时同套同性别校验</b>的判定依据，不符合的间<b>不在本人可选列表中显示</b>；<b>暂无人选</b>指本批次轮候顺序名单中该楼盘无同性别申请人，房间本批次无人可选，转入下一批次。
         </p>
       </div>
     </div>
@@ -192,7 +194,7 @@
           <div class="sp-b">
             <div class="sp-map">
               <div class="mr"><span class="sp-st doing">空置</span><div class="to">
-                <div class="sp-tr"><span class="op">自动配租匹配成功（含同套同性别校验）</span><i class="ar fa-solid fa-arrow-right"></i><span class="sp-st wait">已锁定</span></div>
+                <div class="sp-tr"><span class="op"><span class="proto-t chg">0909 改</span>本人自选并锁定（含同套同性别校验）</span><i class="ar fa-solid fa-arrow-right"></i><span class="sp-st wait">已锁定</span></div>
                 <div class="sp-tr"><span class="op">维修 / 查封 / 政策调整冻结</span><i class="ar fa-solid fa-arrow-right"></i><span class="sp-st wait">已锁定</span></div>
               </div></div>
               <div class="mr"><span class="sp-st wait">已锁定</span><div class="to">
@@ -217,8 +219,8 @@
       <tbody>
       <tr><td><b>XB-1</b></td><td>按间登记</td><td><b>当前状态</b>取空置／已入住／已锁定，<b>在住人性别</b>取男／女；状态为已入住时性别必填，空置与已锁定间留空。性别取值与人才档案身份证信息一致，不单独维护</td></tr>
       <tr><td><b>XB-2</b></td><td>套级自动汇总</td><td>本套在住性别<b>由各间在住人性别自动汇总</b>，人工不可改：全为女生显示「均为女生」，全为男生显示「均为男生」，无在住人显示「暂无在住人」</td></tr>
-      <tr><td><b>XB-3</b></td><td>同套同性别校验</td><td>自动配租匹配空置间时，<b>申请人性别须与本套在住性别一致</b>；整套无人在住的空置间不限性别，<b>由首位入住人确定本套性别</b>。校验不通过的房间跳过，继续匹配下一间</td></tr>
-      <tr><td><b>XB-4</b></td><td>锁定预占性别</td><td>已锁定间<b>按锁定对象的性别预占本套性别</b>，防止同一批次自动配租并发写入产生混住；锁定失效（未签约或放弃）后释放预占</td></tr>
+      <tr><td><b>XB-3</b> <span class="proto-t chg">0909 改</span></td><td>同套同性别校验</td><td><b>申请人自选空置间时</b>，<b>本人性别须与本套在住性别一致</b>；<b>套内已有在住人或已被他人选定的，其余房间只对同性别开放</b>，整套无人在住且无人选定的不限性别，<b>由首位选定人确定本套性别</b>。校验不通过的房间<b>不在本人可选列表中显示</b></td></tr>
+      <tr><td><b>XB-4</b> <span class="proto-t chg">0909 改</span></td><td>锁定预占性别</td><td>已锁定间<b>按锁定对象的性别预占本套性别</b>，防止同一批次<b>多人同时选房</b>并发写入产生混住；锁定失效（未签约或放弃）后释放预占</td></tr>
       <tr class="row-warn"><td><b>XB-5</b></td><td>存量混住处置</td><td>2025 年前形成的男女混住套<b>作为存量例外保留</b>，在房态图中以红框标注，<b>不参与本套空置间的性别推导</b>；保障期满腾退后按同性别重新投放，<b>不再新增混住</b></td></tr>
       <tr><td><b>XB-6</b></td><td>导入与移动端联动</td><td>批量导入模板同步增加两列并校验，命中同套性别冲突整批拦截；移动端房源详情按套展开到间，逐间显示空置或已入住与在住性别。<span class="link" onclick="location.href='import-rule.html'">导入校验规则配置</span></td></tr>
       </tbody>
@@ -233,8 +235,8 @@
     <span><b>视图</b> 楼层平面图 + 列表两种视图，均<b>按间</b>着色并标注在住性别</span>
     <span><b>同步</b> 剩余可配租间数与移动端实时同步，已锁定或已入住即时扣减</span>
     <span><b>留痕</b> 房态与在住性别变更全程留痕，含操作人、时间与前后值</span>
-    <span><b>配租方式</b> <b>系统自动配租</b>，按审核通过顺序在意向范围内匹配并执行同套同性别校验，<b>申请人不选房</b></span>
-    <span><b>关联页面</b> <span class="link" onclick="location.href='building-table.html'">统一楼盘表</span>　<span class="link" onclick="location.href='house-archive.html'">房源档案</span>　<span class="link" onclick="location.href='../alloc/auto-alloc.html'">自动配租执行与匹配规则</span>　<span class="link" onclick="location.href='../stat/house-struct.html'">房源结构分析（房态与性别维度）</span></span>
+    <span><b>配租方式</b> <span class="proto-t chg">0909 改</span><b>按轮候顺序号依次推送选房通知</b>，<b>本人在可选范围内自选房间并锁定</b>，选房时执行同套同性别校验</span>
+    <span><b>关联页面</b> <span class="link" onclick="location.href='building-table.html'">统一楼盘表</span>　<span class="link" onclick="location.href='house-archive.html'">房源档案</span>　<span class="link" onclick="location.href='../alloc/auto-alloc.html'">选房组织与选房记录</span>　<span class="link" onclick="location.href='../stat/house-struct.html'">房源结构分析（房态与性别维度）</span></span>
   </div>
 </main>
 

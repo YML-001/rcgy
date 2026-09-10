@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>自动配租执行时间设定 · 株洲市人才住房保障管理平台</title>
+<title>选房时段编排 · 株洲市人才住房保障管理平台</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="../../assets/css/app.css">
 <link rel="stylesheet" href="../../assets/css/spec.css">
@@ -16,49 +16,55 @@
       <i class="fa-solid fa-house bc-home"></i> 株洲市人才住房保障管理平台
       <span class="sep">/</span> 配租选房与合同
       <span class="sep">/</span> 配租管理
-      <span class="sep">/</span> <span class="cur">自动配租执行时间设定</span>
+      <span class="sep">/</span> <span class="cur">选房时段编排</span>
     </div>
     <div class="page-actions">
-      <button class="btn btn-primary" onclick="PMS.openDrawer('zsDrawer')"><i class="fa-solid fa-clock"></i> 设定执行时间</button>
-      <a class="btn" href="auto-alloc.html"><i class="fa-solid fa-wand-magic-sparkles"></i> 执行与匹配规则</a>
+      <button class="btn btn-primary" onclick="PMS.openDrawer('zsDrawer')"><i class="fa-solid fa-clock"></i> 编排选房时段</button>
+      <a class="btn" href="auto-alloc.html"><i class="fa-solid fa-hand-pointer"></i> 选房组织与选房规则</a>
+      <a class="btn" href="order-list.html"><i class="fa-solid fa-list-ol"></i> 顺序配租名单</a>
       <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
     </div>
   </div>
 
+  <div class="alert alert-info">
+    <i class="fa-solid fa-pen-to-square"></i>
+    <div><span class="proto-t chg">0909 改</span>本页 9 月 9 日上午版为<b>「自动配租执行时间设定」</b>——在公告中设定一个执行时点，到点系统自动配租，申请人不报名不选房；更早的版本则是<b>「分时放号」抢房式</b>设计。当晚配租逻辑讨论后<b>两种做法都不再采用</b>，本页改造为<b>选房时段编排页</b>：按<b>轮候顺序号</b>生成选房顺序与<b>确认时限</b>，按楼盘与户型分<b>房源池</b>并行、<b>池内严格按顺序号先后依次推送</b>选房通知，<b>不设到点统一放号、不设抢房</b>。原「执行时间」「执行状态」「执行前检查」「执行与通知规则」相应改为<b>首推时间、编排状态、推送前检查、编排与通知规则</b>。对应《系统原型调整计划（0909 会议）》<b>C02、C05、C08、C09</b>。<b>页面文件名与菜单编号不变。</b></div>
+  </div>
+
   <div class="alert alert-warning">
     <i class="fa-solid fa-triangle-exclamation"></i>
-    <div>配租经办角色在配租公告中<b>设定自动配租执行时间</b>，到点系统<b>自动执行配租</b>，按<b>资格审核通过时间</b>先后逐人匹配房源，<b>无需人工触发，申请人不选房、不报名</b>。执行完成后向成功匹配人发送结果与签约安排短信、向未匹配人发送位次与原因短信；<b>执行结果不支持人工调整</b>，确需更正的走配租异常处理审批。</div>
+    <div>配租经办角色在配租公告中给出<b>选房安排</b>（首批通知推送时间、确认时限、通知方式），公告发布后系统按<b>轮候顺序号</b>依次推送选房通知，<b>轮到谁通知谁</b>；<b>前一位完成选房或超时顺延后自动推送下一位</b>，<b>不需人工逐个触发</b>。同一房源池同一时刻只有一位在选，<b>不存在两人抢同一间房</b>。确认时限内未完成选房的<b>由下一顺序人接着选</b>，本人顺序号<b>排至当前队列末位</b>、<b>不认定为放弃</b>；改期或调整确认时限须留痕，并重新向<b>尚未推送</b>的申请人告知。</div>
   </div>
 
   <div class="stat-grid">
     <div class="stat-card">
       <div class="s-icon blue"><i class="fa-solid fa-calendar-day"></i></div>
-      <div><div class="s-label">下次执行时间</div><div class="s-value">12-16 10:00</div>
-        <div class="s-trend text-2">PZ2026-04 · 已设定待执行</div></div>
+      <div><div class="s-label">下一批次首推时间</div><div class="s-value">12-16 10:00</div>
+        <div class="s-trend text-2">PZ2026-04 · 已编排待启动</div></div>
     </div>
     <div class="stat-card">
-      <div class="s-icon green"><i class="fa-solid fa-circle-play"></i></div>
-      <div><div class="s-label">累计执行次数</div><div class="s-value">12</div>
-        <div class="s-trend text-2">2026 年度 · 均自动触发</div></div>
+      <div class="s-icon green"><i class="fa-solid fa-paper-plane"></i></div>
+      <div><div class="s-label">累计推送选房通知</div><div class="s-value">304</div>
+        <div class="s-trend text-2">PZ2026-03 · 短信与站内消息各 304 条</div></div>
     </div>
     <div class="stat-card">
-      <div class="s-icon cyan"><i class="fa-solid fa-circle-check"></i></div>
-      <div><div class="s-label">本批次成功匹配</div><div class="s-value">312</div>
-        <div class="s-trend text-2">ZXJH2026-03-01 · 参与 486 人</div></div>
+      <div class="s-icon cyan"><i class="fa-solid fa-hourglass-half"></i></div>
+      <div><div class="s-label">平均选房用时</div><div class="s-value">26 分</div>
+        <div class="s-trend text-2">确认时限 24 小时 · 时限内完成率 93.8%</div></div>
     </div>
     <div class="stat-card dc-alarm">
-      <div class="s-icon orange"><i class="fa-solid fa-circle-xmark"></i></div>
-      <div><div class="s-label">本批次未匹配</div><div class="s-value">174</div>
-        <div class="s-trend ">保留位次等下一批次</div></div>
+      <div class="s-icon orange"><i class="fa-solid fa-clock"></i></div>
+      <div><div class="s-label">时限临近待提醒</div><div class="s-value">5</div>
+        <div class="s-trend ">4 小时内届满 · 已推送临近提醒</div></div>
     </div>
   </div>
 
   <div class="card list-card">
     <div class="filter-bar">
-      <div class="filter-item"><label>执行计划编号</label><input type="text" placeholder="执行计划编号"></div>
+      <div class="filter-item"><label>编排计划编号</label><input type="text" placeholder="编排计划编号"></div>
       <div class="filter-item"><label>配租批次</label><select><option value="">全部</option><option>PZ2026-04（2026 年第 4 批）</option><option>PZ2026-03（2026 年第 3 批）</option><option>PZ2026-02（2026 年第 2 批）</option></select></div>
-      <div class="filter-item"><label>执行日期</label><input type="date"></div>
-      <div class="filter-item"><label>执行状态</label><select><option value="">全部</option><option>待执行</option><option>执行中</option><option>已完成</option><option>已改期</option><option>已终止</option></select></div>
+      <div class="filter-item"><label>首推日期</label><input type="date"></div>
+      <div class="filter-item"><label>编排状态</label><select><option value="">全部</option><option>待编排</option><option>待启动</option><option>推送中</option><option>已改期</option><option>已结束</option><option>已终止</option></select></div>
       <div class="filter-actions">
         <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
         <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
@@ -68,48 +74,49 @@
     <div class="table-wrap">
       <table class="data-table">
         <thead>
-          <tr><th>执行计划编号</th><th class="cell-lg">配租批次</th><th>自动配租执行时间</th><th class="num">参与人数</th><th class="num">成功匹配数</th><th class="num">未匹配数</th><th>结果短信</th><th>执行状态</th><th>操作</th></tr>
+          <tr><th>编排计划编号</th><th class="cell-lg">关联配租批次</th><th><span class="proto-t chg">0909 改</span>顺序号区间</th><th><span class="proto-t chg">0909 改</span>房源池</th><th><span class="proto-t chg">0909 改</span>首批推送时间</th><th><span class="proto-t chg">0909 改</span>确认时限</th><th class="num">已推送</th><th class="num">已选定</th><th class="num"><span class="proto-t chg">0909 改</span>超时顺延</th><th>编排状态</th><th>操作</th></tr>
         </thead>
         <tbody>
-          <tr class="row-warn"><td>ZXJH2026-04-01</td><td>PZ2026-04 · 2026 年第 4 批青年人才公寓配租</td><td><b>2026-12-16 10:00</b></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td><span class="badge gray">待发送</span></td><td><span class="badge gray">待执行</span></td><td><span class="link" onclick="PMS.openDrawer('zsDrawer')">设定 / 改期</span></td></tr>
-          <tr><td>ZXJH2026-03-01</td><td>PZ2026-03 · 2026 年第 3 批（首次执行）</td><td>2026-09-15 10:00</td><td class="num">486</td><td class="num">312</td><td class="num">174</td><td><span class="badge green">已发送 486 条</span></td><td><span class="badge green">已完成</span></td><td><span class="link" onclick="location.href='auto-alloc.html'">执行记录</span></td></tr>
-          <tr><td>ZXJH2026-03-02</td><td>PZ2026-03 · 2026 年第 3 批（放弃释放房源后补充执行）</td><td>2026-09-28 10:00</td><td class="num">174</td><td class="num">16</td><td class="num">158</td><td><span class="badge green">已发送 174 条</span></td><td><span class="badge green">已完成</span></td><td><span class="link" onclick="location.href='auto-alloc.html'">执行记录</span></td></tr>
-          <tr><td>ZXJH2026-03-03</td><td>PZ2026-03 · 2026 年第 3 批（异常件更正后重新匹配）</td><td>2026-10-09 10:00</td><td class="num">6</td><td class="num">5</td><td class="num">1</td><td><span class="badge green">已发送 6 条</span></td><td><span class="badge green">已完成</span></td><td><span class="link" onclick="location.href='exception.html'">异常处理</span></td></tr>
-          <tr><td>ZXJH2026-02-01</td><td>PZ2026-02 · 2026 年第 2 批青年人才公寓配租</td><td>2026-06-18 10:00</td><td class="num">412</td><td class="num">286</td><td class="num">126</td><td><span class="badge green">已发送 412 条</span></td><td><span class="badge green">已完成</span></td><td><span class="link" onclick="location.href='auto-alloc.html'">执行记录</span></td></tr>
+          <tr class="row-warn"><td>XFJH2026-04-01</td><td>PZ2026-04 · 2026 年第 4 批青年人才公寓配租</td><td><span class="muted">公告发布时按顺序号生成</span></td><td><span class="muted">按投放楼盘与户型生成</span></td><td><b>2026-12-16 10:00</b></td><td>24 小时</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td><span class="badge gray">待启动</span></td><td><span class="link" onclick="PMS.openDrawer('zsDrawer')">编排 / 改期</span></td></tr>
+          <tr><td>XFJH2026-03-01</td><td>PZ2026-03 · 2026 年第 3 批（首轮选房）</td><td>顺序号 1—486</td><td>15 个池 · 当前 12 个池各 1 位在选</td><td>2026-09-15 10:00</td><td>24 小时</td><td class="num">304</td><td class="num">274</td><td class="num">18</td><td><span class="badge orange">推送中</span></td><td><span class="link" onclick="location.href='auto-alloc.html'">选房记录</span></td></tr>
+          <tr><td>XFJH2026-03-02</td><td>PZ2026-03 · 2026 年第 3 批（放弃释放房源后续推）</td><td><span class="muted">由当前队列续推</span></td><td>按释放房源所属池</td><td><span class="muted">待编排</span></td><td>24 小时</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td><span class="badge gray">待编排</span></td><td><span class="link" onclick="PMS.openDrawer('zsDrawer')">编排</span></td></tr>
+          <tr><td>XFJH2026-02-01</td><td>PZ2026-02 · 2026 年第 2 批（首轮选房）</td><td>顺序号 1—412</td><td>14 个池</td><td>2026-06-18 10:00</td><td>24 小时</td><td class="num">328</td><td class="num">322</td><td class="num">6</td><td><span class="badge green">已结束</span></td><td><span class="link" onclick="location.href='auto-alloc.html'">选房记录</span></td></tr>
+          <tr><td>XFJH2026-02-02</td><td>PZ2026-02 · 2026 年第 2 批（放弃释放房源后续推）</td><td>顺序号 329—344 · 413—418</td><td>3 个池</td><td>2026-07-02 10:00</td><td>24 小时</td><td class="num">22</td><td class="num">20</td><td class="num">2</td><td><span class="badge green">已结束</span></td><td><span class="link" onclick="location.href='auto-alloc.html'">选房记录</span></td></tr>
         </tbody>
       </table>
     </div>
   </div>
   <div class="grid-2" style="margin-top:12px">
         <div class="sp-block">
-          <div class="sp-h"><i class="fa-solid fa-list"></i> 执行前检查<span class="sub">PZ2026-04 · 距执行 98 天</span></div>
+          <div class="sp-h"><i class="fa-solid fa-list"></i> <span class="proto-t chg">0909 改</span>推送前检查<span class="sub">PZ2026-04 · 距首批推送 98 天</span></div>
           <div class="sp-b">
   <div class="sp-tw">
     <table class="data-table compact">
       <thead><tr><th>检查项</th><th class="cell-lg">检查口径</th><th>当前情况</th><th>处置</th></tr></thead>
       <tbody>
-      <tr><td>参与名单截止</td><td>执行时点前资格审核通过且未配租的申请人自动纳入，<b>无需报名</b></td><td><span class="sp-st doing">自动统计中</span></td><td><span class="link" onclick="location.href='order-list.html'">位次名单</span></td></tr>
-      <tr><td>投放房源冻结</td><td>执行前 1 小时锁定本批次房源池，避免同一房间被重复匹配或被人工占用</td><td><span class="sp-st wait">待执行时自动锁定</span></td><td><span class="link" onclick="location.href='../house/house-status-map.html'">房态图</span></td></tr>
-      <tr class="row-warn"><td><b>在住性别完整率</b></td><td>按间配租房源须已登记在住人性别，缺失的<b>无法参与同套同性别校验</b></td><td><b style="color:var(--lv-orange)">96.2%（缺 4 间）</b></td><td><span class="link" onclick="PMS.toast('已通知运营机构在执行前补齐 4 间在住性别，缺失房间本次不参与按间匹配')">催办补录</span></td></tr>
-      <tr><td>组团成团情况</td><td>组团为线下自愿组合，不发邀请、不需对方确认；成员均通过资格审核且同性别的方可成团，未通过的自动退组、不影响本人配租</td><td>已成团 28 组 / 待成员审核 4 组</td><td><span class="link" onclick="location.href='auto-alloc.html'">组团匹配</span></td></tr>
-      <tr><td>短信模板可用</td><td>配租结果与签约提醒两类模板须已启用，文案待业务部门最终确定</td><td><span class="sp-st wait">占位文案</span></td><td><span class="link" onclick="location.href='../system/msg-tpl.html'">短信模板</span></td></tr>
+      <tr><td><b>待选队列生成</b></td><td>资格审核通过即入库并排定<b>轮候顺序号</b>；公告发布时按顺序号生成本批次待选队列，<b>无需报名</b></td><td><span class="sp-st doing">自动统计中</span></td><td><span class="link" onclick="location.href='order-list.html'">位次名单</span></td></tr>
+      <tr><td><b>房源池划分</b></td><td>按<b>楼盘与户型</b>划分房源池，池内按顺序号依次推送；本人选定范围<b>本批次无投放房源</b>的不推送、<b>顺序号不变</b></td><td>按投放清单自动生成</td><td><span class="link" onclick="location.href='auto-alloc.html'">剩余可选房源</span></td></tr>
+      <tr class="row-warn"><td><b>在住性别完整率</b></td><td>按间投放房源须已登记在住人性别，缺失的<b>无法执行同套同性别校验</b>，该房间暂不进入可选清单</td><td><b style="color:var(--lv-orange)">96.2%（缺 4 间）</b></td><td><span class="link" onclick="PMS.toast('已通知运营机构在首批推送前补齐 4 间在住性别，缺失房间暂不进入可选清单')">催办补录</span></td></tr>
+      <tr><td><b>房间实时锁定</b></td><td>房间一经他人选定<b>即时从其他人的可选清单中移除</b>，同一房间<b>不可能被两人锁定</b>，无需再冻结整个房源池</td><td><span class="sp-st wait">推送时自动生效</span></td><td><span class="link" onclick="location.href='../house/house-status-map.html'">房态图</span></td></tr>
+      <tr><td>组团相邻情况</td><td>组团<b>只影响审批排序</b>，使同组成员办结时间接近、<b>顺序号相邻</b>，轮到时自然能在同一套内挑到相邻房间；系统<b>不预留、不锁定</b>房源</td><td>已成团 28 组 · 组内顺序号相邻 24 组</td><td><span class="link" onclick="location.href='team-list.html'">组团台账</span></td></tr>
+      <tr><td>短信模板可用</td><td><span class="proto-t chg">0909 改</span>配租公告、<b>轮到本人的选房通知</b>、<b>确认时限临近提醒</b>、签约提醒<b>四类</b>模板须已启用，文案待业务部门最终确定</td><td><span class="sp-st wait">占位文案</span></td><td><span class="link" onclick="location.href='../system/msg-tpl.html'">短信模板</span></td></tr>
       </tbody>
     </table>
   </div>
           </div>
         </div>
         <div class="sp-block">
-          <div class="sp-h"><i class="fa-solid fa-list"></i> 执行与通知规则<span class="sub">R-X1 至 R-X5 · 系统自动执行</span></div>
+          <div class="sp-h"><i class="fa-solid fa-list"></i> <span class="proto-t chg">0909 改</span>编排与通知规则<span class="sub">R-X1 至 R-X5 · 按轮候顺序依次推送</span></div>
           <div class="sp-b">
   <div class="sp-tw">
     <table class="data-table compact">
       <thead><tr><th>规则</th><th class="cell-lg">环节</th><th class="cell-lg">口径</th></tr></thead>
       <tbody>
-      <tr><td><b>R-X1</b></td><td><b>执行时间设定</b></td><td>由配租经办角色在<b>配租公告</b>中设定，建议与公告发布间隔不少于 7 日，且不得晚于结果公示起始日；<b>改期须填写说明并留痕</b>，并<b>重新向全部参与人群发短信</b>。<span class="link" onclick="location.href='batch-list.html'">发布配租公告</span></td></tr>
-      <tr><td><b>R-X2</b></td><td><b>到点自动执行</b></td><td>到达设定时间系统<b>自动触发</b>，无需人工点击、<b>无需申请人报名或选房</b>；执行前 1 小时锁定本批次房源池，执行期间同一房间<b>只可能被匹配给一人</b>，不存在重复匹配</td></tr>
-      <tr><td><b>R-X3</b></td><td>逐人匹配口径</td><td>按<b>资格审核通过时间</b>先后逐人匹配，依次校验<b>意向楼盘与户型范围</b>、<b>同套同性别</b>、<b>组团整套预留</b>三项；<b>不采用摇号方式</b>，位次不支持人工调序。<span class="link" onclick="location.href='auto-alloc.html'">四条匹配规则</span></td></tr>
-      <tr><td><b>R-X4</b></td><td><b>结果短信通知</b></td><td>执行完成后自动发送两类短信：成功匹配人告知<b>房源、计租面积、租金标准与运营机构、签约期限 5 个工作日</b>；未匹配人告知<b>当前位次、未匹配原因与等待下一批次</b>。同步推送湘易办站内消息，发送结果逐条留痕，失败自动重试并转人工外呼</td></tr>
-      <tr><td><b>R-X5</b></td><td><b>未匹配与更正</b></td><td>本轮未匹配的<b>保留位次等下一批次</b>，<b>轮候资格不取消</b>；执行结果<b>不支持人工调整</b>，确需更正的走<span class="link" onclick="location.href='exception.html'">配租异常处理</span>审批，回滚后可安排补充执行</td></tr>
+      <tr><td><b>R-X1</b></td><td><b>选房安排编排</b></td><td>由配租经办角色在<b>配租公告</b>中给出选房安排（<b>首批通知推送时间、确认时限、通知方式</b>），建议与公告发布间隔不少于 7 日，便于申请人核对并更新意向楼盘与户型；<b>改期须填写说明并留痕</b>，并重新向<b>尚未推送</b>的申请人告知。<span class="link" onclick="location.href='batch-list.html'">发布配租公告</span></td></tr>
+      <tr><td><b>R-X2</b> <span class="proto-t chg">0909 改</span></td><td><b>依次推送</b><br><span class="muted">不设到点统一放号 · 不设抢房</span></td><td>按<b>轮候顺序号</b>由小到大依次推送，<b>轮到谁通知谁</b>；按<b>楼盘与户型分房源池并行</b>推送、<b>池内严格按顺序号先后</b>，<b>前一位完成选房或超时顺延后自动推送下一位</b>，不需人工逐个触发。同一房源池同一时刻只有一位在选，<b>不存在两人抢同一间房</b>。<span class="link" onclick="location.href='auto-alloc.html'">选房组织</span></td></tr>
+      <tr><td><b>R-X3</b> <span class="proto-t chg">0909 改</span></td><td><b>确认时限</b></td><td>自选房通知<b>推送成功时起算</b>，本期按 <b>24 小时</b>；届满前 <b>4 小时</b>再推送一次<b>临近提醒</b>。时限内完成选房的即时锁定房间并转入签约环节。<span class="proto-t pend">待确认</span>确认时限定多长、是否限制排至末位的次数、多次超时后如何处置，待业务部门明确（<b>Q12</b>）</td></tr>
+      <tr><td><b>R-X4</b> <span class="proto-t chg">0909 改</span></td><td><b>通知内容与渠道</b></td><td>选房通知含<b>本人轮候顺序号</b>、<b>可选楼盘与户型范围</b>、当前可选房间数、<b>确认时限</b>与<b>超时后果</b>；同步推送湘易办站内消息，发送结果逐条留痕，失败自动重试并转人工外呼。<b>不再在公告发布时向全部申请人群发选房通知</b>。<span class="link" onclick="location.href='../../mobile/public/alloc-select.html'">移动端选房页</span></td></tr>
+      <tr><td><b>R-X5</b> <span class="proto-t chg">0909 改</span></td><td><b>超时与无房源</b></td><td>确认时限内未完成选房的<b>由下一顺序人接着选</b>，本人顺序号<b>排至当前队列末位</b>、后方申请人依次前移，资格<b>不作废</b>、<b>不认定为放弃</b>；本人选定范围<b>本批次无投放房源</b>的<b>不推送通知、顺序号不变</b>，等下一批次。<b>已选定房间</b>后逾期未签约、或签约后不办理入住的，<b>才按放弃处理</b>。<span class="link" onclick="location.href='giveup-list.html'">放弃与资格处置</span></td></tr>
       </tbody>
     </table>
   </div>
@@ -117,30 +124,31 @@
         </div>
   </div>
   <div class="sp-src">
-    <span><b>执行方式</b> 公告设定执行时间，<b>到点系统自动配租</b>，无需人工触发，<b>申请人不选房、不报名</b></span>
-    <span><b>匹配口径</b> 按<b>资格审核通过时间</b>逐人匹配，依次校验意向范围、同套同性别、组团整套预留</span>
-    <span><b>结果通知</b> 成功匹配人告知房源与签约安排（<b>5 个工作日</b>），未匹配人告知位次与原因，发送结果逐条留痕</span>
-    <span><b>后续落点</b> <span class="link" onclick="location.href='auto-alloc.html'">自动配租执行与匹配规则</span>　<span class="link" onclick="location.href='queue-list.html'">意向轮候库管理</span>　<span class="link" onclick="location.href='../../mobile/public/alloc-notice.html'">移动端配租公告</span></span>
+    <span><b>推送方式</b> <span class="proto-t chg">0909 改</span>公告给出选房安排，系统<b>按轮候顺序号依次推送选房通知</b>，<b>轮到谁通知谁</b>，申请人在可选范围内自选房间</span>
+    <span><b>不设两种做法</b> 既<b>不设到点统一自动配租</b>，也<b>不设分时放号抢房</b>；房源池内同一时刻只有一位在选，房间一经选定即时移出他人可选清单</span>
+    <span><b>确认时限</b> 自通知推送成功起算 <b>24 小时</b>，届满前 4 小时推送临近提醒；<span class="proto-t pend">待确认</span>时限长短与超时次数限制待业务部门明确（Q12）</span>
+    <span><b>超时处置</b> <b>由下一顺序人接着选</b>，本人<b>顺序号排至队尾</b>、资格不作废、<b>不认定为放弃</b>；本批次范围内无房源的<b>顺序号不变</b></span>
+    <span><b>后续落点</b> <span class="link" onclick="location.href='auto-alloc.html'">选房组织与选房规则</span>　<span class="link" onclick="location.href='queue-list.html'">意向轮候库管理</span>　<span class="link" onclick="location.href='exception.html'">配租异常处理</span>　<span class="link" onclick="location.href='../../mobile/public/alloc-notice.html'">移动端配租公告</span></span>
   </div>
 </main>
 
 <div class="drawer-mask"></div>
 <div class="drawer" id="zsDrawer">
   <div class="drawer-head">
-    <h3>自动配租执行时间设定</h3>
-    <span class="badge gray">待执行</span>
+    <h3>选房时段编排</h3>
+    <span class="badge gray">待启动</span>
     <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
   </div>
   <div class="drawer-body">
-  <div class="alert alert-warning">
-    <i class="fa-solid fa-triangle-exclamation"></i>
-    <div>执行时间以<b>配租公告载明的时间</b>为准。设定或改期后系统<b>重新向本批次全部资格审核通过的申请人群发短信</b>，并在执行前 24 小时再推送一次提醒。<b>已完成执行的批次不可改期</b>。</div>
+  <div class="alert alert-info">
+    <i class="fa-solid fa-pen-to-square"></i>
+    <div><span class="proto-t chg">0909 改</span>本抽屉原为<b>「自动配租执行时间设定」</b>——设定一个执行时点、到点自动配租、并在设定后向全部申请人群发短信。现改为<b>编排选房时段</b>：设定<b>首批通知推送时间</b>与<b>确认时限</b>，此后由系统<b>按轮候顺序号依次推送</b>，<b>不再在编排时向全部申请人群发选房通知</b>；改期只影响<b>尚未推送</b>的申请人，已推送并在时限内的不受影响。</div>
   </div>
 
       <div class="form-grid form-align">
         <div class="form-item">
-          <label>执行计划编号 <span class="req">*</span></label>
-          <input type="text" value="ZXJH2026-04-01" readonly>
+          <label>编排计划编号 <span class="req">*</span></label>
+          <input type="text" value="XFJH2026-04-01" readonly>
         </div>
         <div class="form-item">
           <label>配租批次 <span class="req">*</span></label>
@@ -156,42 +164,53 @@
           <input type="datetime-local" value="2026-12-05T09:00">
         </div>
         <div class="form-item">
-          <label><b>自动配租执行时间</b> <span class="req">*</span></label>
+          <label><b>首批通知推送时间</b> <span class="req">*</span></label>
           <input type="datetime-local" value="2026-12-16T10:00">
-          <div class="hint">建议与公告发布间隔不少于 7 日，且不得晚于结果公示起始日</div>
+          <div class="hint proto chg"><span class="proto-t chg">0909 改</span>原为<b>「自动配租执行时间」</b>（到点系统统一自动配租）。现为<b>按顺序号推送第一位选房通知的时间</b>，此后由系统依次推送，建议与公告发布间隔不少于 7 日</div>
         </div>
         <div class="form-item">
-          <label>执行前提醒 <span class="req">*</span></label>
-          <select><option>执行前 24 小时推送提醒（推荐）</option><option>执行前 48 小时推送提醒</option><option>不再单独提醒</option></select>
+          <label><b>确认时限</b> <span class="req">*</span></label>
+          <select><option>24 小时（本期呈现口径）</option><option>48 小时</option><option>3 个自然日</option></select>
+          <div class="hint proto pend"><span class="proto-t pend">待确认</span>自通知推送成功时起算；时限长短、<b>是否限制排至末位的次数</b>待业务部门明确（<b>Q12</b>）</div>
         </div>
         <div class="form-item">
-          <label>房源池锁定 <span class="req">*</span></label>
-          <input type="text" value="执行前 1 小时自动锁定，执行完成后解锁" readonly>
-          <div class="hint">锁定期间不可人工占用或调整本批次房源</div>
+          <label>时限临近提醒 <span class="req">*</span></label>
+          <select><option>届满前 4 小时推送提醒（推荐）</option><option>届满前 2 小时推送提醒</option><option>届满前 8 小时推送提醒</option><option>不再单独提醒</option></select>
+          <div class="hint">提醒渠道与选房通知一致：短信 + 湘易办站内消息，发送结果逐条留痕</div>
         </div>
         <div class="form-item">
-          <label>排序口径 <span class="req">*</span></label>
-          <input type="text" value="按资格审核通过时间先后（后台参数，可切换为按申请受理时间）" readonly>
-          <div class="hint"><span class="link" onclick="location.href='auto-alloc.html'">匹配规则与排序口径</span></div>
+          <label><b>房源池划分</b> <span class="req">*</span></label>
+          <input type="text" value="按楼盘 + 户型划分，池内按轮候顺序号依次推送" readonly>
+          <div class="hint proto chg"><span class="proto-t chg">0909 改</span>原为<b>「执行前 1 小时锁定本批次房源池」</b>。改为自选后不需整池冻结：<b>房间一经选定即时移出其他人的可选清单</b>，同一房间不可能被两人锁定</div>
+        </div>
+        <div class="form-item">
+          <label><b>轮候顺序号生成口径</b> <span class="req">*</span></label>
+          <input type="text" value="资格审核通过时即生成，按资格审核通过时间先后排定（后台参数，可切换为按申请受理时间）" readonly>
+          <div class="hint"><span class="link" onclick="location.href='auto-alloc.html'">选房可选范围与顺序规则</span>　<span class="link" onclick="location.href='queue-list.html'">意向轮候库管理</span></div>
         </div>
         <div class="form-item">
           <label>签约期限（工作日） <span class="req">*</span></label>
           <input type="text" value="5" readonly>
-          <div class="hint">随配租结果短信一并告知；逾期未签约且无正当理由的按放弃处理</div>
+          <div class="hint">自<b>选定房间</b>次日起算，随选房结果一并告知；已选定房间后逾期未签约且无正当理由的按放弃处理</div>
         </div>
         <div class="form-item">
-          <label>参与人数（预估） <span class="req">*</span></label>
-          <input type="text" value="按执行时点资格审核通过且未配租的人数自动统计" readonly>
+          <label>待选队列（预估） <span class="req">*</span></label>
+          <input type="text" value="按公告发布时点资格审核通过且未配租的人数，扣除本批次范围内无投放房源的人数后自动生成" readonly>
+        </div>
+        <div class="form-item">
+          <label>超时未选的处置 <span class="req">*</span></label>
+          <input type="text" value="由下一顺序人接着选，本人顺序号排至当前队列末位（不认定为放弃）" readonly>
+          <div class="hint">顺序号每次变动记录<b>变动时间、原位次、新位次与原因</b>，个人端与经办端均可查看变动轨迹</div>
         </div>
         <div class="form-item col-full">
-          <label>设定 / 改期说明 <span class="req">*</span></label>
-          <textarea rows="3" placeholder="必填，说明设定或改期原因。改期后将重新向全部参与人群发短信">按 2026 年第 4 批配租公告安排，自动配租执行时间设定为 2026 年 12 月 16 日 10:00，与公告发布间隔 11 日，便于申请人核对并更新意向楼盘与户型。执行时间与签约期限已写入公告正文与群发短信文案。</textarea>
+          <label>编排 / 改期说明 <span class="req">*</span></label>
+          <textarea rows="3" placeholder="必填，说明编排或改期原因。改期后将重新向尚未推送的申请人告知">按 2026 年第 4 批配租公告安排，首批选房通知推送时间编排为 2026 年 12 月 16 日 10:00，与公告发布间隔 11 日，便于申请人核对并更新意向楼盘与户型。确认时限暂按 24 小时，届满前 4 小时推送临近提醒。选房安排与超时后果已写入公告正文与选房通知文案。</textarea>
         </div>
       </div>
   </div>
   <div class="drawer-foot">
     <button class="btn" data-close-drawer>取消</button>
-    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认将 PZ2026-04 的自动配租执行时间设定为 2026-12-16 10:00？',detail:'保存后系统将重新向本批次全部资格审核通过的申请人群发短信，并在执行前 24 小时推送提醒。到点系统自动执行配租，申请人不选房、不报名。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('执行时间已设定，已向资格审核通过的申请人群发短信','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认将 PZ2026-04 的首批选房通知推送时间编排为 2026-12-16 10:00？',detail:'保存后系统在该时点按轮候顺序号向各房源池的第一位申请人推送选房通知，此后前一位完成选房或超时顺延即自动推送下一位。确认时限 24 小时，届满前 4 小时推送临近提醒。不再在编排时向全部申请人群发选房通知。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('选房时段已编排，将于 2026-12-16 10:00 按顺序号开始推送','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
   </div>
 </div>
 <script>

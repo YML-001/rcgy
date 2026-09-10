@@ -19,50 +19,57 @@
       <span class="sep">/</span> <span class="cur">顺序配租名单</span>
     </div>
     <div class="page-actions">
-      <button class="btn btn-primary" onclick="PMS.confirm({title:'导出确认',message:'确认导出本批次配租位次名单用于公示？',detail:'名单按 R-A1 资格审核通过时间顺序生成，不采用摇号方式。导出名单中配租对象姓名按姓 + ×× 脱敏，不含联系方式与身份证号。导出记录留痕。',type:'info',okText:'确认导出',onOk:function(){PMS.toast('公示名单已导出','success');}})"><i class="fa-solid fa-download"></i> 导出公示名单</button>
-      <a class="btn" href="auto-alloc.html"><i class="fa-solid fa-wand-magic-sparkles"></i> 自动配租执行</a>
+      <button class="btn btn-primary" onclick="PMS.confirm({title:'导出确认',message:'确认导出本批次配租位次名单用于公示？',detail:'名单以轮候顺序号为主键，按 R-A1 资格审核通过时间先后排定，不采用摇号方式。导出内容含轮候顺序号、轮候编号、审核通过时间、意向楼盘与户型、选房结果与顺序号变动轨迹。配租对象姓名按姓 + ×× 脱敏，不含联系方式与身份证号。导出记录留痕。',type:'info',okText:'确认导出',onOk:function(){PMS.toast('公示名单已导出（含轮候顺序号与变动轨迹）','success');}})"><i class="fa-solid fa-download"></i> 导出公示名单</button>
+      <a class="btn" href="auto-alloc.html"><i class="fa-solid fa-hand-pointer"></i> 选房组织</a>
+      <a class="btn" href="queue-list.html"><i class="fa-solid fa-hourglass-half"></i> 意向轮候库</a>
       <a class="btn" href="../house/book-manage.html"><i class="fa-solid fa-clipboard-list"></i> 意向登记管理</a>
       <a class="btn" href="../rule/result-open.html"><i class="fa-solid fa-bullhorn"></i> 配租结果公开</a>
     </div>
   </div>
 
+  <div class="alert alert-info">
+    <i class="fa-solid fa-pen-to-square"></i>
+    <div><span class="proto-t chg">0909 改</span>本页原以<b>「位次」</b>为主键列，展示系统<b>自动匹配</b>的排序结果与细分排序依据（特殊人才、家庭申请、学历层次）。本轮按 9 月 9 日配租逻辑讨论结论改造：一是列表主键改为<b>轮候顺序号</b>（资格审核通过即生成，格式如 <b>LH2026-0012</b>，顺序号即当前轮候位次），<b>本期只按资格审核通过时间这一个维度排序</b>，同一时点的按<b>申请编号</b>先后，原 R-A2 特殊人才、R-A3 家庭申请、R-A4 学历层次三项<b>已取消</b>（原 R-A5 申请编号保留为新的 R-A2）；二是新增<b>顺序号变动轨迹</b>（原位次、新位次、变动原因、变动时间）；三是新增<b>同套性别锁定情况</b>列，显示该套已定性别与剩余可选房间对哪个性别开放；四是原「匹配结果」「细分排序依据」改为<b>选房通知与确认时限</b>、<b>本人选定的房间</b>。对应《系统原型调整计划（0909 会议）》<b>C03、C09</b>。</div>
+  </div>
+
   <div class="alert alert-warning">
     <i class="fa-solid fa-triangle-exclamation"></i>
-    <div>按<b>资格审核通过时间</b>自动生成配租位次名单，<b>不采用摇号方式确定顺序</b>；同一审核通过时间的按规则细分排序（R-A2 至 R-A5），<b>名单可导出公示</b>。<b>意向登记不产生配租权利、不作为排序依据</b>；本批次<b>不设报名环节</b>，资格审核通过即自动纳入。位次生成时间与规则公开可回溯，<b>不支持手工调序</b>。</div>
+    <div>以<b>轮候顺序号</b>为主键按<b>资格审核通过时间</b>先后自动排定，<b>不采用摇号方式</b>、<b>不支持手工调序</b>，名单与排位规则公开可回溯、<b>可导出公示</b>。系统按顺序号<b>依次推送选房通知</b>，申请人在本人选定的楼盘与户型范围内<b>自选房间</b>；<b>确认时限内未完成选房的顺序号排至当前队列末位</b>、后方依次前移，<b>不认定为放弃</b>；本人选定范围本批次<b>无投放房源</b>的<b>顺序号不变</b>。<b>意向登记不产生配租权利、不作为排序依据</b>；本批次<b>不设报名环节</b>，资格审核通过即自动纳入待选队列。</div>
   </div>
 
   <div class="stat-grid">
     <div class="stat-card">
       <div class="s-icon blue"><i class="fa-solid fa-list-ol"></i></div>
-      <div><div class="s-label">本批次参与人数</div><div class="s-value">486</div>
+      <div><div class="s-label">本批次待选人数</div><div class="s-value">486</div>
         <div class="s-trend text-2">PZ2026-03 · 资格审核通过 · 无需报名</div></div>
     </div>
     <div class="stat-card">
       <div class="s-icon green"><i class="fa-solid fa-key"></i></div>
       <div><div class="s-label">可安置人数</div><div class="s-value">386</div>
-        <div class="s-trend text-2">投放 320 间 · 位次 1—386 优先匹配</div></div>
+        <div class="s-trend text-2">投放 320 套 · 顺序号 1—386 预计可选到</div></div>
     </div>
     <div class="stat-card">
       <div class="s-icon orange"><i class="fa-solid fa-hourglass-half"></i></div>
-      <div><div class="s-label">预计未匹配</div><div class="s-value">100</div>
-        <div class="s-trend text-2">位次 387 起 · 保留位次等下一批次</div></div>
+      <div><div class="s-label">预计未选到房源</div><div class="s-value">100</div>
+        <div class="s-trend text-2">顺序号 387 起 · 顺序号不变等下一批次</div></div>
     </div>
-    <div class="stat-card">
-      <div class="s-icon cyan"><i class="fa-solid fa-clock"></i></div>
-      <div><div class="s-label">名单生成时间</div><div class="s-value">09-14 18:00</div>
-        <div class="s-trend text-2">公开可回溯</div></div>
+    <div class="stat-card dc-alarm">
+      <div class="s-icon cyan"><i class="fa-solid fa-arrow-down-long"></i></div>
+      <div><div class="s-label"><span class="proto-t chg">0909 改</span>顺序号变动</div><div class="s-value">18</div>
+        <div class="s-trend ">超时未选排至队尾 · 后方依次前移</div></div>
     </div>
   </div>
 
   <div class="card list-card">
     <div class="filter-bar">
-      <div class="filter-item"><label>位次</label><input type="text" placeholder="位次"></div>
+      <div class="filter-item"><label><span class="proto-t chg">0909 改</span>轮候顺序号</label><input type="text" placeholder="轮候顺序号"></div>
+      <div class="filter-item"><label>轮候编号</label><input type="text" placeholder="如 LH2026-0012"></div>
       <div class="filter-item"><label>申请人</label><input type="text" placeholder="姓名"></div>
       <div class="filter-item"><label>申请编号</label><input type="text" placeholder="申请编号"></div>
       <div class="filter-item"><label>意向楼盘</label><select><option value="">全部</option><option>湘江1958 人才公寓</option><option>栗雨佳苑人才公寓</option><option>茨菇塘公寓</option><option>董家塅安居苑</option><option>清水塘新苑</option><option>云龙人才苑</option></select></div>
       <div class="filter-item"><label>意向户型</label><select data-dict="roomType" data-ph="全部"></select></div>
-      <div class="filter-item"><label>是否组团</label><select><option value="">全部</option><option>三人组团</option><option>两人组团</option><option>单人配租</option></select></div>
-      <div class="filter-item"><label>配租状态</label><select><option value="">全部</option><option>待自动配租</option><option>已匹配待签约</option><option>已签约</option><option>本轮未匹配</option><option>已放弃</option></select></div>
+      <div class="filter-item"><label>选房状态</label><select><option value="">全部</option><option>待通知</option><option>当前轮到</option><option>已选定待签约</option><option>已签约</option><option>超时顺延</option><option>本批次范围内无房源</option><option>已放弃</option></select></div>
+      <div class="filter-item"><label><span class="proto-t chg">0909 改</span>顺序号变动</label><select><option value="">全部</option><option>无变动</option><option>超时未选，排至队尾</option><option>超时重排后位次</option><option>已完成选房出队</option></select></div>
       <div class="filter-actions">
         <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
         <button class="btn" onclick="PMS.toast('已重置查询条件')">重置</button>
@@ -72,61 +79,82 @@
     <div class="table-wrap">
       <table class="data-table">
         <thead>
-          <tr><th class="num">位次</th><th>申请编号</th><th>申请人</th><th>申请类型</th><th>审核通过时间</th><th class="cell-lg">细分排序依据</th><th class="cell-lg">意向楼盘与户型</th><th>是否组团</th><th class="cell-lg">同套同性别校验</th><th>配租状态</th><th>操作</th></tr>
+          <tr><th class="num"><span class="proto-t chg">0909 改</span>轮候顺序号</th><th><span class="proto-t chg">0909 改</span>轮候编号</th><th>申请编号</th><th>申请人</th><th>资格审核通过时间<br><span class="muted">排位依据</span></th><th class="cell-lg">意向楼盘与户型</th><th class="cell-lg"><span class="proto-t chg">0909 改</span>选房通知与确认时限</th><th class="cell-lg"><span class="proto-t chg">0909 改</span>本人选定的房间</th><th class="cell-lg"><span class="proto-t chg">0909 改</span>同套性别锁定情况</th><th class="cell-lg"><span class="proto-t chg">0909 改</span>顺序号变动轨迹</th><th>选房状态</th><th>操作</th></tr>
         </thead>
         <tbody>
-          <tr><td class="num">1</td><td>RC2026-0901-0102</td><td>李××</td><td><span class="badge orange">特殊</span></td><td>2026-09-01 09:02</td><td><b>R-A1 资格审核通过时间</b>排序（本批次首位）</td><td>湘江1958 人才公寓 · 一室一厅</td><td><span class="badge gray">单人</span></td><td><span class="badge gray">整套配租，不涉及</span></td><td><span class="badge green">已签约</span></td><td><span class="link" onclick="location.href='contract-list.html'">合同</span></td></tr>
-          <tr><td class="num">2</td><td>RC2026-0901-0108</td><td>谭××</td><td><span class="badge blue">就业</span></td><td>2026-09-01 09:16</td><td>R-A1 资格审核通过时间排序</td><td>栗雨佳苑人才公寓 · 二室一厅</td><td><span class="badge gray">单人</span></td><td><span class="badge green">通过</span>　3-1206 在住人为男性，与本人一致</td><td><span class="badge cyan">已匹配待签约</span></td><td><span class="link" onclick="location.href='auto-alloc.html'">匹配明细</span></td></tr>
-          <tr><td class="num">6</td><td>RC2026-0902-0118</td><td>李××</td><td><span class="badge blue">就业</span></td><td>2026-09-02 10:26</td><td>R-A1 资格审核通过时间排序；<b>组团整组按组内最靠后位次 11 参与排序</b></td><td>湘江1958 人才公寓 · 三室一厅</td><td><span class="badge purple">三人组 ZT2026-0031</span></td><td><span class="badge green">通过</span>　组内三人同为男性，整组匹配 A3-1108</td><td><span class="badge cyan">已匹配待签约</span></td><td><span class="link" onclick="location.href='auto-alloc.html'">匹配明细</span></td></tr>
-          <tr><td class="num">9</td><td>RC2026-0902-0126</td><td>邓××</td><td><span class="badge blue">就业</span></td><td>2026-09-02 14:32</td><td>R-A1 资格审核通过时间排序；<b>同属三人组 ZT2026-0031</b></td><td>湘江1958 人才公寓 · 三室一厅</td><td><span class="badge purple">三人组 ZT2026-0031</span></td><td><span class="badge green">通过</span>　组内三人同为男性</td><td><span class="badge cyan">已匹配待签约</span></td><td><span class="link" onclick="location.href='auto-alloc.html'">匹配明细</span></td></tr>
-          <tr class="row-warn"><td class="num">11</td><td>RC2026-0902-0134</td><td>周××</td><td><span class="badge blue">就业</span></td><td>2026-09-02 16:38</td><td>R-A1 排序；审核通过时间相同 → <b>R-A3 家庭申请优先</b>；<b>组内最靠后位次，整组按 11 位排序</b></td><td>湘江1958 人才公寓 · 三室一厅</td><td><span class="badge purple">三人组 ZT2026-0031</span></td><td><span class="badge green">通过</span>　组内三人同为男性</td><td><span class="badge cyan">已匹配待签约</span></td><td><span class="link" onclick="location.href='auto-alloc.html'">匹配明细</span></td></tr>
-          <tr class="row-warn"><td class="num">132</td><td>RC2026-0905-0286</td><td>肖××</td><td><span class="badge cyan">创业</span></td><td>2026-09-05 15:06</td><td>R-A1 资格审核通过时间排序</td><td>清水塘新苑 · 二室一厅</td><td><span class="badge gray">单人</span></td><td><span class="badge red">不通过</span>　意向范围内仅剩 1-0708 次卧，该套在住人为女性，本人性别男（身份证号自动识别），<b>异性占用房间已直接排除</b></td><td><span class="badge orange">本轮未匹配</span></td><td><span class="link" onclick="location.href='exception.html'">异常处理</span></td></tr>
-          <tr><td class="num">386</td><td>RC2026-0910-0462</td><td>唐××</td><td><span class="badge blue">就业</span></td><td>2026-09-10 15:22</td><td>R-A1 资格审核通过时间排序（可安置末位）</td><td>茨菇塘公寓 · 一室一厅</td><td><span class="badge gray">单人</span></td><td><span class="badge gray">整套配租，不涉及</span></td><td><span class="badge cyan">已匹配待签约</span></td><td><span class="link" onclick="location.href='auto-alloc.html'">匹配明细</span></td></tr>
-          <tr class="row-warn"><td class="num">387</td><td>RC2026-0910-0468</td><td>龙××</td><td><span class="badge blue">就业</span></td><td>2026-09-10 15:26</td><td>R-A1 资格审核通过时间排序（超出可安置人数）</td><td>云龙人才苑 · 单间配套</td><td><span class="badge gray">单人</span></td><td><span class="badge gray">本轮未参与匹配</span></td><td><span class="badge gray">本轮未匹配</span></td><td><span class="link" onclick="location.href='queue-list.html'">轮候库</span></td></tr>
+          <tr><td class="num">9</td><td>LH2026-0009</td><td>RC2026-0901-0102</td><td>陈××</td><td>2026-09-01 09:02</td><td>湘江1958 人才公寓 · 三室一厅按间</td><td>2026-09-15 10:02 推送<br><span class="muted">时限 09-16 10:02 · 用时 9 分钟</span></td><td>A6 栋 1502 室 <b>1502-01 号房间</b>（主卧）</td><td>选定时<b>整套空置</b>，男女都可选；本人男，选定后本套<b>其余 2 间只对男性开放</b></td><td><span class="muted">无变动（9）</span></td><td><span class="badge green">已签约</span></td><td><span class="link" onclick="location.href='contract-list.html'">合同</span></td></tr>
+          <tr><td class="num">12</td><td><b>LH2026-0012</b></td><td>RC2026-0905-0186</td><td>王××</td><td>2026-09-05 09:15</td><td>湘江1958 人才公寓 · 三室一厅按间</td><td>2026-09-15 10:06 推送<br><span class="muted">时限 09-16 10:06 · 用时 17 分钟</span></td><td>A6 栋 1502 室 <b>1502-02 号房间</b>（次卧 · 计租 26.70 ㎡）</td><td>本套<b>已定男性</b>（1502-01 号房间已由陈×× 选定）；本人男，校验通过。剩余 <b>1502-03 号房间只对男性开放</b></td><td><span class="muted">无变动（12）</span></td><td><span class="badge cyan">已选定待签约</span></td><td><span class="link" onclick="location.href='auto-alloc.html'">选房记录</span></td></tr>
+          <tr><td class="num">24</td><td>LH2026-0024</td><td>RC2026-0905-0208</td><td>谭××</td><td>2026-09-05 10:42</td><td>栗雨佳苑人才公寓 · 二室一厅按间</td><td>2026-09-15 11:20 推送<br><span class="muted">时限 09-16 11:20 · 用时 22 分钟</span></td><td>3 栋 1206 室 <b>1206-01 号房间</b>（主卧）</td><td>选定时整套空置；本人男，选定后 <b>1206-02 号房间只对男性开放</b></td><td><span class="muted">无变动（24）</span></td><td><span class="badge green">已签约</span></td><td><span class="link" onclick="location.href='contract-list.html'">合同</span></td></tr>
+          <tr class="row-warn"><td class="num">42</td><td>LH2026-0042</td><td>RC2026-0905-0286</td><td>肖××</td><td>2026-09-05 15:06</td><td>栗雨佳苑人才公寓 · 三室一厅按间</td><td>2026-09-16 14:20 推送<br><span class="muted">时限 09-17 14:20 · 用时 41 分钟</span></td><td>5 栋 0602 室 <b>0602-03 号房间</b>（次卧）</td><td>推送时范围内共 7 间，其中 <b>5 栋 0808 室 2 间</b>因该套在住人为<b>女性</b>、本人男（身份证号自动识别）<b>未对本人开放</b>；实际可选 5 间</td><td><span class="muted">无变动（42）</span></td><td><span class="badge cyan">已选定待签约</span></td><td><span class="link" onclick="location.href='exception.html'">异常记录</span></td></tr>
+          <tr class="row-bad"><td class="num">28</td><td>LH2026-0028</td><td>RC2026-0905-0224</td><td>龙××</td><td>2026-09-05 11:20</td><td>云龙人才苑 · 单间配套</td><td>2026-09-16 09:40 推送<br><b style="color:var(--danger)">时限 09-17 09:40 已过</b></td><td><span class="muted">未在时限内选房</span></td><td><span class="badge gray">整套配租，不涉及</span></td><td><b>28 → 487</b>　排至当前队列末位<br><span class="muted">2026-09-17 09:40 · 确认时限内未完成选房；原位次 29—486 依次前移 1 位</span></td><td><span class="badge orange">超时顺延</span></td><td><span class="link" onclick="PMS.toast('确认时限内未完成选房，已由下一顺序人接着选；本人轮候顺序号排至当前队列末位 487，资格不作废、不认定为放弃，轮到时重新推送通知')">变动留痕</span></td></tr>
+          <tr class="row-warn"><td class="num">36</td><td>LH2026-0036</td><td>RC2026-0905-0248</td><td>邓××</td><td>2026-09-05 13:26</td><td>清水塘新苑 · 三室一厅</td><td><span class="muted">本批次不推送</span><br><span class="muted">选定范围本批次无投放房源</span></td><td><span class="muted">—</span></td><td><span class="badge gray">未进入选房，不涉及</span></td><td><b>36 → 36</b>　<b>顺序号不变</b><br><span class="muted">2026-09-13 10:02 · 本人选定的楼盘与户型本批次未投放，等下一批次；本期不跨楼盘调剂</span></td><td><span class="badge blue">本批次范围内无房源</span></td><td><span class="link" onclick="location.href='queue-list.html'">轮候库</span></td></tr>
+          <tr class="row-warn"><td class="num">297</td><td>LH2026-0297</td><td>RC2026-0908-0342</td><td>周××</td><td>2026-09-08 10:26</td><td>湘江1958 人才公寓 · 一室一厅整套</td><td>2026-10-06 09:40 推送<br><b style="color:var(--lv-orange)">时限 10-07 09:40（剩 21:36）</b></td><td><span class="muted">正在选房，该房源池当前可选 21 套</span></td><td><span class="badge gray">整套配租，不涉及</span></td><td><span class="muted">无变动（297）</span></td><td><span class="badge orange">当前轮到</span></td><td><span class="link" onclick="location.href='auto-alloc.html'">选房记录</span></td></tr>
+          <tr><td class="num">387</td><td>LH2026-0387</td><td>RC2026-0912-0462</td><td>唐××</td><td>2026-09-12 15:22</td><td>茨菇塘公寓 · 一室一厅</td><td><span class="muted">待推送</span><br><span class="muted">前方待选 79 人</span></td><td><span class="muted">—</span></td><td><span class="badge gray">整套配租，不涉及</span></td><td><span class="muted">无变动（387）</span></td><td><span class="badge gray">待通知</span></td><td><span class="link" onclick="PMS.toast('顺序号 387 超出本批次可安置人数 386 人，若本批次房源选完仍未轮到，轮候顺序号不变、等下一批次')">轮候提示</span></td></tr>
+          <tr class="row-warn"><td class="num">487</td><td>LH2026-0028</td><td>RC2026-0905-0224</td><td>龙××</td><td>2026-09-05 11:20</td><td>云龙人才苑 · 单间配套</td><td><span class="muted">待重新通知</span></td><td><span class="muted">—</span></td><td><span class="badge gray">整套配租，不涉及</span></td><td><b>28 → 487</b>　超时重排后位次<br><span class="muted">资格不作废、<b>不认定为放弃</b>，轮到时重新推送通知</span></td><td><span class="badge gray">待通知</span></td><td><span class="link" onclick="location.href='queue-list.html'">轮候库</span></td></tr>
         </tbody>
       </table>
     </div>
   </div>
         <div class="sp-block" style="margin-top:12px">
-          <div class="sp-h"><i class="fa-solid fa-list"></i> 配租排序规则<span class="sub">R-A1 至 R-A5 · 顺序固定 · 不摇号 · 意向登记不作为排序依据</span></div>
+          <div class="sp-h"><i class="fa-solid fa-arrow-down-long"></i> <span class="proto-t chg">0909 改</span>顺序号变动台账<span class="sub">PZ2026-03 · 每次变动记录变动时间、原位次、新位次与原因 · 本批次累计 18 例超时顺延</span></div>
+          <div class="sp-b">
+  <div class="sp-tw">
+    <table class="data-table compact">
+      <thead><tr><th>变动时间</th><th>轮候编号</th><th>申请人</th><th class="num">原位次</th><th class="num">新位次</th><th class="cell-lg">变动原因</th><th class="cell-lg">对后方申请人的影响</th><th>操作</th></tr></thead>
+      <tbody>
+      <tr><td>2026-09-05 09:15</td><td><b>LH2026-0012</b></td><td>王××</td><td class="num"><span class="muted">—</span></td><td class="num">12</td><td><b>资格审核通过入库</b>，按资格审核通过时间先后<b>首次排定顺序号</b>；同一时点的按申请编号先后</td><td><span class="muted">无影响</span></td><td><span class="link" onclick="location.href='queue-list.html'">入库记录</span></td></tr>
+      <tr><td>2026-09-13 10:02</td><td>LH2026-0036</td><td>邓××</td><td class="num">36</td><td class="num">36</td><td><b>本批次范围内无房源</b>：本人选定的清水塘新苑三室一厅本批次未投放，<b>不推送选房通知、顺序号不变</b>，等下一批次</td><td><span class="muted">无影响</span>　<span class="muted">不占用本批次名额</span></td><td><span class="link" onclick="location.href='queue-list.html'">轮候库</span></td></tr>
+      <tr><td>2026-09-15 10:23</td><td><b>LH2026-0012</b></td><td>王××</td><td class="num">12</td><td class="num"><span class="muted">出队</span></td><td><b>已完成选房并锁定房间</b>，转入签约环节，从待选队列出队</td><td>后方申请人依次前移 1 位</td><td><span class="link" onclick="location.href='auto-alloc.html'">选房记录</span></td></tr>
+      <tr class="row-warn"><td>2026-09-17 09:40</td><td>LH2026-0028</td><td>龙××</td><td class="num">28</td><td class="num">487</td><td><b>超时未选</b>：已推送选房通知但确认时限内未完成选房，由下一顺序人接着选，<b>顺序号排至当前队列末位</b>；资格不作废、<b>不认定为放弃</b></td><td>原位次 29—486 <b>依次前移 1 位</b></td><td><span class="link" onclick="location.href='giveup-list.html'">处置口径</span></td></tr>
+      <tr class="row-warn"><td>2026-09-18 11:20</td><td>LH2026-0051</td><td>彭××</td><td class="num">51</td><td class="num">488</td><td><b>超时未选</b>（本批次第 2 例）：确认时限 24 小时内未完成选房</td><td>原位次 52—486 依次前移 1 位</td><td><span class="link" onclick="location.href='giveup-list.html'">处置口径</span></td></tr>
+      <tr class="row-warn"><td>2026-10-02 16:08</td><td>LH2026-0212</td><td>侯××</td><td class="num">212</td><td class="num">504</td><td><b>超时未选</b>（本批次第 18 例）：确认时限 24 小时内未完成选房</td><td>原位次 213—486 依次前移 1 位</td><td><span class="link" onclick="location.href='giveup-list.html'">处置口径</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="hint" style="margin-top:10px"><i class="fa-solid fa-circle-info"></i> 变动台账<b>只记录、不允许人工修改顺序号</b>；个人端在「我的轮候顺序号」页可查看本人的同一份变动轨迹<span class="link" onclick="location.href='../../mobile/public/alloc-order.html'">移动端轮候顺序号</span>。<span class="proto-t pend">待确认</span>是否限制<b>排至末位的次数</b>、多次超时后如何处置，待业务部门明确（<b>Q12</b>）</p>
+          </div>
+        </div>
+        <div class="sp-block" style="margin-top:12px">
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 配租排序规则<span class="sub">R-A1 至 R-A4 · <span class="proto-t chg">0909 改</span>本期只按资格审核通过时间一个维度 · 不摇号 · 意向登记不作为排序依据</span></div>
           <div class="sp-b">
   <div class="sp-tw">
     <table class="data-table compact">
       <thead><tr><th>优先级</th><th class="cell-lg">比较项</th><th class="cell-lg">判定说明</th></tr></thead>
       <tbody>
-      <tr><td><b>R-A1</b></td><td><b>资格审核通过时间</b></td><td>以审核结论生成的<b>审核通过时间戳</b>先后排序，精确到分秒；<b>补正后重新提交的不改变原审核通过时间</b>。<b>全程按顺序排定，不采用摇号方式</b>。本项为后台参数，可切换为按<b>申请受理时间</b>——管理办法原文为“按照申请顺序进行配租”，<b>口径待业务部门确认</b>。<span class="link" onclick="location.href='auto-alloc.html'">排序口径配置</span></td></tr>
-      <tr><td><b>R-A2</b></td><td>特殊人才优先</td><td>审核通过时间相同时，属于免毕业年限特殊人才（中层以上管理 / 中级以上职称 / 高级技师且 35 周岁以下）的优先</td></tr>
-      <tr><td><b>R-A3</b></td><td>家庭申请优先</td><td>再相同时，已婚且夫妻双方均符合条件的家庭申请优先（只占用一套房源指标）</td></tr>
-      <tr><td><b>R-A4</b></td><td>学历层次</td><td>再相同时，按博士、硕士、本科、大专顺序排列</td></tr>
-      <tr><td><b>R-A5</b></td><td>申请编号</td><td>全部相同时按申请编号升序，<b>保证排序结果唯一且可复现</b></td></tr>
-      <tr><td><b>R-A6</b></td><td><b>组团整组位次</b></td><td>成团的<b>整组按组内最靠后的位次</b>参与排序，避免搭车插队；组内成员各自位次不变，匹配不到整套的拆开按单人配租。<span class="link" onclick="location.href='auto-alloc.html'">组团整套预留规则</span></td></tr>
+      <tr><td><b>R-A1</b></td><td><b>资格审核通过时间</b><br><span class="muted">生成轮候顺序号</span></td><td>以审核结论生成的<b>审核通过时间戳</b>先后排定<b>轮候顺序号</b>，精确到分秒；<b>资格审核通过即入库并排定顺序号</b>，顺序号即当前轮候位次。<b>补正后重新提交的不改变原审核通过时间</b>。<b>全程按顺序排定，不采用摇号方式</b>。本项为后台参数，可切换为按<b>申请受理时间</b>。<span class="proto-t pend">待确认</span>管理办法原文为“按照申请顺序进行配租”，两种口径的取舍待业务部门明确（<b>Q13</b>）。<span class="link" onclick="location.href='auto-alloc.html'">排序口径配置</span></td></tr>
+      <tr><td><b>R-A2</b> <span class="proto-t chg">0909 改</span></td><td><b>申请编号</b><br><span class="muted">同一时点的唯一细分项</span></td><td>资格审核通过时间<b>完全相同</b>时按<b>申请编号</b>升序，<b>保证排序结果唯一且可复现</b>。<b>本期只按资格审核通过时间这一个维度排序</b>，<b>不引入人才层次等其他维度</b>——原 R-A2 特殊人才优先、R-A3 家庭申请优先、R-A4 学历层次三项<b>本轮取消</b>（<b>C09</b>、<b>Q13</b>）</td></tr>
+      <tr><td><b>R-A3</b> <span class="proto-t chg">0909 改</span></td><td><b>顺序号变动</b><br><span class="muted">超时排至队尾 / 无房源不变</span></td><td>已推送选房通知但<b>确认时限内未完成选房</b>的，由下一顺序人接着选，本人顺序号<b>重排至当前队列末位</b>、后方申请人<b>依次前移</b>，资格不作废、<b>不认定为放弃</b>；本人选定范围<b>本批次无投放房源</b>、<b>未推送通知</b>的，<b>顺序号不变</b>，等下一批次。两种情形<b>台账分开记录</b>，每次变动记录<b>变动时间、原位次、新位次与原因</b>。<span class="link" onclick="location.href='giveup-list.html'">放弃与资格处置</span></td></tr>
+      <tr><td><b>R-A4</b> <span class="proto-t chg">0909 改</span></td><td><b>组团</b><br><span class="muted">审批相邻 · 不预留不锁定</span></td><td>组团<b>只影响审批排序</b>，使同组成员办结时间接近、<b>轮候顺序号相邻</b>，轮到时自然能在同一套内挑到相邻房间；系统<b>不预留、不锁定房源</b>，也<b>不保证一定住进同一套</b>。原「整组按组内最靠后位次参与排序 + 整套预留、整组锁定」是为自动匹配设计的算法，<b>本轮取消</b>（<b>C06</b>）。成员须<b>同性别</b>，成团人数上限为该户型的间数。<span class="link" onclick="location.href='team-list.html'">组团台账</span></td></tr>
       </tbody>
     </table>
   </div>
           </div>
         </div>
         <div class="sp-block" style="margin-top:12px">
-          <div class="sp-h"><i class="fa-solid fa-venus-mars"></i> 同套同性别校验<span class="sub">P08 · 本期强制执行 · 不设开关</span></div>
+          <div class="sp-h"><i class="fa-solid fa-venus-mars"></i> <span class="proto-t chg">0909 改</span>同套同性别锁定情况<span class="sub">P08 · 本期强制执行 · 不设开关 · PZ2026-03 多居室 36 套</span></div>
           <div class="sp-b">
   <div class="sp-tw">
     <table class="data-table compact">
       <thead><tr><th>校验项</th><th class="cell-lg">口径</th><th>本批次情况</th></tr></thead>
       <tbody>
-      <tr><td><b>性别取值</b></td><td>由<b>身份证号第 17 位自动识别</b>，不需人工录入，也不允许人工修改；人才档案与配租名单取同一取值</td><td>486 人全部识别成功</td></tr>
-      <tr><td><b>在住性别核对</b></td><td>按间配租时校验<b>目标房间所在套房的在住人性别</b>：套内已有在住人且与本人性别不一致的，<b>该房间直接排除</b>，不进入候选</td><td>排除异性占用房间 26 间</td></tr>
-      <tr><td>整套配租</td><td>整套配租（一人独占一套）<b>不涉及本项校验</b>；后续该套再按间投放时，以首位承租人性别锁定全套性别</td><td>整套配租 214 套</td></tr>
-      <tr><td><b>组团同住</b></td><td>组内成员须<b>均为同一性别</b>方可成团；出现异性成员的<b>不予成团</b>，各自按单人配租，不影响本人位次</td><td>成团 28 组，未出现异性同套</td></tr>
-      <tr class="row-warn"><td><b>人工干预</b></td><td>配租异常处理中的换房、特殊情形优先配租等<b>人工干预配租的同样执行本校验</b>，不通过的不允许提交</td><td>拦截 2 件，见<span class="link" onclick="location.href='exception.html'">配租异常处理</span></td></tr>
+      <tr><td><b>性别取值</b></td><td>由<b>身份证号第 17 位自动识别</b>，不需人工录入，也不允许人工修改；人才档案、轮候库与配租名单取同一取值</td><td>486 人全部识别成功</td></tr>
+      <tr><td><b>整套空置</b> <span class="proto-t chg">0909 改</span></td><td>套内<b>无在住人、也无他人已选定房间</b>的，<b>男女都可选</b>，选房页不做限制；首位选定人的性别<b>即为该套此后的锁定性别</b></td><td>整套空置 <b>9 套</b></td></tr>
+      <tr><td><b>已定性别的套</b> <span class="proto-t chg">0909 改</span></td><td>套内<b>已有在住人</b>或<b>已被他人选定房间</b>的，其余房间<b>只对同性别开放</b>。举例：二室一厅两间房，先选的是男性，另一间此后<b>只有男性可选</b></td><td>已定男性 <b>19 套</b> / 已定女性 <b>8 套</b></td></tr>
+      <tr><td><b>异性房间处理</b> <span class="proto-t chg">0909 改</span></td><td>异性占用的房间在选房页<b>置灰并给出原因文案</b>，<b>不进入可选清单</b>，也不计入本人的“当前可选房间数”；<b>不是配租失败</b>，本人仍在本次通知的时限内正常选房</td><td>累计置灰 26 间<span class="link" onclick="location.href='../../mobile/public/alloc-select.html'">移动端选房页</span></td></tr>
+      <tr><td>整套配租</td><td>单间配套与一室一厅<b>整套配租、一人独用</b>，<b>不涉及本项校验</b>；后续该套改按间投放时，以首位承租人性别锁定全套</td><td>整套配租 284 套</td></tr>
+      <tr><td><b>组团同住</b> <span class="proto-t chg">0909 改</span></td><td>组内成员须<b>均为同一性别</b>方可成团；组团只影响<b>审批排序</b>使顺序号相邻，系统<b>不预留、不锁定房源</b>，同组成员各自在轮到时自行选房</td><td>成团 28 组 · 未出现异性同套</td></tr>
+      <tr class="row-warn"><td><b>人工干预</b></td><td>配租异常处理中的换房、特殊情形优先配租等<b>人工干预的同样执行本校验</b>，不通过的不允许提交</td><td>拦截 2 件，见<span class="link" onclick="location.href='exception.html'">配租异常处理</span></td></tr>
       </tbody>
     </table>
   </div>
           </div>
         </div>
   <div class="sp-src">
-    <span><b>排序规则</b> R-A1 资格审核通过时间 → R-A2 特殊人才 → R-A3 家庭申请 → R-A4 学历层次 → R-A5 申请编号 → R-A6 组团整组位次，<b>不采用摇号方式确定顺序</b></span>
+    <span><b>排序规则</b> <span class="proto-t chg">0909 改</span>R-A1 资格审核通过时间（生成<b>轮候顺序号</b>）→ R-A2 申请编号（同一时点唯一细分）→ R-A3 顺序号变动 → R-A4 组团审批相邻，<b>不采用摇号方式</b>，<b>本期只按一个时间维度排序</b></span>
+    <span><b>顺序号变动</b> <span class="proto-t chg">0909 改</span><b>超时未选</b>排至当前队列末位、后方依次前移、<b>不认定为放弃</b>；<b>本批次范围内无房源</b>的<b>顺序号不变</b>，两种情形台账分开记录</span>
+    <span><b>同套同性别</b> <span class="proto-t chg">0909 改</span>整套空置的<b>男女都可选</b>；套内已有在住人或已被他人选定的，其余房间<b>只对同性别开放</b>，异性房间置灰并说明原因，性别由身份证号自动识别，<b>本期强制执行、不设开关</b></span>
     <span><b>意向登记口径</b> <b>意向登记只作需求摸底统计，不产生配租权利、不作为排序依据、不进轮候库</b>；<span class="link" onclick="location.href='../house/book-manage.html'">意向登记管理</span></span>
-    <span><b>同套同性别</b> 按间配租校验目标房间所在套房在住人性别，<b>异性占用的房间直接排除</b>，性别由身份证号自动识别，<b>本期强制执行、不设开关</b></span>
-    <span><b>公开脱敏</b> 对外公示时姓名按姓 + ×× 脱敏，不公开联系方式与身份证号；系统自动生成、<b>不支持人工调序</b>，排序结果唯一可复现</span>
+    <span><b>公开脱敏</b> 对外公示时姓名按姓 + ×× 脱敏，不公开联系方式与身份证号；顺序号由系统自动生成、<b>不支持人工调序</b>，排序结果唯一可复现</span>
   </div>
 </main>
 

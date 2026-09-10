@@ -20,20 +20,26 @@
     </div>
     <div class="page-actions">
       <button class="btn btn-primary" onclick="PMS.openDrawer('tpDrawer')"><i class="fa-solid fa-user-shield"></i> 特批保留资格</button>
-      <a class="btn" href="auto-alloc.html"><i class="fa-solid fa-wand-magic-sparkles"></i> 自动配租执行</a>
+      <a class="btn" href="exception.html"><i class="fa-solid fa-triangle-exclamation"></i> 配租异常处理</a>
+      <a class="btn" href="queue-list.html"><i class="fa-solid fa-hourglass-half"></i> 意向轮候库</a>
       <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
     </div>
   </div>
 
+  <div class="alert alert-info">
+    <i class="fa-solid fa-pen-to-square"></i>
+    <div><span class="proto-t chg">0909 改</span>本页原按<b>系统自动配租</b>组织：配租结果分配后逾期未签约且无正当理由的按放弃处理。9 月 9 日改回<b>按轮候顺序依次通知、申请人自选房间</b>后，本页按<b>三种情形</b>改造，重点是把「<b>超时未选</b>」与「<b>放弃</b>」明确切开——① <b>已推送选房通知、确认时限内未完成选房</b>的，由下一顺序人接着选，本人<b>轮候顺序号重排至当前队列末位</b>、资格不作废，<b>不认定为放弃、不进放弃名单</b>（《管理办法》所指放弃须同时满足「不服从配租房源」与「不办理入住」两个条件，仅超时未操作不构成放弃，但队列位置要让出来）；② <b>本人选定的楼盘与户型在本批次没有可选房源、未推送通知</b>的，<b>顺序号不变</b>，等下一批次；③ <b>只有已选定房间后逾期未签约、或签约后不办理入住</b>的，才<b>按放弃处理</b>，记入放弃名单并拦截其再次申请，认定前须完成告知与本人确认并留痕。新增「<b>顺序号处置</b>」与「<b>是否进放弃名单</b>」两列，台账记录<b>通知时间、确认时限、选房结果、顺序号变动与处置结果</b>。人工特批保留资格一次的通道保留。对应《系统原型调整计划（0909 会议）》<b>C08</b>，并联动 <b>C03</b>。</div>
+  </div>
+
   <div class="alert alert-danger">
     <i class="fa-solid fa-circle-exclamation"></i>
-    <div>配租结果分配后<b>签约期限为 5 个工作日</b>并在结果通知中明示；<b>逾期未签约且无正当理由的按放弃处理</b>，自动写入<b>放弃名单并拦截再次申请</b>，结果同步至人才档案。<b>有正当理由的可人工特批保留轮候资格一次</b>（本年度仅一次），须提交证明材料并由业务管理员角色审批留痕。放弃标记为高敏操作，需审批 + 短信二次验证。</div>
+    <div>申请人<b>自选并锁定房间后签约期限为 5 个工作日</b>并在选房确认页与通知中明示；<b>已选定房间后逾期未签约且无正当理由的、或签约后不办理入住的，按放弃处理</b>，写入<b>放弃名单并拦截再次申请</b>，结果同步至人才档案。<b>选房超时未选不属于放弃</b>——只把轮候顺序号排至当前队列末位，资格不作废、不进放弃名单。<b>有正当理由的可人工特批保留轮候资格一次</b>（本年度仅一次），须提交证明材料并由业务管理员角色审批留痕。放弃标记为高敏操作，需审批 + 短信二次验证，认定前须完成告知与本人确认并留痕。</div>
   </div>
 
   <div class="stat-grid">
     <div class="stat-card">
       <div class="s-icon blue"><i class="fa-solid fa-file-signature"></i></div>
-      <div><div class="s-label">本批次待签约</div><div class="s-value">312</div>
+      <div><div class="s-label">本批次已选定待签约</div><div class="s-value">312</div>
         <div class="s-trend text-2">PZ2026-03 · 签约期限 5 个工作日</div></div>
     </div>
     <div class="stat-card dc-alarm">
@@ -42,12 +48,17 @@
         <div class="s-trend ">剩 2 个工作日内 · 已推送催办</div></div>
     </div>
     <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-rotate-right"></i></div>
+      <div><div class="s-label">选房超时未选</div><div class="s-value">38</div>
+        <div class="s-trend text-2">顺序号排至队尾 · 不进放弃名单</div></div>
+    </div>
+    <div class="stat-card dc-alarm">
       <div class="s-icon red"><i class="fa-solid fa-user-slash"></i></div>
       <div><div class="s-label">已写入放弃标记</div><div class="s-value">15</div>
-        <div class="s-trend text-2">不得再次申请 · 累计放弃 18 人</div></div>
+        <div class="s-trend ">仅已选定后逾期未签约或不办理入住</div></div>
     </div>
     <div class="stat-card">
-      <div class="s-icon cyan"><i class="fa-solid fa-user-shield"></i></div>
+      <div class="s-icon green"><i class="fa-solid fa-user-shield"></i></div>
       <div><div class="s-label">特批保留资格</div><div class="s-value">4</div>
         <div class="s-trend text-2">本年度每人限一次 · 均已留痕</div></div>
     </div>
@@ -57,8 +68,10 @@
     <div class="filter-bar">
       <div class="filter-item"><label>处置编号</label><input type="text" placeholder="处置编号"></div>
       <div class="filter-item"><label>申请人</label><input type="text" placeholder="姓名"></div>
-      <div class="filter-item"><label>处置情形</label><select><option value="">全部</option><option>配租后待签约（期限内）</option><option>逾期未签约且无正当理由</option><option>逾期未签约但有正当理由</option><option>配租后主动放弃</option><option>签约后不办理入住</option><option>不服从配租房源</option></select></div>
-      <div class="filter-item"><label>处置状态</label><select><option value="">全部</option><option>待签约</option><option>待审批</option><option>已写入放弃标记</option><option>已特批保留</option><option>已纠错回滚</option></select></div>
+      <div class="filter-item"><label>处置情形</label><select><option value="">全部</option><option>已选定待签约（期限内）</option><option>情形① 选房超时未选</option><option>情形② 本批次范围内无房源</option><option>情形③ 已选定后逾期未签约 · 无正当理由</option><option>情形③ 已选定后逾期未签约 · 有正当理由</option><option>情形③ 已选定后主动放弃</option><option>情形③ 签约后不办理入住</option><option>情形③ 纠错回滚</option></select></div>
+      <div class="filter-item"><label>顺序号处置</label><select><option value="">全部</option><option>顺序号不变</option><option>顺序号排至当前队列末位</option><option>按放弃处理并出库</option><option>顺序号与审核通过时间全部保留（特批）</option><option>回滚并恢复原顺序号</option></select></div>
+      <div class="filter-item"><label>是否进放弃名单</label><select><option value="">全部</option><option>不进放弃名单</option><option>进放弃名单（拦截再次申请）</option><option>拟进放弃名单（待审批）</option><option>已撤销放弃标记</option></select></div>
+      <div class="filter-item"><label>处置状态</label><select><option value="">全部</option><option>待签约</option><option>顺序号已排至队尾</option><option>顺序号不变待下批次</option><option>待审批</option><option>已写入放弃标记</option><option>已特批保留</option><option>已纠错回滚</option></select></div>
       <div class="filter-item"><label>签约截止日</label><input type="date"></div>
       <div class="filter-actions">
         <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
@@ -69,48 +82,57 @@
     <div class="table-wrap">
       <table class="data-table">
         <thead>
-          <tr><th>处置编号</th><th>申请人</th><th class="cell-lg">配租房源</th><th>分配时间</th><th>通知时间</th><th>签约截止（5 个工作日）</th><th>剩余时限</th><th>处置情形</th><th class="cell-lg">处置结果</th><th>经办人</th><th>状态</th><th>操作</th></tr>
+          <tr><th>处置编号</th><th>申请人</th><th><span class="proto-t chg">0909 改</span>处置情形</th><th class="cell-lg">选房结果与房源</th><th class="cell-lg"><span class="proto-t chg">0909 改</span>通知时间与时限</th><th>剩余时限</th><th><span class="proto-t chg">0909 改</span>顺序号处置</th><th><span class="proto-t chg">0909 改</span>是否进放弃名单</th><th class="cell-lg">处置结果</th><th>经办人</th><th>状态</th><th>操作</th></tr>
         </thead>
         <tbody>
-          <tr class="row-warn"><td>QY2026-09-0026</td><td>邹××</td><td>湘江1958 A6-1502（一室一厅 整套）</td><td>2026-09-15 10:04</td><td>2026-09-15 10:06</td><td>2026-09-22 18:00</td><td><div class="sp-days d60"><span class="dv">2 天</span><span class="db"><span style="width:60%"></span></span></div></td><td><span class="badge blue">配租后待签约</span></td><td>在签约期限内，已推送催办短信 1 次；逾期未签约且无正当理由的将按放弃处理</td><td>陈晓琳</td><td><span class="badge orange">待签约</span></td><td><span class="link" onclick="PMS.toast('已向申请人推送签约催办（短信 + 湘易办），并同步告知运营机构联系电话与办理地址')">催办</span></td></tr>
-          <tr class="row-bad"><td>QY2026-09-0028</td><td>曾××</td><td>栗雨佳苑 3-0806（一室一厅 整套）</td><td>2026-09-15 10:04</td><td>2026-09-15 10:06</td><td>2026-09-22 18:00</td><td><div class="sp-days dx"><span class="dv">已逾期</span><span class="db"><span style="width:100%"></span></span></div></td><td><span class="badge red">逾期未签约·无正当理由</span></td><td>逾期 6 个工作日未签约，3 次电话联系与 2 次短信告知均无回应，<b>按放弃处理</b>，已写入放弃名单并<b>拦截再次申请</b></td><td>李慧敏</td><td><span class="badge red">已写入标记</span></td><td><span class="link" onclick="location.href='../apply/talent-blacklist.html'">放弃名单</span></td></tr>
-          <tr class="row-warn"><td>QY2026-09-0030</td><td>彭××</td><td>茨菇塘公寓 5-0602 主卧（按间）</td><td>2026-09-15 10:04</td><td>2026-09-15 10:06</td><td>2026-09-22 18:00</td><td><div class="sp-days dx"><span class="dv">已逾期</span><span class="db"><span style="width:100%"></span></span></div></td><td><span class="badge purple">逾期未签约·有正当理由</span></td><td>父亲住院手术需陪护（附住院证明与手术通知书），经审批<b>特批保留轮候资格一次</b>，原审核通过时间与位次全部保留；房源已释放并纳入补充执行</td><td>李慧敏</td><td><span class="badge cyan">已特批保留</span></td><td><span class="link" onclick="location.href='queue-list.html'">轮候位次</span></td></tr>
-          <tr class="row-bad"><td>QY2026-09-0018</td><td>黄志强</td><td>湘江1958 A6-1806（二室一厅 次卧）</td><td>2026-09-15 10:04</td><td>2026-09-15 10:06</td><td>2026-09-22 18:00</td><td><span class="muted">—</span></td><td><span class="badge orange">配租后主动放弃</span></td><td>申请人电子签署放弃确认书，明确不接受本次配租房源，已写入放弃名单，<b>不得再次申请</b></td><td>李慧敏</td><td><span class="badge red">已写入标记</span></td><td><span class="link" onclick="location.href='../apply/talent-blacklist.html'">放弃名单</span></td></tr>
-          <tr class="row-warn"><td>QY2026-09-0022</td><td>刘××</td><td>茨菇塘公寓 5-1204（一室一厅 整套）</td><td>2026-08-20 10:12</td><td>2026-08-20 10:14</td><td>2026-08-27 18:00</td><td><span class="muted">—</span></td><td><span class="badge red">签约后不办理入住</span></td><td>签约后 30 天未办理入住交付，运营机构 3 次电话联系与 2 次短信告知，申请人明确表示暂不入住；拟按放弃处理</td><td><span class="muted">—</span></td><td><span class="badge orange">待审批</span></td><td><span class="link" onclick="PMS.openDrawer('gvDrawer')">办理处置</span></td></tr>
-          <tr><td>QY2026-06-0012</td><td>周××</td><td>清水塘新苑 1-0708（二室一厅 次卧）</td><td>2026-06-18 10:08</td><td>2026-06-18 10:10</td><td>2026-06-25 18:00</td><td><span class="muted">—</span></td><td><span class="badge orange">不服从配租房源</span></td><td>经配租异常处理审批，认定系系统展示房源面积有误导致，已<b>回滚放弃标记并恢复申请资格与轮候位次</b></td><td>李慧敏</td><td><span class="badge green">已纠错回滚</span></td><td><span class="link" onclick="location.href='exception.html'">纠错记录</span></td></tr>
+          <tr class="row-warn"><td>QY2026-09-0026</td><td>邹××</td><td><span class="badge blue">已选定待签约</span></td><td class="cell-lg">茨菇塘公寓 5-0806（一室一厅 整套 · 可安置 1 人）<br><span class="muted">2026-09-16 09:20 本人自选并锁定</span></td><td class="cell-lg">选房通知 2026-09-15 14:06<br>确认时限 2026-09-16 14:06 <span class="badge green">时限内已选定</span><br>签约截止 2026-09-23 18:00</td><td><div class="sp-days d60"><span class="dv">2 天</span><span class="db"><span style="width:60%"></span></span></div></td><td><span class="muted">已选定，退出选房队列</span></td><td><span class="badge green">不进放弃名单</span></td><td>在签约期限内，已推送催办短信 1 次；<b>已选定房间后逾期未签约且无正当理由的才按放弃处理</b></td><td>陈晓琳</td><td><span class="badge orange">待签约</span></td><td><span class="link" onclick="PMS.toast('已向申请人推送签约催办（短信 + 湘易办），并同步告知运营机构联系电话与办理地址')">催办</span></td></tr>
+          <tr class="row-warn"><td>QY2026-09-0038</td><td>罗××</td><td><span class="badge orange">情形① 选房超时未选</span></td><td class="cell-lg"><b>未选定任何房间</b><br><span class="muted">湘江1958 · 三室一厅　通知时可选 5 间</span></td><td class="cell-lg">选房通知 2026-09-15 14:06<br>确认时限 2026-09-16 14:06 <span class="badge red">时限内未完成选房</span><br><span class="muted">未进入签约环节</span></td><td><div class="sp-days dx"><span class="dv">已逾期</span><span class="db"><span style="width:100%"></span></span></div></td><td><span class="badge orange">顺序号 26 → 队列末位 402</span></td><td><span class="badge green">不进放弃名单</span></td><td>由<b>下一顺序人接着选</b>，本人<b>轮候顺序号重排至当前队列末位</b>、<b>资格不作废</b>；<b>不认定为放弃</b>——放弃须同时满足「不服从配租房源」与「不办理入住」两个条件，仅超时未操作不构成放弃，<b>只让出队列位置</b>，等下一批房源</td><td><span class="muted">系统自动</span></td><td><span class="badge cyan">顺序号已排至队尾</span></td><td><span class="link" onclick="PMS.toast('已记录通知时间 2026-09-15 14:06、确认时限 2026-09-16 14:06、选房结果「未选」与顺序号由 26 变更为 402；本人资格不作废、不认定为放弃、不进放弃名单')">处置记录</span> <span class="link" onclick="location.href='queue-list.html'">轮候顺序</span></td></tr>
+          <tr><td>QY2026-09-0040</td><td>邓××</td><td><span class="badge cyan">情形② 本批次范围内无房源</span></td><td class="cell-lg"><b>未进入选房环节</b><br><span class="muted">清水塘新苑 · 三室一厅　本批次无投放</span></td><td class="cell-lg"><b>未推送选房通知</b><br><span class="muted">不产生确认时限与签约期限</span></td><td><span class="muted">—</span></td><td><span class="badge blue">顺序号 36 不变</span></td><td><span class="badge green">不进放弃名单</span></td><td>本人选定的楼盘与户型本批次<b>没有可选房源</b>，本轮跳过、<b>顺序号不变</b>等下一批次；已短信提醒可在下一批次公告发布前调整意向楼盘与户型，<b>调整不改变审核通过时间与顺序号</b></td><td>李慧敏</td><td><span class="badge blue">顺序号不变待下批次</span></td><td><span class="link" onclick="location.href='queue-list.html'">轮候记录</span></td></tr>
+          <tr class="row-bad"><td>QY2026-09-0028</td><td>曾××</td><td><span class="badge red">情形③ 已选定后逾期未签约 · 无正当理由</span></td><td class="cell-lg">栗雨佳苑 3-0806（一室一厅 整套 · 可安置 1 人）<br><span class="muted">2026-09-15 15:20 本人自选并锁定</span></td><td class="cell-lg">选房通知 2026-09-15 14:06<br>确认时限 2026-09-16 14:06 <span class="badge green">时限内已选定</span><br>签约截止 2026-09-22 18:00</td><td><div class="sp-days dx"><span class="dv">已逾期</span><span class="db"><span style="width:100%"></span></span></div></td><td><span class="badge purple">按放弃处理并出库</span></td><td><span class="badge red">进放弃名单 · 拦截再次申请</span></td><td><b>已选定房间后</b>逾期 6 个工作日未签约，3 次电话联系与 2 次短信告知均无回应；认定前已完成<b>告知与本人确认并留痕</b>，<b>按放弃处理</b>，已写入放弃名单并<b>拦截再次申请</b>，房间即时释放回本批次可选房源</td><td>李慧敏</td><td><span class="badge red">已写入标记</span></td><td><span class="link" onclick="location.href='../apply/talent-blacklist.html'">放弃名单</span></td></tr>
+          <tr class="row-warn"><td>QY2026-09-0030</td><td>彭××</td><td><span class="badge purple">情形③ 已选定后逾期未签约 · 有正当理由</span></td><td class="cell-lg">茨菇塘公寓 5-0602 主卧（二室一厅按间 · 可安置 2 人）<br><span class="muted">2026-09-15 15:06 本人自选并锁定</span></td><td class="cell-lg">选房通知 2026-09-15 14:06<br>确认时限 2026-09-16 14:06 <span class="badge green">时限内已选定</span><br>签约截止 2026-09-22 18:00</td><td><div class="sp-days dx"><span class="dv">已逾期</span><span class="db"><span style="width:100%"></span></span></div></td><td><span class="badge green">顺序号 86 与审核通过时间全部保留</span></td><td><span class="badge green">不进放弃名单</span></td><td>父亲住院手术需陪护（附住院证明与手术通知书），经审批<b>特批保留轮候资格一次</b>（本年度仅此一次），原审核通过时间与顺序号全部保留；已选定的房间<b>释放回可选房源池</b></td><td>李慧敏</td><td><span class="badge cyan">已特批保留</span></td><td><span class="link" onclick="location.href='queue-list.html'">轮候顺序</span></td></tr>
+          <tr class="row-bad"><td>QY2026-09-0018</td><td>黄志强</td><td><span class="badge red">情形③ 已选定后主动放弃</span></td><td class="cell-lg">董家塅安居苑 3-0906 次卧（二室一厅按间 · 可安置 2 人）<br><span class="muted">2026-09-15 16:12 本人自选并锁定</span></td><td class="cell-lg">选房通知 2026-09-15 14:06<br>确认时限 2026-09-16 14:06 <span class="badge green">时限内已选定</span><br>签约截止 2026-09-22 18:00</td><td><span class="muted">—</span></td><td><span class="badge purple">按放弃处理并出库</span></td><td><span class="badge red">进放弃名单 · 拦截再次申请</span></td><td>申请人电子签署<b>放弃确认书</b>，明确<b>不接受已选定房源且不办理入住</b>，两个条件同时满足，已写入放弃名单，<b>不得再次申请</b></td><td>李慧敏</td><td><span class="badge red">已写入标记</span></td><td><span class="link" onclick="location.href='../apply/talent-blacklist.html'">放弃名单</span></td></tr>
+          <tr class="row-warn"><td>QY2026-09-0022</td><td>刘××</td><td><span class="badge red">情形③ 签约后不办理入住</span></td><td class="cell-lg">茨菇塘公寓 5-1204（一室一厅 整套 · 可安置 1 人）<br><span class="muted">2026-08-20 15:36 本人自选，08-25 已签约</span></td><td class="cell-lg">选房通知 2026-08-20 14:14<br>确认时限 2026-08-21 14:14 <span class="badge green">时限内已选定</span><br>签约完成 2026-08-25，逾 30 天未入住</td><td><span class="muted">—</span></td><td><span class="badge purple">拟按放弃处理并出库</span></td><td><span class="badge orange">拟进放弃名单（待审批）</span></td><td>签约后 30 天未办理入住交付，运营机构 3 次电话联系与 2 次短信告知，申请人明确表示暂不入住；<b>认定前须完成告知与本人确认并留痕</b>，拟按放弃处理</td><td><span class="muted">—</span></td><td><span class="badge orange">待审批</span></td><td><span class="link" onclick="PMS.openDrawer('gvDrawer')">办理处置</span></td></tr>
+          <tr><td>QY2026-06-0012</td><td>周××</td><td><span class="badge orange">情形③ 纠错回滚</span></td><td class="cell-lg">清水塘新苑 1-0708（一室一厅 整套 · 可安置 1 人）<br><span class="muted">2026-06-18 本人自选，面积展示有误</span></td><td class="cell-lg">选房通知 2026-06-18 10:10<br>确认时限 2026-06-19 10:10 <span class="badge green">时限内已选定</span><br>签约截止 2026-06-25 18:00</td><td><span class="muted">—</span></td><td><span class="badge green">回滚并恢复原顺序号</span></td><td><span class="badge green">已撤销放弃标记</span></td><td>经配租异常处理审批，认定系<b>系统展示房源面积有误</b>导致本人不接受该房间，已<b>撤销放弃标记并恢复申请资格与轮候顺序号</b>，并重新推送选房通知</td><td>李慧敏</td><td><span class="badge green">已纠错回滚</span></td><td><span class="link" onclick="location.href='exception.html'">纠错记录</span></td></tr>
         </tbody>
       </table>
     </div>
   </div>
         <div class="sp-block" style="margin-top:12px">
-          <div class="sp-h"><i class="fa-solid fa-list"></i> 配租结果处置与放弃认定口径<span class="sub">R-G1 至 R-G5 · 签约期限 5 个工作日</span></div>
+          <div class="sp-h"><i class="fa-solid fa-list"></i> 选房超时与放弃认定口径<span class="sub">R-G1 至 R-G6 · 三种情形区分 · 超时未选不等于放弃</span></div>
           <div class="sp-b">
   <div class="sp-tw">
     <table class="data-table compact">
       <thead><tr><th>规则</th><th class="cell-lg">环节</th><th class="cell-lg">口径</th></tr></thead>
       <tbody>
-      <tr><td><b>R-G1</b></td><td><b>签约期限 5 个工作日</b></td><td>自动配租完成后，配租结果短信中<b>明示签约期限</b>：自结果通知之日起<b>5 个工作日</b>内到运营机构办理签约，<b>法定节假日与休息日不计入</b>，遇休息日顺延至下一工作日 18:00 截止。剩余 2 个工作日时自动推送催办，运营机构同步电话联系。期限长短<b>待业务部门明确</b>，现为后台参数</td></tr>
-      <tr class="row-bad"><td><b>R-G2</b></td><td><b>逾期未签约且无正当理由</b><br><span class="muted">按放弃处理</span></td><td>逾期未签约<b>且未在期限内说明理由</b>的，<b>按放弃承租房源资格处理</b>：写入<b>放弃名单</b>，<b>拦截其再次申请</b>（按身份证号校验，含以其他人才类型口径申请），结果同步至人才档案。依据管理办法<b>第九条</b>：不服从配租房源且不办理入住的视同放弃，<b>放弃资格的不得再次申请</b>。<span class="link" onclick="location.href='../apply/talent-blacklist.html'">放弃名单</span></td></tr>
-      <tr><td><b>R-G3</b></td><td><b>有正当理由可特批保留一次</b><br><span class="muted">本年度每人限一次</span></td><td>因<b>住院治疗、直系亲属重病陪护、因公外派、不可抗力</b>等正当理由未能按期签约的，可在期限内提出申请并<b>附证明材料</b>，经业务管理员角色<b>人工特批保留轮候资格一次</b>：原<b>资格审核通过时间与轮候位次全部保留</b>，下一批次自动纳入。<b>本年度每人仅限一次</b>，特批全过程留痕。<span class="link" onclick="location.href='queue-list.html'">轮候位次</span></td></tr>
-      <tr><td><b>R-G4</b></td><td>台账与留痕</td><td>台账逐件记录<b>分配时间、通知时间、签约期限、催办记录、处置结果与经办人</b>，全过程可回溯；放弃标记为高敏操作，需<b>业务管理员角色审批 + 短信二次验证</b>；纠错须走<span class="link" onclick="location.href='exception.html'">配租异常处理</span>审批，并非必然获准</td></tr>
-      <tr><td><b>R-G5</b></td><td>房源释放与补充执行</td><td>按放弃处理或特批保留的，配租房源<b>即时释放回本批次房源池</b>，纳入<b>下一次自动配租补充执行</b>按位次重新匹配，<b>不做人工指定</b>。<span class="link" onclick="location.href='slot-plan.html'">补充执行安排</span></td></tr>
+      <tr><td><b>R-G1</b> <span class="proto-t chg">0909 改</span></td><td><b>选房确认时限</b><br><span class="muted">已推送选房通知的前提</span></td><td>轮到某顺序号时<b>单独推送选房通知</b>，通知中明示<b>确认时限</b>：须在时限内从可选房间中选定一间并确认。<b>不需要在线报名</b>，未轮到的不推送。<span class="proto-t pend">待确认</span>确认时限定多长（本页按 <b>24 小时</b>呈现）、<b>是否限制排至末位的次数</b>、多次超时后如何处置，待业务部门明确，对应待确认事项 <b>Q12</b>。<span class="link" onclick="location.href='../../mobile/public/alloc-select.html'">个人端轮候顺序选房</span></td></tr>
+      <tr class="row-warn"><td><b>R-G2</b> <span class="proto-t chg">0909 改</span></td><td><b>情形① 选房超时未选</b><br><span class="muted">不认定为放弃 · 不进放弃名单</span></td><td>已推送选房通知、<b>确认时限内未完成选房</b>的，<b>由下一顺序人接着选</b>，本人<b>轮候顺序号重排至当前队列末位</b>、<b>资格不作废</b>，等下一批房源。《管理办法》所指放弃须<b>同时满足「不服从配租房源」与「不办理入住」两个条件</b>，<b>仅超时未操作不构成放弃</b>——因此<b>不认定为放弃、不写入放弃名单、不拦截再次申请</b>，但<b>队列位置要让出来</b>，避免后面的人被一直卡住。顺序号变动即时通知本人并留痕。<span class="link" onclick="location.href='exception.html'">超时处置记录</span></td></tr>
+      <tr><td><b>R-G3</b> <span class="proto-t chg">0909 改</span></td><td><b>情形② 本批次意向范围内无房源</b><br><span class="muted">顺序号不变</span></td><td>本人选定的<b>楼盘与户型在本批次没有可选房源</b>的，<b>不推送选房通知</b>、不进入选房环节，因此<b>不存在超时问题</b>：<b>顺序号不变</b>，本轮跳过、等下一批次，本期<b>不跨楼盘调剂</b>。已短信提醒可在下一批次公告发布前调整意向楼盘与户型，<b>调整不改变资格审核通过时间与顺序号</b>。<span class="link" onclick="location.href='queue-list.html'">意向轮候库</span></td></tr>
+      <tr class="row-bad"><td><b>R-G4</b> <span class="proto-t chg">0909 改</span></td><td><b>情形③ 已选定后逾期未签约或不办理入住</b><br><span class="muted">按放弃处理 · 签约期限 5 个工作日</span></td><td><b>只有已选定房间之后</b>：逾期未签约<b>且未在期限内说明理由</b>的、签约后<b>不办理入住</b>的、或电子签署放弃确认书<b>明确不接受已选定房源且不办理入住</b>的，才<b>按放弃承租房源资格处理</b>：写入<b>放弃名单</b>、<b>拦截其再次申请</b>（按身份证号校验，含以其他人才类型口径申请），结果同步至人才档案。签约期限自<b>选定房间并确认之日起 5 个工作日</b>，<b>法定节假日与休息日不计入</b>，遇休息日顺延至下一工作日 18:00 截止，剩余 2 个工作日时自动推送催办。<b>认定前须完成告知与本人确认并留痕</b>。依据管理办法<b>第九条</b>。<span class="link" onclick="location.href='../apply/talent-blacklist.html'">放弃名单</span></td></tr>
+      <tr><td><b>R-G5</b></td><td><b>有正当理由可特批保留一次</b><br><span class="muted">本年度每人限一次</span></td><td>因<b>住院治疗、直系亲属重病陪护、因公外派、不可抗力</b>等正当理由未能按期签约的，可在期限内提出申请并<b>附证明材料</b>，经业务管理员角色<b>人工特批保留轮候资格一次</b>：原<b>资格审核通过时间与轮候顺序号全部保留</b>（不排至队尾），下一批次按原顺序号参与。<b>本年度每人仅限一次</b>，特批全过程留痕。<span class="link" onclick="location.href='queue-list.html'">轮候顺序</span></td></tr>
+      <tr><td><b>R-G6</b> <span class="proto-t chg">0909 改</span></td><td>台账、留痕与房源释放</td><td>台账逐件记录<b>通知时间、确认时限、选房结果、顺序号变动与处置结果</b>及经办人，全过程可回溯；放弃标记为高敏操作，需<b>业务管理员角色审批 + 短信二次验证</b>，且<b>认定前须完成告知与本人确认并留痕</b>；纠错须走<span class="link" onclick="location.href='exception.html'">配租异常处理</span>审批，并非必然获准。按放弃处理或特批保留的，已选定的房间<b>即时释放回本批次可选房源</b>，由后续顺序人在选房时正常挑选，<b>不做人工指定</b>。</td></tr>
       </tbody>
     </table>
+  </div>
+  <div class="sp-kv" style="margin-top:10px">
+    <div class="kv"><span class="k">超时未选</span><span class="v warn">顺序号排至队列末位</span><span class="muted">资格不作废 · 不认定为放弃 · 不进放弃名单</span></div>
+    <div class="kv"><span class="k">范围内无房源</span><span class="v">顺序号不变</span><span class="muted">未推送通知 · 等下一批次 · 不跨楼盘调剂</span></div>
+    <div class="kv"><span class="k">已选定后逾期未签约</span><span class="v bad">按放弃处理</span><span class="muted">进放弃名单 · 拦截再次申请 · 须告知与本人确认</span></div>
+    <div class="kv"><span class="k">特批保留资格</span><span class="v">本年度每人一次</span><span class="link" onclick="PMS.openDrawer('tpDrawer')">发起特批</span></div>
   </div>
           </div>
         </div>
   <div class="sp-src">
-    <span><b>政策依据</b> 管理办法第九条：申请人不服从配租房源且不办理入住的，视同放弃承租房源资格，放弃资格的不得再次申请</span>
-    <span><b>签约期限</b> 配租结果通知后<b>5 个工作日</b>内签约，期限在结果短信中明示；逾期未签约且无正当理由的<b>按放弃处理并拦截再次申请</b></span>
-    <span><b>特批通道</b> 有正当理由的可<b>人工特批保留轮候资格一次</b>（本年度每人限一次），须附证明材料并全程留痕</span>
-    <span><b>高敏控制</b> 写入放弃标记需业务管理员角色审批 + 短信二次验证；纠错路径 <span class="link" onclick="location.href='exception.html'">配租异常处理</span></span>
+    <span><b>政策依据</b> 管理办法第九条：申请人<b>不服从配租房源且不办理入住</b>的，视同放弃承租房源资格，放弃资格的不得再次申请——<b>两个条件须同时满足</b></span>
+    <span><b>超时不等于放弃</b> 已推送通知但确认时限内未选房的，<b>顺序号排至当前队列末位</b>、资格不作废、<b>不进放弃名单</b>；本批次范围内无房源、未推送通知的<b>顺序号不变</b></span>
+    <span><b>放弃认定边界</b> <b>只有已选定房间后</b>逾期未签约（自选定之日起 5 个工作日）或签约后不办理入住的，才按放弃处理并拦截再次申请，<b>认定前须完成告知与本人确认并留痕</b></span>
+    <span><b>特批与纠错</b> 有正当理由的可<b>人工特批保留轮候资格一次</b>（本年度每人限一次，顺序号全部保留）；纠错路径 <span class="link" onclick="location.href='exception.html'">配租异常处理</span>　<span class="link" onclick="location.href='../../mobile/public/alloc-giveup.html'">个人端放弃与处置</span></span>
   </div>
 </main>
 
 <div class="drawer-mask"></div>
 <div class="drawer" id="tpDrawer">
   <div class="drawer-head">
-    <h3>逾期未签约特批保留轮候资格</h3>
+    <h3>已选定后逾期未签约 · 特批保留轮候资格</h3>
     <span class="badge purple">本年度限一次</span>
     <div class="close" data-close-drawer><i class="fa-solid fa-xmark"></i></div>
   </div>
@@ -122,7 +144,7 @@
     </div>
   <div class="alert alert-warning">
     <i class="fa-solid fa-triangle-exclamation"></i>
-    <div>特批通过后，申请人<b>原资格审核通过时间与轮候位次全部保留</b>，下一批次自动纳入参与名单；本次配租房源<b>即时释放</b>并纳入补充执行。<b>不予特批的按放弃处理</b>，写入放弃名单并拦截再次申请。</div>
+    <div><span class="proto-t chg">0909 改</span>本通道只适用于<b>已选定房间后逾期未签约</b>的情形。特批通过后，申请人<b>原资格审核通过时间与轮候顺序号全部保留</b>（<b>不排至队尾</b>），下一批次按原顺序号参与选房；已选定的房间<b>即时释放回本批次可选房源</b>。<b>不予特批的按放弃处理</b>，写入放弃名单并拦截再次申请。<b>选房超时未选的不走本通道</b>——系统直接把顺序号排至当前队列末位，不认定为放弃、无须审批。</div>
   </div>
 
       <div class="form-grid form-align">
@@ -135,20 +157,22 @@
           <input type="text" value="彭××（RC2026-0812-0088）" readonly>
         </div>
         <div class="form-item col-full">
-          <label>配租房源 <span class="req">*</span></label>
-          <input type="text" value="茨菇塘公寓 5 栋 0602 主卧（按间配租）" readonly>
+          <label>本人已选定的房间 <span class="req">*</span></label>
+          <input type="text" value="茨菇塘公寓 5 栋 0602 主卧（二室一厅按间 · 可安置 2 人）" readonly>
+          <div class="hint proto chg"><span class="proto-t chg">0909 改</span>原为「配租房源」（系统分配结果）。改为自选后，此处为<b>申请人本人在可选范围内选定并锁定的房间</b></div>
         </div>
         <div class="form-item">
-          <label>分配时间 <span class="req">*</span></label>
-          <input type="text" value="2026-09-15 10:04（自动配租 ZX2026-03-01）" readonly>
+          <label>选房通知时间 <span class="req">*</span></label>
+          <input type="text" value="2026-09-15 14:06（短信 + 湘易办 · 轮到顺序号 86）" readonly>
         </div>
         <div class="form-item">
-          <label>通知时间 <span class="req">*</span></label>
-          <input type="text" value="2026-09-15 10:06（短信 + 湘易办）" readonly>
+          <label>确认时限与选房结果 <span class="req">*</span></label>
+          <input type="text" value="2026-09-16 14:06 前　已于 2026-09-15 15:06 时限内选定" readonly>
+          <div class="hint">时限内已完成选房，<b>不属于超时未选情形</b>，本人顺序号未被排至队尾</div>
         </div>
         <div class="form-item">
           <label>签约截止 <span class="req">*</span></label>
-          <input type="text" value="2026-09-22 18:00（5 个工作日）" readonly>
+          <input type="text" value="2026-09-22 18:00（自选定之日起 5 个工作日）" readonly>
         </div>
         <div class="form-item">
           <label>本年度已特批次数 <span class="req">*</span></label>
@@ -173,18 +197,23 @@
           <select><option>同意特批，保留轮候资格一次</option><option>不予特批，按放弃处理</option><option>退回补充证明材料</option></select>
         </div>
         <div class="form-item col-full">
-          <label>房源处置 <span class="req">*</span></label>
-          <select><option>释放房源并纳入下一次自动配租补充执行</option><option>释放房源至房源池，暂不纳入补充执行</option></select>
+          <label>顺序号处置 <span class="req">*</span></label>
+          <select><option>原资格审核通过时间与轮候顺序号全部保留</option><option>顺序号排至当前队列末位（不予特批时按超时处理）</option></select>
+          <div class="hint proto chg"><span class="proto-t chg">0909 改</span>特批保留的<b>顺序号不排至队尾</b>，与「超时未选」的处置不同</div>
+        </div>
+        <div class="form-item col-full">
+          <label>房间处置 <span class="req">*</span></label>
+          <select><option>释放房间回本批次可选房源，由后续顺序人自选</option><option>释放房间至房源池，本批次暂不投放</option></select>
         </div>
         <div class="form-item col-full">
           <label>结论说明 <span class="req">*</span></label>
-          <textarea rows="4">申请人彭××于 2026-09-21 在签约期限内提出书面说明，其父于 2026-09-16 因急性心梗入院并于 9 月 18 日实施手术，本人需全程陪护，已附株洲市中心医院住院证明与手术通知书。经核实理由属实，属直系亲属重病陪护情形，同意特批保留轮候资格一次，原资格审核通过时间 2026-08-12 09:18 与轮候位次 86 全部保留，下一批次自动纳入。本次配租房源茨菇塘公寓 5-0602 主卧即时释放并纳入补充执行。本年度该申请人特批次数计为 1 次，不得再次特批。</textarea>
+          <textarea rows="4">申请人彭×× 于 2026-09-15 15:06 在确认时限内自选茨菇塘公寓 5-0602 主卧并锁定，签约截止 2026-09-22 18:00。本人于 2026-09-21 在签约期限内提出书面说明，其父于 2026-09-16 因急性心梗入院并于 9 月 18 日实施手术，本人需全程陪护，已附株洲市中心医院住院证明与手术通知书。经核实理由属实，属直系亲属重病陪护情形，同意特批保留轮候资格一次，原资格审核通过时间 2026-08-12 09:18 与轮候顺序号 86 全部保留、不排至队尾，下一批次按原顺序号推送选房通知。已选定的茨菇塘公寓 5-0602 主卧即时释放回本批次可选房源。本年度该申请人特批次数计为 1 次，不得再次特批。</textarea>
         </div>
       </div>
   </div>
   <div class="drawer-foot">
     <button class="btn" data-close-drawer>取消</button>
-    <button class="btn btn-primary" onclick="PMS.confirm({title:'特批确认',message:'确认特批保留彭×× 的轮候资格一次？',detail:'特批后原资格审核通过时间与轮候位次全部保留，下一批次自动纳入参与名单；本次配租房源即时释放并纳入补充执行。本年度该申请人不得再次特批，特批记录全过程留痕。',type:'warning',okText:'确认特批',onOk:function(){PMS.closeDrawer();PMS.toast('已特批保留轮候资格一次，位次与审核通过时间均已保留并留痕','success');}})"><i class="fa-solid fa-check"></i> 确认特批</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'特批确认',message:'确认特批保留彭×× 的轮候资格一次？',detail:'特批后原资格审核通过时间与轮候顺序号全部保留、不排至队列末位，下一批次按原顺序号推送选房通知；已选定的房间即时释放回本批次可选房源。本年度该申请人不得再次特批，特批记录全过程留痕。',type:'warning',okText:'确认特批',onOk:function(){PMS.closeDrawer();PMS.toast('已特批保留轮候资格一次，顺序号与审核通过时间均已保留并留痕','success');}})"><i class="fa-solid fa-check"></i> 确认特批</button>
   </div>
 </div>
 
@@ -202,7 +231,11 @@
     </div>
   <div class="alert alert-danger">
     <i class="fa-solid fa-circle-exclamation"></i>
-    <div>依据管理办法<b>第九条</b>：申请人不服从配租房源且不办理入住的，视同放弃承租房源资格，<b>放弃资格的不得再次申请</b>。<b>有正当理由的应先走特批保留通道</b>，不得直接写入放弃标记。</div>
+    <div>依据管理办法<b>第九条</b>：申请人<b>不服从配租房源且不办理入住</b>的，视同放弃承租房源资格，<b>放弃资格的不得再次申请</b>——<b>两个条件须同时满足</b>。<b>有正当理由的应先走特批保留通道</b>，不得直接写入放弃标记。</div>
+  </div>
+  <div class="alert alert-warning">
+    <i class="fa-solid fa-pen-to-square"></i>
+    <div><span class="proto-t chg">0909 改</span><b>本抽屉只受理「已选定房间之后」的三类情形</b>：已选定后逾期未签约且无正当理由、签约后不办理入住、已选定后主动放弃。<b>选房超时未选的不得在此写入放弃标记</b>——已推送选房通知但确认时限内未完成选房的，由系统直接把<b>轮候顺序号排至当前队列末位</b>，资格不作废、不认定为放弃、不进放弃名单，无须审批；本批次意向范围内无房源、未推送通知的<b>顺序号不变</b>，同样不进放弃名单。误提交的将被系统拦截。</div>
   </div>
 
       <div class="form-grid form-align">
@@ -215,20 +248,22 @@
           <input type="text" value="刘××（RC2026-0820-0104）" readonly>
         </div>
         <div class="form-item col-full">
-          <label>配租房源 <span class="req">*</span></label>
-          <input type="text" value="茨菇塘公寓 5 栋 1204（一室一厅 整套配租）" readonly>
+          <label>本人已选定的房间 <span class="req">*</span></label>
+          <input type="text" value="茨菇塘公寓 5 栋 1204（一室一厅 整套 · 可安置 1 人）" readonly>
+          <div class="hint proto chg"><span class="proto-t chg">0909 改</span>放弃认定的<b>前提是本人已选定并锁定房间</b>；未选定房间的一律不进本抽屉</div>
         </div>
         <div class="form-item">
-          <label>分配时间 <span class="req">*</span></label>
-          <input type="text" value="2026-08-20 10:12（自动配租 ZX2026-02-01）" readonly>
+          <label>选房通知时间 <span class="req">*</span></label>
+          <input type="text" value="2026-08-20 14:14（短信 + 湘易办 · 轮到顺序号 104）" readonly>
         </div>
         <div class="form-item">
-          <label>通知时间 <span class="req">*</span></label>
-          <input type="text" value="2026-08-20 10:14（短信 + 湘易办）" readonly>
+          <label>确认时限与选房结果 <span class="req">*</span></label>
+          <input type="text" value="2026-08-21 14:14 前　已于 2026-08-20 15:36 时限内选定" readonly>
+          <div class="hint proto chg"><span class="proto-t chg">0909 改</span>本件<b>时限内已完成选房</b>，不属于「超时未选」；若为超时未选，系统只把顺序号排至队尾，<b>不进本抽屉</b></div>
         </div>
         <div class="form-item">
-          <label>签约截止 <span class="req">*</span></label>
-          <input type="text" value="2026-08-27 18:00（5 个工作日）" readonly>
+          <label>签约与入住情况 <span class="req">*</span></label>
+          <input type="text" value="2026-08-25 已电子签约；截至 2026-09-19 逾 30 天未办理入住交付" readonly>
         </div>
         <div class="form-item">
           <label>是否提出正当理由 <span class="req">*</span></label>
@@ -237,24 +272,30 @@
         </div>
         <div class="form-item">
           <label>处置情形 <span class="req">*</span></label>
-          <select><option>签约后不办理入住</option><option>逾期未签约且无正当理由</option><option>配租后主动放弃</option><option>不服从配租房源</option></select>
+          <select><option>情形③ 签约后不办理入住</option><option>情形③ 已选定后逾期未签约且无正当理由</option><option>情形③ 已选定后主动放弃（电子签放弃确认书）</option></select>
+          <div class="hint proto chg"><span class="proto-t chg">0909 改</span>原可选「不服从配租房源」单一条件。现只保留<b>已选定房间后的三类情形</b>——放弃须<b>同时满足「不服从配租房源」与「不办理入住」</b>，<b>选房超时未选与本批次无房源均不在此列</b></div>
         </div>
         <div class="form-item">
           <label>认定依据 <span class="req">*</span></label>
-          <select><option>申请人电子签确认书</option><option>系统时限认定（逾期未签约）</option><option>运营机构书面反馈</option></select>
+          <select><option>申请人电子签确认书</option><option>系统时限认定（已选定后逾期未签约）</option><option>运营机构书面反馈（签约后未办理入住）</option></select>
+        </div>
+        <div class="form-item">
+          <label>告知与本人确认 <span class="req">*</span></label>
+          <input type="text" value="已告知 2026-09-16　本人确认 2026-09-18（电话录音 + 短信回复）" readonly>
+          <div class="hint proto chg"><span class="proto-t chg">0909 改</span>认定前<b>须完成告知与本人确认并留痕</b>，未完成的不允许提交</div>
         </div>
         <div class="form-item col-full">
           <label>认定说明 <span class="req">*</span></label>
-          <textarea rows="4">该申请人于 2026-08-20 经系统自动配租匹配到茨菇塘公寓 5 栋 1204，并于 2026-08-25 完成电子签约，但截至 2026-09-19 已超过 30 天仍未办理入住交付。经运营机构 3 次电话联系与 2 次短信告知，申请人明确表示暂不入住且不接受其他房源，期限内亦未提出任何正当理由。按管理办法第九条认定为视同放弃承租房源资格。</textarea>
+          <textarea rows="4">该申请人轮候顺序号 104，2026-08-20 14:14 收到选房通知，并于当日 15:36 在确认时限内自选茨菇塘公寓 5 栋 1204（一室一厅整套）并锁定，2026-08-25 完成电子签约，但截至 2026-09-19 已超过 30 天仍未办理入住交付。经运营机构 3 次电话联系与 2 次短信告知，申请人明确表示暂不入住且不接受其他房源，期限内亦未提出任何正当理由。2026-09-16 已书面告知拟按放弃处理的后果，2026-09-18 本人电话与短信确认知悉。本件已选定房间、不服从配租房源且不办理入住两个条件同时满足，按管理办法第九条认定为视同放弃承租房源资格。</textarea>
         </div>
         <div class="form-item col-full">
           <label>告知与催办记录 <span class="req">*</span></label>
           <input type="text" data-upload="1">
-          <div class="hint">须附电话联系记录与短信告知截图</div>
+          <div class="hint">须附电话联系记录、短信告知截图与本人确认留痕</div>
         </div>
         <div class="form-item col-full">
-          <label>房源处置 <span class="req">*</span></label>
-          <select><option>解除合同并释放房源，纳入下一次自动配租补充执行</option><option>释放房源至可配租房源池</option></select>
+          <label>房间处置 <span class="req">*</span></label>
+          <select><option>解除合同并释放房间回本批次可选房源，由后续顺序人自选</option><option>释放房间至房源池，本批次暂不投放</option></select>
         </div>
         <div class="form-item">
           <label>短信验证码 <span class="req">*</span></label>
@@ -265,13 +306,13 @@
   </div>
   <div class="drawer-foot">
     <button class="btn" data-close-drawer>取消</button>
-    <button class="btn btn-danger" onclick="PMS.confirm({title:'高敏操作确认',message:'确认写入放弃标记？',detail:'写入后该申请人不得再次申请人才住房，标记同步至人才档案并按身份证号拦截再次申请。纠错须走配租异常处理审批，并非必然获准。',type:'error',okText:'确认写入标记',onOk:function(){PMS.closeDrawer();PMS.toast('已写入放弃标记并同步至人才档案，再次申请将被自动拦截','success');}})"><i class="fa-solid fa-ban"></i> 确认写入标记</button>
+    <button class="btn btn-danger" onclick="PMS.confirm({title:'高敏操作确认',message:'确认写入放弃标记？',detail:'本件为「已选定房间后签约不办理入住」情形，已选定房间、不服从配租房源且不办理入住两个条件同时满足，且已完成告知与本人确认并留痕。写入后该申请人不得再次申请人才住房，标记同步至人才档案并按身份证号拦截再次申请。选房超时未选的不得在此写入标记。纠错须走配租异常处理审批，并非必然获准。',type:'error',okText:'确认写入标记',onOk:function(){PMS.closeDrawer();PMS.toast('已写入放弃标记并同步至人才档案，再次申请将被自动拦截','success');}})"><i class="fa-solid fa-ban"></i> 确认写入标记</button>
   </div>
 </div>
 <script>
 (function () {
   var t = document.querySelector('main.app-main .table-wrap > table.data-table');
-  if (t) { t._total = 18; }
+  if (t) { t._total = 387; }
 })();
 </script>
 

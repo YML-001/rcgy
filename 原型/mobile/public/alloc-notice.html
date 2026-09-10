@@ -33,97 +33,125 @@
 .nt-si .d{font-size:11px;color:#9AA7B8;margin-top:3px;line-height:1.5}
 </style>
 </head>
-<body class="m-body" data-mtitle="配租批次公告" data-mmod="M1 个人用户 · 自动配租与结果查询"
+<body class="m-body" data-mtitle="配租批次公告" data-mmod="M1 个人用户 · 轮候选房与结果查询"
       data-mcode="M1-13" data-mback="rent-apply.html"
-      data-mdesc="展示配租批次的房源范围、可安置人数、自动配租执行时间与配租规则。公告已通过短信通知全部资格审核通过的申请人，到点由系统自动配租，申请人无需任何操作。"
+      data-mdesc="展示配租批次的房源范围、套数与按户型折算的可安置人数，以及选房安排：按轮候顺序依次推送选房通知、轮到谁通知谁，公告不设在线报名，也不设全批统一的执行时点。本人可在公告内查看预计轮到的时间区间、确认时限与超时后果。"
       data-mtabset="public" data-mtab="home" data-mchan="湘易办">
 <div class="m-stage">
   <div class="m-phone">
     <div class="m-screen">
       <div class="m-view">
+        <div class="m-note proto chg" style="margin-bottom:12px"><i class="fa-solid fa-pen-to-square"></i>
+          <div><span class="proto-t chg">0909 改</span>本页原为「公告已发布 · 待系统自动配租」：头部标注<b>自动配租执行时间 2026-09-15 10:00</b>，
+            办理步骤为「到点自动匹配 → 结果公布」，并写明不安排申请人自行选房。
+            9 月 9 日配租逻辑讨论后<b>去掉自动配租执行时间与在线报名入口</b>，改为展示<b>选房安排</b>——
+            按轮候顺序依次推送选房通知、轮到谁通知谁，并给出<b>本人预计轮到的时间区间</b>；
+            可安置人数改为<b>按户型折算</b>（一室一厅 1 人、二室一厅 2 人、三室一厅 3 人）。
+            对应《系统原型调整计划（0909 会议）》<b>C02</b>，可安置人数口径见 <b>C04</b>。</div>
+        </div>
+
         <div class="nt-hd">
-          <span class="tg">公告已发布 · 待系统自动配租</span>
+          <span class="tg">公告已发布 · 正在按轮候顺序通知选房</span>
           <div class="t">2026 年第 3 批人才公寓配租公告</div>
           <div class="s">发布单位：株洲市保障性住房服务中心<br>
-            发布时间：2026-09-01　自动配租执行：<b>2026-09-15 10:00</b></div>
+            发布时间：2026-09-01　选房通知：<b>2026-09-10 起按轮候顺序依次推送</b></div>
           <div class="nt-st">
-            <div><div class="v">320</div><div class="l">投放(间)</div></div>
+            <div><div class="v">320</div><div class="l">投放(套)</div></div>
+            <div><div class="v">386</div><div class="l">可安置(人)</div></div>
             <div><div class="v">6</div><div class="l">涉及楼盘</div></div>
-            <div><div class="v">320</div><div class="l">可安置(人)</div></div>
           </div>
         </div>
 
         <div class="m-note" style="margin:14px 14px 0"><i class="fa-solid fa-comment-sms"></i>
-          <div>本公告<b>已通过短信通知全部资格审核通过的申请人</b>。届时<b>系统自动配租，无需报名</b>，
-            申请人不需要在平台上做任何操作，配租结果出来后会再次短信告知。</div>
+          <div><span class="proto-t chg">0909 改</span>本公告在平台公开发布并推送站内消息。
+            <b>选房通知不群发</b>：按轮候顺序<b>依次推送</b>，轮到谁通知谁，短信中告知您的<b>轮候顺序号、可选房源范围、确认时限与超时后果</b>。
+            本批次<b>不设在线报名</b>，公告发布后无需任何操作，等通知即可。</div>
         </div>
 
         <div class="nt-step">
           <div class="h">办理步骤</div>
           <div class="nt-si on"><span class="no">1</span><span class="tx">
-            <span class="t">公告发布并短信触达（2026-09-01）</span>
-            <span class="d">配租经办发布公告并设定自动配租执行时间，系统向全部资格审核通过的申请人发送短信</span></span></div>
-          <div class="nt-si"><span class="no">2</span><span class="tx">
-            <span class="t">系统自动配租（2026-09-15 10:00）</span>
-            <span class="d">到点系统按资格审核通过顺序，在申请人已选定的意向楼盘与户型范围内自动匹配房间</span></span></div>
+            <span class="t">公告发布（2026-09-01）</span>
+            <span class="d">配租经办发布公告，公开本批次房源范围、套数与按户型折算的可安置人数；同步推送站内消息</span></span></div>
+          <div class="nt-si on"><span class="no">2</span><span class="tx">
+            <span class="t">按轮候顺序依次推送选房通知（2026-09-10 起）</span>
+            <span class="d">系统按轮候顺序号从第 1 位起逐位推送，轮到谁通知谁；通知含顺序号、可选房源范围、确认时限与超时后果</span></span></div>
           <div class="nt-si"><span class="no">3</span><span class="tx">
-            <span class="t">结果公布与短信告知（2026-09-15 12:00 前）</span>
-            <span class="d">配租结果在平台公布，同步短信告知本人分配到的楼盘、房间与签约安排；本轮未匹配到房源的告知轮候位次</span></span></div>
+            <span class="t">本人在确认时限内自行选房（预计 2026-09-15 至 09-16 轮到您）</span>
+            <span class="d">从当时仍可选的房间中挑选一间并锁定，系统不做指定分配；超时未选的由下一顺序人接着选，本人顺序号排至队列末位</span></span></div>
           <div class="nt-si"><span class="no">4</span><span class="tx">
-            <span class="t">签约与入住（2026-09-16 起）</span>
-            <span class="d">自结果公布次日起 <b>5 个工作日</b>内与运营机构完成签约，可线上电子签约或线下签约后上传合同影像</span></span></div>
+            <span class="t">签约与入住（自选定房间次日起 5 个工作日内）</span>
+            <span class="d">与运营机构完成签约，可线上电子签约或线下签约后上传合同影像；已选定房间后逾期未签约按放弃处理</span></span></div>
         </div>
 
-        <div class="m-sect">本批次房源范围<span class="m-sect-x">6 个楼盘 · 320 间</span></div>
+        <div class="m-sect">本批次房源范围<span class="m-sect-x">6 个楼盘 · 320 套 · 386 人</span></div>
         <div class="m-cells">
-          <a class="m-cell" href="house-detail.html"><span class="m-ci"><i class="fa-solid fa-building"></i></span><span class="m-cl"><b>湘江1958 人才公寓</b><span class="m-cs">天元区泰山路 · 株洲市人才安居服务有限公司</span></span><span class="m-cv">86 间</span><i class="m-ca fa-solid fa-angle-right"></i></a>
-          <a class="m-cell" href="house-detail.html"><span class="m-ci green"><i class="fa-solid fa-building"></i></span><span class="m-cl"><b>栗雨佳苑</b><span class="m-cs">天元区栗雨街道 · 株洲市人才安居服务有限公司</span></span><span class="m-cv">64 间</span><i class="m-ca fa-solid fa-angle-right"></i></a>
-          <a class="m-cell" href="house-detail.html"><span class="m-ci cyan"><i class="fa-solid fa-building"></i></span><span class="m-cl"><b>茨菇塘公寓</b><span class="m-cs">荷塘区茨菇塘路 · 株洲市建宁安居运营管理有限公司</span></span><span class="m-cv">52 间</span><i class="m-ca fa-solid fa-angle-right"></i></a>
-          <a class="m-cell" href="house-detail.html"><span class="m-ci orange"><i class="fa-solid fa-building"></i></span><span class="m-cl"><b>云龙智谷人才公寓</b><span class="m-cs">云龙示范区学林路 · 株洲云龙人才服务有限公司</span></span><span class="m-cv">48 间</span><i class="m-ca fa-solid fa-angle-right"></i></a>
-          <a class="m-cell" href="house-detail.html"><span class="m-ci"><i class="fa-solid fa-building"></i></span><span class="m-cl"><b>田心科创人才公寓</b><span class="m-cs">石峰区田心路 · 株洲市建宁安居运营管理有限公司</span></span><span class="m-cv">40 间</span><i class="m-ca fa-solid fa-angle-right"></i></a>
-          <a class="m-cell" href="house-list.html"><span class="m-ci green"><i class="fa-solid fa-list"></i></span><span class="m-cl"><b>董家塅新苑及全部房源清单</b><span class="m-cs">芦淞区董家塅 30 间 · 查看全部 6 个楼盘</span></span><span class="m-cv">30 间</span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="house-detail.html"><span class="m-ci"><i class="fa-solid fa-building"></i></span><span class="m-cl"><b>湘江1958 人才公寓</b><span class="m-cs">天元区泰山路 · 86 套（含三室一厅 10 套、二室一厅 8 套）</span></span><span class="m-cv">114 人</span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="house-detail.html"><span class="m-ci green"><i class="fa-solid fa-building"></i></span><span class="m-cl"><b>栗雨佳苑</b><span class="m-cs">天元区栗雨街道 · 64 套（含三室一厅 8 套、二室一厅 6 套）</span></span><span class="m-cv">86 人</span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="house-detail.html"><span class="m-ci cyan"><i class="fa-solid fa-building"></i></span><span class="m-cl"><b>茨菇塘公寓</b><span class="m-cs">荷塘区茨菇塘路 · 52 套（含二室一厅 6 套）</span></span><span class="m-cv">58 人</span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="house-detail.html"><span class="m-ci orange"><i class="fa-solid fa-building"></i></span><span class="m-cl"><b>云龙智谷人才公寓</b><span class="m-cs">云龙示范区学林路 · 48 套（含二室一厅 5 套）</span></span><span class="m-cv">53 人</span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="house-detail.html"><span class="m-ci"><i class="fa-solid fa-building"></i></span><span class="m-cl"><b>田心科创人才公寓</b><span class="m-cs">石峰区田心路 · 40 套（含二室一厅 3 套）</span></span><span class="m-cv">43 人</span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="house-list.html"><span class="m-ci green"><i class="fa-solid fa-list"></i></span><span class="m-cl"><b>董家塅新苑及全部房源清单</b><span class="m-cs">芦淞区董家塅 30 套 · 查看全部 6 个楼盘可选房间</span></span><span class="m-cv">32 人</span><i class="m-ca fa-solid fa-angle-right"></i></a>
         </div>
 
-        <div class="m-sect">可安置人数</div>
+        <div class="m-sect">可安置人数<span class="m-sect-x">按户型折算</span></div>
         <div class="m-card">
           <div class="m-card-h"><i class="fa-solid fa-users"></i>本批次安置能力</div>
           <div class="m-card-b">
             <div class="m-mini">
-              <div><div class="mv">320</div><div class="ml">可安置(人)</div></div>
-              <div><div class="mv">412</div><div class="ml">参与配租(人)</div></div>
-              <div><div class="mv warn">92</div><div class="ml">预计轮候(人)</div></div>
+              <div><div class="mv">320</div><div class="ml">投放(套)</div></div>
+              <div><div class="mv ok">386</div><div class="ml">可安置(人)</div></div>
+              <div><div class="mv">412</div><div class="ml">轮候库(人)</div></div>
+              <div><div class="mv warn">26</div><div class="ml">等下一批次(人)</div></div>
             </div>
             <div class="m-kv" style="margin-top:12px">
-              <div><span>整套配租</span><span>单间配套 78 间、一室一厅 96 间，<b>每套安置 1 人</b></span></div>
-              <div><span>按间配租</span><span>二室一厅 62 间、三室一厅 84 间，<b>按间安置、同套同性别</b></span></div>
-              <div><span>参与范围</span><span>截至 2026-09-14 24:00 <b>资格审核通过且未退出</b>的申请人，共 412 人</span></div>
-              <div><span>安置口径</span><span>可安置人数 = 本批次投放间数，投放不足时按位次顺序安置，其余转入轮候</span></div>
+              <div><span><span class="proto-t chg">0909 改</span>单间配套</span><span>118 套 × <b>1 人</b> = 118 人　整套配租</span></div>
+              <div><span><span class="proto-t chg">0909 改</span>一室一厅</span><span>154 套 × <b>1 人</b> = 154 人　整套配租</span></div>
+              <div><span><span class="proto-t chg">0909 改</span>二室一厅</span><span>30 套 × <b>2 人</b> = 60 人　按间配租、同套同性别</span></div>
+              <div><span><span class="proto-t chg">0909 改</span>三室一厅</span><span>18 套 × <b>3 人</b> = 54 人　按间配租、同套同性别</span></div>
+              <div><span>折算口径</span><span><span class="proto-t chg">0909 改</span>按户型折算可安置人数：<b>一室一厅 1 人、二室一厅 2 人、三室一厅 3 人，以此类推</b>；公告同时给出<b>套数与可安置人数</b></span></div>
+              <div><span>参与范围</span><span>截至公告发布时<b>资格审核通过且已入轮候库</b>的申请人，共 412 人（按轮候顺序号依次通知）</span></div>
+              <div><span>安置口径</span><span><span class="proto-t chg">0909 改</span>本批次可安置 386 人，顺序号在此之后或<b>意向范围内无房源</b>的<b>顺序号不变</b>，等下一批次</span></div>
             </div>
           </div>
         </div>
 
-        <div class="m-sect">自动配租规则<span class="m-sect-x">四条</span></div>
+        <div class="m-sect">选房安排<span class="m-sect-x">按轮候顺序依次通知</span></div>
         <div class="m-card">
-          <div class="m-card-h"><i class="fa-solid fa-robot"></i>系统自动配租</div>
+          <div class="m-card-h"><i class="fa-solid fa-bell"></i>通知与时限</div>
+          <div class="m-card-b">
+          <div class="m-kv">
+            <div><span><span class="proto-t chg">0909 改</span>通知方式</span><span>按<b>轮候顺序号</b>从第 1 位起<b>依次推送</b>，轮到谁通知谁；短信 + 湘易办站内消息</span></div>
+            <div><span>通知起始</span><span>2026-09-10 09:00 起（第 1 位）；前一位选定或超时后即推送下一位</span></div>
+            <div><span>每位确认时限</span><span><b>24 小时</b>　<span class="proto-t pend">待确认</span>时限长短待业务部门明确（Q12）</span></div>
+            <div><span><span class="proto-t chg">0909 改</span>我的顺序号</span><span><b style="color:var(--primary)">第 12 位</b>（轮候编号 LH2026-0012）　前方 1 人在选房</span></div>
+            <div><span><span class="proto-t chg">0909 改</span>我预计轮到</span><span><b>2026-09-15 至 2026-09-16</b>　以实际推送的选房通知为准</span></div>
+            <div><span>超时未选</span><span>由下一顺序人接着选，本人顺序号<b>排至当前队列末位</b>，资格不作废、<b>不认定为放弃</b></span></div>
+            <div><span>本批次无房源</span><span>选定的楼盘与户型本批次没有投放的<b>不推送通知</b>，<b>顺序号不变</b>，等下一批次</span></div>
+            <div><span>是否需报名</span><span><b style="color:var(--danger)">不需要</b>，本批次不设报名环节，也<b>不设自动配租执行时间</b></span></div>
+          </div>
+          </div>
+        </div>
+
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-scale-balanced"></i>选房规则<span class="m-more">三条</span></div>
           <div class="m-card-b">
             <div class="m-check">
-              <div class="ok"><i class="fa-solid fa-clock-rotate-left"></i><div class="m-chl"><b>① 按资格审核通过时间排序</b><span>以<b>资格审核通过时间</b>先后自动排定配租位次，<b>不摇号、不报名、不支持人工调序</b></span></div></div>
-              <div class="ok"><i class="fa-solid fa-filter"></i><div class="m-chl"><b>② 只在意向范围内匹配</b><span>仅在申请人<b>已选定的意向楼盘与户型范围</b>内匹配房间，范围外房源即使有空余也不予匹配</span></div></div>
-              <div class="ok"><i class="fa-solid fa-venus-mars"></i><div class="m-chl"><b>③ 同套同性别</b><span>按间配租时，<b>同一套房内配租对象性别一致</b>，不同性别不混住同一套</span></div></div>
-              <div class="ok"><i class="fa-solid fa-people-group"></i><div class="m-chl"><b>④ 组团整套预留、整组同套</b><span>已填报组团并成团的<b>整套预留、整组锁定同一套房</b>；组团位次<b>按组内最靠后一位的位次</b>参与排序；无整套可整组匹配的<b>拆开按单人配租、各自位次不变</b></span></div></div>
+              <div class="ok"><i class="fa-solid fa-list-ol"></i><div class="m-chl"><b><span class="proto-t chg">0909 改</span>① 顺序：按轮候顺序依次通知</b><span>排序依据为<b>资格审核通过时间</b>，本期只按这一个维度；<b>不摇号、不报名、不支持人工调序</b></span></div></div>
+              <div class="ok"><i class="fa-solid fa-filter"></i><div class="m-chl"><b>② 范围：只在意向范围内自选</b><span>只能在<b>申请时选定的楼盘与户型</b>内挑房间，本期不跨楼盘调剂；范围外房源即使有空余也不开放</span></div></div>
+              <div class="ok"><i class="fa-solid fa-venus-mars"></i><div class="m-chl"><b>③ 同套同性别</b><span>整套空置的男女都可选；套内已有在住人或<b>已被他人选定房间</b>的，其余房间<b>只对同性别开放</b>。性别由身份证号自动识别</span></div></div>
+            </div>
+            <div class="m-note warn" style="margin-top:10px"><i class="fa-solid fa-circle-exclamation"></i>
+              <div><span class="proto-t chg">0909 改</span>本批次<b>由本人在可选范围内自选房间</b>，系统<b>不指定房源</b>、不整套预留。
+                组团同住只影响审批排序、使同组成员顺序号相邻，<b>不预留、不锁定</b>房源，不保证一定住进同一套。</div>
             </div>
           </div>
-        </div>
-
-        <div class="m-note warn"><i class="fa-solid fa-circle-exclamation"></i>
-          <div>本批次<b>不设报名环节</b>，也<b>不安排申请人自行选房</b>。到 2026-09-15 10:00 系统自动执行配租，
-            结果以平台公布与短信告知为准。</div>
         </div>
 
         <div style="padding:0 14px 16px;display:flex;flex-direction:column;gap:9px">
-          <a class="m-btn primary" href="alloc-order.html"><i class="fa-solid fa-list-ol"></i> 查询我的配租位次</a>
-          <a class="m-btn" href="alloc-rule.html"><i class="fa-solid fa-scale-balanced"></i> 查看自动配租规则说明</a>
-          <a class="m-btn" href="alloc-select.html"><i class="fa-solid fa-house-circle-check"></i> 查看我的配租结果</a>
+          <a class="m-btn primary" href="alloc-order.html"><i class="fa-solid fa-list-ol"></i> 查询我的轮候顺序号</a>
+          <a class="m-btn" href="alloc-select.html"><i class="fa-solid fa-hand-pointer"></i> 轮到我时进入选房</a>
+          <a class="m-btn" href="alloc-rule.html"><i class="fa-solid fa-scale-balanced"></i> 查看选房规则说明</a>
         </div>
       </div>
     </div>

@@ -23,6 +23,8 @@
     </div>
   </div>
 
+  <div class="alert alert-info"><i class="fa-solid fa-pen-to-square"></i><div><span class="proto-t chg">0909 改</span>本页高并发场景与峰值时段中提及的「自动配租执行」，已按 9 月 9 日结论改为<b>按轮候顺序号推送选房通知与申请人在线自选房间</b>的时段口径。</div></div>
+
   <div class="alert alert-warning">
     <i class="fa-solid fa-triangle-exclamation"></i>
     <div>监控系统<b>可用性、响应时长与并发情况</b>，在<b>配租选房等高并发时段</b>提供性能保障依据。</div>
@@ -42,7 +44,7 @@
     <div class="stat-card dc-alarm">
       <div class="s-icon orange"><i class="fa-solid fa-users"></i></div>
       <div><div class="s-label">峰值并发</div><div class="s-value">486</div>
-        <div class="s-trend ">自动配租执行时段</div></div>
+        <div class="s-trend "><span class="proto-t chg">0909 改</span>选房通知推送与选房时段</div></div>
     </div>
     <div class="stat-card">
       <div class="s-icon cyan"><i class="fa-solid fa-server"></i></div>
@@ -59,8 +61,8 @@
     <div class="card-body">
       <div class="section-title" data-icon="fa-chart-simple">高并发时段与资源使用</div>
       <div class="dc-bars">
-        <div class="b-item warn"><span class="b-label">自动配租执行（09-15 10:00—10:30）　486 人参与</span><span class="b-track"><span class="b-fill" style="width:100%"></span></span><span class="b-val">峰值 · CPU 62.4%</span></div>
-        <div class="b-item"><span class="b-label">配租报名首日（09-05 09:00—10:00）　286 并发</span><span class="b-track"><span class="b-fill" style="width:58.8%"></span></span><span class="b-val">CPU 42.6%</span></div>
+        <div class="b-item warn"><span class="b-label"><span class="proto-t chg">0909 改</span>选房通知推送与在线选房（09-15 10:00—10:30）　486 人在线</span><span class="b-track"><span class="b-fill" style="width:100%"></span></span><span class="b-val">峰值 · CPU 62.4%</span></div>
+        <div class="b-item"><span class="b-label"><span class="proto-t chg">0909 改</span>配租公告发布首日（09-05 09:00—10:00）　286 并发</span><span class="b-track"><span class="b-fill" style="width:58.8%"></span></span><span class="b-val">CPU 42.6%</span></div>
         <div class="b-item"><span class="b-label">名单公示首日（09-13 09:00—10:00）　214 并发</span><span class="b-track"><span class="b-fill" style="width:44.0%"></span></span><span class="b-val">CPU 32.8%</span></div>
         <div class="b-item warn"><span class="b-label">账单生成时段（09-01 02:00—03:00）　86 并发</span><span class="b-track"><span class="b-fill" style="width:17.7%"></span></span><span class="b-val">批量任务 · CPU 78.2%</span></div>
         <div class="b-item"><span class="b-label">日常工作时段平均　68 并发</span><span class="b-track"><span class="b-fill" style="width:14.0%"></span></span><span class="b-val">CPU 18.4%</span></div>
@@ -79,18 +81,18 @@
         </thead>
         <tbody>
           <tr><td>系统可用率</td><td><span class="badge green">99.96%</span></td><td><span class="badge blue">≥ 99.9%</span></td><td><span class="badge green">达标</span></td><td><span class="muted">—</span></td><td><span class="muted">—</span></td><td>近 30 日仅 1 次计划内维护（09-01 02:00—02:20，账单生成期间），无非计划中断</td><td><span class="link" onclick="PMS.toast('总时长 43,200 分钟，不可用 17 分钟（计划内维护），可用率 99.96%')">可用率明细</span></td></tr>
-          <tr><td>页面平均响应时长</td><td><span class="badge green">0.42 秒</span></td><td><span class="badge blue">≤ 1 秒</span></td><td><span class="badge green">达标</span></td><td>1.86 秒</td><td>自动配租执行时段</td><td>峰值 1.86 秒仍在目标内。自动配租由服务端批量执行，无用户并发选房，峰值主要来自公告群发与结果查询</td><td><span class="link" onclick="location.href='../alloc/auto-alloc.html'">自动配租执行与匹配规则</span></td></tr>
-          <tr class="row-warn"><td>峰值并发用户数</td><td class="num">486</td><td><span class="badge blue">≤ 800</span></td><td><span class="badge green">达标</span></td><td class="num">486</td><td>09-15 10:00—10:30</td><td><b>自动配租执行时段为最高并发场景</b>。执行本身在服务端批量完成，并发主要来自公告群发短信与申请人集中查询结果；建议下批次前做一次压测</td><td><span class="link" onclick="location.href='../alloc/batch-list.html'">配租批次管理</span></td></tr>
+          <tr><td>页面平均响应时长</td><td><span class="badge green">0.42 秒</span></td><td><span class="badge blue">≤ 1 秒</span></td><td><span class="badge green">达标</span></td><td>1.86 秒</td><td><span class="proto-t chg">0909 改</span>选房通知推送与选房时段</td><td><span class="proto-t chg">0909 改</span>峰值 1.86 秒仍在目标内。<b>选房通知按轮候顺序号逐位推送</b>，同一时点在线选房人数可控，峰值主要来自公告发布与选房结果查询</td><td><span class="link" onclick="location.href='../alloc/auto-alloc.html'">选房组织与选房记录</span></td></tr>
+          <tr class="row-warn"><td>峰值并发用户数</td><td class="num">486</td><td><span class="badge blue">≤ 800</span></td><td><span class="badge green">达标</span></td><td class="num">486</td><td>09-15 10:00—10:30</td><td><span class="proto-t chg">0909 改</span><b>公告发布后集中推送选房通知的时段为最高并发场景</b>。<b>选房按轮候顺序号逐位放行</b>，并发主要来自通知短信推送与申请人集中查看可选房源；建议下批次前做一次压测</td><td><span class="link" onclick="location.href='../alloc/batch-list.html'">配租批次管理</span></td></tr>
           <tr class="row-warn"><td>CPU 峰值使用率</td><td><span class="badge orange">78.2%</span></td><td><span class="badge blue">≤ 80%</span></td><td><span class="badge orange">接近阈值</span></td><td><span class="badge orange">78.2%</span></td><td>09-01 02:00 账单生成</td><td>账单批量生成（1,286 份）为最高 CPU 场景。建议将账单生成与影像备份错峰执行（当前 02:00 与 02:30 部分重叠）</td><td><span class="link" onclick="location.href='../rent/bill-batch.html'">账单批量生成</span></td></tr>
-          <tr><td>数据库连接池使用率</td><td><span class="badge green">42.6%</span></td><td><span class="badge blue">≤ 70%</span></td><td><span class="badge green">达标</span></td><td><span class="badge green">62.8%</span></td><td>自动配租执行时段</td><td>连接池配置合理，执行峰值仍有余量</td><td><span class="link" onclick="PMS.toast('连接池上限 200，峰值使用 126')">资源明细</span></td></tr>
+          <tr><td>数据库连接池使用率</td><td><span class="badge green">42.6%</span></td><td><span class="badge blue">≤ 70%</span></td><td><span class="badge green">达标</span></td><td><span class="badge green">62.8%</span></td><td><span class="proto-t chg">0909 改</span>选房通知推送与选房时段</td><td>连接池配置合理，峰值仍有余量</td><td><span class="link" onclick="PMS.toast('连接池上限 200，峰值使用 126')">资源明细</span></td></tr>
           <tr><td>存储使用率</td><td><span class="badge green">42.9%</span></td><td><span class="badge blue">≤ 80%</span></td><td><span class="badge green">达标</span></td><td><span class="badge green">42.9%</span></td><td><span class="muted">—</span></td><td>影像文件占 428.6 GB（配额 1 TB）。工单照片保留 3 年，到期归档可释放约 108 GB</td><td><span class="link" onclick="location.href='../system/attach.html'">附件与影像管理</span></td></tr>
         </tbody>
       </table>
     </div>
   </div>
   <div class="sp-src">
-    <span><b>保障场景</b> 配租选房、配租报名、名单公示、账单生成为高并发/高负载场景</span>
-    <span><b>并发控制</b> 自动配租在服务端批量执行，无用户并发选房；公告群发短信按批限流</span>
+    <span><b>保障场景</b> <span class="proto-t chg">0909 改</span>配租选房、公告发布、名单公示、账单生成为高并发/高负载场景</span>
+    <span><b>并发控制</b> <span class="proto-t chg">0909 改</span>选房通知<b>按轮候顺序号逐位推送</b>，同一时点在线选房人数可控；通知短信按批限流</span>
     <span><b>指标目标</b> 可用率 ≥ 99.9%；响应 ≤ 1 秒；CPU ≤ 80%；存储 ≤ 80%</span>
   </div>
 </main>

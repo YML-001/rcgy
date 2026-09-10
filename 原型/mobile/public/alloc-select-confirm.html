@@ -3,37 +3,59 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>配租结果确认书 · 株洲市人才住房保障管理平台</title>
+<title>选房确认 · 株洲市人才住房保障管理平台</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="../../assets/css/app.css">
 <link rel="stylesheet" href="../../assets/css/mobile.css">
 <link rel="stylesheet" href="../../assets/css/ext.css">
 </head>
-<body class="m-body" data-mtitle="配租结果确认书" data-mmod="M7 自动配租与结果查询" data-mcode="M7-05"
-      data-mdesc="系统自动配租结果的完整明细：楼盘、房屋、房间、套内与公摊面积、计租面积、人才租金标准，以及运营机构、签约地址、联系电话与 5 个工作日签约期限。确认知晓后进入签约。" data-mback="alloc-select.html" data-mtabset="public" data-mtab="apply">
+<body class="m-body" data-mtitle="选房确认" data-mmod="M7 轮候选房与结果查询" data-mcode="M7-05"
+      data-mdesc="本人在选房页挑定房间后进入本页确认：展示您已选定的楼盘、房屋（套）、房间（间）、套内与公摊面积、计租面积、人才租金标准与个人应缴，以及签约安排（运营机构名称、地址、联系电话、5 个工作日签约期限）。房源由本人自选，系统不做指定分配；提交确认后房间锁定给本人并进入签约。" data-mback="alloc-select.html" data-mtabset="public" data-mtab="apply">
 <div class="m-stage">
   <div class="m-phone">
     <div class="m-screen">
       <div class="m-view">
+        <div class="m-note proto chg"><i class="fa-solid fa-pen-to-square"></i>
+          <div><span class="proto-t chg">0909 改</span>本页原为「配租结果确认书」，呈现的是系统自动配租的结果，措辞为「系统为您分配」。
+            9 月 9 日配租逻辑讨论后改为<b>选房确认页</b>：确认的是<b>本人刚选定</b>的房间，措辞改为「您已选定」，
+            签约期限改为自<b>选定房间</b>次日起算，并去掉「不支持自行更换房间」一类自动配租的表述。
+            对应《系统原型调整计划（0909 会议）》<b>C01</b>。</div>
+        </div>
+
         <div class="m-result">
-          <div class="m-ri"><i class="fa-solid fa-house-circle-check"></i></div>
-          <div class="m-rt">配租结果已生成</div>
-          <div class="m-rd">配租单号 <b>PZ2026-03-00047</b><br>
-            2026-09-15 10:00 系统自动配租　·	结果已短信告知</div>
+          <div class="m-ri"><i class="fa-solid fa-hand-pointer"></i></div>
+          <div class="m-rt">您已选定房间</div>
+          <div class="m-rd"><span class="proto-t chg">0909 改</span>选房记录号 <b>XF2026-03-00047</b><br>
+            2026-09-15 20:12 由您本人在可选范围内自选　·　提交确认后进入签约</div>
+        </div>
+
+        <div class="m-card">
+          <div class="m-card-h"><i class="fa-solid fa-list-ol"></i>本次选房<a class="m-more" href="alloc-order.html">我的轮候顺序号 <i class="fa-solid fa-angle-right"></i></a></div>
+          <div class="m-card-b">
+            <div class="m-kv">
+              <div><span>轮候编号</span><span><b>LH2026-0012</b>　<span class="proto-t chg">0909 改</span>轮候顺序号 <b>12</b>（资格审核通过时即排定）</span></div>
+              <div><span>选房通知</span><span>2026-09-15 10:06 短信推送（138****6621），按轮候顺序轮到本人</span></div>
+              <div><span>确认时限</span><span>2026-09-16 10:06 前　<span class="m-tag green">已在时限内完成</span></span></div>
+              <div><span>选定时间</span><span><b>2026-09-15 20:12</b>　由本人从当时仍可选的 6 间房中挑选</span></div>
+              <div><span>可选范围</span><span>申请时选定的楼盘与户型：湘江1958 人才公寓　·　三室一厅按间</span></div>
+              <div><span>房源确定方式</span><span><span class="proto-t chg">0909 改</span><b>本人自选</b>，系统不做指定分配</span></div>
+            </div>
+          </div>
         </div>
 
         <div class="m-card" style="padding:0;overflow:hidden">
           <div class="m-hc-img" style="height:170px"><img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80" alt="湘江1958 A6-1502">
-            <div class="m-hc-badge"><span class="m-tag green">已配租</span><span class="m-tag blue">按间配租</span><span class="m-tag orange">拎包入住</span></div>
+            <div class="m-hc-badge"><span class="m-tag green">您已选定</span><span class="m-tag blue">按间配租</span><span class="m-tag orange">拎包入住</span></div>
           </div>
           <div class="m-card-b">
           <div class="m-kv">
             <div><span>楼盘</span><span><b>湘江1958 人才公寓</b>　天元区泰山路 199 号</span></div>
             <div><span>房屋（套）</span><span>A6 栋 1502 室　三室一厅　建筑面积 118.60 ㎡</span></div>
-            <div><span>房间（间）</span><span><b style="color:var(--primary)">1502-02 号房间</b>　次卧 · 朝南</span></div>
+            <div><span>房间（间）</span><span><span class="proto-t chg">0909 改</span><b style="color:var(--primary)">1502-02 号房间</b>　次卧 · 朝南　<b>您选定的房间</b></span></div>
             <div><span>楼层</span><span>15 / 26 层（有电梯）</span></div>
             <div><span>装修标准</span><span>精装 · 家电家具齐全 · 独立衣柜与书桌</span></div>
-            <div><span>配租模式</span><span><b>按间配租</b>　全套 3 间 / 3 人　·	<b>同套同性别（男）</b></span></div>
+            <div><span>配租模式</span><span><b>按间配租</b>　全套 3 间　·　<span class="proto-t chg">0909 改</span><b>可安置 3 人</b>（三室一厅按户型折算）</span></div>
+            <div><span>同套情况</span><span><span class="proto-t chg">0909 改</span>1502-01 号房间已由陈××（男）选定；1502-03 号房间仍可选，按<b>同套同性别</b>只对男性开放</span></div>
             <div><span>房源来源</span><span>收购商品房转化</span></div>
             <div><span>运营机构</span><span>株洲市人才安居服务有限公司</span></div>
           </div>
@@ -64,10 +86,10 @@
           <div class="m-card-h"><i class="fa-solid fa-hand-holding-dollar"></i>费用明细</div>
           <div class="m-card-b">
           <div class="m-kv">
-            <div><span>人才租金标准</span><span><b>14.00 元/㎡·月</b>（政策标准：个人承担 6.00 元、财政补贴 8.00 元，按计租面积计收）</span></div>
+            <div><span>人才租金标准</span><span><b>14.00 元/㎡·月</b>　其中<b>个人承担 6.00 元</b>、<b>财政补贴 8.00 元</b>，按计租面积计收</span></div>
             <div><span>应缴租金总额</span><span>373.80 元/月（26.70 ㎡ × 14.00 元/㎡·月）</span></div>
-            <div><span>财政补助（减免 57%）</span><span><span style="color:var(--success)">-213.60 元/月</span></span></div>
-            <div><span><b>个人实际应缴</b></span><span><b style="color:var(--danger)">160.20 元/月</b></span></div>
+            <div><span>财政补贴</span><span><span style="color:var(--success)">-213.60 元/月</span>　（26.70 ㎡ × 8.00 元/㎡·月）</span></div>
+            <div><span><b>个人应缴</b></span><span><b style="color:var(--danger)">160.20 元/月</b>　（26.70 ㎡ × 6.00 元/㎡·月）</span></div>
             <div><span>押金</span><span>1,000.00 元（退租时按结算单抵扣后退还）</span></div>
             <div><span>减免期限</span><span>自入住之日起 2 年</span></div>
             <div><span>自理费用</span><span>物业费、水、电、气按规定标准自行承担；按间配租的公共部分费用由同套住户均摊</span></div>
@@ -83,7 +105,7 @@
             <div><span>运营机构</span><span><b>株洲市人才安居服务有限公司</b></span></div>
             <div><span>办理地址</span><span>株洲市天元区泰山路 199 号　湘江1958 人才公寓 A6 栋 1 层客服中心</span></div>
             <div><span>联系电话</span><span><b>0731-28301958</b>　联系人：唐××（工作日 9:00—17:30）</span></div>
-            <div><span>签约期限</span><span><b style="color:var(--danger)">5 个工作日</b>　自结果公布次日起算，2026-09-16 至 2026-09-22 18:00</span></div>
+            <div><span>签约期限</span><span><b style="color:var(--danger)">5 个工作日</b>　<span class="proto-t chg">0909 改</span>自<b>选定房间</b>次日起算，2026-09-16 至 2026-09-22 18:00</span></div>
             <div><span>线上签约</span><span>由运营机构在平台发起，本人在手机上完成电子签章，双方签署即生效</span></div>
             <div><span>线下签约</span><span>到上述地址现场签署纸质合同后，在平台<b>上传合同影像</b>，由运营机构核对确认</span></div>
             <div><span>需携带材料</span><span>身份证原件（线下签约）；线上签约无需到场</span></div>
@@ -95,15 +117,23 @@
           </div>
         </div>
 
-        <div class="m-sect">签约前请知晓</div>
+        <div class="m-sect">确认前请知晓</div>
         <div class="m-card">
           <div class="m-card-h"><i class="fa-solid fa-triangle-exclamation"></i>风险告知</div>
           <div class="m-card-b">
             <div class="m-check">
-              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>配租结果由系统自动生成</b><span>按资格审核通过顺序、在意向范围内匹配，<b>不支持自行更换房间</b></span></div></div>
+              <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b><span class="proto-t chg">0909 改</span>本房间由您自行选定</b><span>在申请时选定的楼盘与户型范围内由本人挑选，<b>系统不做指定分配</b>；提交确认后本房间即<b>锁定给您</b></span></div></div>
               <div class="ok"><i class="fa-solid fa-circle-check"></i><div class="m-chl"><b>保障期自入住之日起算</b><span>入住日期由交付验收单确认后写入合同，作为 2 年租金减免计费与年审周期起算依据</span></div></div>
-              <div class="bad"><i class="fa-solid fa-circle-exclamation"></i><div class="m-chl"><b>逾期未签约视同放弃</b><span>超过 <b>5 个工作日</b>未完成签约的，房源顺延给下一位申请人，本批次不再另行安排</span></div></div>
-              <div class="bad"><i class="fa-solid fa-circle-exclamation"></i><div class="m-chl"><b>签约后不办理入住视同放弃</b><span>不服从配租房源且不办理入住的，<b>视同放弃承租资格</b></span></div></div>
+              <div class="bad"><i class="fa-solid fa-circle-exclamation"></i><div class="m-chl"><b><span class="proto-t chg">0909 改</span>已选定房间后逾期未签约按放弃处理</b><span>自选定次日起 <b>5 个工作日</b>未完成签约的，按<b>放弃</b>处理，本房间转给下一顺序人</span></div></div>
+              <div class="bad"><i class="fa-solid fa-circle-exclamation"></i><div class="m-chl"><b>签约后不办理入住按放弃处理</b><span>已选定房间又不办理入住的，<b>视同放弃承租资格</b>，放弃后不得再次申请</span></div></div>
+            </div>
+            <div class="m-note warn" style="margin-top:10px"><i class="fa-solid fa-circle-info"></i>
+              <div><span class="proto-t chg">0909 改</span>请区分两种情形：<b>未选房而确认时限超时</b>的，只是顺序号排至队列末位，
+                资格不作废、不认定为放弃；<b>已选定房间</b>后逾期未签约或不办理入住的，才按<b>放弃</b>处理。您现在处于后一种情形，请按期签约。</div>
+            </div>
+            <div class="m-note proto pend" style="margin-top:8px"><i class="fa-solid fa-circle-question"></i>
+              <div><span class="proto-t pend">待确认</span>签约期限长短、以及未按期签约后能否人工特批保留资格一次，
+                待业务部门明确（对应待确认事项 Q16）。本页按 5 个工作日呈现。</div>
             </div>
           </div>
         </div>
@@ -111,12 +141,13 @@
         <div class="m-cells">
           <a class="m-cell" href="sign-terms.html"><span class="m-ci"><i class="fa-solid fa-list-check"></i></span><span class="m-cl"><b>关键条款确认</b><span class="m-cs">签约前逐项确认租期、租金、费用与腾退义务</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
           <a class="m-cell" href="house-vr.html"><span class="m-ci cyan"><i class="fa-solid fa-vr-cardboard"></i></span><span class="m-cl"><b>VR 全景看房</b><span class="m-cs">签约前先在线环视本套户型</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
-          <a class="m-cell" href="alloc-giveup.html"><span class="m-ci red"><i class="fa-solid fa-ban"></i></span><span class="m-cl"><b>放弃本次配租房源</b><span class="m-cs">放弃后本批次不再另行安排，请慎重</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="alloc-select.html"><span class="m-ci orange"><i class="fa-solid fa-rotate-left"></i></span><span class="m-cl"><b><span class="proto-t chg">0909 改</span>返回重新挑选</b><span class="m-cs">提交确认前可回到选房页改选其他仍可选的房间</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="alloc-giveup.html"><span class="m-ci red"><i class="fa-solid fa-ban"></i></span><span class="m-cl"><b>放弃已选定的房间</b><span class="m-cs">已选定后放弃按放弃承租资格处理，放弃后不得再次申请，请慎重</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
         </div>
       </div>
       <div class="m-actbar">
-        <button class="m-btn w-auto" type="button" onclick="MB.toast('配租结果确认书 PDF 已下载')"><i class="fa-solid fa-download"></i> 下载</button>
-        <button class="m-btn primary" type="button" onclick="MB.confirm('已知晓配租结果：<b>湘江1958 人才公寓 A6 栋 1502 室 02 号房间</b>（计租面积 26.70 ㎡）。<br>请在 <b>2026-09-22 18:00</b> 前完成签约，逾期视同放弃。','知晓并去签约',function(){MB.toast('已记录知晓时间，正在进入签约');setTimeout(function(){location.href='sign-contract.html'},1200)})"><i class="fa-solid fa-file-signature"></i> 知晓并去签约</button>
+        <button class="m-btn w-auto" type="button" onclick="MB.toast('选房确认单 PDF 已下载')"><i class="fa-solid fa-download"></i> 下载</button>
+        <button class="m-btn primary" type="button" onclick="MB.confirm('您已选定：<b>湘江1958 人才公寓 A6 栋 1502 室 1502-02 号房间</b><br>计租面积 26.70 ㎡　·　个人应缴 160.20 元/月<br>提交确认后本房间锁定给您，请在 <b>2026-09-22 18:00</b> 前完成签约。','确认并去签约',function(){MB.toast('已确认选房结果，正在进入签约');setTimeout(function(){location.href='sign-contract.html'},1200)})"><i class="fa-solid fa-file-signature"></i> 提交确认并去签约</button>
       </div>
     </div>
   </div>

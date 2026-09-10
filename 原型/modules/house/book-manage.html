@@ -26,6 +26,8 @@
     </div>
   </div>
 
+  <div class="alert alert-info"><i class="fa-solid fa-pen-to-square"></i><div><span class="proto-t chg">0909 改</span>本页 YX-1 / YX-3 口径中提及的「房间级由自动配租环节确定」「配租位次」，已按 9 月 9 日结论改为<b>房间级由本人轮到时自选确定</b>、位次统一改称<b>轮候顺序号</b>。</div></div>
+
   <div class="alert alert-warning">
     <i class="fa-solid fa-triangle-exclamation"></i>
     <div>意向登记<b>只记录到楼盘与户型两级</b>，<b>不选到具体房源（套）与房间（间）</b>；<b>不生成房源占用与轮候记录</b>、<b>不占位次、不收取任何费用、不产生配租权利</b>，也<b>不作为配租排序依据</b>。登记设<b>有效期（半年）并到期自动失效</b>，仅作<b>需求摸底统计</b>，供房源筹集与投放决策参考。<span class="link" onclick="location.href='../alloc/queue-list.html'">意向登记不进轮候库</span></div>
@@ -124,9 +126,9 @@
         <table class="data-table compact">
           <thead><tr><th>规则号</th><th>规则内容</th><th class="cell-lg">判定说明</th></tr></thead>
           <tbody>
-          <tr><td><b>YX-1</b></td><td><b>只登记到楼盘与户型</b></td><td>登记层级为<b>楼盘（小区）+ 户型（室、厅）</b>两级，<b>不选到具体房源（套）与房间（间）</b>；房间级由系统在资格审核通过后的<b>自动配租</b>环节确定。<span class="link" onclick="location.href='../alloc/auto-alloc.html'">自动配租匹配规则</span></td></tr>
+          <tr><td><b>YX-1</b></td><td><b>只登记到楼盘与户型</b></td><td>登记层级为<b>楼盘（小区）+ 户型（室、厅）</b>两级，<b>不选到具体房源（套）与房间（间）</b>；<span class="proto-t chg">0909 改</span>房间级<b>由本人在轮到时收到选房通知后自选确定</b>。<span class="link" onclick="location.href='../alloc/auto-alloc.html'">选房组织与选房记录</span></td></tr>
           <tr class="row-warn"><td><b>YX-2</b></td><td><b>不占房源、不进轮候库</b></td><td>登记<b>不生成房源占用记录</b>，可租套数不因登记而减少；<b>不生成轮候记录、不占轮候位次</b>，也<b>不收取任何费用</b>。<span class="link" onclick="location.href='../alloc/queue-list.html'">意向轮候库管理</span></td></tr>
-          <tr class="row-warn"><td><b>YX-3</b></td><td><b>不产生配租权利</b></td><td>是否登记过意向<b>不影响配租先后</b>：配租位次一律按<b>资格审核通过时间</b>排定，<b>意向登记不作为排序依据</b>。登记只用于摸清需求与判断投放方向，并在申请时一键带入已选楼盘与户型（可更换）。<span class="link" onclick="location.href='../alloc/order-list.html'">配租位次名单</span></td></tr>
+          <tr class="row-warn"><td><b>YX-3</b></td><td><b>不产生配租权利</b></td><td>是否登记过意向<b>不影响配租先后</b>：<span class="proto-t chg">0909 改</span><b>轮候顺序号</b>一律按<b>资格审核通过时间</b>排定，<b>意向登记不作为排序依据</b>。登记只用于摸清需求与判断投放方向，并在申请时一键带入已选楼盘与户型（可更换）。<span class="link" onclick="location.href='../alloc/order-list.html'">顺序配租名单</span></td></tr>
           <tr><td><b>YX-4</b></td><td>有效期与到期自动失效</td><td>登记有效期<b>半年</b>（后台参数，细则明确后改参数即可）；到期<b>自动失效并从有效登记统计中剔除</b>，提前 15 天推送提醒。失效后可重新登记，重新登记不影响任何配租权利</td></tr>
           <tr><td><b>YX-5</b></td><td>变更、取消与转正式申请</td><td>有效期内可<b>自由变更意向楼盘与户型或取消</b>，变更与取消<b>均无任何不利后果</b>（无序位、无优先权可失）；期限内可转为正式申请，转入时支持更换意向楼盘与户型，仍须通过<span class="link" onclick="location.href='../apply/two-level-audit.html'">资格审核两级办理</span></td></tr>
           </tbody>
@@ -214,9 +216,9 @@
       </div>
       <div class="form-item col-full">
         <label>口径说明 <span class="req">*</span></label>
-        <textarea rows="4" readonly>命中规则 YX-1：登记只到楼盘与户型两级，房间级由系统在资格审核通过后的自动配租环节确定。
+        <textarea rows="4" readonly>命中规则 YX-1：登记只到楼盘与户型两级，房间级由本人在轮到时收到选房通知后自选确定。
 命中规则 YX-2：本次登记未生成房源占用记录，未生成轮候记录，未占用轮候位次，未收取任何费用。
-命中规则 YX-3：意向登记不产生配租权利、不作为配租排序依据；配租位次一律按资格审核通过时间排定。
+命中规则 YX-3：意向登记不产生配租权利、不作为配租排序依据；轮候顺序号一律按资格审核通过时间排定。
 命中规则 YX-4：有效期至 2027-03-02，到期自动失效并从有效登记统计中剔除。</textarea>
       </div>
       <div class="form-item col-full">
@@ -225,14 +227,14 @@
       </div>
       <div class="form-item col-full">
         <label>处置说明 <span class="req">*</span></label>
-        <textarea rows="3">登记人周××登记湘江1958 人才公寓二室一厅，登记时间 2026-09-02 14:32，有效期至 2027-03-02，尚未转为正式申请。已通过短信提醒其在有效期届满前提交申请；本次登记未占用房源、未进入轮候库，变更或取消不影响其今后的配租位次。</textarea>
+        <textarea rows="3">登记人周××登记湘江1958 人才公寓二室一厅，登记时间 2026-09-02 14:32，有效期至 2027-03-02，尚未转为正式申请。已通过短信提醒其在有效期届满前提交申请；本次登记未占用房源、未进入轮候库，变更或取消不影响其今后的轮候顺序号。</textarea>
       </div>
     </div>
   </div>
   <div class="drawer-foot">
     <button class="btn" data-close-drawer>取消</button>
     <button class="btn" onclick="PMS.toast('已向登记人发送转正式申请提醒短信','success')">发送提醒</button>
-    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认保存对意向登记 YX2026-0316 的处置意见？',detail:'保存后处置记录与经办人留痕。意向登记不占房源、不进轮候库、不产生配租权利，本次处置不影响该登记人今后的配租位次。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('处置意见已保存并留痕','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
+    <button class="btn btn-primary" onclick="PMS.confirm({title:'提交确认',message:'确认保存对意向登记 YX2026-0316 的处置意见？',detail:'保存后处置记录与经办人留痕。意向登记不占房源、不进轮候库、不产生配租权利，本次处置不影响该登记人今后的轮候顺序号。',type:'warning',okText:'确认提交',onOk:function(){PMS.closeDrawer();PMS.toast('处置意见已保存并留痕','success');}})"><i class="fa-solid fa-check"></i> 提交</button>
   </div>
 </div>
 

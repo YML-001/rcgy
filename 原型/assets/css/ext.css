@@ -58,6 +58,8 @@
   white-space: nowrap;
 }
 .proto-t.pend { background: #b45309; }
+/* 0909 配租逻辑讨论后改动的标记，供开发定位本轮改了哪里 */
+.proto-t.chg { background: #0f766e; }
 
 /* 移动端提示条 */
 .m-note.proto {
@@ -75,6 +77,12 @@
   border-left-color: #b45309;
 }
 .m-note.proto.pend > i { color: #b45309; }
+.m-note.proto.chg {
+  background: #eefaf8;
+  border-color: #8fd3ca;
+  border-left-color: #0f766e;
+}
+.m-note.proto.chg > i { color: #0f766e; }
 
 /* PC 端表单说明 */
 .hint.proto {
@@ -87,6 +95,10 @@
 .hint.proto.pend {
   border-color: var(--line-warning);
   background: #fff8ec;
+}
+.hint.proto.chg {
+  border-color: #8fd3ca;
+  background: #eefaf8;
 }
 
 html.hide-proto .proto { display: none !important; }

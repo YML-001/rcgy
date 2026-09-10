@@ -44,6 +44,15 @@
   <div class="m-phone">
     <div class="m-screen">
       <div class="m-view">
+        <div class="m-note proto chg"><i class="fa-solid fa-pen-to-square"></i>
+          <div><span class="proto-t chg">0909 改</span>本页两个条目原来都按<b>系统自动配租</b>讲：视频《怎么查配租结果与签约》的
+            办事步骤是「不用报名，系统自动配租 → 等待执行 → 查看配租结果 → 签约」；
+            图文《自动配租规则一图读懂》第四段写的是「组团整套预留、整组同套、无整套则拆组」。
+            9 月 9 日配租逻辑讨论后<b>改为按轮候顺序自选</b>：办事步骤改成
+            「<b>轮到本人时收到选房通知 → 在确认时限内自选房间 → 签约</b>」，
+            图文改讲<b>顺序号怎么排、怎么通知、怎么挑、超时怎么办</b>，组团改为<b>只影响审批排序</b>。
+            对应《系统原型调整计划（0909 会议）》<b>C01、C03、C04、C05、C07、C09</b>。</div>
+        </div>
         <div class="m-seg">
           <button class="on" type="button" onclick="sw(1)"><i class="fa-solid fa-circle-play"></i> 视频指南</button>
           <button type="button" onclick="sw(2)"><i class="fa-solid fa-book-open"></i> 图文解读</button>
@@ -59,12 +68,12 @@
             <div class="du">04:38</div>
           </div>
           <div class="m-card" style="margin-top:12px">
-            <div class="m-card-h"><i class="fa-solid fa-circle-play"></i>怎么查配租结果与签约</div>
+            <div class="m-card-h"><i class="fa-solid fa-circle-play"></i><span class="proto-t chg">0909 改</span>轮到我时怎么选房与签约</div>
             <div class="m-card-b">
             <div class="m-kv">
               <div><span>指南分类</span><span><span class="m-tag blue">系统操作</span>　申请与配租</span></div>
               <div><span>视频时长</span><span>04:38（共 6 个步骤）</span></div>
-              <div><span>适用对象</span><span>资格审核已通过、已纳入自动配租范围的申请人</span></div>
+              <div><span>适用对象</span><span><span class="proto-t chg">0909 改</span>资格审核已通过、<b>已入轮候库并取得轮候顺序号</b>的申请人</span></div>
               <div><span>制作单位</span><span>株洲市保障性住房服务中心</span></div>
               <div><span>更新时间</span><span>2026-09-15</span></div>
             </div>
@@ -75,29 +84,31 @@
             <div class="m-card-h"><i class="fa-solid fa-list-ol"></i>6 个步骤</div>
             <div class="m-card-b">
               <div class="m-check">
-                <div class="ok"><i class="fa-solid fa-1"></i><div class="m-chl"><b><span class="gd-tsp">00:12</span>先弄清：不用报名，系统自动配租</b><span>公告发布后无需任何操作，到公告写明的<b>自动配租执行时间</b>，系统按资格审核通过顺序自动匹配房间</span></div></div>
-                <div class="ok"><i class="fa-solid fa-2"></i><div class="m-chl"><b><span class="gd-tsp">00:48</span>在哪看结果</b><span>首页「人才租房申请」→ 配租公告 →「查看我的配租结果」；也可从短信中的链接直接进入</span></div></div>
-                <div class="ok"><i class="fa-solid fa-3"></i><div class="m-chl"><b><span class="gd-tsp">01:35</span>结果页要看清哪几项</b><span>楼盘、房屋（套）、房间（间）、<b>套内面积 + 公摊面积 = 计租面积</b>、人才租金标准与个人实际应缴</span></div></div>
-                <div class="ok"><i class="fa-solid fa-4"></i><div class="m-chl"><b><span class="gd-tsp">02:20</span>签约期限只有 5 个工作日</b><span>自结果公布次日起算，逾期未签约<b>视同放弃</b>，房源顺延给下一位申请人</span></div></div>
+                <div class="ok"><i class="fa-solid fa-1"></i><div class="m-chl"><b><span class="gd-tsp">00:12</span><span class="proto-t chg">0909 改</span>先弄清：不用报名，轮到本人时单独通知</b><span>公告发布后<b>不需要在线报名</b>；系统按<b>轮候顺序号</b>逐位推送选房通知，<b>轮到谁通知谁</b>，没轮到时不用做任何操作</span></div></div>
+                <div class="ok"><i class="fa-solid fa-2"></i><div class="m-chl"><b><span class="gd-tsp">00:48</span><span class="proto-t chg">0909 改</span>收到选房通知后从哪进</b><span>点短信里的链接直接进入；也可从首页「人才租房申请」→「我的轮候顺序号」→「<b>按轮候顺序选房</b>」进入</span></div></div>
+                <div class="ok"><i class="fa-solid fa-3"></i><div class="m-chl"><b><span class="gd-tsp">01:35</span><span class="proto-t chg">0909 改</span>选房页要看清哪几项</b><span>顶部的<b>剩余确认时限</b>；每间房的<b>套内面积 + 公摊面积 = 计租面积</b>、人才租金标准与个人实际应缴；<b>置灰不可选</b>的是已被他人选定或按<b>同套同性别</b>不对本人开放的房间。<b>选定哪间由本人决定</b>，提交后即锁定</span></div></div>
+                <div class="ok"><i class="fa-solid fa-4"></i><div class="m-chl"><b><span class="gd-tsp">02:20</span>签约期限只有 5 个工作日</b><span><span class="proto-t chg">0909 改</span>自<b>选定房间</b>次日起算，逾期未签约<b>视同放弃</b>，该房间放回可选池给后面的申请人</span></div></div>
                 <div class="ok"><i class="fa-solid fa-5"></i><div class="m-chl"><b><span class="gd-tsp">03:02</span>线上电子签约怎么签</b><span>运营方在平台发起后，本人完成人脸核身，在手机上手写签名或使用电子签名，<b>签署完成即生效</b></span></div></div>
                 <div class="ok"><i class="fa-solid fa-6"></i><div class="m-chl"><b><span class="gd-tsp">03:50</span>线下签约怎么办</b><span>到运营机构现场签纸质合同后，在平台上传合同影像；状态先是<b>待运营机构核对确认</b>，<b>确认通过才算签约完成</b></span></div></div>
               </div>
             </div>
           </div>
           <div class="m-note"><i class="fa-solid fa-circle-info"></i>
-            <div>本轮<b>未匹配到房源</b>的，结果页会显示<b>当前轮候位次</b>与<b>等待下一次配租</b>的提示，
-              资格与位次全部保留，下一批次仍由系统自动配租。</div>
+            <div><span class="proto-t chg">0909 改</span><b>本批次没轮到</b>的（选定的楼盘户型这批没投放、系统未推送通知），
+              <b>轮候顺序号不变</b>，等下一批房源；<b>收到通知但确认时限内没选</b>的，由下一顺序人接着选，
+              本人的<b>顺序号排至当前队列末位</b>，资格不作废、<b>不算放弃</b>。两者都可在
+              <a href="alloc-order.html">我的轮候顺序号</a>页随时查看。</div>
           </div>
           <div class="m-sect">跟着做</div>
           <div class="m-cells">
-            <a class="m-cell" href="alloc-select.html"><span class="m-ci green"><i class="fa-solid fa-house-circle-check"></i></span><span class="m-cl"><b>去查我的配租结果</b><span class="m-cs">分配到的房间、面积与签约安排</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+            <a class="m-cell" href="alloc-select.html"><span class="m-ci green"><i class="fa-solid fa-hand-pointer"></i></span><span class="m-cl"><b><span class="proto-t chg">0909 改</span>去选房</b><span class="m-cs">轮到本人时从仍可选的房间中自行挑选并锁定</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
             <a class="m-cell" href="sign-contract.html"><span class="m-ci orange"><i class="fa-solid fa-file-signature"></i></span><span class="m-cl"><b>去签约</b><span class="m-cs">线上电子签约 / 线下签约上传</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
-            <a class="m-cell" href="alloc-rule.html"><span class="m-ci cyan"><i class="fa-solid fa-scale-balanced"></i></span><span class="m-cl"><b>自动配租规则说明</b><span class="m-cs">四条规则与按间计租口径</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+            <a class="m-cell" href="alloc-rule.html"><span class="m-ci cyan"><i class="fa-solid fa-scale-balanced"></i></span><span class="m-cl"><b><span class="proto-t chg">0909 改</span>选房规则说明</b><span class="m-cs">五条规则与按间计租口径</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
           </div>
           <div class="m-sect">相关视频</div>
           <div class="m-cells">
             <a class="m-cell" href="guide-detail.html"><span class="m-ci"><i class="fa-solid fa-circle-play"></i></span><span class="m-cl"><b>从看房到申请的完整步骤</b><span class="m-cs">06:12 · 看房、意向登记、提交申请、查进度</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
-            <a class="m-cell" href="guide-detail.html"><span class="m-ci"><i class="fa-solid fa-circle-play"></i></span><span class="m-cl"><b>意向登记怎么填才容易配到房</b><span class="m-cs">03:20 · 意向范围决定匹配结果</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+            <a class="m-cell" href="guide-detail.html"><span class="m-ci"><i class="fa-solid fa-circle-play"></i></span><span class="m-cl"><b>意向登记怎么填才能早点轮到</b><span class="m-cs">03:20 · <span class="proto-t chg">0909 改</span>意向范围决定轮到时的可选范围</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
           </div>
         </div>
 
@@ -105,7 +116,7 @@
         <div id="pnDo" style="display:none;margin-top:12px">
           <div class="m-card">
             <div class="m-card-b">
-              <div style="font-size:17px;font-weight:800;color:var(--text-1);line-height:1.45">自动配租规则一图读懂</div>
+              <div style="font-size:17px;font-weight:800;color:var(--text-1);line-height:1.45"><span class="proto-t chg">0909 改</span>选房规则一图读懂</div>
               <div style="margin-top:8px;font-size:11.5px;color:var(--text-3);line-height:1.7">
                 <span class="m-tag green">政策解读</span>　<span class="m-tag dark">租房保障</span><br>
                 来源：株洲市保障性住房服务中心　·	2026-09-01 发布　·	图文 5 段，约 3 分钟读完</div>
@@ -113,53 +124,71 @@
           </div>
           <div class="m-card gd-doc">
             <div class="m-card-b">
-              <div class="h">一、一句话说清：不用报名，系统到点自动配租</div>
-              <div class="p">配租方式已调整为<b>系统自动配租</b>。配租经办发布配租公告时，会一并设定<b>自动配租执行时间</b>；
-                到点后系统自动为符合条件的申请人匹配房间。<b>申请人不需要报名、不需要抢名额、也不自行选房</b>，
-                公告发布后保持手机畅通、等结果短信即可。</div>
-              <div class="fig"><i class="fa-solid fa-robot"></i>图示：公告发布 → 名单锁定 → 到点自动匹配 → 结果短信告知 → 5 个工作日内签约</div>
+              <div class="h"><span class="proto-t chg">0909 改</span>一、一句话说清：不用报名，轮到你时通知你自己挑</div>
+              <div class="p">房源分配采用<b>按轮候顺序依次通知、申请人自选房间</b>。资格审核通过即入轮候库、取得<b>轮候顺序号</b>；
+                配租公告发布后，系统<b>按顺序号逐位推送选房通知</b>，<b>轮到谁通知谁</b>，<b>不群发、也不需要在线报名</b>。
+                本人在<b>确认时限内</b>从当前仍可选的房间中<b>自行挑选一间并锁定</b>，<b>系统不做指定分配</b>。
+                没轮到时保持手机畅通即可，随时可查看自己排第几。</div>
+              <div class="fig"><i class="fa-solid fa-hand-pointer"></i>图示：审核通过取得顺序号 → 公告发布 → 按顺序逐位推送选房通知 → 确认时限内自选并锁定 → 5 个工作日内签约</div>
             </div>
           </div>
           <div class="m-card gd-doc">
             <div class="m-card-b">
-              <div class="h">二、位次怎么排：按资格审核通过时间</div>
-              <div class="p">系统<b>按资格审核通过时间的先后</b>排定配租位次，<b>不摇号、不支持人工调序</b>。
-                审核通过时间相同的，依次比较特殊人才、家庭申请、学历层次、申请编号。
-                位次名单在配租执行前 1 小时锁定并公开，姓名按「姓 + ××」脱敏。</div>
-              <div class="p">需要特别说明的是：<b>意向登记不占位次</b>。无论是房源意向登记还是应届生意向登记，
-                都只决定系统在哪些房源里给你匹配，<b>不加分、不提前、不形成优先权</b>。</div>
+              <div class="h"><span class="proto-t chg">0909 改</span>二、顺序号怎么排：按资格审核通过时间</div>
+              <div class="p">系统<b>按资格审核通过时间的先后</b>排定<b>轮候顺序号</b>，<b>不摇号、不支持人工调序</b>。
+                本期<b>只按这一个维度</b>排序，<b>不引入人才层次等其他维度</b>；同一时点的按申请编号先后排定。
+                <span class="proto-t chg">0909 改</span>顺序号在<b>资格审核通过时即排定</b>并长期有效，
+                <b>不在配租前另行锁定名单</b>；顺序号即当前轮候位次，随前方申请人选定出库自动前移。
+                轮候顺序名单公开可查，姓名按「姓 + ××」脱敏。</div>
+              <div class="p">需要特别说明的是：<b>意向登记不占顺序号</b>。无论是房源意向登记还是应届生意向登记，
+                都只决定你轮到时能挑哪些房，<b>不加分、不提前、不形成优先权</b>。</div>
             </div>
           </div>
           <div class="m-card gd-doc">
             <div class="m-card-b">
-              <div class="h">三、在哪些房源里匹配：你登记的意向范围</div>
-              <div class="p">系统<b>只在申请人已选定的意向楼盘与意向户型范围内</b>匹配房间。
-                范围之外的房源，即使还有空余也不会分配给你；范围之内没有可匹配房源的，
-                本轮不配租，自动转入轮候等待下一次。</div>
-              <div class="p">因此<b>意向范围越窄，本轮匹配到房源的概率越低</b>。想早点住上，可以在配租执行时间前
-                适当增加意向楼盘或放宽户型范围。</div>
-              <div class="fig"><i class="fa-solid fa-filter"></i>图示：意向楼盘 × 意向户型 = 系统的匹配池</div>
+              <div class="h"><span class="proto-t chg">0909 改</span>三、能挑哪些房：你登记的意向范围</div>
+              <div class="p">轮到你时，选房页<b>只展示你已选定的意向楼盘与意向户型范围内、当前仍可选的房间</b>。
+                范围之外的房源，即使还有空余也不在你的可选范围内；<span class="proto-t chg">0909 改</span>范围之内
+                <b>本批次没有投放</b>的，系统<b>不向你推送选房通知</b>，你的<b>顺序号不变</b>，等下一批房源。
+                本期<b>不跨楼盘调剂</b>。</div>
+              <div class="p">因此<b>意向范围越窄，本批次被通知到的机会越少</b>。想早点住上，可以在<b>收到选房通知前</b>
+                适当增加意向楼盘或放宽户型范围，以推送通知时的登记内容为准。</div>
+              <div class="fig"><i class="fa-solid fa-filter"></i>图示：意向楼盘 × 意向户型 = 轮到你时的可选范围</div>
             </div>
           </div>
           <div class="m-card gd-doc">
             <div class="m-card-b">
-              <div class="h">四、同套同性别与组团整套预留</div>
-              <div class="p"><b>同套同性别</b>：按间配租时，同一套房内的配租对象<b>性别一致</b>，不会出现异性混住同一套的情况。
-                系统在落位时自动校验，不满足的直接跳过该套，继续匹配下一套。</div>
-              <div class="p"><b>组团整套预留、整组同套</b>：2—3 名资格审核均已通过、性别相同的青年人才可以线下自愿组团，在申请表里填报同住人员的姓名与手机号即可，系统不向对方发邀请、也不需要对方点确认，
-                配租时系统<b>为整组预留一整套、并对该组锁定</b>，锁定期间这套房的其余房间不参与单人匹配。组团的位次<b>按组内最靠后一位的位次</b>参与排序，
-                不会因为组内有人位次靠前就整体加塞。成团人数上限就是该户型的间数（三室 3 人、二室 2 人）；意向范围内没有整套可以整组匹配时，本组拆开按单人配租，各自位次不变。</div>
-              <div class="fig"><i class="fa-solid fa-people-group"></i>图示：三室一厅一套 3 间，整组 3 人同套；组内按位次先后分房间</div>
+              <div class="h"><span class="proto-t chg">0909 改</span>四、同套同性别与组团同住</div>
+              <div class="p"><b>同套同性别</b>：<span class="proto-t chg">0909 改</span><b>整套空置</b>的男女都可选；
+                套内<b>已有在住人或已被他人选定房间</b>的，其余房间<b>只对同性别开放</b>，异性在选房页<b>置灰不可选</b>。
+                性别由<b>身份证号自动识别</b>，不需人工录入，本期强制执行、不设开关。</div>
+              <div class="p"><b>组团同住只影响审批排序</b>：<span class="proto-t chg">0909 改</span>2—3 名资格审核均已通过、性别相同的青年人才可以线下自愿组团，
+                在申请表里填报同住人员的姓名与手机号即可，系统不向对方发邀请、也不需要对方点确认。
+                组团<b>只影响审批排序</b>——同一组<b>一并提交、集中在同一批次审核</b>，使各成员的资格审核通过时间连续、
+                <b>轮候顺序号相邻</b>（如 11 · 12 · 13），依次轮到时前一位刚选定，自然挑到同一套内的房间。
+                系统<b>不预留、不锁定房源</b>，不影响其他申请人的可选范围，也<b>不保证一定住进同一套</b>：
+                同套内还有没有空房，取决于轮到时的实际房源，不足的各自在可选范围内挑选。
+                成员须<b>同性别</b>，人数上限就是该户型的间数（三室 3 人、二室 2 人）。</div>
+              <div class="fig"><i class="fa-solid fa-people-group"></i>图示：同批次审核 → 顺序号 11 · 12 · 13 相邻 → 依次轮到，接连挑同一套内的 3 间</div>
             </div>
           </div>
           <div class="m-card gd-doc">
             <div class="m-card-b">
-              <div class="h">五、配到房之后与没配到怎么办</div>
-              <div class="p"><b>配到房源的</b>：结果页会显示楼盘、房屋（套）、房间（间）、套内面积、公摊面积、计租面积与人才租金标准，
+              <div class="h"><span class="proto-t chg">0909 改</span>五、选定之后、没轮到与超时怎么办</div>
+              <div class="p"><b>选定房间的</b>：页面会显示楼盘、房屋（套）、房间（间）、套内面积、公摊面积、计租面积与人才租金标准，
                 以及运营机构名称、地址、联系电话。请在<b>5 个工作日</b>内完成签约，可选<b>线上电子签约</b>
-                或<b>线下签约后上传合同影像</b>；逾期未签约视同放弃，房源顺延给下一位申请人。</div>
-              <div class="p"><b>本轮没配到房源的</b>：结果页会显示<b>当前轮候位次</b>与<b>等待下一次配租</b>的提示。
-                资格、位次与意向登记全部保留，系统自动排入下一批次，同样<b>不需要报名</b>。</div>
+                或<b>线下签约后上传合同影像</b>。<span class="proto-t chg">0909 改</span>只有<b>已选定房间后逾期未签约</b>、
+                或<b>签约后不办理入住</b>的，才认定为<b>放弃</b>：记入<b>放弃名单</b>并写入人才档案，<b>再次申请时系统直接拦截</b>；
+                该房间放回可选池给后面的申请人。</div>
+              <div class="p"><span class="proto-t chg">0909 改</span><b>本批次没轮到的</b>（选定的楼盘户型这批没投放、系统未推送通知）：
+                <b>顺序号不变</b>，资格与意向登记全部保留，等下一批房源，同样<b>不需要报名</b>。</div>
+              <div class="p"><span class="proto-t chg">0909 改</span><b>收到通知但确认时限内没选的</b>：由<b>下一顺序人接着选</b>，
+                你的<b>轮候顺序号重排至当前队列末位</b>，后方申请人依次前移。<b>资格不作废、不认定为放弃</b>，仍可参与后续批次。
+                这与「没轮到」是两回事，请分清。</div>
+              <div class="m-note proto pend" style="margin-top:10px"><i class="fa-solid fa-circle-question"></i>
+                <div><span class="proto-t pend">待确认</span><b>确认时限定多长</b>、<b>是否限制排至末位的次数</b>、
+                  多次超时后如何处置，待业务部门明确（对应待确认事项 <b>Q12</b>）。本文按<b>确认时限 24 小时、不限次数</b>讲解。</div>
+              </div>
               <div class="p" style="margin-top:12px;font-size:12px;color:var(--text-3)">
                 政策依据：《株洲市青年人才住房保障管理办法》第九条；本批次配租公告（株洲市保障性住房服务中心，2026-09-01）。
                 指南与政策原文不一致的，以政策原文为准。</div>
@@ -167,9 +196,9 @@
           </div>
           <div class="m-sect">相关办理</div>
           <div class="m-cells">
-            <a class="m-cell" href="alloc-notice.html"><span class="m-ci orange"><i class="fa-solid fa-bullhorn"></i></span><span class="m-cl"><b>查看配租公告</b><span class="m-cs">房源范围、可安置人数与自动配租执行时间</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
-            <a class="m-cell" href="alloc-order.html"><span class="m-ci"><i class="fa-solid fa-list-ol"></i></span><span class="m-cl"><b>查询我的配租位次</b><span class="m-cs">按资格审核通过时间排定</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
-            <a class="m-cell" href="book-list.html"><span class="m-ci green"><i class="fa-solid fa-calendar-check"></i></span><span class="m-cl"><b>调整我的意向登记</b><span class="m-cs">意向范围决定系统的匹配池</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+            <a class="m-cell" href="alloc-notice.html"><span class="m-ci orange"><i class="fa-solid fa-bullhorn"></i></span><span class="m-cl"><b>查看配租公告</b><span class="m-cs"><span class="proto-t chg">0909 改</span>房源范围、可安置人数与选房安排</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+            <a class="m-cell" href="alloc-order.html"><span class="m-ci"><i class="fa-solid fa-list-ol"></i></span><span class="m-cl"><b><span class="proto-t chg">0909 改</span>查询我的轮候顺序号</b><span class="m-cs">按资格审核通过时间排定，随前方出库自动前移</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+            <a class="m-cell" href="book-list.html"><span class="m-ci green"><i class="fa-solid fa-calendar-check"></i></span><span class="m-cl"><b>调整我的意向登记</b><span class="m-cs">意向范围决定轮到时的可选范围</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
             <a class="m-cell" href="policy-detail.html"><span class="m-ci cyan"><i class="fa-solid fa-scroll"></i></span><span class="m-cl"><b>查看政策原文</b><span class="m-cs">青年人才住房保障管理办法</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
           </div>
         </div>

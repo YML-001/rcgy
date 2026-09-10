@@ -23,8 +23,13 @@
   </div>
 
   <div class="alert alert-info">
+    <i class="fa-solid fa-pen-to-square"></i>
+    <div><span class="proto-t chg">0909 改</span>本页原<b>只按剩余办理时限升序排序</b>，办件之间互不关联。9 月 9 日确定<b>组团只影响审批排序</b>后，本页新增「<b>是否组团</b>」列（显示组编号或「否」）与<b>按是否组团筛选</b>，并把<b>同一组团的办件相邻排列</b>：审批人员在相近时间办完同组成员，各成员的<b>资格审核通过时间连续</b>，生成的<b>轮候顺序号才会相邻</b>，轮到时自然能在同一套房内挑到相邻房间——<b>这是组团能落地的关键</b>。排序规则相应改为：<b>单人办件按提交时间由早到晚排</b>；<b>组团办件整组相邻</b>，并以<b>组内最后一名成员的提交时间</b>参与整个列表排序，避免组团搭车插队。对应《系统原型调整计划（0909 会议）》<b>C07</b>，并联动 <b>C06</b>。</div>
+  </div>
+
+  <div class="alert alert-info">
     <i class="fa-solid fa-circle-info"></i>
-    <div>本期按<b>简单、清晰、快速上线</b>的要求建设，纳入<b>资格申请受理初审</b>、<b>资格申请复审</b>与<b>容缺补核到期预警</b>三类事项，按剩余办理时限排序，点击直接进入办理界面，不做复杂的分类与聚合。其中<b>容缺补核到期预警推送给主管单位</b>（市住建局住房保障科）处置，在继续容缺、暂停办理、取消资格三项中选择。其余角色的事项是否纳入，后续由业务部门确定。</div>
+    <div>本期按<b>简单、清晰、快速上线</b>的要求建设，纳入<b>资格申请受理初审</b>、<b>资格申请复审</b>与<b>容缺补核到期预警</b>三类事项，点击直接进入办理界面，不做复杂的分类与聚合。其中<b>容缺补核到期预警推送给主管单位</b>（市住建局住房保障科）处置，在继续容缺、暂停办理、取消资格三项中选择。其余角色的事项是否纳入，后续由业务部门确定。</div>
   </div>
 
   <div class="stat-grid">
@@ -49,6 +54,11 @@
         <div class="s-trend">推送主管单位处置</div></div>
     </div>
     <div class="stat-card">
+      <div class="s-icon cyan"><i class="fa-solid fa-user-group"></i></div>
+      <div><div class="s-label">组团待办</div><div class="s-value">6</div>
+        <div class="s-trend text-2">2 组 · 同组相邻排列</div></div>
+    </div>
+    <div class="stat-card">
       <div class="s-icon green"><i class="fa-solid fa-circle-check"></i></div>
       <div><div class="s-label">今日办结</div><div class="s-value">14</div>
         <div class="s-trend text-2">平均用时 1.4 天</div></div>
@@ -61,6 +71,8 @@
       <div class="filter-item"><label>申请编号</label><input type="text" placeholder="申请编号"></div>
       <div class="filter-item"><label>申请人</label><input type="text" placeholder="姓名"></div>
       <div class="filter-item"><label>申请渠道</label><select><option value="">全部</option><option>个人申请</option><option>用人单位（移动端申请）</option><option>运营机构（PC 申请）</option><option>政务窗口（PC 申请）</option></select></div>
+      <div class="filter-item"><label>是否组团</label><select><option value="">全部</option><option>组团办件（整组相邻）</option><option>单人办件</option><option>组团办件 · 已成团</option><option>组团办件 · 未成团</option></select></div>
+      <div class="filter-item"><label>组编号</label><input type="text" placeholder="如 ZT2026-0042"></div>
       <div class="filter-item"><label>时限档位</label><select><option value="">全部</option><option>正常</option><option>临期</option><option>超期</option></select></div>
       <div class="filter-actions">
         <button class="btn btn-primary" onclick="PMS.toast('已按所选条件检索','success')"><i class="fa-solid fa-magnifying-glass"></i> 查询</button>
@@ -71,24 +83,44 @@
     <div class="table-wrap">
       <table class="data-table">
         <thead>
-          <tr><th>事项类型</th><th>申请编号</th><th>申请人</th><th class="cell-lg">申请渠道</th><th>受理时间</th><th>剩余时限</th><th>操作</th></tr>
+          <tr><th>事项类型</th><th>申请编号</th><th>申请人</th><th class="cell-lg"><span class="proto-t chg">0909 改</span>是否组团</th><th class="cell-lg">申请渠道</th><th><span class="proto-t chg">0909 改</span>提交时间（排序依据）</th><th>受理时间</th><th>剩余时限</th><th>操作</th></tr>
         </thead>
         <tbody>
-          <tr class="row-bad"><td><span class="badge red">容缺补核到期预警</span><br><span class="muted">推送主管单位</span></td><td>RC2026-0805-0064</td><td>郑一凡</td><td><span class="badge cyan">个人申请</span></td><td>2026-08-05 09:40</td><td><div class="sp-days dx"><span class="dv">逾期 3 天</span><span class="db"><span style="width:100%"></span></span></div><span class="muted">补核期限 09-05 · 处置时限 3 个工作日</span></td><td><span class="link" onclick="location.href='../apply/pending-check.html'">处置</span></td></tr>
-          <tr class="row-bad"><td><span class="badge red">容缺补核到期预警</span><br><span class="muted">推送主管单位</span></td><td>RC2026-0802-0051</td><td>谢家俊</td><td><span class="badge blue">用人单位（移动端申请）</span></td><td>2026-08-02 15:26</td><td><div class="sp-days dx"><span class="dv">逾期 6 天</span><span class="db"><span style="width:100%"></span></span></div><span class="muted">补核期限 09-02 · 处置时限 3 个工作日</span></td><td><span class="link" onclick="location.href='../apply/pending-check.html'">处置</span></td></tr>
-          <tr class="row-bad"><td><span class="badge orange">受理初审</span></td><td>RC2026-0906-0203</td><td>李文博</td><td><span class="badge blue">用人单位（移动端申请）</span></td><td>2026-09-06 09:12</td><td><div class="sp-days dx"><span class="dv">超期 1 天</span><span class="db"><span style="width:100%"></span></span></div></td><td><span class="link" onclick="location.href='../apply/audit-desk.html'">办理</span></td></tr>
-          <tr><td><span class="badge orange">受理初审</span></td><td>RC2026-0906-0204</td><td>陈思远</td><td><span class="badge cyan">个人申请</span></td><td>2026-09-06 10:35</td><td><div class="sp-days d1"><span class="dv">剩 1 天</span><span class="db"><span style="width:34%"></span></span></div></td><td><span class="link" onclick="location.href='../apply/audit-desk.html'">办理</span></td></tr>
-          <tr><td><span class="badge blue">复审</span></td><td>RC2026-0905-0198</td><td>王梓涵</td><td><span class="badge gray">政务窗口（PC 申请）</span></td><td>2026-09-05 14:20</td><td><div class="sp-days d1"><span class="dv">剩 1 天</span><span class="db"><span style="width:34%"></span></span></div></td><td><span class="link" onclick="location.href='../apply/conclusion.html'">审批</span></td></tr>
-          <tr><td><span class="badge blue">复审</span></td><td>RC2026-0905-0196</td><td>张可欣</td><td><span class="badge green">运营机构（PC 申请）</span></td><td>2026-09-05 11:08</td><td><div class="sp-days d2"><span class="dv">剩 2 天</span><span class="db"><span style="width:66%"></span></span></div></td><td><span class="link" onclick="location.href='../apply/conclusion.html'">审批</span></td></tr>
-          <tr><td><span class="badge orange">受理初审</span></td><td>RC2026-0904-0186</td><td>谭雅丽</td><td><span class="badge cyan">个人申请</span></td><td>2026-09-04 09:26</td><td><div class="sp-days d2"><span class="dv">剩 2 天</span><span class="db"><span style="width:66%"></span></span></div></td><td><span class="link" onclick="location.href='../apply/audit-desk.html'">办理</span></td></tr>
+          <tr class="row-bad"><td><span class="badge red">容缺补核到期预警</span><br><span class="muted">推送主管单位</span></td><td>RC2026-0805-0064</td><td>郑一凡</td><td class="cell-lg"><span class="muted">否</span></td><td><span class="badge cyan">个人申请</span></td><td>2026-08-05 09:26</td><td>2026-08-05 09:40</td><td><div class="sp-days dx"><span class="dv">逾期 3 天</span><span class="db"><span style="width:100%"></span></span></div><span class="muted">补核期限 09-05 · 处置时限 3 个工作日</span></td><td><span class="link" onclick="location.href='../apply/pending-check.html'">处置</span></td></tr>
+          <tr class="row-bad"><td><span class="badge red">容缺补核到期预警</span><br><span class="muted">推送主管单位</span></td><td>RC2026-0802-0051</td><td>谢家俊</td><td class="cell-lg"><span class="muted">否</span></td><td><span class="badge blue">用人单位（移动端申请）</span></td><td>2026-08-02 15:10</td><td>2026-08-02 15:26</td><td><div class="sp-days dx"><span class="dv">逾期 6 天</span><span class="db"><span style="width:100%"></span></span></div><span class="muted">补核期限 09-02 · 处置时限 3 个工作日</span></td><td><span class="link" onclick="location.href='../apply/pending-check.html'">处置</span></td></tr>
+          <tr class="row-bad"><td><span class="badge orange">受理初审</span></td><td>RC2026-0906-0203</td><td>李文博</td><td class="cell-lg"><span class="muted">否</span></td><td><span class="badge blue">用人单位（移动端申请）</span></td><td>2026-09-06 09:02</td><td>2026-09-06 09:12</td><td><div class="sp-days dx"><span class="dv">超期 1 天</span><span class="db"><span style="width:100%"></span></span></div></td><td><span class="link" onclick="location.href='../apply/audit-desk.html'">办理</span></td></tr>
+          <tr><td><span class="badge orange">受理初审</span></td><td>RC2026-0904-0186</td><td>谭雅丽</td><td class="cell-lg"><span class="badge gray">ZT2026-0047</span> <span class="muted">3 人 · 未成团（2 人未通过审核）</span><br><span class="muted">未成团的暂不整组相邻，按本人提交时间排</span></td><td><span class="badge cyan">个人申请</span></td><td>2026-09-04 09:10</td><td>2026-09-04 09:26</td><td><div class="sp-days d2"><span class="dv">剩 2 天</span><span class="db"><span style="width:66%"></span></span></div></td><td><span class="link" onclick="location.href='../apply/audit-desk.html'">办理</span></td></tr>
+          <tr><td><span class="badge blue">复审</span></td><td>RC2026-0903-0141</td><td>陈思远</td><td class="cell-lg"><span class="badge purple">ZT2026-0042</span> <span class="muted">第 1 / 3 人 · 已成团 · 男</span><br><span class="muted">整组按组内最后一名成员提交时间 09-04 16:40 排序</span></td><td><span class="badge blue">湘易办 APP（个人申请）</span></td><td>2026-09-03 09:50</td><td>2026-09-04 17:10</td><td><div class="sp-days d1"><span class="dv">剩 1 天</span><span class="db"><span style="width:34%"></span></span></div></td><td><span class="link" onclick="location.href='../apply/conclusion.html'">审批</span></td></tr>
+          <tr><td><span class="badge blue">复审</span></td><td>RC2026-0903-0162</td><td>王梓涵</td><td class="cell-lg"><span class="badge purple">ZT2026-0042</span> <span class="muted">第 2 / 3 人 · 发起人 · 男</span><br><span class="muted">与上下行同组，相邻办理</span></td><td><span class="badge blue">湘易办 APP（个人申请）</span></td><td>2026-09-03 10:26</td><td>2026-09-04 17:12</td><td><div class="sp-days d1"><span class="dv">剩 1 天</span><span class="db"><span style="width:34%"></span></span></div></td><td><span class="link" onclick="location.href='../apply/conclusion.html'">审批</span></td></tr>
+          <tr><td><span class="badge blue">复审</span></td><td>RC2026-0904-0181</td><td>曾志豪</td><td class="cell-lg"><span class="badge purple">ZT2026-0042</span> <span class="muted">第 3 / 3 人 · 组内最后一名 · 男</span><br><span class="muted">本人提交时间 09-04 16:40 即本组排序依据</span></td><td><span class="badge cyan">个人申请</span></td><td>2026-09-04 16:40</td><td>2026-09-04 17:15</td><td><div class="sp-days d1"><span class="dv">剩 1 天</span><span class="db"><span style="width:34%"></span></span></div></td><td><span class="link" onclick="location.href='../apply/conclusion.html'">审批</span></td></tr>
+          <tr><td><span class="badge blue">复审</span></td><td>RC2026-0905-0196</td><td>张可欣</td><td class="cell-lg"><span class="muted">否</span></td><td><span class="badge green">运营机构（PC 申请）</span></td><td>2026-09-05 10:52</td><td>2026-09-05 11:08</td><td><div class="sp-days d2"><span class="dv">剩 2 天</span><span class="db"><span style="width:66%"></span></span></div></td><td><span class="link" onclick="location.href='../apply/conclusion.html'">审批</span></td></tr>
         </tbody>
       </table>
     </div>
   </div>
+  <div class="sp-block" style="margin-top:12px">
+    <div class="sp-h"><i class="fa-solid fa-list-ol"></i> 待办排序规则<span class="sub">TD-1 至 TD-4 · 同组相邻是组团能落地的关键</span></div>
+    <div class="sp-b">
+      <div class="sp-tw">
+        <table class="data-table compact">
+          <thead><tr><th>规则</th><th class="cell-lg">规则项</th><th class="cell-lg">口径说明</th></tr></thead>
+          <tbody>
+          <tr><td><b>TD-1</b> <span class="proto-t chg">0909 改</span></td><td><b>单人办件按提交时间排</b><br><span class="muted">由早到晚</span></td><td>不属于任何组团的办件，按<b>申请提交时间由早到晚</b>排列，先提交先办理。原「按剩余办理时限升序」改为按提交时间排序：受理时间与办理时限均由提交时间派生，两个口径方向基本一致，但<b>提交时间是唯一不可人工影响的排序锚点</b>。</td></tr>
+          <tr class="row-warn"><td><b>TD-2</b> <span class="proto-t chg">0909 改</span></td><td><b>同一组团的办件相邻排列</b><br><span class="muted">组团能落地的关键</span></td><td>同一组团的全部成员办件<b>在列表中连续排列、不被其他办件插入</b>，让审批人员在<b>相近时间集中办完同组成员</b>；这样各成员的<b>资格审核通过时间连续</b>，据此生成的<b>轮候顺序号才会相邻</b>，轮到时才能在同一套房内挑到相邻房间。<b>系统不预留房源</b>，同套完全依赖顺序号相邻，因此本规则是组团机制能否落地的前提。<span class="link" onclick="location.href='../alloc/team-list.html'">组团台账</span></td></tr>
+          <tr class="row-warn"><td><b>TD-3</b> <span class="proto-t chg">0909 改</span></td><td><b>整组以最后一名成员的提交时间排序</b><br><span class="muted">避免组团搭车插队</span></td><td>组团办件作为一个整体参与列表排序，排序键取<b>组内最后一名成员的提交时间</b>（含补填成员）：提交在前的成员<b>不因组团被提前办理</b>，提交在后的成员<b>也不搭车插队</b>。成员退组、补填或撤回后<b>即时重算该组排序键</b>并调整整组位置。</td></tr>
+          <tr><td><b>TD-4</b></td><td>置顶与预警</td><td><b>超期件与容缺补核到期预警件置顶标红</b>，不参与上述提交时间排序；<b>未成团的组团办件暂不整组相邻</b>，按本人提交时间与单人办件一同排列，成员全部通过审核且同性别后自动转为整组相邻。<span class="link" onclick="location.href='../apply/pending-check.html'">容缺补核到期预警</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="hint proto pend" style="margin-top:10px"><i class="fa-solid fa-circle-question"></i>
+        <span class="proto-t pend">待确认</span>组团成员<b>是否允许跨用人单位</b>、组团<b>是否需要成员本人书面承诺</b>，会影响本列表是否需要额外提示审批人员核对，待业务部门明确，对应待确认事项 <b>Q15</b>。</p>
+    </div>
+  </div>
   <div class="sp-src">
     <span><b>本期范围</b> 纳入资格申请受理初审、资格申请复审、容缺补核到期预警三类事项，其余事项后续由业务部门确定</span>
-    <span><b>排序规则</b> 按剩余办理时限升序，超期件与到期预警件置顶标红</span>
-    <span><b>渠道标识</b> 区分个人申请、用人单位（移动端）、运营机构（PC）、政务窗口（PC）四类</span>
+    <span><b>排序规则</b> <b>单人办件按提交时间由早到晚排</b>；<b>组团办件整组相邻</b>，以<b>组内最后一名成员的提交时间</b>参与列表排序；超期件与到期预警件置顶标红</span>
+    <span><b>组团标识</b> 「是否组团」列显示<b>组编号</b>（如 ZT2026-0042，含组内第几人与成团状态）或「<b>否</b>」，可按是否组团筛选；<span class="link" onclick="location.href='../alloc/team-list.html'">组团台账</span></span>
+    <span><b>为什么要相邻</b> 同组集中办完 → <b>资格审核通过时间连续</b> → <b>轮候顺序号相邻</b> → 轮到时能在同一套房内挑到相邻房间；系统<b>不预留房源</b>，同套只靠顺序号相邻</span>
     <span><b>预警去向</b> 容缺补核到期预警推送主管单位，在继续容缺／暂停办理／取消资格三项中处置并留痕</span>
   </div>
 </main>

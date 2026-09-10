@@ -23,6 +23,8 @@
       <button class="btn" onclick="PMS.toast('已提交导出任务，完成后在顶栏消息区提醒','success')"><i class="fa-solid fa-download"></i> 导出</button>
     </div>
   </div>
+  <div class="alert alert-info"><i class="fa-solid fa-pen-to-square"></i><div><span class="proto-t chg">0909 改</span>本页三项处置说明中的「配租位次」已改称<b>轮候顺序号</b>，「暂停期间不参与自动配租」改为<b>暂停期间不推送选房通知、不参与轮候选房</b>。</div></div>
+
   <div class="alert alert-warning">
     <i class="fa-solid fa-triangle-exclamation"></i>
     <div>社保查不到缴纳记录或劳动合同已签但尚未参保的，接收<b>单位承诺书</b>后可按容缺受理通过。系统登记补核期限（<b>受理之日起 1 个月</b>，会上倾向值、<b>最终期限待确认</b>，已做成后台参数），到期由系统<b>自动调用大数据核验社保缴纳记录</b>：<b>已查到的自动销号</b>（状态置为「已补齐自动销号」，无需人工操作）；<b>未查到的进入预警</b>并在台账中标红，同时向<b>主管单位</b>推送预警待办，由主管单位在<b>继续容缺／暂停办理／取消资格</b>三项中处置。</div>
@@ -107,12 +109,12 @@
         <div class="ck pass"><i class="fa-solid fa-circle-check"></i>
           <div class="cb"><div class="ct">处置一：继续容缺</div>
             <div class="cd">单位已提交参保申报受理凭证、社保数据确属延迟的，延长补核期限 1 个月并再次自动复核；
-              资格与办件状态不变，配租位次仍按资格审核通过时间排定。</div></div>
+              资格与办件状态不变，<span class="proto-t chg">0909 改</span><b>轮候顺序号</b>仍按资格审核通过时间排定。</div></div>
           <div class="co"><span class="badge green">资格保留</span></div></div>
         <div class="ck wait"><i class="fa-solid fa-circle-pause"></i>
           <div class="cb"><div class="ct">处置二：暂停办理</div>
             <div class="cd">情况需进一步核实的，办件转为暂停办理、审核时限中止，社保数据补齐后由主管单位恢复办理；
-              暂停期间不参与自动配租。</div></div>
+              <span class="proto-t chg">0909 改</span>暂停期间<b>不推送选房通知、不参与轮候选房</b>。</div></div>
           <div class="co"><span class="badge orange">时限中止</span></div></div>
         <div class="ck block"><i class="fa-solid fa-circle-xmark"></i>
           <div class="cb"><div class="ct">处置三：取消资格</div>
@@ -147,7 +149,7 @@ function runRecheck() {
     message: '确认对全部到期与临期的容缺受理件立即执行一次自动复核？',
     detail: '系统将调用市大数据中心人社养老保险缴纳记录逐件比对：'
           + '已查到缴纳记录且单位一致的自动销号；仍未查到的转到期预警并推送主管单位。'
-          + '执行结果写入办件流水，不改变受理时间与配租位次。',
+          + '执行结果写入办件流水，不改变受理时间与轮候顺序号。',
     type: 'info', okText: '立即执行',
     onOk: function () {
       PMS.toast('自动复核已执行：扫描 11 件，自动销号 3 件，转预警 2 件，结果已写入办件流水', 'success');
@@ -172,14 +174,14 @@ function dispose(id, kind) {
       title: '处置一 · 继续容缺',
       msg: '确认对 ' + id + ' 继续容缺？',
       detail: '延长补核期限 1 个月并在新期限到期时再次自动复核；资格与办件状态不变，'
-            + '配租位次仍按资格审核通过时间排定。须填写继续容缺的理由（如单位已提交参保申报受理凭证）。',
+            + '轮候顺序号仍按资格审核通过时间排定。须填写继续容缺的理由（如单位已提交参保申报受理凭证）。',
       type: 'info', ok: '确认继续容缺',
       done: '已处置为「继续容缺」，补核期限延长至 2026-10-08，处置理由与处置人已留痕'
     },
     hold: {
       title: '处置二 · 暂停办理',
       msg: '确认对 ' + id + ' 暂停办理？',
-      detail: '办件转为暂停办理、审核时限中止，暂停期间不参与自动配租；'
+      detail: '办件转为暂停办理、审核时限中止，暂停期间不推送选房通知、不参与轮候选房；'
             + '社保数据补齐后由主管单位恢复办理，受理时间不变。须填写暂停理由。',
       type: 'warning', ok: '确认暂停办理',
       done: '已处置为「暂停办理」，审核时限中止，已向申请人电子送达并留痕'

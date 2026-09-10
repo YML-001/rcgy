@@ -10,45 +10,62 @@
 <link rel="stylesheet" href="../../assets/css/ext.css">
 </head>
 <body class="m-body" data-mtitle="关键节点提醒" data-mmod="M12 消息与办理提醒" data-mcode="M12-02"
-      data-mdesc="配租公告、配租结果与签约、材料单项回退、容缺补核到期、意向登记到期、审核结论、缴费到期、年审、腾退等节点按提前量分级提醒；配租类与签约类为必达消息，短信强制触达。" data-mback="msg-center.html" data-mtabset="public" data-mtab="msg">
+      data-mdesc="配租公告、轮到本人的选房通知、确认时限临近、签约提醒四类为配租选房类必达消息，短信强制触达；另有材料单项回退、容缺补核到期、意向登记到期、审核结论、入住办理、缴费到期、年审、腾退等节点按提前量分级提醒。选房通知按轮候顺序号逐位单独推送，轮到谁通知谁，不群发、不需在线报名。" data-mback="msg-center.html" data-mtabset="public" data-mtab="msg">
 <div class="m-stage">
   <div class="m-phone">
     <div class="m-screen">
       <div class="m-view">
+        <div class="m-note proto chg"><i class="fa-solid fa-pen-to-square"></i>
+          <div><span class="proto-t chg">0909 改</span>本页原按自动配租设两类必达消息：「配租公告通知」（含<b>自动配租执行时间</b>、到点系统自动配租）与
+            「<b>自动配租结果</b>与签约提醒」（执行完毕后告知配租结果或轮候位次）。
+            9 月 9 日配租逻辑讨论后改为<b>四类</b>：<b>配租公告</b>、<b>轮到本人的选房通知</b>、
+            <b>确认时限临近提醒</b>、<b>签约提醒</b>；节点清单中的「自动配租结果」一项<b>去掉</b>，
+            换成按顺序号逐位推送的选房通知与确认时限临近两项。
+            对应《系统原型调整计划（0909 会议）》<b>C01、C04、C05、C08、C09</b>。</div>
+        </div>
         <div class="m-note warn"><i class="fa-solid fa-triangle-exclamation"></i>
-          <div>以下节点均有<b>硬性时限</b>。错过时限可能导致视同放弃、资格作废或启动退出，请务必关注提醒。</div>
+          <div>以下节点均有<b>硬性时限</b>。<span class="proto-t chg">0909 改</span>错过<b>选房确认时限</b>的会让出队列位置、
+            顺序号排至末位（<b>不认定为放弃</b>）；错过<b>签约或入住时限</b>的才认定为放弃、资格作废，请务必关注提醒。</div>
         </div>
         <div class="m-sect">必达消息<span class="m-sect-x">短信强制触达 · 不可关闭</span></div>
         <div class="m-card">
-          <div class="m-card-h"><i class="fa-solid fa-comment-sms"></i>配租与签约两类</div>
+          <div class="m-card-h"><i class="fa-solid fa-comment-sms"></i><span class="proto-t chg">0909 改</span>配租选房四类</div>
           <div class="m-card-b">
             <div class="m-check">
-              <div class="bad"><i class="fa-solid fa-bullhorn"></i><div class="m-chl"><b>配租公告通知　<span class="m-tag red">必达</span></b><span>公告发布时<b>即时</b>向<b>全部资格审核通过的申请人</b>发送短信，告知房源范围、可安置人数与<b>自动配租执行时间</b>；<b>无需报名</b>，到点系统自动配租</span></div></div>
-              <div class="bad"><i class="fa-solid fa-house-circle-check"></i><div class="m-chl"><b>配租结果与签约提醒　<span class="m-tag red">必达</span></b><span>自动配租执行完毕后<b>即时</b>短信告知结果：已配租的告知楼盘、房间与签约安排；未配租的告知<b>轮候位次</b>。签约<b>截止前 3 天 + 1 天</b>再次提醒，<b>签约期限 5 个工作日</b></span></div></div>
+              <div class="bad"><i class="fa-solid fa-bullhorn"></i><div class="m-chl"><b>配租公告通知　<span class="m-tag red">必达</span></b><span><span class="proto-t chg">0909 改</span>公告发布时<b>即时</b>向<b>全部资格审核通过的申请人</b>发送短信，告知房源范围与<b>按户型折算的可安置人数</b>；公告<b>不设自动配租执行时间</b>，也<b>不需要在线报名</b>，等轮到本人时另行单独通知</span></div></div>
+              <div class="bad"><i class="fa-solid fa-hand-pointer"></i><div class="m-chl"><b><span class="proto-t chg">0909 改</span>轮到本人的选房通知　<span class="m-tag red">必达</span></b><span>系统按<b>轮候顺序号逐位单独推送</b>，<b>轮到谁通知谁、不群发</b>；短信含本人<b>轮候顺序号、可选房源范围、确认时限与超时后果</b>，点链接可直接进入选房页</span></div></div>
+              <div class="bad"><i class="fa-solid fa-hourglass-half"></i><div class="m-chl"><b><span class="proto-t chg">0909 改</span>确认时限临近提醒　<span class="m-tag red">必达</span></b><span>已推送选房通知但<b>尚未完成选房</b>的，在<b>确认时限届满前</b>再提醒一次；超时未选的由<b>下一顺序人接着选</b>，本人顺序号<b>重排至当前队列末位</b>，<b>资格不作废、不认定为放弃</b></span></div></div>
+              <div class="bad"><i class="fa-solid fa-file-signature"></i><div class="m-chl"><b><span class="proto-t chg">0909 改</span>签约提醒　<span class="m-tag red">必达</span></b><span><b>选定房间后即时</b>短信告知楼盘、房间与签约安排，签约<b>截止前 3 天 + 1 天</b>再次提醒，<b>签约期限 5 个工作日</b>；逾期未签约或签约后不办理入住的<b>认定为放弃</b></span></div></div>
             </div>
             <div class="m-note" style="margin-top:10px"><i class="fa-solid fa-pen-ruler"></i>
-              <div>上述两类的<b>短信模板文案待定</b>，由市保障性住房服务中心会同运营机构确认后，
+              <div><span class="proto-t chg">0909 改</span>上述<b>四类</b>的<b>短信模板文案待定</b>，由市保障性住房服务中心会同运营机构确认后，
                 在管理端「消息模板管理」中配置并留痕。</div>
             </div>
           </div>
         </div>
-        <div class="m-sect">关键节点与提前量<span class="m-sect-x">十一类</span></div>
+        <div class="m-sect">关键节点与提前量<span class="m-sect-x">十三类</span></div>
         <div class="m-card">
           <div class="m-card-h"><i class="fa-solid fa-bell"></i>节点清单</div>
           <div class="m-card-b">
             <div class="m-check">
-              <div class="ok"><i class="fa-solid fa-stamp"></i><div class="m-chl"><b>审核结论</b><span>结论出具后<b>即时</b>推送　·	3 个工作日法定时限内办结　·	通过后按<b>审核通过时间</b>排定配租位次</span></div></div>
+              <div class="ok"><i class="fa-solid fa-stamp"></i><div class="m-chl"><b>审核结论</b><span>结论出具后<b>即时</b>推送　·	3 个工作日法定时限内办结　·	<span class="proto-t chg">0909 改</span>通过后<b>即入轮候库</b>，按<b>审核通过时间</b>排定<b>轮候顺序号</b></span></div></div>
               <div class="bad"><i class="fa-solid fa-rotate-left"></i><div class="m-chl"><b>材料单项回退</b><span>回退发起时<b>即时</b>推送 + 补正截止前 <b>1 天</b>再次推送　·	仅回退该项材料，其余进度保留　·	<b>逾期未补正中止办理，资格审核通过时间顺延重算</b></span></div></div>
               <div class="bad"><i class="fa-solid fa-clock"></i><div class="m-chl"><b>容缺补核到期</b><span>容缺受理时 + 到期前 <b>7 天 + 3 天 + 1 天</b>推送　·	<b>逾期未补齐中止办理并撤销容缺受理结论</b></span></div></div>
-              <div class="bad"><i class="fa-solid fa-hourglass-end"></i><div class="m-chl"><b>意向登记到期</b><span>到期前 <b>30 天 + 7 天 + 1 天</b>推送　·	<b>到期未转正式申请自动失效</b>，需重新登记　·	意向登记<b>不占位次</b>，失效不影响已取得的资格</span></div></div>
-              <div class="bad"><i class="fa-solid fa-bullhorn"></i><div class="m-chl"><b>配租公告发布</b><span>发布时<b>即时</b>短信触达全部资格审核通过的申请人　·	<span class="m-tag red">必达</span></span></div></div>
-              <div class="bad"><i class="fa-solid fa-house-circle-check"></i><div class="m-chl"><b>自动配租结果</b><span>执行完毕后<b>即时</b>短信告知配租结果或轮候位次　·	<span class="m-tag red">必达</span></span></div></div>
-              <div class="bad"><i class="fa-solid fa-file-signature"></i><div class="m-chl"><b>签约期限</b><span>结果公布时 + 截止前 <b>3 天 + 1 天</b>推送　·	<b>签约期限 5 个工作日</b>，逾期未签约视同放弃，房源顺延给下一位申请人</span></div></div>
+              <div class="bad"><i class="fa-solid fa-hourglass-end"></i><div class="m-chl"><b>意向登记到期</b><span>到期前 <b>30 天 + 7 天 + 1 天</b>推送　·	<b>到期未转正式申请自动失效</b>，需重新登记　·	<span class="proto-t chg">0909 改</span>意向登记<b>不占顺序号</b>，失效不影响已取得的资格</span></div></div>
+              <div class="bad"><i class="fa-solid fa-bullhorn"></i><div class="m-chl"><b>配租公告发布</b><span>发布时<b>即时</b>短信触达全部资格审核通过的申请人　·	<span class="proto-t chg">0909 改</span>只告知本批次房源范围与可安置人数，<b>不含选房通知</b>　·	<span class="m-tag red">必达</span></span></div></div>
+              <div class="bad"><i class="fa-solid fa-hand-pointer"></i><div class="m-chl"><b><span class="proto-t chg">0909 改</span>轮到本人的选房通知</b><span>按<b>轮候顺序号逐位单独推送</b>，<b>轮到谁通知谁、不群发</b>　·	含顺序号、可选范围、确认时限与超时后果　·	<span class="m-tag red">必达</span></span></div></div>
+              <div class="bad"><i class="fa-solid fa-hourglass-half"></i><div class="m-chl"><b><span class="proto-t chg">0909 改</span>确认时限临近</b><span>已推送通知但尚未完成选房的，<b>确认时限届满前</b>再提醒一次　·	超时未选由下一顺序人接着选，本人顺序号<b>排至当前队列末位</b>，<b>不认定为放弃</b>　·	<span class="m-tag red">必达</span></span></div></div>
+              <div class="bad"><i class="fa-solid fa-file-signature"></i><div class="m-chl"><b>签约期限</b><span><span class="proto-t chg">0909 改</span><b>选定房间后</b> + 截止前 <b>3 天 + 1 天</b>推送　·	<b>签约期限 5 个工作日</b>，逾期未签约<b>认定为放弃</b>并记入放弃名单，该房间<b>放回可选池</b>给后面的申请人</span></div></div>
               <div class="ok"><i class="fa-solid fa-file-arrow-up"></i><div class="m-chl"><b>线下合同核对结果</b><span>运营机构核对确认或退回时<b>即时</b>推送　·	确认通过才是签约完成；被退回的须在签约期限内重新上传</span></div></div>
-              <div class="ok"><i class="fa-solid fa-house-chimney"></i><div class="m-chl"><b>入住办理</b><span>签约后 <b>7 天</b>未办理入住时推送　·	不办理入住视同放弃</span></div></div>
+              <div class="ok"><i class="fa-solid fa-house-chimney"></i><div class="m-chl"><b>入住办理</b><span>签约后 <b>7 天</b>未办理入住时推送　·	<span class="proto-t chg">0909 改</span>签约后不办理入住的<b>认定为放弃</b>，记入放弃名单并拦截再次申请</span></div></div>
               <div class="ok"><i class="fa-solid fa-receipt"></i><div class="m-chl"><b>缴费到期</b><span>账单生成、到期前 5 天、到期前 1 天、逾期 1 天、逾期 15 天、逾期 90 天<b>六级推送</b></span></div></div>
               <div class="ok"><i class="fa-solid fa-rotate"></i><div class="m-chl"><b>年度资格审查</b><span>批次发起时 + 截止前 <b>7 天 + 3 天</b>推送　·	逾期转人工核查</span></div></div>
               <div class="bad"><i class="fa-solid fa-door-open"></i><div class="m-chl"><b>腾退期限</b><span>通知下发时 + 截止前 <b>15 天 + 7 天 + 1 天</b>推送　·	<b>逾期未腾退自动升级处置</b></span></div></div>
+            </div>
+            <div class="m-note proto pend" style="margin-top:10px"><i class="fa-solid fa-circle-question"></i>
+              <div><span class="proto-t pend">待确认</span><b>选房确认时限定多长</b>、<b>确认时限临近提醒的提前量</b>
+                （按小时还是按天）、是否限制排至末位的次数，待业务部门明确（对应待确认事项 <b>Q12</b>）。
+                本页按<b>确认时限 24 小时、届满前 4 小时提醒一次</b>呈现。</div>
             </div>
           </div>
         </div>
@@ -64,8 +81,8 @@
           <div>关键节点提醒<b>不可关闭</b>。您可在<a href="msg-setting.html">消息设置</a>中管理非关键类消息的接收方式。</div>
         </div>
         <div class="m-cells">
-          <a class="m-cell" href="alloc-notice.html"><span class="m-ci orange"><i class="fa-solid fa-bullhorn"></i></span><span class="m-cl"><b>2026 年第 3 批配租公告</b><span class="m-cs">投放 320 间 · 自动配租执行 09-15 10:00 · 无需报名</span></span><span class="m-cv"><span class="m-tag orange">已执行</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
-          <a class="m-cell" href="alloc-select.html"><span class="m-ci green"><i class="fa-solid fa-house-circle-check"></i></span><span class="m-cl"><b>我的配租结果</b><span class="m-cs">湘江1958 A6 栋 1502-02 · 计租面积 26.70 ㎡</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="alloc-notice.html"><span class="m-ci orange"><i class="fa-solid fa-bullhorn"></i></span><span class="m-cl"><b>2026 年第 3 批配租公告</b><span class="m-cs"><span class="proto-t chg">0909 改</span>投放 320 套 · 按户型折算可安置 386 人 · 按轮候顺序依次通知选房</span></span><span class="m-cv"><span class="m-tag orange">选房进行中</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
+          <a class="m-cell" href="alloc-select-confirm.html"><span class="m-ci green"><i class="fa-solid fa-hand-pointer"></i></span><span class="m-cl"><b><span class="proto-t chg">0909 改</span>我选定的房间</b><span class="m-cs">湘江1958 A6 栋 1502 室 1502-02 号房间 · 计租面积 26.70 ㎡ · 待签约</span></span><i class="m-ca fa-solid fa-angle-right"></i></a>
         </div>
       </div>
     </div>
